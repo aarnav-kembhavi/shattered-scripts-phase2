@@ -1,0 +1,229 @@
+{
+  "provenance": {
+    "config": {
+      "data": {
+        "train_bytes": 400000000,
+        "tokenizer_train_bytes": 100000000,
+        "data_seed": 0
+      },
+      "vocabs": [
+        256,
+        512,
+        1024,
+        4096,
+        16384
+      ],
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "train": {
+        "target_ctx_bytes": 1024,
+        "batch_seqs": 64,
+        "micro_batch_seqs": 16,
+        "lr": 0.001,
+        "warmup_frac": 0.02,
+        "min_lr_frac": 0.1,
+        "weight_decay": 0.1,
+        "eval_every": 500,
+        "eval_bytes": 2000000,
+        "ckpt_every": 250,
+        "max_minutes": null
+      },
+      "model": {
+        "n_layer": 8,
+        "d_model": 384,
+        "n_head": 6,
+        "emb_dim": null
+      },
+      "pilot": {
+        "vocabs": [
+          256,
+          16384
+        ],
+        "seed": 0,
+        "fraction": 0.1,
+        "bench_steps": 20
+      }
+    },
+    "git_commit": "1ae4c1135b681457cbd353f83693588a5982ee67-dirty",
+    "timestamp_utc": "2026-10-06T22:38:07+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "argv": [
+      "scripts/e05_pretrain.py",
+      "pilot"
+    ]
+  },
+  "device": "NVIDIA GeForce RTX 3070 Laptop GPU",
+  "bench": {
+    "256": {
+      "ctx_tokens": 1024,
+      "seconds_per_step": 0.4978365898132324,
+      "peak_mem_gb": 2.2428431510925293
+    },
+    "512": {
+      "ctx_tokens": 424,
+      "seconds_per_step": 0.19505441188812256,
+      "peak_mem_gb": 1.1087799072265625
+    },
+    "1024": {
+      "ctx_tokens": 320,
+      "seconds_per_step": 0.15941762924194336,
+      "peak_mem_gb": 0.946622371673584
+    },
+    "4096": {
+      "ctx_tokens": 256,
+      "seconds_per_step": 0.15531325340270996,
+      "peak_mem_gb": 0.9669442176818848
+    },
+    "16384": {
+      "ctx_tokens": 248,
+      "seconds_per_step": 0.18077218532562256,
+      "peak_mem_gb": 1.569382667541504
+    }
+  },
+  "pilot_runs": {
+    "256": {
+      "status": "done",
+      "ctx_tokens": 1024,
+      "steps": 610,
+      "tokens_per_step": 65536,
+      "train_tokens": 39976960,
+      "train_bytes_seen": 39976960.0,
+      "bytes_per_token": 1.0,
+      "params": {
+        "total": 14260992,
+        "embedding": 98688,
+        "non_embedding": 14162304
+      },
+      "flops_per_token": 104440320,
+      "train_flops": 4175206495027200,
+      "device": "NVIDIA GeForce RTX 3070 Laptop GPU",
+      "amp_dtype": "torch.bfloat16",
+      "val_bpb_full": 1.1422889201455948,
+      "train_seconds_this_session": 347.6269245147705,
+      "wall_seconds_this_session": 418.0252494812012,
+      "seconds_per_step": 0.5698802041225746,
+      "wall_seconds_total": 418.4296703338623,
+      "minimal_pairs": {
+        "determiner_noun_agreement": {
+          "n": 60,
+          "acc_total_logprob": 0.55,
+          "acc_per_byte": 0.7
+        },
+        "irregular_past": {
+          "n": 12,
+          "acc_total_logprob": 1.0,
+          "acc_per_byte": 1.0
+        },
+        "subject_verb_agreement_plural": {
+          "n": 200,
+          "acc_total_logprob": 0.875,
+          "acc_per_byte": 0.655
+        },
+        "subject_verb_agreement_singular": {
+          "n": 200,
+          "acc_total_logprob": 0.13,
+          "acc_per_byte": 0.285
+        },
+        "all": {
+          "n": 472,
+          "acc_total_logprob": 0.5211864406779662,
+          "acc_per_byte": 0.5127118644067796
+        }
+      }
+    },
+    "16384": {
+      "status": "done",
+      "ctx_tokens": 248,
+      "steps": 614,
+      "tokens_per_step": 15872,
+      "train_tokens": 9745408,
+      "train_bytes_seen": 39957434.121587835,
+      "bytes_per_token": 4.100129427273628,
+      "params": {
+        "total": 20454144,
+        "embedding": 6291840,
+        "non_embedding": 14162304
+      },
+      "flops_per_token": 127296000,
+      "train_flops": 1240551456768000,
+      "device": "NVIDIA GeForce RTX 3070 Laptop GPU",
+      "amp_dtype": "torch.bfloat16",
+      "val_bpb_full": 0.8329767659173701,
+      "train_seconds_this_session": 120.60878801345825,
+      "wall_seconds_this_session": 147.59938097000122,
+      "seconds_per_step": 0.19643125083625124,
+      "wall_seconds_total": 148.02750277519226,
+      "minimal_pairs": {
+        "determiner_noun_agreement": {
+          "n": 60,
+          "acc_total_logprob": 0.5,
+          "acc_per_byte": 0.6
+        },
+        "irregular_past": {
+          "n": 12,
+          "acc_total_logprob": 1.0,
+          "acc_per_byte": 1.0
+        },
+        "subject_verb_agreement_plural": {
+          "n": 200,
+          "acc_total_logprob": 0.89,
+          "acc_per_byte": 0.755
+        },
+        "subject_verb_agreement_singular": {
+          "n": 200,
+          "acc_total_logprob": 0.79,
+          "acc_per_byte": 0.945
+        },
+        "all": {
+          "n": 472,
+          "acc_total_logprob": 0.8008474576271186,
+          "acc_per_byte": 0.8220338983050848
+        }
+      }
+    }
+  },
+  "pilot_overhead_factor": 1.355757026654638,
+  "extrapolated_full_grid": {
+    "256": {
+      "full_steps": 6103,
+      "wall_seconds_per_step": 0.6859502792358398,
+      "hours_per_seed": 1.1628762650489808,
+      "hours_all_seeds": 3.4886287951469424,
+      "source": "pilot measurement"
+    },
+    "512": {
+      "full_steps": 6120,
+      "wall_seconds_per_step": 0.2644463894973101,
+      "hours_per_seed": 0.4495588621454272,
+      "hours_all_seeds": 1.3486765864362815,
+      "source": "bench x pilot overhead"
+    },
+    "1024": {
+      "full_steps": 6173,
+      "wall_seconds_per_step": 0.21613157101738859,
+      "hours_per_seed": 0.3706056077473166,
+      "hours_all_seeds": 1.1118168232419499,
+      "source": "bench x pilot overhead"
+    },
+    "4096": {
+      "full_steps": 6162,
+      "wall_seconds_per_step": 0.21056703463331639,
+      "hours_per_seed": 0.3604205742806932,
+      "hours_all_seeds": 1.0812617228420796,
+      "source": "bench x pilot overhead"
+    },
+    "16384": {
+      "full_steps": 6146,
+      "wall_seconds_per_step": 0.2410871380703457,
+      "hours_per_seed": 0.4115893196056513,
+      "hours_all_seeds": 1.2347679588169538,
+      "source": "pilot measurement"
+    }
+  },
+  "extrapolated_full_grid_hours": 8.265151886484208,
+  "note": "Measured on the local GPU, not a Kaggle T4; T4 timing still has to be measured there."
+}

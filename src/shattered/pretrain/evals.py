@@ -18,12 +18,12 @@ VERBS = [("runs", "run"), ("jumps", "jump"), ("plays", "play"), ("walks", "walk"
          ("laughs", "laugh"), ("smiles", "smile"), ("sleeps", "sleep")]
 SVA_FRAMES = ["The {s} {v} in the park.", "The little {s} {v} every day.", "Every morning, the {s} {v} with joy."]
 DET_FRAMES = ["Tom saw {d} {n} near the tree.", "Lily liked {d} {n} very much.", "Mom gave {d} {n} some food."]
-IRREGULAR = [("went", "goed"), ("ate", "eated"), ("ran", "runned"), ("saw", "seed"), ("took", "taked"),
+IRREGULAR = [("went", "goed"), ("ate", "eated"), ("ran", "runned"), ("drank", "drinked"), ("took", "taked"),
              ("gave", "gived"), ("found", "finded"), ("came", "comed"), ("made", "maked"), ("sat", "sitted"),
-             ("felt", "feeled"), ("knew", "knowed")]
+             ("felt", "feeled"), ("knew", "knowed")]  # ("saw", "seed") dropped: "seed" occurs 4491x in training
 PAST_FRAMES = {
     "went": "Yesterday, Lily {v} to the park.", "ate": "Yesterday, Tom {v} a big cake.",
-    "ran": "Yesterday, the dog {v} very fast.", "saw": "Yesterday, Sue {v} a pretty bird.",
+    "ran": "Yesterday, the dog {v} very fast.", "drank": "Yesterday, Sue {v} some cold milk.",
     "took": "Yesterday, Ben {v} the red ball.", "gave": "Yesterday, Mom {v} Tim a hug.",
     "found": "Yesterday, Max {v} a shiny stone.", "came": "Yesterday, Grandma {v} to visit.",
     "made": "Yesterday, Amy {v} a sand castle.", "sat": "Yesterday, the cat {v} on the mat.",

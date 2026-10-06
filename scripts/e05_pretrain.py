@@ -123,7 +123,8 @@ def pilot(cfg: dict, meta: dict) -> None:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["prepare", "bench", "pilot", "train"])
+    ap.add_argument("cmd", choices=["prepare", "bench", "pilot", "train", "mp"])
+    ap.add_argument("--run", help="run name for `mp` (rescore minimal pairs of a finished run)")
     ap.add_argument("--config", default="configs/e05_pretrain.yaml")
     ap.add_argument("--vocab", type=int)
     ap.add_argument("--seed", type=int, default=0)
@@ -140,6 +141,10 @@ def main() -> None:
         write_json(results_dir("e05_pretrain") / "bench.json", bench(cfg, meta), cfg)
     elif args.cmd == "pilot":
         pilot(cfg, meta)
+    elif args.cmd == "mp":
+        res = eval_minimal_pairs(cfg, meta, args.run, args.vocab)
+        write_json(results_dir("e05_pretrain") / args.run / "minimal_pairs.json", res, {"run": args.run})
+        print(json.dumps(res, indent=1))
     else:
         rc = run_cfg(cfg, args.vocab, args.seed, args.fraction, "run")
         if args.max_minutes:

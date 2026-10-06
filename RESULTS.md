@@ -58,3 +58,17 @@ prediction, outcome (confirmed / refuted / inconclusive), surprises, next step. 
   capitals such as "rAjadhAni" likely fragment badly).
 - Not done (blocked): API counters (Gemini, Claude), Llama 3 / Gemma 2–3 tokenizers (gated), natural romanization,
   rupee costs (prices.yaml needs verified prices). FLORES+ rerun pending access.
+
+---
+## 2026-10-07 — E5 pilot (GATE): timing and pilot-only signal
+
+- Config: `configs/e05_pretrain.yaml` (pilot block); `scripts/e05_pretrain.py prepare` then `pilot`.
+- Results: `results/e05_pretrain/pilot_report.json`, `data_meta.json`, `pilot_v{256,16384}_s0/` (log, final.json,
+  minimal_pairs.json), `minimal_pairs_vocab.json`.
+- Timing on RTX 3070 Laptop: vocab 256 0.57 s/step, 16k 0.20 s/step (incl. evals); extrapolated full grid
+  (5 vocabs x 3 seeds x 400 MB) **8.3 h** on this GPU. T4 not measured.
+- Pilot-only (n = 1 seed, 10% budget, not a finding): val BPB 1.142 (256) vs 0.833 (16k); minimal pairs 52.1% vs 80.1%
+  (n = 472). Direction matches the prediction; the byte model had 3.4x the training FLOPs.
+- Bytes/token: 1.00 / 2.41 / 3.16 / 3.96 / 4.10 for 256 / 512 / 1k / 4k / 16k — the 4k and 16k conditions are nearly
+  identical in fragmentation on TinyStories; grid revision recommended at the gate.
+- Outcome vs prediction: not assessable from the pilot. Next: GATE decision (budget, vocab grid, T4 timing).
