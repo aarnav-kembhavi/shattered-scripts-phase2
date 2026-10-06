@@ -1,0 +1,5 @@
+# Per-million-token API prices and USD->INR rate. NEVER fill from memory: each entry needs the official pricing page
+# URL and the date it was read. Placeholders (null) until verified.
+usd_to_inr: {rate: null, date: null, source: null}
+models: {}
+#  gemini-3.5-flash-lite: {input_per_mtok_usd: null, output_per_mtok_usd: null, date: null, source: null}
