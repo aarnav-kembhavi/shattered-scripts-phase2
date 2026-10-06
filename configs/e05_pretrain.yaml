@@ -9,6 +9,7 @@ seeds: [0, 1, 2]                  # model-init seeds
 train:
   target_ctx_bytes: 1024
   batch_seqs: 64                  # => ~64 KiB of text per step in every condition
+  micro_batch_seqs: 16            # gradient accumulation (4 x 16); batch 64 overflows 8 GB VRAM
   lr: 1.0e-3
   warmup_frac: 0.02
   min_lr_frac: 0.1

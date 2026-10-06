@@ -1,0 +1,132 @@
+{
+  "provenance": {
+    "config": {
+      "data": {
+        "train_bytes": 400000000,
+        "tokenizer_train_bytes": 100000000,
+        "data_seed": 0
+      },
+      "vocabs": [
+        256,
+        512,
+        1024,
+        4096,
+        16384
+      ],
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "train": {
+        "target_ctx_bytes": 1024,
+        "batch_seqs": 64,
+        "lr": 0.001,
+        "warmup_frac": 0.02,
+        "min_lr_frac": 0.1,
+        "weight_decay": 0.1,
+        "eval_every": 500,
+        "eval_bytes": 2000000,
+        "ckpt_every": 250,
+        "max_minutes": null
+      },
+      "model": {
+        "n_layer": 8,
+        "d_model": 384,
+        "n_head": 6,
+        "emb_dim": null
+      },
+      "pilot": {
+        "vocabs": [
+          256,
+          16384
+        ],
+        "seed": 0,
+        "fraction": 0.1,
+        "bench_steps": 20
+      }
+    },
+    "git_commit": "495578feb3aea50067b48af69feb0c05daede5f9-dirty",
+    "timestamp_utc": "2026-10-06T22:26:10+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "argv": [
+      "scripts/e05_pretrain.py",
+      "prepare"
+    ]
+  },
+  "256": {
+    "vocab": 256,
+    "vocab_with_eos": 257,
+    "train_tokens": 400001505,
+    "valid_tokens": 22104748,
+    "train_bytes": 400001505,
+    "valid_bytes": 22104748,
+    "bytes_per_token_train": 1.0,
+    "bytes_per_token_valid": 1.0,
+    "tokenizer": "data\\processed\\e05\\tokenizer_256.json",
+    "train_stream": "data\\processed\\e05\\train_256_400000000.npy",
+    "valid_stream": "data\\processed\\e05\\valid_256_all.npy"
+  },
+  "512": {
+    "vocab": 512,
+    "vocab_with_eos": 513,
+    "train_tokens": 166086614,
+    "valid_tokens": 9169837,
+    "train_bytes": 400001505,
+    "valid_bytes": 22104748,
+    "bytes_per_token_train": 2.408390991702679,
+    "bytes_per_token_valid": 2.410593339881614,
+    "tokenizer": "data\\processed\\e05\\tokenizer_512.json",
+    "train_stream": "data\\processed\\e05\\train_512_400000000.npy",
+    "valid_stream": "data\\processed\\e05\\valid_512_all.npy"
+  },
+  "1024": {
+    "vocab": 1024,
+    "vocab_with_eos": 1025,
+    "train_tokens": 126424209,
+    "valid_tokens": 6982559,
+    "train_bytes": 400001505,
+    "valid_bytes": 22104748,
+    "bytes_per_token_train": 3.163962884671875,
+    "bytes_per_token_valid": 3.165708732285685,
+    "tokenizer": "data\\processed\\e05\\tokenizer_1024.json",
+    "train_stream": "data\\processed\\e05\\train_1024_400000000.npy",
+    "valid_stream": "data\\processed\\e05\\valid_1024_all.npy"
+  },
+  "4096": {
+    "vocab": 4096,
+    "vocab_with_eos": 4097,
+    "train_tokens": 100970927,
+    "valid_tokens": 5578233,
+    "train_bytes": 400001505,
+    "valid_bytes": 22104748,
+    "bytes_per_token_train": 3.9615512790132152,
+    "bytes_per_token_valid": 3.962679221179897,
+    "tokenizer": "data\\processed\\e05\\tokenizer_4096.json",
+    "train_stream": "data\\processed\\e05\\train_4096_400000000.npy",
+    "valid_stream": "data\\processed\\e05\\valid_4096_all.npy"
+  },
+  "16384": {
+    "vocab": 16384,
+    "vocab_with_eos": 16385,
+    "train_tokens": 97558263,
+    "valid_tokens": 5391300,
+    "train_bytes": 400001505,
+    "valid_bytes": 22104748,
+    "bytes_per_token_train": 4.100129427273628,
+    "bytes_per_token_valid": 4.100077532320591,
+    "tokenizer": "data\\processed\\e05\\tokenizer_16384.json",
+    "train_stream": "data\\processed\\e05\\train_16384_400000000.npy",
+    "valid_stream": "data\\processed\\e05\\valid_16384_all.npy"
+  },
+  "_data": {
+    "repo": "roneneldan/TinyStories",
+    "revision": "f54c09fd23315a6f9c86f9dc80f725de7d8f9c64",
+    "files": "TinyStoriesV2-GPT4-{train,valid}.txt",
+    "train_stories": 496631,
+    "valid_stories": 27630,
+    "data_seed": 0,
+    "tokenizer_train_bytes": 100000000
+  }
+}

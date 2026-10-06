@@ -15,9 +15,9 @@ import numpy as np
 import torch
 import yaml
 
-from shattered.pretrain import data
+from shattered.pretrain import data, evals
 from shattered.pretrain.model import GPT, GPTConfig
-from shattered.pretrain.train import context_tokens, train_run
+from shattered.pretrain.train import _amp, context_tokens, train_run
 from shattered.runlog import results_dir, write_json
 
 
@@ -45,13 +45,15 @@ def bench(cfg: dict, meta: dict) -> dict:
         model = GPT(GPTConfig(vocab_size=m["vocab_with_eos"], max_ctx=ctx, **cfg["model"])).to(device)
         opt = torch.optim.AdamW(model.parameters(), lr=1e-4, fused=True)
         x = torch.randint(0, m["vocab_with_eos"], (cfg["train"]["batch_seqs"], ctx), device=device)
+        mb = cfg["train"].get("micro_batch_seqs") or cfg["train"]["batch_seqs"]
         times = []
         for i in range(cfg["pilot"]["bench_steps"] + 3):
             torch.cuda.synchronize()
             t0 = time.time()
-            with torch.autocast("cuda", dtype=torch.bfloat16):
-                _, loss, _ = model(x, x)
-            (loss / x.numel()).backward()
+            for j in range(0, x.shape[0], mb):
+                with torch.autocast("cuda", dtype=_amp("cuda")[0]):
+                    _, loss, _ = model(x[j:j + mb], x[j:j + mb])
+                (loss / x.numel()).backward()
             opt.step()
             opt.zero_grad(set_to_none=True)
             torch.cuda.synchronize()
@@ -64,6 +66,18 @@ def bench(cfg: dict, meta: dict) -> dict:
         torch.cuda.empty_cache()
         torch.cuda.reset_peak_memory_stats()
     return out
+
+
+def eval_minimal_pairs(cfg: dict, meta: dict, run_name: str, vocab: int) -> dict:
+    """Score the final weights of a finished run on the templated minimal pairs."""
+    from safetensors.torch import load_file
+    from shattered.runlog import REPO
+    m = meta[str(vocab)]
+    ctx = context_tokens(cfg["train"]["target_ctx_bytes"], m["bytes_per_token_train"])
+    model = GPT(GPTConfig(vocab_size=m["vocab_with_eos"], max_ctx=max(ctx, 128), **cfg["model"])).to("cuda")
+    model.load_state_dict(load_file(str(REPO / "checkpoints" / "e05" / run_name / "final.safetensors")))
+    tok = data.load_tokenizer(REPO / m["tokenizer"])
+    return evals.score_minimal_pairs(model, tok, evals.minimal_pairs(), "cuda")
 
 
 def full_steps(cfg: dict, meta: dict, v: int) -> int:
@@ -81,6 +95,7 @@ def pilot(cfg: dict, meta: dict) -> None:
         t0 = time.time()
         res = train_run(run_cfg(cfg, v, p["seed"], p["fraction"], "pilot"), meta)
         res["wall_seconds_total"] = time.time() - t0
+        res["minimal_pairs"] = eval_minimal_pairs(cfg, meta, f"pilot_v{v}_s{p['seed']}", v)
         runs[str(v)] = res
         print(f"pilot vocab {v}: {res['steps']} steps, val BPB {res.get('val_bpb_full'):.4f}, "
               f"wall {res['wall_seconds_total'] / 60:.1f} min")

@@ -9,6 +9,11 @@ from dataclasses import asdict, dataclass
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from torch.nn.attention import SDPBackend, sdpa_kernel
+
+# cuDNN attention is ~12x slower than the memory-efficient kernel on the local Windows build (and FlashAttention is
+# unavailable there and on T4), so pin the backend order explicitly; see results/e05_pretrain notes.
+SDPA_BACKENDS = [SDPBackend.FLASH_ATTENTION, SDPBackend.EFFICIENT_ATTENTION, SDPBackend.MATH]
 
 
 @dataclass
@@ -61,7 +66,8 @@ class Block(nn.Module):
         q, k, v = (t.view(B, T, self.n_head, D // self.n_head).transpose(1, 2) for t in (q, k, v))
         q, k = _apply_rope(q, cos, sin), _apply_rope(k, cos, sin)
         if attn_hook is None:
-            y = F.scaled_dot_product_attention(q, k, v, is_causal=True)
+            with sdpa_kernel(SDPA_BACKENDS):
+                y = F.scaled_dot_product_attention(q, k, v, is_causal=True)
         else:  # explicit attention (for head analysis / ablation); attn_hook(probs) may return modified probs
             att = (q @ k.transpose(-2, -1)) / math.sqrt(q.shape[-1])
             att = att.masked_fill(torch.triu(torch.ones(T, T, dtype=torch.bool, device=x.device), 1), float("-inf"))

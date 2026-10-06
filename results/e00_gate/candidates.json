@@ -1,14 +1,16 @@
 {
   "provenance": {
     "config": {
-      "download_under_gb": null
+      "download_under_gb": 5.0
     },
-    "git_commit": "7597d41ee8613a8960b8e1d8e00ede8e7e5a8bc1",
-    "timestamp_utc": "2026-10-06T22:07:32+00:00",
+    "git_commit": "495578feb3aea50067b48af69feb0c05daede5f9-dirty",
+    "timestamp_utc": "2026-10-06T22:14:02+00:00",
     "python": "3.12.13",
     "platform": "Windows-11-10.0.26200-SP0",
     "argv": [
-      "scripts/e00_candidates.py"
+      "scripts/e00_candidates.py",
+      "--download-under-gb",
+      "5"
     ]
   },
   "candidates": [
@@ -445,5 +447,36 @@
       "fits_8gb_4bit": true
     }
   ],
-  "downloaded": []
+  "downloaded": [
+    {
+      "repo": "Qwen/Qwen3.5-0.8B",
+      "path": "C:\\Users\\kembh\\.cache\\huggingface\\hub\\models--Qwen--Qwen3.5-0.8B\\snapshots\\2fc06364715b967f1860aea9cf38778875588b17",
+      "weights_gb": 1.75
+    },
+    {
+      "repo": "Qwen/Qwen3.5-2B",
+      "path": "C:\\Users\\kembh\\.cache\\huggingface\\hub\\models--Qwen--Qwen3.5-2B\\snapshots\\15852e8c16360a2fea060d615a32b45270f8a8fc",
+      "weights_gb": 4.55
+    },
+    {
+      "repo": "Qwen/Qwen3.5-2B-Base",
+      "path": "C:\\Users\\kembh\\.cache\\huggingface\\hub\\models--Qwen--Qwen3.5-2B-Base\\snapshots\\b1485b2fa6dfa1287294f269f5fb618e03d52d7c",
+      "weights_gb": 4.55
+    },
+    {
+      "repo": "Qwen/Qwen3-0.6B",
+      "path": "C:\\Users\\kembh\\.cache\\huggingface\\hub\\models--Qwen--Qwen3-0.6B\\snapshots\\c1899de289a04d12100db370d81485cdf75e47ca",
+      "weights_gb": 1.5
+    },
+    {
+      "repo": "Qwen/Qwen3-1.7B",
+      "path": "C:\\Users\\kembh\\.cache\\huggingface\\hub\\models--Qwen--Qwen3-1.7B\\snapshots\\70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+      "weights_gb": 4.06
+    },
+    {
+      "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+      "path": "C:\\Users\\kembh\\.cache\\huggingface\\hub\\models--Qwen--Qwen2.5-1.5B-Instruct\\snapshots\\989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+      "weights_gb": 3.09
+    }
+  ]
 }

@@ -99,7 +99,7 @@ def train_run(cfg: dict, meta: dict) -> dict:
         opt.load_state_dict(state["opt"])
         if scaler and state.get("scaler"):
             scaler.load_state_dict(state["scaler"])
-        torch.set_rng_state(state["rng_cpu"])
+        torch.set_rng_state(state["rng_cpu"].cpu())
         step = state["step"]
         if log_path.exists():  # drop log lines written after the checkpoint
             lines = [ln for ln in log_path.read_text().splitlines() if json.loads(ln)["step"] <= step]
@@ -138,15 +138,19 @@ def train_run(cfg: dict, meta: dict) -> dict:
             lr = _lr(step, steps, cfg["lr"], cfg["warmup_frac"], cfg["min_lr_frac"])
             for g in opt.param_groups:
                 g["lr"] = lr
-            with torch.autocast(device_type=device, dtype=dtype):
-                _, loss_sum, _ = model(x, y)
-            loss = loss_sum / y.numel()
             opt.zero_grad(set_to_none=True)
+            # gradient accumulation over micro-batches: same optimizer step, smaller activation memory
+            mb = cfg.get("micro_batch_seqs") or cfg["batch_seqs"]
+            loss_total = 0.0
+            for j in range(0, cfg["batch_seqs"], mb):
+                with torch.autocast(device_type=device, dtype=dtype):
+                    _, loss_sum, _ = model(x[j:j + mb], y[j:j + mb])
+                part = loss_sum / y.numel()
+                (scaler.scale(part) if scaler else part).backward()
+                loss_total += part.detach()
+            loss = loss_total
             if scaler:
-                scaler.scale(loss).backward()
                 scaler.unscale_(opt)
-            else:
-                loss.backward()
             gn = torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
             if scaler:
                 scaler.step(opt)
@@ -157,7 +161,8 @@ def train_run(cfg: dict, meta: dict) -> dict:
                 torch.cuda.synchronize()
             t_train += time.time() - t0
             step += 1
-            rec = {"step": step, "loss": float(loss), "train_bpb_approx": float(loss) / LN2 / m["bytes_per_token_train"],
+            loss_val = loss.item()
+            rec = {"step": step, "loss": loss_val, "train_bpb_approx": loss_val / LN2 / m["bytes_per_token_train"],
                    "lr": lr, "grad_norm": float(gn), "train_seconds": t_train}
             if step % cfg["eval_every"] == 0 or step == steps:
                 rec["val_bpb_subset"] = eval_bpb(model, ev_stream, ev_bytes, ctx, device)

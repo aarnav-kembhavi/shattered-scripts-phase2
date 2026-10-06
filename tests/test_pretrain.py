@@ -51,3 +51,13 @@ def test_eval_bpb_uniform_model():
     stream = np.arange(65, dtype=np.uint16) % 16
     bpb = eval_bpb(m, stream, n_bytes=128, ctx=8, device="cpu")
     assert abs(bpb - 4 * 64 / 128) < 1e-2
+
+
+def test_minimal_pairs_well_formed():
+    from shattered.pretrain.evals import minimal_pairs
+    pairs = minimal_pairs()
+    assert {p["phenomenon"] for p in pairs} == {"subject_verb_agreement_singular", "subject_verb_agreement_plural",
+                                                "determiner_noun_agreement", "irregular_past"}
+    for p in pairs:
+        g, b = p["good"].split(), p["bad"].split()
+        assert len(g) == len(b) and sum(x != y for x, y in zip(g, b)) == 1
