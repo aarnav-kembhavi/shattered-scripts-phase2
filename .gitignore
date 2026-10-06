@@ -16,3 +16,6 @@ checkpoints/
 *.pt
 *.sqlite
 *.sqlite3
+# derived data (regenerable by scripts/)
+data/processed/*.parquet
+data/processed/e05/*.npy

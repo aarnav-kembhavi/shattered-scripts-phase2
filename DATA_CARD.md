@@ -8,6 +8,12 @@ Nothing is listed here until its availability and license have been verified on 
 | FLORES-200 (Meta, original release) | https://dl.fbaipublicfiles.com/nllb/flores200_dataset.tar.gz | tarball sha256 `b8b0b767…44011f6` (Last-Modified 2022-07-14) | CC-BY-SA 4.0 (github.com/facebookresearch/flores README, "Licenses") | dev (997) + devtest (1012) | 2009 sentences/lang; eng_Latn, kan_Knda, tam_Taml, tel_Telu, mal_Mlym, hin_Deva, ben_Beng | E1 (draft), E2 step 1 (draft) | 2026-10-07 |
 | FLORES+ | HF `openlanguagedata/flores_plus` | `e707e62e762a9e2faca3933aa315f4665cc3cd8f` | CC-BY-SA 4.0 (HF card) | dev, devtest | — | E1, E2, E4 (planned) | 2026-10-07; **gated (auto-approve), terms not yet accepted** |
 | Wikipedia, Kannada | HF `wikimedia/wikipedia`, config `20231101.kn` | `b04c8d1ceb2f5cd4588862100d08de323dccfbaa` | CC-BY-SA 3.0 and GFDL (HF card) | train (only split) | 31,437 articles, 149.2M chars | E2 (lossy back-map training, round-trip test), E4a/E9 word frequencies | 2026-10-07 |
+| TinyStories V2 (GPT-4) | HF `roneneldan/TinyStories`, files `TinyStoriesV2-GPT4-{train,valid}.txt` | `f54c09fd23315a6f9c86f9dc80f725de7d8f9c64` | CDLA-Sharing-1.0 (HF card) | train (2.23 GB), valid (22.5 MB) | E5: first 400 MB of the seeded document shuffle (proposed budget); tokenizers trained on first 100 MB | E5 | 2026-10-07 |
+
+Derived data
+- `data/processed/kn_wiki_wordfreq.parquet`: Kannada word frequencies from Wikipedia 20231101.kn (17.0M word tokens,
+  1.49M types, 50,513 types with count >= 30), top 20k annotated with token counts under o200k, Qwen3, Qwen3.5,
+  Gemma 4, Sarvam-1 (native and ITRANS). Built by `scripts/build_kn_wordfreq.py`.
 
 Notes
 - FLORES-200 Kannada: 17 of 2009 sentences are not NFC-normalized (decomposed vowel signs such as U+0CC6 U+0CC2

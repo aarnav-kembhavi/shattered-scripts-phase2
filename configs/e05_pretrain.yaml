@@ -1,0 +1,25 @@
+# E5 controlled pretraining. Only the tokenizer vocabulary changes between conditions; text, model body, steps,
+# bytes per step and hyperparameters are identical. Budget values here are PROPOSALS pending the E5 pilot GATE.
+data:
+  train_bytes: 400_000_000        # proposed full budget per run (bytes of TinyStories V2 text, one epoch)
+  tokenizer_train_bytes: 100_000_000
+  data_seed: 0                    # fixed: every condition and seed sees the same stories in the same order
+vocabs: [256, 512, 1024, 4096, 16384]
+seeds: [0, 1, 2]                  # model-init seeds
+train:
+  target_ctx_bytes: 1024
+  batch_seqs: 64                  # => ~64 KiB of text per step in every condition
+  lr: 1.0e-3
+  warmup_frac: 0.02
+  min_lr_frac: 0.1
+  weight_decay: 0.1
+  eval_every: 500
+  eval_bytes: 2_000_000
+  ckpt_every: 250
+  max_minutes: null
+model: {n_layer: 8, d_model: 384, n_head: 6, emb_dim: null}
+pilot:
+  vocabs: [256, 16384]            # the two extremes
+  seed: 0
+  fraction: 0.1                   # 10% of the full budget
+  bench_steps: 20                 # per-condition step-time micro-benchmark for the extrapolation

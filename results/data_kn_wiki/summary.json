@@ -1,0 +1,43 @@
+{
+  "provenance": {
+    "config": {
+      "source": "wikimedia/wikipedia 20231101.kn",
+      "revision": "b04c8d1ceb2f5cd4588862100d08de323dccfbaa",
+      "tokenizers": [
+        "o200k_base",
+        "Qwen/Qwen3-8B",
+        "Qwen/Qwen3.5-9B",
+        "google/gemma-4-E2B-it",
+        "sarvamai/sarvam-1"
+      ],
+      "word_regex": "[ಀ-೿‌‍]+"
+    },
+    "git_commit": "7597d41ee8613a8960b8e1d8e00ede8e7e5a8bc1",
+    "timestamp_utc": "2026-10-06T22:08:53+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "argv": [
+      "scripts/build_kn_wordfreq.py"
+    ]
+  },
+  "n_articles": 31437,
+  "n_word_tokens": 17014277,
+  "n_word_types": 1487002,
+  "types_with_count_ge_30": 50513,
+  "annotated_top": 20000,
+  "o200k_base_multi_token_native_among_annotated_ge30": 19629,
+  "o200k_base_mean_tokens_native_top1000": 2.338,
+  "o200k_base_mean_tokens_itrans_top1000": 3.131,
+  "Qwen3-8B_multi_token_native_among_annotated_ge30": 20000,
+  "Qwen3-8B_mean_tokens_native_top1000": 9.271,
+  "Qwen3-8B_mean_tokens_itrans_top1000": 3.413,
+  "Qwen3.5-9B_multi_token_native_among_annotated_ge30": 19972,
+  "Qwen3.5-9B_mean_tokens_native_top1000": 4.227,
+  "Qwen3.5-9B_mean_tokens_itrans_top1000": 3.315,
+  "gemma-4-E2B-it_multi_token_native_among_annotated_ge30": 19608,
+  "gemma-4-E2B-it_mean_tokens_native_top1000": 2.344,
+  "gemma-4-E2B-it_mean_tokens_itrans_top1000": 3.154,
+  "sarvam-1_multi_token_native_among_annotated_ge30": 17645,
+  "sarvam-1_mean_tokens_native_top1000": 1.312,
+  "sarvam-1_mean_tokens_itrans_top1000": 4.234
+}
