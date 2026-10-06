@@ -34,3 +34,39 @@ def wikipedia(lang: str = "kn", dump: str = "20231101") -> list[str]:
     import pyarrow.parquet as pq
     p = _download(WIKI_REPO, f"{dump}.{lang}/train-00000-of-00001.parquet", WIKI_REV, f"wikipedia_{lang}")
     return pq.read_table(p, columns=["text"]).column("text").to_pylist()
+
+
+# Meta's original FLORES-200 release (CC-BY-SA 4.0, public, not gated). Used for draft runs while FLORES+ access is
+# pending. sha256 of the tarball as downloaded on 2026-10-07.
+FLORES200_URL = "https://dl.fbaipublicfiles.com/nllb/flores200_dataset.tar.gz"
+FLORES200_SHA256 = "b8b0b76783024b85797e5cc75064eb83fc5288b41e9654dabc7be6ae944011f6"
+FLORES_LANGS = ["eng_Latn", "kan_Knda", "tam_Taml", "tel_Telu", "mal_Mlym", "hin_Deva", "ben_Beng"]
+
+
+def flores200(lang: str, split: str) -> list[str]:
+    """Sentences of FLORES-200 for lang (e.g. 'kan_Knda'), split 'dev' or 'devtest'. Downloads the tarball once."""
+    import hashlib
+    import tarfile
+    import urllib.request
+    root = RAW / "flores200"
+    path = root / "flores200_dataset" / split / f"{lang}.{split}"
+    if not path.exists():
+        root.mkdir(parents=True, exist_ok=True)
+        tgz = root / "flores200_dataset.tar.gz"
+        if not tgz.exists():
+            urllib.request.urlretrieve(FLORES200_URL, tgz)
+        if hashlib.sha256(tgz.read_bytes()).hexdigest() != FLORES200_SHA256:
+            raise ValueError("FLORES-200 tarball checksum mismatch")
+        with tarfile.open(tgz) as tf:
+            tf.extractall(root, filter="data")
+    return path.read_text(encoding="utf-8").splitlines()
+
+
+def flores_any(lang: str, split: str, source: str = "flores200", nfc: bool = False) -> list[str]:
+    """Sentences from 'flores200' (public) or 'flores_plus' (gated, preferred once access is granted).
+
+    Experiments pass nfc=True: 17 of 2009 FLORES-200 Kannada sentences are not NFC-normalized.
+    """
+    import unicodedata
+    texts = [r["text"] for r in flores(lang, split)] if source == "flores_plus" else flores200(lang, split)
+    return [unicodedata.normalize("NFC", t) for t in texts] if nfc else texts
