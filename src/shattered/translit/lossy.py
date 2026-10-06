@@ -10,8 +10,9 @@ that produces it in a training corpus, and CER is computed against the original.
 from __future__ import annotations
 
 from collections import Counter, defaultdict
+from functools import lru_cache
 
-from .scheme import ITRANS, KANNADA_DIGITS, Unit
+from .scheme import ITRANS, SCRIPTS, _project, itrans_for
 
 # ITRANS spelling -> lossy spelling (before lowercasing). Unlisted spellings are kept, then lowercased.
 LOSSY_FROM_ITRANS = {
@@ -23,32 +24,41 @@ LOSSY_FROM_ITRANS = {
     "kh": "k", "gh": "g", "Ch": "ch", "jh": "j", "th": "t", "dh": "d", "ph": "p", "bh": "b",
     # nasals and other signs
     "~N": "n", "~n": "n", "H": "h", ".N": "n", ".a": "", "^": "", "^^": "", "|": ".", "||": ".",
+    # other scripts (Devanagari nukta letters etc.); unlisted spellings drop "~^." and are lowercased
+    "q": "k", "K": "k", "G": "g", ".D": "d", ".Dh": "d", "Y": "y", "OM": "om",
 }
-LABIALS = {"ಪ", "ಫ", "ಬ", "ಭ", "ಮ", "ವ"}
+LABIALS_KN = ["ಪ", "ಫ", "ಬ", "ಭ", "ಮ", "ವ"]
 
 
-def _anusvara(next_unit: Unit | None) -> str:
-    """Anusvara -> m before a labial or at a word end, else n."""
-    if next_unit is None or next_unit.kind != "C":
-        return "m"
-    return "m" if next_unit.native in LABIALS else "n"
+def _lossy_spelling(sp: str) -> str:
+    if sp in LOSSY_FROM_ITRANS:
+        return LOSSY_FROM_ITRANS[sp]
+    return "".join(c for c in sp if c not in "~^.").lower()
 
 
-def to_lossy(text: str) -> str:
-    units = ITRANS.units(text)
+@lru_cache(maxsize=None)
+def _setup(lang: str):
+    script = SCRIPTS[lang]
+    labials = {p for p in (_project(c, script) for c in LABIALS_KN) if p}
+    anusvara = chr(script.base + 0x02)
+    return itrans_for(script), labials, anusvara
+
+
+def to_lossy(text: str, lang: str = "kan_Knda") -> str:
+    scheme, labials, anusvara = _setup(lang)
+    units = scheme.units(text)
     out = []
     for i, u in enumerate(units):
-        if u.kind == "RAW":
-            out.append(u.native)
-        elif u.kind == "LIT":
+        if u.kind in ("RAW", "LIT"):
             out.append(u.native)
         elif u.kind == "DIG":
-            out.append("".join(KANNADA_DIGITS[c] for c in u.native))
-        elif u.kind == "S" and u.native == "ಂ":
-            out.append(_anusvara(units[i + 1] if i + 1 < len(units) else None))
+            out.append("".join(scheme.script.digits[c] for c in u.native))
+        elif u.kind == "S" and u.native == anusvara:
+            nxt = units[i + 1] if i + 1 < len(units) else None
+            # anusvara -> m before a labial or at a word end, else n
+            out.append("m" if nxt is None or nxt.kind != "C" or nxt.native in labials else "n")
         else:
-            sp = ITRANS._spell(u)
-            out.append(LOSSY_FROM_ITRANS.get(sp, sp).lower())
+            out.append(_lossy_spelling(scheme._spell(u)))
     return "".join(out)
 
 

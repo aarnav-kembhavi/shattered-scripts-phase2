@@ -31,6 +31,7 @@ AMBIGUOUS = [
     "ಕಁ ಽ ಋಷಿ ೠ ಌ ೡ",
     "್ಕ ಾಕ ಕೕ",   # orphan virama / vowel sign / length mark
     "ಡ಼ ಡ಼ಿ",                   # nukta on a consonant without a spelling
+    "ಱ್ಱಿ ಱ್ಱೃ",                 # R+virama+R+i must not read as RRi (vocalic r)
     "",
 ]
 
@@ -92,3 +93,26 @@ def test_wikipedia_sample_round_trip():
     texts = pq.read_table(WIKI[0], columns=["text"]).column("text").to_pylist()[::60]  # ~520 articles
     bad = [t for t in texts if not ITRANS.roundtrips(t)]
     assert not bad, f"{len(bad)} articles fail round trip"
+
+
+MULTI = {
+    "tam_Taml": ("தமிழ் மொழி ஒரு பழமையான மொழி. அவன் வந்தான்; ஃ", "tamizh"),
+    "tel_Telu": ("తెలుగు భాష చాలా అందమైనది. ఱ ళ", "telugu"),
+    "mal_Mlym": ("മലയാളം ഒരു ഭാഷയാണ്. അവൻ വന്നു, അവർ പോയി; ഴ കൌ കൗ സൈറ്റിൽ യൂണിവേഴ്‌സിറ്റി", "malayALaM"),
+    "hin_Deva": ("हिंदी एक भाषा है। डॉक्टर ज़रूर आएँगे, क़िला ड़ ॐ", "hiMdI"),
+    "ben_Beng": ("বাংলা একটি ভাষা। আমি যাব, উৎসব, বড়ো সময়", "bAMlA"),
+}
+
+
+@pytest.mark.parametrize("lang", list(MULTI))
+def test_other_scripts_round_trip_and_ascii(lang):
+    import unicodedata
+    from shattered.translit.scheme import SCRIPTS, itrans_for
+    s = itrans_for(SCRIPTS[lang])
+    text, prefix = MULTI[lang]
+    text = unicodedata.normalize("NFC", text)
+    enc = s.encode(text)
+    assert s.decode(enc) == text
+    assert enc.isascii(), enc
+    assert enc.startswith(prefix), enc
+    assert to_lossy(text, lang).isascii()

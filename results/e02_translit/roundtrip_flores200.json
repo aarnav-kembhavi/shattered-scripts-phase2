@@ -9,8 +9,8 @@
       ],
       "lang": "kan_Knda"
     },
-    "git_commit": "320e3e0bdbb833a597135614e200a2e80a25cc67-dirty",
-    "timestamp_utc": "2026-10-06T21:30:39+00:00",
+    "git_commit": "cec25d5efa9825d2134dbd505c3f286c40b6b535-dirty",
+    "timestamp_utc": "2026-10-06T21:44:43+00:00",
     "python": "3.12.13",
     "platform": "Windows-11-10.0.26200-SP0",
     "argv": [
@@ -42,7 +42,7 @@
   },
   "failing_chars": [],
   "failures": [],
-  "seconds": 1.3,
+  "seconds": 2.3,
   "n_texts_not_nfc": 17,
   "nfc": {
     "n_texts": 2009,
