@@ -289,3 +289,67 @@ Outputs: F8 (token savings per tokenizer), T9 (accuracy and cost per scheme), sc
 - When a result contradicts the thesis, say so plainly.
 - Commit after each working milestone. Notebooks thin; logic in src/.
 - Long Kaggle runs: resumable scripts (checkpoint every N steps, skip finished items via cache).
+
+---
+
+## Revision 2026-10-07 (Aarnav): interpretability-first
+
+**Dropped / changed**
+- No Anthropic key, ever: Claude token counting is removed from E1 and stated as a limitation.
+- E9 dropped (negative result in RESULTS.md). E7 dropped: FragMend (arXiv 2604.16656) already does Patchscopes
+  detokenization and vocabulary expansion for non-Latin scripts.
+- E3 shrinks to a small context table (accuracy and tokens by form for one or two free models). Kanglish is optional.
+- E5 continues unchanged; afterwards M1 and M3 are applied to the tiny models.
+
+**Models** (each with English, native Kannada and ITRANS forms):
+- Qwen 2.5/3 family (identical tokenizer): Qwen3-1.7B; Qwen2.5-1.5B-Instruct also run in E0, better one kept.
+- Qwen 3.5: Qwen3.5-2B.
+- Gemma 4: gemma-4-E2B-it, the largest Gemma 4 that fits 8 GB in bf16 — text-only, per-layer embedding table
+  (2.35B params) on CPU. E4B needs 9.3 GB GPU-resident.
+- Sarvam-1 (base).
+E0 runs first on these models (M2 and M6 need above-chance accuracy). Every M experiment is piloted on 50 items with a
+time estimate before its full run.
+
+**Shared data**: E0 items (IndicXNLI kn + IndicSentiment kn with parallel English), FLORES+ (kan/eng) for representation
+analyses, Kannada Wikipedia (word inventory and probe contexts; ITRANS by deterministic transliteration, so word identity
+is shared across native and ITRANS).
+
+### M1. Detokenization layer per word (two methods)
+- (a) **Patchscopes, replicating FragMend**: word encoded alone with BOS; last-token hidden state at every layer
+  (embeddings = layer 0); patched into every placeholder of "X, X, X, X," at the input-embedding level; 20 greedy tokens;
+  detokenization layer = first layer whose stripped output starts with the word and contains it with letter
+  boundaries ("first_id_layer"). For ITRANS the target is the ITRANS spelling. Sensitivity: a language-labelled prompt
+  and an in-context variant (state taken at the word's last token inside its sentence).
+- (b) **Linear probes**: word-identity probe per layer on in-context occurrences (held-out occurrences); detokenization
+  layer = first layer reaching 90% of the form's maximum probe accuracy; previous-token erasure probe as a second
+  signal; random-label and layer-0 controls.
+- Pre-registered competing predictions (written to RESULTS.md before running):
+  fragmentation-driven = the native-vs-ITRANS ordering follows tokens per word and so flips across families (ITRANS
+  earlier on Qwen 2.5/3 and Qwen 3.5; native earlier on Gemma 4 and Sarvam-1); script-driven = ITRANS earlier in all
+  four models.
+
+### M2. Item-level link
+Within a model: does later detokenization predict wrong answers? Logistic regression of item correctness on the item's
+detokenization lateness (mean and max over its words, from M1), controlling for word frequency (Kannada Wikipedia,
+log), word length (characters) and token count; per model and form, plus a pooled model with form effects.
+
+### M3. Circuits
+Rank attention heads by within-word attention (mass from a word's last token to its earlier tokens) and MLP layers by
+their contribution to detokenization (ablation effect on M1 signals). Ablate the top components vs random components
+from the same layers; measure the change in detokenization (M1) and task accuracy (E0 scoring); compute the overlap
+(Jaccard, rank correlation) of top components between native and ITRANS.
+
+### M4. Alignment lag
+Per form and layer: cross-lingual retrieval accuracy (FLORES+ sentence -> nearest English sentence by cosine of
+mean-pooled residuals) and linear CKA with English. Alignment layer = first layer reaching 90% of the form's maximum
+retrieval accuracy. Lag = alignment layer minus the form's detokenization layer (M1).
+
+### M5. Latent English
+Per form: the layer at which a word's English translation becomes decodable from its residual (logit lens on the
+English target token, and a Patchscopes translation prompt). Requires a Kannada->English word list (source to be
+verified and licensed before use).
+
+### M6. Injection (stretch)
+Inject each word's assembled representation (its state at the detokenization layer) at an early layer of the same run
+at the word's last token, norm-matched to the original residual there; measure the accuracy change versus controls
+(norm-matched representation of a different word; re-injecting the word's own early state).

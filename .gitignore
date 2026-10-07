@@ -20,3 +20,4 @@ checkpoints/
 data/processed/*.parquet
 data/processed/e05/*.npy
 results/e05_pretrain/grid.lock
+docs/papers/*.pdf

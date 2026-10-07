@@ -128,3 +128,41 @@ prediction, outcome (confirmed / refuted / inconclusive), surprises, next step. 
   tokenizers whatever the spelling within this candidate space; capitals are expensive, but their lowercase
   replacements (aa, tt, nn, ...) cost about as much. Per the gate, no accuracy evaluation was run.
 - Figure: `paper/figures/F8_e09_savings` (draft). Mapping tables: `results/e09_romanize/schemes.md`.
+
+---
+## 2026-10-07 — Scope changes
+
+- **E9 dropped** after its gate: negative result as recorded above (held-out savings over ITRANS 1.0–4.8%, below the
+  5% failure line on every target). Not pursued further.
+- **E7 dropped**: FragMend (arXiv 2604.16656) already does Patchscopes detokenization and vocabulary expansion for
+  non-Latin scripts.
+- **Limitation (E1)**: no Anthropic API key will be used, so Claude tokenizers are not measured. Anthropic's pricing
+  page (read 2026-10-07) states that Claude 4.7+ uses a newer tokenizer producing ~30% more tokens for the same text;
+  we cannot verify how this affects Kannada.
+
+---
+## PRE-REGISTRATION — M1 detokenization layer (written 2026-10-07, before any M1 run)
+
+Models: Qwen 2.5/3 (Qwen3-1.7B or Qwen2.5-1.5B-Instruct, per E0), Qwen3.5-2B, Gemma 4 E2B, Sarvam-1.
+Forms: native Kannada, ITRANS, English (reference). Methods: Patchscopes (FragMend setup) and linear probes.
+
+Measured tokens per word (FLORES+ Kannada, `results/e00_gate/tokens_per_word.csv`), native -> ITRANS:
+Qwen 2.5/3 11.79 -> 4.32; Qwen 3.5 5.28 -> 4.18; Gemma 4 3.20 -> 4.01; Sarvam-1 2.34 -> 5.31.
+
+Competing predictions:
+- **H-frag (fragmentation-driven)**: the form with more tokens per word detokenizes later. Native later than ITRANS on
+  Qwen 2.5/3 and Qwen 3.5; ITRANS later than native on Gemma 4 and Sarvam-1 (ordering flips across families).
+- **H-script (script-driven)**: ITRANS detokenizes earlier than native in all four models.
+
+Operationalization and decision rule (fixed now):
+- Statistic per model and method: Delta = mean over words of (detok layer native − detok layer ITRANS) / n_layers,
+  computed on the same Kannada words in both forms (paired by construction), restricted to words detokenized in both
+  forms; 95% paired bootstrap CI over words (10,000 resamples). Also reported: detokenization success rates per form.
+- A model "favors ITRANS-earlier" if the CI of Delta lies above 0, "native-earlier" if below 0, "no difference" if it
+  includes 0.
+- H-frag is supported if Gemma 4 and Sarvam-1 are native-earlier while both Qwen models are ITRANS-earlier (or no
+  difference for at most one Qwen model). H-script is supported if all four models are ITRANS-earlier. Any other
+  pattern is recorded as inconclusive for both. Patchscopes is primary; probes are reported alongside, and
+  disagreement between methods is reported, not resolved post hoc.
+- Secondary (within form): detok layer increases with the word's token count (Spearman rho > 0, CI excluding 0), per
+  model and form.
