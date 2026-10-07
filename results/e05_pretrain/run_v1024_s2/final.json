@@ -1,0 +1,98 @@
+{
+  "provenance": {
+    "config": {
+      "target_ctx_bytes": 1024,
+      "batch_seqs": 64,
+      "micro_batch_seqs": 16,
+      "lr": 0.001,
+      "warmup_frac": 0.02,
+      "min_lr_frac": 0.1,
+      "weight_decay": 0.1,
+      "eval_every": 250,
+      "mp_during_training": true,
+      "snapshot_fracs": [
+        0.1,
+        0.25,
+        0.5
+      ],
+      "eval_bytes": 2000000,
+      "ckpt_every": 250,
+      "max_minutes": null,
+      "vocab": 1024,
+      "seed": 2,
+      "fraction": 1.0,
+      "model": {
+        "n_layer": 8,
+        "d_model": 384,
+        "n_head": 6,
+        "emb_dim": null
+      },
+      "train_bytes": 400000000,
+      "run_name": "run_v1024_s2"
+    },
+    "git_commit": "073fe9df49af3b586e13981599c74fc6749cb7f6-dirty",
+    "timestamp_utc": "2026-10-07T19:42:21+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "argv": [
+      "scripts/e05_pretrain.py",
+      "grid"
+    ]
+  },
+  "ctx_tokens": 320,
+  "steps": 6173,
+  "tokens_per_step": 20480,
+  "train_tokens": 126423040,
+  "train_bytes_seen": 399997806.3273878,
+  "bytes_per_token": 3.163962884671875,
+  "params": {
+    "total": 14555904,
+    "embedding": 393600,
+    "non_embedding": 14162304
+  },
+  "flops_per_token": 93233664,
+  "train_flops": 11786883233218560,
+  "device": "NVIDIA GeForce RTX 3070 Laptop GPU",
+  "amp_dtype": "torch.bfloat16",
+  "val_bpb_full": 0.5458529718101867,
+  "train_seconds_this_session": 1021.0910410881042,
+  "wall_seconds_this_session": 1227.9812498092651,
+  "seconds_per_step": 0.16541244793262663,
+  "minimal_pairs": {
+    "determiner_noun_agreement": {
+      "n": 60,
+      "acc_total_logprob": 0.85,
+      "acc_per_byte": 0.7833333333333333
+    },
+    "irregular_past": {
+      "n": 12,
+      "acc_total_logprob": 1.0,
+      "acc_per_byte": 1.0
+    },
+    "subject_verb_agreement_plural": {
+      "n": 200,
+      "acc_total_logprob": 1.0,
+      "acc_per_byte": 0.99
+    },
+    "subject_verb_agreement_singular": {
+      "n": 200,
+      "acc_total_logprob": 0.91,
+      "acc_per_byte": 1.0
+    },
+    "all": {
+      "n": 472,
+      "acc_total_logprob": 0.9427966101694916,
+      "acc_per_byte": 0.9682203389830508
+    }
+  },
+  "model_config": {
+    "vocab_size": 1025,
+    "n_layer": 8,
+    "d_model": 384,
+    "n_head": 6,
+    "mlp_mult": 4,
+    "max_ctx": 320,
+    "emb_dim": null,
+    "rope_base": 10000.0
+  }
+}

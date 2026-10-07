@@ -1,1 +1,70 @@
 warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+{"vocab": 256, "seed": 0, "status": "done", "val_bpb_full": 0.5965823017595128, "wall_seconds": 4215.731988191605, "params": {"total": 14260992, "embedding": 98688, "non_embedding": 14162304}, "train_flops": 41772598752706560, "bytes_per_token": 1.0, "ctx_tokens": 1024}
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+{"vocab": 384, "seed": 0, "status": "done", "val_bpb_full": 0.5707841386797021, "wall_seconds": 1983.8697335720062, "params": {"total": 14310144, "embedding": 147840, "non_embedding": 14162304}, "train_flops": 19315848774942720, "bytes_per_token": 1.9762684305112248, "ctx_tokens": 520}
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+{"vocab": 512, "seed": 0, "status": "done", "val_bpb_full": 0.5582516786426197, "wall_seconds": 1608.3458836078644, "params": {"total": 14359296, "embedding": 196992, "non_embedding": 14162304}, "train_flops": 15605972682670080, "bytes_per_token": 2.408390991702679, "ctx_tokens": 424}
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+{"vocab": 768, "seed": 0, "status": "done", "val_bpb_full": 0.5507297846697937, "wall_seconds": 1367.242734670639, "params": {"total": 14457600, "embedding": 295296, "non_embedding": 14162304}, "train_flops": 12917263092940800, "bytes_per_token": 2.887024682315345, "ctx_tokens": 352}
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+{"vocab": 1024, "seed": 0, "status": "done", "val_bpb_full": 0.5459755093459301, "wall_seconds": 1262.6945476531982, "params": {"total": 14555904, "embedding": 393600, "non_embedding": 14162304}, "train_flops": 11786883233218560, "bytes_per_token": 3.163962884671875, "ctx_tokens": 320}
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+{"vocab": 4096, "seed": 0, "status": "done", "val_bpb_full": 0.5295893968700158, "wall_seconds": 1129.0427045822144, "params": {"total": 15735552, "embedding": 1573248, "non_embedding": 14162304}, "train_flops": 10008179383468032, "bytes_per_token": 3.9615512790132152, "ctx_tokens": 256}
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+{"vocab": 256, "seed": 1, "status": "done", "val_bpb_full": 0.5962898448863188, "wall_seconds": 3741.4667677879333, "params": {"total": 14260992, "embedding": 98688, "non_embedding": 14162304}, "train_flops": 41772598752706560, "bytes_per_token": 1.0, "ctx_tokens": 1024}
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+{"vocab": 384, "seed": 1, "status": "done", "val_bpb_full": 0.5685670028100107, "wall_seconds": 1944.2077434062958, "params": {"total": 14310144, "embedding": 147840, "non_embedding": 14162304}, "train_flops": 19315848774942720, "bytes_per_token": 1.9762684305112248, "ctx_tokens": 520}
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+{"vocab": 512, "seed": 1, "status": "done", "val_bpb_full": 0.5615948857971498, "wall_seconds": 1636.3247628211975, "params": {"total": 14359296, "embedding": 196992, "non_embedding": 14162304}, "train_flops": 15605972682670080, "bytes_per_token": 2.408390991702679, "ctx_tokens": 424}
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+{"vocab": 768, "seed": 1, "status": "done", "val_bpb_full": 0.5506713847030253, "wall_seconds": 1387.3210673332214, "params": {"total": 14457600, "embedding": 295296, "non_embedding": 14162304}, "train_flops": 12917263092940800, "bytes_per_token": 2.887024682315345, "ctx_tokens": 352}
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+{"vocab": 1024, "seed": 1, "status": "done", "val_bpb_full": 0.5462034671201185, "wall_seconds": 1256.4484746456146, "params": {"total": 14555904, "embedding": 393600, "non_embedding": 14162304}, "train_flops": 11786883233218560, "bytes_per_token": 3.163962884671875, "ctx_tokens": 320}
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+{"vocab": 4096, "seed": 1, "status": "done", "val_bpb_full": 0.5275060641107455, "wall_seconds": 1149.0232067108154, "params": {"total": 15735552, "embedding": 1573248, "non_embedding": 14162304}, "train_flops": 10008179383468032, "bytes_per_token": 3.9615512790132152, "ctx_tokens": 256}
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+{"vocab": 256, "seed": 2, "status": "done", "val_bpb_full": 0.5979782771614769, "wall_seconds": 3836.7878136634827, "params": {"total": 14260992, "embedding": 98688, "non_embedding": 14162304}, "train_flops": 41772598752706560, "bytes_per_token": 1.0, "ctx_tokens": 1024}
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+{"vocab": 384, "seed": 2, "status": "done", "val_bpb_full": 0.5693422762909293, "wall_seconds": 1970.483510017395, "params": {"total": 14310144, "embedding": 147840, "non_embedding": 14162304}, "train_flops": 19315848774942720, "bytes_per_token": 1.9762684305112248, "ctx_tokens": 520}
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+{"vocab": 512, "seed": 2, "status": "done", "val_bpb_full": 0.5620665033712258, "wall_seconds": 1610.3927779197693, "params": {"total": 14359296, "embedding": 196992, "non_embedding": 14162304}, "train_flops": 15605972682670080, "bytes_per_token": 2.408390991702679, "ctx_tokens": 424}
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+{"vocab": 768, "seed": 2, "status": "done", "val_bpb_full": 0.5524712189619498, "wall_seconds": 1356.8497610092163, "params": {"total": 14457600, "embedding": 295296, "non_embedding": 14162304}, "train_flops": 12917263092940800, "bytes_per_token": 2.887024682315345, "ctx_tokens": 352}
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+{"vocab": 1024, "seed": 2, "status": "done", "val_bpb_full": 0.5458529718101867, "wall_seconds": 1233.947022676468, "params": {"total": 14555904, "embedding": 393600, "non_embedding": 14162304}, "train_flops": 11786883233218560, "bytes_per_token": 3.163962884671875, "ctx_tokens": 320}
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it
+{"vocab": 4096, "seed": 2, "status": "done", "val_bpb_full": 0.5282917142317326, "wall_seconds": 1117.4568095207214, "params": {"total": 15735552, "embedding": 1573248, "non_embedding": 14162304}, "train_flops": 10008179383468032, "bytes_per_token": 3.9615512790132152, "ctx_tokens": 256}
+warning: in the working copy of 'results/e05_pretrain/grid_stdout.log', LF will be replaced by CRLF the next time Git touches it

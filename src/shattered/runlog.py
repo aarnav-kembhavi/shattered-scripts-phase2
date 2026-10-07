@@ -40,7 +40,8 @@ def results_dir(name: str) -> Path:
 
 def write_json(path: Path, payload: dict, config: dict) -> Path:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps({"provenance": provenance(config), **payload}, ensure_ascii=False, indent=2),
+    path.write_text(json.dumps({"provenance": provenance(config), **payload}, ensure_ascii=False, indent=2,
+                               default=lambda o: o.item() if hasattr(o, "item") else str(o)),
                     encoding="utf-8")
     return path
 

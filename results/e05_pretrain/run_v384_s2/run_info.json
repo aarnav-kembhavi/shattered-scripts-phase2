@@ -1,0 +1,57 @@
+{
+  "provenance": {
+    "config": {
+      "target_ctx_bytes": 1024,
+      "batch_seqs": 64,
+      "micro_batch_seqs": 16,
+      "lr": 0.001,
+      "warmup_frac": 0.02,
+      "min_lr_frac": 0.1,
+      "weight_decay": 0.1,
+      "eval_every": 250,
+      "mp_during_training": true,
+      "snapshot_fracs": [
+        0.1,
+        0.25,
+        0.5
+      ],
+      "eval_bytes": 2000000,
+      "ckpt_every": 250,
+      "max_minutes": null,
+      "vocab": 384,
+      "seed": 2,
+      "fraction": 1.0,
+      "model": {
+        "n_layer": 8,
+        "d_model": 384,
+        "n_head": 6,
+        "emb_dim": null
+      },
+      "train_bytes": 400000000,
+      "run_name": "run_v384_s2"
+    },
+    "git_commit": "073fe9df49af3b586e13981599c74fc6749cb7f6-dirty",
+    "timestamp_utc": "2026-10-07T17:59:30+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "argv": [
+      "scripts/e05_pretrain.py",
+      "grid"
+    ]
+  },
+  "ctx_tokens": 520,
+  "steps": 6081,
+  "tokens_per_step": 33280,
+  "train_tokens": 202375680,
+  "train_bytes_seen": 399948667.48724186,
+  "bytes_per_token": 1.9762684305112248,
+  "params": {
+    "total": 14310144,
+    "embedding": 147840,
+    "non_embedding": 14162304
+  },
+  "flops_per_token": 95445504,
+  "train_flops": 19315848774942720,
+  "device": "NVIDIA GeForce RTX 3070 Laptop GPU",
+  "amp_dtype": "torch.bfloat16"
+}
