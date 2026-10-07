@@ -142,6 +142,13 @@ def main() -> None:
     elif args.cmd == "pilot":
         pilot(cfg, meta)
     elif args.cmd == "grid":
+        # refuse to run twice: two grids would train the same run into the same checkpoint
+        import os
+        import psutil
+        lock = results_dir("e05_pretrain") / "grid.lock"
+        if lock.exists() and psutil.pid_exists(int(lock.read_text() or 0)):
+            raise SystemExit(f"grid already running (pid {lock.read_text()}); remove {lock} if stale")
+        lock.write_text(str(os.getpid()))
         # seed-major order, so every completed seed covers all vocabs; each run resumes/skips via its checkpoint
         summary = []
         for seed in cfg["seeds"]:

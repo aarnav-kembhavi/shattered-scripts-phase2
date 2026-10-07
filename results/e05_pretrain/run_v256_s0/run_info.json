@@ -30,8 +30,8 @@
       "train_bytes": 400000000,
       "run_name": "run_v256_s0"
     },
-    "git_commit": "0cb22659e7fc3fc0772eebdef7652e40261a4af1",
-    "timestamp_utc": "2026-10-07T10:28:16+00:00",
+    "git_commit": "2624777bd86b3766a0ab6d410f020b960e7e8d8e-dirty",
+    "timestamp_utc": "2026-10-07T10:37:33+00:00",
     "python": "3.12.13",
     "platform": "Windows-11-10.0.26200-SP0",
     "argv": [

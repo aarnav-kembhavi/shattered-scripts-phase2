@@ -43,3 +43,11 @@ def write_json(path: Path, payload: dict, config: dict) -> Path:
     path.write_text(json.dumps({"provenance": provenance(config), **payload}, ensure_ascii=False, indent=2),
                     encoding="utf-8")
     return path
+
+
+def lower_priority() -> None:
+    """Run this process below normal priority (keeps concurrent GPU training fed)."""
+    import os
+
+    import psutil
+    psutil.Process().nice(psutil.BELOW_NORMAL_PRIORITY_CLASS if os.name == "nt" else 10)

@@ -1,0 +1,286 @@
+{
+  "provenance": {
+    "config": {
+      "run_name": "e01_cost_flores_plus",
+      "results_name": "e01_cost_flores_plus",
+      "corpus": "flores_plus",
+      "splits": [
+        "dev",
+        "devtest"
+      ],
+      "nfc": true,
+      "languages": [
+        "eng_Latn",
+        "kan_Knda",
+        "tam_Taml",
+        "tel_Telu",
+        "mal_Mlym",
+        "hin_Deva",
+        "ben_Beng"
+      ],
+      "forms": [
+        "native",
+        "itrans",
+        "lossy"
+      ],
+      "bootstrap": {
+        "resamples": 10000,
+        "seed": 0
+      },
+      "tokenizers": [
+        {
+          "id": "r50k_base",
+          "family": "OpenAI",
+          "gen": "r50k (GPT-3)",
+          "released": "2020-06",
+          "kind": "tiktoken"
+        },
+        {
+          "id": "p50k_base",
+          "family": "OpenAI",
+          "gen": "p50k (Codex)",
+          "released": "2021-08",
+          "kind": "tiktoken"
+        },
+        {
+          "id": "cl100k_base",
+          "family": "OpenAI",
+          "gen": "cl100k (GPT-4)",
+          "released": "2023-03",
+          "kind": "tiktoken"
+        },
+        {
+          "id": "o200k_base",
+          "family": "OpenAI",
+          "gen": "o200k (GPT-4o)",
+          "released": "2024-05",
+          "kind": "tiktoken"
+        },
+        {
+          "id": "openai/gpt-oss-20b",
+          "family": "OpenAI",
+          "gen": "o200k_harmony (gpt-oss)",
+          "released": "2025-08",
+          "kind": "hf"
+        },
+        {
+          "id": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+          "family": "Llama",
+          "gen": "Llama 2 tokenizer (via TinyLlama)",
+          "released": "2023-12",
+          "kind": "hf"
+        },
+        {
+          "id": "bigscience/bloom-560m",
+          "family": "BLOOM",
+          "gen": "BLOOM",
+          "released": "2022-05",
+          "kind": "hf"
+        },
+        {
+          "id": "Qwen/Qwen1.5-7B",
+          "family": "Qwen",
+          "gen": "Qwen1.5",
+          "released": "2024-01",
+          "kind": "hf"
+        },
+        {
+          "id": "Qwen/Qwen2.5-7B-Instruct",
+          "family": "Qwen",
+          "gen": "Qwen2.5",
+          "released": "2024-09",
+          "kind": "hf"
+        },
+        {
+          "id": "Qwen/Qwen3-8B",
+          "family": "Qwen",
+          "gen": "Qwen3",
+          "released": "2025-04",
+          "kind": "hf"
+        },
+        {
+          "id": "Qwen/Qwen3.5-9B",
+          "family": "Qwen",
+          "gen": "Qwen3.5",
+          "released": "2026-02",
+          "kind": "hf"
+        },
+        {
+          "id": "Qwen/Qwen3.8-27B",
+          "family": "Qwen",
+          "gen": "Qwen3.8",
+          "released": "2026-08",
+          "kind": "hf"
+        },
+        {
+          "id": "google/gemma-4-E2B-it",
+          "family": "Gemma",
+          "gen": "Gemma 4",
+          "released": "2026-03",
+          "kind": "hf"
+        },
+        {
+          "id": "sarvamai/sarvam-2b-v0.5",
+          "family": "Sarvam",
+          "gen": "Sarvam 2B v0.5",
+          "released": "2024-08",
+          "kind": "hf"
+        },
+        {
+          "id": "sarvamai/sarvam-1",
+          "family": "Sarvam",
+          "gen": "Sarvam-1",
+          "released": "2024-10",
+          "kind": "hf"
+        },
+        {
+          "id": "sarvamai/sarvam-m",
+          "family": "Sarvam",
+          "gen": "Sarvam-M",
+          "released": "2025-05",
+          "kind": "hf"
+        },
+        {
+          "id": "sarvamai/sarvam-30b",
+          "family": "Sarvam",
+          "gen": "Sarvam 30B",
+          "released": "2026-03",
+          "kind": "hf"
+        },
+        {
+          "id": "microsoft/phi-2",
+          "family": "Phi",
+          "gen": "Phi-2",
+          "released": "2023-12",
+          "kind": "hf"
+        },
+        {
+          "id": "microsoft/Phi-3.5-mini-instruct",
+          "family": "Phi",
+          "gen": "Phi-3.5",
+          "released": "2024-08",
+          "kind": "hf"
+        },
+        {
+          "id": "microsoft/Phi-4-mini-instruct",
+          "family": "Phi",
+          "gen": "Phi-4-mini",
+          "released": "2025-02",
+          "kind": "hf"
+        },
+        {
+          "id": "mistralai/Mistral-7B-Instruct-v0.3",
+          "family": "Mistral",
+          "gen": "Mistral v0.3",
+          "released": "2024-05",
+          "kind": "hf"
+        },
+        {
+          "id": "mistralai/Mistral-Nemo-Instruct-2407",
+          "family": "Mistral",
+          "gen": "Nemo (Tekken)",
+          "released": "2024-07",
+          "kind": "hf"
+        },
+        {
+          "id": "deepseek-ai/DeepSeek-V3",
+          "family": "DeepSeek",
+          "gen": "DeepSeek-V3",
+          "released": "2024-12",
+          "kind": "hf"
+        },
+        {
+          "id": "allenai/OLMo-2-1124-7B",
+          "family": "OLMo",
+          "gen": "OLMo 2",
+          "released": "2024-10",
+          "kind": "hf"
+        },
+        {
+          "id": "utter-project/EuroLLM-9B-Instruct-2512",
+          "family": "EuroLLM",
+          "gen": "EuroLLM 2512",
+          "released": "2026-01",
+          "kind": "hf"
+        },
+        {
+          "id": "ibm-granite/granite-3.3-8b-instruct",
+          "family": "Granite",
+          "gen": "Granite 3.3",
+          "released": "2025-04",
+          "kind": "hf"
+        },
+        {
+          "id": "tiiuae/Falcon3-7B-Instruct",
+          "family": "Falcon",
+          "gen": "Falcon3",
+          "released": "2024-11",
+          "kind": "hf"
+        },
+        {
+          "id": "BharatGenAI/Param-1-2.9B-Instruct",
+          "family": "BharatGen",
+          "gen": "Param-1",
+          "released": "2025-06",
+          "kind": "hf"
+        },
+        {
+          "id": "krutrim-ai-labs/Krutrim-2-instruct",
+          "family": "Krutrim",
+          "gen": "Krutrim-2",
+          "released": "2025-02",
+          "kind": "hf"
+        },
+        {
+          "id": "HuggingFaceTB/SmolLM3-3B",
+          "family": "SmolLM",
+          "gen": "SmolLM3",
+          "released": "2025-07",
+          "kind": "hf"
+        },
+        {
+          "id": "swiss-ai/Apertus-8B-Instruct-2509",
+          "family": "Apertus",
+          "gen": "Apertus",
+          "released": "2025-08",
+          "kind": "hf"
+        },
+        {
+          "id": "nvidia/NVIDIA-Nemotron-Nano-9B-v2",
+          "family": "Nemotron",
+          "gen": "Nemotron Nano v2",
+          "released": "2025-08",
+          "kind": "hf"
+        },
+        {
+          "id": "zai-org/GLM-4.5-Air",
+          "family": "GLM",
+          "gen": "GLM-4.5",
+          "released": "2025-07",
+          "kind": "hf"
+        }
+      ],
+      "blocked": [
+        "meta-llama/Llama-3.2-3B-Instruct",
+        "meta-llama/Llama-3.1-8B-Instruct",
+        "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+        "google/gemma-3-4b-it",
+        "google/gemma-2-2b-it",
+        "CohereLabs/aya-expanse-8b",
+        "ai4bharat/Airavata"
+      ]
+    },
+    "git_commit": "2624777bd86b3766a0ab6d410f020b960e7e8d8e-dirty",
+    "timestamp_utc": "2026-10-07T10:47:05+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "argv": [
+      "scripts/e01_cost.py",
+      "--config",
+      "configs/e01_cost_flores_plus.yaml"
+    ]
+  },
+  "n_texts": 38171,
+  "n_tokenizers_ok": 33,
+  "seconds": 432.0
+}

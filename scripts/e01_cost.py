@@ -17,7 +17,7 @@ import pandas as pd
 import yaml
 
 from shattered.data import corpora
-from shattered.runlog import results_dir, write_json
+from shattered.runlog import lower_priority, results_dir, write_json
 from shattered.tok.registry import load_counter, load_hf_tokenizer
 from shattered.translit import to_lossy
 from shattered.translit.scheme import SCRIPTS, itrans_for
@@ -67,7 +67,8 @@ def main() -> None:
     ap.add_argument("--config", default="configs/e01_cost.yaml")
     args = ap.parse_args()
     cfg = yaml.safe_load(open(args.config, encoding="utf-8"))
-    out_dir = results_dir("e01_cost")
+    lower_priority()
+    out_dir = results_dir(cfg.get("results_name", "e01_cost"))
     t0 = time.time()
     texts = build_texts(cfg)
     print(f"{len(texts)} texts built in {time.time() - t0:.0f}s")

@@ -10,7 +10,7 @@ from matplotlib.ticker import FixedLocator, FuncFormatter, NullLocator
 from ..runlog import REPO
 from . import style
 
-RES = REPO / "results" / "e01_cost"
+RES = REPO / "results" / "e01_cost_flores_plus"  # FLORES+; the FLORES-200 draft is in results/e01_cost
 LANG_NAMES = {"kan_Knda": "Kannada", "tam_Taml": "Tamil", "tel_Telu": "Telugu", "mal_Mlym": "Malayalam",
               "hin_Deva": "Hindi", "ben_Beng": "Bangla"}
 # One representative per distinct tokenizer (identical tokenizers share counts; see results/e01_cost)
@@ -54,7 +54,7 @@ def f1_tax_by_language(summary: pd.DataFrame | None = None) -> list:
     ax.set_title("F1. The language tax: native-script token cost relative to English", loc="left")
     ax.legend(ncol=4, loc="upper center", bbox_to_anchor=(0.5, -0.12), fontsize=8, handletextpad=0.3)
     n = int(s.n_sentences.iloc[0])
-    fig.text(0.01, -0.13, f"n = {n} FLORES-200 dev+devtest sentences per language; bars = paired bootstrap 95% CI "
+    fig.text(0.01, -0.13, f"n = {n} FLORES+ dev+devtest sentences per language; bars = paired bootstrap 95% CI "
              "(10,000 resamples; mostly narrower than markers).", fontsize=7, color=style.INK_MUTED)
     return style.save(fig, "F1_tax_by_language")
 

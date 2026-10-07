@@ -27,6 +27,13 @@ TARGETS = {"o200k": ["o200k"], "gemma4": ["gemma4"], "qwen3.5": ["qwen3.5"], "qw
            "universal": ["o200k", "gemma4", "qwen3.5", "qwen3"]}
 
 
+def _low_priority() -> None:
+    """Pool initializer: run search workers below normal priority so concurrent GPU training keeps its CPU."""
+    import psutil
+    p = psutil.Process()
+    p.nice(psutil.BELOW_NORMAL_PRIORITY_CLASS if os.name == "nt" else 10)
+
+
 def run_job(job: dict) -> dict:
     os.environ["TOKENIZERS_PARALLELISM"] = "false"
     from shattered.romanize_opt.search import (WordObjective, all_candidates, coordinate_descent,
@@ -65,14 +72,14 @@ def run_job(job: dict) -> dict:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--words", type=int, default=50513, help="top-N Wikipedia words (default: all with count>=30)")
-    ap.add_argument("--workers", type=int, default=6)
+    ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--restarts", type=int, default=4)
     args = ap.parse_args()
     jobs = [{"target": t, "variant": v, "restart": r, "n_words": args.words}
             for t in TARGETS for v in ("free", "lower") for r in range(args.restarts)]
     out = results_dir("e09_romanize")
     results = []
-    with Pool(args.workers) as pool:
+    with Pool(args.workers, initializer=_low_priority) as pool:
         for res in pool.imap_unordered(run_job, jobs):
             results.append(res)
             if "error" in res:
