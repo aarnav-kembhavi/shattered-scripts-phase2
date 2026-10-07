@@ -222,9 +222,13 @@ class Scheme:
         return 0
 
     def encode(self, text: str) -> str:
+        return self.encode_units(self.units(text))
+
+    def encode_units(self, units: list[Unit]) -> str:
+        """Encode pre-parsed units (lets a search re-spell cached unit sequences without re-parsing)."""
         toks: list[str] = []
         kinds: list[str] = []
-        for u in self.units(text):
+        for u in units:
             if u.kind == "IV" and kinds and kinds[-1] == "C":  # consonant with virama, then independent vowel
                 toks.append(self.separator)
                 kinds.append("SEP")
