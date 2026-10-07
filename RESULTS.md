@@ -166,3 +166,37 @@ Operationalization and decision rule (fixed now):
   disagreement between methods is reported, not resolved post hoc.
 - Secondary (within form): detok layer increases with the word's token count (Spearman rho > 0, CI excluding 0), per
   model and form.
+
+---
+## 2026-10-08 — E5 controlled pretraining: full grid (6 vocabularies x 3 seeds)
+
+- Config: `configs/e05_pretrain.yaml` (approved grid {256, 384, 512, 768, 1024, 4096}); `scripts/e05_pretrain.py grid`;
+  analysis `scripts/e05_analysis.py`. Results: `results/e05_pretrain/T6.csv`, `analysis.json`, `curves.parquet`,
+  `run_v*_s*/`. Figures: `paper/figures/F6_e05_fragmentation`, `F6b_e05_curves`. All 18 runs completed; identical
+  400,001,505 training bytes per run; 14,162,304 non-embedding params in every condition; embedding params 0.10M (256)
+  to 1.57M (4096).
+- Validation bits per byte (mean ± sd over 3 seeds; tokens/word on TinyStories validation):
+
+  | vocab | tokens/word | val BPB | minimal pairs (n = 472) | train FLOPs |
+  |---|---|---|---|---|
+  | 256 | 5.01 | 0.5970 ± 0.0009 | 0.886 ± 0.052 | 4.18e16 |
+  | 384 | 2.54 | 0.5696 ± 0.0011 | 0.924 ± 0.050 | 1.93e16 |
+  | 512 | 2.08 | 0.5606 ± 0.0021 | 0.889 ± 0.029 | 1.56e16 |
+  | 768 | 1.74 | 0.5513 ± 0.0010 | 0.880 ± 0.074 | 1.29e16 |
+  | 1024 | 1.58 | 0.5460 ± 0.0002 | 0.899 ± 0.074 | 1.18e16 |
+  | 4096 | 1.27 | 0.5285 ± 0.0011 | 0.955 ± 0.023 | 1.00e16 |
+
+- BPB vs tokens per word: Spearman rho = 1.0 across the 6 conditions; span 0.069 BPB vs max seed sd 0.002 (~33x).
+  More fragmented conditions used *more* compute (byte-level 4.2x the FLOPs of 4096). At equal compute (1.0e16 FLOPs,
+  read from the training curves, 2 MB validation subset): 256 0.792, 384 0.636, 512 0.599, 768 0.569, 1024 0.555,
+  4096 0.527 — the gap widens when compute is equalized.
+- Minimal pairs: not monotonic (Spearman rho = −0.43, p = 0.40, n = 6 conditions); seed sd 2–7 points. 4096 is best at
+  every stage of training (mean over all evaluations 0.885 ± 0.006 vs 0.77–0.84 for the rest); byte-level learns
+  slowest early (0.53 at 10% of training vs 0.73 for 4096) and partly catches up (0.886 at the end). Plural agreement
+  (~0.97) and irregular past (1.00, n = 12) are near ceiling; singular agreement and determiner-noun carry the signal.
+- Prediction: as tokens/word increases, BPB worse, minimal-pair accuracy lower, assembly depth later, all beyond seed
+  variance; failure if no monotonic relationship or the effect disappears at equal compute.
+- **Outcome: BPB confirmed** (monotonic, far beyond seed noise, stronger at equal compute). **Grammar: inconclusive**
+  — only the extremes differ (4096 best and fastest; byte-level slowest to learn), middle conditions are within seed
+  noise and the benchmark is partly at ceiling. **Assembly depth: pending** (M1 probes/Patchscopes on these models).
+- Caveat: one corpus (TinyStories), one model size (8 layers, d = 384), 400 MB per run.
