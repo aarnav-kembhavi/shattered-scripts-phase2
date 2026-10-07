@@ -1,0 +1,74 @@
+{
+  "provenance": {
+    "config": {
+      "corpus": "flores_plus",
+      "lang": "kan_Knda"
+    },
+    "git_commit": "e606debb6ebfea3ee97b3a0c4a7a2abcd62ec839-dirty",
+    "timestamp_utc": "2026-10-07T10:30:44+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "argv": [
+      "scripts/e09_capitals.py"
+    ]
+  },
+  "n_sentences": 2009,
+  "share_word_tokens_with_midword_capital": 0.7137012369172216,
+  "tokenizers": {
+    "o200k": {
+      "tokens_native": 103948,
+      "tokens_itrans": 126357,
+      "tokens_itrans_lowercased": 104575,
+      "itrans_vs_native": 1.2155789433178128,
+      "lowercased_vs_native": 1.0060318620848887,
+      "capital_cost_share_of_itrans_tokens": 0.17238459285991278,
+      "share_of_excess_over_native_explained_by_capitals": 0.972020170467223,
+      "midcap_words_mean_tokens": 4.566368928587299,
+      "midcap_words_mean_tokens_lowercased": 3.600942096609341
+    },
+    "Gemma 4": {
+      "tokens_native": 102578,
+      "tokens_itrans": 128040,
+      "tokens_itrans_lowercased": 106470,
+      "itrans_vs_native": 1.2482208660726473,
+      "lowercased_vs_native": 1.037941858878122,
+      "capital_cost_share_of_itrans_tokens": 0.16846298031865042,
+      "share_of_excess_over_native_explained_by_capitals": 0.8471447647474668,
+      "midcap_words_mean_tokens": 4.5915655690352395,
+      "midcap_words_mean_tokens_lowercased": 3.6344931786872863
+    },
+    "Qwen3.5": {
+      "tokens_native": 168009,
+      "tokens_itrans": 133260,
+      "tokens_itrans_lowercased": 111560,
+      "itrans_vs_native": 0.7931717943681589,
+      "lowercased_vs_native": 0.664012046973674,
+      "capital_cost_share_of_itrans_tokens": 0.16283956175896744,
+      "share_of_excess_over_native_explained_by_capitals": null,
+      "midcap_words_mean_tokens": 4.78349553392881,
+      "midcap_words_mean_tokens_lowercased": 3.819224103452873
+    },
+    "Qwen2.5/3": {
+      "tokens_native": 373201,
+      "tokens_itrans": 137806,
+      "tokens_itrans_lowercased": 118449,
+      "itrans_vs_native": 0.3692541016771123,
+      "lowercased_vs_native": 0.31738660936063945,
+      "capital_cost_share_of_itrans_tokens": 0.14046558205012843,
+      "share_of_excess_over_native_explained_by_capitals": null,
+      "midcap_words_mean_tokens": 4.920899435630805,
+      "midcap_words_mean_tokens_lowercased": 4.061102964049238
+    },
+    "Sarvam-1": {
+      "tokens_native": 75378,
+      "tokens_itrans": 169000,
+      "tokens_itrans_lowercased": 144111,
+      "itrans_vs_native": 2.242033484571095,
+      "lowercased_vs_native": 1.9118443047042903,
+      "capital_cost_share_of_itrans_tokens": 0.14727218934911243,
+      "share_of_excess_over_native_explained_by_capitals": 0.2658456345730704,
+      "midcap_words_mean_tokens": 6.0743456428031815,
+      "midcap_words_mean_tokens_lowercased": 4.965737901613118
+    }
+  }
+}
