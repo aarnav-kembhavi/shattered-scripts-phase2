@@ -11,6 +11,12 @@ Nothing is listed here until its availability and license have been verified on 
 | TinyStories V2 (GPT-4) | HF `roneneldan/TinyStories`, files `TinyStoriesV2-GPT4-{train,valid}.txt` | `f54c09fd23315a6f9c86f9dc80f725de7d8f9c64` | CDLA-Sharing-1.0 (HF card) | train (2.23 GB), valid (22.5 MB) | E5: first 400 MB of the seeded document shuffle (proposed budget); tokenizers trained on first 100 MB | E5 | 2026-10-07 |
 | IndicXNLI | HF `Divyanshu/indicxnli` (files `forward/{dev,test,train}/xnli_kn.json`) | `7092c27872e9` | CC0-1.0 (HF card YAML) | test (kn: 5010, balanced 1670/1670/1670; 0 = entailment, 1 = neutral, 2 = contradiction; chance 33.3%) | — (E0 samples 200) | E0, E2, E3, E8 (planned) | 2026-10-07 |
 | IndicSentiment | HF `ai4bharat/IndicSentiment` (files `data/{validation,test}/kn.json`) | `dc8f3f668865` | **not stated on the source card**; mirror `mteb/IndicSentiment` card says CC0-1.0 — to confirm at source (IndicXTREME release) | test (kn: 1000; Positive 506, Negative 492, 2 unlabeled; binary, chance ~50%, not 3-way as the README says). Each item includes the parallel English review. | — | E0, E2, E3 (planned) | 2026-10-07 |
+| XNLI (English test) | HF `facebook/xnli`, `en/test-00000-of-00001.parquet` | `b8dd5d7af51114dbda02c0e3f6133f332186418e` | not on HF card; to confirm at source (XNLI repo) | test (5010; verified aligned item-by-item with IndicXNLI kn test: identical label sequence, spot-checked translations) | 200 sampled with IndicXNLI | E0, M-experiments | 2026-10-07 |
+| Gemma 4 E2B (model) | HF `google/gemma-4-E2B-it` | — | Apache-2.0 (HF card) | — | text-only, per-layer embeddings on CPU | E0, M1–M6 | 2026-10-07 |
+
+Notes on task data
+- IndicXNLI is machine-translated from English XNLI; some Kannada items drift in meaning (e.g. test-1234 hypothesis).
+  This is noise we inherit, identical across forms (native and ITRANS are transliterations of the same text).
 
 Derived data
 - `data/processed/kn_wiki_wordfreq.parquet`: Kannada word frequencies from Wikipedia 20231101.kn (17.0M word tokens,
