@@ -200,3 +200,30 @@ Operationalization and decision rule (fixed now):
   — only the extremes differ (4096 best and fastest; byte-level slowest to learn), middle conditions are within seed
   noise and the benchmark is partly at ceiling. **Assembly depth: pending** (M1 probes/Patchscopes on these models).
 - Caveat: one corpus (TinyStories), one model size (8 layers, d = 384), 400 MB per run.
+
+---
+## 2026-10-08 — E0 GATE (4 of 5 models; Gemma 4 E2B not run)
+
+- `scripts/e00_gate.py`; results `results/e00_gate/summary.csv`, `summary.json`, `scores_<model>.parquet`. n = 200 items
+  per task (IndicXNLI kn test aligned to XNLI en; IndicSentiment kn test with English review), stratified, seed 0.
+  Log-likelihood of English label words after an English instruction (templates e0_*_v1). Raw accuracy, 95%
+  bootstrap CI. Chance: XNLI 33.3%, sentiment 50%.
+- Gemma 4 E2B: the E0 job was stopped by Claude Code for low system memory while loading Gemma (the loader briefly
+  materializes the 10 GB checkpoint in CPU RAM). Not restarted pending Aarnav's go-ahead.
+
+  | model | sentiment en / native / ITRANS | XNLI en / native / ITRANS |
+  |---|---|---|
+  | Qwen2.5-1.5B-Instruct | 98.5 / 70.5 / 49.5 | 79.5 / 51.0 / 37.5 |
+  | Qwen3-1.7B | 98.5 / 86.5 / 58.0 | 61.5 / 43.0 / 37.0 |
+  | Qwen3.5-2B | 97.5 / 78.5 / 67.5 | 43.0 / 34.0 / 34.0 |
+  | Sarvam-1 | 95.5 / 98.0 / 80.0 | 57.5 / 52.0 / 40.5 |
+
+- Gate rule (native >= chance + 10 and English >= chance + 15 on one task): **all four pass**, via sentiment;
+  Qwen2.5 and Sarvam-1 also pass on XNLI. Qwen3.5-2B collapses to one label on XNLI (99.5% of predictions in native
+  and ITRANS; calibrated English 62.0%).
+- **Finding relevant to M1/M2: ITRANS accuracy is below native in every model and task, including the Qwen models
+  where ITRANS is far less fragmented** (Qwen2.5: native 70.5 vs ITRANS 49.5 on sentiment, with 99.5% of ITRANS
+  predictions on one label; Qwen3 86.5 vs 58.0). Fewer tokens did not make ITRANS easier; familiarity with the form
+  (training data) dominates at the accuracy level. This argues against the simplest fragmentation story for accuracy
+  and has to be reported. Several ITRANS cells are at chance (all XNLI-ITRANS, Qwen2.5 sentiment-ITRANS), which limits
+  M2/M6 for those cells.
