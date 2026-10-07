@@ -123,7 +123,7 @@ def pilot(cfg: dict, meta: dict) -> None:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["prepare", "bench", "pilot", "train", "mp"])
+    ap.add_argument("cmd", choices=["prepare", "bench", "pilot", "train", "mp", "grid"])
     ap.add_argument("--run", help="run name for `mp` (rescore minimal pairs of a finished run)")
     ap.add_argument("--config", default="configs/e05_pretrain.yaml")
     ap.add_argument("--vocab", type=int)
@@ -141,6 +141,19 @@ def main() -> None:
         write_json(results_dir("e05_pretrain") / "bench.json", bench(cfg, meta), cfg)
     elif args.cmd == "pilot":
         pilot(cfg, meta)
+    elif args.cmd == "grid":
+        # seed-major order, so every completed seed covers all vocabs; each run resumes/skips via its checkpoint
+        summary = []
+        for seed in cfg["seeds"]:
+            for v in cfg["vocabs"]:
+                t0 = time.time()
+                res = train_run(run_cfg(cfg, v, seed, 1.0, "run"), meta)
+                summary.append({"vocab": v, "seed": seed, "status": res["status"],
+                                "val_bpb_full": res.get("val_bpb_full"), "wall_seconds": time.time() - t0,
+                                "params": res.get("params"), "train_flops": res.get("train_flops"),
+                                "bytes_per_token": res.get("bytes_per_token"), "ctx_tokens": res.get("ctx_tokens")})
+                print(json.dumps(summary[-1]), flush=True)
+                write_json(results_dir("e05_pretrain") / "grid_status.json", {"runs": summary}, cfg)
     elif args.cmd == "mp":
         res = eval_minimal_pairs(cfg, meta, args.run, args.vocab)
         write_json(results_dir("e05_pretrain") / args.run / "minimal_pairs.json", res, {"run": args.run})

@@ -1,0 +1,60 @@
+{
+  "provenance": {
+    "config": {
+      "corpus": "flores_plus",
+      "scheme": "itrans",
+      "splits": [
+        "dev",
+        "devtest"
+      ],
+      "lang": "kan_Knda",
+      "backmap_train": "wikipedia kn 20231101",
+      "backmap_train_articles": 31437
+    },
+    "git_commit": "af094cc121a298db2aa5978b074f7c979792d7d6-dirty",
+    "timestamp_utc": "2026-10-07T10:26:54+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "argv": [
+      "scripts/e02_translit.py",
+      "--corpus",
+      "flores_plus"
+    ]
+  },
+  "n_sentences": 2009,
+  "n_ref_chars": 268707,
+  "cer_corpus_backmap": 0.030937042950127835,
+  "cer_itrans_decode_only": 0.1924252066377132,
+  "word_accuracy_backmap": 0.8846141647372261,
+  "backmap_coverage_tokens": 0.9307304386437882,
+  "train_native_word_types": 2334929,
+  "train_lossy_word_types": 2092504,
+  "train_types_merged_frac": 0.10382542681169316,
+  "examples": [
+    {
+      "native": "ಅಂದಾಜು ತಲಾ ಒಂದು ಯು.ಎಸ್‌ ಸೆಂಟ್‌ನಿಂದ ಪ್ರಮಾಣಿತ ಇಂಕ್‌ಜೆಟ್ ಪ್ರಿಂಟರುಗಳನ್ನು ಬಳಸಿ ಉತ್ಪಾದಿಸಬಹುದಾದ ಸಣ್ಣ ಪ್ರಿಂಟ್ ಮಾಡಬಹುದಾದ ಚಿಪ್‌ ಆಗಿರುವ ಸೆಲ್‌ಗಳ ವಿಧವನ್ನು ಆಯೋಜಿಸುವ ಹೊಸ ಪತ್ತೆ ಪರಿಕರದ ಅನ್ವೇಷಣೆಯ ಘೋಷಣೆಯನ್ನು ಸ್ಟಾನ್‌ಫೋರ್ಡ್‌ ವಿಶ್ವವಿದ್ಯಾಲಯದ ಔಷಧ ಶಾಲೆಯ ವಿದ್ಯಾರ್ಥಿಗಳು ಸೋಮವಾರ ಮಾಡಿದ್ದಾರೆ.",
+      "lossy": "andaju tala ondu yu.es sentninda pramanita inkjet printarugalannu balasi utpadisabahudada sanna print madabahudada chip agiruva selgala vidavannu ayojisuva hosa patte parikarada anveshaneya goshaneyannu stanpord vishvavidyalayada aushada shaleya vidyartigalu somavara madiddare.",
+      "inverted": "ಅಂದಾಜು ತಲಾ ಒಂದು ಯು.ಎಸ್ ಸೆನ್ತ್ನಿನ್ದ ಪ್ರಮಾಣಿತ ಇಂಕ್‌ಜೆಟ್‌ ಪ್ರಿನ್ತರುಗಲನ್ನು ಬಳಸಿ ಉತ್ಪಾದಿಸಬಹುದಾದ ಸಣ್ಣ ಪ್ರಿಂಟ್ ಮಾಡಬಹುದಾದ ಚಿಪ್ ಆಗಿರುವ ಸೆಲ್‌ಗಳ ವಿಧವನ್ನು ಆಯೋಜಿಸುವ ಹೊಸ ಪತ್ತೆ ಪರಿಕರದ ಅನ್ವೇಷಣೆಯ ಘೋಷಣೆಯನ್ನು ಸ್ಟಾನ್‌ಫೋರ್ಡ್ ವಿಶ್ವವಿದ್ಯಾಲಯದ ಔಷಧ ಶಾಲೆಯ ವಿದ್ಯಾರ್ಥಿಗಳು ಸೋಮವಾರ ಮಾಡಿದ್ದಾರೆ."
+    },
+    {
+      "native": "ಪ್ರಮುಖ ಸಂಶೋಧಕರು ಹೇಳುವಂತೆ, ಇದರಿಂದ ಕಡಿಮೆ ಆದಾಯ ಇರುವ ದೇಶಗಳ ರೋಗಿಗಳಲ್ಲಿ ಮತ್ತು ಶ್ರೀಮಂತ ರಾಷ್ಟ್ರಗಳಲ್ಲಿ ಇರುವುದಕ್ಕಿಂತ ಅರ್ಧದಷ್ಟು ಬದುಕುಳಿಯುವ ಪ್ರಮಾಣ ಇರುವ ಸ್ತನ ಕ್ಯಾನ್ಸರ್ ರೋಗಿಗಳಲ್ಲಿ , ಕ್ಯಾನ್ಸರ್, ಕ್ಷಯರೋಗ, HIV ಮತ್ತು ಮಲೇರಿಯಾ ರೋಗಗಳನ್ನು ಆರಂಭಿಕ ಹಂತದಲ್ಲೇ ಪತ್ತೆ ಹಚ್ಚಬಹುದು ಎಂದಿದ್ದಾರೆ.",
+      "lossy": "pramuka sanshodakaru heluvante, idarinda kadime adaya iruva deshagala rogigalalli mattu shrimanta rashtragalalli iruvudakkinta ardadashtu badukuliyuva pramana iruva stana kyansar rogigalalli , kyansar, kshayaroga, HIV mattu maleriya rogagalannu arambika hantadalle patte hachchabahudu endiddare.",
+      "inverted": "ಪ್ರಮುಖ ಸಂಶೋಧಕರು ಹೇಳುವಂತೆ, ಇದರಿಂದ ಕಡಿಮೆ ಆದಾಯ ಇರುವ ದೇಶಗಳ ರೋಗಿಗಳಲ್ಲಿ ಮತ್ತು ಶ್ರೀಮಂತ ರಾಷ್ಟ್ರಗಳಲ್ಲಿ ಇರುವುದಕ್ಕಿಂತ ಅರ್ಧದಷ್ಟು ಬದುಕುಳಿಯುವ ಪ್ರಮಾಣ ಇರುವ ಸ್ಥಾನ ಕ್ಯಾನ್ಸರ್ ರೋಗಿಗಳಲ್ಲಿ , ಕ್ಯಾನ್ಸರ್, ಕ್ಷಯರೋಗ, HIV ಮತ್ತು ಮಲೇರಿಯಾ ರೋಗಗಳನ್ನು ಆರಂಭಿಕ ಹಂತದಲ್ಲೇ ಪತ್ತೆ ಹಚ್ಚಬಹುದು ಎಂದಿದ್ದಾರೆ."
+    },
+    {
+      "native": "JAS 39C ಗ್ರೈಪೆನ್, ಸ್ಥಳೀಯ ಸಮಯ ಬೆಳಿಗ್ಗೆ 9:30 ಕ್ಕೆ (0230 UTC) ರನ್ ವೇ ಮೇಲೆ ಅಪ್ಪಳಿಸಿ ನಂತರ ಸ್ಫೋಟಗೊಂಡಿದ್ದರಿಂದ, ವಿಮಾನ ನಿಲ್ದಾಣವನ್ನು ಕಮರ್ಷಿಯಲ್ ವಿಮಾನಗಳಿಗೆ ಮುಚ್ಚಲಾಯಿತು.",
+      "lossy": "JAS 39C graipen, staliya samaya beligge 9:30 kke (0230 UTC) ran ve mele appalisi nantara spotagondiddarinda, vimana nildanavannu kamarshiyal vimanagalige muchchalayitu.",
+      "inverted": "JAS 39C ಗ್ರೈಪೆನ್, ಸ್ಥಳೀಯ ಸಮಯ ಬೆಳಿಗ್ಗೆ ೯:೩೦ ಕ್ಕೆ (0230 UTC) ರನ್ ವೇ ಮೇಲೆ ಅಪ್ಪಳಿಸಿ ನಂತರ ಸ್ಪೊತಗೊನ್ದಿದ್ದರಿನ್ದ, ವಿಮಾನ ನಿಲ್ದಾಣವನ್ನು ಕಮರ್ಷಿಯಲ್ ವಿಮಾನಗಳಿಗೆ ಮುಚ್ಚಲಾಯಿತು."
+    },
+    {
+      "native": "ಆ ಪೈಲಟ್‌ನನ್ನು ಸ್ಕ್ವಾಡ್ರನ್ ಲೀಡರ್ ದಿಲೋಕ್ರಿತ್ ಪಟ್ಟವೀ ಎಂದು ಗುರುತಿಸಲಾಗಿದೆ.",
+      "lossy": "a pailatnannu skvadran lidar dilokrit pattavi endu gurutisalagide.",
+      "inverted": "ಆ ಪೈಲಟ್‌ನನ್ನೂ ಸ್ಕ್ವಾಡ್ರನ್ ಲೀಡರ್ ದಿಲೊಕ್ರಿತ್ ಪತ್ತವಿ ಎಂದು ಗುರುತಿಸಲಾಗಿದೆ."
+    },
+    {
+      "native": "ವಿಮಾನ ನಿಲ್ದಾಣದ ಅಗ್ನಿ ಶಾಮಕ ದಳದ ಒಂದು ವ್ಯಾನು, ಸ್ಫೋಟದ ಜಾಗಕ್ಕೆ ಹೋಗುವಾಗ ಉರುಳಿತು ಎಂದು ಸ್ಥಳೀಯ ಮಾಧ್ಯಮಗಳು ವರದಿ ಮಾಡಿವೆ.",
+      "lossy": "vimana nildanada agni shamaka dalada ondu vyanu, spotada jagakke hoguvaga urulitu endu staliya madyamagalu varadi madive.",
+      "inverted": "ವಿಮಾನ ನಿಲ್ದಾಣದ ಅಗ್ನಿ ಶಾಮಕ ದಳದ ಒಂದು ವ್ಯಾನು, ಸ್ಫೋಟದ ಜಾಗಕ್ಕೆ ಹೋಗುವಾಗ ಉರುಲಿತು ಎಂದು ಸ್ಥಳೀಯ ಮಾಧ್ಯಮಗಳು ವರದಿ ಮಾಡಿವೆ."
+    }
+  ]
+}

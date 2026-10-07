@@ -114,6 +114,13 @@ def train_run(cfg: dict, meta: dict) -> dict:
                     "scaler": scaler.state_dict() if scaler else None, "rng_cpu": torch.get_rng_state()}, tmp)
         tmp.replace(ck)
 
+    from safetensors.torch import save_file
+
+    from . import evals
+    from .data import load_tokenizer
+    mp_pairs = evals.minimal_pairs() if cfg.get("mp_during_training", True) else None
+    mp_tok = load_tokenizer(REPO / m["tokenizer"]) if mp_pairs else None
+    snapshot_steps = {max(1, int(round(steps * f))): f for f in cfg.get("snapshot_fracs", [])}
     flops_tok = train_flops_per_token(mc, ctx, counts["non_embedding"])
     info = {"ctx_tokens": ctx, "steps": steps, "tokens_per_step": cfg["batch_seqs"] * ctx,
             "train_tokens": steps * cfg["batch_seqs"] * ctx, "train_bytes_seen": bytes_used,
@@ -166,6 +173,14 @@ def train_run(cfg: dict, meta: dict) -> dict:
                    "lr": lr, "grad_norm": float(gn), "train_seconds": t_train}
             if step % cfg["eval_every"] == 0 or step == steps:
                 rec["val_bpb_subset"] = eval_bpb(model, ev_stream, ev_bytes, ctx, device)
+                if mp_pairs:
+                    mp = evals.score_minimal_pairs(model, mp_tok, mp_pairs, device)
+                    model.train()
+                    rec["mp_acc"] = {k: v["acc_total_logprob"] for k, v in mp.items()}
+                    rec["mp_acc_per_byte"] = {k: v["acc_per_byte"] for k, v in mp.items()}
+            if step in snapshot_steps:
+                save_file({k: v.contiguous() for k, v in model.state_dict().items()},
+                          str(ck_dir / f"snapshot_step{step}.safetensors"))
             if step % 50 == 0 or "val_bpb_subset" in rec:
                 log.write(json.dumps(rec) + "\n")
                 log.flush()
@@ -176,8 +191,9 @@ def train_run(cfg: dict, meta: dict) -> dict:
     final = {"val_bpb_full": eval_bpb(model, np.ascontiguousarray(valid), m["valid_bytes"], ctx, device),
              "train_seconds_this_session": t_train, "wall_seconds_this_session": time.time() - t_start,
              "seconds_per_step": t_train / max(1, steps - start_step)}
-    from safetensors.torch import save_file
     save_file({k: v.contiguous() for k, v in model.state_dict().items()}, str(ck_dir / "final.safetensors"))
+    if mp_pairs:
+        final["minimal_pairs"] = evals.score_minimal_pairs(model, mp_tok, mp_pairs, device)
     (out / "final.json").write_text(json.dumps({"provenance": provenance(cfg), **info, **final,
                                                 "model_config": mc.to_dict()}, indent=2))
     return {"status": "done", **info, **final}

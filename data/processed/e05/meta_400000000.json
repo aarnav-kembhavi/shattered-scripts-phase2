@@ -72,5 +72,31 @@
     "valid_stories": 27630,
     "data_seed": 0,
     "tokenizer_train_bytes": 100000000
+  },
+  "384": {
+    "vocab": 384,
+    "vocab_with_eos": 385,
+    "train_tokens": 202402416,
+    "valid_tokens": 11177607,
+    "train_bytes": 400001505,
+    "valid_bytes": 22104748,
+    "bytes_per_token_train": 1.9762684305112248,
+    "bytes_per_token_valid": 1.9775921626158444,
+    "tokenizer": "data\\processed\\e05\\tokenizer_384.json",
+    "train_stream": "data\\processed\\e05\\train_384_400000000.npy",
+    "valid_stream": "data\\processed\\e05\\valid_384_all.npy"
+  },
+  "768": {
+    "vocab": 768,
+    "vocab_with_eos": 769,
+    "train_tokens": 138551467,
+    "valid_tokens": 7649843,
+    "train_bytes": 400001505,
+    "valid_bytes": 22104748,
+    "bytes_per_token_train": 2.887024682315345,
+    "bytes_per_token_valid": 2.8895688447462256,
+    "tokenizer": "data\\processed\\e05\\tokenizer_768.json",
+    "train_stream": "data\\processed\\e05\\train_768_400000000.npy",
+    "valid_stream": "data\\processed\\e05\\valid_768_all.npy"
   }
 }

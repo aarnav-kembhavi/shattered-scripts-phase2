@@ -1,0 +1,67 @@
+{
+  "provenance": {
+    "config": {
+      "corpus": "flores_plus",
+      "scheme": "itrans",
+      "splits": [
+        "dev",
+        "devtest"
+      ],
+      "lang": "kan_Knda"
+    },
+    "git_commit": "af094cc121a298db2aa5978b074f7c979792d7d6-dirty",
+    "timestamp_utc": "2026-10-07T10:19:53+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "argv": [
+      "scripts/e02_translit.py",
+      "--corpus",
+      "flores_plus"
+    ]
+  },
+  "n_texts": 2009,
+  "n_chars": 269806,
+  "n_exact": 2009,
+  "exact_rate": 1.0,
+  "n_separators": 14,
+  "separators_per_text": 0.006968641114982578,
+  "n_raw_runs": 220,
+  "unit_counts": {
+    "IV": 7054,
+    "S": 6878,
+    "C": 131185,
+    "V": 107483,
+    "LIT": 37673,
+    "RAW": 220,
+    "DIG": 1
+  },
+  "non_ascii_chars_in_raw_runs": {
+    "U+0CD5": 20,
+    "U+0CC2": 9,
+    "U+0CD6": 1
+  },
+  "failing_chars": [],
+  "failures": [],
+  "seconds": 2.3,
+  "n_texts_not_nfc": 17,
+  "nfc": {
+    "n_texts": 2009,
+    "n_chars": 269776,
+    "n_exact": 2009,
+    "exact_rate": 1.0,
+    "n_separators": 14,
+    "separators_per_text": 0.006968641114982578,
+    "n_raw_runs": 195,
+    "unit_counts": {
+      "IV": 7054,
+      "S": 6878,
+      "C": 131185,
+      "V": 107483,
+      "LIT": 37673,
+      "RAW": 195,
+      "DIG": 1
+    },
+    "non_ascii_chars_in_raw_runs": {},
+    "failing_chars": []
+  }
+}
