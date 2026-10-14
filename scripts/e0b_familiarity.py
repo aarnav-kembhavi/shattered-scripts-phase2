@@ -8,6 +8,11 @@ Scores are cached per (model, form) in results/e0b_familiarity/scores/, so addin
 Outputs (results/e0b_familiarity/<tag>/): accuracy.csv, mcnemar.csv, mcnemar_exploratory.csv, fertility.csv,
                                           verdicts.json, summary.json
 
+Calibration (deviation registered 2026-10-15): primary = content-free log-probs averaged over "N/A", "" and "[MASK]";
+if a model x task's calibrated English accuracy is > 5 points below raw, that whole row uses raw scores (flagged).
+Raw and "N/A"-only results are also written. Items whose natural romanization is still defective after retries are
+dropped from the natural form only.
+
 McNemar/Holm: the registered family is COMPARISONS (natural-native, natural-itrans, lossy-itrans), restricted to the
 forms present. itrans-native is an exploratory comparison, Holm-corrected separately.
 """
@@ -32,11 +37,15 @@ QWEN = {"qwen2.5-1.5b", "qwen3.5-2b"}
 COMPARISONS = [("natural", "native"), ("natural", "itrans"), ("lossy", "itrans")]
 EXPLORATORY = [("itrans", "native")]
 OUT_NAME = "e0b_familiarity"
+CONTENT_FREE = ["N/A", "", "[MASK]"]
+FALLBACK_POINTS = 0.05
 
 
 def load_items(forms: list[str]) -> dict:
-    nat = {r["native"]: r["natural"] for r in map(json.loads, open(REPO / "data" / "processed" / "natural_e0_v1.jsonl",
-                                                                      encoding="utf-8"))}
+    from shattered.translit.natural import defective
+    rows = [json.loads(x) for x in open(REPO / "data" / "processed" / "natural_e0_v1.jsonl", encoding="utf-8")]
+    nat = {r["native"]: r["natural"] for r in rows}
+    bad = {r["native"] for r in rows if defective(r)}
     out = {}
     for t in ("xnli", "sentiment"):
         items = tasks.stratified_sample(tasks.load_task(t), 200, seed=0)
@@ -48,6 +57,7 @@ def load_items(forms: list[str]) -> dict:
                 if missing:
                     raise SystemExit(f"natural romanization missing for {len(missing)} texts; run e0b_natural.py first")
                 it["forms"]["natural"] = {k: nat[v] for k, v in native.items()}
+                it["natural_defective"] = any(v in bad for v in native.values())
         out[t] = items
     return out
 
@@ -58,27 +68,50 @@ def bootstrap_ci(x: np.ndarray, n_boot: int = 10000, seed: int = 0) -> tuple[flo
     return float(np.percentile(m, 2.5)), float(np.percentile(m, 97.5))
 
 
+def content_free(name: str, items: dict, score_dir, model=None, tok=None) -> dict:
+    """{input: {task: [label log-probs]}} for every content-free input; cached in cf_<model>.json."""
+    path = score_dir / f"cf_{name}.json"
+    if path.exists():
+        return json.load(open(path))
+    own = model is None
+    if own:
+        model, tok = load(name, "cuda")
+    cf = {x: {t: choice_logprobs(model, tok, build_prompt(t, {k: x for k in its[0]["forms"]["native"]}),
+                                 VERBALIZERS[t])[0] for t, its in items.items()} for x in CONTENT_FREE}
+    path.write_text(json.dumps(cf, indent=1), encoding="utf-8")
+    if own:
+        import torch
+        del model
+        torch.cuda.empty_cache()
+    return cf
+
+
 def score_model(name: str, items: dict, forms: list[str], score_dir) -> None:
     """Scores every item in each form not yet on disk; one parquet + one json (fertility, calibration) per form."""
     todo = [f for f in forms if not (score_dir / f"{name}__{f}.parquet").exists()]
     if not todo:
+        content_free(name, items, score_dir)
         return
     import torch
     t0 = time.time()
     model, tok = load(name, "cuda")
     cf = {t: choice_logprobs(model, tok, build_prompt(t, {k: "N/A" for k in its[0]["forms"]["native"]}),
                              VERBALIZERS[t])[0] for t, its in items.items()}
+    content_free(name, items, score_dir, model, tok)
     print(f"{name}: loaded in {time.time() - t0:.0f}s", flush=True)
     for f in todo:
         t1, rows, fert = time.time(), [], []
         for t, its in items.items():
             for it in its:
+                if f == "natural" and it.get("natural_defective"):
+                    continue
                 lp, n_tok = choice_logprobs(model, tok, build_prompt(t, it["forms"][f]), VERBALIZERS[t])
                 cal = np.asarray(lp) - np.asarray(cf[t])
                 rows.append({"model": name, "task": t, "form": f, "id": it["id"], "label": it["label"],
                              "logprobs": lp, "logprobs_cal": cal.tolist(), "pred_raw": int(np.argmax(lp)),
                              "pred_cal": int(np.argmax(cal)), "prompt_tokens": n_tok})
-            texts = [v for it in its for v in it["forms"][f].values()]
+            texts = [v for it in its if not (f == "natural" and it.get("natural_defective"))
+                     for v in it["forms"][f].values()]
             ntok = sum(len(x) for x in tok(texts, add_special_tokens=False)["input_ids"])
             fert.append({"model": name, "task": t, "form": f, "n_texts": len(texts),
                          "tokens_per_word": ntok / sum(len(x.split()) for x in texts)})
@@ -90,12 +123,32 @@ def score_model(name: str, items: dict, forms: list[str], score_dir) -> None:
     torch.cuda.empty_cache()
 
 
+def apply_calibration(df: pd.DataFrame, cf: dict) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Adds pred_raw, pred_na, pred_avg3 and the primary pred_cal (avg3 with the raw fallback rule).
+    cf: {model: {input: {task: logprobs}}}. Returns (df, fallback table)."""
+    df = df.copy()
+    lp = df.logprobs.map(np.asarray)
+    df["pred_raw"] = lp.map(np.argmax)
+    for col, inputs in (("pred_na", ["N/A"]), ("pred_avg3", CONTENT_FREE)):
+        df[col] = [int(np.argmax(x - np.mean([cf[m][i][t] for i in inputs], axis=0)))
+                   for x, m, t in zip(lp, df.model, df.task)]
+    fb = []
+    for (m, t), g in df[df.form == "english"].groupby(["model", "task"]):
+        raw, cal = (g.pred_raw == g.label).mean(), (g.pred_avg3 == g.label).mean()
+        fb.append({"model": m, "task": t, "english_raw": raw, "english_avg3": cal,
+                   "use_raw": bool(cal < raw - FALLBACK_POINTS)})
+    fb = pd.DataFrame(fb)
+    use_raw = {(r.model, r.task) for r in fb.itertuples() if r.use_raw}
+    df["pred_cal"] = [r if (m, t) in use_raw else c for r, c, m, t in zip(df.pred_raw, df.pred_avg3, df.model, df.task)]
+    return df, fb
+
+
 def accuracy_table(df: pd.DataFrame) -> pd.DataFrame:
     out = []
     for (m, t, f), g in df.groupby(["model", "task", "form"]):
         y = g.label.to_numpy()
         row = {"model": m, "task": t, "form": f, "n": len(g), "chance": CHANCE[t]}
-        for kind in ("cal", "raw"):
+        for kind in ("cal", "raw", "na", "avg3"):
             c = (g[f"pred_{kind}"].to_numpy() == y).astype(float)
             lo, hi = bootstrap_ci(c)
             row.update({f"acc_{kind}": c.mean(), f"acc_{kind}_ci_low": lo, f"acc_{kind}_ci_high": hi,
@@ -113,11 +166,12 @@ def mcnemar_table(df: pd.DataFrame, comparisons) -> pd.DataFrame:
         lab = g.drop_duplicates("id").set_index("id").label.loc[piv.index]
         corr = piv.eq(lab, axis=0)
         for a, b in comparisons:
-            ca, cb = corr[a], corr[b]
+            keep = piv[a].notna() & piv[b].notna()  # natural form drops defective items
+            ca, cb = corr[a][keep], corr[b][keep]
             table = [[int((ca & cb).sum()), int((ca & ~cb).sum())], [int((~ca & cb).sum()), int((~ca & ~cb).sum())]]
             res = mcnemar(table, exact=True)
             rows.append({"model": m, "task": t, "a": a, "b": b, "acc_a": ca.mean(), "acc_b": cb.mean(),
-                         "diff": ca.mean() - cb.mean(), "a_only": table[0][1], "b_only": table[1][0],
+                         "n": int(keep.sum()), "diff": ca.mean() - cb.mean(), "a_only": table[0][1], "b_only": table[1][0],
                          "p": res.pvalue})
     mc = pd.DataFrame(rows)
     if mc.empty:
@@ -175,6 +229,8 @@ def main() -> None:
     df = pd.concat([pd.read_parquet(score_dir / f"{m}__{f}.parquet") for m in args.models for f in args.forms],
                    ignore_index=True)
     extra = {(m, f): json.load(open(score_dir / f"{m}__{f}.json")) for m in args.models for f in args.forms}
+    df, fallback = apply_calibration(df, {m: json.load(open(score_dir / f"cf_{m}.json")) for m in args.models})
+    fallback.to_csv(out / "calibration_fallback.csv", index=False)
     fert = pd.DataFrame([r for e in extra.values() for r in e["fertility"]])
     acc, mc, ex = accuracy_table(df), mcnemar_table(df, COMPARISONS), mcnemar_table(df, EXPLORATORY)
     acc = acc.merge(fert[["model", "task", "form", "tokens_per_word"]], on=["model", "task", "form"])
@@ -183,11 +239,16 @@ def main() -> None:
     ex.to_csv(out / "mcnemar_exploratory.csv", index=False)
     fert.to_csv(out / "fertility.csv", index=False)
     v = verdicts(acc, mc)
-    cfg = {"models": args.models, "forms": args.forms, "calibration": "contextual, content-free 'N/A' in every field",
+    n_excl = sum(it.get("natural_defective", False) for its in items.values() for it in its)
+    cfg = {"models": args.models, "forms": args.forms,
+           "calibration": "primary: mean of content-free N/A, '', [MASK]; raw fallback if English drops > 5 pts",
+           "calibration_fallback_rows": fallback[fallback.use_raw][["model", "task"]].to_dict("records"),
+           "natural_items_excluded_defective": n_excl,
            "templates": "e0_{xnli,sentiment}_v1", "n_per_task": 200, "seed": 0, "bos": "always prepended",
            "seconds_per_model_form": {f"{m}/{f}": e["seconds"] for (m, f), e in extra.items()}}
     write_json(out / "verdicts.json", v, cfg)
-    write_json(out / "summary.json", {"accuracy": acc.to_dict("records"), "mcnemar": mc.to_dict("records"),
+    write_json(out / "summary.json", {"calibration_fallback": fallback.to_dict("records"),
+                                      "accuracy": acc.to_dict("records"), "mcnemar": mc.to_dict("records"),
                                       "mcnemar_exploratory": ex.to_dict("records"),
                                       "fertility": fert.to_dict("records"), "verdicts": v}, cfg)
     print(json.dumps(v, indent=1))

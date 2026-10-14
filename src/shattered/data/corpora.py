@@ -30,9 +30,10 @@ def flores(lang: str, split: str) -> list[dict]:
     return [json.loads(line) for line in p.open(encoding="utf-8")]
 
 
-def wikipedia(lang: str = "kn", dump: str = "20231101") -> list[str]:
+def wikipedia(lang: str = "kn", dump: str = "20231101", shard: str = "00000-of-00001") -> list[str]:
+    """Articles of one parquet shard (Kannada has a single shard; English has 41, shard 0 is used for M1)."""
     import pyarrow.parquet as pq
-    p = _download(WIKI_REPO, f"{dump}.{lang}/train-00000-of-00001.parquet", WIKI_REV, f"wikipedia_{lang}")
+    p = _download(WIKI_REPO, f"{dump}.{lang}/train-{shard}.parquet", WIKI_REV, f"wikipedia_{lang}")
     return pq.read_table(p, columns=["text"]).column("text").to_pylist()
 
 

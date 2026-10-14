@@ -1,0 +1,162 @@
+[
+ {
+  "n": 1,
+  "item": "indicsentiment-test-554",
+  "field": "text",
+  "native": "\"ಚಾಲಕರನ್ನು ಕಂಪನಿಯು ಸೂಕ್ಷ್ಮವಾಗಿ ಪರಿಶೀಲಿಸುವುದರಿಂದ ಬಹಳ ಸುರಕ್ಷಿತವಾಗಿದೆ. \"",
+  "natural": "chalakarannu kompaniyu sookshmavagi parishilisuvudarinda bahala surakshitavagide.",
+  "english": "Very safe as drivers are scrutinized by the company."
+ },
+ {
+  "n": 2,
+  "item": "xnli-test-2853",
+  "field": "premise",
+  "native": "ಆದ್ದರಿಂದ, ಟೈಟಲ್ V ಕಾರ್ಯಾಚರಣಾ ಅನುಮತಿಯನ್ನು ಮಾರ್ಪಡಿಸಲು ಒಟ್ಟು ಅಂದಾಜು ಸಮಯವು ಸುಮಾರು 17 ತಿಂಗಳುಗಳು, ಜೊತೆಗೆ ಅನುಸರಣೆ ಪರೀಕ್ಷೆಯನ್ನು ಪೂರ್ಣಗೊಳಿಸಲು ಹೆಚ್ಚುವರಿ ಸಮಯ.",
+  "natural": "aatradari, title V kaaryaacharana anumatiyannu maarpadisalu ottu andaaju samayavu sumaru 17 tingalugalu, jothege anusarane pariksheyannu purnagolisalu hechchuvari samaya.",
+  "english": "Therefore, the total estimated time to modify the Title V operating permit is about 17 months, plus the additional time to complete compliance testing."
+ },
+ {
+  "n": 3,
+  "item": "xnli-test-1602",
+  "field": "premise",
+  "native": "ನಾನು ಈ ವರ್ಷದ ಹಿಂದೆ ಅವನನ್ನು ಬೇಟೆಯಾಡುತ್ತಿದ್ದೆ.",
+  "natural": "nanu ee varshada hinde avanannu beteyaduttidde.",
+  "english": "I've been hunting him this year past."
+ },
+ {
+  "n": 4,
+  "item": "xnli-test-3231",
+  "field": "hypothesis",
+  "native": "ಪ್ರತಿ ಸಂದರ್ಶನದ ವಿಷಯಕ್ಕೆ ಸಂಬಂಧಿಸಿದ ಸಂಪೂರ್ಣ ಜೀವನಚರಿತ್ರೆ ಮಾಹಿತಿಯನ್ನು ಕೋರಿಕೆಯ ಮೇರೆಗೆ ನೀಡಲಾಗುವುದು.",
+  "natural": "prati sandarshanada vishayakke sambandhisida sampoorna jeevanacharitre mahitiyannu korikey melege needalaguvudu.",
+  "english": "Full biographical information for each interview subject will be made available on request."
+ },
+ {
+  "n": 5,
+  "item": "xnli-test-282",
+  "field": "hypothesis",
+  "native": "ಅವನಿಗಿಂತ 27 ವರ್ಷ ದೊಡ್ಡವನಾಗಿದ್ದನು.",
+  "natural": "avaniginta 27 varsha dodduvanagiddanu.",
+  "english": "He was 27 years older than her."
+ },
+ {
+  "n": 6,
+  "item": "xnli-test-725",
+  "field": "hypothesis",
+  "native": "ಪರವಾನಗಿಯನ್ನು ಕೊಡುವ ಮುಂಚೆ ಅವರನ್ನು ಕೇವಲ ಐದು ನಿಮಿಷಗಳ ವರೆಗೆ ಹೊರಗೆ ಕಾಯುವಂತೆ ಮಾಡುವುದರ ಕುರಿತೇನು?",
+  "natural": "paravanagiyannu koduva munche avarannu kevala aidu nimishagala varege horage kayuvante maduvudaru kuritenu?",
+  "english": "What about having them just wait five minutes outside before being handed a permit?"
+ },
+ {
+  "n": 7,
+  "item": "indicsentiment-test-357",
+  "field": "text",
+  "native": "ಏರ್ ಕೂಲರ್ ಅನ್ನು ಶಕ್ತಿಯುತವಾದ ಬ್ಲೋವರ್‌ನೊಂದಿಗೆ ಹೊಂದಿಸಲಾಗಿದೆ. ಅದರ ನಯವಾದ ವಿನ್ಯಾಸದೊಂದಿಗೆ ನಾನು ಹೇಳಲೇಬೇಕಾದ ಉತ್ತಮ ಕೂಲಿಂಗ್ ಅನುಭವ.",
+  "natural": "Air cooler annu shaktiyutavada blowernondige hodisalagide. Adara nayavada vinyasadondige nanu helalebekada uttama cooling anubhava.",
+  "english": "the air cooler is set with a powerful blower. With its sleek design it's a very good cooling experience I should say."
+ },
+ {
+  "n": 8,
+  "item": "indicsentiment-test-696",
+  "field": "text",
+  "native": "ಇತ್ತೀಚಿನ ವಾರಗಳಲ್ಲಿ, ಸೋನಿಲಿವ್ ಕೆಲವು ಜನಪ್ರಿಯ ಸರಣಿಗಳನ್ನು ಮತ್ತು ಬಿಂಜ್ ವಾಚ್‌ಗೆ ಕೆಲವು ಉತ್ತಮ ವಿಷಯವನ್ನು ಪಟ್ಟಿ ಮಾಡುತ್ತಿದೆ.",
+  "natural": "Ittichina vaaragalalli, soniliv kelu janapriya sarinigalannu mattu binj vachge kelu uttama vishyavannu patti maduttide.",
+  "english": "In recent weeks, SonyLiv is listing some really popular series and some good content to binge watch."
+ },
+ {
+  "n": 9,
+  "item": "xnli-test-4411",
+  "field": "premise",
+  "native": "ಏಕೀಕರಣವಾದಿ ನಂಬಿಕೆಯನ್ನು ಇಟ್ಟುಕೊಳ್ಳುವವರು ಪ್ರೊಫೆಸರ್ ಹೆನ್ರಿ ಲೂಯಿಸ್ ಗೇಟ್ಸ್ ಮತ್ತು ಕಾರ್ನೆಲ್ ವೆಸ್ಟ್ ಅವರಂತಹ ಕಪ್ಪು ಉದಾರವಾದಿಗಳು. ಅವರ ಜೊತೆ ಸೇರಿಕೊಳ್ಳುವವರು ಕಪ್ಪು ಅರ್ಥಶಾಸ್ತ್ರಜ್ಞ ಗ್ಲೆನ್ ಲೌರಿ, ಒಂದು ಅಗತ್ಯವಾದ ನೀತಿಯಾಗಿ ಸಕಾರಾತ್ಮಕ ಕ್ರಮವನ್ನು ಅನುಮೋದಿಸಲು ಶ್ರೇಣಿಯನ್ನು ಮುರಿಯುವ ಸಂಪ್ರದಾಯವಾದಿ.",
+  "natural": "eekikaranavadi nambikeyannu ittukolluvavaru professor henry lewis gates mattu cornell west avarantha kappu udaravadigalu. avar jothe serikolluvavaru kappu arthashastrajna glenn loury, ondu avashyakavada neetiyagi sakaratmaka kramavannu anumodisalu shreniyannu muriyuva sampradayavadi.",
+  "english": "Keeping the integrationist faith are black liberals like Professors Henry Louis Gates and Cornel West. Joining them is black economist Glenn Loury, a conservative who broke ranks to endorse affirmative action as a necessary policy."
+ },
+ {
+  "n": 10,
+  "item": "xnli-test-4910",
+  "field": "hypothesis",
+  "native": "ಜೇನುತುಪ್ಪದ ಚಿಕಿತ್ಸೆಗೆ ವಿವರಣೆ ಅಗತ್ಯವಿಲ್ಲ.",
+  "natural": "jenutupada chikitsete vivarane agatyavilla.",
+  "english": "Honey's treatment needs no explanation."
+ },
+ {
+  "n": 11,
+  "item": "xnli-test-4235",
+  "field": "hypothesis",
+  "native": "ಮ್ಯಾಸಿಡೋನಿಯಾವನ್ನು ರಕ್ಷಿಸುವ ನ್ಯಾಟೋದ ಗುರಿಯನ್ನು ಕಿರು ಸಂಪಾದಕೀಯವು ದೃಢಪಡಿಸುತ್ತದೆ.",
+  "natural": "Macedoniannavannu rakshisuva Natoda guriyannu kiru sampadakiyavu drudhapadisuttade.",
+  "english": "The short op-ed confirms NATO's goal to protect Macedonia."
+ },
+ {
+  "n": 12,
+  "item": "xnli-test-2927",
+  "field": "premise",
+  "native": "ಆರಂಭಿಕ ಎಂಜಿನಿಯರಿಂಗ್ ಮತ್ತು ಒಪ್ಪಂದದ ಮಾತುಕತೆಗೆ ಆರರಿಂದ ಎಂಟು ತಿಂಗಳುಗಳು ಬೇಕಾಗಿದ್ದರೂ, ಎರಡು 900 ಮೆಗಾವ್ಯಾಟ್ ಘಟಕಗಳನ್ನು ಪೂರ್ಣಗೊಳಿಸಲು ಒಟ್ಟು 17ರಿಂದ 19 ತಿಂಗಳುಗಳು ಬೇಕಾಗುತ್ತವೆ.",
+  "natural": "arambhika engineering mattu oppandada maatukatege aarinda entu tingalugalu bekagiddaru, eradu 900 megawatt ghatakagalannu purnagolisalu ottu 17rinda 19 tingalugalu bekaguttave.",
+  "english": "Even if preliminary engineering and contract negotiation took as long as six to eight months, the total time for completing two 900 MWe units would be about 17 to 19 months."
+ },
+ {
+  "n": 13,
+  "item": "xnli-test-2623",
+  "field": "hypothesis",
+  "native": "ಹಿಂತೆಗೆದುಕೊಳ್ಳುವ ಪ್ರಸ್ತಾವನೆ ಇಲ್ಲದೆ, ಪೌರತ್ವವನ್ನು ಒಳಗೊಂಡ ಒಂದು ಹೊರತುಪಡಿಸಿ ಯಾವುದೇ ಪ್ರತಿಕ್ರಿಯೆಗೆ ಅಟಾರ್ನಿ ಜವಾಬ್ದಾರನಾಗಿರುತ್ತಾನೆ.",
+  "natural": "hintegedukolluva prastavane illade, pouratvavannu olgonda ondu horutupadisi yavude pratikriyage atarni javabdaranaagiruttane.",
+  "english": "Without a motion to withdraw, an attorney is responsible for any response except for one involving citizenship."
+ },
+ {
+  "n": 14,
+  "item": "indicsentiment-test-81",
+  "field": "text",
+  "native": "ಅತ್ಯುತ್ತಮ ಶಕ್ತಿಶಾಲಿ ಕ್ಲಿಪ್ಪರ್ ಮತ್ತು ಬಳಸಲು ತುಂಬಾ ಸುಲಭ. ಈ ಪದಕ್ಕೆ ನಿಘಂಟು ಕಂಡುಬಂದಿಲ್ಲಇದು ಎಲ್ಲಾ ಸಾಧನಗಳೊಂದಿಗೆ ಬರುತ್ತದೆ. ಕತ್ತರಿ ಕೂಡ ಉತ್ತಮವಾಗಿದೆ.",
+  "natural": "atyuttama saktisali klippar mattu balasalu tumba sulabha. Ee padake nighantu kandubandillidu ella sadhanagalondige baruttade. Kattari kuda uttamavagide.",
+  "english": "The best powerful clipper and very easy to use. It comes with all the tools. Scissors are great too."
+ },
+ {
+  "n": 15,
+  "item": "xnli-test-4691",
+  "field": "hypothesis",
+  "native": "ತಮ್ಮ ಮೇಲೆ ನಿರ್ಬಂಧವನ್ನು ಹೇರದಿರುವವರು ಅದನ್ನು ಉತ್ತಮ ಗುಣವೆಂದು ಪರಿಗಣಿಸುತ್ತಾರೆ.",
+  "natural": "thamma mele nirbandhavannu heradiruvavaru adannu uttama gunavendu pariginisuvaru.",
+  "english": "Those who do not have continence imposed on them consider it a good quality."
+ },
+ {
+  "n": 16,
+  "item": "indicsentiment-test-3",
+  "field": "text",
+  "native": "ಬಿಐಎಸ್ ಪ್ರಮಾಣೀಕರಣ ಮತ್ತು ಸ್ಮಾರ್ಟ್ ಐಸಿ ಬಗ್ಗೆ ಯಾವುದೇ ವಿಮರ್ಶೆಗಳಿಲ್ಲ",
+  "natural": "BIS pramanikarna mattu smart IC bagge yavude vimarshegalilla",
+  "english": "No reviews about BIS certification and smart IC"
+ },
+ {
+  "n": 17,
+  "item": "xnli-test-4813",
+  "field": "hypothesis",
+  "native": "ನಿರ್ಮಾಣ ಬ್ಯಾಟಾಲಿಯನ್ ಸಶಸ್ತ್ರ ಪಡೆಗಳ ಅತ್ಯಂತ ಪ್ರಮುಖ ಶಾಖೆಗಳಲ್ಲಿ ಒಂದಾಗಿದೆ.",
+  "natural": "nirmaana battalion sashastra padegala atyanta pramukha shakhegalalli ondagide.",
+  "english": "The Construction Batallion is one of the most important branches of the armed forces."
+ },
+ {
+  "n": 18,
+  "item": "xnli-test-1406",
+  "field": "hypothesis",
+  "native": "ಹತ್ತೊಂಬತ್ತನೇ ಶತಮಾನದ ಕೊನೆಯಲ್ಲಿ ರಜಾದಿನದಲ್ಲಿದ್ದಾಗ ಜೋಸ್ ಗ್ವಾಡಲೂಪೆ ಪೋಸಾಡಾ ತಲೆಬುರುಡೆಗಳು ಅಥವಾ ಕಲವೆರಾಸ್ಗಳನ್ನು ಚಿತ್ರಿಸಲು ಪ್ರಾರಂಭಿಸಿದರು.",
+  "natural": "hattonmbatnene shatamanda koneyalli rajadinadalliddaga joses gwadalupe posada taleburudegalu athava kalaverasgalannu chitrisalu prarambhisi daru.",
+  "english": "While on holiday in the late nineteenth century Jose Guadalupe Posada started to draw skulls or calaveras."
+ },
+ {
+  "n": 19,
+  "item": "xnli-test-3885",
+  "field": "hypothesis",
+  "native": "ಸ್ಲೈಡ್ ಪ್ರದರ್ಶನಗಳು ಜೀವಶಾಸ್ತ್ರದ ಬಗ್ಗೆ.",
+  "natural": "slide prodarshangalu jeevashastrada bagge.",
+  "english": "The slide shows are all about biology."
+ },
+ {
+  "n": 20,
+  "item": "xnli-test-1798",
+  "field": "premise",
+  "native": "ಎಕ್ಸ್ಪ್ರೆಸ್. ಅವನ ಪ್ರಭುತ್ವವು ಉತ್ತರಕ್ಕಾಗಿ ಒಂದು ಕ್ಷಣ ಕಾಯುತ್ತಿತ್ತು.",
+  "natural": "Express. Avana prabhutvavu uttarakkaagi ondu kshana kaayuttittu.",
+  "english": "Expressly.   His lordship waited a moment for a reply."
+ }
+]

@@ -25,7 +25,8 @@ class Sentence:
 @torch.no_grad()
 def collect(model, tok, sentences: list[Sentence], word_pattern: str = r"\S+", max_tokens: int = 512) -> dict:
     """Returns dict with
-      word_states [n_occ, L+1, d] f16, word_meta list of (sid, word, n_tokens),
+      word_states [n_occ, L+1, d] f16, word_meta list of (sid, word, n_tokens, id at offset -1, id at offset -2)
+      (offset ids are -1 when the offset falls outside the word; used by the erasure probe),
       sent_states [n_sent, L+1, d] f16 (mean over content tokens), sent_ids list,
       n_tokens per sentence."""
     bos = [tok.bos_token_id] if tok.bos_token_id is not None else []
@@ -44,7 +45,8 @@ def collect(model, tok, sentences: list[Sentence], word_pattern: str = r"\S+", m
         for span in word_spans(s.text, offs, word_pattern):
             if span.word in want and span.tok_end <= len(ids):
                 word_states.append(H[:, off + span.last_token].half().cpu().numpy())
-                word_meta.append((s.sid, span.word, span.n_tokens))
+                inner = [ids[span.last_token - d] if span.n_tokens > d else -1 for d in (1, 2)]
+                word_meta.append((s.sid, span.word, span.n_tokens, *inner))
     d = model.config.hidden_size if hasattr(model.config, "hidden_size") else model.config.text_config.hidden_size
     return {"word_states": np.stack(word_states) if word_states else np.zeros((0, 0, d), np.float16),
             "word_meta": word_meta, "sent_states": np.stack(sent_states), "sent_ids": sent_ids,

@@ -1,0 +1,27 @@
+{
+  "provenance": {
+    "config": {
+      "model": "openai/gpt-oss-120b",
+      "prompt": "backtranslate_v1",
+      "temperature": 0,
+      "reasoning_effort": "low",
+      "embedding": "sentence-transformers/all-mpnet-base-v2",
+      "embedding_rev": "e8c3b32edf"
+    },
+    "git_commit": "d45dc1bf9e66523a94b2d9b731201f576803081f-dirty",
+    "timestamp_utc": "2026-10-14T19:22:33+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/e0b_backtranslate.py"
+    ]
+  },
+  "n": 501,
+  "n_natural_total": 501,
+  "stopped": null,
+  "cosine_mean": 0.6166133284568787,
+  "cosine_median": 0.6472173929214478,
+  "cosine_p05": 0.21824683248996735,
+  "n_flagged": 26,
+  "n_defective_in_set": 19
+}

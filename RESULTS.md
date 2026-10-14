@@ -370,3 +370,94 @@ All CIs, constant-label rates (raw and calibrated) and tokens per word are in `a
   fragmented than ITRANS on every model (e.g. Sarvam 4.36 vs 5.24, Qwen 3.57 vs 4.23 tokens/word) and closer to
   how people actually type, so losing information did not hurt measurably here.
 - P1 and P2 are pending until the natural form is scored.
+
+---
+## PRE-REGISTERED DEVIATIONS AND NEW REGISTRATIONS (2026-10-15, Aarnav's decisions; written before the natural form is scored and before any run below)
+
+### E0b calibration (deviation from the 2026-10-14 registration)
+Reason: the single content-free input "N/A" broke Qwen2.5 sentiment (Gate 1a; calibrated English 52.0 vs raw 98.5).
+- **Primary**: contextual calibration averaged over three content-free inputs, "N/A", "" and "[MASK]" (each placed in
+  every field of the template; per-label log-probs averaged over the three, then subtracted), following Zhao et al.
+  2021.
+- **Fallback rule**: if a model x task's calibrated English accuracy is more than 5 points below its raw English
+  accuracy, the whole model x task row (all forms) uses raw scores, and the row is flagged.
+- Also reported: raw, and "N/A"-only calibration.
+- P1–P3, the informative-cell rule and the McNemar/Holm family are otherwise unchanged and use the primary scores.
+- Natural romanization: all 20 defective outputs are retried (same model, prompt, temperature; up to 3 attempts).
+  Items whose natural form is still defective afterwards are excluded from every comparison involving the natural
+  form (the other forms keep all 200 items); the count is reported.
+
+### Step 3 reclassification
+The 2026-10-14 Step 3 result (linear word-identity probes on the tiny models) is recorded as **uninformative**,
+not confirmed: the probe saturates after one block at every vocabulary, so the detok layer can only be 0 or 1 and
+the split follows layer-0 (tokenizer) accuracy.
+
+### Step 3b: MDL and erasure probes on the 18 E5 tiny models (replaces the saturated measure)
+Words: frequent TinyStories validation words that are **>= 3 tokens under vocab 768** (hence also under 256, 384,
+512), up to 40 occurrences each, identical across all 18 models.
+- **MDL probe** (online code, Voita & Titov 2020): word identity at the word's last token per layer; blocks at
+  0.1, 0.2, 0.4, 0.8, 1.6, 3.2, 6.25, 12.5, 25, 50, 100% of the (shuffled, seed 0) data; first block coded
+  uniformly; compression = uniform codelength / online codelength. MDL detok layer = first layer reaching 90% of
+  the model's maximum compression; CI by bootstrapping per-item code costs.
+- **Erasure probe** (Feucht et al. 2024 style): from the word's last-token state, predict the token at offset −1
+  and −2 (only occurrences where that offset is inside the same word), per layer, held-out occurrences. Erasure
+  layer = first layer after the peak where accuracy falls below 90% of the peak; erasure magnitude = peak minus
+  final-layer accuracy.
+- **Q1b**: the seed-mean MDL detok layer moves later as vocab shrinks: confirmed if Spearman(tokens per word,
+  MDL detok layer) over the 6 conditions >= 0.8 and the vocab-256 mean exceeds the vocab-4096 mean by more than both
+  seed sds; refuted if rho <= 0; else inconclusive.
+- **Q2b**: Spearman(seed-mean MDL detok layer, BPB gap vs 4096) >= 0.8 (refuted if <= 0).
+- **Q3b (erasure)**: at offset −1, erasure magnitude >= 0.2 in every condition with >= 50 in-word test occurrences
+  (assembly then erasure happens), and the erasure layer moves later as vocab shrinks (Spearman >= 0.8 over those
+  conditions); refuted if erasure magnitude < 0.05 everywhere.
+
+### Step 2 full run: M1 + M4 on Qwen2.5-1.5B, Qwen3.5-2B, Sarvam-1, Gemma 4 E2B (forms English, native, ITRANS)
+Data: M1 word probes on Kannada Wikipedia (the ~300 most frequent Kannada words with >= 30 whitespace occurrences;
+ITRANS sentences built word by word, so every occurrence is paired) and English Wikipedia for English words; M1 also
+reported on the subset of those words that occur in the E0 items. M4 on FLORES+ (dev+devtest, parallel English).
+Natural romanization is not in this run (no natural text exists for Wikipedia; FLORES natural is 25% done).
+Detok layer per form, three measures: MDL probe (primary), Patchscopes (FragMend setup; per-layer identification
+rate), plain linear probe accuracy; each = first layer reaching 90% of the form's maximum. Erasure probe as above.
+Alignment layer = first layer reaching 90% of maximum retrieval accuracy@1 vs English; linear CKA reported. Lag =
+alignment layer minus MDL detok layer. Layers are compared within a model; across models as a fraction of depth.
+CIs: bootstrap over words (Patchscopes), items/occurrences (probes, MDL), sentences (M4); native vs ITRANS
+differences use paired bootstraps over the shared words/sentences.
+- **H1 (meaning bottleneck)**: in both Qwen models, ITRANS detokenizes no later than native (MDL detok difference
+  CI includes 0 or is negative) **and** has a larger lag than native (paired CI of lag difference excludes 0), or
+  never reaches native's maximum retrieval accuracy.
+- **H2 (assembly bottleneck)**: in both Qwen models, ITRANS detokenizes later than native (MDL detok difference CI
+  excludes 0, positive) despite fewer tokens per word.
+- **H3 (fragmentation-driven ordering)**: in every model the sign of (ITRANS − native MDL detok layer) matches the
+  sign of (ITRANS − native tokens per word): negative in the Qwen models, positive in Sarvam-1 and Gemma 4, with the
+  CI excluding 0 in at least 3 of 4 models. Refuted if ITRANS is later than native in all 4 models (that pattern
+  supports familiarity, i.e. H2).
+H1 and H2 are mutually exclusive on the Qwen detok comparison; if neither holds the outcome is inconclusive.
+Disagreements between MDL, Patchscopes and the plain probe about the ordering are reported, not resolved.
+
+---
+## 2026-10-15 — Step 3b (GATE 3): MDL and erasure probes on the 18 E5 tiny models
+
+Config: `scripts/m1_tiny_mdl.py` (300 words that are >= 3 tokens under vocab 768, 40 occurrences each, story cut 700
+characters after the 800 cut overflowed the 256-token context at vocab 4096 in the pilot). Outputs:
+`results/m1_tiny_mdl/{per_run,summary}.csv`, `analysis.json`.
+
+| vocab | tokens/word (these words) | MDL detok layer (seeds 0,1,2) | compression at layer 0 | max compression | erasure magnitude at -1 |
+|---|---|---|---|---|---|
+| 256 | 6.66 | 2, 2, 2 | 1.66 | 21.4–21.8 | 0.000–0.001 |
+| 384 | 4.29 | 1, 1, 1 | 2.21 | 21.5–21.6 | 0.003–0.007 |
+| 512 | 3.84 | 1, 1, 1 | 2.51 | 21.0–21.5 | 0.005–0.010 |
+| 768 | 3.39 | 1, 1, 1 | 2.86 | 21.1–21.3 | 0.009–0.012 |
+| 1024 | 2.65 | 1, 1, 1 | 4.01 | 21.4–21.5 | 0.005–0.007 |
+| 4096 | 1.00 | 0, 0, 0 | 23.3 | 23.3 | n/a (single tokens) |
+
+- **Q1b: confirmed by the registered rule** (Spearman 0.85, p = 0.034; 256 minus 4096 = 2 layers, seed sd 0).
+  **Q2b: confirmed by the rule** (Spearman 0.85 vs BPB gap).
+- Substantively it is still coarse: only the pure byte model needs a second block; every merged vocabulary (384–1024)
+  assembles these 3+-token words within one block, and the bootstrap CIs are degenerate (all mass on one layer).
+  MDL adds resolution over the saturated plain probe, but "more fragmentation costs more layers" holds only at the
+  byte extreme in 8-layer models.
+- **Q3b (erasure): refuted.** The identity of the previous in-word token stays 99–100% decodable at every layer
+  (magnitude <= 0.012 in all 15 eligible runs). The tiny models do not erase sub-word information the way Feucht et
+  al. report for large models.
+- Unexpected: word-identity compression peaks at layers 1–3 and then falls steadily (to about 9 at layer 8) in every
+  model, so word identity becomes less linearly accessible toward the output.

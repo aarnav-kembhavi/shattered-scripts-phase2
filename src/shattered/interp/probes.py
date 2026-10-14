@@ -84,3 +84,78 @@ def bootstrap_detok(correct: np.ndarray, frac: float = 0.9, n_boot: int = 2000, 
     return {"detok_layer": point, "ci_low": float(np.percentile(boots, 2.5)),
             "ci_high": float(np.percentile(boots, 97.5)), "boot_mean": float(boots.mean()), "n_test": int(c.shape[1]),
             "acc": c.mean(1).tolist()}
+
+
+# ---------------------------------------------------------------- MDL (online code, Voita & Titov 2020)
+MDL_FRACS = [0.001, 0.002, 0.004, 0.008, 0.016, 0.032, 0.0625, 0.125, 0.25, 0.5, 1.0]
+
+
+def fit_logprobs(Xtr: torch.Tensor, ytr: torch.Tensor, Xte: torch.Tensor, n_classes: int, seed: int = 0,
+                 steps: int = PROBE["steps"], lr: float = PROBE["lr"], wd: float = PROBE["weight_decay"]) -> torch.Tensor:
+    """Same probe as fit_predict; returns log-probabilities [n_te, n_classes] for Xte."""
+    mu, sd = Xtr.mean(0), Xtr.std(0, unbiased=False) + 1e-6
+    Xtr, Xte = (Xtr - mu) / sd, (Xte - mu) / sd
+    g = torch.Generator(device="cpu").manual_seed(seed)
+    W = (torch.randn(Xtr.shape[1], n_classes, generator=g) * 0.01).to(Xtr.device).requires_grad_()
+    b = torch.zeros(n_classes, device=Xtr.device, requires_grad=True)
+    opt = torch.optim.Adam([W, b], lr=lr)
+    for _ in range(steps):
+        opt.zero_grad(set_to_none=True)
+        loss = F.cross_entropy(Xtr @ W + b, ytr) + wd * (W ** 2).sum()
+        loss.backward()
+        opt.step()
+    with torch.no_grad():
+        return torch.log_softmax(Xte @ W + b, -1)
+
+
+def mdl_curve(states: np.ndarray, labels: np.ndarray, seed: int = 0, device: str = "cuda") -> dict:
+    """Online codelength per layer. Data order is shuffled once (seed) and shared by all layers. The first block is
+    coded uniformly (log2 K bits per item); block i+1 is coded by a probe trained on blocks 1..i.
+    Returns per-item costs [L+1, n] in bits (in shuffled order), codelength, uniform codelength and compression."""
+    n, K = len(labels), int(labels.max()) + 1
+    order = np.random.default_rng(seed).permutation(n)
+    y = torch.as_tensor(labels[order], device=device)
+    cuts = sorted({max(1, int(round(f * n))) for f in MDL_FRACS})
+    costs = np.zeros((states.shape[1], n))
+    for layer in range(states.shape[1]):
+        X = torch.as_tensor(states[order, layer], device=device, dtype=torch.float32)
+        costs[layer, :cuts[0]] = np.log2(K)
+        for a, b in zip(cuts[:-1], cuts[1:]):
+            lp = fit_logprobs(X[:a], y[:a], X[a:b], K, seed)
+            costs[layer, a:b] = (-lp[torch.arange(b - a), y[a:b]] / np.log(2)).cpu().numpy()
+    code = costs.sum(1)
+    return {"costs": costs, "codelength": code, "uniform": n * np.log2(K), "compression": n * np.log2(K) / code}
+
+
+def bootstrap_mdl_detok(costs: np.ndarray, n_classes: int, frac: float = 0.9, n_boot: int = 2000, seed: int = 0,
+                        subset: np.ndarray | None = None) -> dict:
+    """Detok layer = first layer reaching `frac` of max compression; CI by resampling per-item code costs."""
+    c = costs if subset is None else costs[:, subset]
+    uni = np.log2(n_classes)
+    comp = uni * c.shape[1] / c.sum(1)
+    rng = np.random.default_rng(seed)
+    idx = rng.integers(0, c.shape[1], size=(n_boot, c.shape[1]))
+    boots = np.array([detok_layer(uni * len(i) / c[:, i].sum(1), frac) for i in idx])
+    return {"detok_layer": detok_layer(comp, frac), "ci_low": float(np.percentile(boots, 2.5)),
+            "ci_high": float(np.percentile(boots, 97.5)), "compression": comp.tolist(), "n": int(c.shape[1])}
+
+
+# ---------------------------------------------------------------- erasure (Feucht et al. 2024 style)
+def erasure_curve(states: np.ndarray, targets: np.ndarray, valid: np.ndarray, groups: np.ndarray, seed: int = 0,
+                  device: str = "cuda") -> dict | None:
+    """Predict the token id at a fixed offset (targets) from the word's last-token state, per layer, on occurrences
+    where that offset is inside the word (valid). Held-out occurrences stratified by word (groups). Returns per-layer
+    accuracy, the erasure layer (first layer after the peak below 90% of the peak) and magnitude (peak - final)."""
+    if valid.sum() < 100:
+        return None
+    S, t, g = states[valid], targets[valid], groups[valid]
+    cls = {v: i for i, v in enumerate(np.unique(t))}
+    labels = np.array([cls[v] for v in t])
+    train = split_by_word(g, 0.3, seed)
+    cur = layer_curve(S, labels, train, seed, device)
+    acc = cur["acc"]
+    peak = int(acc.argmax())
+    after = np.flatnonzero((np.arange(len(acc)) > peak) & (acc < 0.9 * acc[peak]))
+    return {"acc": acc.tolist(), "acc_control": cur["acc_control"].tolist(), "peak_layer": peak,
+            "erasure_layer": int(after[0]) if len(after) else None, "magnitude": float(acc[peak] - acc[-1]),
+            "n": int(valid.sum()), "n_test": int((~train).sum()), "n_classes": len(cls)}

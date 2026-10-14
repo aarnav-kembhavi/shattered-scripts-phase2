@@ -57,21 +57,37 @@ def word_states(model, tok, word: str) -> torch.Tensor:
 @torch.no_grad()
 def decode_states(model, tok, states: torch.Tensor, template=None, max_new_tokens: int = 20,
                   batch_size: int | None = None) -> list[str]:
-    """Patch each state (one per row) into the template and greedily decode; returns one string per row."""
+    """Patch each state (one per row) into the template and greedily decode; returns one string per row.
+
+    The template is fed as token ids and the patched states replace the input-embedding output at the placeholder
+    positions via a forward hook during the prefill pass. For ordinary models this is identical to feeding patched
+    `inputs_embeds` (FragMend). It is needed for Gemma 4, whose per-layer embeddings require token ids (from
+    `inputs_embeds` alone it reverses the full embedding matrix, which does not fit in memory); there the placeholder
+    positions keep the per-layer embedding of the placeholder token id."""
     ids, targets = template if template is not None else build_template(tok)
-    emb = model.get_input_embeddings()(ids.to(model.device))[None]
+    ids, targets = ids.to(model.device), targets.to(model.device)
+    emb_layer = model.get_input_embeddings()
     outs = []
     bs = batch_size or len(states)
     pad = tok.pad_token_id if tok.pad_token_id is not None else tok.eos_token_id
     for i in range(0, len(states), bs):
-        s = states[i:i + bs].to(emb.dtype).to(model.device)
-        x = emb.repeat(len(s), 1, 1)
-        x[:, targets] = s[:, None, :]
-        att = torch.ones(x.shape[:2], dtype=torch.long, device=model.device)
-        gen = model.generate(inputs_embeds=x, attention_mask=att, do_sample=False, num_beams=1,
-                             max_new_tokens=max_new_tokens, pad_token_id=pad)
-        outs += tok.batch_decode(gen[:, -max_new_tokens:] if gen.shape[1] > max_new_tokens else gen,
-                                 skip_special_tokens=True)
+        s = states[i:i + bs]
+        x = ids[None].repeat(len(s), 1)
+
+        def hook(_mod, _inp, out, s=s):
+            if out.shape[1] == x.shape[1]:  # prefill only; decode steps see one new position
+                out = out.clone()
+                out[:, targets] = s.to(out.dtype).to(out.device)[:, None, :]
+            return out
+
+        h = emb_layer.register_forward_hook(hook)
+        try:
+            gen = model.generate(input_ids=x, attention_mask=torch.ones_like(x), do_sample=False, num_beams=1,
+                                 max_new_tokens=max_new_tokens, pad_token_id=pad,
+                                 repetition_penalty=1.0)  # pure greedy; some generation configs set a penalty
+        finally:
+            h.remove()
+        outs += tok.batch_decode(gen[:, x.shape[1]:], skip_special_tokens=True)
     return outs
 
 
