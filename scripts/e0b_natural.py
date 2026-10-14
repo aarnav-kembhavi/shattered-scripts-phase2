@@ -39,6 +39,7 @@ def load_map() -> dict:
 
 def main() -> None:
     texts = e0_texts()
+    previous = load_map()  # kept for texts not reached this run (e.g. after a quota stop), so nothing is truncated
     client = make_client(rpm=12, rpd=1000)
     rows, stopped = [], None
     for k, text in enumerate(texts):
@@ -54,17 +55,18 @@ def main() -> None:
         except DailyQuotaExceeded as e:
             stopped = str(e)[:200]
             print(f"stopped at {k}/{len(texts)} (daily quota); re-run later to resume from cache")
+            rows += [previous[t] for t in texts[k:] if t in previous]
             break
         if k % 100 == 0:
             print(f"{k}/{len(texts)}", flush=True)
     with OUT.open("w", encoding="utf-8") as f:
         for r in rows:
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
-    queue = [{"index": i, "native": r["native"], "natural": r["natural"], "attempt": r["attempt"],
+    queue = [{"index": i, "native": r["native"], "natural": r["natural"], "attempt": r.get("attempt", 1),
               "bad_chars": "".join(sorted({c for c in r["natural"] if "ऀ" <= c <= "෿"
-                                          or (not c.isascii() and c not in r["native"])}))} for i, r in enumerate(rows) if r["defective"]]
+                                          or (not c.isascii() and c not in r["native"])}))} for i, r in enumerate(rows) if defective(r)]
     QUEUE.write_text(json.dumps(queue, ensure_ascii=False, indent=1), encoding="utf-8")
-    done = len(rows) == len(texts)
+    done = stopped is None and len(rows) == len(texts)
     summary = {"n_unique_texts": len(texts), "n_done": len(rows), "complete": done, "stopped": stopped,
                "n_flagged": sum(r["flag"] for r in rows),
                "n_with_non_ascii": sum(r["non_ascii_chars"] > 0 for r in rows),
