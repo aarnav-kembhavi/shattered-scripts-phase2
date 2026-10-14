@@ -43,6 +43,66 @@ def _check_loaded(name: str, info: dict) -> None:
         raise RuntimeError(f"{name}: {len(missing)} weights missing from checkpoint, e.g. {missing[:3]}")
 
 
+PLE_KEY = "model.embed_tokens_per_layer.weight"
+
+
+def _load_gemma4_text(repo: str, device: str, dtype, token):
+    """Low-memory, text-only Gemma 4 load.
+
+    The checkpoint is multimodal (keys under `model.language_model.`). The text-only model is built on the meta device
+    and only language-model tensors are streamed from the safetensors files, one at a time, straight to their final
+    device; vision/audio tensors are never read. The per-layer embedding table stays on CPU and runs there (CPULookup);
+    everything else goes to `device`. Peak CPU RAM is about the per-layer table (~4.7 GB) plus one tensor.
+    """
+    import json
+
+    from accelerate import init_empty_weights
+    from accelerate.utils import set_module_tensor_to_device
+    from huggingface_hub import hf_hub_download, snapshot_download
+    from safetensors import safe_open
+    from transformers import AutoConfig, Gemma4ForCausalLM
+
+    cfg = AutoConfig.from_pretrained(repo, token=token).text_config
+    with init_empty_weights():
+        model = Gemma4ForCausalLM(cfg)
+    expected = set(model.state_dict().keys())
+    local = snapshot_download(repo, token=token, allow_patterns=["*.json", "*.safetensors"])
+    try:
+        files = sorted(set(json.load(open(hf_hub_download(repo, "model.safetensors.index.json", token=token)))
+                           ["weight_map"].values()))
+    except Exception:  # noqa: BLE001 - single-file checkpoint
+        files = ["model.safetensors"]
+    loaded = set()
+    for f in files:
+        with safe_open(f"{local}/{f}", framework="pt", device="cpu") as st:
+            for k in st.keys():
+                if not k.startswith("model.language_model."):
+                    continue  # vision/audio towers and their projections
+                tk = "model." + k[len("model.language_model."):]
+                if tk not in expected:
+                    continue
+                dev = "cpu" if (tk == PLE_KEY or device != "cuda") else device
+                set_module_tensor_to_device(model, tk, dev, value=st.get_tensor(k), dtype=dtype)
+                loaded.add(tk)
+    if "lm_head.weight" in expected and "lm_head.weight" not in loaded:  # tied to the input embedding
+        model.tie_weights()
+        loaded.add("lm_head.weight")
+    missing = expected - loaded
+    if missing:
+        raise RuntimeError(f"gemma4: {len(missing)} weights not found in checkpoint, e.g. {sorted(missing)[:3]}")
+    # non-persistent buffers (e.g. rotary inv_freq) are still on meta: rebuild them on the target device
+    for mod_name, mod in model.named_modules():
+        for b_name, buf in list(mod.named_buffers(recurse=False)):
+            if buf.is_meta:
+                raise RuntimeError(f"gemma4: buffer {mod_name}.{b_name} left on meta device")
+    if device == "cuda":
+        # swap in the CPU-side lookup first (unregistered, so .to() skips it), then move buffers to the GPU
+        ple = model.model.embed_tokens_per_layer
+        model.model.embed_tokens_per_layer = CPULookup(ple, device)
+        model.to(device)
+    return model
+
+
 def load(name: str, device: str | None = None, dtype=torch.bfloat16):
     from transformers import AutoModelForCausalLM, AutoTokenizer
     repo = MODELS[name]
@@ -50,20 +110,7 @@ def load(name: str, device: str | None = None, dtype=torch.bfloat16):
     token = os.environ.get("HF_TOKEN")
     tok = AutoTokenizer.from_pretrained(repo, token=token)
     if name.startswith("gemma4"):
-        from transformers import AutoConfig, Gemma4ForCausalLM
-        cfg = AutoConfig.from_pretrained(repo, token=token).text_config
-        # the checkpoint is multimodal: map its language-model weights onto the text-only class
-        model, info = Gemma4ForCausalLM.from_pretrained(
-            repo, config=cfg, dtype=dtype, device_map={"": "cpu"}, token=token, output_loading_info=True,
-            key_mapping={r"^model\.language_model\.": "model."})
-        _check_loaded(name, info)
-        if device == "cuda":
-            # accelerate's "cpu" placement streams weights to the GPU on every call; instead keep the per-layer
-            # table on CPU, run the lookup there, and move only its (small) output to the GPU
-            ple = model.model.embed_tokens_per_layer
-            model.model.embed_tokens_per_layer = None
-            model.to(device)
-            model.model.embed_tokens_per_layer = CPULookup(ple, device)
+        model = _load_gemma4_text(repo, device, dtype, token)
     else:
         model, info = AutoModelForCausalLM.from_pretrained(repo, dtype=dtype, device_map={"": device}, token=token,
                                                            output_loading_info=True)
