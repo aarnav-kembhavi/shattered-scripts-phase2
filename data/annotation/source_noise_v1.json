@@ -1,0 +1,6 @@
+[
+ {"item": "xnli-test-555", "field": "hypothesis", "date": "2026-10-15",
+  "note": "Kannada omits the object and subject: 'advised to buy' for 'He suggested buying a vacuum.'"},
+ {"item": "xnli-test-1375", "field": "hypothesis", "date": "2026-10-15",
+  "note": "Kannada means 'I cannot count anything, cannot count' for 'Something cannot both be countable and denumerable.'"}
+]

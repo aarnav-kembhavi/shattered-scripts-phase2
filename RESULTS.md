@@ -450,8 +450,10 @@ characters after the 800 cut overflowed the 256-token context at vocab 4096 in t
 | 1024 | 2.65 | 1, 1, 1 | 4.01 | 21.4–21.5 | 0.005–0.007 |
 | 4096 | 1.00 | 0, 0, 0 | 23.3 | 23.3 | n/a (single tokens) |
 
-- **Q1b: confirmed by the registered rule** (Spearman 0.85, p = 0.034; 256 minus 4096 = 2 layers, seed sd 0).
-  **Q2b: confirmed by the rule** (Spearman 0.85 vs BPB gap).
+- **Classification (agreed with Aarnav, 2026-10-15): MDL direction confirmed, magnitude small (0 to 2 layers of 8);
+  erasure refuted.** No deeper tiny models are trained before Gate 2.
+- Q1b: confirmed by the registered rule (Spearman 0.85, p = 0.034; 256 minus 4096 = 2 layers, seed sd 0).
+  Q2b: confirmed by the rule (Spearman 0.85 vs BPB gap).
 - Substantively it is still coarse: only the pure byte model needs a second block; every merged vocabulary (384–1024)
   assembles these 3+-token words within one block, and the bootstrap CIs are degenerate (all mass on one layer).
   MDL adds resolution over the saturated plain probe, but "more fragmentation costs more layers" holds only at the
@@ -463,24 +465,34 @@ characters after the 800 cut overflowed the 256-token context at vocab 4096 in t
   model, so word identity becomes less linearly accessible toward the output.
 
 ---
-## 2026-10-15 — E0 natural romanization quality check: 20-item spot check by a native speaker plus an automatic back-translation check
+## 2026-10-15 — E0 natural romanization quality check
 
-- **Spot check (native speaker, Aarnav):** 20 outputs sampled at random (seed 20261015) from the 482 non-defective
-  outputs available (`data/annotation/natural_spotcheck20_v1.json`). Result (2026-10-15): all 20 judged acceptable
-  (0 of 20 flagged for unnatural spelling, wrong meaning or leftover English translation).
-- **Automatic back-translation check** (`scripts/e0b_backtranslate.py`, `scripts/e0b_backtranslate_control.py`;
-  `results/e0b_natural_check/`): Groq `openai/gpt-oss-120b` (temperature 0, reasoning effort low, prompts
-  backtranslate_v1 / backtranslate_native_v1) translates each romanized text into English; cosine similarity to the
-  original English with all-mpnet-base-v2. 501 texts so far (the 86 unfinished texts follow when they exist).
-  - Romanized -> English: mean cosine 0.617, median 0.647; bottom 5% (cosine <= 0.218) = 26 texts flagged; none of
-    them is among the 19 defective outputs.
-  - Control, native Kannada -> English with the same model (202 texts so far, flagged ones first; stopped by
-    Groq's 200k tokens/day limit): mean cosine 0.810 vs 0.571 for the romanized versions of the same texts.
-    Of the 26 flagged texts, 22 lose more than 0.3 cosine relative to native, and reading them shows faithful
-    romanizations that the back-translator misreads (e.g. "Besige bega baralide" -> "He came quickly to work";
-    native -> "Summer will come soon"). The other 4 are low in native script too (source translation differs from
-    the English, e.g. "older sisters" vs ಅಕ್ಕಂದಿರು).
-  - Reading: the back-translation check is dominated by the back-translator's weakness on romanized Kannada, so it
-    cannot certify meaning on its own; it found no clear romanization error among the flagged items. This also
-    matches the familiarity story: a large model reads native Kannada (0.81) much better than romanized Kannada
-    (0.57).
+- **Spot checked by a native speaker (Aarnav, 2026-10-15), no issues found:** 20 outputs sampled at random (seed
+  20261015) from the 482 non-defective outputs then available (`data/annotation/natural_spotcheck20_v1.json`).
+- Back-translation (below) is not used as a quality check: the back-translator reads romanized Kannada poorly, so
+  low similarity mostly reflects the reader, not the romanization. Among the 26 lowest-similarity texts, no clear
+  romanization error was found.
+- **Source noise** (`data/annotation/source_noise_v1.json`): 2 E0 texts whose Kannada does not match the dataset's
+  English (xnli-test-555 hypothesis: the Kannada drops "a vacuum"; xnli-test-1375 hypothesis: the Kannada says "I
+  cannot count anything"). Excluded from the back-translation statistics. Correction to an earlier draft that
+  listed 4 such items: the other two (xnli-test-1558, indicsentiment-test-662) are faithful translations that the
+  back-translator misread ("Ogle" -> "Google"; "not durable" -> "cannot be endured").
+
+---
+## 2026-10-15 — Large-model result: native vs romanized comprehension gap (back-translation)
+
+Groq `openai/gpt-oss-120b` (temperature 0, reasoning effort low) translates each E0 text into English, once from the
+natural romanization (prompt backtranslate_v1) and once from native Kannada script (backtranslate_native_v1);
+cosine similarity of each back-translation to the dataset's English (all-mpnet-base-v2). Outputs:
+`results/e0b_natural_check/{backtranslation_with_control.csv, summary_control.json}`.
+
+- So far 211 texts have both versions (2 source-noise items excluded); Groq's 200k tokens/day limit stopped the
+  control. 95% bootstrap CIs (10,000 resamples):
+  - from native script: mean cosine **0.816 [0.794, 0.836]**
+  - from natural romanization: **0.578 [0.545, 0.610]**
+  - paired difference: **0.237 [0.208, 0.268]**
+- Caveat for this partial sample: the 26 lowest-similarity texts were controlled first, so the romanized mean is
+  biased downward until the control reaches all 501+ texts. The control will be finished when Groq's quota allows.
+- Reading: a 120B multilingual model understands Kannada in its own script far better than the same sentences
+  typed in natural romanization. This is consistent with the familiarity account (E0b), now seen in a model we do
+  not study and through generation rather than classification.

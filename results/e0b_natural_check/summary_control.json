@@ -5,20 +5,34 @@
       "prompt": "backtranslate_native_v1",
       "temperature": 0
     },
-    "git_commit": "baf4f09b133ab257f1089e44050dcc200c586f7f-dirty",
-    "timestamp_utc": "2026-10-14T19:33:31+00:00",
+    "git_commit": "2615e5ec71a6b1784b5697b3cbab62712c227054-dirty",
+    "timestamp_utc": "2026-10-14T19:49:19+00:00",
     "python": "3.12.13",
     "platform": "Windows-11-10.0.26300-SP0",
     "argv": [
       "scripts/e0b_backtranslate_control.py"
     ]
   },
-  "n_with_control": 202,
+  "n_with_control": 211,
+  "n_source_noise_excluded": 2,
   "stopped": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kv19tt9kf9fry83jt9yzhgf1` service tier `on_demand` on tokens per day (TPD): Limit 200",
-  "cosine_natural_mean": 0.5706400976237623,
-  "cosine_native_mean": 0.809801459312439,
-  "flagged_n": 26,
-  "flagged_native_also_low_(<0.4)": 4,
+  "cosine_natural_mean": 0.5783688303317535,
+  "cosine_natural_ci": [
+    0.5453740984545022,
+    0.6100344580890994
+  ],
+  "cosine_native_mean": 0.8156609535217285,
+  "cosine_native_ci": [
+    0.7944632172584534,
+    0.835661768913269
+  ],
+  "native_minus_natural_mean": 0.23729209508257137,
+  "native_minus_natural_ci": [
+    0.2078845240562382,
+    0.26774836101615135
+  ],
+  "flagged_n": 24,
+  "flagged_native_also_low_(<0.4)": 2,
   "flagged_drop_gt_0.3": 22,
-  "all_drop_gt_0.3": 60
+  "all_drop_gt_0.3": 63
 }
