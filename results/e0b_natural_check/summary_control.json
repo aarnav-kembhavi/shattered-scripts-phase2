@@ -5,31 +5,55 @@
       "prompt": "backtranslate_native_v1",
       "temperature": 0
     },
-    "git_commit": "2615e5ec71a6b1784b5697b3cbab62712c227054-dirty",
-    "timestamp_utc": "2026-10-14T19:49:19+00:00",
+    "git_commit": "d0a6aa0fb3f6d11a4e641010fd68f6c9e7664ad6-dirty",
+    "timestamp_utc": "2026-10-14T19:59:03+00:00",
     "python": "3.12.13",
     "platform": "Windows-11-10.0.26300-SP0",
     "argv": [
       "scripts/e0b_backtranslate_control.py"
     ]
   },
-  "n_with_control": 211,
+  "complete_all_paired": false,
+  "gap_all_controlled_BIASED_UPWARD_by_selection": {
+    "n": 218,
+    "n_xnli": 209,
+    "native": 0.8136354088783264,
+    "natural": 0.5818688133486237,
+    "gap": 0.23176656668433548,
+    "gap_ci": [
+      0.20257465772068525,
+      0.2623795621056767
+    ]
+  },
+  "gap_nonflagged_controlled_so_far": {
+    "n": 194,
+    "n_xnli": 193,
+    "native": 0.8200078010559082,
+    "natural": 0.6371730915979382,
+    "gap": 0.18283466260380343,
+    "gap_ci": [
+      0.15950312712093737,
+      0.20752905794420107
+    ]
+  },
+  "gap_random_prefix": null,
+  "n_with_control": 218,
   "n_source_noise_excluded": 2,
   "stopped": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kv19tt9kf9fry83jt9yzhgf1` service tier `on_demand` on tokens per day (TPD): Limit 200",
-  "cosine_natural_mean": 0.5783688303317535,
+  "cosine_natural_mean": 0.5818688133486237,
   "cosine_natural_ci": [
-    0.5453740984545022,
-    0.6100344580890994
+    0.5502089989697247,
+    0.6125950715504587
   ],
-  "cosine_native_mean": 0.8156609535217285,
+  "cosine_native_mean": 0.8136354088783264,
   "cosine_native_ci": [
-    0.7944632172584534,
-    0.835661768913269
+    0.7928520441055298,
+    0.8331993222236633
   ],
-  "native_minus_natural_mean": 0.23729209508257137,
+  "native_minus_natural_mean": 0.23176656668433548,
   "native_minus_natural_ci": [
-    0.2078845240562382,
-    0.26774836101615135
+    0.20257465772068525,
+    0.2623795621056767
   ],
   "flagged_n": 24,
   "flagged_native_also_low_(<0.4)": 2,

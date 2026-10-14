@@ -486,13 +486,16 @@ natural romanization (prompt backtranslate_v1) and once from native Kannada scri
 cosine similarity of each back-translation to the dataset's English (all-mpnet-base-v2). Outputs:
 `results/e0b_natural_check/{backtranslation_with_control.csv, summary_control.json}`.
 
-- So far 211 texts have both versions (2 source-noise items excluded); Groq's 200k tokens/day limit stopped the
-  control. 95% bootstrap CIs (10,000 resamples):
-  - from native script: mean cosine **0.816 [0.794, 0.836]**
-  - from natural romanization: **0.578 [0.545, 0.610]**
-  - paired difference: **0.237 [0.208, 0.268]**
-- Caveat for this partial sample: the 26 lowest-similarity texts were controlled first, so the romanized mean is
-  biased downward until the control reaches all 501+ texts. The control will be finished when Groq's quota allows.
+- **Interim, not final.** The final number will come from all 501 paired texts (and the 86 new texts once they
+  exist). 218 texts have both versions so far (2 source-noise items excluded); Groq's 200k tokens/day limit stopped
+  the control. 95% bootstrap CIs (10,000 resamples), paired gap = native minus romanized cosine:
+  - all 218 controlled texts: native 0.814, romanized 0.582, gap **0.232 [0.203, 0.262]**. **Biased upward by
+    selection**: the 24 lowest-similarity texts (26 flagged minus the 2 source-noise items) were controlled first.
+  - excluding those flagged texts: 194 texts, native 0.820, romanized 0.637, gap **0.183 [0.160, 0.208]**. Not a
+    random sample either: these were taken in file order, so 193 of the 194 are XNLI texts (no sentiment reviews).
+  - random subset: the remaining texts are now controlled in a seeded random order
+    (`scripts/e0b_backtranslate_control.py`), and the summary reports the gap on the fully controlled prefix of
+    that order (`gap_random_prefix`). It is empty until Groq's quota resets.
 - Reading: a 120B multilingual model understands Kannada in its own script far better than the same sentences
   typed in natural romanization. This is consistent with the familiarity account (E0b), now seen in a model we do
   not study and through generation rather than classification.

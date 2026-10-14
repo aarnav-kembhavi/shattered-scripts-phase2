@@ -24,15 +24,28 @@ def main() -> None:
     df = pd.read_csv(od / "backtranslation.csv")
     template = (REPO / "src" / "shattered" / "llm" / "templates" / f"{PROMPT}.txt").read_text(encoding="utf-8")
     client = LLMClient("groq", MODEL, rpm=20, rpd=990)
-    order = list(df.index[df.flag_bottom5]) + list(df.index[~df.flag_bottom5])
+    # flagged texts first (already done), then the rest in a seeded random order, so that any prefix of the
+    # remainder is a random subset; texts already controlled are cache hits whatever their position
+    import numpy as np
+    rest = df.index[~df.flag_bottom5].to_numpy()
+    order = list(df.index[df.flag_bottom5]) + list(np.random.default_rng(0).permutation(rest))
+    from shattered.llm.cache import request_key
+    params = {"max_tokens": 1024, "temperature": 0.0, "system": None, "reasoning_effort": "low"}
     bt, stopped = {}, None
     for i in order:
+        prompt = template.format(text=df.native[i])
+        if stopped:  # after a quota stop, only read what is already cached
+            hit = client.cache.get(request_key("groq", MODEL, prompt, params))
+            if hit is not None:
+                bt[i] = hit["text"].strip()
+            continue
         try:
-            r = client.generate(template.format(text=df.native[i]), max_tokens=1024, temperature=0.0,
-                                reasoning_effort="low")
-        except DailyQuotaExceeded as e:
+            r = client.generate(prompt, max_tokens=1024, temperature=0.0, reasoning_effort="low")
+        except Exception as e:  # noqa: BLE001 - quota/rate errors end the API phase
+            if not isinstance(e, DailyQuotaExceeded) and "rate limit" not in str(e).lower() and "429" not in str(e):
+                raise
             stopped = str(e)[:200]
-            break
+            continue
         bt[i] = r.text.strip()
     df["back_translation_native"] = pd.Series(bt)
     done = df.back_translation_native.notna()
@@ -54,7 +67,28 @@ def main() -> None:
         m = x[idx].mean(1)
         return [float(np.percentile(m, 2.5)), float(np.percentile(m, 97.5))]
     fl = d[d.flag_bottom5]
-    summ = {"n_with_control": int(len(d)), "n_source_noise_excluded": int((done & df.source_noise).sum()),
+
+    def gap(sub):
+        if len(sub) < 20:
+            return None
+        j = np.random.default_rng(0).integers(0, len(sub), size=(10000, len(sub)))
+        x = (sub.cosine_native - sub.cosine).to_numpy()
+        m = x[j].mean(1)
+        return {"n": int(len(sub)), "n_xnli": int(sub["item"].str.startswith("xnli").sum()),
+                "native": float(sub.cosine_native.mean()), "natural": float(sub.cosine.mean()),
+                "gap": float(x.mean()), "gap_ci": [float(np.percentile(m, 2.5)), float(np.percentile(m, 97.5))]}
+    rand_pos = {int(i): k for k, i in enumerate(order[len(df.index[df.flag_bottom5]):])}
+    nonflag = d[~d.flag_bottom5]
+    # random subset = the longest prefix of the random order that is fully controlled
+    k = 0
+    seq = sorted(rand_pos, key=rand_pos.get)
+    while k < len(seq) and seq[k] in d.index:
+        k += 1
+    summ = {"complete_all_paired": bool(done.sum() == len(df)),
+            "gap_all_controlled_BIASED_UPWARD_by_selection": gap(d),
+            "gap_nonflagged_controlled_so_far": gap(nonflag),
+            "gap_random_prefix": gap(d.loc[seq[:k]]),
+            "n_with_control": int(len(d)), "n_source_noise_excluded": int((done & df.source_noise).sum()),
             "stopped": stopped,
             "cosine_natural_mean": float(nat.mean()), "cosine_natural_ci": ci(nat),
             "cosine_native_mean": float(nav.mean()), "cosine_native_ci": ci(nav),
