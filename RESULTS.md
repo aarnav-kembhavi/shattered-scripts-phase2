@@ -227,3 +227,38 @@ Operationalization and decision rule (fixed now):
   (training data) dominates at the accuracy level. This argues against the simplest fragmentation story for accuracy
   and has to be reported. Several ITRANS cells are at chance (all XNLI-ITRANS, Qwen2.5 sentiment-ITRANS), which limits
   M2/M6 for those cells.
+
+---
+## 2026-10-14 — Step 0 decisions
+
+- Qwen 2.5/3 slot: **Qwen2.5-1.5B-Instruct** (passes E0 on both tasks).
+- Gemma 4 E2B: retried with a new low-memory text-only loader (language-model tensors streamed from safetensors in
+  bf16 onto a meta-initialized model; per-layer embedding table on CPU). Loads in 11 s, 4.25 GB GPU, 5.3 GB peak
+  working set; chat sanity check correct. **Gemma 4 stays.** Note: Gemma's tokenizer does not add BOS by default and the
+  model degenerates without it; all our Gemma inputs prepend BOS explicitly.
+
+---
+## PRE-REGISTRATION — E0b familiarity test (written 2026-10-14, before any E0b scoring)
+
+Setup: models Qwen2.5-1.5B-Instruct, Qwen3.5-2B, Sarvam-1, Gemma 4 E2B (Qwen3-1.7B also run as an extra);
+tasks IndicSentiment (kn, binary) and IndicXNLI (kn, 3-way), the same 200 items each as E0; forms English, native,
+ITRANS, lossy ITRANS, natural romanization (Gemini, prompt natural_romanization_v1). Scoring: log-likelihood of English
+label words; **contextual calibration** (subtract each label's log-prob on the content-free input "N/A" placed in every
+field of the same template) is primary from now on; uncalibrated reported alongside. 95% bootstrap CIs (10,000).
+Paired McNemar tests within model and task: natural vs native, natural vs ITRANS (and lossy vs ITRANS for P3), Holm
+correction across all McNemar tests of this experiment.
+
+Cells where the model's English accuracy is below chance + 5 points are flagged uninformative and do not count for or
+against any prediction.
+
+- **P1 (familiarity dominates)**: natural >= ITRANS in every model (point estimate; no significant natural < ITRANS),
+  and natural <= native even in the Qwen models where natural is less fragmented (no significant natural > native in
+  any model).
+- **P2 (fragmentation also matters)**: in both Qwen models natural > native (significant after Holm on at least one
+  task, and no significant reversal on the other); in Sarvam-1 natural < native (significant on at least one task).
+- **P3 (lossiness)**: lossy ITRANS < ITRANS (point estimate lower in every informative cell; significant after Holm in
+  at least half of them).
+
+P1 and P2 are mutually exclusive on the Qwen comparison; if neither holds, the outcome is recorded as inconclusive.
+Constant-label rates (share of the most frequent predicted label) are reported per cell; there are no invalid outputs
+with log-likelihood scoring.
