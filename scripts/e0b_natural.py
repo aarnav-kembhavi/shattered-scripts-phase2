@@ -3,22 +3,24 @@
 Same model, prompt (natural_romanization_v1), temperature 0 and cache as the FLORES run. Unique texts only; stops
 cleanly on the daily quota (re-run to resume from the cache).
 
+Outputs that violate the prompt (non-ASCII characters not present in the source: leftover Kannada/other Indic script,
+diacritics, IPA) are re-asked with the same model, prompt and temperature (attempt 2, then 3; `attempt` changes only
+the cache key). The first attempt is kept in the row. Rows still defective after attempt 3 are kept and marked.
+
 Usage: python scripts/e0b_natural.py
 Outputs: data/processed/natural_e0_v1.jsonl (native -> natural, one row per unique text),
-         data/annotation/natural_romanization_e0_check_v1.csv (50 random, once complete),
-         results/e00_gate/natural_e0.json
+         data/processed/natural_e0_regen_queue_v1.json, results/e00_gate/natural_e0.json
 """
-import csv
 import json
-import random
 
 from shattered.data import tasks
 from shattered.llm.ratelimit import DailyQuotaExceeded
 from shattered.runlog import REPO, results_dir, write_json
-from shattered.translit import to_itrans
-from shattered.translit.natural import MODEL, PROMPT_VERSION, make_client, romanize
+from shattered.translit.natural import MODEL, PROMPT_VERSION, defective, make_client, romanize
 
 OUT = REPO / "data" / "processed" / "natural_e0_v1.jsonl"
+QUEUE = REPO / "data" / "processed" / "natural_e0_regen_queue_v1.json"
+MAX_ATTEMPTS = 3
 
 
 def e0_texts() -> list[str]:
@@ -41,7 +43,14 @@ def main() -> None:
     rows, stopped = [], None
     for k, text in enumerate(texts):
         try:
-            rows.append({"native": text, **romanize(client, text)})
+            row = {"native": text, **romanize(client, text)}
+            first = row
+            while defective(row) and row["attempt"] < MAX_ATTEMPTS:
+                row = {"native": text, **romanize(client, text, attempt=row["attempt"] + 1)}
+            if row is not first:
+                row["first_attempt_natural"] = first["natural"]
+            row["defective"] = defective(row)
+            rows.append(row)
         except DailyQuotaExceeded as e:
             stopped = str(e)[:200]
             print(f"stopped at {k}/{len(texts)} (daily quota); re-run later to resume from cache")
@@ -51,22 +60,19 @@ def main() -> None:
     with OUT.open("w", encoding="utf-8") as f:
         for r in rows:
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
+    queue = [{"index": i, "native": r["native"], "natural": r["natural"], "attempt": r["attempt"],
+              "bad_chars": "".join(sorted({c for c in r["natural"] if "ऀ" <= c <= "෿"
+                                          or (not c.isascii() and c not in r["native"])}))} for i, r in enumerate(rows) if r["defective"]]
+    QUEUE.write_text(json.dumps(queue, ensure_ascii=False, indent=1), encoding="utf-8")
     done = len(rows) == len(texts)
-    if done:
-        sample = random.Random(0).sample(rows, 50)
-        path = REPO / "data" / "annotation" / "natural_romanization_e0_check_v1.csv"
-        with path.open("w", encoding="utf-8", newline="") as f:
-            w = csv.writer(f)
-            w.writerow(["native", "natural", "itrans_reference", "faithful_yn", "natural_looking_1to5", "annotator",
-                        "notes"])
-            for r in sample:
-                w.writerow([r["native"], r["natural"], to_itrans(r["native"]), "", "", "", ""])
     summary = {"n_unique_texts": len(texts), "n_done": len(rows), "complete": done, "stopped": stopped,
                "n_flagged": sum(r["flag"] for r in rows),
                "n_with_non_ascii": sum(r["non_ascii_chars"] > 0 for r in rows),
+               "n_regenerated": sum("first_attempt_natural" in r for r in rows),
+               "n_defective_after_retries": len(queue),
                "mean_word_ratio": sum(r["word_ratio"] for r in rows) / max(len(rows), 1)}
     write_json(results_dir("e00_gate") / "natural_e0.json", summary,
-               {"model": MODEL, "prompt_version": PROMPT_VERSION, "temperature": 0})
+               {"model": MODEL, "prompt_version": PROMPT_VERSION, "temperature": 0, "max_attempts": MAX_ATTEMPTS})
     print(summary)
 
 

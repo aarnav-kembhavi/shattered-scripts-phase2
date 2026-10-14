@@ -1,0 +1,23 @@
+{
+  "provenance": {
+    "config": {
+      "model": "gemini-3.5-flash-lite",
+      "prompt_version": "natural_romanization_v1",
+      "temperature": 0
+    },
+    "git_commit": "5252d08aeccabf6216ff1dbe8e735172e8b57094",
+    "timestamp_utc": "2026-10-14T13:54:32+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/e0b_natural.py"
+    ]
+  },
+  "n_unique_texts": 587,
+  "n_done": 501,
+  "complete": false,
+  "stopped": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "n_flagged": 9,
+  "n_with_non_ascii": 21,
+  "mean_word_ratio": 0.9992129059983451
+}

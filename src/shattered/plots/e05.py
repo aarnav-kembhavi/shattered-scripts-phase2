@@ -58,3 +58,53 @@ def f6b_curves() -> list:
     fig.suptitle("F6b. Learning curves (mean of 3 seeds)", x=0.01, ha="left", fontsize=10)
     fig.tight_layout(rect=(0, 0, 1, 0.93))
     return style.save(fig, "F6b_e05_curves")
+
+
+def bpb_gap_table() -> pd.DataFrame:
+    """BPB gap of each vocabulary vs vocab 4096 over training, at equal text seen and at equal training FLOPs. Each
+    run's eval curve is interpolated onto a shared grid (linear in bytes; log-spaced in FLOPs) spanning the range every
+    run covers. Seed means; the band is sqrt(sd_v^2 + sd_4096^2) across seeds. Written to results/e05_pretrain/."""
+    import numpy as np
+    c = pd.read_parquet(RES / "curves.parquet")
+    runs = c.groupby(["vocab", "seed"])
+    grids = {"bytes": np.linspace(runs.bytes_seen.min().max(), runs.bytes_seen.max().min(), 40),
+             "flops": np.geomspace(runs.flops.min().max(), runs.flops.max().min(), 40)}
+    rows = []
+    for (v, s), g in runs:
+        for axis, col in (("bytes", "bytes_seen"), ("flops", "flops")):
+            g = g.sort_values(col)
+            for x, y in zip(grids[axis], np.interp(grids[axis], g[col], g.val_bpb_subset)):
+                rows.append({"vocab": v, "seed": s, "axis": axis, "x": x, "bpb": y})
+    m = pd.DataFrame(rows).groupby(["axis", "vocab", "x"]).bpb.agg(["mean", "std"]).reset_index()
+    ref = m[m.vocab == 4096].set_index(["axis", "x"])
+    m = m.join(ref[["mean", "std"]], on=["axis", "x"], rsuffix="_4096")
+    m["gap"] = m["mean"] - m["mean_4096"]
+    m["gap_band"] = np.sqrt(m["std"] ** 2 + m["std_4096"] ** 2)
+    m.to_csv(RES / "bpb_gap_over_training.csv", index=False)
+    return m
+
+
+def f6c_gap() -> list:
+    m = bpb_gap_table()
+    style.apply()
+    fig, axes = plt.subplots(1, 2, figsize=(7.4, 3.1), sharey=True)
+    for k, v in enumerate(VOCABS[:-1]):
+        for ax, axis, scale in ((axes[0], "bytes", 1e6), (axes[1], "flops", 1.0)):
+            g = m[(m.vocab == v) & (m.axis == axis)].sort_values("x")
+            ax.plot(g.x / scale, g.gap, color=style.PALETTE[k], linewidth=1.5, marker=style.MARKERS[k],
+                    markevery=max(1, len(g) // 6), markersize=4, label=str(v))
+            ax.fill_between(g.x / scale, g.gap - g.gap_band, g.gap + g.gap_band, color=style.PALETTE[k], alpha=0.15,
+                            linewidth=0)
+    for ax in axes:
+        ax.set_yscale("log")
+    axes[1].set_xscale("log")
+    axes[0].set_xlabel("Training text seen (MB)")
+    axes[1].set_xlabel("Training FLOPs (equal compute)")
+    axes[0].set_ylabel("BPB gap vs vocab 4096")
+    axes[0].set_title("Equal text", loc="left")
+    axes[1].set_title("Equal compute", loc="left")
+    axes[0].legend(title="vocab", fontsize=7, title_fontsize=7, ncol=3, loc="upper right")
+    fig.suptitle("F6c. BPB gap to vocab 4096 over training (mean of 3 seeds; band: combined seed sd)", x=0.01,
+                 ha="left", fontsize=10)
+    fig.tight_layout(rect=(0, 0, 1, 0.93))
+    return style.save(fig, "F6c_e05_bpb_gap")

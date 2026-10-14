@@ -268,3 +268,39 @@ with log-likelihood scoring.
   computed without BOS** (Gemma 4 was not scored). The scorer now always prepends BOS when a model has one; E0b
   rescores every model and supersedes E0. (With BOS, Gemma 4 scores obvious English sentiment examples decisively,
   e.g. log P(positive) −4.8 vs log P(negative) −22.2; without it, the two were within 0.5 nats.)
+
+---
+## 2026-10-14 — E0 natural romanization: defects and regeneration queue (no API calls made for this check)
+
+501 of 587 unique E0 texts were romanized before the Gemini daily quota; the remaining 86 (all sentiment reviews) run
+tomorrow with the same model and prompt. Correction to the 2026-10-14 status report: the 9 "flagged" outputs are not
+word-count outliers (all word ratios are 0.95–1.0); the flag fired on **leftover Kannada script**.
+The prompt asks for no diacritics or special symbols, so 20 of the 501 outputs violate it
+(`data/processed/natural_e0_regen_queue_v1.json`):
+- 9 with leftover Kannada script (usually one untransliterated word or suffix, e.g. "ಪಡೆಯುವಂತೆ", "ondಕ್ಕಿಂತ");
+- 2 with another Indic script (Malayalam "tക്ഷണ" for ತಕ್ಷಣ; Telugu "ంత" inside a word);
+- 9 with Latin diacritics or IPA (IAST-style ā ē ī ū ṇ ḍ ḷ ṭ ś ṣ ṅ ñ; š; ü; IPA ɛ ɩ).
+One further output keeps "À" because the Kannada source has "À la carte"; it is valid.
+All 20 will be re-asked tomorrow with the same model, prompt and temperature (attempts 2 and 3; the attempt number
+only changes the cache key). First attempts are kept in the data; rows still defective after attempt 3 will be
+reported, not silently fixed.
+
+---
+## PRE-REGISTRATION — Step 3: M1 word-identity probes on the E5 tiny models (written 2026-10-14, before any run)
+
+Setup: all 18 final E5 checkpoints (vocab 256, 384, 512, 768, 1024, 4096 x seeds 0-2). One fixed set of ~300 frequent
+TinyStories words (alphabetic, >= 3 letters, space-preceded) with a fixed set of occurrences in held-out validation
+stories, identical across all 18 models. Residual stream at the word's last token at every layer (0 = embeddings,
+1-8 = blocks). Linear probe for word identity per layer, held-out occurrences (70/30 split stratified by word, fixed
+seed), random-label control (labels permuted across occurrences). Detokenization layer = first layer whose held-out
+accuracy reaches 90% of that model's maximum over layers; 95% CI by bootstrapping test occurrences.
+
+- **Q1 (detokenization moves later as vocabulary shrinks)**: the seed-mean detokenization layer is non-decreasing from
+  vocab 4096 to vocab 256. Confirmed if Spearman rho(tokens per word, seed-mean detok layer) over the 6 conditions
+  >= 0.8 and the vocab-256 mean exceeds the vocab-4096 mean by more than both conditions' seed sd; refuted if
+  rho <= 0; otherwise inconclusive.
+- **Q2 (detokenization depth tracks the BPB gap)**: Spearman rho(seed-mean detok layer, BPB gap vs vocab 4096) over the
+  6 conditions >= 0.8. Refuted if rho <= 0; otherwise inconclusive. With 6 conditions and 9 possible layer values,
+  ties are likely and n is small, so Q2 is weak evidence either way; it is reported with the per-seed points.
+- Known limitation, stated now: at vocab 4096 most frequent words are single tokens, so their layer-0 accuracy is
+  near-perfect by construction. The analysis is also reported restricted to multi-token occurrences.
