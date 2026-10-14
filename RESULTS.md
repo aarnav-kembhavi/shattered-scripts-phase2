@@ -262,3 +262,9 @@ against any prediction.
 P1 and P2 are mutually exclusive on the Qwen comparison; if neither holds, the outcome is recorded as inconclusive.
 Constant-label rates (share of the most frequent predicted label) are reported per cell; there are no invalid outputs
 with log-likelihood scoring.
+
+- **Correction (2026-10-14):** the E0 scorer of 2026-10-08 prepended BOS only when the tokenizer's `add_bos_token`
+  flag was set. Sarvam-1 reports False there (it adds BOS via its post-processor), so **E0's Sarvam-1 numbers were
+  computed without BOS** (Gemma 4 was not scored). The scorer now always prepends BOS when a model has one; E0b
+  rescores every model and supersedes E0. (With BOS, Gemma 4 scores obvious English sentiment examples decisively,
+  e.g. log P(positive) −4.8 vs log P(negative) −22.2; without it, the two were within 0.5 nats.)

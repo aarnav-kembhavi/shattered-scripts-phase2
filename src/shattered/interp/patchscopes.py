@@ -39,11 +39,18 @@ def identifies(word: str, output: str) -> bool:
     return regex.search(pattern, out) is not None
 
 
+def encode_with_bos(tok, text: str) -> list[int]:
+    """Token ids with BOS prepended whenever the model has one (FragMend relies on tokenizer defaults, which drop BOS
+    for Gemma 4; Gemma degenerates without it)."""
+    ids = tok(text, add_special_tokens=False)["input_ids"]
+    return ([tok.bos_token_id] if tok.bos_token_id is not None else []) + ids
+
+
 @torch.no_grad()
 def word_states(model, tok, word: str) -> torch.Tensor:
-    """[n_layers+1, d] last-token hidden states of the word encoded alone."""
-    enc = tok(word, return_tensors="pt").to(model.device)
-    hs = model(**enc, output_hidden_states=True).hidden_states
+    """[n_layers+1, d] last-token hidden states of the word encoded alone (with BOS where the model has one)."""
+    ids = torch.tensor([encode_with_bos(tok, word)], device=model.device)
+    hs = model(input_ids=ids, output_hidden_states=True).hidden_states
     return torch.stack([h[0, -1] for h in hs])
 
 

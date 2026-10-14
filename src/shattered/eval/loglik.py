@@ -15,7 +15,9 @@ def build_prompt(task: str, fields: dict, version: str = "v1") -> str:
 
 
 def _prefix(tok) -> list[int]:
-    return [tok.bos_token_id] if tok.bos_token_id is not None and getattr(tok, "add_bos_token", True) else []
+    """BOS whenever the model has one. Tokenizer flags are unreliable (Gemma 4 never adds it; Sarvam-1 adds it only via
+    its post-processor while reporting add_bos_token=False), and these models degrade badly without it."""
+    return [tok.bos_token_id] if tok.bos_token_id is not None else []
 
 
 @torch.no_grad()
