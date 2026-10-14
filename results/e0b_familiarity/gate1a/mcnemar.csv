@@ -1,0 +1,11 @@
+model,task,a,b,acc_a,acc_b,diff,a_only,b_only,p,p_holm,significant
+gemma4-e2b,sentiment,lossy,itrans,0.785,0.765,0.020000000000000018,19,15,0.6075913612730801,1.0,False
+gemma4-e2b,xnli,lossy,itrans,0.395,0.435,-0.03999999999999998,19,27,0.3019956131896606,1.0,False
+qwen2.5-1.5b,sentiment,lossy,itrans,0.5,0.5,0.0,0,0,1.0,1.0,False
+qwen2.5-1.5b,xnli,lossy,itrans,0.33,0.325,0.0050000000000000044,4,3,1.0,1.0,False
+qwen3-1.7b,sentiment,lossy,itrans,0.52,0.54,-0.020000000000000018,14,18,0.5966148958541453,1.0,False
+qwen3-1.7b,xnli,lossy,itrans,0.335,0.335,0.0,0,0,1.0,1.0,False
+qwen3.5-2b,sentiment,lossy,itrans,0.645,0.615,0.030000000000000027,22,16,0.417692190836533,1.0,False
+qwen3.5-2b,xnli,lossy,itrans,0.335,0.34,-0.0050000000000000044,0,1,1.0,1.0,False
+sarvam-1,sentiment,lossy,itrans,0.86,0.78,0.07999999999999996,25,9,0.00904118549078703,0.09041185490787029,False
+sarvam-1,xnli,lossy,itrans,0.375,0.37,0.0050000000000000044,12,11,1.0,1.0,False

@@ -304,3 +304,69 @@ accuracy reaches 90% of that model's maximum over layers; 95% CI by bootstrappin
   ties are likely and n is small, so Q2 is weak evidence either way; it is reported with the per-seed points.
 - Known limitation, stated now: at vocab 4096 most frequent words are single tokens, so their layer-0 accuracy is
   near-perfect by construction. The analysis is also reported restricted to multi-token occurrences.
+
+---
+## 2026-10-14 — Step 3 (GATE 3 draft): M1 word-identity probes on the 18 E5 tiny models
+
+Config: `scripts/m1_tiny_probes.py` (300 words, 40 occurrences each in validation stories, 3,600 held-out test
+occurrences; probe settings in `results/m1_tiny/analysis.json`). Outputs: `results/m1_tiny/{per_run,summary}.csv`,
+`analysis.json`. Pilot (2 checkpoints) found that 900-character story cuts exceeded the 256-token context at vocab
+4096; the cut was changed to 800 characters before the full run.
+
+| vocab | tokens/word (valid) | multi-token share of probed occ. | layer-0 acc | max acc | control max | detok layer (3 seeds) | BPB gap vs 4096 |
+|---|---|---|---|---|---|---|---|
+| 256 | 5.01 | 1.00 | 0.070 | 1.000 | 0.004 | 1, 1, 1 | 0.068 |
+| 384 | 2.54 | 0.92 | 0.300 | 1.000 | 0.007 | 1, 1, 1 | 0.041 |
+| 512 | 2.08 | 0.77 | 0.533 | 1.000 | 0.004 | 1, 1, 1 | 0.032 |
+| 768 | 1.74 | 0.43 | 0.847 | 1.000 | 0.004 | 1, 1, 1 | 0.023 |
+| 1024 | 1.58 | 0.12 | 0.993 | 1.000 | 0.004 | 0, 0, 0 | 0.018 |
+| 4096 | 1.27 | 0.00 | 1.000 | 1.000 | 0.004 | 0, 0, 0 | 0 |
+
+- **Q1: confirmed by the registered rule** (Spearman 0.83, p = 0.042; 256 minus 4096 = 1 layer, seed sd 0).
+  **Q2: confirmed by the registered rule** (Spearman 0.83 vs BPB gap).
+- **But the result is degenerate and should not carry the paper's mechanism claim.** Word identity saturates after one
+  block at every vocabulary size (held-out accuracy 0.987–1.000 at layer 1), so the detok layer can only be 0 or 1.
+  The 0/1 split is decided by layer-0 accuracy, which is identical across seeds: it measures whether the last
+  token alone identifies the word among 300 candidates (a property of the tokenizer), not how the model spends
+  depth. The random-label control is at chance (<= 0.007) everywhere, so the probe is not memorizing.
+- Plain reading: in these 8-layer models, linear word identity is assembled within the first block regardless of
+  fragmentation. The BPB tax from E5 is not explained by "more layers spent on detokenization" as measured by a
+  linear identity probe. Options for a more sensitive measure are listed in the Gate 3 report; no new design is
+  run until Aarnav chooses.
+
+---
+## 2026-10-14 — E0b provisional GATE 1a (4 forms: English, native, ITRANS, lossy; natural pending)
+
+Config: `scripts/e0b_familiarity.py --forms english native itrans lossy --tag gate1a`, 5 models, 200 items/task, BOS
+always prepended, contextual calibration ("N/A"). Outputs: `results/e0b_familiarity/gate1a/`. Scores are cached per
+(model, form) and will be reused by the full Gate 1 run; the Holm family there will be larger (30 registered tests vs
+10 here), so p-values will only get more conservative.
+
+Calibrated accuracy, % [95% bootstrap CI], n = 200 per cell (raw in parentheses):
+
+| model | sent. en | sent. native | sent. ITRANS | sent. lossy | XNLI en | XNLI native | XNLI ITRANS | XNLI lossy |
+|---|---|---|---|---|---|---|---|---|
+| Qwen2.5-1.5B | 52.0 [45.0,59.0] (98.5) | 50.5 (70.5) | 50.0 (49.5) | 50.0 (50.0) | 78.5 [73.0,84.0] (79.5) | 34.5 (51.0) | 32.5 (37.5) | 33.0 (37.5) |
+| Qwen3-1.7B | 98.0 (98.5) | 79.0 [73.0,84.5] (86.5) | 54.0 [47.0,61.0] (58.0) | 52.0 (57.5) | 54.0 (61.5) | 42.5 (43.0) | 33.5 (37.0) | 33.5 (41.5) |
+| Qwen3.5-2B | 97.5 (97.5) | 67.5 [61.0,74.0] (78.5) | 61.5 [54.5,68.5] (67.5) | 64.5 (67.5) | 45.0 (43.0) | 34.0 (34.0) | 34.0 (34.0) | 33.5 (34.0) |
+| Sarvam-1 | 97.5 (97.5) | 96.0 [93.0,98.5] (96.0) | 78.0 [72.0,83.5] (84.5) | 86.0 [81.0,90.5] (91.0) | 47.5 (53.0) | 45.5 (52.0) | 37.0 (38.5) | 37.5 (46.0) |
+| Gemma 4 E2B | 98.0 (98.5) | 98.5 [96.5,100] (98.5) | 76.5 [70.5,82.0] (75.0) | 78.5 [72.5,84.0] (79.0) | 60.0 [53.0,67.0] (73.5) | 46.5 (54.5) | 43.5 (41.0) | 39.5 (40.0) |
+
+All CIs, constant-label rates (raw and calibrated) and tokens per word are in `accuracy.csv` / `fertility.csv`.
+
+- **Calibration failure, Qwen2.5 sentiment:** the content-free "N/A" input is scored strongly negative (log P
+  −1.86 vs −9.61), so subtracting it pushes every review to "positive": calibrated English drops from 98.5 to 52.0
+  with 98% of predictions on one label. By the registered rule (English >= chance + 5) this cell is uninformative under
+  calibration. Calibration helps elsewhere (e.g. Gemma XNLI constant-label rate 87% -> 60% on ITRANS). Raw numbers
+  are reported alongside; changing the calibration recipe is Aarnav's call.
+- **ITRANS < native (exploratory, separate Holm family of 10):** point estimate ITRANS <= native in all 10
+  model x task cells (one tie: Qwen3.5 XNLI, both at chance). Significant in 5: Gemma 4 sentiment (−22.0 pts, 45 vs 1
+  discordant), Sarvam-1 sentiment (−18.0) and XNLI (−8.5), Qwen3 sentiment (−25.0) and XNLI (−9.0). **The pattern
+  survives the BOS fix, including for Sarvam-1 and Gemma 4**, where ITRANS is *more* fragmented than native (Sarvam
+  2.27 -> 5.24 tokens/word, Gemma 3.08 -> 3.94) and for the Qwen models, where it is *less* fragmented (11.99 -> 4.23).
+- **P3 (lossy < ITRANS): refuted.** Of 9 informative cells, lossy is lower in only 3 (by 0.5–4 pts), and no
+  difference is significant after Holm (0 of 9). The largest difference goes the other way: Sarvam-1 sentiment lossy
+  86.0 vs ITRANS 78.0 (25 vs 9 discordant, p = 0.009 uncorrected, 0.09 Holm). Lossy romanization is also *less*
+  fragmented than ITRANS on every model (e.g. Sarvam 4.36 vs 5.24, Qwen 3.57 vs 4.23 tokens/word) and closer to
+  how people actually type, so losing information did not hurt measurably here.
+- P1 and P2 are pending until the natural form is scored.

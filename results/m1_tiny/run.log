@@ -1,0 +1,32 @@
+300 words, 12000 occurrences, 954 stories, min occ/word 40, test 3600
+warning: in the working copy of 'RESULTS.md', LF will be replaced by CRLF the next time Git touches it
+v256 s1: detok 1 [1.0, 1.0], acc [0.07, 0.987, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], ctrl max 0.005, 16s fwd + 14s probes
+warning: in the working copy of 'RESULTS.md', LF will be replaced by CRLF the next time Git touches it
+v256 s2: detok 1 [1.0, 1.0], acc [0.07, 0.993, 1.0, 1.0, 1.0, 1.0, 0.999, 0.999, 0.999], ctrl max 0.004, 19s fwd + 12s probes
+warning: in the working copy of 'RESULTS.md', LF will be replaced by CRLF the next time Git touches it
+v384 s0: detok 1 [1.0, 1.0], acc [0.3, 1.0, 1.0, 0.999, 0.999, 0.998, 0.997, 0.994, 0.988], ctrl max 0.007, 12s fwd + 12s probes
+warning: in the working copy of 'RESULTS.md', LF will be replaced by CRLF the next time Git touches it
+v384 s1: detok 1 [1.0, 1.0], acc [0.3, 1.0, 1.0, 1.0, 0.999, 0.998, 0.997, 0.995, 0.992], ctrl max 0.007, 12s fwd + 12s probes
+warning: in the working copy of 'RESULTS.md', LF will be replaced by CRLF the next time Git touches it
+v384 s2: detok 1 [1.0, 1.0], acc [0.3, 1.0, 1.0, 0.999, 0.999, 0.998, 0.995, 0.993, 0.987], ctrl max 0.007, 12s fwd + 13s probes
+warning: in the working copy of 'RESULTS.md', LF will be replaced by CRLF the next time Git touches it
+v512 s0: detok 1 [1.0, 1.0], acc [0.533, 1.0, 1.0, 1.0, 0.999, 0.998, 0.997, 0.993, 0.986], ctrl max 0.004, 11s fwd + 13s probes
+warning: in the working copy of 'RESULTS.md', LF will be replaced by CRLF the next time Git touches it
+v512 s1: detok 1 [1.0, 1.0], acc [0.533, 1.0, 1.0, 1.0, 0.999, 0.997, 0.997, 0.994, 0.991], ctrl max 0.004, 11s fwd + 13s probes
+v512 s2: detok 1 [1.0, 1.0], acc [0.533, 1.0, 1.0, 0.999, 0.999, 0.998, 0.996, 0.993, 0.989], ctrl max 0.004, 11s fwd + 13s probes
+v768 s0: detok 1 [1.0, 1.0], acc [0.847, 1.0, 1.0, 1.0, 1.0, 0.997, 0.995, 0.991, 0.985], ctrl max 0.006, 10s fwd + 13s probes
+v768 s1: detok 1 [1.0, 1.0], acc [0.847, 1.0, 1.0, 1.0, 0.999, 0.998, 0.996, 0.994, 0.984], ctrl max 0.004, 10s fwd + 13s probes
+v768 s2: detok 1 [1.0, 1.0], acc [0.847, 1.0, 1.0, 1.0, 0.998, 0.998, 0.996, 0.993, 0.982], ctrl max 0.004, 10s fwd + 14s probes
+v1024 s0: detok 0 [0.0, 0.0], acc [0.993, 1.0, 1.0, 1.0, 0.999, 0.998, 0.994, 0.99, 0.981], ctrl max 0.004, 10s fwd + 13s probes
+v1024 s1: detok 0 [0.0, 0.0], acc [0.993, 1.0, 1.0, 1.0, 0.999, 0.997, 0.995, 0.991, 0.983], ctrl max 0.004, 11s fwd + 12s probes
+v1024 s2: detok 0 [0.0, 0.0], acc [0.993, 1.0, 1.0, 1.0, 0.999, 0.998, 0.997, 0.99, 0.983], ctrl max 0.004, 10s fwd + 13s probes
+v4096 s1: detok 0 [0.0, 0.0], acc [1.0, 1.0, 1.0, 0.999, 0.998, 0.996, 0.995, 0.989, 0.978], ctrl max 0.005, 10s fwd + 13s probes
+v4096 s2: detok 0 [0.0, 0.0], acc [1.0, 1.0, 1.0, 0.998, 0.997, 0.996, 0.992, 0.986, 0.974], ctrl max 0.004, 9s fwd + 13s probes
+ vocab  detok_mean  detok_sd  detok_multi_mean  detok_multi_sd  acc_layer0_mean  acc_max_mean  acc_control_max_mean  frac_multitoken  tokens_per_word_probed  tokens_per_word_valid  bpb_gap_vs_4096  n_seeds
+   256         1.0       0.0               1.0             0.0            0.070           1.0                 0.004            1.000                   5.410                  5.014            0.068        3
+   384         1.0       0.0               1.0             0.0            0.300           1.0                 0.007            0.920                   3.010                  2.535            0.041        3
+   512         1.0       0.0               1.0             0.0            0.533           1.0                 0.004            0.770                   2.350                  2.080            0.032        3
+   768         1.0       0.0               1.0             0.0            0.847           1.0                 0.004            0.427                   1.603                  1.735            0.023        3
+  1024         0.0       0.0               0.0             0.0            0.993           1.0                 0.004            0.117                   1.140                  1.584            0.018        3
+  4096         0.0       0.0               NaN             NaN            1.000           1.0                 0.004            0.000                   1.000                  1.265            0.000        3
+{'Q1': {'spearman_tpw_vs_detok': np.float64(0.8280786712108252), 'p': np.float64(0.04179468045604519), 'v256_minus_v4096': np.float64(1.0), 'gap_exceeds_seed_sd': True, 'verdict': 'confirmed'}, 'Q2': {'spearman_detok_vs_bpb_gap': np.float64(0.8280786712108251), 'p': np.float64(0.041794680456045265), 'verdict': 'confirmed'}, 'secondary_spearman_tpw_vs_acc_layer0': np.float64(-1.0)}

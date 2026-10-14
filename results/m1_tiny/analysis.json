@@ -1,0 +1,126 @@
+{
+  "provenance": {
+    "config": {
+      "probe": {
+        "steps": 300,
+        "lr": 0.01,
+        "weight_decay": 0.001
+      },
+      "frac": 0.9,
+      "n_words": 300,
+      "max_occ": 40
+    },
+    "git_commit": "81d420c0666f561831ae1024ecc85b18ba6ce4bb",
+    "timestamp_utc": "2026-10-14T16:49:44+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/m1_tiny_probes.py"
+    ]
+  },
+  "summary": [
+    {
+      "vocab": 256,
+      "detok_mean": 1.0,
+      "detok_sd": 0.0,
+      "detok_multi_mean": 1.0,
+      "detok_multi_sd": 0.0,
+      "acc_layer0_mean": 0.07000000029802322,
+      "acc_max_mean": 1.0,
+      "acc_control_max_mean": 0.004351851996034384,
+      "frac_multitoken": 1.0,
+      "tokens_per_word_probed": 5.41,
+      "tokens_per_word_valid": 5.013751512875088,
+      "bpb_gap_vs_4096": 0.06848774953160486,
+      "n_seeds": 3
+    },
+    {
+      "vocab": 384,
+      "detok_mean": 1.0,
+      "detok_sd": 0.0,
+      "detok_multi_mean": 1.0,
+      "detok_multi_sd": 0.0,
+      "acc_layer0_mean": 0.30000001192092896,
+      "acc_max_mean": 1.0,
+      "acc_control_max_mean": 0.006666666828095913,
+      "frac_multitoken": 0.92,
+      "tokens_per_word_probed": 3.01,
+      "tokens_per_word_valid": 2.535280836794574,
+      "bpb_gap_vs_4096": 0.04110208085604938,
+      "n_seeds": 3
+    },
+    {
+      "vocab": 512,
+      "detok_mean": 1.0,
+      "detok_sd": 0.0,
+      "detok_multi_mean": 1.0,
+      "detok_multi_sd": 0.0,
+      "acc_layer0_mean": 0.5333333611488342,
+      "acc_max_mean": 1.0,
+      "acc_control_max_mean": 0.0037962963494161763,
+      "frac_multitoken": 0.77,
+      "tokens_per_word_probed": 2.35,
+      "tokens_per_word_valid": 2.079882753314716,
+      "bpb_gap_vs_4096": 0.03217529753283377,
+      "n_seeds": 3
+    },
+    {
+      "vocab": 768,
+      "detok_mean": 1.0,
+      "detok_sd": 0.0,
+      "detok_multi_mean": 1.0,
+      "detok_multi_sd": 0.0,
+      "acc_layer0_mean": 0.846666693687439,
+      "acc_max_mean": 1.0,
+      "acc_control_max_mean": 0.004444444552063942,
+      "frac_multitoken": 0.4266666666666667,
+      "tokens_per_word_probed": 1.6033333333333333,
+      "tokens_per_word_valid": 1.73512097557081,
+      "bpb_gap_vs_4096": 0.022828404374091726,
+      "n_seeds": 3
+    },
+    {
+      "vocab": 1024,
+      "detok_mean": 0.0,
+      "detok_sd": 0.0,
+      "detok_multi_mean": 0.0,
+      "detok_multi_sd": 0.0,
+      "acc_layer0_mean": 0.9933333396911621,
+      "acc_max_mean": 1.0,
+      "acc_control_max_mean": 0.004259259440004826,
+      "frac_multitoken": 0.11666666666666665,
+      "tokens_per_word_probed": 1.14,
+      "tokens_per_word_valid": 1.583769050431589,
+      "bpb_gap_vs_4096": 0.017548257687913682,
+      "n_seeds": 3
+    },
+    {
+      "vocab": 4096,
+      "detok_mean": 0.0,
+      "detok_sd": 0.0,
+      "detok_multi_mean": NaN,
+      "detok_multi_sd": NaN,
+      "acc_layer0_mean": 1.0,
+      "acc_max_mean": 1.0,
+      "acc_control_max_mean": 0.004351851996034384,
+      "frac_multitoken": 0.0,
+      "tokens_per_word_probed": 1.0,
+      "tokens_per_word_valid": 1.2652428402676088,
+      "bpb_gap_vs_4096": 0.0,
+      "n_seeds": 3
+    }
+  ],
+  "Q1": {
+    "spearman_tpw_vs_detok": 0.8280786712108252,
+    "p": 0.04179468045604519,
+    "v256_minus_v4096": 1.0,
+    "gap_exceeds_seed_sd": true,
+    "verdict": "confirmed"
+  },
+  "Q2": {
+    "spearman_detok_vs_bpb_gap": 0.8280786712108251,
+    "p": 0.041794680456045265,
+    "verdict": "confirmed"
+  },
+  "secondary_spearman_tpw_vs_acc_layer0": -1.0
+}

@@ -1,0 +1,58 @@
+{
+  "provenance": {
+    "config": {
+      "model": "qwen2.5-1.5b",
+      "forms": [
+        "english",
+        "native",
+        "itrans"
+      ],
+      "n_words": 50,
+      "n_sent": 50,
+      "max_occ": 20
+    },
+    "git_commit": "81d420c0666f561831ae1024ecc85b18ba6ce4bb-dirty",
+    "timestamp_utc": "2026-10-14T17:08:53+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/m14_pilot.py",
+      "--model",
+      "qwen2.5-1.5b"
+    ]
+  },
+  "pilot": {
+    "load": 10.03834056854248,
+    "forward_english": 18.427550792694092,
+    "n_sentences_english": 518,
+    "forward_native": 36.69097638130188,
+    "n_sentences_native": 646,
+    "forward_itrans": 26.145797729492188,
+    "n_sentences_itrans": 646,
+    "probes_english": 16.165021896362305,
+    "probes_native": 15.977606296539307,
+    "probes_itrans": 16.07982897758484,
+    "patchscopes_english": 38.909831523895264,
+    "n_patchscopes_words_english": 50,
+    "patchscopes_native": 39.0475013256073,
+    "n_patchscopes_words_native": 50,
+    "patchscopes_itrans": 39.09333062171936,
+    "n_patchscopes_words_itrans": 50,
+    "m4": 0.9614524841308594
+  },
+  "per_sentence_forward_s": 0.04489741707375036,
+  "per_word_patchscopes_s": 0.7803377564748128,
+  "full_run_estimate": {
+    "forward_s": 360.7956436046579,
+    "patchscopes_s": 936.4053077697754,
+    "probes_s": 385.7796573638916,
+    "load_s": 10.03834056854248,
+    "total_min": 28.21698248844779
+  },
+  "full_run_assumptions": {
+    "n_words": 300,
+    "n_sent_m4": 1012,
+    "n_corpus_sentences": 2009,
+    "forms": 4
+  }
+}
