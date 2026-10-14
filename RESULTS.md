@@ -466,7 +466,8 @@ characters after the 800 cut overflowed the 256-token context at vocab 4096 in t
 ## 2026-10-15 — E0 natural romanization quality check: 20-item spot check by a native speaker plus an automatic back-translation check
 
 - **Spot check (native speaker, Aarnav):** 20 outputs sampled at random (seed 20261015) from the 482 non-defective
-  outputs available (`data/annotation/natural_spotcheck20_v1.json`). Result: pending Aarnav's reply.
+  outputs available (`data/annotation/natural_spotcheck20_v1.json`). Result (2026-10-15): all 20 judged acceptable
+  (0 of 20 flagged for unnatural spelling, wrong meaning or leftover English translation).
 - **Automatic back-translation check** (`scripts/e0b_backtranslate.py`, `scripts/e0b_backtranslate_control.py`;
   `results/e0b_natural_check/`): Groq `openai/gpt-oss-120b` (temperature 0, reasoning effort low, prompts
   backtranslate_v1 / backtranslate_native_v1) translates each romanized text into English; cosine similarity to the
