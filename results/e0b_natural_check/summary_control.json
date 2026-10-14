@@ -1,0 +1,24 @@
+{
+  "provenance": {
+    "config": {
+      "model": "openai/gpt-oss-120b",
+      "prompt": "backtranslate_native_v1",
+      "temperature": 0
+    },
+    "git_commit": "baf4f09b133ab257f1089e44050dcc200c586f7f-dirty",
+    "timestamp_utc": "2026-10-14T19:33:31+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/e0b_backtranslate_control.py"
+    ]
+  },
+  "n_with_control": 202,
+  "stopped": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kv19tt9kf9fry83jt9yzhgf1` service tier `on_demand` on tokens per day (TPD): Limit 200",
+  "cosine_natural_mean": 0.5706400976237623,
+  "cosine_native_mean": 0.809801459312439,
+  "flagged_n": 26,
+  "flagged_native_also_low_(<0.4)": 4,
+  "flagged_drop_gt_0.3": 22,
+  "all_drop_gt_0.3": 60
+}

@@ -461,3 +461,25 @@ characters after the 800 cut overflowed the 256-token context at vocab 4096 in t
   al. report for large models.
 - Unexpected: word-identity compression peaks at layers 1–3 and then falls steadily (to about 9 at layer 8) in every
   model, so word identity becomes less linearly accessible toward the output.
+
+---
+## 2026-10-15 — E0 natural romanization quality check: 20-item spot check by a native speaker plus an automatic back-translation check
+
+- **Spot check (native speaker, Aarnav):** 20 outputs sampled at random (seed 20261015) from the 482 non-defective
+  outputs available (`data/annotation/natural_spotcheck20_v1.json`). Result: pending Aarnav's reply.
+- **Automatic back-translation check** (`scripts/e0b_backtranslate.py`, `scripts/e0b_backtranslate_control.py`;
+  `results/e0b_natural_check/`): Groq `openai/gpt-oss-120b` (temperature 0, reasoning effort low, prompts
+  backtranslate_v1 / backtranslate_native_v1) translates each romanized text into English; cosine similarity to the
+  original English with all-mpnet-base-v2. 501 texts so far (the 86 unfinished texts follow when they exist).
+  - Romanized -> English: mean cosine 0.617, median 0.647; bottom 5% (cosine <= 0.218) = 26 texts flagged; none of
+    them is among the 19 defective outputs.
+  - Control, native Kannada -> English with the same model (202 texts so far, flagged ones first; stopped by
+    Groq's 200k tokens/day limit): mean cosine 0.810 vs 0.571 for the romanized versions of the same texts.
+    Of the 26 flagged texts, 22 lose more than 0.3 cosine relative to native, and reading them shows faithful
+    romanizations that the back-translator misreads (e.g. "Besige bega baralide" -> "He came quickly to work";
+    native -> "Summer will come soon"). The other 4 are low in native script too (source translation differs from
+    the English, e.g. "older sisters" vs ಅಕ್ಕಂದಿರು).
+  - Reading: the back-translation check is dominated by the back-translator's weakness on romanized Kannada, so it
+    cannot certify meaning on its own; it found no clear romanization error among the flagged items. This also
+    matches the familiarity story: a large model reads native Kannada (0.81) much better than romanized Kannada
+    (0.57).
