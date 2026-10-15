@@ -1,0 +1,94 @@
+qwen2.5-1.5b/native: mapped 0.517 (layer 1, alpha 0.01) unmapped 0.178 (layer 15) shuffled 0.0020
+qwen2.5-1.5b/itrans: mapped 0.529 (layer 1, alpha 0.1) unmapped 0.066 (layer 1) shuffled 0.0020
+qwen3.5-2b/native: mapped 0.961 (layer 7, alpha 0.1) unmapped 0.978 (layer 15) shuffled 0.0030
+qwen3.5-2b/itrans: mapped 0.485 (layer 3, alpha 0.1) unmapped 0.113 (layer 6) shuffled 0.0010
+sarvam-1/native: mapped 0.899 (layer 26, alpha 0.1) unmapped 0.944 (layer 23) shuffled 0.0010
+sarvam-1/itrans: mapped 0.380 (layer 24, alpha 0.1) unmapped 0.514 (layer 21) shuffled 0.0010
+gemma4-e2b/native: mapped 0.977 (layer 8, alpha 0.1) unmapped 0.995 (layer 7) shuffled 0.0020
+gemma4-e2b/itrans: mapped 0.473 (layer 0, alpha 0.1) unmapped 0.269 (layer 7) shuffled 0.0010
+       model   form  n_layers  best_layer_mapped  mapped                                 mapped_ci  alpha  best_layer_unmapped  unmapped                                unmapped_ci                        mapped_minus_unmapped_ci  shuffled_control  max_test_mapped_any_layer  max_test_unmapped_any_layer
+qwen2.5-1.5b native        28                  1   0.517  [0.4865671694278717, 0.5482587218284607]   0.01                   15     0.178 [0.15422885119915009, 0.20099502801895142]        [0.3024875521659851, 0.3751492500305176]             0.002                      0.517                        0.178
+qwen2.5-1.5b itrans        28                  1   0.529 [0.49850746989250183, 0.5601990222930908]   0.10                    1     0.066 [0.05074626952409744, 0.08059701323509216]        [0.4308457672595978, 0.4965174198150635]             0.002                      0.529                        0.066
+  qwen3.5-2b native        24                  7   0.961  [0.9492537379264832, 0.9731343388557434]   0.10                   15     0.978   [0.9681591987609863, 0.9870646595954895] [-0.030845770612359047, -0.0029850746504962444]             0.003                      0.967                        0.987
+  qwen3.5-2b itrans        24                  3   0.485 [0.45373135805130005, 0.5154228806495667]   0.10                    6     0.113 [0.09452736377716064, 0.13333334028720856]       [0.3372885584831238, 0.40497511625289917]             0.001                      0.485                        0.125
+    sarvam-1 native        28                 26   0.899  [0.8796020150184631, 0.9164178967475891]   0.10                   23     0.944     [0.93034827709198, 0.9572139382362366]   [-0.06669154763221741, -0.024875622242689133]             0.001                      0.899                        0.951
+    sarvam-1 itrans        28                 24   0.380 [0.3502487540245056, 0.40995025634765625]   0.10                   21     0.514     [0.483582079410553, 0.544278621673584]    [-0.16915422677993774, -0.09850746393203735]             0.001                      0.406                        0.514
+  gemma4-e2b native        35                  8   0.977   [0.967164158821106, 0.9860696792602539]   0.10                    7     0.995   [0.9900497794151306, 0.9990049600601196]  [-0.026865672320127487, -0.009950248524546623]             0.002                      0.977                        0.995
+  gemma4-e2b itrans        35                  0   0.473  [0.4417910575866699, 0.5034825801849365]   0.10                    7     0.269  [0.2407960146665573, 0.29651740193367004]      [0.16517412662506104, 0.24378108978271484]             0.001                      0.473                        0.269
+{
+ "per_model": {
+  "qwen2.5-1.5b": {
+   "mapped_gap": -0.011940298507462699,
+   "mapped_gap_ci": [
+    -0.042786069214344025,
+    0.01890547201037407
+   ],
+   "unmapped_gap": 0.11243781094527362,
+   "unmapped_gap_ci": [
+    0.08557213842868805,
+    0.13930347561836243
+   ],
+   "share_of_unmapped_gap_remaining": -0.10619469026548685,
+   "itrans_mapped_minus_unmapped_ci": [
+    0.4308457672595978,
+    0.4965174198150635
+   ],
+   "status": "closes"
+  },
+  "qwen3.5-2b": {
+   "mapped_gap": 0.4766169154228856,
+   "mapped_gap_ci": [
+    0.44477611780166626,
+    0.509452760219574
+   ],
+   "unmapped_gap": 0.864676616915423,
+   "unmapped_gap_ci": [
+    0.8427860736846924,
+    0.8855721354484558
+   ],
+   "share_of_unmapped_gap_remaining": 0.5512082853855006,
+   "itrans_mapped_minus_unmapped_ci": [
+    0.3372885584831238,
+    0.40497511625289917
+   ],
+   "status": "persists"
+  },
+  "sarvam-1": {
+   "mapped_gap": 0.5184079601990049,
+   "mapped_gap_ci": [
+    0.4865671694278717,
+    0.551243782043457
+   ],
+   "unmapped_gap": 0.4298507462686568,
+   "unmapped_gap_ci": [
+    0.3990049660205841,
+    0.4606965184211731
+   ],
+   "share_of_unmapped_gap_remaining": 1.2060185185185182,
+   "itrans_mapped_minus_unmapped_ci": [
+    -0.16915422677993774,
+    -0.09850746393203735
+   ],
+   "status": "persists"
+  },
+  "gemma4-e2b": {
+   "mapped_gap": 0.5044776119402985,
+   "mapped_gap_ci": [
+    0.4726368188858032,
+    0.5363184213638306
+   ],
+   "unmapped_gap": 0.7263681592039801,
+   "unmapped_gap_ci": [
+    0.6985074877738953,
+    0.7542288303375244
+   ],
+   "share_of_unmapped_gap_remaining": 0.6945205479452055,
+   "itrans_mapped_minus_unmapped_ci": [
+    0.16517412662506104,
+    0.24378108978271484
+   ],
+   "status": "persists"
+  }
+ },
+ "strong_H1": "inconclusive"
+}

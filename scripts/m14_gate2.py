@@ -2,7 +2,8 @@
 H1-H3 (2026-10-15; MDL detok primary) and the original M1 registration (2026-10-07; Patchscopes primary, H-frag /
 H-script). No model is run: reads the per-item files written by scripts/m14_full.py.
 
-Bootstraps: 10,000 resamples by multinomial reweighting. Native vs ITRANS differences are paired (the same resampled
+Bootstraps: 10,000 resamples by multinomial reweighting. M1 CIs are computed twice: clustered by word (primary since
+2026-10-16: a resampled word brings all its occurrences) and over occurrences (suffix _occ). Native vs ITRANS differences are paired (the same resampled
 occurrences / test occurrences / words / FLORES sentences in both forms; pairing is checked). Lags resample
 occurrences and sentences independently in the same iteration.
 Detok / alignment layer = first layer reaching 90% of the curve's maximum (MDL compression, probe accuracy,
@@ -18,41 +19,15 @@ import numpy as np
 import pandas as pd
 from scipy import stats
 
+from shattered.interp.clustered import B, FRAC, acc_curves, ci, first_reach, mdl_curves, weights
 from shattered.plots import m14 as m14_plots
 from shattered.runlog import REPO, results_dir, write_json
 
 MODELS = ["qwen2.5-1.5b", "qwen3.5-2b", "sarvam-1", "gemma4-e2b"]
 QWEN = ["qwen2.5-1.5b", "qwen3.5-2b"]
 FORMS = ["english", "native", "itrans"]
-B, CHUNK, FRAC = 10_000, 500, 0.9
 PS_MIN_RATE = 0.5  # post hoc (set after seeing rates of 0-7% on Kannada): Patchscopes detok only where defined
 RUN = REPO / "results" / "m14_full"
-
-
-def first_reach(curves: np.ndarray, frac: float = FRAC) -> np.ndarray:
-    """curves [..., L+1] -> first layer index reaching frac * max along the last axis."""
-    return np.argmax(curves >= frac * curves.max(-1, keepdims=True), axis=-1)
-
-
-def weights(n: int, seed: int):
-    """Yields multinomial resample-count matrices [chunk, n] (row sums n); total B rows."""
-    rng = np.random.default_rng(seed)
-    for s in range(0, B, CHUNK):
-        k = min(CHUNK, B - s)
-        yield rng.multinomial(n, np.full(n, 1 / n), size=k).astype(np.float32)
-
-
-def mdl_curves(costs: np.ndarray, w: np.ndarray) -> np.ndarray:
-    """costs [L+1, n] bits; w [k, n] counts -> compression-proportional curves [k, L+1] (1 / total cost)."""
-    return 1.0 / (w @ costs.T)
-
-
-def acc_curves(correct: np.ndarray, w: np.ndarray) -> np.ndarray:
-    return (w @ correct.T.astype(np.float32)) / w.sum(1, keepdims=True)
-
-
-def ci(x) -> list:
-    return [float(np.percentile(x, 2.5)), float(np.percentile(x, 97.5))]
 
 
 def load(m: str) -> dict:
@@ -68,31 +43,41 @@ def load(m: str) -> dict:
     return d
 
 
-def paired_mdl(d: dict, subset: bool = False, seed: int = 0) -> dict:
-    """ITRANS minus native MDL detok layer, paired over occurrences (columns of the shuffled-order cost matrices)."""
+def mdl_groups(d: dict) -> np.ndarray:
+    """Word label of each column of the (shuffled-order) MDL cost matrices."""
+    return d["items"]["native"]["labels"][d["items"]["native"]["mdl_order"]]
+
+
+def paired_mdl(d: dict, subset: bool = False, seed: int = 0, cluster: bool = True) -> dict:
+    """ITRANS minus native MDL detok layer, paired over the same resampled words (cluster) or occurrences."""
     cn, ci_ = d["items"]["native"]["mdl_costs"], d["items"]["itrans"]["mdl_costs"]
+    g = mdl_groups(d)
     if subset:
         keep = d["items"]["native"]["in_e0"][d["items"]["native"]["mdl_order"]]
-        cn, ci_ = cn[:, keep], ci_[:, keep]
+        cn, ci_, g = cn[:, keep], ci_[:, keep], g[keep]
     pn, pi = int(first_reach(1 / cn.sum(1))), int(first_reach(1 / ci_.sum(1)))
     diffs = []
-    for w in weights(cn.shape[1], seed):
+    for w in weights(cn.shape[1], seed, g if cluster else None):
         diffs.append(first_reach(mdl_curves(ci_, w)) - first_reach(mdl_curves(cn, w)))
     diffs = np.concatenate(diffs)
     return {"native": pn, "itrans": pi, "diff": pi - pn, "diff_ci": ci(diffs), "diff_frac_depth": (pi - pn) / d["L"],
             "n": int(cn.shape[1])}
 
 
-def single_mdl(costs: np.ndarray, seed: int = 0) -> dict:
-    det = np.concatenate([first_reach(mdl_curves(costs, w)) for w in weights(costs.shape[1], seed)])
+def single_mdl(costs: np.ndarray, groups: np.ndarray, seed: int = 0) -> dict:
     comp = 1 / costs.sum(1)
-    return {"detok": int(first_reach(comp)), "ci": ci(det), "peak_layer": int(comp.argmax())}
+    out = {"detok": int(first_reach(comp)), "peak_layer": int(comp.argmax())}
+    for key, g in (("ci", groups), ("ci_occ", None)):
+        out[key] = ci(np.concatenate([first_reach(mdl_curves(costs, w)) for w in weights(costs.shape[1], seed, g)]))
+    return out
 
 
-def paired_probe(d: dict, seed: int = 0) -> dict:
+def paired_probe(d: dict, seed: int = 0, cluster: bool = True) -> dict:
     a, b = d["items"]["native"]["probe_correct"], d["items"]["itrans"]["probe_correct"]
+    it = d["items"]["native"]
+    g = it["labels"][~it["probe_train_mask"]] if cluster else None
     diffs = np.concatenate([first_reach(acc_curves(b, w)) - first_reach(acc_curves(a, w))
-                            for w in weights(a.shape[1], seed)])
+                            for w in weights(a.shape[1], seed, g)])
     pn, pi = int(first_reach(a.mean(1))), int(first_reach(b.mean(1)))
     return {"native": pn, "itrans": pi, "diff": pi - pn, "diff_ci": ci(diffs), "n_test": int(a.shape[1])}
 
@@ -113,14 +98,14 @@ def paired_ps(d: dict, seed: int = 0) -> dict:
     return {**out, "native": pn, "itrans": pi, "diff": pi - pn, "diff_ci": ci(diffs)}
 
 
-def m4_and_lag(d: dict, seed: int = 0) -> dict:
+def m4_and_lag(d: dict, seed: int = 0, cluster: bool = True) -> dict:
     """Alignment layers, max retrieval, paired differences, and lag difference (ITRANS minus native)."""
     rn, ri = d["m4_items"]["native"], d["m4_items"]["itrans"]
     cn, cI = d["items"]["native"]["mdl_costs"], d["items"]["itrans"]["mdl_costs"]
     an, ai = int(first_reach(rn.mean(1))), int(first_reach(ri.mean(1)))
     dn, di = int(first_reach(1 / cn.sum(1))), int(first_reach(1 / cI.sum(1)))
     al_d, max_d, lag_d, max_n, max_i = [], [], [], [], []
-    wo = weights(cn.shape[1], seed + 1)
+    wo = weights(cn.shape[1], seed + 1, mdl_groups(d) if cluster else None)  # sentences x words (or occurrences)
     for ws in weights(rn.shape[1], seed):
         wocc = next(wo)
         An, Ai = acc_curves(rn, ws), acc_curves(ri, ws)
@@ -155,7 +140,7 @@ def main() -> None:
         curves[m] = {"L": L, "mdl": {}, "retrieval": {f: d["m4"][f]["retrieval_acc"] for f in ("native", "itrans")}}
         for f in FORMS:
             r, it, ps = d["res"][f], d["items"][f], d["ps"][f]
-            s = single_mdl(it["mdl_costs"])
+            s = single_mdl(it["mdl_costs"], it["labels"][it["mdl_order"]])
             comp = np.asarray(r["mdl"]["compression"])
             curves[m]["mdl"][f] = comp.tolist()
             assert s["detok"] == r["mdl"]["detok_layer"], (m, f)
@@ -164,7 +149,8 @@ def main() -> None:
             per_form.append({
                 "model": m, "form": f, "n_layers": L, "n_occ": r["n_occ"], "tokens_per_word": r["tokens_per_word_mean"],
                 "frac_ge3_tokens": r["frac_ge3"], "mdl_detok": s["detok"], "mdl_ci_low": s["ci"][0],
-                "mdl_ci_high": s["ci"][1], "mdl_detok_frac_depth": s["detok"] / L, "mdl_peak_layer": s["peak_layer"],
+                "mdl_ci_high": s["ci"][1], "mdl_ci_occ_low": s["ci_occ"][0], "mdl_ci_occ_high": s["ci_occ"][1],
+                "mdl_detok_frac_depth": s["detok"] / L, "mdl_peak_layer": s["peak_layer"],
                 "compression_max": comp.max(), "compression_last": comp[-1],
                 "probe_detok": r["probe_detok"]["detok_layer"], "probe_ci_low": r["probe_detok"]["ci_low"],
                 "probe_ci_high": r["probe_detok"]["ci_high"], "probe_acc_layer0": r["probe_acc"][0],
@@ -193,12 +179,17 @@ def main() -> None:
                 spear.append({"model": m, "form": f, "n_identified": len(idf), "rho": None, "ci": None,
                               "verdict": "not testable (< 30 identified words)"})
         pm, pme, pp, pps, lag = paired_mdl(d), paired_mdl(d, subset=True), paired_probe(d), paired_ps(d), m4_and_lag(d)
+        pm_o, pme_o, pp_o = paired_mdl(d, cluster=False), paired_mdl(d, subset=True, cluster=False), paired_probe(
+            d, cluster=False)
+        lag_o = m4_and_lag(d, cluster=False)
         tpw = d["res"]["itrans"]["tokens_per_word_mean"] - d["res"]["native"]["tokens_per_word_mean"]
         paired.append({"model": m, "tpw_native": d["res"]["native"]["tokens_per_word_mean"],
                        "tpw_itrans": d["res"]["itrans"]["tokens_per_word_mean"], "tpw_diff": tpw,
                        **{f"mdl_{k}": v for k, v in pm.items()}, **{f"mdl_e0_{k}": v for k, v in pme.items()},
-                       **{f"probe_{k}": v for k, v in pp.items()}, **{f"ps_{k}": v for k, v in pps.items()}})
-        m4rows.append({"model": m, **lag})
+                       **{f"probe_{k}": v for k, v in pp.items()}, **{f"ps_{k}": v for k, v in pps.items()},
+                       "mdl_diff_ci_occ": pm_o["diff_ci"], "mdl_e0_diff_ci_occ": pme_o["diff_ci"],
+                       "probe_diff_ci_occ": pp_o["diff_ci"]})
+        m4rows.append({"model": m, **lag, "lag_diff_ci_occ": lag_o["lag_diff_ci"]})
         # original registration (2026-10-07): Delta = mean over words of (native - ITRANS) first_id_layer / L, words
         # identified in both forms, paired bootstrap over words
         a, b = d["ps"]["native"].first_id_layer.to_numpy(), d["ps"]["itrans"].first_id_layer.to_numpy()
@@ -213,7 +204,8 @@ def main() -> None:
         else:
             row.update({"delta": None, "delta_ci": None, "favors": "not testable (< 30 words identified in both forms)"})
         prereg.append(row)
-        print(f"{m}: MDL ITRANS-native {pm['diff']} {np.round(pm['diff_ci'], 1).tolist()} | lag diff {lag['lag_diff']} "
+        print(f"{m}: MDL ITRANS-native {pm['diff']} word {np.round(pm['diff_ci'], 1).tolist()} occ "
+              f"{np.round(pm_o['diff_ci'], 1).tolist()} | lag diff {lag['lag_diff']} "
               f"{lag['lag_diff_ci']} | max retrieval native {lag['max_retrieval_native']:.3f} itrans "
               f"{lag['max_retrieval_itrans']:.3f}", flush=True)
 
@@ -277,7 +269,7 @@ def main() -> None:
     PR.reset_index().to_csv(out / "patchscopes_prereg.csv", index=False)
     pd.DataFrame(spear).to_csv(out / "patchscopes_spearman.csv", index=False)
     write_json(out / "verdicts.json", {"verdicts": verdicts, "curves": curves},
-               {"bootstrap": B, "frac": FRAC, "models": MODELS, "registered": "RESULTS.md 2026-10-07 and 2026-10-15"})
+               {"bootstrap": B, "frac": FRAC, "primary_ci": "clustered by word (2026-10-16)", "models": MODELS, "registered": "RESULTS.md 2026-10-07 and 2026-10-15"})
     m14_plots.layer_curves(curves)
     pd.set_option("display.width", 250)
     pd.set_option("display.max_columns", 40)

@@ -3,6 +3,7 @@
     "config": {
       "bootstrap": 10000,
       "frac": 0.9,
+      "primary_ci": "clustered by word (2026-10-16)",
       "models": [
         "qwen2.5-1.5b",
         "qwen3.5-2b",
@@ -11,8 +12,8 @@
       ],
       "registered": "RESULTS.md 2026-10-07 and 2026-10-15"
     },
-    "git_commit": "c90c964c21df65f02f9c4a7768be4c3d1682cf13-dirty",
-    "timestamp_utc": "2026-10-15T15:48:01+00:00",
+    "git_commit": "e10b11e82dfc3c70476b6cc28d36fd0da770c1e5-dirty",
+    "timestamp_utc": "2026-10-15T18:53:06+00:00",
     "python": "3.12.13",
     "platform": "Windows-11-10.0.26300-SP0",
     "argv": [

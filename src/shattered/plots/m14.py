@@ -42,3 +42,44 @@ def layer_curves(curves: dict | None = None) -> list:
     h, lab = axes[0, 0].get_legend_handles_labels()
     fig.legend(h, lab, loc="lower center", ncol=3, fontsize=8)
     return style.save(fig, "F_m14_layer_curves_draft")
+
+
+def accuracy_vs_mechanism() -> list:
+    """Illustrative (n = 8: 4 models x {native, ITRANS}): E0 sentiment accuracy (Gate 1 primary, 95% CI) against
+    tokens per word (E0 sentiment texts), best-layer FLORES+ retrieval vs English (unmapped, all 2,009 sentences) and
+    best-layer mapped retrieval (M4b ridge map, test half). Reads Gate 1, Gate 2 and M4b result files."""
+    import pandas as pd
+    g1 = REPO / "results" / "e0b_familiarity" / "gate1"
+    acc = pd.read_csv(g1 / "accuracy.csv")
+    acc = acc[(acc.task == "sentiment")].set_index(["model", "form"])
+    fert = pd.read_csv(g1 / "fertility.csv")
+    fert = fert[fert.task == "sentiment"].set_index(["model", "form"]).tokens_per_word
+    m4 = json.load(open(REPO / "results" / "m14_full" / "gate2" / "verdicts.json"))["curves"]
+    mb = pd.read_csv(REPO / "results" / "m4b_mapping" / "summary.csv").set_index(["model", "form"])
+    style.apply()
+    fig, axes = plt.subplots(1, 3, figsize=(7.2, 2.6), sharey=True)
+    xs = [("tokens per word (E0 sentiment)", lambda m, f: fert[(m, f)]),
+          ("best-layer retrieval vs English", lambda m, f: max(m4[m]["retrieval"][f])),
+          ("best-layer retrieval, linear map", lambda m, f: mb.loc[(m, f), "mapped"])]
+    for j, (lab, fx) in enumerate(xs):
+        ax = axes[j]
+        for i, m in enumerate(NAMES):
+            pts = []
+            for f, filled in (("native", True), ("itrans", False)):
+                r = acc.loc[(m, f)]
+                x, y = fx(m, f), 100 * r.acc_cal
+                pts.append((x, y))
+                ax.errorbar(x, y, yerr=[[y - 100 * r.acc_cal_ci_low], [100 * r.acc_cal_ci_high - y]], fmt=style.MARKERS[i],
+                            color=style.PALETTE[i], mfc=style.PALETTE[i] if filled else style.SURFACE, mew=1.5,
+                            elinewidth=0.8, capsize=0, label=f"{NAMES[m]}" if (j == 0 and filled) else None)
+            ax.plot(*zip(*pts), ":", color=style.PALETTE[i], linewidth=1)
+        ax.set_xlabel(lab)
+    axes[0].set_ylabel("sentiment accuracy (%)")
+    axes[1].set_xlim(0, 1)
+    axes[2].set_xlim(0, 1)
+    fig.suptitle("Illustrative only (n = 8). Filled = native script, hollow = ITRANS; dotted lines join a model's two forms",
+                 fontsize=8, y=1.02)
+    fig.tight_layout(rect=(0, 0.1, 1, 1))
+    h, l = axes[0].get_legend_handles_labels()
+    fig.legend(h, l, loc="lower center", ncol=4, fontsize=8)
+    return style.save(fig, "F_m14_accuracy_vs_mechanism_illustrative")

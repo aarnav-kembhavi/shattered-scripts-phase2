@@ -4,8 +4,11 @@ Pre-registered in RESULTS.md (2026-10-15).
 Words: the 300 most frequent space-preceded alphabetic validation words that are >= 3 tokens under vocab 768, up to
 40 occurrences each (at most 2 per story, first 800 characters of each story), identical across all 18 models.
 
-Usage: python scripts/m1_tiny_mdl.py [--pilot]
+Usage: python scripts/m1_tiny_mdl.py [--pilot] [--items]
 Outputs (results/m1_tiny_mdl/): words.json, run_v{V}_s{S}.json, per_run.csv, summary.csv, analysis.json
+--items (added 2026-10-16): recompute the MDL probe for runs whose per-item costs were not saved, save
+  items_v{V}_s{S}.npz (costs [L+1, n] in bits, shuffled order, labels), check the point estimate against the stored
+  run, then write clustered.csv (detok CIs resampling words vs occurrences, 10,000 resamples).
 """
 import argparse
 import json
@@ -142,11 +145,46 @@ def analyse(out) -> None:
     print(json.dumps({k: v for k, v in payload.items() if k != "summary"}, indent=1, default=float))
 
 
+def items_and_clustered(out) -> None:
+    from shattered.interp.clustered import detok_ci
+    data = json.load(open(out / "words.json"))
+    labels = np.array([o["label"] for o in data["occurrences"]])
+    K = int(labels.max()) + 1
+    rows = []
+    for v in VOCABS:
+        for s in SEEDS:
+            run = json.load(open(out / f"run_v{v}_s{s}.json"))
+            path = out / f"items_v{v}_s{s}.npz"
+            if not path.exists():
+                t0 = time.time()
+                model, ctx = load_model(v, s, "cuda")
+                states, _, _ = collect(model, load_tokenizer(tok_path(v)), ctx, data, "cuda")
+                mdl = mdl_curve(states, labels, seed=0)
+                order = np.random.default_rng(0).permutation(len(labels))
+                np.savez_compressed(path, mdl_costs=mdl["costs"].astype(np.float32), mdl_order=order, labels=labels)
+                del model
+                torch.cuda.empty_cache()
+                print(f"v{v} s{s}: items saved ({time.time() - t0:.0f}s)", flush=True)
+            z = np.load(path)
+            costs, groups = z["mdl_costs"], z["labels"][z["mdl_order"]]
+            point = bootstrap_mdl_detok(costs, K, n_boot=1)["detok_layer"]
+            occ, word = detok_ci(costs, None), detok_ci(costs, groups)
+            rows.append({"vocab": v, "seed": s, "mdl_detok": point, "stored_detok": run["mdl"]["detok_layer"],
+                         "matches_stored": point == run["mdl"]["detok_layer"],
+                         "ci_occ_low": occ[0], "ci_occ_high": occ[1], "ci_word_low": word[0], "ci_word_high": word[1]})
+    df = pd.DataFrame(rows)
+    df.to_csv(out / "clustered.csv", index=False)
+    print(df.to_string(index=False))
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--pilot", action="store_true")
+    ap.add_argument("--items", action="store_true")
     args = ap.parse_args()
     out = results_dir("m1_tiny_mdl")
+    if args.items:
+        return items_and_clustered(out)
     wpath = out / "words.json"
     if not wpath.exists():
         wpath.write_text(json.dumps(build_occurrences(), indent=0))

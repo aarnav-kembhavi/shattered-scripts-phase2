@@ -736,3 +736,82 @@ representation but in a different subspace) or is the meaning missing (strong H1
   unmapped native−ITRANS gap that remains after mapping, and whether mapping raises ITRANS above unmapped ITRANS.
 - Not a test: the accuracy-vs-mechanism figure (sentiment accuracy vs tokens per word and vs best-layer
   retrieval, 4 models × {native, ITRANS}) is illustrative only (n = 8 points, no inference).
+
+---
+## 2026-10-16 — Word-clustered CIs for M1 (large and tiny models; deviation (c) above)
+
+Scripts: `scripts/m14_gate2.py` (rerun; clustered CIs are now primary, occurrence CIs kept with suffix `_occ`) and
+`scripts/m1_tiny_mdl.py --items` (recomputed the 18 tiny MDL probes and saved per-item costs; outputs
+`results/m1_tiny_mdl/{items_v*_s*.npz, clustered.csv}`). 10,000 resamples of the 300 words.
+- **Tiny models:** all 18 recomputed detok layers equal the stored ones. The word-clustered CIs equal the occurrence
+  CIs in 17 of 18 runs (all degenerate: 2 / 1 / 1 / 1 / 1 / 0 for vocab 256 / 384 / 512 / 768 / 1024 / 4096). The
+  exception is v1024 seed 0, which widens from [1, 1] to [1, 2]. The Step 3b classification is unchanged.
+- **Large models, MDL detok ITRANS − native (word-clustered [occurrence]):**
+  - Qwen2.5 −3 [−4, −3] [−4, −3]
+  - Qwen3.5 0 [0, 0] [0, 0]
+  - Sarvam-1 +6 [5, 7] [6, 7]
+  - Gemma 4 +2 [1, 2] [1, 2]
+
+  On the E0-word subset, Gemma 4 widens to +1 [0, 2] (occurrence [1, 2]), now including 0. The others are unchanged.
+  Per-form detok CIs are unchanged except Sarvam-1 native, which goes to [0, 1]. Lag differences: Sarvam-1 0 [−1, 1]
+  (occurrence [−1, 0]), the others unchanged. **H1–H3 verdicts and the method-agreement table are unchanged.**
+
+---
+## 2026-10-16 — M4b linear mapping test (registered above): strong H1 inconclusive
+
+Script `scripts/m4b_mapping.py` (CPU, about 30 min with other jobs running); outputs
+`results/m4b_mapping/{summary.csv, verdict.json, items.npz}`. Pilot on Qwen2.5 first: 3.3 min per model, results
+identical to the full run. Test half n = 1,005 (chance 0.1%). Best layers are chosen on the train half.
+
+| model | native unmapped (layer) | native mapped (layer) | ITRANS unmapped (layer) | ITRANS mapped (layer) | mapped gap native − ITRANS [CI] | status |
+|---|---|---|---|---|---|---|
+| Qwen2.5 | 0.178 (15) | 0.517 (1) | 0.066 (1) | 0.529 (1) | −0.012 [−0.043, 0.019] | closes |
+| Qwen3.5 | 0.978 (15) | 0.961 (7) | 0.113 (6) | 0.485 (3) | 0.477 [0.445, 0.509] | persists |
+| Sarvam-1 | 0.944 (23) | 0.899 (26) | 0.514 (21) | 0.380 (24) | 0.518 [0.487, 0.551] | persists |
+| Gemma 4 | 0.995 (7) | 0.977 (8) | 0.269 (7) | 0.473 (0) | 0.504 [0.473, 0.536] | persists |
+
+Shuffled-pair control: 0.1–0.3% everywhere. Share of the unmapped gap remaining after mapping: Qwen3.5 55%,
+Gemma 4 69%, Sarvam-1 121%, Qwen2.5 −11%.
+- **Registered verdict: strong H1 inconclusive.** The gap persists in 3 of 4 models (Qwen3.5, Sarvam-1, Gemma 4) and
+  closes in Qwen2.5. The rule needed all 4 for "supported" and 3 closing for "refuted".
+- Qwen2.5 "closes" at a low level. Its native script is barely aligned with English either (unmapped 0.178). Both
+  forms map best at layer 1, to the same ~0.52, so neither form reaches an English-aligned representation that
+  ITRANS could fall short of.
+- Mapping raises ITRANS above unmapped in Qwen2.5 (+0.46), Qwen3.5 (+0.37) and Gemma 4 (+0.20), and lowers it in
+  Sarvam-1 (−0.13). With 1,004 training pairs in 1,536–2,304 dimensions, the ridge map is not an upper bound: it
+  also lowers native retrieval wherever native is already aligned (Qwen3.5 −0.02, Sarvam-1 −0.05, Gemma 4 −0.02).
+- Observation (post hoc, not a test): where mapped ITRANS does best, it does so at the input end. The best layer by
+  train-half CV is 1 (Qwen2.5), 3 (Qwen3.5) and 0 (Gemma 4); in Sarvam-1 CV picked 24 (0.380), but the highest test
+  value is at layer 0 (0.406). From a quarter of depth onward, mapped ITRANS is 0.06–0.39 (maximum 0.18 Qwen2.5, 0.34 Qwen3.5, 0.39 Sarvam-1, 0.28 Gemma 4). Mapped native peaks at layers
+  7–26 (except Qwen2.5). A linear map at layers 0–3 over mean-pooled token vectors is largely a learned
+  bag-of-tokens dictionary: shared digits, names and Latin-script loanwords in ITRANS give it lexical anchors.
+  So the ITRANS gains look lexical, not like a recovered meaning representation. That reading fits strong H1 but
+  is not what the registered rule tested.
+
+## 2026-10-16 — Accuracy vs mechanism (illustrative, n = 8)
+`paper/figures/F_m14_accuracy_vs_mechanism_illustrative.{pdf,png}` (`shattered.plots.m14.accuracy_vs_mechanism`):
+E0 sentiment accuracy (Gate 1 primary, 95% CI) against tokens per word, best-layer unmapped retrieval (Gate 2, all
+2,009 sentences) and best-layer mapped retrieval (M4b). No inference. Descriptively:
+- Accuracy rises with unmapped retrieval in a nearly monotone way across all 8 points.
+- Tokens per word does not order accuracy. Qwen2.5 native (12.0 tokens per word) beats Qwen2.5 ITRANS (4.2), and
+  Qwen3.5 native (5.2) beats ITRANS (4.1).
+- Mapped retrieval compresses the ITRANS points to 0.38–0.53 while their accuracy spans 50–82%.
+
+---
+## PRE-REGISTRATION — M4c natural romanization in M4 (written 2026-10-16, before any natural FLORES+ sentence of this sample is romanized or run)
+`scripts/m4c_natural_flores.py`.
+- **Sample:** 500 FLORES+ sentences drawn at random (seed 0) from the 2,009.
+- **Romanization:** same model, prompt and temperature as E0 (gemini-3.5-flash-lite, natural_romanization_v1,
+  temperature 0; cached, so sentences already done for E2 are free). Defective outputs get attempts 2–3 and are
+  excluded if still defective; the count is reported.
+- **Measures:** on the same retained sentences for native, ITRANS and natural:
+  - unmapped best-layer retrieval vs English among all retained sentences
+  - the M4b mapping test (50/50 split of the retained sentences, seed 0, same procedure)
+  - paired bootstrap CIs, 10,000 resamples
+- **Prediction (familiarity):**
+  - Natural ≈ ITRANS: the paired CI of natural − ITRANS lies within ±0.10, unmapped and mapped, in at least 3 of 4
+    models.
+  - Natural well below native: the CI of native − natural is above 0.10, unmapped, in Qwen3.5, Sarvam-1 and Gemma 4.
+  - "Supported" if both hold, "refuted" if natural − ITRANS > 0.10 (CI) in at least 3 models, otherwise inconclusive.
+  - Qwen2.5 is reported but not counted for the second part, because its native script is itself unaligned
+    (0.144 on all 2,009).
