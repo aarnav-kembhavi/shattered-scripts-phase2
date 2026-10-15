@@ -596,3 +596,95 @@ item_fragmentation.{csv,json}`. Coefficients are per SD of the item's tokens per
   discordant, p = 0.006, Holm 0.15) and +7.6 (natural, 27 vs 12, p = 0.024, Holm 0.50); XNLI +8.5 (lossy, p = 0.012,
   Holm 0.28) and +7.3 (natural, p = 0.020, Holm 0.44). Consistent in direction, not significant after correction,
   and not separable from the capitals.
+
+---
+## 2026-10-15 — GATE 2: full M1/M4 run (Qwen2.5-1.5B, Qwen3.5-2B, Sarvam-1, Gemma 4 E2B; English, native, ITRANS)
+
+Run: `scripts/m14_full.py` via `scripts/chain.sh` (16:40–20:47 IST, 4.1 h: Qwen2.5 37.6 min, Qwen3.5 70.2,
+Sarvam-1 46.2, Gemma 4 93.2; per model and form about 4–15 min forward pass, 4–13 min Patchscopes, 3–5 min probes;
+`results/m14_full/timing.json`). Analysis: `scripts/m14_gate2.py` -> `results/m14_full/gate2/` (per_form, paired,
+m4, erasure, patchscopes_prereg, patchscopes_spearman CSVs; verdicts.json). Draft figure
+`paper/figures/F_m14_layer_curves_draft.{pdf,png}`. M1: 300 Kannada Wikipedia words x 30 occurrences (9,000,
+ITRANS paired word by word; 208 of the words occur in E0) and 300 English words x 30. M4: 2,009 FLORES+ sentences.
+CIs: 10,000 paired bootstrap resamples (occurrences for MDL and probes, words for Patchscopes, sentences for M4).
+
+**MDL detok layer (primary; first layer reaching 90% of max compression).** Tokens per word are for these words.
+
+| model (layers) | tpw native -> ITRANS | MDL native | MDL ITRANS | ITRANS − native [95% CI] | fraction of depth | E0-word subset (6,240 occ.) |
+|---|---|---|---|---|---|---|
+| Qwen2.5-1.5B (28) | 8.55 -> 3.24 | 4 | 1 | **−3 [−4, −3]** | −0.11 | −3 [−4, −3] |
+| Qwen3.5-2B (24) | 3.90 -> 3.12 | 2 | 2 | 0 [0, 0] | 0 | 0 [0, 0] |
+| Sarvam-1 (28) | 1.16 -> 3.94 | 0 | 6 | **+6 [6, 7]** | +0.21 | +6 [6, 6] |
+| Gemma 4 E2B (35) | 2.05 -> 2.93 | 1 | 3 | **+2 [1, 2]** | +0.06 | +1 [1, 2] |
+
+English detok is layer 0 in every model (the English words are single tokens). The E0-word subset gives the same
+ordering in all four models.
+
+**M4 (FLORES+ retrieval acc@1 against English, mean-pooled residuals).**
+
+| model | max retrieval native [CI] | max retrieval ITRANS [CI] | alignment layer native / ITRANS | lag native / ITRANS | lag diff [CI] | max CKA native / ITRANS |
+|---|---|---|---|---|---|---|
+| Qwen2.5 | 0.144 [0.130, 0.161] | 0.057 [0.047, 0.067] | 14 / 1 | 10 / 0 | −10 [−11, −8] | 0.63 / 0.67 |
+| Qwen3.5 | 0.973 [0.966, 0.980] | 0.097 [0.090, 0.112] | 4 / 2 | 2 / 0 | −2 [−2, 2] | 0.73 / 0.49 |
+| Sarvam-1 | 0.941 [0.933, 0.952] | 0.458 [0.440, 0.481] | 10 / 16 | 10 / 10 | 0 [−1, 0] | 0.59 / 0.49 |
+| Gemma 4 | 0.988 [0.984, 0.993] | 0.222 [0.204, 0.240] | 5 / 7 | 4 / 4 | 0 [0, 1] | 0.75 / 0.45 |
+
+**Registered verdicts (2026-10-15).**
+- **H1 (meaning bottleneck): holds by the rule, but only through its retrieval clause.** In both Qwen models ITRANS
+  detokenizes no later than native (−3 and 0 layers), and ITRANS never reaches native's maximum retrieval (paired CI
+  of native minus ITRANS max: Qwen2.5 +0.088 [0.071, 0.106], Qwen3.5 +0.876 [0.859, 0.885]). The lag clause goes the
+  other way: ITRANS's lag is shorter (Qwen2.5 −10 [−11, −8]), because its "alignment layer" is taken against its own
+  near-floor maximum (5.7% and 9.7%) and so means little. "Never reaches" was operationalized (paired CI above 0)
+  after the run log had printed the maxima; the gaps are so large that any reasonable operationalization agrees.
+- **H2 (assembly bottleneck): refuted** (ITRANS is not later in either Qwen model). Qwen outcome: H1.
+- **H3 (fragmentation-driven ordering): not supported by the rule, but 3 of 4 models fit.** The sign of the detok
+  difference matches the sign of the tokens-per-word difference with CIs excluding 0 in Qwen2.5 (−), Sarvam-1 (+)
+  and Gemma 4 (+). Qwen3.5 has 0 [0, 0] where − was predicted (its native/ITRANS tokens-per-word gap is only 0.78).
+  Not refuted (ITRANS is not later in all four).
+- **Original registration (2026-10-07, Patchscopes primary): not testable.** With MDL reported alongside, the same
+  rule gives **H-frag** (Qwen2.5 ITRANS-earlier, Qwen3.5 no difference, Sarvam-1 and Gemma 4 native-earlier; that
+  rule allowed one Qwen model with no difference). H-script is refuted under MDL.
+
+**Patchscopes (FragMend setup) fails on Kannada in these models.** Identification at any layer: native 0.0% (Qwen2.5),
+0.7% (Qwen3.5), 0.7% (Gemma 4), 77% (Sarvam-1); ITRANS 1.7%, 6.7%, 2.3%, 0.7%; English 61–98%. Outputs are
+inspected, not a scoring bug: "1, 1, 1, ...", repeated commas, newlines, or other scripts. Words identified in both
+forms: 0–2 per model, so the registered Delta cannot be computed. A null for these 1.5–2B models, consistent with
+RomanLens' remark that decoding methods break on byte-fragmented scripts. Secondary (detok layer rises with token
+count, identified words only): Qwen2.5 English rho 0.46 [0.29, 0.60], Qwen3.5 English 0.25 [0.16, 0.32]; not shown
+for Sarvam-1 English/native (CI touches 0); Gemma 4 English is constant (layer 0); not testable for every other cell.
+
+**Plain linear probe: saturated, uninformative** (as in the tiny models). Held-out accuracy is 96–100% from layer 1
+in every model and form (control <= 0.7%). Detok is 0 or 1 everywhere, so it disagrees with MDL on Qwen2.5 and
+Gemma 4 only by being unable to resolve them; it agrees on Sarvam-1 (+1 [1, 1]).
+
+**Erasure (Feucht style, offsets −1/−2): small everywhere.** Previous in-word token identity stays 92–100% decodable at
+the last layer; magnitude (peak minus last) 0.002–0.080. By the Step 3b rule it is "inconclusive" (not all < 0.05:
+Gemma 4 native −1 0.080, ITRANS −1/−2 0.056/0.072; Sarvam-1 0.052–0.061), not "confirmed" (none >= 0.2). Qwen2.5
+native at −1 has only 30 classes (byte tokens). An erasure layer exists only in Gemma 4 (17–18 of 35).
+
+**Unexpected.** (1) As in the tiny models, word-identity compression peaks early (layers 0–10) and then falls by 40–79%
+by the last layer. (2) Qwen2.5 aligns native Kannada with English poorly (max 14.4% retrieval, vs 94–99% for the
+other three). This matches its E0 XNLI collapse (40.0 native). (3) Sarvam-1 is the only model with substantial ITRANS
+alignment (45.8%), and its ITRANS words detokenize 6 layers late.
+
+**Reading.** Where fragmentation differs a lot between forms, the more fragmented form needs more layers to assemble a
+word (Qwen2.5 native +3, Sarvam-1 ITRANS +6, Gemma 4 ITRANS +2), but the cost is a few layers out of 24–35. Assembly is
+not where romanized input fails: in every model ITRANS words are assembled within a few layers, yet ITRANS sentences
+barely align with English (6–46% retrieval vs 14–99% native). This includes the Qwen models, where ITRANS is the less
+fragmented form. The bottleneck is meaning, not assembly, which fits the familiarity account from E0b/Gate 1.
+
+Caveats: occurrence-level CIs treat the 30 occurrences of a word as independent, so they are narrower than
+word-clustered CIs would be. Detok layers are coarse integers, and most CIs are degenerate. Retrieval uses mean
+pooling with no training.
+
+---
+## 2026-10-15 — Back-translation comprehension gap: final (all paired texts)
+
+All 587 E0 texts now have both back-translations (`results/e0b_natural_check/summary_control.json`). Excluded: the 2
+source-noise items and the 9 defective natural outputs (also excluded from E0b; the control script now drops them),
+leaving **n = 576** (378 XNLI, 198 sentiment). The bottom-5% flag (28 eligible texts) no longer selects anything,
+because every text is controlled.
+- **Final: native 0.838 [0.828, 0.849], natural romanization 0.621 [0.604, 0.639], paired gap 0.217 [0.201, 0.234].**
+  This supersedes the interim 0.232 (biased upward by selection) and 0.183 (XNLI-only file order).
+- Excluding the 28 flagged texts: 548 texts, gap 0.197 [0.182, 0.212].
+- Texts where the romanized back-translation lost more than 0.3 cosine against native: 167 of 576.

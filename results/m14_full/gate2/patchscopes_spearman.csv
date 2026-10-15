@@ -1,0 +1,13 @@
+model,form,n_identified,rho,ci,verdict
+qwen2.5-1.5b,english,184,0.4587111710514644,"[0.2871808839226201, 0.596729351067436]",rises
+qwen2.5-1.5b,native,0,,,not testable (< 30 identified words)
+qwen2.5-1.5b,itrans,5,,,not testable (< 30 identified words)
+qwen3.5-2b,english,277,0.2458467355992806,"[0.15844146344713875, 0.3185171617968284]",rises
+qwen3.5-2b,native,2,,,not testable (< 30 identified words)
+qwen3.5-2b,itrans,20,,,not testable (< 30 identified words)
+sarvam-1,english,259,0.19642407806134024,"[0.0, 0.29858100999945103]",not shown
+sarvam-1,native,231,0.2406483643808145,"[0.0, 0.361359088375489]",not shown
+sarvam-1,itrans,2,,,not testable (< 30 identified words)
+gemma4-e2b,english,295,,"[0.0, 0.0]",not shown
+gemma4-e2b,native,2,,,not testable (< 30 identified words)
+gemma4-e2b,itrans,7,,,not testable (< 30 identified words)

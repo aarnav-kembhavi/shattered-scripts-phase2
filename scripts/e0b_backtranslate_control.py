@@ -58,7 +58,8 @@ def main() -> None:
     noise = {(x["item"], x["field"]) for x in json.load(open(REPO / "data" / "annotation" / "source_noise_v1.json"))}
     df["source_noise"] = [(i, f) in noise for i, f in zip(df["item"], df["field"])]
     df.to_csv(od / "backtranslation_with_control.csv", index=False, encoding="utf-8")
-    d = df[done & ~df.source_noise]
+    # the 9 defective natural outputs (leftover Kannada, diacritics) are excluded from E0b, so here too
+    d = df[done & ~df.source_noise & ~df.defective]
     rng = np.random.default_rng(0)
     idx = rng.integers(0, len(d), size=(10000, len(d)))
     nat, nav = d.cosine.to_numpy(), d.cosine_native.to_numpy()
@@ -89,6 +90,7 @@ def main() -> None:
             "gap_nonflagged_controlled_so_far": gap(nonflag),
             "gap_random_prefix": gap(d.loc[seq[:k]]),
             "n_with_control": int(len(d)), "n_source_noise_excluded": int((done & df.source_noise).sum()),
+            "n_defective_excluded": int((done & df.defective & ~df.source_noise).sum()),
             "stopped": stopped,
             "cosine_natural_mean": float(nat.mean()), "cosine_natural_ci": ci(nat),
             "cosine_native_mean": float(nav.mean()), "cosine_native_ci": ci(nav),

@@ -8,20 +8,20 @@
       "embedding": "sentence-transformers/all-mpnet-base-v2",
       "embedding_rev": "e8c3b32edf"
     },
-    "git_commit": "d45dc1bf9e66523a94b2d9b731201f576803081f-dirty",
-    "timestamp_utc": "2026-10-14T19:22:33+00:00",
+    "git_commit": "c90c964c21df65f02f9c4a7768be4c3d1682cf13-dirty",
+    "timestamp_utc": "2026-10-15T15:23:57+00:00",
     "python": "3.12.13",
     "platform": "Windows-11-10.0.26300-SP0",
     "argv": [
       "scripts/e0b_backtranslate.py"
     ]
   },
-  "n": 501,
-  "n_natural_total": 501,
+  "n": 587,
+  "n_natural_total": 587,
   "stopped": null,
-  "cosine_mean": 0.6166133284568787,
-  "cosine_median": 0.6472173929214478,
-  "cosine_p05": 0.21824683248996735,
-  "n_flagged": 26,
-  "n_defective_in_set": 19
+  "cosine_mean": 0.6189743876457214,
+  "cosine_median": 0.6465811133384705,
+  "cosine_p05": 0.2184416502714157,
+  "n_flagged": 30,
+  "n_defective_in_set": 9
 }

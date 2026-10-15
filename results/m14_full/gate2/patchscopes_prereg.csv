@@ -1,0 +1,5 @@
+model,n_words,success_native,success_itrans,n_both,delta,delta_ci,favors
+qwen2.5-1.5b,300,0.0,0.016666666666666666,0,,,not testable (< 30 words identified in both forms)
+qwen3.5-2b,300,0.006666666666666667,0.06666666666666667,1,,,not testable (< 30 words identified in both forms)
+sarvam-1,300,0.77,0.006666666666666667,2,,,not testable (< 30 words identified in both forms)
+gemma4-e2b,300,0.006666666666666667,0.023333333333333334,0,,,not testable (< 30 words identified in both forms)

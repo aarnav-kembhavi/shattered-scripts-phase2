@@ -5,58 +5,69 @@
       "prompt": "backtranslate_native_v1",
       "temperature": 0
     },
-    "git_commit": "d0a6aa0fb3f6d11a4e641010fd68f6c9e7664ad6-dirty",
-    "timestamp_utc": "2026-10-14T19:59:03+00:00",
+    "git_commit": "c90c964c21df65f02f9c4a7768be4c3d1682cf13-dirty",
+    "timestamp_utc": "2026-10-15T15:49:34+00:00",
     "python": "3.12.13",
     "platform": "Windows-11-10.0.26300-SP0",
     "argv": [
       "scripts/e0b_backtranslate_control.py"
     ]
   },
-  "complete_all_paired": false,
+  "complete_all_paired": true,
   "gap_all_controlled_BIASED_UPWARD_by_selection": {
-    "n": 218,
-    "n_xnli": 209,
-    "native": 0.8136354088783264,
-    "natural": 0.5818688133486237,
-    "gap": 0.23176656668433548,
+    "n": 576,
+    "n_xnli": 378,
+    "native": 0.8384302854537964,
+    "natural": 0.6212773406770834,
+    "gap": 0.21715292920293,
     "gap_ci": [
-      0.20257465772068525,
-      0.2623795621056767
+      0.2010522896291569,
+      0.23365274567476627
     ]
   },
   "gap_nonflagged_controlled_so_far": {
-    "n": 194,
-    "n_xnli": 193,
-    "native": 0.8200078010559082,
-    "natural": 0.6371730915979382,
-    "gap": 0.18283466260380343,
+    "n": 548,
+    "n_xnli": 362,
+    "native": 0.842644989490509,
+    "natural": 0.6455608054927008,
+    "gap": 0.19708413673828615,
     "gap_ci": [
-      0.15950312712093737,
-      0.20752905794420107
+      0.18228963328240974,
+      0.21189623162905868
     ]
   },
-  "gap_random_prefix": null,
-  "n_with_control": 218,
+  "gap_random_prefix": {
+    "n": 57,
+    "n_xnli": 39,
+    "native": 0.83851557970047,
+    "natural": 0.6299972510526316,
+    "gap": 0.2085183202822742,
+    "gap_ci": [
+      0.16614632147739186,
+      0.2549474798854167
+    ]
+  },
+  "n_with_control": 576,
   "n_source_noise_excluded": 2,
-  "stopped": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kv19tt9kf9fry83jt9yzhgf1` service tier `on_demand` on tokens per day (TPD): Limit 200",
-  "cosine_natural_mean": 0.5818688133486237,
+  "n_defective_excluded": 9,
+  "stopped": null,
+  "cosine_natural_mean": 0.6212773406770834,
   "cosine_natural_ci": [
-    0.5502089989697247,
-    0.6125950715504587
+    0.6038562031881076,
+    0.6387802350515625
   ],
-  "cosine_native_mean": 0.8136354088783264,
+  "cosine_native_mean": 0.8384302854537964,
   "cosine_native_ci": [
-    0.7928520441055298,
-    0.8331993222236633
+    0.827535092830658,
+    0.8488708734512329
   ],
-  "native_minus_natural_mean": 0.23176656668433548,
+  "native_minus_natural_mean": 0.21715292920293,
   "native_minus_natural_ci": [
-    0.20257465772068525,
-    0.2623795621056767
+    0.2010522896291569,
+    0.23365274567476627
   ],
-  "flagged_n": 24,
+  "flagged_n": 28,
   "flagged_native_also_low_(<0.4)": 2,
-  "flagged_drop_gt_0.3": 22,
-  "all_drop_gt_0.3": 63
+  "flagged_drop_gt_0.3": 26,
+  "all_drop_gt_0.3": 167
 }
