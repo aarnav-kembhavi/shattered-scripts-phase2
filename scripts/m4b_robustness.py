@@ -30,19 +30,25 @@ def _unit(A: np.ndarray) -> np.ndarray:
     return A / (np.linalg.norm(A, axis=1, keepdims=True) + 1e-8)
 
 
+def _pca(Xc: np.ndarray, k: int) -> tuple[np.ndarray, np.ndarray]:
+    """Top-k principal directions [d, k] and training scores [n, k] via the n x n Gram matrix (n < d here)."""
+    s2, U = np.linalg.eigh(Xc @ Xc.T)
+    s2, U = s2[::-1][:k], U[:, ::-1][:, :k]
+    s = np.sqrt(np.maximum(s2, 1e-12))
+    return (Xc.T @ U) / s, U * s
+
+
 class Procrustes:
     def __init__(self, X: np.ndarray, Y: np.ndarray):
         self.mx, self.my = X.mean(0), Y.mean(0)
-        self.Vx = np.linalg.svd(X - self.mx, full_matrices=False)[2]
-        self.Vy = np.linalg.svd(Y - self.my, full_matrices=False)[2]
-        self.X, self.Y = X, Y
+        self.Vx, self.Sx = _pca(X - self.mx, max(KS))
+        self.Vy, self.Sy = _pca(Y - self.my, max(KS))
 
     def retrieve(self, Xq: np.ndarray, Yq: np.ndarray, k: int) -> np.ndarray:
-        vx, vy = self.Vx[:k].T, self.Vy[:k].T
-        A, Bm = _unit((self.X - self.mx) @ vx), _unit((self.Y - self.my) @ vy)
+        A, Bm = _unit(self.Sx[:, :k]), _unit(self.Sy[:, :k])
         u, _, vt = np.linalg.svd(A.T @ Bm)
-        P = _unit((Xq - self.mx) @ vx) @ (u @ vt)
-        return retrieval(P, (Yq - self.my) @ vy)
+        P = _unit((Xq - self.mx) @ self.Vx[:, :k]) @ (u @ vt)
+        return retrieval(P, (Yq - self.my) @ self.Vy[:, :k])
 
 
 def ridge_fit(X, Y, tr, te, folds):
