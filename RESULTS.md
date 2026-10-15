@@ -864,3 +864,82 @@ check of the analysis choices, not a new hypothesis, and it cannot change the re
 - **Exploratory:** lossy vs ITRANS (McNemar, separate Holm family).
 - **Pilot:** 30 random items × 4 forms on Qwen2.5 and Gemma 4 for timing only. Their accuracies are not looked at for
   any decision.
+
+---
+## PRE-REGISTRATION — Kanglish and human-corrected natural romanization: K1–K3 (written 2026-10-16, before any Kanglish draft exists and before any scoring)
+Scripts: `scripts/k_annotation.py` (items, drafts, annotation page, agreement). The scoring script will be written
+before scoring and will follow this registration.
+
+**Items (500), in `data/annotation/items_v1.jsonl`:**
+- The 200 E0 sentiment items (seed 0, the same as E0/E0b).
+- 300 FLORES+ sentences drawn at random (seed 0) from the 515 that are in SIB-200 and in the M4b test half.
+- XNLI is dropped from annotation.
+- 100 random items (seed 1; 38 sentiment, 62 FLORES) are marked for a second annotator.
+
+**Drafts** (gemini-3.5-flash-lite, temperature 0, cached; retries as for E0):
+- Natural romanization uses the existing prompt `natural_romanization_v1`. For the sentiment items these are the
+  E0 drafts.
+- Kanglish uses the new prompt `kanglish_v1`: Bengaluru WhatsApp style, keep the full meaning, mix in English
+  words where natural.
+
+**Annotation:** `annotation/annotate_v1.html`, offline, writes a CSV after every item. For each item and each draft,
+the annotator:
+- rates the draft as shown: naturalness 1–5 and meaning preserved yes/no;
+- then corrects it.
+
+The primary annotator's corrections define the human-corrected forms.
+
+**Agreement:** on the 100 double items:
+- Cohen's kappa for meaning preserved;
+- quadratic-weighted kappa for naturalness;
+- separately for the natural and Kanglish drafts.
+
+**Scoring:** the E0b setup unchanged, on five models:
+- log-likelihood of the label words, BOS always;
+- calibration: mean of "N/A", "", "[MASK]", with the raw fallback rule.
+
+Tasks:
+- sentiment, on the 200 items, with the E0 template;
+- SIB-200 topic, on the 300 FLORES items, with the E0c template.
+
+A cell is a model × task pair. It is informative if English accuracy is at least chance + 5 points. 95% bootstrap
+CIs on every cell; paired McNemar tests.
+
+**Language tags:** `shattered.translit.codemix`, fixed now.
+- English lexicon: the wordfreq 3.1.1 top 50k.
+- Romanized-Kannada lexicon: to_lossy of the top 50k Kannada Wikipedia words.
+- A word in both lexicons, or a number or punctuation, is language-independent.
+- English word share = n_en / (n_en + n_kn). The Code Mixing Index (Das and Gambäck 2014) is reported alongside.
+
+**K1: Kanglish beats natural romanization.** Human-corrected Kanglish vs human-corrected natural; the Gemini drafts
+are a secondary comparison.
+- **Supported** if Kanglish > natural in every informative cell (point estimate) and the difference is significant
+  (McNemar, Holm across these cells) in at least half of them.
+- **Refuted** if Kanglish ≤ natural in at least half of the informative cells, or if natural is significantly above
+  Kanglish in any cell.
+- Otherwise **inconclusive**.
+
+**K2: within Kanglish, more English means better.** Accuracy and M4 retrieval both increase with the English word share.
+- **K2a, accuracy.** In each informative cell, fit a logistic regression of correctness on z(English share) +
+  z(log tokens of the item in that model). One-sided test that the coefficient is > 0; Holm across cells.
+- **K2b, retrieval.**
+  - Data: the 300 FLORES items. Each of the four M4 models gets a forward pass on the human-corrected Kanglish
+    sentences, with the same sentence vectors as M4.
+  - Layer: the train-half best unmapped layer M4b chose for native.
+  - Outcome: the rank of the true English sentence among the 1,005 test-half English sentences.
+  - Model: linear regression of −log rank on z(English share) + z(log tokens). One-sided test that the coefficient is
+    > 0; Holm across the four models.
+- **Rule, applied to K2a and K2b separately:**
+  - **supported** if the coefficient is > 0 in every counted cell and significant in at least half;
+  - **refuted** if it is ≤ 0 in at least half;
+  - otherwise **inconclusive**.
+- **Counted cells:** K2a cells need a constant-label rate ≤ 90%.
+- **Caveat, stated now:** English words in the input overlap lexically with the English target, so K2b can rise for
+  lexical reasons alone, as the M4b layer-0 observation showed. A positive K2b is therefore weak evidence about meaning.
+
+**K3: human correction barely changes natural.** Human-corrected natural vs Gemini natural, on the 200 sentiment
+items, per informative model.
+- **Holds** if the 95% paired-bootstrap CI of (corrected − Gemini) accuracy lies within ±5 points in every
+  informative model.
+- **If it does not hold,** Gate 1's natural-romanization result is reported with both versions.
+- Secondary: the same comparison on the 300 SIB items.
