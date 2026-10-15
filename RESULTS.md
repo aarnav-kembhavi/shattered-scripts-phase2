@@ -943,3 +943,41 @@ items, per informative model.
   informative model.
 - **If it does not hold,** Gate 1's natural-romanization result is reported with both versions.
 - Secondary: the same comparison on the 300 SIB items.
+
+---
+## 2026-10-16 — M4b robustness check (registered above): the M4b statuses are robust
+Script `scripts/m4b_robustness.py`; outputs `results/m4b_robustness/{summary.csv, verdict.json, items.npz}` and log
+`results/m4b_robustness.log`. CPU only, about 25 min. Test half n = 1,005. Layers and hyperparameters were chosen on
+the train half.
+
+| model | form | wide-grid ridge (layer, alpha) | Procrustes (layer, k) |
+|---|---|---|---|
+| Qwen2.5 | native | 0.517 (1, 0.01) | 0.219 (27, 512) |
+| Qwen2.5 | ITRANS | 0.529 (1, 0.1) | 0.450 (0, 512) |
+| Qwen3.5 | native | 0.961 (7, 0.1) | 0.971 (11, 512) |
+| Qwen3.5 | ITRANS | 0.485 (3, 0.1) | 0.480 (1, 512) |
+| Sarvam-1 | native | 0.899 (26, 0.1) | 0.921 (24, 512) |
+| Sarvam-1 | ITRANS | 0.380 (24, 0.1) | 0.449 (19, 512) |
+| Gemma 4 | native | 0.977 (8, 0.1) | 0.986 (8, 512) |
+| Gemma 4 | ITRANS | 0.473 (0, 0.1) | 0.583 (0, 512) |
+
+Mapped gap, native − ITRANS [95% CI], with status:
+
+| model | wide-grid ridge | Procrustes | M4b |
+|---|---|---|---|
+| Qwen2.5 | −0.012 [−0.043, 0.019] closes | −0.231 [−0.269, −0.194] closes | closes |
+| Qwen3.5 | 0.477 [0.445, 0.509] persists | 0.492 [0.460, 0.524] persists | persists |
+| Sarvam-1 | 0.518 [0.487, 0.551] persists | 0.473 [0.442, 0.505] persists | persists |
+| Gemma 4 | 0.504 [0.473, 0.536] persists | 0.403 [0.371, 0.433] persists | persists |
+
+- **By the registered criterion, the M4b verdict is robust.** Every model's status is the same under both
+  alternatives, and strong H1 remains inconclusive under each.
+- **Wide-grid ridge reproduces M4b exactly.** At the train-half best layers the chosen alpha is inside the old grid
+  (0.01–0.1). The 1e-3 edge that Qwen2.5 hit was at other layers.
+- **Procrustes always chose k = 512, the top of the grid.** n_fit is about 800 per fold, so k cannot go much higher.
+  Read the Procrustes numbers as a lower bound for an orthogonal map.
+- **Procrustes beats ridge in some cells.** It does better wherever alignment is already high (native in three
+  models), and for ITRANS in Sarvam-1 (+0.07) and Gemma 4 (+0.11, again at layer 0). The ITRANS gains still sit at
+  the input end in Qwen3.5 and Gemma 4, as in the M4b observation.
+- **Qwen2.5 native is not a rotation of English.** Under Procrustes it reaches only 0.219, against 0.517 with ridge.
+  So in Qwen2.5 the native gap "closes" only with a non-orthogonal map.
