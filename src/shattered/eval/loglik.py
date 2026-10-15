@@ -7,7 +7,8 @@ import torch
 
 TEMPLATES = Path(__file__).resolve().parents[1] / "llm" / "templates"
 VERBALIZERS = {"xnli": [" yes", " maybe", " no"],          # entailment, neutral, contradiction
-               "sentiment": [" negative", " positive"]}     # label 0, 1
+               "sentiment": [" negative", " positive"],     # label 0, 1
+               "sib": [" science", " travel", " politics", " sports", " health", " entertainment", " geography"]}
 
 
 def build_prompt(task: str, fields: dict, version: str = "v1") -> str:

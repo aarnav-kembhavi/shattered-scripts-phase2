@@ -1,0 +1,46 @@
+{
+  "provenance": {
+    "config": {
+      "dataset": "Davlan/sib200@38977a667f6fc264d5c26ec57a01e16db040b358"
+    },
+    "git_commit": "e190b90993813f1e01ecdd3836c0e33c181cd09c-dirty",
+    "timestamp_utc": "2026-10-15T20:58:43+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/e0c_sib.py",
+      "verify"
+    ]
+  },
+  "kan_Knda": {
+    "n": 1004,
+    "unique_ids": 1004,
+    "text_equal_at_index": 1004,
+    "nfc_changed": 8,
+    "categories": {
+      "science/technology": 252,
+      "travel": 198,
+      "politics": 146,
+      "sports": 122,
+      "health": 110,
+      "entertainment": 93,
+      "geography": 83
+    }
+  },
+  "eng_Latn": {
+    "n": 1004,
+    "unique_ids": 1004,
+    "text_equal_at_index": 1004,
+    "nfc_changed": 0,
+    "categories": {
+      "science/technology": 252,
+      "travel": 198,
+      "politics": 146,
+      "sports": 122,
+      "health": 110,
+      "entertainment": 93,
+      "geography": 83
+    }
+  },
+  "labels_and_ids_equal_kn_en": true
+}

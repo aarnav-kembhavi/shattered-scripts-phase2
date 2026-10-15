@@ -828,3 +828,39 @@ Two alternative maps, each CV-tuned on the train half only:
 The registered M4b status rule (persists / closes / partial at 0.10) is applied to each. **The M4b verdict counts as
 robust if every model's status is the same under both alternatives.** Any change is reported model by model. This is a
 check of the analysis choices, not a new hypothesis, and it cannot change the registered M4b verdict.
+
+---
+## PRE-REGISTRATION — E0c SIB-200 topic classification (written 2026-10-16, before any SIB-200 item is scored)
+`scripts/e0c_sib.py`.
+- **Data:** Davlan/sib200 (revision 38977a6, CC-BY-SA 4.0, not gated; Adelani et al., EACL 2024). Kannada and
+  English, train + dev + test = 1,004 sentences, 7 topics. `index_id` is the 0-based position in FLORES dev + devtest.
+  All 1,004 Kannada and all 1,004 English sentences equal our FLORES+ text at that position after NFC, and the labels
+  and IDs agree across the two languages (`results/e0c_sib/verify.json`). So the native, ITRANS and English inputs are
+  exactly the M4 inputs, and lossy = to_lossy(native) as in E0b.
+- **Scoring:** the E0b setup unchanged. Log-likelihood of English label words (" science", " travel", " politics",
+  " sports", " health", " entertainment", " geography"; template `e0_sib_v1`), BOS always prepended, primary
+  calibration = mean of content-free "N/A", "", "[MASK]", raw fallback if a model's calibrated English accuracy is more
+  than 5 points below raw. Five models (Qwen2.5-1.5B, Qwen3.5-2B, Sarvam-1, Gemma 4 E2B, Qwen3-1.7B) × four forms
+  (English, native, ITRANS, lossy). 95% bootstrap CI (10,000) on every cell; constant-label rates reported.
+- **Informative model:** English accuracy ≥ chance + 5 points (14.3% + 5).
+- **P-a (as in E0b):** native > ITRANS and native > lossy in every informative model. Paired McNemar, Holm over all
+  native-vs-ITRANS and native-vs-lossy tests of informative models. **Supported** if every difference is positive and
+  significant. **Refuted** if any difference is significantly negative, or none is significant. Otherwise **partly
+  supported**, with the count given.
+- **P-b (within form):** within native and within ITRANS, sentences that are better retrieved against English in M4 are
+  classified correctly more often. Cells: the four M4 models × {native, ITRANS}. Sentences: the 515 SIB sentences in
+  the M4b test half (seed-0 split), so neither M4b's layer choice nor its mapping was fitted on them.
+  - **Predictor:** the rank of the true English sentence among the 1,005 test-half English sentences, using unmapped
+    cosine at M4b's train-half best unmapped layer (**primary**). The secondary predictor is the same rank after
+    M4b's ridge map at its train-half best mapped layer and alpha.
+  - **Model:** logistic regression of correctness (primary calibrated prediction) on z(−log rank) + z(log tokens of
+    the sentence in that form and model). One-sided test that the rank coefficient is > 0, Holm across counted cells,
+    separately for the primary and the secondary predictor. Descriptively, accuracy among sentences retrieved at
+    rank 1 vs not.
+  - **Counted cells:** the model is informative and the cell's constant-label rate is ≤ 90%. The other cells are
+    reported but not counted.
+  - **Verdict (primary):** **supported** if the coefficient is > 0 in every counted cell and significant in at least
+    half. **Refuted** if it is ≤ 0 in at least half. Otherwise **inconclusive**.
+- **Exploratory:** lossy vs ITRANS (McNemar, separate Holm family).
+- **Pilot:** 30 random items × 4 forms on Qwen2.5 and Gemma 4 for timing only. Their accuracies are not looked at for
+  any decision.
