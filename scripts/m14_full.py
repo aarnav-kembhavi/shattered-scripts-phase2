@@ -33,7 +33,7 @@ from shattered.interp.collect import Sentence, collect
 from shattered.interp.load import load, n_layers
 from shattered.interp.probes import (MDL_FRACS, PROBE, bootstrap_detok, bootstrap_mdl_detok, erasure_curve,
                                      layer_curve, mdl_curve, split_by_word)
-from shattered.runlog import REPO, results_dir, write_json
+from shattered.runlog import REPO, commit, results_dir, tmp_path, write_json
 from shattered.translit import to_itrans
 
 N_WORDS, OCC = 300, 30
@@ -131,9 +131,10 @@ def forward_pass(model, tok, W, F, form, tag) -> dict:
     t1 = time.time()
     f = collect(model, tok, [Sentence(str(i), s, []) for i, s in enumerate(F[form])])
     meta = np.asarray([json.dumps(m, ensure_ascii=False) for m in a["word_meta"]])
-    np.savez(path, word_states=a["word_states"], word_meta=meta, flores_states=f["sent_states"],
+    np.savez(tmp_path(path), word_states=a["word_states"], word_meta=meta, flores_states=f["sent_states"],
              wiki_n_tokens=a["n_tokens"], flores_n_tokens=f["n_tokens"],
              seconds=np.asarray([t1 - t0, time.time() - t1]))
+    commit(tmp_path(path), path)
     z = np.load(path, allow_pickle=False)
     return {k: z[k] for k in z.files}
 
@@ -190,7 +191,8 @@ def main() -> None:
     global ACT
     wpath = results_dir("m14_full") / "words.json"
     if not wpath.exists():
-        wpath.write_text(json.dumps(build_words(), ensure_ascii=False), encoding="utf-8")
+        tmp_path(wpath).write_text(json.dumps(build_words(), ensure_ascii=False), encoding="utf-8")
+        commit(tmp_path(wpath), wpath)
     W = json.load(open(wpath, encoding="utf-8"))
     F = flores_forms()
     root = results_dir("m14_full")
@@ -234,7 +236,8 @@ def main() -> None:
                     rows.append({"word": w, "n_tokens": len(tok(w, add_special_tokens=False)["input_ids"]),
                                  "first_id_layer": ps.detok_layer(w, outs),
                                  "identified": [ps.identifies(w, o) for o in outs], "outputs": outs})
-                pd.DataFrame(rows).to_parquet(pq)
+                pd.DataFrame(rows).to_parquet(tmp_path(pq))
+                commit(tmp_path(pq), pq)
                 timing[f"{name}/{f}/patchscopes"] = time.time() - t1
             timing_path.write_text(json.dumps(timing, indent=1))
             print(f"{name}/{f}: forward + patchscopes done ({time.time() - t0:.0f}s since load)", flush=True)
@@ -245,7 +248,8 @@ def main() -> None:
         for f in todo:
             res, items = measures(acts[f], f, W)
             res["n_layers"] = L
-            np.savez_compressed(out / f"items_{f}.npz", **items)
+            np.savez_compressed(tmp_path(out / f"items_{f}.npz"), **items)
+            commit(tmp_path(out / f"items_{f}.npz"), out / f"items_{f}.npz")
             write_json(out / f"{f}.json", res, {"model": name, "form": f, "probe": PROBE, "mdl_fracs": MDL_FRACS,
                                                 "frac": 0.9})
             timing[f"{name}/{f}/probes"] = res["seconds_probes"]
@@ -259,7 +263,8 @@ def main() -> None:
             m4[f] = {"retrieval_acc": correct.mean(1).tolist(),
                      "cka": [cka(X[:, l], E[:, l]) for l in range(X.shape[1])]}
             m4_items[f] = correct
-        np.savez_compressed(out / "m4_items.npz", **m4_items)
+        np.savez_compressed(tmp_path(out / "m4_items.npz"), **m4_items)
+        commit(tmp_path(out / "m4_items.npz"), out / "m4_items.npz")
         write_json(out / "m4.json", {"n_sentences": int(E.shape[0]), "n_layers": L, **m4}, {"model": name})
         timing_path.write_text(json.dumps(timing, indent=1))
         print(f"{name}: done in {(time.time() - t0) / 60:.1f} min", flush=True)

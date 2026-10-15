@@ -28,7 +28,7 @@ from statsmodels.stats.multitest import multipletests
 from shattered.data import tasks
 from shattered.eval.loglik import VERBALIZERS, build_prompt, choice_logprobs
 from shattered.interp.load import load
-from shattered.runlog import REPO, results_dir, write_json
+from shattered.runlog import REPO, commit, results_dir, tmp_path, write_json
 from shattered.translit import to_lossy
 
 FORMS = ["english", "native", "itrans", "lossy", "natural"]
@@ -78,7 +78,8 @@ def content_free(name: str, items: dict, score_dir, model=None, tok=None) -> dic
         model, tok = load(name, "cuda")
     cf = {x: {t: choice_logprobs(model, tok, build_prompt(t, {k: x for k in its[0]["forms"]["native"]}),
                                  VERBALIZERS[t])[0] for t, its in items.items()} for x in CONTENT_FREE}
-    path.write_text(json.dumps(cf, indent=1), encoding="utf-8")
+    tmp_path(path).write_text(json.dumps(cf, indent=1), encoding="utf-8")
+    commit(tmp_path(path), path)
     if own:
         import torch
         del model
@@ -115,9 +116,13 @@ def score_model(name: str, items: dict, forms: list[str], score_dir) -> None:
             ntok = sum(len(x) for x in tok(texts, add_special_tokens=False)["input_ids"])
             fert.append({"model": name, "task": t, "form": f, "n_texts": len(texts),
                          "tokens_per_word": ntok / sum(len(x.split()) for x in texts)})
-        pd.DataFrame(rows).to_parquet(score_dir / f"{name}__{f}.parquet")
-        (score_dir / f"{name}__{f}.json").write_text(json.dumps(
+        # json first, parquet last: the parquet's existence marks the (model, form) as finished
+        meta_path, pq_path = score_dir / f"{name}__{f}.json", score_dir / f"{name}__{f}.parquet"
+        tmp_path(meta_path).write_text(json.dumps(
             {"content_free_logprobs": cf, "fertility": fert, "seconds": time.time() - t1}, indent=1), encoding="utf-8")
+        commit(tmp_path(meta_path), meta_path)
+        pd.DataFrame(rows).to_parquet(tmp_path(pq_path))
+        commit(tmp_path(pq_path), pq_path)
         print(f"{name}/{f}: {len(rows)} prompts in {time.time() - t1:.0f}s", flush=True)
     del model
     torch.cuda.empty_cache()

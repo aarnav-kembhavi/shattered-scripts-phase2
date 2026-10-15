@@ -38,12 +38,26 @@ def results_dir(name: str) -> Path:
     return d
 
 
+def tmp_path(path: Path) -> Path:
+    """Sibling temp file with the same suffix (np.savez keeps an .npz suffix as is)."""
+    return path.with_name(f"{path.stem}.partial{path.suffix}")
+
+
+def commit(tmp: Path, path: Path) -> Path:
+    """Atomically move a finished temp file into place, so a crash never leaves a half-written output that a resume
+    would mistake for a finished one."""
+    import os
+    os.replace(tmp, path)
+    return path
+
+
 def write_json(path: Path, payload: dict, config: dict) -> Path:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps({"provenance": provenance(config), **payload}, ensure_ascii=False, indent=2,
-                               default=lambda o: o.item() if hasattr(o, "item") else str(o)),
-                    encoding="utf-8")
-    return path
+    tmp = tmp_path(path)
+    tmp.write_text(json.dumps({"provenance": provenance(config), **payload}, ensure_ascii=False, indent=2,
+                              default=lambda o: o.item() if hasattr(o, "item") else str(o)),
+                   encoding="utf-8")
+    return commit(tmp, path)
 
 
 def lower_priority() -> None:
