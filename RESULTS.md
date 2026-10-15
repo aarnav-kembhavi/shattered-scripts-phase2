@@ -815,3 +815,16 @@ E0 sentiment accuracy (Gate 1 primary, 95% CI) against tokens per word, best-lay
   - "Supported" if both hold, "refuted" if natural − ITRANS > 0.10 (CI) in at least 3 models, otherwise inconclusive.
   - Qwen2.5 is reported but not counted for the second part, because its native script is itself unaligned
     (0.144 on all 2,009).
+
+---
+## REGISTRATION — M4b robustness check (written 2026-10-16, before running)
+`scripts/m4b_robustness.py`. Same cached vectors, split (seed 0), 5 folds and train-half layer selection as M4b.
+Two alternative maps, each CV-tuned on the train half only:
+- **ridge_wide:** the M4b ridge with the alpha grid widened to 1e-6 … 1e3. M4b's grid bottomed out at 1e-3, and
+  Qwen2.5 chose 1e-3 at most layers.
+- **procrustes:** orthogonal Procrustes between the top-k PCA subspaces of the form and of English (centered, rows
+  unit-normalized), with k CV-tuned in {32, 64, 128, 256, 512}.
+
+The registered M4b status rule (persists / closes / partial at 0.10) is applied to each. **The M4b verdict counts as
+robust if every model's status is the same under both alternatives.** Any change is reported model by model. This is a
+check of the analysis choices, not a new hypothesis, and it cannot change the registered M4b verdict.
