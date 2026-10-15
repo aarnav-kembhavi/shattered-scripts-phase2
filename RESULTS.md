@@ -551,3 +551,27 @@ Verdicts (registered rules, Holm over the 30 registered McNemar tests):
 - Hint, not a registered result: in Sarvam-1, the two less fragmented romanizations (lossy 4.36, natural 4.29
   tokens/word) beat ITRANS (5.24) by 7–9 points on both tasks, uncorrected p 0.006–0.024. Within the romanized forms,
   fragmentation may matter a little; this is confounded with ITRANS's unusual capitals.
+
+- **Definition (2026-10-15):** "familiarity" in this paper means exposure in pretraining corpora (native Kannada
+  script dominates Kannada web text), not how often people use a form. Natural romanization is what people actually
+  type, yet it scores about the same as ITRANS (Gate 1); that supports reading the native-script advantage as
+  pretraining exposure rather than everyday use.
+
+---
+## PRE-REGISTRATION (exploratory) — item-level fragmentation within form (written 2026-10-15, before computing)
+
+Data: Gate 1 item scores (primary predictions, i.e. three-input calibration with the raw fallback; natural excludes
+the 9 defective texts). For every model x task x form with form in {native, ITRANS, lossy, natural} (English not
+included), in cells that are informative under the Gate 1 rule: logistic regression of item correctness on the
+item's mean tokens per word (that model's tokenizer, that form's text; for XNLI premise and hypothesis pooled)
+controlling for the item's length in characters (same text). Only tokenizers are used; no model is run.
+- Primary family: sentiment, 5 models x 4 forms = 20 tests, Holm-corrected. Secondary family: XNLI, same, Holm
+  separately (many XNLI cells predict one label 98–100% of the time and are reported but expected to be empty).
+- **Prediction:** negative coefficient on tokens per word (more fragmentation, more errors), separately within
+  native script and within the romanized forms (ITRANS, lossy, natural pooled as a group of cells).
+- Rule, per group in the primary family: **supported** if most coefficients in the group are negative and at least
+  one is significantly negative after Holm; **contradicted** if any is significantly positive or most are positive
+  with none significantly negative; otherwise **no evidence**. Cells where the model predicts one label for >= 95% of
+  items are reported but not counted.
+- Also reported (exploratory, already seen in Gate 1, so not a test): Sarvam-1 lossy and natural vs ITRANS, which is
+  confounded by ITRANS's capital letters.
