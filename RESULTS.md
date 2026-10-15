@@ -688,3 +688,51 @@ because every text is controlled.
   This supersedes the interim 0.232 (biased upward by selection) and 0.183 (XNLI-only file order).
 - Excluding the 28 flagged texts: 548 texts, gap 0.197 [0.182, 0.212].
 - Texts where the romanized back-translation lost more than 0.3 cosine against native: 167 of 576.
+
+---
+## DEVIATIONS AND NEW REGISTRATIONS (2026-10-16, Aarnav's decisions; written before any run below)
+
+### Recorded deviations
+- **(a) Primary M1 measure switched from Patchscopes to MDL.** The 2026-10-07 registration made Patchscopes
+  primary. In the full run, Patchscopes identifies 0–7% of Kannada words in either script (native 0.0–0.7% in
+  Qwen2.5, Qwen3.5 and Gemma 4; ITRANS 0.7–6.7% in all four). The one exception is Sarvam-1 native at 77%. So the
+  registered Patchscopes Delta cannot be computed (0–2 words identified in both forms per model). MDL (online code)
+  is the primary mechanism measure from here on, as the 2026-10-15 registration already stated for H1–H3.
+  The Patchscopes failure is reported as a finding, not hidden. FragMend (arXiv 2604.16656, §6.5) reports that
+  "smaller LMs are disadvantaged at detokenization" (fewer parameters per language; "fewer layers reduces the
+  search space for detokenization") and hypothesizes "that detokenization improves with model scale". Their smallest
+  scale point is Qwen3.5-0.8B, and they report weaker gains rather than outright failure. Our 1.5–2B models fail
+  almost completely on Kannada while succeeding on English (61–98%).
+- **(b) The "never reaches native's maximum retrieval" test in H1 was operationalized after seeing the maxima**
+  (paired CI of native max minus ITRANS max retrieval above 0). The run log had printed the maxima before the
+  analysis script was written. The gaps (0.088 to 0.876) are large enough that the verdict does not hinge on the
+  choice, but the test is not pre-registered in its exact form.
+- **(c) CIs for M1 are recomputed clustered by word** (resampling the 300 words with all their occurrences, not
+  occurrences), for the large models and the 18 tiny models. Word-clustered CIs are primary; the occurrence-level
+  CIs are kept alongside. M4 CIs stay over sentences (the unit of M4). The tiny models' per-item MDL costs were not
+  saved in Step 3b, so the 18 MDL probes are recomputed (same words, seeds and settings) and the point estimates are
+  checked against the stored ones.
+
+### PRE-REGISTRATION — M4b linear mapping test (written 2026-10-16, before any mapping is fitted)
+Question: is the poor ITRANS-to-English retrieval a misalignment that a linear map can repair (the meaning is in the
+representation but in a different subspace) or is the meaning missing (strong H1)?
+- Data: the cached FLORES+ sentence vectors from the full run (2,009 sentences, mean-pooled residual stream, every
+  layer; `cache/activations/m14full`). Forms: native and ITRANS (natural is added later on a random 500 sentences,
+  with the same procedure, reported separately). One random 50/50 split (seed 0; 1,004 train / 1,005 test), the same
+  for every model, form and layer.
+- Map: ridge regression from the form's vectors to the English vectors at the same layer (both centered with
+  train-half means). The ridge strength is chosen per model, form and layer by 5-fold CV on the train half, using CV
+  retrieval acc@1. The grid is lambda = alpha × mean squared row norm of the training features, alpha in {1e-3, 1e-2,
+  1e-1, 1, 10, 100}.
+- Retrieval: acc@1 by cosine among the 1,005 test English sentences (chance 0.1%). The **best layer is chosen on the
+  train half** (CV retrieval for mapped, train-half retrieval for unmapped) and evaluated once on the test half. The
+  full per-layer test curves are reported too. Unmapped retrieval is reported on the same test half, side by side.
+- Control: the same ridge fitted on shuffled train pairs (expected near chance).
+- CIs: 10,000 paired bootstrap resamples over test sentences.
+- **Prediction (strong H1): mapped ITRANS retrieval stays well below mapped native.** Per model, at each form's
+  best layer: "gap persists" if the CI lower bound of (mapped native − mapped ITRANS) is above 0.10; "gap closes" if
+  the CI upper bound is below 0.10; otherwise "partial". Strong H1 is **supported** if the gap persists in all four
+  models, **refuted** if it closes in at least three, and **inconclusive** otherwise. Also reported: the share of the
+  unmapped native−ITRANS gap that remains after mapping, and whether mapping raises ITRANS above unmapped ITRANS.
+- Not a test: the accuracy-vs-mechanism figure (sentiment accuracy vs tokens per word and vs best-layer
+  retrieval, 4 models × {native, ITRANS}) is illustrative only (n = 8 points, no inference).
