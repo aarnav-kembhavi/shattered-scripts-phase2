@@ -3,10 +3,11 @@
     "config": {
       "model": "gemini-3.5-flash-lite",
       "prompt_version": "natural_romanization_v1",
-      "temperature": 0
+      "temperature": 0,
+      "max_attempts": 3
     },
-    "git_commit": "5252d08aeccabf6216ff1dbe8e735172e8b57094",
-    "timestamp_utc": "2026-10-14T13:54:32+00:00",
+    "git_commit": "42f52d1866b427f6415cac2f4f04a5eb52024670-dirty",
+    "timestamp_utc": "2026-10-15T11:03:35+00:00",
     "python": "3.12.13",
     "platform": "Windows-11-10.0.26300-SP0",
     "argv": [
@@ -14,10 +15,12 @@
     ]
   },
   "n_unique_texts": 587,
-  "n_done": 501,
-  "complete": false,
-  "stopped": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
-  "n_flagged": 9,
-  "n_with_non_ascii": 21,
-  "mean_word_ratio": 0.9992129059983451
+  "n_done": 587,
+  "complete": true,
+  "stopped": null,
+  "n_flagged": 4,
+  "n_with_non_ascii": 10,
+  "n_regenerated": 27,
+  "n_defective_after_retries": 9,
+  "mean_word_ratio": 0.9998287730679827
 }

@@ -1,0 +1,30 @@
+{
+ "content_free_logprobs": {
+  "xnli": [
+   -3.174879312515259,
+   -5.67487907409668,
+   -1.9248793125152588
+  ],
+  "sentiment": [
+   -8.01157283782959,
+   -9.63657283782959
+  ]
+ },
+ "fertility": [
+  {
+   "model": "sarvam-1",
+   "task": "xnli",
+   "form": "natural",
+   "n_texts": 386,
+   "tokens_per_word": 4.323750323750324
+  },
+  {
+   "model": "sarvam-1",
+   "task": "sentiment",
+   "form": "natural",
+   "n_texts": 198,
+   "tokens_per_word": 4.29219816078315
+  }
+ ],
+ "seconds": 44.358845472335815
+}

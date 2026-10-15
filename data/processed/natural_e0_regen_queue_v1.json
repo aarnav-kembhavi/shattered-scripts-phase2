@@ -1,162 +1,65 @@
 [
  {
-  "index": 22,
-  "native": "ಈ ಕಾರ್ಮಿಕರು ಸಿಕ್ಕಿಬೀಳಲಿಲ್ಲ, ಆದರೆ ಮೇಲಿನ ಮಹಡಿಗಳಲ್ಲಿದ್ದ ಹೆಚ್ಚಿನ ನಿವಾಸಿಗಳಿಗಿಂತ ಭಿನ್ನವಾಗಿ, ಅವರು ಪರಿಣಾಮ ಬೀರಿದ ತಕ್ಷಣ ಕೆಳಗೆ ಇಳಿಯದಿರಲು ನಿರ್ಧರಿಸಿದ್ದರು.",
-  "natural": "Ee karmikaru sikkibeelalilla, aadare melina mahadigalladda hechina nivasigaliginta bhinnavai, avaru parinama beerida tക്ഷണ kelage iliyadiralu nirdharisiddaru.",
-  "attempt": 1,
-  "bad_chars": "കണഷ്",
-  "kind": "other Indic script"
- },
- {
   "index": 43,
   "native": "ನಗರದಲ್ಲಿ ಒಂದಕ್ಕಿಂತ ಹೆಚ್ಚು ಲಾಭರಹಿತ ರಂಗಮಂದಿರಗಳಿವೆ.",
-  "natural": "Nagaradalli ondಕ್ಕಿಂತ hecchu labharahita rangamandiragaleve.",
-  "attempt": 1,
-  "bad_chars": "ಂಕತಿ್",
-  "kind": "leftover Kannada script"
+  "natural": "nagaradalli ondಕ್ಕಿಂತ hecchu labharahitha rangamandiragalive.",
+  "attempt": 3,
+  "bad_chars": "ಂಕತಿ್"
  },
  {
   "index": 51,
   "native": "ಒಂದು ದಿನ ಜೋ ಈಗಷ್ಟೇ ಅಲ್ಲಿಗೆ ಹೋಗಿದ್ದನು ಮತ್ತು ಅವನು ಎಲ್ಲಿಗೆ ಹೋದನು ಎಂಬುದು ಯಾರಿಗೂ ತಿಳಿಯಲಿಲ್ಲ.",
-  "natural": "ondu dina joe igaste allige hogiddanu mattu avanu ellige hodanu embುದು yarigu tiliyalisilla.",
-  "attempt": 1,
-  "bad_chars": "ದು",
-  "kind": "leftover Kannada script"
+  "natural": "ondu dina joe igaste allige hogiddanu mattu avanu ellige hodanu embುದು yarigu tiliyali lla.",
+  "attempt": 3,
+  "bad_chars": "ದು"
  },
  {
   "index": 58,
   "native": "ಹೌದು, ನೀವು ಬಳಸುವಂತಹ ತುಪ್ಪಳವನ್ನು ಪಡೆಯುವಂತೆ ಅವರು ಸಲಹೆ ನೀಡಿದರು",
-  "natural": "haudu, neevu balasuvantha thuppalavannu ಪಡೆಯುವಂತೆ avaru salahe needidaru",
-  "attempt": 1,
-  "bad_chars": "ಂಡತಪಯವುೆ",
-  "kind": "leftover Kannada script"
+  "natural": "Houdu, neevu balasuvantha tuppalavannu ಪಡೆಯುವಂತೆ avaru salahe needidaru",
+  "attempt": 3,
+  "bad_chars": "ಂಡತಪಯವುೆ"
  },
  {
   "index": 111,
   "native": "ನಿಮ್ಮ ಬಗ್ಗೆ ನಮಗೆ ಸಾಕಷ್ಟು ತಿಳಿದಿದ್ದರೆ ನಾವು ನಿಮ್ಮನ್ನು ದಿನಾಂಕದೊಂದಿಗೆ ಹೊಂದಿಸಿಕೊಳ್ಳುವಲ್ಲಿ ಉತ್ತಮವಾದ ಕೆಲಸವನ್ನು ಮಾಡುತ್ತೇವೆ.",
-  "natural": "nimma bagge namage sakuštu tilididdare navu nimmannu dinankadondige hodisikolluvalli uttamavada kelasavannu maduttve.",
-  "attempt": 1,
-  "bad_chars": "š",
-  "kind": "Latin diacritics/IPA"
- },
- {
-  "index": 116,
-  "native": "ತಿಳಿವಳಿಕೆ ಮತ್ತು ಬದ್ಧತೆಯ ನಾಯಕರ ಹೊಸ ಪೀಳಿಗೆಯನ್ನು ನಾವು ಅಭಿವೃದ್ಧಿಪಡಿಸುವ ಸಲುವಾಗಿ ನಾವು ಅಮೆರಿಕನ್ನರಿಗೆ ದಾನಧರ್ಮದ ಪ್ರಾಮುಖ್ಯತೆಯ ಬಗ್ಗೆ ಶಿಕ್ಷಣ ನೀಡುವುದು ನಿರ್ಣಾಯಕವಾಗಿದೆ.",
-  "natural": "thilivalike mattu baddhathɛya nayakara hosa pɛeligɛyannu navu abhivrudhdhipadisuva saluvagi navu amɛrikannarigu danadharmada pramukhyathɛya baggɛ shikshana nɩvudu nirnayakavagidhe.",
-  "attempt": 1,
-  "bad_chars": "ɛɩ",
-  "kind": "Latin diacritics/IPA"
- },
- {
-  "index": 147,
-  "native": "ಪ್ರಸ್ತುತ ಕ್ಯಾಥೆಡ್ರಲ್ ವಿದ್ಯಾರ್ಥಿ ಸಂಘಟನೆಯ ಸುಮಾರು 25% ರಷ್ಟು ಹಣಕಾಸಿನ ನೆರವನ್ನು ಪಡೆಯುತ್ತದೆ.",
-  "natural": "prastuta cathedral vidyarthi sanghataneya sumaru 25% rashtu hanakasina neravannu ಪಡೆಯುತ್ತದೆ.",
-  "attempt": 1,
-  "bad_chars": "ಡತದಪಯುೆ್",
-  "kind": "leftover Kannada script"
- },
- {
-  "index": 222,
-  "native": "ಕೊನೆಯದಾಗಿ, ನಿರಂತರತೆಯು ಒಂದು ಸದ್ಗುಣವಾಗಿದೆ, ಅಥವಾ ಅದನ್ನು ಹೊಂದಿಲ್ಲದವರು ಅದನ್ನು ತಮ್ಮ ಮೇಲೆ ಹೇರುತ್ತಾರೆ.",
-  "natural": "koneyadaagi, nirantareyü ondu sadguṇavāgide, athavā adanu hondilladavaru adanu tamma mele heruttāre.",
-  "attempt": 1,
-  "bad_chars": "üāṇ",
-  "kind": "Latin diacritics/IPA"
+  "natural": "nimma bagge namage sakuṣṭu tiḷididdare nāvu nimmannu dināṅkadoḍondige hondsikoḷḷuvalli uttamavāda kelasavannu māḍuttēve.",
+  "attempt": 3,
+  "bad_chars": "āēḍḷṅṣṭ"
  },
  {
   "index": 232,
   "native": "ಪ್ರಾಮಾಣಿಕತೆಯನ್ನು ಉತ್ತೇಜಿಸುವ ಮತ್ತು ಖಾಸಗಿತನವನ್ನು ಕಾಪಾಡುವ ಉದ್ದೇಶದಿಂದ, ನಾವು ಇಂಟರ್ವ್ಯೂ ಮಾಡಿದ ಹೆಚ್ಚಿನ ವ್ಯಕ್ತಿಗಳನ್ನು ಗುರುತಿಸದಿರಲು ನಾವು ಒಪ್ಪಿಕೊಂಡೆವು.",
-  "natural": "pramanikateyannu uttējisuvinda mattu khasagitanavannu kapaduva uddēshodinda, navu intervishū madida hechina vyaktigalannu gurutisadiralu navu oppikondevu.",
-  "attempt": 1,
-  "bad_chars": "ēū",
-  "kind": "Latin diacritics/IPA"
+  "natural": "pramaanikateyannu uttējisuvura mattu khaasagitanavannu kaapaaduva uddeshandinda, naavu intervīu maaḍida hechina vyaktigaḷannu gurutisadiralu naavu oppikoṇḍevu.",
+  "attempt": 3,
+  "bad_chars": "ēīḍḷṇ"
  },
  {
   "index": 244,
   "native": "ಮತ್ತು ಹೆಮ್ಮೆಯ ಟಿಪ್ಪಣಿಗಳೊಂದಿಗೆ, ಸ್ಥಳೀಯ ದಂತಕಥೆಗಳಲ್ಲಿ ಅವಮಾನಕರ ಹೆಸರುಗಳನ್ನು ಗಳಿಸಿರುವ ಆ ಚಿಪ್ಪುಗಳು ಖಾಸಗಿ ಪತ್ರವ್ಯವಹಾರ, ಸಲೂನ್ ಚಾಟ್, ಮತ್ತು ಅನಧಿಕೃತ ಪುನರಾರಂಭಗಳಲ್ಲಿ ಆ ಸಂಯಮವನ್ನು ಬಳಸುತ್ತವೆ.",
-  "natural": "mattu hemmeya tippanigalondige, sthalīya dantakathegalalli avamanakara hesarugalannu galisiruva aa chippugalu khasagi patravyavahara, saloon chat, mattu anadhikruta punararambhalgalalli aa samyamavannu balasuttave.",
-  "attempt": 1,
-  "bad_chars": "ī",
-  "kind": "Latin diacritics/IPA"
- },
- {
-  "index": 350,
-  "native": "ಮತ್ತೊಂದೆಡೆ, ಕಣಗಳು ಮತ್ತು ಮೂರು ನಾಂಗ್ರಾವಿಟೇಶನಲ್ ಬಲಗಳು ಇನ್ನೂ ಸ್ಪಿನ್ ನೆಟ್ವರ್ಕ್ ಚಿತ್ರದಲ್ಲಿ ಸೇರಿಸಲ್ಪಟ್ಟಿಲ್ಲ.",
-  "natural": "mattondeḍe, kaṇagaḷu mattu mūru nāṅgrāviṭēśanal balagaḷu innū spin neṭvarik citradalli sērisalpaṭṭilla.",
-  "attempt": 1,
-  "bad_chars": "āēśūḍḷṅṇṭ",
-  "kind": "Latin diacritics/IPA"
- },
- {
-  "index": 353,
-  "native": "ಚೆಕ್ಪಾಯಿಂಟ್ ಸ್ಕ್ರೀನಿಂಗ್ ಅವರ ವಿರುದ್ಧ ಯಾವುದೇ ಪುರಾವೆಗಳನ್ನು ಕಂಡುಹಿಡಿಯಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.",
-  "natural": "checkpoint screening avara viruddha yaavude puravegalanu kanduhiḍiyalu sadhyavagalilla.",
-  "attempt": 1,
-  "bad_chars": "ḍ",
-  "kind": "Latin diacritics/IPA"
+  "natural": "mattu hemmeya tippanigalondige, sthalīya dantakathegalalli avamānakara hesarugalannu galisiruva ā chippugalu khāsagi patravyavahāra, salūn chāt, mattu anadhikṛta punarārambhaḷalli ā saṁyamavannu baḷasuttāve.",
+  "attempt": 3,
+  "bad_chars": "āīūḷṁṛ"
  },
  {
   "index": 376,
   "native": "ಅವರ ಎರಡನೇ ಚಾಲಕ ನೀತಿಗಳ ಬಗ್ಗೆ ಮಾಹಿತಿ ಪಡೆಯಲು ನಾನು ಯು-ಹಾಲ್ ಗೆ ಕರೆ ಮಾಡಿದ್ದೆ.",
-  "natural": "avara eradane chalaka nitigala bagge mahiti ಪಡೆಯಲು naanu u-hal ge kare madidde.",
-  "attempt": 1,
-  "bad_chars": "ಡಪಯಲುೆ",
-  "kind": "leftover Kannada script"
+  "natural": "avara eradane chalaka nitigala bagge mahiti ಪಡೆಯಲು nanu u-hal ge kare madidde.",
+  "attempt": 3,
+  "bad_chars": "ಡಪಯಲುೆ"
  },
  {
-  "index": 383,
-  "native": "ಎರಡು ಶತಮಾನಗಳ ಧಾರ್ಮಿಕ ಪಾಷಂಡತ್ವದ ನಂತರ, ಅಸೀಸಿಯ ಫ್ರಾನ್ಸಿಸ್ನಲ್ಲಿ (1182-1226) ಪರಿಪೂರ್ಣ ಮಿತ್ರನನ್ನು ಹುಡುಕುವ ಮೂಲಕ ಚರ್ಚ್ಗೆ ಆಧ್ಯಾತ್ಮಿಕ ನವೀಕರಣದ ಅಗತ್ಯವಿತ್ತು.",
-  "natural": "eradu shatamanagala dharmika pashandatvada ನಂತರ, aseesiya francisnali (1182-1226) paripurna mitrannu hudukuva mulaka churchge adhyatmika navikaranada avashyakatvittu.",
-  "attempt": 1,
-  "bad_chars": "ಂತನರ",
-  "kind": "leftover Kannada script"
+  "index": 539,
+  "native": "ಸರ್ವರ್‌ಗಳ ವಿನಮ್ರ ಮತ್ತು ಉತ್ತಮ ನಡವಳಿಕೆಯನ್ನು ನೀಡಿದ ಉತ್ತಮ ಟೇಬಲ್ ಸೇವೆಯೊಂದಿಗೆ ಆಯ್ಕೆ ಮಾಡಲು ವ್ಯಾಪಕ ಶ್ರೇಣಿಯ ಸಸ್ಯಾಹಾರಿ ಮತ್ತು ಮಾಂಸಾಹಾರಿ ಖಾದ್ಯಗಳಿವೆ. ಆಹಾರವೂ ಕೈಗೆಟಕುವ ದರದಲ್ಲಿ ದೊರೆಯುತ್ತದೆ",
+  "natural": "serversgala vinamra mattu uttama nadavalikeyannu nidida uttama table sev鹿児yondige ayke madalu vyapaka sreniya sathyahari mattu mansahari khadyagalive. aharavu kaigetakuv daradalli doreyutte",
+  "attempt": 3,
+  "bad_chars": "児鹿"
  },
  {
-  "index": 421,
-  "native": "ಬಹಳ ಒಳ್ಳೆಯ ಚಟುವಟಿಕೆ ಆಧಾರಿತ ಪುಸ್ತಕವರ್ಣರಂಜಿತ ಮತ್ತು ಆಕರ್ಷಕ ಚಿತ್ರಗಳು ಮತ್ತು ಬರವಣಿಗೆಯ ಚಟುವಟಿಕೆಗಳೊಂದಿಗೆ ನಿಮ್ಮ ಮಗುವಿನ ಪೂರ್ವ ಬರವಣಿಗೆಯ ಕೌಶಲ್ಯಗಳನ್ನು ಬಲಪಡಿಸಲು ನಿಮಗೆ ಅಗತ್ಯವಿರುವ ಎಲ್ಲವನ್ನೂ ಇದು ಹೊಂದಿದೆ",
-  "natural": "bahala olleyachaṭuvaṭike ādhārita pustakavarṇarañjita mattu ākarṣaka citragaḷu mattu baravaṇigeya caṭuvaṭikegaḷondige nimage maguvina pūrva baravaṇigeya kauśalyagaḷannu balapaḍisalu nimage agatyaviruva ellavannu idu hondide",
-  "attempt": 1,
-  "bad_chars": "ñāśūḍḷṇṣṭ",
-  "kind": "Latin diacritics/IPA"
- },
- {
-  "index": 451,
-  "native": "ಈಜುಕೊಳವನ್ನು ಎಲ್ಲಾ ವಯೋಮಾನದವರಿಗೂ ಸರಿಹೊಂದುವಂತೆ ವಿನ್ಯಾಸಗೊಳಿಸಲಾಗಿದೆ ಮತ್ತು ದಿನವಿಡೀ ನಿಮ್ಮನ್ನು ಕಾರ್ಯನಿರತವಾಗಿರಿಸಲು ಟೇಬಲ್ ಟೆನ್ನಿಸ್, ಬಿಲಿಯರ್ಡ್, ಕೇರಂ ಮತ್ತು ಇತರ ಹೊರಗಿನ ಚಟುವಟಿಕೆಗಳಂತಹ ಆಟಗಳೊಂದಿಗೆ ಪರಿಪೂರ್ಣ ದಿನ ಅಥವಾ ವಾರಾಂತ್ಯದಲ್ಲಿ ಕುಟುಂಬ ಮತ್ತು ಸ್ನೇಹಿತರೊಂದಿಗೆ ವಿಹಾರಕ್ಕಾಗಿ ಉತ್ತಮವಾಗಿ ನಿರ್ವಹಿಸಲಾಗಿದೆ. 5 ಅಥವಾ 7 ಸ್ಟಾರ್ ಹೋಟೆಲ್‌ಗಳ ಆಹಾರದ ಅನುಭವವನ್ನು ನೆನಪಿಸುವ ಸಂಪೂರ್ಣವಾಗಿ ಬೇಯಿಸಿದ ವಿವಿಧ ಪಾಕಪದ್ಧತಿಗಳೊಂದಿಗೆ ಆಹಾರವು ತುಂಬಾ ರುಚಿಕರ ಮತ್ತು ರುಚಿಕರವಾಗಿತ್ತು.",
-  "natural": "eejukolavannu ella vayomanadarigu sarihonduvante vinyasagolisalagide mattu dinavidu nimmannu karyaniratavagisalu table tennis, billiards, carrom mattu itara horagina chatuvatigegalaಂತೆ aatalgondige paripurna dina athava varantyadalli kutumba mattu snehitarondige viharakkagi uttamavagi nirvahisalagide. 5 athava 7 star hotelgala ahadara anubhavavannu nenapisuva sampurnavagi beyisida vidividha pakapaddyagalondige ahadaru tumba ruchikara mattu ruchikaravagittu.",
-  "attempt": 1,
-  "bad_chars": "ಂತೆ",
-  "kind": "leftover Kannada script"
- },
- {
-  "index": 478,
-  "native": "ದೀರ್ಘ ಚರ್ಚೆಯ ನಂತರ ಇದನ್ನು ಖರೀದಿಸಲಾಗಿದೆ. ಸೊನೊಡೈನ್ ಹೋಮ್ ಥಿಯೇಟರ್ ವ್ಯವಸ್ಥೆಯು 5. 1 ಚಾನಲ್‌ಗಳ 125 ವ್ಯಾಟ್ ಸ್ಪೀಕರ್‌ಗಳೊಂದಿಗೆ ಬರುತ್ತದೆ. ಇದು ಧ್ವನಿ ಮತ್ತು ಅಲ್ಟ್ರಾ ಬಾಸ್‌ಗೆ ಗರಿಷ್ಠ ಬೂಸ್ಟ್ ನೀಡುತ್ತದೆ.",
-  "natural": "dirgha charcheya nathra idanu kharidisalagide. sonodayin hom thiyater vyavasteyu 5. 1 chanālgala 125 vyat spikargalondige baruttade. itu dhvani mattu altra basge garishta bust niduttade.",
-  "attempt": 1,
-  "bad_chars": "ā",
-  "kind": "Latin diacritics/IPA"
- },
- {
-  "index": 487,
-  "native": "ಇದು ಉತ್ತಮ ಗುಣಮಟ್ಟದ ನೈಸರ್ಗಿಕ ಹತ್ತಿ ಹಗ್ಗ ಮತ್ತು ಸೆಣಬಿನಿಂದ ಮಾಡಲ್ಪಟ್ಟಿದೆ, ಇದು ನಿಮ್ಮ ಕೈಯಲ್ಲಿ ಹಗ್ಗವನ್ನು ಸುಡುವುದನ್ನು ತಡೆಯುತ್ತದೆ. ಈ ಹಗ್ಗದ ಬಾರು ಕಾಲರ್ ಅಥವಾ ಸರಂಜಾಮುಗಳನ್ನು ಜೋಡಿಸುವ ಒಂದು ತುದಿಯಲ್ಲಿ ಹೆವಿ-ಡ್ಯೂಟಿ ಸ್ಟೀಲ್ ಕೊಕ್ಕೆಯನ್ನು ಹೊಂದಿದೆ. ನಡಿಗೆ, ತರಬೇತಿ, ಟ್ರ್ಯಾಕಿಂಗ್ ಮತ್ತು ಗಸ್ತು ತಿರುಗುವಿಕೆಯಂತಹ ಹೊರಾಂಗಣ ಚಟುವಟಿಕೆಗಳಿಗೆ ಇದು ಸೂಕ್ತವಾಗಿದೆ.",
-  "natural": "idu uttama gunamattada naisargika hatti hagga mattu senabininda madalpattide, idu nimma kaiyalli haggavannu suduvannu tadeyuttade. ee haggada baru collar athava saranjamugalannu jodisuva ondu tudiyalli heavy-duty steel kokkeyannu hondide. nadige, tarabheti, tracking mattu gastu tirguvikeyaంతaha horangana chatuvatikelage idu suktavagide.",
-  "attempt": 1,
-  "bad_chars": "ంత",
-  "kind": "other Indic script"
- },
- {
-  "index": 495,
-  "native": "ರೆಡ್ಡಿಟ್ ಮುಕ್ತ ಚರ್ಚೆಗೆ ಅವಕಾಶ ಮಾಡಿಕೊಡುತ್ತದೆ ಮತ್ತು ನಿಮ್ಮ ಆಲೋಚನೆಗಳು ಮತ್ತು ಕಲ್ಪನೆಗಳು ಕುರಿತು ಅಭಿಪ್ರಾಯಗಳನ್ನು ಹೊಂದಲು ನೀವು ಅದರ ಲಾಭವನ್ನು ಪಡೆಯಬಹುದು. ಅದರ ಜೊತೆಗೆ ಹುಡುಕಾಟವನ್ನು ಬಳಸಿಕೊಂಡು ಸರಳವಾಗಿ ಪ್ರಯತ್ನಿಸಲು ನೀವು ಸುಲಭವಾಗಿ ಆಲೋಚನೆಗಳನ್ನು ಕಾಣಬಹುದು.",
-  "natural": "Reddit mukta charchege avakasa madikoduttate mattu nimma alochanegalu mattu kalpanegalu kuritu abhiprayagalanu hondalu neevu adara labhavannu ಪಡೆಯbahudu. Adara jotege hudukatavannu balasikondu saralavagi prayatnisalu neevu sulabhavagi alochanegalanu kanbahudu.",
-  "attempt": 1,
-  "bad_chars": "ಡಪಯೆ",
-  "kind": "leftover Kannada script"
- },
- {
-  "index": 499,
-  "native": "ಇದು ತನ್ನ ಕೆಲಸದಲ್ಲಿ ನಿಜವಾಗಿಯೂ ಸಿಹಿಯಾಗಿದೆ! ಪ್ಯಾರಾಬೆನ್ ಮುಕ್ತ ಮತ್ತು ಜಲನಿರೋಧಕವಲ್ಲದೆ, ಇದು ನನ್ನ ಡಾರ್ಕ್ ಸರ್ಕಲ್ ಅನ್ನು ಬಹುತೇಕ ವೃತ್ತಿಪರ ಸ್ಪರ್ಶದೊಂದಿಗೆ ಸಂಪೂರ್ಣವಾಗಿ ಮರೆಮಾಡುತ್ತದೆ.",
-  "natural": "idu tanna kelasadalli nijavaagiyu sihiyaagide! pyaraben muktha mattu jalanirodhakavallade, idu nanna dark circle anu bahuvaagi vruttipara sparshadaೊಂದಿಗೆ sampoornavagi maremaadutte.",
-  "attempt": 1,
-  "bad_chars": "ಂಗದಿೆೊ",
-  "kind": "leftover Kannada script"
+  "index": 579,
+  "native": "ನನ್ನ 5 ವರ್ಷದ ಮಗುವನ್ನು ರಿಫ್ರೆಶ್ ಮಾಡಲು ಬೇಸಿಗೆಯ ಸಮಯದಲ್ಲಿ ನಾವು ತೆಗೆದುಕೊಂಡಿದ್ದೇವೆ ಮತ್ತು ಅವನು ಅದನ್ನು ತುಂಬಾ ಇಷ್ಟಪಡುತ್ತಾನೆ. ಇದು ಚಟುವಟಿಕೆ ಆಧಾರಿತ ಪುಸ್ತಕವಾಗಿದ್ದು, ಆಕರ್ಷಕ ಸಂಖ್ಯೆಯ ಆಕಾರ, ಪ್ರಾಣಿಗಳ ಚಿತ್ರಗಳನ್ನು ಹೊಂದಿದೆ.",
+  "natural": "nanna 5 varshada maguvannu refresh madalu bāsigeya samayalli navu tegedukondiddave mattu avu adannu tumba ishtapaduttane. idu chatuvatike adharita pustakavagiddu, akarshaka samkhyeya akara, pranigala chitragalannu hondide.",
+  "attempt": 3,
+  "bad_chars": "ā"
  }
 ]

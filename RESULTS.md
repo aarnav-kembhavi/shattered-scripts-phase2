@@ -499,3 +499,55 @@ cosine similarity of each back-translation to the dataset's English (all-mpnet-b
 - Reading: a 120B multilingual model understands Kannada in its own script far better than the same sentences
   typed in natural romanization. This is consistent with the familiarity account (E0b), now seen in a model we do
   not study and through generation rather than classification.
+
+---
+## 2026-10-15 — E0b GATE 1 (five forms, five models)
+
+Config: `scripts/e0b_familiarity.py --tag gate1`, 200 items per task, BOS always, primary calibration = mean of
+content-free "N/A", "", "[MASK]" with the raw fallback rule (deviation registered 2026-10-15). Outputs:
+`results/e0b_familiarity/gate1/` (accuracy with CIs and constant-label rates for primary, raw, N/A-only, avg3;
+mcnemar.csv; mcnemar_exploratory.csv; fertility.csv; verdicts.json). Natural romanization: 587/587 texts; 27
+outputs were retried (same model and prompt, up to 3 attempts), 18 came back clean, **9 remain defective and are
+excluded** from the natural form (5 leftover Kannada, 3 diacritics, 1 stray Japanese characters), which removes 2
+sentiment and 7 XNLI items (natural n = 198 and 193). Raw fallback applied to Gemma 4 XNLI and Qwen2.5 sentiment.
+All 10 model x task cells are informative (English >= chance + 5).
+
+Primary accuracy, % (natural n = 198 / 193; others n = 200); tokens per word in parentheses:
+
+| model | task | English | native | ITRANS | lossy | natural |
+|---|---|---|---|---|---|---|
+| Qwen2.5-1.5B (raw) | sent. | 98.5 | 70.5 (11.99) | 49.5 (4.23) | 50.0 (3.57) | 51.5 (3.51) |
+| Qwen2.5-1.5B | XNLI | 82.5 | 40.0 (11.80) | 32.0 (4.25) | 32.5 | 32.1 (3.54) |
+| Qwen3-1.7B (extra) | sent. | 98.5 | 83.5 | 53.5 | 57.0 | 56.1 |
+| Qwen3-1.7B (extra) | XNLI | 57.5 | 44.5 | 33.5 | 33.5 | 34.2 |
+| Qwen3.5-2B | sent. | 98.0 | 73.5 (5.24) | 65.5 (4.09) | 68.0 (3.34) | 72.2 (3.32) |
+| Qwen3.5-2B | XNLI | 49.0 | 34.0 | 34.0 | 33.5 | 34.2 |
+| Sarvam-1 | sent. | 98.0 | 95.5 (2.27) | 82.0 (5.24) | 89.5 (4.36) | 89.4 (4.29) |
+| Sarvam-1 | XNLI | 55.0 | 51.5 (2.15) | 38.5 (5.23) | 47.0 | 46.6 (4.32) |
+| Gemma 4 E2B | sent. | 98.5 | 98.5 (3.08) | 75.5 (3.94) | 79.0 (3.21) | 80.3 (3.15) |
+| Gemma 4 E2B (raw) | XNLI | 73.5 | 54.5 | 41.0 | 40.0 | 40.4 |
+
+95% CIs are in accuracy.csv (half-widths about 3–7 points). Several XNLI cells sit at chance with one label
+predicted 98–100% of the time (Qwen3.5 every Kannada form; Qwen3 ITRANS/lossy/natural), so XNLI carries little
+signal for those models.
+
+Verdicts (registered rules, Holm over the 30 registered McNemar tests):
+- **P1 (familiarity dominates): not met by the registered rule.** Its second half holds everywhere: natural is never
+  significantly above native, and is significantly *below* native in 5 of 10 cells, including Qwen2.5 sentiment
+  (51.5 vs 70.5) where natural has a third of native's tokens per word (3.51 vs 11.99). Its first half (natural >=
+  ITRANS in every cell) fails in one cell by a non-significant point estimate: Gemma 4 XNLI natural 40.4 vs ITRANS
+  41.5 on the paired set (11 vs 13 discordant, p = 0.84).
+- **P2 (fragmentation also matters): refuted.** In the Qwen models natural is not above native (Qwen2.5: below,
+  significant on sentiment; Qwen3.5: no difference). Sarvam-1 natural is below native on both tasks (−6.1, −4.7)
+  but not significantly after Holm.
+- **P3 (lossy < ITRANS): refuted.** Lossy is at or above ITRANS in 8 of 10 cells and no difference is significant;
+  Sarvam-1 lossy exceeds ITRANS by 7.5 and 8.5 points (uncorrected p = 0.006 and 0.012; Holm 0.15 and 0.28).
+- Per the registration, with neither P1 nor P2 holding the outcome is **inconclusive**. Plainly: the data favour
+  familiarity over fragmentation. Every romanized form (ITRANS, lossy, natural) lands well below native in every
+  model, whether romanization is less fragmented (Qwen) or more fragmented (Sarvam-1, Gemma 4) than native, and the
+  three romanized forms are within a few points of each other. What sank P1 is one −1-point cell.
+- Exploratory (separate Holm family): ITRANS < native in 9 of 10 cells (tie: Qwen3.5 XNLI at chance), significant
+  in 7.
+- Hint, not a registered result: in Sarvam-1, the two less fragmented romanizations (lossy 4.36, natural 4.29
+  tokens/word) beat ITRANS (5.24) by 7–9 points on both tasks, uncorrected p 0.006–0.024. Within the romanized forms,
+  fragmentation may matter a little; this is confounded with ITRANS's unusual capitals.

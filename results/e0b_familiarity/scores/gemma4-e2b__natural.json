@@ -1,0 +1,30 @@
+{
+ "content_free_logprobs": {
+  "xnli": [
+   -8.601853370666504,
+   -9.539353370666504,
+   -0.320603609085083
+  ],
+  "sentiment": [
+   -11.390227317810059,
+   -13.233977317810059
+  ]
+ },
+ "fertility": [
+  {
+   "model": "gemma4-e2b",
+   "task": "xnli",
+   "form": "natural",
+   "n_texts": 386,
+   "tokens_per_word": 3.1711991711991714
+  },
+  {
+   "model": "gemma4-e2b",
+   "task": "sentiment",
+   "form": "natural",
+   "n_texts": 198,
+   "tokens_per_word": 3.1530703055473155
+  }
+ ],
+ "seconds": 81.26459240913391
+}

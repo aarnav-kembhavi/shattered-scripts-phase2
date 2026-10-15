@@ -1,0 +1,102 @@
+{
+  "provenance": {
+    "config": {
+      "models": [
+        "qwen2.5-1.5b",
+        "qwen3.5-2b",
+        "sarvam-1",
+        "gemma4-e2b",
+        "qwen3-1.7b"
+      ],
+      "forms": [
+        "english",
+        "native",
+        "itrans",
+        "lossy",
+        "natural"
+      ],
+      "calibration": "primary: mean of content-free N/A, '', [MASK]; raw fallback if English drops > 5 pts",
+      "calibration_fallback_rows": [
+        {
+          "model": "gemma4-e2b",
+          "task": "xnli"
+        },
+        {
+          "model": "qwen2.5-1.5b",
+          "task": "sentiment"
+        }
+      ],
+      "natural_items_excluded_defective": 9,
+      "templates": "e0_{xnli,sentiment}_v1",
+      "n_per_task": 200,
+      "seed": 0,
+      "bos": "always prepended",
+      "seconds_per_model_form": {
+        "qwen2.5-1.5b/english": 36.487061977386475,
+        "qwen2.5-1.5b/native": 60.4139928817749,
+        "qwen2.5-1.5b/itrans": 46.802143573760986,
+        "qwen2.5-1.5b/lossy": 49.93747925758362,
+        "qwen2.5-1.5b/natural": 35.85534334182739,
+        "qwen3.5-2b/english": 100.45982670783997,
+        "qwen3.5-2b/native": 137.80759501457214,
+        "qwen3.5-2b/itrans": 135.9841856956482,
+        "qwen3.5-2b/lossy": 107.09859132766724,
+        "qwen3.5-2b/natural": 69.45307636260986,
+        "sarvam-1/english": 52.38592600822449,
+        "sarvam-1/native": 54.95457744598389,
+        "sarvam-1/itrans": 60.9882435798645,
+        "sarvam-1/lossy": 57.89579892158508,
+        "sarvam-1/natural": 44.358845472335815,
+        "gemma4-e2b/english": 89.42716455459595,
+        "gemma4-e2b/native": 94.79906296730042,
+        "gemma4-e2b/itrans": 97.28406596183777,
+        "gemma4-e2b/lossy": 92.6928346157074,
+        "gemma4-e2b/natural": 81.26459240913391,
+        "qwen3-1.7b/english": 43.18634009361267,
+        "qwen3-1.7b/native": 65.9120557308197,
+        "qwen3-1.7b/itrans": 52.16321563720703,
+        "qwen3-1.7b/lossy": 49.83175706863403,
+        "qwen3-1.7b/natural": 41.86442446708679
+      }
+    },
+    "git_commit": "42f52d1866b427f6415cac2f4f04a5eb52024670-dirty",
+    "timestamp_utc": "2026-10-15T11:09:28+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/e0b_familiarity.py",
+      "--models",
+      "qwen2.5-1.5b",
+      "qwen3.5-2b",
+      "sarvam-1",
+      "gemma4-e2b",
+      "qwen3-1.7b",
+      "--tag",
+      "gate1"
+    ]
+  },
+  "informative_cells": [
+    "gemma4-e2b/sentiment",
+    "gemma4-e2b/xnli",
+    "qwen2.5-1.5b/sentiment",
+    "qwen2.5-1.5b/xnli",
+    "qwen3-1.7b/sentiment",
+    "qwen3-1.7b/xnli",
+    "qwen3.5-2b/sentiment",
+    "qwen3.5-2b/xnli",
+    "sarvam-1/sentiment",
+    "sarvam-1/xnli"
+  ],
+  "P3_lossy_lt_itrans": false,
+  "P3_parts": {
+    "all_cells_lossy_below_itrans": false,
+    "fraction_significant": 0.0,
+    "n_cells": 10
+  },
+  "P1_familiarity_dominates": false,
+  "P2_fragmentation_also_matters": false,
+  "P2_parts": {
+    "qwen_natural_gt_native": false,
+    "sarvam_natural_lt_native": false
+  }
+}
