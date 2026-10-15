@@ -1,0 +1,157 @@
+{
+  "provenance": {
+    "config": {
+      "registered": "RESULTS.md 2026-10-15",
+      "const_max": 0.95,
+      "predictions": "pred_cal (avg3 calibration, raw fallback)"
+    },
+    "git_commit": "5abe5d676059b7ef049ad9e98d97534a4164a5ef",
+    "timestamp_utc": "2026-10-15T11:20:18+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/e0b_item_fragmentation.py"
+    ]
+  },
+  "sentiment": {
+    "native": {
+      "n_cells": 5,
+      "frac_negative": 0.4,
+      "n_sig_neg": 0,
+      "n_sig_pos": 0,
+      "verdict": "contradicted"
+    },
+    "romanized": {
+      "n_cells": 12,
+      "frac_negative": 0.5833333333333334,
+      "n_sig_neg": 0,
+      "n_sig_pos": 0,
+      "verdict": "no evidence"
+    }
+  },
+  "xnli": {
+    "native": {
+      "n_cells": 4,
+      "frac_negative": 0.25,
+      "n_sig_neg": 0,
+      "n_sig_pos": 0,
+      "verdict": "contradicted"
+    },
+    "romanized": {
+      "n_cells": 9,
+      "frac_negative": 0.2222222222222222,
+      "n_sig_neg": 0,
+      "n_sig_pos": 0,
+      "verdict": "contradicted"
+    }
+  },
+  "sarvam_within_romanization": {
+    "rows": [
+      {
+        "task": "sentiment",
+        "a": "natural",
+        "b": "itrans",
+        "n": 198,
+        "acc_a": 0.8939393939393939,
+        "acc_b": 0.8181818181818182,
+        "diff": 0.0757575757575756,
+        "a_only": 27,
+        "b_only": 12,
+        "p": 0.023702702470473,
+        "p_holm": 0.4977567518799333
+      },
+      {
+        "task": "sentiment",
+        "a": "lossy",
+        "b": "itrans",
+        "n": 200,
+        "acc_a": 0.895,
+        "acc_b": 0.82,
+        "diff": 0.075,
+        "a_only": 21,
+        "b_only": 6,
+        "p": 0.0059246122837066,
+        "p_holm": 0.1481153070926666
+      },
+      {
+        "task": "xnli",
+        "a": "natural",
+        "b": "itrans",
+        "n": 193,
+        "acc_a": 0.466321243523316,
+        "acc_b": 0.3937823834196891,
+        "diff": 0.0725388601036269,
+        "a_only": 23,
+        "b_only": 9,
+        "p": 0.0200616070069372,
+        "p_holm": 0.4413553541526198
+      },
+      {
+        "task": "xnli",
+        "a": "lossy",
+        "b": "itrans",
+        "n": 200,
+        "acc_a": 0.47,
+        "acc_b": 0.385,
+        "diff": 0.0849999999999999,
+        "a_only": 29,
+        "b_only": 12,
+        "p": 0.011507789735333,
+        "p_holm": 0.2761869536479935
+      }
+    ],
+    "tokens_per_word": [
+      {
+        "task": "xnli",
+        "form": "english",
+        "tokens_per_word": 1.43
+      },
+      {
+        "task": "sentiment",
+        "form": "english",
+        "tokens_per_word": 1.42
+      },
+      {
+        "task": "xnli",
+        "form": "native",
+        "tokens_per_word": 2.15
+      },
+      {
+        "task": "sentiment",
+        "form": "native",
+        "tokens_per_word": 2.27
+      },
+      {
+        "task": "xnli",
+        "form": "itrans",
+        "tokens_per_word": 5.23
+      },
+      {
+        "task": "sentiment",
+        "form": "itrans",
+        "tokens_per_word": 5.24
+      },
+      {
+        "task": "xnli",
+        "form": "lossy",
+        "tokens_per_word": 4.34
+      },
+      {
+        "task": "sentiment",
+        "form": "lossy",
+        "tokens_per_word": 4.36
+      },
+      {
+        "task": "xnli",
+        "form": "natural",
+        "tokens_per_word": 4.32
+      },
+      {
+        "task": "sentiment",
+        "form": "natural",
+        "tokens_per_word": 4.29
+      }
+    ],
+    "caveat": "exploratory; ITRANS uses capital letters for long vowels/retroflexes, lossy and natural do not"
+  }
+}

@@ -575,3 +575,24 @@ controlling for the item's length in characters (same text). Only tokenizers are
   items are reported but not counted.
 - Also reported (exploratory, already seen in Gate 1, so not a test): Sarvam-1 lossy and natural vs ITRANS, which is
   confounded by ITRANS's capital letters.
+
+---
+## 2026-10-15 — Exploratory result: item-level fragmentation within form (registered above)
+
+Script `scripts/e0b_item_fragmentation.py` (tokenizers only); outputs `results/e0b_familiarity/gate1/
+item_fragmentation.{csv,json}`. Coefficients are per SD of the item's tokens per word, controlling for length.
+- **Sentiment (primary family, Holm over 20 tests): no coefficient is significant** (smallest uncorrected p = 0.011,
+  Holm 0.22: Gemma 4 native, negative, in a cell at 98.5% accuracy). Counted cells (constant-label rate < 95%):
+  native 5 cells, 2 negative -> **"contradicted" by the registered rule** (most coefficients positive, none
+  significantly negative); romanized 12 cells, 7 negative -> **"no evidence"**.
+- **XNLI (secondary): no coefficient is significant** (smallest p = 0.029, Holm 0.58); native 1 of 4 negative and
+  romanized 2 of 9 negative -> "contradicted" by the rule. Six XNLI cells predict one label >= 95% of the time and
+  are not counted.
+- Reading: within a form, items that happen to fragment more are not measurably harder once length is controlled.
+  The within-form spread is narrow (SD about 0.5–0.8 tokens per word, 1.9 for Qwen native) and correctness is
+  noisy, so this test has little power; it gives no support to fragmentation as an item-level driver.
+- **Sarvam-1 within romanization (exploratory, already seen in Gate 1, confounded by ITRANS's capital letters):**
+  lossy and natural (4.36 / 4.29 tokens per word on sentiment) vs ITRANS (5.24): sentiment +7.5 (lossy, 21 vs 6
+  discordant, p = 0.006, Holm 0.15) and +7.6 (natural, 27 vs 12, p = 0.024, Holm 0.50); XNLI +8.5 (lossy, p = 0.012,
+  Holm 0.28) and +7.3 (natural, p = 0.020, Holm 0.44). Consistent in direction, not significant after correction,
+  and not separable from the capitals.
