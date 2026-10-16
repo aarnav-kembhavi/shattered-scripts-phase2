@@ -159,6 +159,17 @@ def do_page() -> None:
                                                                              not r["kanglish_draft"] for r in rows)})
 
 
+def chrf_stats(hyp: pd.Series, ref: pd.Series, n_boot: int = 10000) -> dict:
+    """Mean sentence chrF (sacrebleu chrF: char order 6, word order 0, beta 2) with a bootstrap CI over items."""
+    from sacrebleu.metrics import CHRF
+    m = CHRF(char_order=6, word_order=0, beta=2)
+    s = np.array([m.sentence_score(str(h) if pd.notna(h) else "", [str(r) if pd.notna(r) else ""]).score
+                  for h, r in zip(hyp, ref)])
+    rng = np.random.default_rng(0)
+    bs = s[rng.integers(0, len(s), (n_boot, len(s)))].mean(1)
+    return {"mean": float(s.mean()), "ci": [float(v) for v in np.percentile(bs, [2.5, 97.5])], "n": int(len(s))}
+
+
 def do_agreement() -> None:
     from sklearn.metrics import cohen_kappa_score
     files = sorted(ANN_DIR.glob("*.csv"))
@@ -177,6 +188,10 @@ def do_agreement() -> None:
         out[f"{k}_naturalness_weighted_kappa_quadratic"] = float(cohen_kappa_score(
             x[f"{k}_naturalness"], y[f"{k}_naturalness"], weights="quadratic"))
         out[f"{k}_meaning_raw_agreement"] = float((x[f"{k}_meaning"] == y[f"{k}_meaning"]).mean())
+        # addendum 2026-10-17: agreement on corrections, and how much each annotator edited the Gemini draft
+        out[f"{k}_corrections_chrf"] = chrf_stats(x[f"{k}_corrected"], y[f"{k}_corrected"])
+        for who, d in ((a, x), (b, y)):
+            out[f"{k}_draft_vs_correction_chrf_{who}"] = chrf_stats(d[f"{k}_draft"], d[f"{k}_corrected"])
     write_json(results_dir("k_annotation") / "agreement.json", out, {"items": str(ITEMS), "files": [str(f) for f in files]})
     print(json.dumps(out, indent=1))
 
