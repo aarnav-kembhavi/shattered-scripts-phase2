@@ -1,25 +1,22 @@
 #!/usr/bin/env bash
-# Heartbeat for a long chain step, run alongside the chain without touching it.
-#   bash scripts/chain_watch.sh <chain_bash_pid> <step_name> <step_log>   (Windows PIDs)
-# Every 5 minutes, while the status says RUNNING in <step_name>, refresh the heartbeat with the step log's last line.
-# Exits when the chain records DONE or FAILED. If the chain process disappears while the status still says RUNNING or
-# WAITING, the chain died without a trace: mark it DEAD.
+# Watcher for every chain status file (results/CHAIN_STATUS*.md). Run detached: scripts/detach.ps1 -Name watch.
+# Chains rewrite their status at least every 5 minutes (scripts/chainlib.sh), so a RUNNING or WAITING status whose
+# file is older than 20 minutes belongs to a dead chain: it is rewritten to DEAD (a chain that was only suspended, e.g.
+# by laptop sleep, overwrites DEAD with its next heartbeat). Exits when no status is RUNNING or WAITING.
 cd "$(dirname "$0")/.."
-S=results/CHAIN_STATUS.md; CHAIN=$1; STEP=$2; LOG=$3
-alive() { powershell -NoProfile -Command "if (Get-Process -Id $1 -ErrorAction SilentlyContinue) {exit 0} else {exit 1}"; }
-while true; do
-  if grep -q "state: \*\*DONE\|state: \*\*FAILED" "$S"; then echo "chain finished: $(grep 'state:' "$S")"; exit 0; fi
-  if ! alive "$CHAIN"; then
-    sleep 10
-    if grep -q "state: \*\*RUNNING\|state: \*\*WAITING" "$S"; then
-      sed -i "s|^- state: .*|- state: **DEAD** (chain process $CHAIN gone at $(date '+%F %T %Z') without recording DONE or FAILED)|" "$S"
-      echo DEAD; exit 1
+LOG=results/chain_watch.log
+while :; do
+  live=0
+  for f in results/CHAIN_STATUS*.md; do
+    grep -qE 'state: \*\*(RUNNING|WAITING)' "$f" || continue
+    age=$(( $(date +%s) - $(stat -c %Y "$f") ))
+    if [ "$age" -gt 1200 ]; then
+      sed -i "s|^- state: .*|- state: **DEAD** (no heartbeat for $((age / 60)) min; marked by chain_watch.sh at $(date '+%F %T %Z'))|" "$f"
+      echo "$(date '+%F %T') $f marked DEAD (heartbeat age ${age}s)" >> "$LOG"
+    else
+      live=1
     fi
-    exit 0
-  fi
-  if grep -q "state: \*\*RUNNING" "$S" && grep -q "current step: $STEP " "$S"; then
-    last=$(tr '\r' '\n' < "$LOG" | grep -v "Loading\|^$\|warn" | tail -1 | cut -c1-160)
-    sed -i "s|^- heartbeat: .*|- heartbeat: $(date '+%F %T %Z') (watcher: chain alive; last log line: ${last//|/ })|" "$S"
-  fi
+  done
+  [ "$live" = 0 ] && { echo "$(date '+%F %T') no live chain; watcher exits" >> "$LOG"; exit 0; }
   sleep 300
 done

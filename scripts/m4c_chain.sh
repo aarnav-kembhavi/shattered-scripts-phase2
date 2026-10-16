@@ -1,20 +1,26 @@
 #!/usr/bin/env bash
-# M4c (natural romanization in M4): wait for the Gemini daily reset, romanize (retry every 30 min on quota stops,
-# at most 12 tries), then the GPU forward pass and the analysis. Status in results/CHAIN_STATUS.md.
+# M4c (natural romanization in M4). Run detached: scripts/detach.ps1 -Name m4c. Status in results/CHAIN_STATUS.md.
+# 1. Romanize now; on a Gemini quota stop wait for the next 12:45 IST reset and resume from the cache (at most 5
+#    resets). Writes results/m4c_romanize.DONE when complete, which releases the Kanglish chain (M4c has quota priority).
+# 2. Forward pass only after the E0c chain has finished (DONE/FAILED, or DEAD with no E0c python left): never two
+#    model loads at once. 3. Analysis.
 set -u
 cd "$(dirname "$0")/.."
-PY=.venv/Scripts/python.exe; export PYTHONIOENCODING=utf-8
-LOG=results/m4c_natural.log; STATUS=results/CHAIN_STATUS.md
-st() { printf '# Chain status\n\n- state: **%s**\n- chain: m4c (natural romanization in M4)\n- heartbeat: %s\n- detail: %s\n' "$1" "$(date '+%F %T %Z')" "$2" > "$STATUS"; }
-fail() { st FAILED "$1 at $(date '+%T'); see $LOG"; { echo; echo '```'; tail -n 30 "$LOG"; echo '```'; } >> "$STATUS"; exit 1; }
-until [ "$(date +%H%M)" -ge 1245 ] && [ "$(date +%F)" = "$1" ]; do st WAITING "until $1 12:45 IST (Gemini reset)"; sleep 600; done
-for i in $(seq 1 12); do
-  st RUNNING "romanize try $i"
-  $PY -u scripts/m4c_natural_flores.py romanize >> "$LOG" 2>&1 || fail "romanize exited $?"
+STATUS=results/CHAIN_STATUS.md; TITLE="Chain status: m4c (natural romanization in M4)"; LOG=results/m4c_natural.log
+. scripts/chainlib.sh
+for i in $(seq 0 5); do
+  run_hb "romanize (attempt after $i quota resets)" $PY -u scripts/m4c_natural_flores.py romanize || fail "romanize exited $?"
   tail -1 "$LOG" | grep -q "'complete': True" && break
-  [ "$i" = 12 ] && fail "romanize incomplete after 12 tries"
-  st WAITING "Gemini quota (try $i); retry at $(date -d '+30 min' '+%T')"; sleep 1800
+  [ "$i" = 5 ] && fail "romanize incomplete after 5 quota resets"
+  wait_until "$(next_reset)" "Gemini quota stop; resume after the next reset"
 done
-st RUNNING "forward pass (natural, 4 models)"; $PY -u scripts/m4c_natural_flores.py forward >> "$LOG" 2>&1 || fail "forward exited $?"
-st RUNNING "analysis"; $PY -u scripts/m4c_natural_flores.py analyse >> "$LOG" 2>&1 || fail "analyse exited $?"
-st DONE "m4c finished at $(date '+%F %T %Z')"
+date '+%F %T %Z' > results/m4c_romanize.DONE
+while :; do
+  s=$(state_of results/CHAIN_STATUS_E0C.md)
+  case "$s" in DONE|FAILED) break ;; DEAD) py_alive e0c_sib.py || break ;; esac
+  st WAITING "romanization complete; forward pass waits for the E0c chain (state: ${s:-none})"; sleep "$HB"
+done
+wait_ram 8
+run_hb "forward pass (natural, 4 models)" $PY -u scripts/m4c_natural_flores.py forward || fail "forward exited $?"
+run_hb "analysis" $PY -u scripts/m4c_natural_flores.py analyse || fail "analyse exited $?"
+st DONE "m4c finished at $(date '+%F %T %Z'); results/m4c_natural/"
