@@ -98,3 +98,16 @@ Registered before running in RESULTS.md. Script `scripts/m4b_robustness.py`; out
    over.
 3. **Annotation design choice to confirm:** ratings are of the Gemini draft as shown, before correction, and the
    primary annotator's corrections define the human-corrected forms. Say if you meant ratings of the corrected text.
+
+## Correction (2026-10-17, 01:55 IST)
+The "Background jobs" section above is wrong after 11:40 IST on 10-16:
+- **Both chain shells died** around 11:40 IST on 2026-10-16, before the 12:45 start. Their last heartbeats were
+  10-16 11:40:04 (`m4c_chain.sh`) and 11:39:30 (`k_chain.sh`). They were most likely killed when the Claude Code
+  session ended.
+- **M4c never ran.** There is no `results/m4c_natural.log`, and the cache's usage table shows no Gemini request on
+  2026-10-16.
+- **No Kanglish draft exists.** There is no `data/annotation/drafts_v1.jsonl`.
+- **The status files were misleading.** Both still said WAITING. From 2026-10-17, chains run detached from Claude Code
+  (Windows Task Scheduler), compute dates and quota resets themselves, and a detached watcher marks any status whose
+  heartbeat is older than 20 minutes as DEAD.
+- **The ISM process was no longer running** at 01:51 IST on 10-17 (16.9 GB RAM free).

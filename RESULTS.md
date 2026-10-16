@@ -981,3 +981,66 @@ Mapped gap, native − ITRANS [95% CI], with status:
   the input end in Qwen3.5 and Gemma 4, as in the M4b observation.
 - **Qwen2.5 native is not a rotation of English.** Under Procrustes it reaches only 0.219, against 0.517 with ridge.
   So in Qwen2.5 the native gap "closes" only with a non-orthogonal map.
+
+---
+## REGISTRATION — M4b surface baseline and entity/number filter (written 2026-10-17, Aarnav's decision of 2026-10-16; before running)
+Script `scripts/m4b_surface.py`. A robustness analysis of M4b, CPU only, on the cached FLORES+ sentence vectors
+(`cache/activations/m14full`), with the M4b split (seed 0, test half n = 1,005), folds, alpha grid and train-half
+selection unchanged.
+
+**(a) Surface baseline: layer 0.** Layer 0 is the input embeddings, mean-pooled over the sentence. A linear map from
+there to English can use only which tokens occur: shared digits, names and Latin loanwords. So mapped retrieval at
+layer 0 is the surface-only baseline.
+- For each model × form (native, ITRANS) and each map, ridge (M4b, primary) and PCA Procrustes (robustness check):
+  - L0 = mapped test retrieval at layer 0, with its hyperparameter CV-tuned on the train half as before.
+  - Lb = mapped test retrieval at the train-half-CV-best layer among layers ≥ 1.
+  - Gain = Lb − L0, with a paired bootstrap CI (10,000 resamples over test sentences). L0 and Lb get CIs too.
+- Rule, per cell: **beyond surface** if the CI lower bound of the gain > 0.10, **surface-level** if the CI upper bound
+  < 0.10, otherwise **partial**.
+- **Not blind.** The M4b per-layer curves already exist, and the M4b post hoc note said mapped ITRANS does best at
+  layers 0–3. So for ITRANS this is a description, not a test. Expectation: native beyond surface and ITRANS
+  surface-level in Qwen3.5, Sarvam-1 and Gemma 4.
+
+**(b) Entity/number filter.** A sentence is kept if its English has no digit (0–9) and no capitalised Latin word.
+- The first word of the sentence and the pronoun "I" don't count as capitalised.
+- Words are maximal runs of A–Z/a–z (apostrophes and hyphens inside a word allowed).
+- This is a crude filter for named entities and numbers. A later sentence start inside the same item also removes it,
+  which is conservative.
+- Reported: the number kept per half, and how many kept native sentences still contain a digit or a Latin letter.
+
+The M4b mapping (ridge, M4b grid) is rerun within the kept sentences:
+- train = kept ∩ M4b train half, test = kept ∩ M4b test half;
+- folds and CV as in M4b on that train set;
+- retrieval among the kept test sentences only.
+
+Reported per model:
+- unmapped and mapped retrieval for native and ITRANS;
+- the mapped gap native − ITRANS with its CI, and the M4b status rule (persists / closes / partial);
+- L0 and the gain, as in (a).
+
+**Size-matched random control.** Retrieval among fewer candidates is easier, and fewer training pairs make the map
+weaker. So the same analysis is run on a random subset of the same size per half (seed 3), and both are reported side
+by side.
+
+**Prediction (blind; nothing on the subset has been computed):**
+- The mapped gap persists (CI lower bound > 0.10) on the filtered subset in Qwen3.5, Sarvam-1 and Gemma 4.
+- Mapped ITRANS is lower on the filtered subset than on the size-matched random subset, by more than mapped native is.
+  This is reported as the two differences with independent-bootstrap CIs, descriptively.
+- If the gap closes on the filtered subset in two or more of those three models, M4b's "persists" is reported as
+  dependent on entities and numbers.
+
+---
+## ADDENDUM to the K1–K3 registration — annotation agreement (written 2026-10-17, Aarnav's decision of 2026-10-16; before any draft exists)
+- **Rating and correction.** Ratings (naturalness 1–5, meaning preserved yes/no) apply to the Gemini draft as shown,
+  **before** correction. This is unchanged.
+- **Human versions.** The primary annotator's corrections define the human-corrected forms used in K1–K3.
+- **Second annotator.** They also rate and correct independently on the 100 double items.
+- **Agreement on corrections.** For the two annotators' corrected versions of each item, sentence-level chrF
+  (sacrebleu, chrF with character order 6, word order 0, β = 2). Reported:
+  - the mean over the 100 items with a bootstrap CI (10,000 resamples);
+  - computed separately for natural and Kanglish.
+- **Edit size.** Each annotator's chrF between the Gemini draft and their own correction is also reported, as how
+  much was changed.
+- **Kappas, as registered.** Cohen's kappa (meaning) and quadratic-weighted kappa (naturalness), separately for
+  natural and Kanglish.
+- **No decision rule.** Agreement is descriptive and does not feed K1–K3.
