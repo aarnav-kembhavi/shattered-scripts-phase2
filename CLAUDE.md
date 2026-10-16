@@ -104,4 +104,8 @@ Treat E5 as the most important experiment in the project.
 - Gemma 4 E2B fits 8 GB in bf16 only text-only with its per-layer embedding table (2.35B params) on CPU; E4B needs
   9.3 GB GPU-resident and does not fit.
 - Never launch long jobs with `nohup ... &` from the Bash tool (they survive unexpectedly); use run_in_background.
+- Exception (Aarnav, 2026-10-17): multi-day chains run detached from Claude Code as Windows scheduled tasks via
+  `scripts/detach.ps1 -Name <x> -Script scripts/<chain>.sh` (tasks `ShatteredScripts_*`). Chains source
+  `scripts/chainlib.sh` (heartbeat every 2 min, quota resets computed from the clock, never hard-coded dates);
+  `scripts/chain_watch.sh` (also detached) marks any status older than 20 min DEAD.
 - Shells: PowerShell is primary; Git Bash also available.
