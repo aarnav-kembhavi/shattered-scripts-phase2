@@ -1044,3 +1044,73 @@ by side.
 - **Kappas, as registered.** Cohen's kappa (meaning) and quadratic-weighted kappa (naturalness), separately for
   natural and Kanglish.
 - **No decision rule.** Agreement is descriptive and does not feed K1–K3.
+
+---
+## 2026-10-17 — M4b surface baseline and entity/number filter (registered above)
+Script `scripts/m4b_surface.py`, CPU only, about 9 min. Outputs: `results/m4b_surface/{surface.csv, subset.csv,
+verdict.json}`; log `results/m4b_surface.log`.
+
+**(a) Surface baseline, full test half (n = 1,005).**
+- L0 is mapped retrieval at layer 0. Lb is mapped retrieval at the train-half-CV-best layer ≥ 1.
+- Gain = Lb − L0 with a paired 95% CI. Status rule: beyond surface if the CI lower bound > 0.10, surface-level if the
+  CI upper bound < 0.10, otherwise partial.
+
+| model | form | ridge L0 → Lb (layer) | ridge gain [CI], status | Procrustes L0 → Lb (layer) | Procrustes gain [CI], status |
+|---|---|---|---|---|---|
+| Qwen2.5 | native | 0.112 → 0.517 (1) | +0.405 [0.372, 0.438] beyond | 0.131 → 0.219 (27) | +0.088 [0.056, 0.118] partial |
+| Qwen2.5 | ITRANS | 0.352 → 0.529 (1) | +0.177 [0.142, 0.212] beyond | 0.450 → 0.403 (1) | −0.047 [−0.081, −0.012] surface |
+| Qwen3.5 | native | 0.165 → 0.961 (7) | +0.796 [0.770, 0.821] beyond | 0.184 → 0.971 (11) | +0.787 [0.762, 0.812] beyond |
+| Qwen3.5 | ITRANS | 0.245 → 0.485 (3) | +0.240 [0.203, 0.276] beyond | 0.386 → 0.480 (1) | +0.094 [0.060, 0.126] partial |
+| Sarvam-1 | native | 0.456 → 0.899 (26) | +0.443 [0.409, 0.476] beyond | 0.492 → 0.921 (24) | +0.430 [0.396, 0.462] beyond |
+| Sarvam-1 | ITRANS | 0.406 → 0.380 (24) | −0.026 [−0.065, 0.011] surface | 0.423 → 0.449 (19) | +0.026 [−0.013, 0.065] surface |
+| Gemma 4 | native | 0.510 → 0.977 (8) | +0.467 [0.436, 0.499] beyond | 0.574 → 0.986 (8) | +0.412 [0.381, 0.443] beyond |
+| Gemma 4 | ITRANS | 0.473 → 0.284 (14) | −0.189 [−0.227, −0.150] surface | 0.583 → 0.259 (14) | −0.324 [−0.362, −0.288] surface |
+
+- **Expectation (not blind): partly met.**
+  - Native is beyond surface in Qwen3.5, Sarvam-1 and Gemma 4 under both maps.
+  - ITRANS is surface-level in Sarvam-1 and Gemma 4 under both maps.
+  - **The exception is Qwen3.5 ITRANS.** It gains +0.24 above layer 0 with ridge (beyond surface) and +0.09 with
+    Procrustes (partial). So Qwen3.5 does build something past the surface from ITRANS. It stops at 0.48, against 0.96
+    for native.
+- **Gemma 4 ITRANS gets worse with depth** (−0.19 ridge, −0.32 Procrustes). Its best mapped value is the layer-0 bag
+  of tokens.
+- **Layer 0 itself already sits at 0.41–0.58 for ITRANS in Sarvam-1 and Gemma 4.** It is 0.46–0.57 for native in
+  those models too. A surface map is strong in these two models whatever the script.
+
+**(b) Entity/number filter.**
+- Kept: 369 train and 365 test sentences (734 of 2,009). 13 kept native sentences still contain a digit or a Latin
+  letter.
+- The size-matched random control has the same counts (seed 3).
+- Retrieval is among the 365 test sentences (chance 0.27%). Shuffled-pair control ≤ 0.8% everywhere.
+
+| model | filtered: native / ITRANS mapped | filtered gap [CI], status | random: native / ITRANS mapped | random gap [CI], status |
+|---|---|---|---|---|
+| Qwen2.5 | 0.258 / 0.301 | −0.044 [−0.099, 0.014] closes | 0.318 / 0.293 | 0.025 [−0.033, 0.082] closes |
+| Qwen3.5 | 0.923 / 0.315 | 0.608 [0.556, 0.658] persists | 0.975 / 0.326 | 0.649 [0.597, 0.701] persists |
+| Sarvam-1 | 0.841 / 0.285 | 0.556 [0.501, 0.611] persists | 0.855 / 0.304 | 0.551 [0.496, 0.603] persists |
+| Gemma 4 | 0.973 / 0.370 | 0.603 [0.548, 0.655] persists | 0.959 / 0.244 | 0.715 [0.666, 0.762] persists |
+
+Filtered minus random, mapped retrieval [independent-bootstrap CI]:
+
+| model | native | ITRANS |
+|---|---|---|
+| Qwen2.5 | −0.060 [−0.126, 0.005] | +0.008 [−0.058, 0.074] |
+| Qwen3.5 | −0.052 [−0.085, −0.022] | −0.011 [−0.077, 0.058] |
+| Sarvam-1 | −0.014 [−0.066, 0.038] | −0.019 [−0.088, 0.047] |
+| Gemma 4 | +0.014 [−0.011, 0.041] | +0.126 [0.060, 0.192] |
+
+- **Blind prediction 1 (the gap persists on the filtered subset in Qwen3.5, Sarvam-1 and Gemma 4): supported.** It
+  persists in all three. It closes in Qwen2.5, as on the full set. So M4b's "persists" does **not** depend on
+  entities and numbers.
+- **Blind prediction 2 (filtering lowers mapped ITRANS more than native): not supported.**
+  - ITRANS drops more than native only in Sarvam-1, by a margin well inside noise.
+  - In Gemma 4, mapped ITRANS is *higher* on the filtered subset (+0.126 [0.060, 0.192]), again at layer 0 (0.370 vs
+    0.318 for L0 on the random subset).
+  - Native loses a little in Qwen3.5 (−0.05).
+- **Post hoc reading (not a test).**
+  - The M4b note blamed the layer-0 ITRANS signal on shared digits, names and Latin loanwords. This result does not
+    support that.
+  - Removing sentences with numbers and capitalised names does not weaken it. The layer-0 map is still a
+    bag-of-tokens dictionary, but its anchors seem to be ordinary words, not entities.
+  - Either way, ITRANS meaning alignment beyond layer 0 stays small except in Qwen3.5. That part of the M4b reading
+    stands.

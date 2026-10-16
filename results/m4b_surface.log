@@ -1,0 +1,311 @@
+{'model': 'qwen2.5-1.5b', 'form': 'native', 'map': 'ridge', 'L0': np.float64(0.112), 'L0_ci': [0.09353233873844147, 0.13233831524848938], 'best_later_layer': 1, 'Lb': np.float64(0.517), 'Lb_ci': [0.4865671694278717, 0.5482587218284607], 'gain': np.float64(0.405), 'gain_ci': [0.3721393048763275, 0.4378109574317932], 'status': 'beyond surface'}
+{'model': 'qwen2.5-1.5b', 'form': 'native', 'map': 'procrustes', 'L0': np.float64(0.131), 'L0_ci': [0.11044776439666748, 0.15223880112171173], 'best_later_layer': 27, 'Lb': np.float64(0.219), 'Lb_ci': [0.193034827709198, 0.24477611482143402], 'gain': np.float64(0.088), 'gain_ci': [0.05572139471769333, 0.1184079572558403], 'status': 'partial'}
+{'model': 'qwen2.5-1.5b', 'form': 'itrans', 'map': 'ridge', 'L0': np.float64(0.352), 'L0_ci': [0.323383092880249, 0.3810945153236389], 'best_later_layer': 1, 'Lb': np.float64(0.529), 'Lb_ci': [0.49850746989250183, 0.5601990222930908], 'gain': np.float64(0.177), 'gain_ci': [0.14228855073451996, 0.21194030344486237], 'status': 'beyond surface'}
+{'model': 'qwen2.5-1.5b', 'form': 'itrans', 'map': 'procrustes', 'L0': np.float64(0.45), 'L0_ci': [0.41890546679496765, 0.4815920293331146], 'best_later_layer': 1, 'Lb': np.float64(0.403), 'Lb_ci': [0.3731343150138855, 0.4338308572769165], 'gain': np.float64(-0.047), 'gain_ci': [-0.08059701323509216, -0.011940298601984978], 'status': 'surface-level'}
+{'model': 'qwen3.5-2b', 'form': 'native', 'map': 'ridge', 'L0': np.float64(0.165), 'L0_ci': [0.14228855073451996, 0.1880597025156021], 'best_later_layer': 7, 'Lb': np.float64(0.961), 'Lb_ci': [0.9492537379264832, 0.9731343388557434], 'gain': np.float64(0.796), 'gain_ci': [0.7701492309570312, 0.8208954930305481], 'status': 'beyond surface'}
+{'model': 'qwen3.5-2b', 'form': 'native', 'map': 'procrustes', 'L0': np.float64(0.184), 'L0_ci': [0.16019900143146515, 0.20895522832870483], 'best_later_layer': 11, 'Lb': np.float64(0.971), 'Lb_ci': [0.9611940383911133, 0.9810945391654968], 'gain': np.float64(0.787), 'gain_ci': [0.7621890306472778, 0.8119403123855591], 'status': 'beyond surface'}
+{'model': 'qwen3.5-2b', 'form': 'itrans', 'map': 'ridge', 'L0': np.float64(0.245), 'L0_ci': [0.2189054787158966, 0.2716417908668518], 'best_later_layer': 3, 'Lb': np.float64(0.485), 'Lb_ci': [0.45373135805130005, 0.5154228806495667], 'gain': np.float64(0.24), 'gain_ci': [0.20298507809638977, 0.2756218910217285], 'status': 'beyond surface'}
+{'model': 'qwen3.5-2b', 'form': 'itrans', 'map': 'procrustes', 'L0': np.float64(0.386), 'L0_ci': [0.3562189042568207, 0.4159204065799713], 'best_later_layer': 1, 'Lb': np.float64(0.48), 'Lb_ci': [0.44875621795654297, 0.509452760219574], 'gain': np.float64(0.094), 'gain_ci': [0.05970149114727974, 0.12639303505420685], 'status': 'partial'}
+{'model': 'sarvam-1', 'form': 'native', 'map': 'ridge', 'L0': np.float64(0.456), 'L0_ci': [0.4248756170272827, 0.4875621795654297], 'best_later_layer': 26, 'Lb': np.float64(0.899), 'Lb_ci': [0.8796020150184631, 0.9164178967475891], 'gain': np.float64(0.443), 'gain_ci': [0.4089552164077759, 0.47562187910079956], 'status': 'beyond surface'}
+{'model': 'sarvam-1', 'form': 'native', 'map': 'procrustes', 'L0': np.float64(0.492), 'L0_ci': [0.4616915285587311, 0.5233830809593201], 'best_later_layer': 24, 'Lb': np.float64(0.921), 'Lb_ci': [0.904477596282959, 0.937313437461853], 'gain': np.float64(0.43), 'gain_ci': [0.39599502086639404, 0.4616915285587311], 'status': 'beyond surface'}
+{'model': 'sarvam-1', 'form': 'itrans', 'map': 'ridge', 'L0': np.float64(0.406), 'L0_ci': [0.3761194050312042, 0.43582090735435486], 'best_later_layer': 24, 'Lb': np.float64(0.38), 'Lb_ci': [0.3502487540245056, 0.40995025634765625], 'gain': np.float64(-0.026), 'gain_ci': [-0.06467662006616592, 0.0109452735632658], 'status': 'surface-level'}
+{'model': 'sarvam-1', 'form': 'itrans', 'map': 'procrustes', 'L0': np.float64(0.423), 'L0_ci': [0.39303481578826904, 0.45373135805130005], 'best_later_layer': 19, 'Lb': np.float64(0.449), 'Lb_ci': [0.41791045665740967, 0.4786069691181183], 'gain': np.float64(0.026), 'gain_ci': [-0.012935323640704155, 0.06467662006616592], 'status': 'surface-level'}
+{'model': 'gemma4-e2b', 'form': 'native', 'map': 'ridge', 'L0': np.float64(0.51), 'L0_ci': [0.47960197925567627, 0.5412935614585876], 'best_later_layer': 8, 'Lb': np.float64(0.977), 'Lb_ci': [0.967164158821106, 0.9860696792602539], 'gain': np.float64(0.467), 'gain_ci': [0.43582090735435486, 0.49850746989250183], 'status': 'beyond surface'}
+{'model': 'gemma4-e2b', 'form': 'native', 'map': 'procrustes', 'L0': np.float64(0.574), 'L0_ci': [0.5432835817337036, 0.6049751043319702], 'best_later_layer': 8, 'Lb': np.float64(0.986), 'Lb_ci': [0.9781094789505005, 0.993034839630127], 'gain': np.float64(0.412), 'gain_ci': [0.3810945153236389, 0.4427860677242279], 'status': 'beyond surface'}
+{'model': 'gemma4-e2b', 'form': 'itrans', 'map': 'ridge', 'L0': np.float64(0.473), 'L0_ci': [0.4417910575866699, 0.5034825801849365], 'best_later_layer': 14, 'Lb': np.float64(0.284), 'Lb_ci': [0.25572139024734497, 0.3114427924156189], 'gain': np.float64(-0.189), 'gain_ci': [-0.22689054906368256, -0.15024875104427338], 'status': 'surface-level'}
+{'model': 'gemma4-e2b', 'form': 'itrans', 'map': 'procrustes', 'L0': np.float64(0.583), 'L0_ci': [0.553233802318573, 0.613930344581604], 'best_later_layer': 14, 'Lb': np.float64(0.259), 'Lb_ci': [0.23184078931808472, 0.2855721414089203], 'gain': np.float64(-0.324), 'gain_ci': [-0.36218905448913574, -0.28756219148635864], 'status': 'surface-level'}
+{'kept_train': 369, 'kept_test': 365, 'kept_native_with_digit_or_latin': 13}
+{'model': 'qwen2.5-1.5b', 'subset': 'filtered', 'form': 'native', 'n_train': 369, 'n_test': 365, 'mapped': np.float64(0.258), 'mapped_ci': [0.2136986255645752, 0.3041096031665802], 'mapped_layer': 27, 'unmapped': np.float64(0.178), 'unmapped_ci': [0.13972602784633636, 0.21917808055877686], 'unmapped_layer': 18, 'L0': np.float64(0.115), 'best_later_layer': 27, 'Lb': np.float64(0.258), 'gain': np.float64(0.142), 'gain_ci': [0.09315068274736404, 0.19452054798603058], 'surface_status': 'partial', 'shuffled_control': np.float64(0.0)}
+{'model': 'qwen2.5-1.5b', 'subset': 'filtered', 'form': 'itrans', 'n_train': 369, 'n_test': 365, 'mapped': np.float64(0.301), 'mapped_ci': [0.25479450821876526, 0.3506849408149719], 'mapped_layer': 1, 'unmapped': np.float64(0.03), 'unmapped_ci': [0.013698630034923553, 0.04931506887078285], 'unmapped_layer': 1, 'L0': np.float64(0.266), 'best_later_layer': 1, 'Lb': np.float64(0.301), 'gain': np.float64(0.036), 'gain_ci': [-0.013698630034923553, 0.08767123520374298], 'surface_status': 'surface-level', 'shuffled_control': np.float64(0.003)}
+{'model': 'qwen2.5-1.5b', 'subset': 'random_size_matched', 'form': 'native', 'n_train': 369, 'n_test': 365, 'mapped': np.float64(0.318), 'mapped_ci': [0.27123287320137024, 0.3643835484981537], 'mapped_layer': 27, 'unmapped': np.float64(0.222), 'unmapped_ci': [0.18082191050052643, 0.2657534182071686], 'unmapped_layer': 15, 'L0': np.float64(0.093), 'best_later_layer': 27, 'Lb': np.float64(0.318), 'gain': np.float64(0.225), 'gain_ci': [0.1698630154132843, 0.27945205569267273], 'surface_status': 'beyond surface', 'shuffled_control': np.float64(0.008)}
+{'model': 'qwen2.5-1.5b', 'subset': 'random_size_matched', 'form': 'itrans', 'n_train': 369, 'n_test': 365, 'mapped': np.float64(0.293), 'mapped_ci': [0.24657534062862396, 0.3397260308265686], 'mapped_layer': 1, 'unmapped': np.float64(0.121), 'unmapped_ci': [0.08767123520374298, 0.15616437792778015], 'unmapped_layer': 1, 'L0': np.float64(0.173), 'best_later_layer': 1, 'Lb': np.float64(0.293), 'gain': np.float64(0.121), 'gain_ci': [0.07397260516881943, 0.16712328791618347], 'surface_status': 'partial', 'shuffled_control': np.float64(0.0)}
+{'model': 'qwen3.5-2b', 'subset': 'filtered', 'form': 'native', 'n_train': 369, 'n_test': 365, 'mapped': np.float64(0.923), 'mapped_ci': [0.8931506872177124, 0.9479451775550842], 'mapped_layer': 15, 'unmapped': np.float64(0.978), 'unmapped_ci': [0.9616438150405884, 0.9917808175086975], 'unmapped_layer': 15, 'L0': np.float64(0.151), 'best_later_layer': 15, 'Lb': np.float64(0.923), 'gain': np.float64(0.773), 'gain_ci': [0.7260273694992065, 0.8164383769035339], 'surface_status': 'beyond surface', 'shuffled_control': np.float64(0.0)}
+{'model': 'qwen3.5-2b', 'subset': 'filtered', 'form': 'itrans', 'n_train': 369, 'n_test': 365, 'mapped': np.float64(0.315), 'mapped_ci': [0.2684931457042694, 0.36164382100105286], 'mapped_layer': 2, 'unmapped': np.float64(0.068), 'unmapped_ci': [0.04383561760187149, 0.09589041024446487], 'unmapped_layer': 6, 'L0': np.float64(0.178), 'best_later_layer': 2, 'Lb': np.float64(0.315), 'gain': np.float64(0.137), 'gain_ci': [0.08493150770664215, 0.18904109299182892], 'surface_status': 'partial', 'shuffled_control': np.float64(0.005)}
+{'model': 'qwen3.5-2b', 'subset': 'random_size_matched', 'form': 'native', 'n_train': 369, 'n_test': 365, 'mapped': np.float64(0.975), 'mapped_ci': [0.9589040875434875, 0.9890410900115967], 'mapped_layer': 9, 'unmapped': np.float64(0.986), 'unmapped_ci': [0.9726027250289917, 0.9972602725028992], 'unmapped_layer': 9, 'L0': np.float64(0.134), 'best_later_layer': 9, 'Lb': np.float64(0.975), 'gain': np.float64(0.841), 'gain_ci': [0.8027397394180298, 0.8794520497322083], 'surface_status': 'beyond surface', 'shuffled_control': np.float64(0.003)}
+{'model': 'qwen3.5-2b', 'subset': 'random_size_matched', 'form': 'itrans', 'n_train': 369, 'n_test': 365, 'mapped': np.float64(0.326), 'mapped_ci': [0.2767123281955719, 0.375342458486557], 'mapped_layer': 3, 'unmapped': np.float64(0.167), 'unmapped_ci': [0.12876711785793304, 0.2054794579744339], 'unmapped_layer': 16, 'L0': np.float64(0.2), 'best_later_layer': 3, 'Lb': np.float64(0.326), 'gain': np.float64(0.126), 'gain_ci': [0.0712328776717186, 0.18082191050052643], 'surface_status': 'partial', 'shuffled_control': np.float64(0.005)}
+{'model': 'sarvam-1', 'subset': 'filtered', 'form': 'native', 'n_train': 369, 'n_test': 365, 'mapped': np.float64(0.841), 'mapped_ci': [0.8027397394180298, 0.8767123222351074], 'mapped_layer': 27, 'unmapped': np.float64(0.97), 'unmapped_ci': [0.9506849050521851, 0.9863013625144958], 'unmapped_layer': 16, 'L0': np.float64(0.348), 'best_later_layer': 27, 'Lb': np.float64(0.841), 'gain': np.float64(0.493), 'gain_ci': [0.4356164336204529, 0.550684928894043], 'surface_status': 'beyond surface', 'shuffled_control': np.float64(0.003)}
+{'model': 'sarvam-1', 'subset': 'filtered', 'form': 'itrans', 'n_train': 369, 'n_test': 365, 'mapped': np.float64(0.285), 'mapped_ci': [0.23835615813732147, 0.3315068483352661], 'mapped_layer': 24, 'unmapped': np.float64(0.534), 'unmapped_ci': [0.4821917712688446, 0.5835616588592529], 'unmapped_layer': 21, 'L0': np.float64(0.249), 'best_later_layer': 24, 'Lb': np.float64(0.285), 'gain': np.float64(0.036), 'gain_ci': [-0.019178081303834915, 0.09315068274736404], 'surface_status': 'surface-level', 'shuffled_control': np.float64(0.003)}
+{'model': 'sarvam-1', 'subset': 'random_size_matched', 'form': 'native', 'n_train': 369, 'n_test': 365, 'mapped': np.float64(0.855), 'mapped_ci': [0.8164383769035339, 0.8904109597206116], 'mapped_layer': 27, 'unmapped': np.float64(0.964), 'unmapped_ci': [0.9452054500579834, 0.9808219075202942], 'unmapped_layer': 24, 'L0': np.float64(0.326), 'best_later_layer': 27, 'Lb': np.float64(0.855), 'gain': np.float64(0.529), 'gain_ci': [0.4739725887775421, 0.5808219313621521], 'surface_status': 'beyond surface', 'shuffled_control': np.float64(0.005)}
+{'model': 'sarvam-1', 'subset': 'random_size_matched', 'form': 'itrans', 'n_train': 369, 'n_test': 365, 'mapped': np.float64(0.304), 'mapped_ci': [0.2575342357158661, 0.3506849408149719], 'mapped_layer': 25, 'unmapped': np.float64(0.567), 'unmapped_ci': [0.5150684714317322, 0.619178056716919], 'unmapped_layer': 21, 'L0': np.float64(0.216), 'best_later_layer': 25, 'Lb': np.float64(0.304), 'gain': np.float64(0.088), 'gain_ci': [0.030136985704302788, 0.14794521033763885], 'surface_status': 'partial', 'shuffled_control': np.float64(0.008)}
+{'model': 'gemma4-e2b', 'subset': 'filtered', 'form': 'native', 'n_train': 369, 'n_test': 365, 'mapped': np.float64(0.973), 'mapped_ci': [0.9561643600463867, 0.9890410900115967], 'mapped_layer': 8, 'unmapped': np.float64(0.995), 'unmapped_ci': [0.9863013625144958, 1.0], 'unmapped_layer': 7, 'L0': np.float64(0.373), 'best_later_layer': 8, 'Lb': np.float64(0.973), 'gain': np.float64(0.6), 'gain_ci': [0.5479452013969421, 0.6493150591850281], 'surface_status': 'beyond surface', 'shuffled_control': np.float64(0.003)}
+{'model': 'gemma4-e2b', 'subset': 'filtered', 'form': 'itrans', 'n_train': 369, 'n_test': 365, 'mapped': np.float64(0.37), 'mapped_ci': [0.3205479383468628, 0.4191780686378479], 'mapped_layer': 0, 'unmapped': np.float64(0.241), 'unmapped_ci': [0.1972602754831314, 0.2849315106868744], 'unmapped_layer': 7, 'L0': np.float64(0.37), 'best_later_layer': 7, 'Lb': np.float64(0.197), 'gain': np.float64(-0.173), 'gain_ci': [-0.232876718044281, -0.11232876777648926], 'surface_status': 'surface-level', 'shuffled_control': np.float64(0.003)}
+{'model': 'gemma4-e2b', 'subset': 'random_size_matched', 'form': 'native', 'n_train': 369, 'n_test': 365, 'mapped': np.float64(0.959), 'mapped_ci': [0.9369863271713257, 0.9780821800231934], 'mapped_layer': 8, 'unmapped': np.float64(1.0), 'unmapped_ci': [1.0, 1.0], 'unmapped_layer': 8, 'L0': np.float64(0.348), 'best_later_layer': 8, 'Lb': np.float64(0.959), 'gain': np.float64(0.611), 'gain_ci': [0.5561643838882446, 0.6630136966705322], 'surface_status': 'beyond surface', 'shuffled_control': np.float64(0.005)}
+{'model': 'gemma4-e2b', 'subset': 'random_size_matched', 'form': 'itrans', 'n_train': 369, 'n_test': 365, 'mapped': np.float64(0.244), 'mapped_ci': [0.20000000298023224, 0.2876712381839752], 'mapped_layer': 14, 'unmapped': np.float64(0.367), 'unmapped_ci': [0.31780821084976196, 0.4191780686378479], 'unmapped_layer': 7, 'L0': np.float64(0.318), 'best_later_layer': 14, 'Lb': np.float64(0.244), 'gain': np.float64(-0.074), 'gain_ci': [-0.13150684535503387, -0.013698630034923553], 'surface_status': 'surface-level', 'shuffled_control': np.float64(0.005)}
+warning: in the working copy of 'results/CHAIN_STATUS.md', LF will be replaced by CRLF the next time Git touches it
+       model   form        map    L0  best_later_layer    Lb   gain                                       gain_ci         status
+qwen2.5-1.5b native      ridge 0.112                 1 0.517  0.405      [0.3721393048763275, 0.4378109574317932] beyond surface
+qwen2.5-1.5b native procrustes 0.131                27 0.219  0.088     [0.05572139471769333, 0.1184079572558403]        partial
+qwen2.5-1.5b itrans      ridge 0.352                 1 0.529  0.177    [0.14228855073451996, 0.21194030344486237] beyond surface
+qwen2.5-1.5b itrans procrustes 0.450                 1 0.403 -0.047 [-0.08059701323509216, -0.011940298601984978]  surface-level
+  qwen3.5-2b native      ridge 0.165                 7 0.961  0.796      [0.7701492309570312, 0.8208954930305481] beyond surface
+  qwen3.5-2b native procrustes 0.184                11 0.971  0.787      [0.7621890306472778, 0.8119403123855591] beyond surface
+  qwen3.5-2b itrans      ridge 0.245                 3 0.485  0.240     [0.20298507809638977, 0.2756218910217285] beyond surface
+  qwen3.5-2b itrans procrustes 0.386                 1 0.480  0.094    [0.05970149114727974, 0.12639303505420685]        partial
+    sarvam-1 native      ridge 0.456                26 0.899  0.443     [0.4089552164077759, 0.47562187910079956] beyond surface
+    sarvam-1 native procrustes 0.492                24 0.921  0.430     [0.39599502086639404, 0.4616915285587311] beyond surface
+    sarvam-1 itrans      ridge 0.406                24 0.380 -0.026    [-0.06467662006616592, 0.0109452735632658]  surface-level
+    sarvam-1 itrans procrustes 0.423                19 0.449  0.026  [-0.012935323640704155, 0.06467662006616592]  surface-level
+  gemma4-e2b native      ridge 0.510                 8 0.977  0.467    [0.43582090735435486, 0.49850746989250183] beyond surface
+  gemma4-e2b native procrustes 0.574                 8 0.986  0.412      [0.3810945153236389, 0.4427860677242279] beyond surface
+  gemma4-e2b itrans      ridge 0.473                14 0.284 -0.189  [-0.22689054906368256, -0.15024875104427338]  surface-level
+  gemma4-e2b itrans procrustes 0.583                14 0.259 -0.324  [-0.36218905448913574, -0.28756219148635864]  surface-level
+       model              subset   form  n_train  n_test  mapped  mapped_layer  unmapped  unmapped_layer    L0  best_later_layer    Lb   gain                                       gain_ci surface_status  shuffled_control
+qwen2.5-1.5b            filtered native      369     365   0.258            27     0.178              18 0.115                27 0.258  0.142    [0.09315068274736404, 0.19452054798603058]        partial             0.000
+qwen2.5-1.5b            filtered itrans      369     365   0.301             1     0.030               1 0.266                 1 0.301  0.036  [-0.013698630034923553, 0.08767123520374298]  surface-level             0.003
+qwen2.5-1.5b random_size_matched native      369     365   0.318            27     0.222              15 0.093                27 0.318  0.225     [0.1698630154132843, 0.27945205569267273] beyond surface             0.008
+qwen2.5-1.5b random_size_matched itrans      369     365   0.293             1     0.121               1 0.173                 1 0.293  0.121    [0.07397260516881943, 0.16712328791618347]        partial             0.000
+  qwen3.5-2b            filtered native      369     365   0.923            15     0.978              15 0.151                15 0.923  0.773      [0.7260273694992065, 0.8164383769035339] beyond surface             0.000
+  qwen3.5-2b            filtered itrans      369     365   0.315             2     0.068               6 0.178                 2 0.315  0.137    [0.08493150770664215, 0.18904109299182892]        partial             0.005
+  qwen3.5-2b random_size_matched native      369     365   0.975             9     0.986               9 0.134                 9 0.975  0.841      [0.8027397394180298, 0.8794520497322083] beyond surface             0.003
+  qwen3.5-2b random_size_matched itrans      369     365   0.326             3     0.167              16 0.200                 3 0.326  0.126     [0.0712328776717186, 0.18082191050052643]        partial             0.005
+    sarvam-1            filtered native      369     365   0.841            27     0.970              16 0.348                27 0.841  0.493       [0.4356164336204529, 0.550684928894043] beyond surface             0.003
+    sarvam-1            filtered itrans      369     365   0.285            24     0.534              21 0.249                24 0.285  0.036  [-0.019178081303834915, 0.09315068274736404]  surface-level             0.003
+    sarvam-1 random_size_matched native      369     365   0.855            27     0.964              24 0.326                27 0.855  0.529      [0.4739725887775421, 0.5808219313621521] beyond surface             0.005
+    sarvam-1 random_size_matched itrans      369     365   0.304            25     0.567              21 0.216                25 0.304  0.088   [0.030136985704302788, 0.14794521033763885]        partial             0.008
+  gemma4-e2b            filtered native      369     365   0.973             8     0.995               7 0.373                 8 0.973  0.600      [0.5479452013969421, 0.6493150591850281] beyond surface             0.003
+  gemma4-e2b            filtered itrans      369     365   0.370             0     0.241               7 0.370                 7 0.197 -0.173    [-0.232876718044281, -0.11232876777648926]  surface-level             0.003
+  gemma4-e2b random_size_matched native      369     365   0.959             8     1.000               8 0.348                 8 0.959  0.611      [0.5561643838882446, 0.6630136966705322] beyond surface             0.005
+  gemma4-e2b random_size_matched itrans      369     365   0.244            14     0.367               7 0.318                14 0.244 -0.074 [-0.13150684535503387, -0.013698630034923553]  surface-level             0.005
+{
+ "surface": {
+  "qwen2.5-1.5b|native|ridge": "beyond surface",
+  "qwen2.5-1.5b|native|procrustes": "partial",
+  "qwen2.5-1.5b|itrans|ridge": "beyond surface",
+  "qwen2.5-1.5b|itrans|procrustes": "surface-level",
+  "qwen3.5-2b|native|ridge": "beyond surface",
+  "qwen3.5-2b|native|procrustes": "beyond surface",
+  "qwen3.5-2b|itrans|ridge": "beyond surface",
+  "qwen3.5-2b|itrans|procrustes": "partial",
+  "sarvam-1|native|ridge": "beyond surface",
+  "sarvam-1|native|procrustes": "beyond surface",
+  "sarvam-1|itrans|ridge": "surface-level",
+  "sarvam-1|itrans|procrustes": "surface-level",
+  "gemma4-e2b|native|ridge": "beyond surface",
+  "gemma4-e2b|native|procrustes": "beyond surface",
+  "gemma4-e2b|itrans|ridge": "surface-level",
+  "gemma4-e2b|itrans|procrustes": "surface-level"
+ },
+ "subset_gap": {
+  "qwen2.5-1.5b|filtered": {
+   "mapped_gap": -0.04383561643835615,
+   "mapped_gap_ci": [
+    -0.0986301377415657,
+    0.013698630034923553
+   ],
+   "status": "closes",
+   "native_mapped": 0.25753424657534246,
+   "itrans_mapped": 0.3013698630136986,
+   "native_mapped_ci": [
+    0.2136986255645752,
+    0.3041096031665802
+   ],
+   "itrans_mapped_ci": [
+    0.25479450821876526,
+    0.3506849408149719
+   ]
+  },
+  "qwen2.5-1.5b|random_size_matched": {
+   "mapped_gap": 0.024657534246575352,
+   "mapped_gap_ci": [
+    -0.03287671133875847,
+    0.08219178020954132
+   ],
+   "status": "closes",
+   "native_mapped": 0.3178082191780822,
+   "itrans_mapped": 0.29315068493150687,
+   "native_mapped_ci": [
+    0.27123287320137024,
+    0.3643835484981537
+   ],
+   "itrans_mapped_ci": [
+    0.24657534062862396,
+    0.3397260308265686
+   ]
+  },
+  "qwen3.5-2b|filtered": {
+   "mapped_gap": 0.6082191780821917,
+   "mapped_gap_ci": [
+    0.5561643838882446,
+    0.6575342416763306
+   ],
+   "status": "persists",
+   "native_mapped": 0.9232876712328767,
+   "itrans_mapped": 0.3150684931506849,
+   "native_mapped_ci": [
+    0.8931506872177124,
+    0.9479451775550842
+   ],
+   "itrans_mapped_ci": [
+    0.2684931457042694,
+    0.36164382100105286
+   ]
+  },
+  "qwen3.5-2b|random_size_matched": {
+   "mapped_gap": 0.6493150684931507,
+   "mapped_gap_ci": [
+    0.5972602963447571,
+    0.7013698816299438
+   ],
+   "status": "persists",
+   "native_mapped": 0.9753424657534246,
+   "itrans_mapped": 0.32602739726027397,
+   "native_mapped_ci": [
+    0.9589040875434875,
+    0.9890410900115967
+   ],
+   "itrans_mapped_ci": [
+    0.2767123281955719,
+    0.375342458486557
+   ]
+  },
+  "sarvam-1|filtered": {
+   "mapped_gap": 0.5561643835616439,
+   "mapped_gap_ci": [
+    0.501369833946228,
+    0.6109589338302612
+   ],
+   "status": "persists",
+   "native_mapped": 0.8410958904109589,
+   "itrans_mapped": 0.28493150684931506,
+   "native_mapped_ci": [
+    0.8027397394180298,
+    0.8767123222351074
+   ],
+   "itrans_mapped_ci": [
+    0.23835615813732147,
+    0.3315068483352661
+   ]
+  },
+  "sarvam-1|random_size_matched": {
+   "mapped_gap": 0.5506849315068494,
+   "mapped_gap_ci": [
+    0.49589040875434875,
+    0.6027397513389587
+   ],
+   "status": "persists",
+   "native_mapped": 0.8547945205479452,
+   "itrans_mapped": 0.3041095890410959,
+   "native_mapped_ci": [
+    0.8164383769035339,
+    0.8904109597206116
+   ],
+   "itrans_mapped_ci": [
+    0.2575342357158661,
+    0.3506849408149719
+   ]
+  },
+  "gemma4-e2b|filtered": {
+   "mapped_gap": 0.6027397260273972,
+   "mapped_gap_ci": [
+    0.5479452013969421,
+    0.6547945141792297
+   ],
+   "status": "persists",
+   "native_mapped": 0.9726027397260274,
+   "itrans_mapped": 0.3698630136986301,
+   "native_mapped_ci": [
+    0.9561643600463867,
+    0.9890410900115967
+   ],
+   "itrans_mapped_ci": [
+    0.3205479383468628,
+    0.4191780686378479
+   ]
+  },
+  "gemma4-e2b|random_size_matched": {
+   "mapped_gap": 0.7150684931506849,
+   "mapped_gap_ci": [
+    0.6657534241676331,
+    0.7616438269615173
+   ],
+   "status": "persists",
+   "native_mapped": 0.958904109589041,
+   "itrans_mapped": 0.24383561643835616,
+   "native_mapped_ci": [
+    0.9369863271713257,
+    0.9780821800231934
+   ],
+   "itrans_mapped_ci": [
+    0.20000000298023224,
+    0.2876712381839752
+   ]
+  }
+ },
+ "filtered_minus_random_mapped": {
+  "qwen2.5-1.5b": {
+   "native": {
+    "diff": -0.060273972602739756,
+    "ci": [
+     -0.12602739726027395,
+     0.005479452054794498
+    ]
+   },
+   "itrans": {
+    "diff": 0.008219178082191747,
+    "ci": [
+     -0.05753424657534245,
+     0.07397260273972606
+    ]
+   },
+   "itrans_drops_more_than_native": false
+  },
+  "qwen3.5-2b": {
+   "native": {
+    "diff": -0.05205479452054795,
+    "ci": [
+     -0.08493150684931505,
+     -0.021917808219178103
+    ]
+   },
+   "itrans": {
+    "diff": -0.010958904109589052,
+    "ci": [
+     -0.07678082191780818,
+     0.05753424657534245
+    ]
+   },
+   "itrans_drops_more_than_native": false
+  },
+  "sarvam-1": {
+   "native": {
+    "diff": -0.013698630136986356,
+    "ci": [
+     -0.06575342465753431,
+     0.0383561643835616
+    ]
+   },
+   "itrans": {
+    "diff": -0.019178082191780854,
+    "ci": [
+     -0.0876712328767123,
+     0.04657534246575343
+    ]
+   },
+   "itrans_drops_more_than_native": true
+  },
+  "gemma4-e2b": {
+   "native": {
+    "diff": 0.013698630136986356,
+    "ci": [
+     -0.010958904109589107,
+     0.041095890410958846
+    ]
+   },
+   "itrans": {
+    "diff": 0.12602739726027395,
+    "ci": [
+     0.060273972602739756,
+     0.19178082191780824
+    ]
+   },
+   "itrans_drops_more_than_native": false
+  }
+ },
+ "prediction_gap_persists_filtered_3_models": true,
+ "gap_entity_dependent": false,
+ "n": {
+  "kept_train": 369,
+  "kept_test": 365,
+  "kept_native_with_digit_or_latin": 13
+ }
+}

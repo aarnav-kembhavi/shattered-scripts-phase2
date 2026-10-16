@@ -1,0 +1,258 @@
+{
+  "provenance": {
+    "config": {
+      "split_seed": 0,
+      "random_subset_seed": 3,
+      "bootstrap": 10000,
+      "registered": "RESULTS.md 2026-10-17 (surface baseline)"
+    },
+    "git_commit": "fc4c625d02463afd6650fa35c75ad11e7075c5d4-dirty",
+    "timestamp_utc": "2026-10-16T20:46:26+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/m4b_surface.py"
+    ]
+  },
+  "surface": {
+    "qwen2.5-1.5b|native|ridge": "beyond surface",
+    "qwen2.5-1.5b|native|procrustes": "partial",
+    "qwen2.5-1.5b|itrans|ridge": "beyond surface",
+    "qwen2.5-1.5b|itrans|procrustes": "surface-level",
+    "qwen3.5-2b|native|ridge": "beyond surface",
+    "qwen3.5-2b|native|procrustes": "beyond surface",
+    "qwen3.5-2b|itrans|ridge": "beyond surface",
+    "qwen3.5-2b|itrans|procrustes": "partial",
+    "sarvam-1|native|ridge": "beyond surface",
+    "sarvam-1|native|procrustes": "beyond surface",
+    "sarvam-1|itrans|ridge": "surface-level",
+    "sarvam-1|itrans|procrustes": "surface-level",
+    "gemma4-e2b|native|ridge": "beyond surface",
+    "gemma4-e2b|native|procrustes": "beyond surface",
+    "gemma4-e2b|itrans|ridge": "surface-level",
+    "gemma4-e2b|itrans|procrustes": "surface-level"
+  },
+  "subset_gap": {
+    "qwen2.5-1.5b|filtered": {
+      "mapped_gap": -0.04383561643835615,
+      "mapped_gap_ci": [
+        -0.0986301377415657,
+        0.013698630034923553
+      ],
+      "status": "closes",
+      "native_mapped": 0.25753424657534246,
+      "itrans_mapped": 0.3013698630136986,
+      "native_mapped_ci": [
+        0.2136986255645752,
+        0.3041096031665802
+      ],
+      "itrans_mapped_ci": [
+        0.25479450821876526,
+        0.3506849408149719
+      ]
+    },
+    "qwen2.5-1.5b|random_size_matched": {
+      "mapped_gap": 0.024657534246575352,
+      "mapped_gap_ci": [
+        -0.03287671133875847,
+        0.08219178020954132
+      ],
+      "status": "closes",
+      "native_mapped": 0.3178082191780822,
+      "itrans_mapped": 0.29315068493150687,
+      "native_mapped_ci": [
+        0.27123287320137024,
+        0.3643835484981537
+      ],
+      "itrans_mapped_ci": [
+        0.24657534062862396,
+        0.3397260308265686
+      ]
+    },
+    "qwen3.5-2b|filtered": {
+      "mapped_gap": 0.6082191780821917,
+      "mapped_gap_ci": [
+        0.5561643838882446,
+        0.6575342416763306
+      ],
+      "status": "persists",
+      "native_mapped": 0.9232876712328767,
+      "itrans_mapped": 0.3150684931506849,
+      "native_mapped_ci": [
+        0.8931506872177124,
+        0.9479451775550842
+      ],
+      "itrans_mapped_ci": [
+        0.2684931457042694,
+        0.36164382100105286
+      ]
+    },
+    "qwen3.5-2b|random_size_matched": {
+      "mapped_gap": 0.6493150684931507,
+      "mapped_gap_ci": [
+        0.5972602963447571,
+        0.7013698816299438
+      ],
+      "status": "persists",
+      "native_mapped": 0.9753424657534246,
+      "itrans_mapped": 0.32602739726027397,
+      "native_mapped_ci": [
+        0.9589040875434875,
+        0.9890410900115967
+      ],
+      "itrans_mapped_ci": [
+        0.2767123281955719,
+        0.375342458486557
+      ]
+    },
+    "sarvam-1|filtered": {
+      "mapped_gap": 0.5561643835616439,
+      "mapped_gap_ci": [
+        0.501369833946228,
+        0.6109589338302612
+      ],
+      "status": "persists",
+      "native_mapped": 0.8410958904109589,
+      "itrans_mapped": 0.28493150684931506,
+      "native_mapped_ci": [
+        0.8027397394180298,
+        0.8767123222351074
+      ],
+      "itrans_mapped_ci": [
+        0.23835615813732147,
+        0.3315068483352661
+      ]
+    },
+    "sarvam-1|random_size_matched": {
+      "mapped_gap": 0.5506849315068494,
+      "mapped_gap_ci": [
+        0.49589040875434875,
+        0.6027397513389587
+      ],
+      "status": "persists",
+      "native_mapped": 0.8547945205479452,
+      "itrans_mapped": 0.3041095890410959,
+      "native_mapped_ci": [
+        0.8164383769035339,
+        0.8904109597206116
+      ],
+      "itrans_mapped_ci": [
+        0.2575342357158661,
+        0.3506849408149719
+      ]
+    },
+    "gemma4-e2b|filtered": {
+      "mapped_gap": 0.6027397260273972,
+      "mapped_gap_ci": [
+        0.5479452013969421,
+        0.6547945141792297
+      ],
+      "status": "persists",
+      "native_mapped": 0.9726027397260274,
+      "itrans_mapped": 0.3698630136986301,
+      "native_mapped_ci": [
+        0.9561643600463867,
+        0.9890410900115967
+      ],
+      "itrans_mapped_ci": [
+        0.3205479383468628,
+        0.4191780686378479
+      ]
+    },
+    "gemma4-e2b|random_size_matched": {
+      "mapped_gap": 0.7150684931506849,
+      "mapped_gap_ci": [
+        0.6657534241676331,
+        0.7616438269615173
+      ],
+      "status": "persists",
+      "native_mapped": 0.958904109589041,
+      "itrans_mapped": 0.24383561643835616,
+      "native_mapped_ci": [
+        0.9369863271713257,
+        0.9780821800231934
+      ],
+      "itrans_mapped_ci": [
+        0.20000000298023224,
+        0.2876712381839752
+      ]
+    }
+  },
+  "filtered_minus_random_mapped": {
+    "qwen2.5-1.5b": {
+      "native": {
+        "diff": -0.060273972602739756,
+        "ci": [
+          -0.12602739726027395,
+          0.005479452054794498
+        ]
+      },
+      "itrans": {
+        "diff": 0.008219178082191747,
+        "ci": [
+          -0.05753424657534245,
+          0.07397260273972606
+        ]
+      },
+      "itrans_drops_more_than_native": false
+    },
+    "qwen3.5-2b": {
+      "native": {
+        "diff": -0.05205479452054795,
+        "ci": [
+          -0.08493150684931505,
+          -0.021917808219178103
+        ]
+      },
+      "itrans": {
+        "diff": -0.010958904109589052,
+        "ci": [
+          -0.07678082191780818,
+          0.05753424657534245
+        ]
+      },
+      "itrans_drops_more_than_native": false
+    },
+    "sarvam-1": {
+      "native": {
+        "diff": -0.013698630136986356,
+        "ci": [
+          -0.06575342465753431,
+          0.0383561643835616
+        ]
+      },
+      "itrans": {
+        "diff": -0.019178082191780854,
+        "ci": [
+          -0.0876712328767123,
+          0.04657534246575343
+        ]
+      },
+      "itrans_drops_more_than_native": true
+    },
+    "gemma4-e2b": {
+      "native": {
+        "diff": 0.013698630136986356,
+        "ci": [
+          -0.010958904109589107,
+          0.041095890410958846
+        ]
+      },
+      "itrans": {
+        "diff": 0.12602739726027395,
+        "ci": [
+          0.060273972602739756,
+          0.19178082191780824
+        ]
+      },
+      "itrans_drops_more_than_native": false
+    }
+  },
+  "prediction_gap_persists_filtered_3_models": true,
+  "gap_entity_dependent": false,
+  "n": {
+    "kept_train": 369,
+    "kept_test": 365,
+    "kept_native_with_digit_or_latin": 13
+  }
+}
