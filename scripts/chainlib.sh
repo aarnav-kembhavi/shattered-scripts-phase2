@@ -15,7 +15,7 @@ run_hb() {
   echo "=== $(date '+%F %T') $label: $*" >> "$LOG"
   "$@" >> "$LOG" 2>&1 & local p=$!
   while kill -0 "$p" 2>/dev/null; do
-    local last; last=$(tail -c 2000 "$LOG" | tr '\r' '\n' | grep -v '^\s*$' | tail -1 | cut -c1-150)
+    local last; last=$(tail -c 2000 "$LOG" | tr '\r' '\n' | grep -av '^\s*$' | tail -1 | cut -c1-150)
     st RUNNING "$label (last log line: ${last//|/ })"; sleep "$HB"
   done
   wait "$p"
