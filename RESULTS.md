@@ -1114,3 +1114,73 @@ Filtered minus random, mapped retrieval [independent-bootstrap CI]:
     bag-of-tokens dictionary, but its anchors seem to be ordinary words, not entities.
   - Either way, ITRANS meaning alignment beyond layer 0 stays small except in Qwen3.5. That part of the M4b reading
     stands.
+
+---
+## 2026-10-17 — E0c SIB-200 topic classification (registered 2026-10-16): P-a partly supported, P-b inconclusive
+`scripts/e0c_sib.py`.
+- **Run.** Scoring resumed from the cache: 15 model × form pairs, 02:03–04:59 IST, in the detached `e0c_chain.sh`.
+  The analysis ran at the end of the same chain. Outputs are in `results/e0c_sib/gate/`.
+- **Provenance.** The commit reads e56a80e-dirty; the only uncommitted files were the chain status and log.
+- **Setup.** n = 1,004 per cell, chance 14.3%. The calibrated (average-of-3) prediction is primary everywhere, with no
+  raw fallback (`calibration_fallback.csv`). All 5 models are informative.
+
+Accuracy [95% CI]:
+
+| model | English | native | ITRANS | lossy | tokens/word native |
+|---|---|---|---|---|---|
+| Qwen2.5-1.5B | 0.797 [0.772, 0.822] | 0.336 [0.307, 0.366] | 0.278 [0.250, 0.306] | 0.367 [0.337, 0.396] | 11.8 |
+| Qwen3-1.7B | 0.782 [0.756, 0.807] | 0.672 [0.643, 0.701] | 0.240 [0.213, 0.266] | 0.307 [0.279, 0.336] | 11.8 |
+| Qwen3.5-2B | 0.804 [0.779, 0.829] | 0.676 [0.647, 0.705] | 0.241 [0.215, 0.268] | 0.375 [0.347, 0.406] | 5.3 |
+| Sarvam-1 | 0.768 [0.742, 0.794] | 0.766 [0.740, 0.792] | 0.539 [0.508, 0.571] | 0.705 [0.677, 0.733] | 2.4 |
+| Gemma 4 E2B | 0.794 [0.769, 0.819] | 0.750 [0.723, 0.776] | 0.367 [0.337, 0.396] | 0.497 [0.466, 0.528] | 3.3 |
+
+Constant-label rates (calibrated):
+- native 0.20–0.24, except Qwen2.5 at 0.43;
+- ITRANS 0.26–0.53;
+- lossy 0.23–0.38.
+
+**P-a: partly supported (9 of 10 differences positive and significant).**
+- Native > ITRANS is significant in all 5 models (Holm): +0.06 (Qwen2.5), +0.43, +0.44, +0.23 and +0.38.
+- Native > lossy is significant in 4 models: +0.37 (Qwen3), +0.30 (Qwen3.5), +0.06 (Sarvam-1), +0.25 (Gemma 4).
+- **The miss is Qwen2.5, native vs lossy:** −0.031 (124 vs 155 discordant, p_holm = 0.072, not significant). This is
+  the model whose native script is most fragmented (11.8 tokens per word) and barely aligned with English in M4
+  (unmapped 0.178).
+- The rule needed every difference positive and significant for "supported". No difference is significantly negative,
+  so it is not refuted.
+- Outcome against Gate 1 (sentiment): the same pattern. Native beats the romanized forms everywhere it is clearly
+  above floor. Qwen2.5 is the only model where native comprehension is itself near floor.
+
+**Exploratory, lossy vs ITRANS (separate Holm family):** lossy > ITRANS in all 5 models, all significant: +0.09,
++0.07, +0.13, +0.17 and +0.13. This repeats the Gate 1 refutation of P3. The lossless, more fragmented ITRANS is the
+worse romanization, so information loss does not explain the romanization penalty.
+
+**P-b: primary verdict inconclusive.**
+- 8 counted cells: 4 M4 models × {native, ITRANS}, n = 515. All are informative, with constant-label rate ≤ 0.52.
+- Logistic regression of correctness on z(−log rank) + z(log tokens); rank coefficient β, one-sided, Holm.
+
+| model | native β (p_holm) | native share at rank 1 | ITRANS β (p_holm) | ITRANS share at rank 1 |
+|---|---|---|---|---|
+| Qwen2.5 | +0.184 (0.098) | 0.186 | +0.359 (0.001) ✓ | 0.064 |
+| Qwen3.5 | −0.064 (1.0) | 0.977 | +0.669 (<0.001) ✓ | 0.117 |
+| Sarvam-1 | −0.287 (1.0) | 0.942 | +0.406 (<0.001) ✓ | 0.520 |
+| Gemma 4 | +0.143 (0.192) | 0.994 | +0.369 (0.001) ✓ | 0.262 |
+
+- β > 0 in 6 of 8 cells, significant in 4, all of them ITRANS. β ≤ 0 in 2, both native.
+- "Supported" needed β > 0 in every cell, so the verdict is inconclusive; "refuted" needed ≤ 0 in at least half.
+- **Within ITRANS the prediction holds in all four models.** Accuracy when the sentence is retrieved at rank 1 vs not:
+  - Qwen2.5: 0.39 vs 0.29;
+  - Qwen3.5: 0.48 vs 0.21;
+  - Sarvam-1: 0.60 vs 0.43;
+  - Gemma 4: 0.51 vs 0.33.
+- **Within native it is untestable in three models.** 94–99% of the sentences are retrieved at rank 1 (Qwen3.5,
+  Sarvam-1, Gemma 4), so the predictor barely varies. In Qwen2.5 native it is positive but not significant after Holm.
+  This explanation is post hoc: the registered rule did not exclude ceiling cells.
+- **Secondary predictor (rank after the M4b ridge map):** significant only in Sarvam-1 ITRANS (β = 0.230,
+  p_holm = 0.046). Mapped retrieval predicts accuracy less well than unmapped. This fits the M4b and surface results,
+  where the ITRANS map works mostly at the lexical surface.
+
+**Summary.**
+- SIB-200 replicates Gate 1 on a second task, with the identical M4 sentences: native > romanized and lossy > ITRANS.
+- Within a form, where retrieval against English varies (ITRANS), the sentences the model aligns with English are the
+  ones it classifies correctly. This holds with token count held fixed, in all four models. It is the item-level link
+  between the M4 alignment measure and accuracy that the earlier fragmentation regression did not find.

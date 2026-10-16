@@ -9,3 +9,91 @@ qwen2.5-1.5b/lossy: 1004 prompts in 375s
 [transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
 qwen3.5-2b: loaded in 9s
 qwen3.5-2b/english: 1004 prompts in 672s
+=== 2026-10-17 02:03:08 scoring (5 models x 4 forms, resumes from cache): .venv/Scripts/python.exe -u scripts/e0c_sib.py score
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]Loading weights:   0%|          | 1/320 [00:00<01:38,  3.25it/s]Loading weights:   2%|▎         | 8/320 [00:00<00:13, 23.56it/s]Loading weights:   7%|▋         | 21/320 [00:00<00:06, 49.68it/s]Loading weights:  11%|█▏        | 36/320 [00:00<00:03, 75.27it/s]Loading weights:  14%|█▍        | 46/320 [00:00<00:03, 76.09it/s]Loading weights:  18%|█▊        | 59/320 [00:00<00:02, 88.37it/s]Loading weights:  22%|██▏       | 69/320 [00:01<00:02, 90.43it/s]Loading weights:  25%|██▍       | 79/320 [00:01<00:02, 92.97it/s]Loading weights:  28%|██▊       | 89/320 [00:01<00:02, 94.03it/s]Loading weights:  31%|███       | 99/320 [00:01<00:02, 80.42it/s]Loading weights:  36%|███▌      | 114/320 [00:01<00:02, 89.97it/s]Loading weights:  40%|████      | 128/320 [00:01<00:02, 91.77it/s]Loading weights:  44%|████▍     | 141/320 [00:01<00:01, 90.01it/s]Loading weights:  48%|████▊     | 153/320 [00:01<00:01, 95.00it/s]Loading weights:  52%|█████▏    | 166/320 [00:02<00:01, 91.16it/s]Loading weights:  56%|█████▌    | 178/320 [00:02<00:01, 96.27it/s]Loading weights:  61%|██████    | 194/320 [00:02<00:01, 102.31it/s]Loading weights:  64%|██████▍   | 205/320 [00:02<00:01, 91.62it/s] Loading weights:  69%|██████▉   | 220/320 [00:02<00:00, 102.17it/s]Loading weights:  73%|███████▎  | 234/320 [00:02<00:00, 98.26it/s] Loading weights:  77%|███████▋  | 247/320 [00:02<00:00, 85.84it/s]Loading weights:  80%|████████  | 257/320 [00:03<00:00, 85.00it/s]Loading weights:  85%|████████▌ | 272/320 [00:03<00:00, 89.94it/s]Loading weights:  88%|████████▊ | 283/320 [00:03<00:00, 94.47it/s]Loading weights:  92%|█████████▏| 293/320 [00:03<00:00, 86.53it/s]Loading weights:  94%|█████████▍| 302/320 [00:03<00:00, 78.94it/s]Loading weights:  97%|█████████▋| 311/320 [00:03<00:00, 77.87it/s]Loading weights: 100%|██████████| 320/320 [00:03<00:00, 85.58it/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+qwen3.5-2b: loaded in 31s
+qwen3.5-2b/native: 1004 prompts in 960s
+qwen3.5-2b/itrans: 1004 prompts in 883s
+qwen3.5-2b/lossy: 1004 prompts in 887s
+Loading weights:   0%|          | 0/255 [00:00<?, ?it/s]Loading weights:   2%|▏         | 6/255 [00:00<00:05, 42.97it/s]Loading weights:   4%|▍         | 11/255 [00:00<00:06, 36.50it/s]Loading weights:   7%|▋         | 18/255 [00:00<00:06, 37.62it/s]Loading weights:   9%|▉         | 24/255 [00:00<00:07, 32.24it/s]Loading weights:  13%|█▎        | 33/255 [00:00<00:05, 44.39it/s]Loading weights:  15%|█▌        | 39/255 [00:01<00:05, 36.36it/s]Loading weights:  18%|█▊        | 45/255 [00:01<00:05, 39.63it/s]Loading weights:  20%|█▉        | 50/255 [00:01<00:06, 33.21it/s]Loading weights:  22%|██▏       | 55/255 [00:01<00:05, 34.18it/s]Loading weights:  24%|██▎       | 60/255 [00:01<00:07, 24.71it/s]Loading weights:  28%|██▊       | 72/255 [00:02<00:05, 33.23it/s]Loading weights:  32%|███▏      | 81/255 [00:02<00:04, 35.79it/s]Loading weights:  33%|███▎      | 85/255 [00:02<00:05, 30.51it/s]Loading weights:  35%|███▍      | 89/255 [00:02<00:05, 29.62it/s]Loading weights:  38%|███▊      | 96/255 [00:02<00:04, 34.71it/s]Loading weights:  39%|███▉      | 100/255 [00:03<00:05, 27.25it/s]Loading weights:  41%|████      | 104/255 [00:03<00:05, 26.23it/s]Loading weights:  43%|████▎     | 110/255 [00:03<00:05, 26.19it/s]Loading weights:  45%|████▍     | 114/255 [00:03<00:06, 21.88it/s]Loading weights:  46%|████▌     | 117/255 [00:03<00:06, 21.64it/s]Loading weights:  48%|████▊     | 122/255 [00:04<00:05, 25.20it/s]Loading weights:  50%|█████     | 128/255 [00:04<00:04, 27.64it/s]Loading weights:  51%|█████▏    | 131/255 [00:05<00:11, 10.52it/s]Loading weights:  53%|█████▎    | 134/255 [00:05<00:11, 10.49it/s]Loading weights:  54%|█████▍    | 138/255 [00:05<00:09, 12.76it/s]Loading weights:  56%|█████▌    | 142/255 [00:05<00:09, 12.50it/s]Loading weights:  58%|█████▊    | 147/255 [00:06<00:06, 16.70it/s]Loading weights:  60%|█████▉    | 152/255 [00:06<00:05, 20.15it/s]Loading weights:  61%|██████    | 155/255 [00:06<00:05, 17.61it/s]Loading weights:  62%|██████▏   | 158/255 [00:06<00:05, 17.92it/s]Loading weights:  64%|██████▍   | 163/255 [00:06<00:04, 20.74it/s]Loading weights:  67%|██████▋   | 170/255 [00:07<00:03, 23.45it/s]Loading weights:  68%|██████▊   | 173/255 [00:07<00:03, 24.25it/s]Loading weights:  71%|███████   | 180/255 [00:07<00:02, 26.78it/s]Loading weights:  72%|███████▏  | 183/255 [00:07<00:03, 22.40it/s]Loading weights:  73%|███████▎  | 187/255 [00:07<00:02, 24.64it/s]Loading weights:  75%|███████▍  | 190/255 [00:07<00:03, 20.72it/s]Loading weights:  78%|███████▊  | 198/255 [00:08<00:02, 27.18it/s]Loading weights:  79%|███████▉  | 201/255 [00:08<00:02, 18.80it/s]Loading weights:  81%|████████  | 207/255 [00:08<00:02, 18.20it/s]Loading weights:  83%|████████▎ | 211/255 [00:09<00:02, 16.45it/s]Loading weights:  85%|████████▍ | 216/255 [00:09<00:02, 16.07it/s]Loading weights:  88%|████████▊ | 225/255 [00:09<00:01, 18.56it/s]Loading weights:  91%|█████████ | 232/255 [00:10<00:01, 22.75it/s]Loading weights:  93%|█████████▎| 236/255 [00:10<00:00, 21.78it/s]Loading weights:  95%|█████████▍| 242/255 [00:10<00:00, 26.10it/s]Loading weights:  96%|█████████▋| 246/255 [00:10<00:00, 23.35it/s]Loading weights: 100%|██████████| 255/255 [00:10<00:00, 23.87it/s]
+sarvam-1: loaded in 17s
+sarvam-1/english: 1004 prompts in 452s
+sarvam-1/native: 1004 prompts in 456s
+sarvam-1/itrans: 1004 prompts in 546s
+sarvam-1/lossy: 1004 prompts in 494s
+Fetching 6 files:   0%|          | 0/6 [00:00<?, ?it/s]Fetching 6 files: 100%|██████████| 6/6 [00:00<00:00, 1067.57it/s]
+gemma4-e2b: loaded in 17s
+gemma4-e2b/english: 1004 prompts in 947s
+gemma4-e2b/native: 1004 prompts in 934s
+gemma4-e2b/itrans: 1004 prompts in 950s
+gemma4-e2b/lossy: 1004 prompts in 934s
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   1%|          | 2/311 [00:00<00:23, 13.30it/s]Loading weights:   4%|▎         | 11/311 [00:00<00:08, 37.16it/s]Loading weights:   7%|▋         | 21/311 [00:00<00:06, 42.38it/s]Loading weights:  11%|█         | 34/311 [00:00<00:05, 52.25it/s]Loading weights:  14%|█▍        | 44/311 [00:00<00:04, 57.16it/s]Loading weights:  17%|█▋        | 52/311 [00:01<00:04, 57.63it/s]Loading weights:  20%|█▉        | 61/311 [00:01<00:04, 61.39it/s]Loading weights:  22%|██▏       | 68/311 [00:01<00:04, 60.38it/s]Loading weights:  24%|██▍       | 76/311 [00:01<00:03, 65.16it/s]Loading weights:  27%|██▋       | 83/311 [00:01<00:03, 61.37it/s]Loading weights:  29%|██▉       | 90/311 [00:01<00:03, 60.80it/s]Loading weights:  32%|███▏      | 100/311 [00:01<00:03, 60.38it/s]Loading weights:  35%|███▌      | 109/311 [00:01<00:03, 64.33it/s]Loading weights:  38%|███▊      | 117/311 [00:02<00:02, 66.70it/s]Loading weights:  41%|████      | 128/311 [00:02<00:02, 75.51it/s]Loading weights:  44%|████▎     | 136/311 [00:02<00:02, 73.67it/s]Loading weights:  46%|████▋     | 144/311 [00:02<00:02, 75.34it/s]Loading weights:  50%|████▉     | 154/311 [00:02<00:02, 63.65it/s]Loading weights:  53%|█████▎    | 164/311 [00:02<00:02, 67.36it/s]Loading weights:  55%|█████▌    | 172/311 [00:02<00:02, 67.16it/s]Loading weights:  59%|█████▊    | 182/311 [00:02<00:01, 73.18it/s]Loading weights:  61%|██████    | 190/311 [00:03<00:01, 64.64it/s]Loading weights:  64%|██████▍   | 199/311 [00:03<00:01, 57.55it/s]Loading weights:  68%|██████▊   | 210/311 [00:03<00:01, 58.64it/s]Loading weights:  71%|███████   | 221/311 [00:03<00:01, 65.45it/s]Loading weights:  74%|███████▍  | 230/311 [00:03<00:01, 61.95it/s]Loading weights:  76%|███████▌  | 237/311 [00:03<00:01, 62.31it/s]Loading weights:  78%|███████▊  | 244/311 [00:04<00:01, 56.90it/s]Loading weights:  81%|████████  | 252/311 [00:04<00:01, 51.20it/s]Loading weights:  85%|████████▍ | 263/311 [00:04<00:00, 62.30it/s]Loading weights:  87%|████████▋ | 270/311 [00:04<00:00, 60.36it/s]Loading weights:  89%|████████▉ | 277/311 [00:04<00:00, 58.82it/s]Loading weights:  92%|█████████▏| 285/311 [00:04<00:00, 52.30it/s]Loading weights:  95%|█████████▌| 297/311 [00:04<00:00, 56.00it/s]Loading weights: 100%|██████████| 311/311 [00:04<00:00, 62.24it/s]
+qwen3-1.7b: loaded in 12s
+qwen3-1.7b/english: 1004 prompts in 463s
+qwen3-1.7b/native: 1004 prompts in 539s
+qwen3-1.7b/itrans: 1004 prompts in 416s
+qwen3-1.7b/lossy: 1004 prompts in 455s
+=== 2026-10-17 04:57:29 analysis: .venv/Scripts/python.exe -u scripts/e0c_sib.py analyse
+warning: in the working copy of 'results/CHAIN_STATUS.md', LF will be replaced by CRLF the next time Git touches it
+       model    form    n  acc_cal  acc_cal_ci_low  acc_cal_ci_high  acc_raw  constant_label_rate_cal  tokens_per_word
+  gemma4-e2b english 1004    0.794           0.769            0.819    0.801                    0.209            1.235
+  gemma4-e2b  itrans 1004    0.367           0.337            0.396    0.390                    0.255            4.004
+  gemma4-e2b   lossy 1004    0.497           0.466            0.528    0.514                    0.227            3.174
+  gemma4-e2b  native 1004    0.750           0.723            0.776    0.762                    0.198            3.250
+qwen2.5-1.5b english 1004    0.797           0.772            0.822    0.714                    0.187            1.255
+qwen2.5-1.5b  itrans 1004    0.278           0.250            0.306    0.187                    0.431            4.308
+qwen2.5-1.5b   lossy 1004    0.367           0.337            0.396    0.280                    0.352            3.534
+qwen2.5-1.5b  native 1004    0.336           0.307            0.366    0.232                    0.432           11.761
+  qwen3-1.7b english 1004    0.782           0.756            0.807    0.785                    0.209            1.255
+  qwen3-1.7b  itrans 1004    0.240           0.213            0.266    0.256                    0.519            4.308
+  qwen3-1.7b   lossy 1004    0.307           0.279            0.336    0.309                    0.341            3.534
+  qwen3-1.7b  native 1004    0.672           0.643            0.701    0.684                    0.202           11.761
+  qwen3.5-2b english 1004    0.804           0.779            0.829    0.728                    0.240            1.251
+  qwen3.5-2b  itrans 1004    0.241           0.215            0.268    0.148                    0.532            4.168
+  qwen3.5-2b   lossy 1004    0.375           0.347            0.406    0.266                    0.380            3.311
+  qwen3.5-2b  native 1004    0.676           0.647            0.705    0.576                    0.201            5.314
+    sarvam-1 english 1004    0.768           0.742            0.794    0.574                    0.263            1.435
+    sarvam-1  itrans 1004    0.539           0.508            0.571    0.325                    0.445            5.288
+    sarvam-1   lossy 1004    0.705           0.677            0.733    0.461                    0.234            4.314
+    sarvam-1  native 1004    0.766           0.740            0.792    0.645                    0.236            2.389
+       model task      a      b  acc_a  acc_b    n    diff  a_only  b_only      p  p_holm  significant
+  gemma4-e2b  sib native itrans 0.7500 0.3665 1004  0.3835     425      40 0.0000  0.0000         True
+  gemma4-e2b  sib native  lossy 0.7500 0.4970 1004  0.2530     293      39 0.0000  0.0000         True
+qwen2.5-1.5b  sib native itrans 0.3357 0.2779 1004  0.0578     159     101 0.0004  0.0008         True
+qwen2.5-1.5b  sib native  lossy 0.3357 0.3665 1004 -0.0309     124     155 0.0723  0.0723        False
+  qwen3-1.7b  sib native itrans 0.6723 0.2400 1004  0.4323     456      22 0.0000  0.0000         True
+  qwen3-1.7b  sib native  lossy 0.6723 0.3068 1004  0.3655     398      31 0.0000  0.0000         True
+  qwen3.5-2b  sib native itrans 0.6763 0.2410 1004  0.4353     462      25 0.0000  0.0000         True
+  qwen3.5-2b  sib native  lossy 0.6763 0.3755 1004  0.3008     345      43 0.0000  0.0000         True
+    sarvam-1  sib native itrans 0.7659 0.5388 1004  0.2271     299      71 0.0000  0.0000         True
+    sarvam-1  sib native  lossy 0.7659 0.7052 1004  0.0608     126      65 0.0000  0.0000         True
+       model   form retrieval  layer   n  counted  constant_label_rate  accuracy  retrieved_at1  n_retrieved  acc_if_retrieved  acc_if_not_retrieved  median_rank   beta    se  p_one_sided  fit_ok  p_holm  significant
+qwen2.5-1.5b native  unmapped     15 515     True                0.429     0.346          0.186           96             0.490                 0.313         86.0  0.184 0.093        0.025    True   0.098        False
+qwen2.5-1.5b native    mapped      1 515     True                0.429     0.346          0.550          283             0.375                 0.310          1.0  0.193 0.099        0.026    True   0.182        False
+qwen2.5-1.5b itrans  unmapped      1 515     True                0.443     0.293          0.064           33             0.394                 0.286        103.0  0.359 0.096        0.000    True   0.001         True
+qwen2.5-1.5b itrans    mapped      1 515     True                0.443     0.293          0.551          284             0.310                 0.273          1.0  0.090 0.101        0.187    True   0.937        False
+  qwen3.5-2b native  unmapped     15 515     True                0.202     0.674          0.977          503             0.672                 0.750          1.0 -0.064 0.104        0.730    True   1.000        False
+  qwen3.5-2b native    mapped      7 515     True                0.202     0.674          0.965          497             0.676                 0.611          1.0 -0.007 0.095        0.530    True   1.000        False
+  qwen3.5-2b itrans  unmapped      6 515     True                0.522     0.245          0.117           60             0.483                 0.213         44.0  0.669 0.108        0.000    True   0.000         True
+  qwen3.5-2b itrans    mapped      3 515     True                0.522     0.245          0.507          261             0.272                 0.217          1.0  0.197 0.111        0.039    True   0.232        False
+    sarvam-1 native  unmapped     23 515     True                0.214     0.757          0.942          485             0.751                 0.867          1.0 -0.287 0.181        0.944    True   1.000        False
+    sarvam-1 native    mapped     26 515     True                0.214     0.757          0.917          472             0.758                 0.744          1.0 -0.006 0.104        0.524    True   1.000        False
+    sarvam-1 itrans  unmapped     21 515     True                0.439     0.522          0.520          268             0.604                 0.433          1.0  0.406 0.095        0.000    True   0.000         True
+    sarvam-1 itrans    mapped     24 515     True                0.439     0.522          0.377          194             0.577                 0.489          3.0  0.230 0.091        0.006    True   0.046         True
+  gemma4-e2b native  unmapped      7 515     True                0.223     0.765          0.994          512             0.768                 0.333          1.0  0.143 0.094        0.064    True   0.192        False
+  gemma4-e2b native    mapped      8 515     True                0.223     0.765          0.971          500             0.770                 0.600          1.0  0.058 0.094        0.267    True   1.000        False
+  gemma4-e2b itrans  unmapped      7 515     True                0.249     0.379          0.262          135             0.511                 0.332          9.0  0.369 0.098        0.000    True   0.001         True
+  gemma4-e2b itrans    mapped      0 515     True                0.249     0.379          0.485          250             0.372                 0.385          2.0 -0.065 0.092        0.762    True   1.000        False
+{
+ "informative_models": [
+  "qwen2.5-1.5b",
+  "qwen3.5-2b",
+  "sarvam-1",
+  "gemma4-e2b",
+  "qwen3-1.7b"
+ ],
+ "P_a": "partly supported",
+ "P_b_primary_unmapped": "inconclusive"
+}

@@ -1,0 +1,248 @@
+{
+  "provenance": {
+    "config": {
+      "dataset": "Davlan/sib200@38977a667f6fc264d5c26ec57a01e16db040b358",
+      "n_items": 1004,
+      "models": [
+        "qwen2.5-1.5b",
+        "qwen3.5-2b",
+        "sarvam-1",
+        "gemma4-e2b",
+        "qwen3-1.7b"
+      ],
+      "forms": [
+        "english",
+        "native",
+        "itrans",
+        "lossy"
+      ],
+      "template": "e0_sib_v1",
+      "verbalizers": "loglik.VERBALIZERS['sib']",
+      "calibration": "mean of content-free N/A, '', [MASK]; raw fallback if English drops > 5 pts",
+      "calibration_fallback_rows": [],
+      "bos": "always prepended",
+      "pb_split": "M4b seed-0 test half",
+      "registered": "RESULTS.md 2026-10-16 (E0c)"
+    },
+    "git_commit": "e56a80e3a081fcf90d29e367c7fa9109f50e1631-dirty",
+    "timestamp_utc": "2026-10-16T23:28:09+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/e0c_sib.py",
+      "analyse"
+    ]
+  },
+  "informative_models": [
+    "qwen2.5-1.5b",
+    "qwen3.5-2b",
+    "sarvam-1",
+    "gemma4-e2b",
+    "qwen3-1.7b"
+  ],
+  "P_a": "partly supported",
+  "P_a_tests": [
+    {
+      "model": "gemma4-e2b",
+      "task": "sib",
+      "a": "native",
+      "b": "itrans",
+      "acc_a": 0.75,
+      "acc_b": 0.3665338645418327,
+      "n": 1004,
+      "diff": 0.3834661354581673,
+      "a_only": 425,
+      "b_only": 40,
+      "p": 2.5188719631954495e-82,
+      "p_holm": 2.0150975705563596e-81,
+      "significant": true
+    },
+    {
+      "model": "gemma4-e2b",
+      "task": "sib",
+      "a": "native",
+      "b": "lossy",
+      "acc_a": 0.75,
+      "acc_b": 0.49701195219123506,
+      "n": 1004,
+      "diff": 0.25298804780876494,
+      "a_only": 293,
+      "b_only": 39,
+      "p": 2.668515711757834e-49,
+      "p_holm": 1.334257855878917e-48,
+      "significant": true
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "task": "sib",
+      "a": "native",
+      "b": "itrans",
+      "acc_a": 0.33565737051792827,
+      "acc_b": 0.2778884462151394,
+      "n": 1004,
+      "diff": 0.05776892430278885,
+      "a_only": 159,
+      "b_only": 101,
+      "p": 0.00038780629202563347,
+      "p_holm": 0.0007756125840512669,
+      "significant": true
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "task": "sib",
+      "a": "native",
+      "b": "lossy",
+      "acc_a": 0.33565737051792827,
+      "acc_b": 0.3665338645418327,
+      "n": 1004,
+      "diff": -0.03087649402390441,
+      "a_only": 124,
+      "b_only": 155,
+      "p": 0.07229593171431895,
+      "p_holm": 0.07229593171431895,
+      "significant": false
+    },
+    {
+      "model": "qwen3-1.7b",
+      "task": "sib",
+      "a": "native",
+      "b": "itrans",
+      "acc_a": 0.6723107569721115,
+      "acc_b": 0.2400398406374502,
+      "n": 1004,
+      "diff": 0.4322709163346613,
+      "a_only": 456,
+      "b_only": 22,
+      "p": 1.2990189533010863e-106,
+      "p_holm": 1.2990189533010864e-105,
+      "significant": true
+    },
+    {
+      "model": "qwen3-1.7b",
+      "task": "sib",
+      "a": "native",
+      "b": "lossy",
+      "acc_a": 0.6723107569721115,
+      "acc_b": 0.30677290836653387,
+      "n": 1004,
+      "diff": 0.36553784860557764,
+      "a_only": 398,
+      "b_only": 31,
+      "p": 2.529451058538525e-82,
+      "p_holm": 2.0150975705563596e-81,
+      "significant": true
+    },
+    {
+      "model": "qwen3.5-2b",
+      "task": "sib",
+      "a": "native",
+      "b": "itrans",
+      "acc_a": 0.6762948207171314,
+      "acc_b": 0.2410358565737052,
+      "n": 1004,
+      "diff": 0.43525896414342624,
+      "a_only": 462,
+      "b_only": 25,
+      "p": 2.8113371589728562e-105,
+      "p_holm": 2.5302034430755707e-104,
+      "significant": true
+    },
+    {
+      "model": "qwen3.5-2b",
+      "task": "sib",
+      "a": "native",
+      "b": "lossy",
+      "acc_a": 0.6762948207171314,
+      "acc_b": 0.3754980079681275,
+      "n": 1004,
+      "diff": 0.30079681274900394,
+      "a_only": 345,
+      "b_only": 43,
+      "p": 1.1158511919563684e-59,
+      "p_holm": 6.695107151738211e-59,
+      "significant": true
+    },
+    {
+      "model": "sarvam-1",
+      "task": "sib",
+      "a": "native",
+      "b": "itrans",
+      "acc_a": 0.7659362549800797,
+      "acc_b": 0.5388446215139442,
+      "n": 1004,
+      "diff": 0.22709163346613548,
+      "a_only": 299,
+      "b_only": 71,
+      "p": 2.123868442850549e-34,
+      "p_holm": 8.495473771402196e-34,
+      "significant": true
+    },
+    {
+      "model": "sarvam-1",
+      "task": "sib",
+      "a": "native",
+      "b": "lossy",
+      "acc_a": 0.7659362549800797,
+      "acc_b": 0.7051792828685259,
+      "n": 1004,
+      "diff": 0.06075697211155373,
+      "a_only": 126,
+      "b_only": 65,
+      "p": 1.2058675268138053e-05,
+      "p_holm": 3.617602580441416e-05,
+      "significant": true
+    }
+  ],
+  "P_b_primary_unmapped": "inconclusive",
+  "P_b_cells_counted": 8,
+  "P_b_secondary_mapped": [
+    {
+      "model": "qwen2.5-1.5b",
+      "form": "native",
+      "beta": 0.19276061379326914,
+      "p_holm": 0.18179749209001259
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "form": "itrans",
+      "beta": 0.08997088755179476,
+      "p_holm": 0.9366182943334389
+    },
+    {
+      "model": "qwen3.5-2b",
+      "form": "native",
+      "beta": -0.007061251972137678,
+      "p_holm": 1.0
+    },
+    {
+      "model": "qwen3.5-2b",
+      "form": "itrans",
+      "beta": 0.19651713934838352,
+      "p_holm": 0.23199719943472918
+    },
+    {
+      "model": "sarvam-1",
+      "form": "native",
+      "beta": -0.006259901088759196,
+      "p_holm": 1.0
+    },
+    {
+      "model": "sarvam-1",
+      "form": "itrans",
+      "beta": 0.23024769121946084,
+      "p_holm": 0.045691755543576136
+    },
+    {
+      "model": "gemma4-e2b",
+      "form": "native",
+      "beta": 0.05847996959149546,
+      "p_holm": 1.0
+    },
+    {
+      "model": "gemma4-e2b",
+      "form": "itrans",
+      "beta": -0.06541220759205002,
+      "p_holm": 1.0
+    }
+  ]
+}
