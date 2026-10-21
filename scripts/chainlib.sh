@@ -4,6 +4,8 @@
 # - Dates are never hard-coded: quota waits compute the next 12:45 IST Gemini reset from the clock.
 PY=.venv/Scripts/python.exe; export PYTHONIOENCODING=utf-8
 HB=120  # seconds between heartbeats
+# Tasks are also restarted at logon and on wake from sleep (scripts/detach.ps1): a chain that already finished exits.
+grep -q 'state: \*\*DONE' "$STATUS" 2>/dev/null && exit 0
 
 st() { printf '# %s\n\n- state: **%s**\n- heartbeat: %s\n- detail: %s\n- pid: %s (bash)\n' "$TITLE" "$1" \
   "$(date '+%F %T %Z')" "$2" "$$" > "$STATUS"; }

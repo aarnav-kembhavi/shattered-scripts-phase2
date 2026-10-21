@@ -1184,3 +1184,14 @@ worse romanization, so information loss does not explain the romanization penalt
 - Within a form, where retrieval against English varies (ITRANS), the sentences the model aligns with English are the
   ones it classifies correctly. This holds with token count held fixed, in all four models. It is the item-level link
   between the M4 alignment measure and accuracy that the earlier fragmentation regression did not find.
+
+---
+## ADDENDUM to the surface-baseline registration — natural form (written 2026-10-21, at Aarnav's request; before computing)
+Script `scripts/m4c_surface.py`, CPU only.
+- **Data:** the M4c sample, 496 retained FLORES+ sentences, with M4c's 50/50 split (seed 0), its folds and the M4b
+  ridge grid.
+- **Measures:** for native, ITRANS and natural in each of the 4 models, L0, Lb and gain, exactly as in (a) above.
+  Ridge only.
+- **Rule:** the same as in (a). Beyond surface if the gain's CI lower bound > 0.10, surface-level if its upper bound
+  < 0.10, otherwise partial.
+- **Not blind:** the M4c summary, with its best mapped layers, was already seen.
