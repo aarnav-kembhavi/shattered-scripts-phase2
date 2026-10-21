@@ -1385,3 +1385,16 @@ ladder splits into L1 + L2 + L3.
 
 **Order:** pilot (one model, timing), then forward passes and scoring detached (one model load at a time), then
 analysis. Estimated GPU time from logged runs: about 1.7 h.
+
+---
+## 2026-10-22 — Correction: lossy vs ITRANS tokens-per-word ranges (2026-10-21 exploratory note)
+The 2026-10-21 note ("Exploratory note: lossy > ITRANS is confounded") says lossy has fewer tokens per word than ITRANS
+"by 0.66–0.89 on E0b sentiment/XNLI and 0.78–0.98 on SIB-200". The SIB-200 range is wrong at both ends by 0.01, and so
+the overall range is wrong at its top. Stored values (ITRANS − lossy tokens per word; found by
+`paper/scripts/check_numbers.py`, claim 12a):
+- **E0b sentiment and XNLI** (`results/e0b_familiarity/gate1/fertility.csv`, 10 model × task cells): 0.657–0.891, so
+  0.66–0.89 (unchanged, correct).
+- **SIB-200** (`results/e0c_sib/gate/accuracy.csv`, column `tokens_per_word`, 5 models): 0.774 (Qwen2.5 and Qwen3, same
+  tokenizer) to 0.974 (Sarvam-1), so **0.77–0.97**, not 0.78–0.98.
+- **Overall** (15 cells): 0.657–0.974, so **0.66–0.97**.
+The original note is left as written; this entry supersedes its SIB-200 range. No verdict depended on these ranges.
