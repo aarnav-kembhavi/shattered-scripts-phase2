@@ -1314,3 +1314,74 @@ only.
   `results/m4c_natural/summary.csv`). So the mapped column of M4c, and any verdict that would rest on it, is weak
   evidence. The registered M4c verdict (refuted, on the unmapped measure) stands; the M4c entry already states both
   readings.
+
+---
+## PRE-REGISTRATION — Romanization ladder L1–L3 (written 2026-10-22, Aarnav's design; before any ladder form is run or scored)
+Script `scripts/l_ladder.py` (written after this registration, before any run). Question: within romanized Kannada,
+does casing, fragmentation or human spelling move alignment and accuracy? Four romanized forms, each step changing one
+factor:
+
+| form | capitals | tokens per word | spelling |
+|---|---|---|---|
+| ITRANS (our scheme) | yes | high | mechanical |
+| **lowercase lossless** (E9 `universal|lower`) | no | high, about ITRANS | mechanical |
+| lossy (`to_lossy`) | no | low | mechanical |
+| natural (Gemini, natural_romanization_v1) | no | low, about lossy | human |
+
+**Lowercase scheme: E9 `universal|lower`** (`results/e09_romanize/best_schemes.json`). Reasons: it is lossless (E9:
+2009/2009 FLORES+ and 1048/1048 Wikipedia round trips; also 496/496 on the M4c sample, checked 2026-10-22), it uses
+no capitals for Kannada units, and its sentence-level token count on FLORES+ is within about 2% of ITRANS on every
+study tokenizer (`results/e09_romanize/savings.csv`: Qwen3.5 −0.0%, Qwen2.5/3 +0.9%, Sarvam-1 +0.4%, Gemma 4 +2.1%).
+Its search objective covered o200k, Gemma 4, Qwen3.5 and Qwen3, not Sarvam-1. Three rare units use non-letters:
+ಃ → `:`, ಽ → `'`, ಁ → `n~`. In the 496 M4c sentences: ಃ occurs 8 times (8 sentences); ಽ and ಁ do not occur. Latin text
+already in the Kannada source keeps its case in every form (23 of the 496 sentences contain an ASCII capital in native).
+
+**Contrasts (no directional predictions):**
+- **L1 casing:** lowercase lossless − ITRANS. Check: tokens per word about equal.
+- **L2 fragmentation:** lossy − lowercase lossless. Check: tokens per word differ. Confound, stated now: lossy also
+  loses information (vowel length, retroflex/dental, etc.; E2 CER 3.09%), so L2 mixes fragmentation with information
+  loss (and lossy's dropped distinctions are partly the ones informal spelling also drops).
+- **L3 spelling familiarity:** natural − lossy. Check: tokens per word about equal.
+- Tokens-per-word check, reported **per model** (and per dataset: M4c 496 sentences, sentiment, SIB-200): "about
+  equal" if the two forms are within 10% of each other (relative to the second form); "differ" if lossy is at least
+  10% below lowercase. The check is descriptive: a model that fails it is flagged in the verdict, not dropped.
+
+**Counted models.** Qwen2.5-1.5B is reported in every table but **never counted**: its native-script baseline is at
+floor (M4 unmapped native retrieval 0.178 on the M4b test half; SIB-200 native 0.336; it barely understands Kannada in
+its own script), so differences between romanizations in it cannot say how a model that does read Kannada treats them.
+- **Retrieval:** Qwen3.5-2B, Sarvam-1, Gemma 4 E2B. **Effect** if significant (below) in **at least 2 of 3**, same sign.
+- **Accuracy:** Qwen3-1.7B, Qwen3.5-2B, Sarvam-1, Gemma 4 E2B. **Effect** if significant in **at least 3 of 4**, same
+  sign.
+- Otherwise "no effect detected". Where an effect is found its sign is reported; there is no directional prediction.
+
+**Measures that count.**
+1. **Unmapped retrieval** against English (M4), on the M4c sample (496 retained sentences, M4c's seed-0 split, 248
+   train / 248 test): test-half acc@1 at the train-half best unmapped layer, chosen per model × form, exactly as M4c.
+   Needs new forward passes (lossy and lowercase on the 500 M4c sentences, 4 models; vectors as in M4).
+2. **Accuracy, sentiment** (E0b items, 200; natural n = 198 after the 9 defective natural texts are dropped, so L3 is
+   paired on 198). Lowercase is a new form scored on 5 models; the other forms reuse the Gate 1 scores.
+3. **Accuracy, SIB-200** (E0c, 1,004) for L1 and L2. Lowercase is a new form scored on 5 models.
+   **L3 on SIB-200 is secondary:** natural exists only for the M4c sample, so L3 uses the M4c ∩ SIB overlap,
+   **n = 257** (natural scored on those 257 items in 5 models; lossy reused).
+   **L3 accuracy has low power** (198 sentiment items, 257 SIB items, and at Gate 1 natural and lossy were within a few
+   points of each other); a "no effect detected" on L3 accuracy is weak evidence of no effect.
+- Accuracy scoring is the E0b/E0c setup unchanged: log-likelihood of the label words, BOS always, primary calibration =
+  mean of "N/A", "", "[MASK]" with the raw fallback rule (decided per model × task by English, so lowercase follows the
+  existing row decisions).
+- **Reported only:** XNLI accuracy (all three contrasts; no verdict), the surface baseline (L0, Lb, gain, status as in
+  the 2026-10-17 registration, ridge only) for all four forms plus native, mapped retrieval, tokens per word.
+
+**Statistics.** For every model × contrast × measure: the paired difference with a 95% paired bootstrap CI (10,000
+resamples over sentences/items) and an exact McNemar test on per-item correctness (retrieval hit or classification
+correct). **Holm within each measure, across 3 contrasts × counted models:** retrieval 9 tests; sentiment 12;
+SIB-200 L1–L2 8; SIB-200 L3 (secondary) 4. A difference is **significant** if its Holm-adjusted p < 0.05 (the
+Holm-corrected counterpart of "CI excludes 0"); unadjusted CIs are reported alongside, and any disagreement between
+the CI and the Holm decision is reported. Qwen2.5 cells get the same statistics outside the Holm families.
+
+**Verdicts reported** per contrast and per measure (L1–L3 × retrieval, sentiment, SIB-200; L3 SIB-200 secondary);
+measures are not combined into one verdict. Context, not a prediction: at Gate 1 natural ≈ lossy on accuracy, which
+hints that at equal fragmentation human spelling adds little; M4c found natural > ITRANS on alignment, which the
+ladder splits into L1 + L2 + L3.
+
+**Order:** pilot (one model, timing), then forward passes and scoring detached (one model load at a time), then
+analysis. Estimated GPU time from logged runs: about 1.7 h.
