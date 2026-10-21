@@ -1503,3 +1503,18 @@ None of these was a registered test, and no verdict changes. The paper's main ta
   correction chrF, agreement with the primary annotator).
 - **The 2026-10-16 K3 test** (human-corrected vs Gemini natural accuracy within ±5 points on the 200 sentiment items)
   is **no longer a registered test**; if that scoring is run it is reported as descriptive.
+
+---
+## 2026-10-22 — Annotation page v2 tested (not distributed)
+`annotation/annotate_v2.html` (built by `scripts/k_annotation.py page` from `annotation/template_v2.html`; the v1 page
+was removed so it cannot be distributed by mistake). Tested in Chrome on a localhost copy, with the File System Access
+write path driven programmatically (the native file pickers cannot be automated); test data deleted afterwards.
+- Second-annotator mode lists the 40 blind items first. On a blind item: English, drafts, ratings and Reset are hidden;
+  both boxes start empty; saving with an empty box is refused; the saved row has `condition = blind`, empty drafts and
+  ratings.
+- Non-blind double items and the primary annotator's view (including of the 40 blind items) are unchanged: drafts
+  shown, ratings required, `condition = draft`.
+- CSV round trip exact for both conditions (quotes, commas, newlines, Kannada), new column `condition`.
+- Still to do before distribution: Aarnav's hand fixes for flores-993 and indicsentiment-test-245
+  (`data/annotation/drafts_manual_v1.jsonl`), then rebuild the page; the K3 rating page (built after the second
+  annotator's blind texts exist); Aarnav to confirm the proposed K3 decision rule.
