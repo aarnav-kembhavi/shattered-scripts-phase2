@@ -1518,3 +1518,59 @@ write path driven programmatically (the native file pickers cannot be automated)
 - Still to do before distribution: Aarnav's hand fixes for flores-993 and indicsentiment-test-245
   (`data/annotation/drafts_manual_v1.jsonl`), then rebuild the page; the K3 rating page (built after the second
   annotator's blind texts exist); Aarnav to confirm the proposed K3 decision rule.
+
+---
+## 2026-10-22 — Romanization ladder L1–L3 (registered 2026-10-22): results
+Run: detached `scripts/l_chain.sh` (forward 01:52, scoring, analysis finished 03:12 IST); `scripts/l_ladder.py`.
+Outputs `results/l_ladder/{verdict.json, contrasts.csv, retrieval.csv, accuracy.csv, tokens_per_word.csv,
+tokens_per_word_checks.csv}`; log `results/l_ladder.log`. Lowercase = E9 `universal|lower`.
+
+**Tokens-per-word checks: all 60 passed** (5 models × 5 datasets × applicable contrasts; `tokens_per_word_checks.csv`).
+Tokens per word, ITRANS / lowercase / lossy / natural (`tokens_per_word.csv`):
+
+| model | M4c 496 | sentiment | SIB 1,004 (no natural) | SIB 257 (lossy / natural) |
+|---|---|---|---|---|
+| Qwen2.5-1.5B (not counted) | 4.32 / 4.40 / 3.56 / 3.53 | 4.23 / 4.39 / 3.57 / 3.51 | 4.31 / 4.38 / 3.53 | 3.53 / 3.49 |
+| Qwen3-1.7B (same tokenizer) | 4.32 / 4.40 / 3.56 / 3.53 | 4.23 / 4.39 / 3.57 / 3.51 | 4.31 / 4.38 / 3.53 | 3.53 / 3.49 |
+| Qwen3.5-2B | 4.17 / 4.21 / 3.34 / 3.33 | 4.09 / 4.18 / 3.34 / 3.32 | 4.17 / 4.20 / 3.31 | 3.31 / 3.29 |
+| Sarvam-1 | 5.30 / 5.36 / 4.34 / 4.31 | 5.24 / 5.31 / 4.36 / 4.29 | 5.29 / 5.33 / 4.31 | 4.30 / 4.25 |
+| Gemma 4 E2B | 4.02 / 4.14 / 3.20 / 3.16 | 3.94 / 4.15 / 3.21 / 3.15 | 4.00 / 4.12 / 3.17 | 3.18 / 3.12 |
+
+**Registered verdicts** (significant = Holm-adjusted exact McNemar p < 0.05 within the measure; effect needs ≥ 2 of 3
+counted models for retrieval, ≥ 3 of 4 for accuracy, same sign):
+
+| contrast | retrieval (M4c test half, n = 248) | sentiment (n = 200; L3 n = 198) | SIB-200 (n = 1,004; L3 secondary n = 257) |
+|---|---|---|---|
+| **L1 casing** (lowercase − ITRANS) | **no effect detected** (0 of 3) | **no effect detected** (0 positive, 2 negative of 4) | **no effect detected** (2 positive, 1 negative of 4) |
+| **L2 fragmentation** (lossy − lowercase) | **effect, positive** (3 of 3) | **effect, positive** (3 of 4) | **effect, positive** (4 of 4) |
+| **L3 spelling** (natural − lossy) | **effect, positive** (2 of 3) | **no effect detected** (0 of 4) | secondary: **no effect detected** (0 of 4) |
+
+Per counted model: difference [95% paired bootstrap CI], Holm p (`contrasts.csv`):
+
+| measure | contrast | Qwen3-1.7B | Qwen3.5-2B | Sarvam-1 | Gemma 4 E2B |
+|---|---|---|---|---|---|
+| retrieval | L1 | — | +0.077 [+0.020, +0.137], 0.058 | −0.069 [−0.125, −0.012], 0.081 | −0.040 [−0.109, +0.024], 0.295 |
+| retrieval | L2 | — | +0.109 [+0.044, +0.173], 0.0065 | +0.266 [+0.206, +0.327], <0.0001 | +0.169 [+0.101, +0.238], <0.0001 |
+| retrieval | L3 | — | +0.137 [+0.081, +0.194], <0.0001 | +0.036 [+0.004, +0.069], 0.098 | +0.137 [+0.081, +0.198], 0.0001 |
+| sentiment | L1 | −0.045 [−0.145, +0.050], 1.0 | −0.115 [−0.180, −0.055], 0.0048 | −0.055 [−0.115, +0.010], 0.82 | −0.185 [−0.250, −0.120], <0.0001 |
+| sentiment | L2 | +0.080 [−0.020, +0.180], 0.87 | +0.140 [+0.075, +0.205], 0.0009 | +0.130 [+0.065, +0.195], 0.0020 | +0.220 [+0.155, +0.285], <0.0001 |
+| sentiment | L3 | −0.005 [−0.076, +0.066], 1.0 | +0.040 [−0.025, +0.106], 1.0 | 0.000 [−0.040, +0.040], 1.0 | +0.015 [−0.035, +0.066], 1.0 |
+| SIB | L1 | +0.001 [−0.026, +0.027], 1.0 | +0.055 [+0.026, +0.084], 0.0009 | −0.043 [−0.074, −0.012], 0.017 | +0.048 [+0.017, +0.080], 0.0093 |
+| SIB | L2 | +0.066 [+0.038, +0.095], <0.0001 | +0.080 [+0.048, +0.112], <0.0001 | +0.209 [+0.176, +0.243], <0.0001 | +0.083 [+0.052, +0.114], <0.0001 |
+| SIB 257 | L3 | +0.055 [+0.008, +0.101], 0.10 | +0.035 [−0.012, +0.086], 0.21 | +0.058 [+0.016, +0.105], 0.067 | +0.058 [+0.000, +0.117], 0.13 |
+
+Qwen2.5 (reported, not counted; unadjusted): retrieval L1 0.000, L2 +0.069, L3 +0.177; sentiment L1 −0.025, L2 +0.030,
+L3 +0.020; SIB L1 −0.003, L2 +0.092, SIB-257 L3 +0.074 (CIs in `contrasts.csv`). XNLI (reported only) is in
+`contrasts.csv` (`xnli_reported_only`); most cells are near chance.
+
+**CI vs Holm disagreements** (registered: Holm decides; reported here): the unadjusted CI excludes 0 but Holm p ≥ 0.05
+for retrieval L1 in Qwen3.5 (+0.077) and Sarvam-1 (−0.069), retrieval L3 in Sarvam-1 (+0.036), and SIB-257 L3 in
+Sarvam-1 (+0.058) and Qwen3 (+0.055). None changes a verdict except that, counted by CIs instead of Holm, retrieval L1
+would have 1 positive and 1 negative (still no effect) and SIB-257 L3 would have 2 of 4 (still no effect).
+
+**Deviations.** (1) The timing pilot used two models (Qwen2.5 and Gemma 4), not one; its 30-item SIB scores were
+written to a throwaway directory and deleted without being looked at. (2) Before any run, a performance bug in the new
+script (FLORES forms rebuilt 500 times) was fixed; no method changed. No other deviation.
+
+**Registered confound (unchanged):** L2 changes information as well as fragmentation (lossy drops distinctions), so a
+positive L2 is not attributable to fragmentation alone. L3 accuracy has low power (198 and 257 items).

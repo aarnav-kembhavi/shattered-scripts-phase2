@@ -1,0 +1,118 @@
+{
+  "provenance": {
+    "config": {
+      "registered": "RESULTS.md 2026-10-22 (romanization ladder)",
+      "lower_scheme": "e09 universal|lower",
+      "m4c_split_seed": 0,
+      "counted_retrieval": [
+        "qwen3.5-2b",
+        "sarvam-1",
+        "gemma4-e2b"
+      ],
+      "counted_accuracy": [
+        "qwen3-1.7b",
+        "qwen3.5-2b",
+        "sarvam-1",
+        "gemma4-e2b"
+      ],
+      "tpw_tolerance": 0.1
+    },
+    "git_commit": "c1f9aa7f6578d154a899f58b9d3a6c3c0c583883",
+    "timestamp_utc": "2026-10-21T21:42:11+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/l_ladder.py",
+      "analyse"
+    ]
+  },
+  "L1|retrieval": {
+    "verdict": "no effect detected",
+    "n_significant_positive": 0,
+    "n_significant_negative": 0,
+    "needed": 2,
+    "n_counted": 3,
+    "tpw_check_failed_models": [],
+    "ci_holm_disagreements": [
+      "qwen3.5-2b",
+      "sarvam-1"
+    ]
+  },
+  "L2|retrieval": {
+    "verdict": "effect, positive",
+    "n_significant_positive": 3,
+    "n_significant_negative": 0,
+    "needed": 2,
+    "n_counted": 3,
+    "tpw_check_failed_models": [],
+    "ci_holm_disagreements": []
+  },
+  "L3|retrieval": {
+    "verdict": "effect, positive",
+    "n_significant_positive": 2,
+    "n_significant_negative": 0,
+    "needed": 2,
+    "n_counted": 3,
+    "tpw_check_failed_models": [],
+    "ci_holm_disagreements": [
+      "sarvam-1"
+    ]
+  },
+  "L1|sentiment": {
+    "verdict": "no effect detected",
+    "n_significant_positive": 0,
+    "n_significant_negative": 2,
+    "needed": 3,
+    "n_counted": 4,
+    "tpw_check_failed_models": [],
+    "ci_holm_disagreements": []
+  },
+  "L2|sentiment": {
+    "verdict": "effect, positive",
+    "n_significant_positive": 3,
+    "n_significant_negative": 0,
+    "needed": 3,
+    "n_counted": 4,
+    "tpw_check_failed_models": [],
+    "ci_holm_disagreements": []
+  },
+  "L3|sentiment": {
+    "verdict": "no effect detected",
+    "n_significant_positive": 0,
+    "n_significant_negative": 0,
+    "needed": 3,
+    "n_counted": 4,
+    "tpw_check_failed_models": [],
+    "ci_holm_disagreements": []
+  },
+  "L1|sib": {
+    "verdict": "no effect detected",
+    "n_significant_positive": 2,
+    "n_significant_negative": 1,
+    "needed": 3,
+    "n_counted": 4,
+    "tpw_check_failed_models": [],
+    "ci_holm_disagreements": []
+  },
+  "L2|sib": {
+    "verdict": "effect, positive",
+    "n_significant_positive": 4,
+    "n_significant_negative": 0,
+    "needed": 3,
+    "n_counted": 4,
+    "tpw_check_failed_models": [],
+    "ci_holm_disagreements": []
+  },
+  "L3|sib_L3_secondary": {
+    "verdict": "no effect detected",
+    "n_significant_positive": 0,
+    "n_significant_negative": 0,
+    "needed": 3,
+    "n_counted": 4,
+    "tpw_check_failed_models": [],
+    "ci_holm_disagreements": [
+      "sarvam-1",
+      "qwen3-1.7b"
+    ]
+  }
+}

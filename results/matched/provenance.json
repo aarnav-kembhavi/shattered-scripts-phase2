@@ -3,27 +3,15 @@
     "config": {
       "status": "descriptive, 2026-10-22, no verdict"
     },
-    "git_commit": "8d7db7d74649ee3d2366b818c497580652ec2de1",
-    "timestamp_utc": "2026-10-21T20:48:49+00:00",
+    "git_commit": "c1f9aa7f6578d154a899f58b9d3a6c3c0c583883-dirty",
+    "timestamp_utc": "2026-10-21T21:43:56+00:00",
     "python": "3.12.13",
     "platform": "Windows-11-10.0.26300-SP0",
     "argv": [
       "scripts/matched_samples.py"
     ]
   },
-  "missing_score_files": [
-    "results\\e0b_familiarity\\scores\\sarvam-1__lower.parquet",
-    "results\\e0b_familiarity\\scores\\gemma4-e2b__lower.parquet",
-    "results\\e0b_familiarity\\scores\\qwen3-1.7b__lower.parquet",
-    "results\\e0c_sib\\scores\\qwen3.5-2b__lower.parquet",
-    "results\\e0c_sib\\scores\\qwen3.5-2b__natural257.parquet",
-    "results\\e0c_sib\\scores\\sarvam-1__lower.parquet",
-    "results\\e0c_sib\\scores\\sarvam-1__natural257.parquet",
-    "results\\e0c_sib\\scores\\gemma4-e2b__lower.parquet",
-    "results\\e0c_sib\\scores\\gemma4-e2b__natural257.parquet",
-    "results\\e0c_sib\\scores\\qwen3-1.7b__lower.parquet",
-    "results\\e0c_sib\\scores\\qwen3-1.7b__natural257.parquet"
-  ],
+  "missing_score_files": [],
   "n_sib257": 257,
   "gate1_sentiment_check_cells": 25
 }
