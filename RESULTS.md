@@ -1296,3 +1296,21 @@ only.
   - A chain whose status is DONE exits at once.
   - The Kanglish chain and the watcher were relaunched at 22:21 IST on 10-21, in the open 10-21 quota window.
   - Not yet tested across a real sleep.
+
+---
+## 2026-10-22 — Corrections (Aarnav)
+- **Familiarity definition of 2026-10-15 (Gate 1 entry), corrected.** That note said natural romanization "scores
+  about the same as ITRANS", which "supports reading the native-script advantage as pretraining exposure rather than
+  everyday use". On accuracy (Gate 1) all romanized forms were well below native, but on meaning alignment M4c
+  contradicts the natural ≈ ITRANS part:
+  unmapped retrieval against English is natural > ITRANS by +0.23 to +0.32 in all 4 models
+  (`results/m4c_natural/summary.csv`). **Familiarity is graded: native > natural romanization > ITRANS on alignment.**
+  "Familiarity" still means exposure in pretraining corpora; natural romanized Kannada plausibly appears in web text
+  (chats, comments, lyrics), ITRANS rarely. Not tested here: we have no corpus counts of either form. The 2026-10-15
+  note is kept as written; this entry supersedes its last sentence.
+- **M4c mapped measure: unreliable at this sample size; unmapped is primary for M4c.** With 248 training sentences the
+  ridge map lowers retrieval below unmapped in most cells, including native, which is already aligned (native
+  unmapped → mapped: Qwen3.5 1.000 → 0.952, Sarvam-1 0.988 → 0.843, Gemma 4 1.000 → 0.944;
+  `results/m4c_natural/summary.csv`). So the mapped column of M4c, and any verdict that would rest on it, is weak
+  evidence. The registered M4c verdict (refuted, on the unmapped measure) stands; the M4c entry already states both
+  readings.

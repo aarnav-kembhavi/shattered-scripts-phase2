@@ -4,7 +4,21 @@ Paper: "Shattered Scripts: How Tokenizer Fragmentation Taxes the Cost, Depth and
 Lead author: Aarnav. Claude Code is the research engineer: builds the code, runs experiments, reports results honestly.
 The full experiment brief (E0–E9, gates, predictions) is in `docs/BRIEF.md`. Read it before starting a new experiment.
 
-## Thesis
+## Thesis (revised 2026-10-22, Aarnav)
+
+How do LLMs process Kannada text that their tokenizer has fragmented? Current headline, from the results in RESULTS.md:
+- **Word assembly follows fragmentation.** The more fragmented form needs more layers to assemble a word (MDL detok
+  layer; 3 of 4 models, and the order flips with the native/ITRANS fragmentation crossover).
+- **Meaning alignment and accuracy follow familiarity of the written form,** and familiarity is graded: native >
+  natural romanization > ITRANS (M4/M4c retrieval against English, E0b sentiment, E0c SIB-200). Unfamiliar forms are
+  assembled into words but not turned into meaning; accuracy follows alignment, not token count.
+- **Fragmentation's causal cost is shown with data held fixed** in the E5 tiny models (more fragmentation, worse bits
+  per byte; MDL detok later, small magnitude).
+- **The within-romanization ladder** (ITRANS → lowercase lossless → lossy → natural, one factor at a time) tests
+  whether a fragmentation cost also shows in pretrained models once familiarity is held roughly fixed.
+- Qwen2.5-1.5B barely understands native Kannada: a boundary case, not evidence either way.
+
+### Superseded (2026-10-22): original thesis
 
 English-centric tokenizers split Indian scripts (Kannada especially) into many byte-level fragments. We claim that this
 fragmentation, independent of how much training data a language had, (a) raises API cost, and (b) forces the model to
@@ -42,7 +56,24 @@ Treat E5 as the most important experiment in the project.
   (letter-boundary regex; "first_id_layer"). **They already cover Patchscopes detokenization and vocabulary expansion
   for non-Latin scripts: we do not claim either. Our E7 and E9 are dropped.**
 
-## Our contributions (what is actually new) — revised 2026-10-07: the paper is interpretability-first
+## Our contributions (what is actually new) — revised 2026-10-22
+
+1. **Fragmentation causally costs language modeling with data held fixed** (E5: 6 vocabularies × 3 seeds, monotonic
+   BPB, stronger at equal compute), with MDL word-assembly probes on the tiny models (later assembly only at the byte
+   extreme).
+2. **Assembly vs meaning, dissociated in pretrained models** (Qwen2.5, Qwen3.5, Sarvam-1, Gemma 4): the MDL detok
+   layer follows fragmentation across the native/ITRANS crossover, but alignment with English (M4 retrieval, M4b
+   mapping, surface baseline) does not; romanized forms stay near the lexical surface.
+3. **Familiarity is graded and predicts accuracy:** native > natural romanization > ITRANS on alignment (M4c) and
+   native > romanized on accuracy (E0b, E0c); within ITRANS, sentences aligned with English are the ones classified
+   correctly (E0c P-b, post hoc reading).
+4. **A within-romanization ladder** separating casing, fragmentation and spelling familiarity (registered 2026-10-22).
+5. Context: the token-cost atlas (E1); a parallel Kannada set (E2) in native/ITRANS/lossy/natural forms; a
+   human-annotated natural + Kanglish set (K1–K3); a back-translation comprehension gap in a 120B model.
+6. Negative results reported: Patchscopes fails on Kannada at 1.5–2B; erasure refuted; E9 (no reversible romanization
+   saves ≥ 5% tokens); lossy ≥ ITRANS refutes the information-loss account.
+
+### Superseded (2026-10-22): contributions as revised 2026-10-07 (the paper is interpretability-first)
 
 1. A controlled experiment isolating fragmentation from training data (E5), with detokenization/circuit analyses
    applied to the tiny models.
