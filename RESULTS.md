@@ -1426,3 +1426,34 @@ Output `results/m4c_curves/curves.json`; figure `paper/figures/F_alignment_curve
   native/ITRANS curves are kept as an appendix figure, `paper/figures/F_alignment_curves_2009.{pdf,png}` (from
   `results/m14_full/<model>/m4.json`).
 - **No verdict.** Nothing here tests or changes a registered prediction.
+
+---
+## 2026-10-22 — Audit: are form comparisons computed on matched items? (no verdict changed)
+Checked every RESULTS.md claim that compares native, ITRANS, lowercase, lossy and natural. "Matched" = every compared
+form on the same items. Only the natural form ever has fewer items than the others: in E0b, 9 natural texts stayed
+defective, so natural has 198 sentiment and 193 XNLI items against 200 for every other form.
+
+**Matched (no issue):** E1 cost atlas and E9 (same 2,009 sentences); E0 and Gate 1a (200 items, all forms); every Gate 1
+McNemar test, hence every P1–P3 verdict (`mcnemar_table` pairs on items present in both forms: 198/193 for natural);
+item-level fragmentation note (paired McNemar); Gate 2 M1 (words paired by construction) and M4 (2,009); M4b, its
+robustness check and surface baseline (same split; filtered/random subsets compare forms within each subset); E0c
+(1,004, all forms) and P-b (within form); M4c and the natural surface baseline (same 496/248 sentences); the
+back-translation gap (576 paired texts); the lossy vs ITRANS tokens-per-word ranges (all items in both forms); the
+ladder registration (L3 on sentiment paired on 198); the 2026-10-22 alignment curves (same 248).
+
+**Not matched (point estimates or tokens per word quoted with natural on 198/193 and the other forms on 200):**
+1. **Gate 1 accuracy table (2026-10-15):** natural n = 198/193, others n = 200 (stated in the entry's header). The
+   paired values differ by up to 0.8 points, e.g. Sarvam-1 XNLI natural − ITRANS +7.3 paired vs +8.1 from the table
+   (`results/e0b_familiarity/gate1/mcnemar.csv` vs `accuracy.csv`).
+2. **Gate 1 P1 text:** "Qwen2.5 sentiment (51.5 vs 70.5)": 70.5 is native on all 200; on the 198 matched items native
+   is 70.2 (`mcnemar.csv`, `acc_b`). The test and verdict used the matched 198.
+3. **Gate 1 "Hint" and the M4c "Confound" bullet:** natural tokens per word (sentiment: 3.15–4.29) are on 198 texts,
+   ITRANS and lossy on 200. On matched items (`results/matched/tokens_per_word.csv`, sentiment, natural vs the same
+   198 is not stored; the 200-item values differ from 198-item values by 2 texts) the comparison is near-identical but
+   was not computed matched.
+4. **M4c reading, "Gate 1 (accuracy) still had native > natural in every model":** read from the unmatched table. On
+   the matched items native > natural in every model on sentiment, but Qwen3.5 XNLI is a tie (34.2 vs 34.2, n = 193).
+5. **Definition note (2026-10-15), "natural romanization … scores about the same as ITRANS"** (already superseded by
+   the 2026-10-22 correction): based on the unmatched table.
+None of these was a registered test, and no verdict changes. The paper's main tables now use matched items
+(`results/matched/`, `scripts/matched_samples.py`, descriptive, no verdict; full-sample results go to appendix tables).
