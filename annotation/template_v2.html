@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kanglish Annotation v2</title>
+<style>
+  :root { --bg:#fafaf8; --card:#fff; --ink:#1d1d1b; --muted:#6b6b66; --line:#ddd9d0; --accent:#1f5f8b; --warn:#a4400b; --ok:#2e6b3a; }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.5 system-ui, "Segoe UI", sans-serif; }
+  header { position:sticky; top:0; z-index:2; background:var(--card); border-bottom:1px solid var(--line); padding:10px 16px;
+           display:flex; flex-wrap:wrap; gap:8px 16px; align-items:center; }
+  header b { font-size:16px; }
+  main { max-width:980px; margin:0 auto; padding:16px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:14px 16px; margin-bottom:14px; }
+  .kn { font-family:"Nirmala UI","Noto Sans Kannada","Tunga",sans-serif; font-size:20px; line-height:1.7; }
+  .label { font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin-bottom:4px; }
+  textarea { width:100%; min-height:90px; font:16px/1.5 ui-monospace, Consolas, monospace; padding:8px; border:1px solid var(--line); border-radius:6px; }
+  .row { display:flex; flex-wrap:wrap; gap:8px 24px; align-items:center; margin-top:8px; }
+  .scale label, .yn label { margin-right:10px; white-space:nowrap; }
+  button { font:inherit; padding:6px 12px; border:1px solid var(--line); background:#f1efe9; border-radius:6px; cursor:pointer; }
+  button.primary { background:var(--accent); color:#fff; border-color:var(--accent); }
+  button:disabled { opacity:.5; cursor:default; }
+  .flag { color:var(--warn); font-weight:600; }
+  .saved { color:var(--ok); }
+  .muted { color:var(--muted); }
+  details { margin-bottom:14px; }
+  input[type=text] { font:inherit; padding:4px 8px; border:1px solid var(--line); border-radius:6px; }
+  #status { font-size:13px; }
+</style>
+</head>
+<body>
+<header>
+  <b>Kanglish annotation v2</b>
+  <span>Annotator <input type="text" id="who" size="10" placeholder="your name"></span>
+  <span><label><input type="radio" name="mode" value="all" checked> All 500 items</label>
+        <label><input type="radio" name="mode" value="double"> Second annotator (100 items)</label></span>
+  <button id="newfile">New CSV file…</button>
+  <button id="openfile">Continue a CSV file…</button>
+  <button id="download">Download CSV</button>
+  <span id="status" class="muted">No CSV file connected yet. Answers are also kept in this browser.</span>
+</header>
+<main>
+  <details class="card"><summary><b>Instructions</b></summary>
+    <p>Each item shows a Kannada text and its English translation, and two drafts written by a language model (Gemini):</p>
+    <ol>
+      <li><b>Natural romanization:</b> Kannada typed in Latin letters the way people type on a phone, word for word,
+        with no translation. English words already in the Kannada text stay as they are.</li>
+      <li><b>Kanglish:</b> how a young person in Bengaluru would write the same message on WhatsApp, with English
+        words mixed in wherever that is natural. It must keep the full meaning.</li>
+    </ol>
+    <p><b>First rate each draft as shown, before you change anything</b>: naturalness from 1 (nobody would type
+      this) to 5 (exactly how people type), and whether it keeps the meaning of the Kannada text (yes or no).
+      <b>Then correct the draft</b> in the box so it is natural and keeps the full meaning. Leave it unchanged if it is
+      already fine. "Reset" restores the draft.</p>
+    <p><b>Second annotator: the first 40 items are different.</b> For these you see only the Kannada text, with no
+      English and no drafts. Write the natural romanization and the Kanglish version yourself, from scratch, in the two
+      boxes. There is nothing to rate. Please do these 40 first, before the other 60, and do not look anything up.</p>
+    <p>Saving moves to the next item. After the first save, every save rewrites the whole CSV file you chose, so
+      nothing is lost if you close the page. To continue later, open this page, enter the same name, click
+      "Continue a CSV file…" and pick the same file. In Chrome or Edge the page can write to the file directly. In other
+      browsers, use "Download CSV" at the end of each session.</p>
+  </details>
+
+  <div class="card">
+    <div class="row" style="margin-top:0;justify-content:space-between">
+      <span id="pos" class="muted"></span>
+      <span>
+        <button id="prev">← Previous</button>
+        <button id="nextTodo">First unfinished</button>
+        <button id="next">Next →</button>
+      </span>
+    </div>
+  </div>
+
+  <div class="card flag" id="blind-banner" hidden>Write both versions yourself, from scratch. No drafts, nothing to rate.</div>
+  <div class="card"><div class="label">Kannada</div><div id="native" class="kn"></div></div>
+  <div class="card" id="card-english"><div class="label">English</div><div id="english"></div></div>
+
+  <div class="card" id="box-natural">
+    <div class="label">1. Natural romanization <span id="flag-natural" class="flag"></span></div>
+    <div class="row scale">Naturalness of the draft:
+      <span>[1-5]</span></div>
+    <div class="row yn">Draft keeps the meaning: <span>[yn]</span></div>
+    <div class="label" style="margin-top:10px"><span class="ta-label">Your corrected version</span> <button data-reset="natural">Reset</button></div>
+    <textarea id="ta-natural" spellcheck="false"></textarea>
+  </div>
+
+  <div class="card" id="box-kanglish">
+    <div class="label">2. Kanglish <span id="flag-kanglish" class="flag"></span></div>
+    <div class="row scale">Naturalness of the draft: <span>[1-5]</span></div>
+    <div class="row yn">Draft keeps the meaning: <span>[yn]</span></div>
+    <div class="label" style="margin-top:10px"><span class="ta-label">Your corrected version</span> <button data-reset="kanglish">Reset</button></div>
+    <textarea id="ta-kanglish" spellcheck="false"></textarea>
+  </div>
+
+  <div class="card">
+    <div class="label">Note (optional)</div>
+    <input type="text" id="note" style="width:100%">
+    <div class="row"><button class="primary" id="save">Save and next</button><span id="msg"></span></div>
+  </div>
+</main>
+
+<script id="items" type="application/json">__ITEMS_JSON__</script>
+<script>
+const ALL = JSON.parse(document.getElementById('items').textContent);
+const COLS = ['item_id','annotator','source','natural_draft','natural_corrected','natural_naturalness','natural_meaning',
+              'kanglish_draft','kanglish_corrected','kanglish_naturalness','kanglish_meaning','note','saved_at',
+              'condition'];
+const $ = id => document.getElementById(id);
+let answers = {}, fileHandle = null, idx = 0;
+
+function storeKey() { return 'kanglish_v1_' + ($('who').value.trim() || 'anon'); }
+function mode() { return document.querySelector('input[name=mode]:checked').value; }
+// Second annotator: the blind items first (written from scratch before any draft is seen), then the other double items
+function list() {
+  if (mode() !== 'double') return ALL;
+  const d = ALL.filter(r => r.double);
+  return d.filter(r => r.blind).concat(d.filter(r => !r.blind));
+}
+function isBlind(r) { return mode() === 'double' && !!r.blind; }
+
+// build rating controls
+for (const kind of ['natural', 'kanglish']) {
+  const box = $('box-' + kind);
+  box.querySelector('.scale span:last-child').innerHTML =
+    [1,2,3,4,5].map(v => `<label><input type="radio" name="${kind}_naturalness" value="${v}"> ${v}</label>`).join('');
+  box.querySelector('.yn span').innerHTML =
+    `<label><input type="radio" name="${kind}_meaning" value="1"> yes</label>` +
+    `<label><input type="radio" name="${kind}_meaning" value="0"> no</label>`;
+}
+
+function csvCell(v) { v = v == null ? '' : String(v); return /[",\n\r]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; }
+function toCSV() {
+  const rows = ALL.filter(r => answers[r.id]).map(r => COLS.map(c => csvCell(answers[r.id][c])).join(','));
+  return '﻿' + COLS.join(',') + '\n' + rows.join('\n') + (rows.length ? '\n' : '');
+}
+function parseCSV(text) {
+  text = text.replace(/^﻿/, '');
+  const out = []; let row = [], cell = '', q = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (q) { if (c === '"') { if (text[i+1] === '"') { cell += '"'; i++; } else q = false; } else cell += c; }
+    else if (c === '"') q = true;
+    else if (c === ',') { row.push(cell); cell = ''; }
+    else if (c === '\n' || c === '\r') { if (c === '\r' && text[i+1] === '\n') i++; row.push(cell); out.push(row); row = []; cell = ''; }
+    else cell += c;
+  }
+  if (cell || row.length) { row.push(cell); out.push(row); }
+  const head = out.shift() || [];
+  return out.filter(r => r.length === head.length).map(r => Object.fromEntries(head.map((h, i) => [h, r[i]])));
+}
+
+function persistLocal() { try { localStorage.setItem(storeKey(), JSON.stringify(answers)); } catch (e) {} }
+function loadLocal() { try { answers = JSON.parse(localStorage.getItem(storeKey()) || '{}'); } catch (e) { answers = {}; } }
+
+async function writeFile() {
+  if (!fileHandle) return false;
+  try { const w = await fileHandle.createWritable(); await w.write(toCSV()); await w.close(); return true; }
+  catch (e) { $('status').textContent = 'Could not write the CSV file (' + e.message + '). Use Download CSV.'; return false; }
+}
+
+function show() {
+  const L = list(); idx = Math.max(0, Math.min(idx, L.length - 1));
+  const r = L[idx], a = answers[r.id];
+  const done = L.filter(x => answers[x.id]).length;
+  const blind = isBlind(r);
+  $('pos').textContent = `Item ${idx + 1} of ${L.length} · ${r.id} · ${done} saved` +
+    (blind ? ' · write from scratch' : r.double ? ' · double-annotated' : '');
+  $('native').textContent = r.native;
+  $('english').textContent = blind ? '' : r.english;
+  $('card-english').hidden = blind; $('blind-banner').hidden = !blind;
+  document.querySelectorAll('.scale, .yn, [data-reset]').forEach(el => el.hidden = blind);
+  document.querySelectorAll('.ta-label').forEach(el => el.textContent = blind ? 'Your version' : 'Your corrected version');
+  for (const kind of ['natural', 'kanglish']) {
+    const draft = blind ? '' : r[kind + '_draft'];
+    $('ta-' + kind).value = a ? a[kind + '_corrected'] : draft;
+    $('flag-' + kind).textContent = blind ? '' : !draft ? 'draft missing' :
+      (r[kind + '_flag'] ? 'draft flagged: non-Latin characters' : '');
+    for (const f of ['naturalness', 'meaning']) {
+      document.querySelectorAll(`input[name=${kind}_${f}]`).forEach(el => el.checked = !!a && String(a[kind + '_' + f]) === el.value);
+    }
+  }
+  $('note').value = a ? a.note : '';
+  $('msg').textContent = a ? 'saved ' + a.saved_at : ''; $('msg').className = a ? 'saved' : '';
+  $('prev').disabled = idx === 0; $('next').disabled = idx === L.length - 1;
+}
+
+async function save() {
+  const who = $('who').value.trim();
+  if (!who) { $('msg').textContent = 'Enter your name first.'; $('msg').className = 'flag'; return; }
+  const r = list()[idx], blind = isBlind(r),
+        rec = {item_id: r.id, annotator: who, source: r.source, note: $('note').value,
+               saved_at: new Date().toISOString(), condition: blind ? 'blind' : 'draft'};
+  if (blind) {  // written from scratch: no draft shown, nothing rated
+    for (const kind of ['natural', 'kanglish']) {
+      const t = $('ta-' + kind).value.trim();
+      if (!t) { $('msg').textContent = 'Please write both versions.'; $('msg').className = 'flag'; return; }
+      Object.assign(rec, {[kind + '_draft']: '', [kind + '_corrected']: t, [kind + '_naturalness']: '', [kind + '_meaning']: ''});
+    }
+  }
+  for (const kind of blind ? [] : ['natural', 'kanglish']) {
+    for (const f of ['naturalness', 'meaning']) {
+      const el = document.querySelector(`input[name=${kind}_${f}]:checked`);
+      if (!el) { $('msg').textContent = 'Please rate naturalness and meaning for both drafts.'; $('msg').className = 'flag'; return; }
+      rec[`${kind}_${f}`] = el.value;
+    }
+    rec[kind + '_draft'] = r[kind + '_draft']; rec[kind + '_corrected'] = $('ta-' + kind).value.trim();
+  }
+  answers[r.id] = rec; persistLocal();
+  const ok = await writeFile();
+  $('status').textContent = ok ? `Saved to ${fileHandle.name} at ${new Date().toLocaleTimeString()}`
+                               : 'Saved in this browser only; choose a CSV file or use Download CSV.';
+  if (idx < list().length - 1) idx++;
+  show();
+}
+
+async function connect(resume) {
+  if (!window.showSaveFilePicker) { $('status').textContent = 'This browser cannot write files directly: use Download CSV.'; return; }
+  const who = $('who').value.trim() || 'annotator', types = [{description: 'CSV', accept: {'text/csv': ['.csv']}}];
+  try {
+    if (resume) {
+      [fileHandle] = await window.showOpenFilePicker({types});
+      if ((await fileHandle.requestPermission({mode: 'readwrite'})) !== 'granted') throw new Error('write permission not granted');
+      for (const x of parseCSV(await (await fileHandle.getFile()).text())) answers[x.item_id] = x;
+      persistLocal();
+    } else {
+      fileHandle = await window.showSaveFilePicker({suggestedName: `${who}.csv`, types});
+    }
+    await writeFile();
+    $('status').textContent = `Connected to ${fileHandle.name}: ${Object.keys(answers).length} items saved so far.`;
+    show();
+  } catch (e) { if (e.name !== 'AbortError') $('status').textContent = 'File not connected: ' + e.message; }
+}
+$('newfile').onclick = () => connect(false);
+$('openfile').onclick = () => connect(true);
+
+$('download').onclick = () => {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([toCSV()], {type: 'text/csv'}));
+  a.download = ($('who').value.trim() || 'annotator') + '.csv'; a.click();
+};
+document.querySelectorAll('[data-reset]').forEach(b => b.onclick = () => {
+  const r = list()[idx], k = b.dataset.reset; if (!isBlind(r)) $('ta-' + k).value = r[k + '_draft'];
+});
+$('save').onclick = save;
+$('prev').onclick = () => { idx--; show(); };
+$('next').onclick = () => { idx++; show(); };
+$('nextTodo').onclick = () => { const L = list(); const j = L.findIndex(x => !answers[x.id]); if (j >= 0) idx = j; show(); };
+$('who').onchange = () => { loadLocal(); show(); };
+document.querySelectorAll('input[name=mode]').forEach(el => el.onchange = () => { idx = 0; show(); });
+loadLocal(); show();
+</script>
+</body>
+</html>

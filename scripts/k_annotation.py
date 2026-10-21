@@ -10,7 +10,9 @@ defective is shown to the annotators anyway (they correct it) and flagged.
 Usage: python scripts/k_annotation.py select     # writes data/annotation/items_v1.jsonl (no API)
        python scripts/k_annotation.py plan       # counts uncached Gemini requests (no API)
        python scripts/k_annotation.py draft      # API; stops on the daily quota (exit 3), re-run to continue
-       python scripts/k_annotation.py page       # writes annotation/annotate_v1.html (drafts embedded)
+       python scripts/k_annotation.py regen      # API; natural drafts still defective get attempts 4-5 (2026-10-22)
+       python scripts/k_annotation.py blind      # writes data/annotation/blind_v1.json (40 blind items, seed 2)
+       python scripts/k_annotation.py page       # writes annotation/annotate_v2.html (drafts embedded)
        python scripts/k_annotation.py agreement  # kappas on the double-annotated items
 """
 import json
@@ -28,7 +30,12 @@ KANGLISH_VERSION = "kanglish_v1"
 N_FLORES, N_DOUBLE = 300, 100
 DIR = REPO / "data" / "annotation"
 ITEMS, DRAFTS = DIR / "items_v1.jsonl", DIR / "drafts_v1.jsonl"
-PAGE = REPO / "annotation" / "annotate_v1.html"
+REGEN = DIR / "drafts_regen_v1.jsonl"  # natural drafts re-asked after attempt 3 (deviation, 2026-10-22)
+MANUAL = DIR / "drafts_manual_v1.jsonl"  # drafts fixed by hand by Aarnav ({"id", "kind", "text"}); override all others
+BLIND = DIR / "blind_v1.json"  # 40 of the 100 double items written from scratch by the second annotator (2026-10-22)
+N_BLIND, BLIND_SEED = 40, 2
+TEMPLATE = REPO / "annotation" / "template_v2.html"
+PAGE = REPO / "annotation" / "annotate_v2.html"
 ANN_DIR = REPO / "annotation" / "results"
 PARAMS = {"max_tokens": 1024, "temperature": 0.0, "system": None}
 
@@ -141,21 +148,83 @@ def do_draft() -> int:
     return 0 if complete else 3
 
 
+def do_regen(max_attempt: int = 5) -> int:
+    """Deviation of 2026-10-22 (Aarnav): natural drafts still defective after attempts 1-3 get attempts 4..max_attempt
+    (same model, prompt, temperature; only the cache key changes). Written to REGEN, never to DRAFTS or to the E0 file
+    natural_e0_v1.jsonl (Gate 1 data); the page uses a regenerated draft only if it is clean."""
+    client = make_client()
+    its = {it["id"]: it for it in items()}
+    done = {r["id"]: r for r in map(json.loads, REGEN.open(encoding="utf-8"))} if REGEN.exists() else {}
+    bad = [r for r in map(json.loads, DRAFTS.open(encoding="utf-8")) if r["kind"] == "natural" and r["defective"]]
+    stopped = None
+    for r in bad:
+        native = its[r["id"]]["native"]
+        prev = done.get(r["id"])
+        if prev and not prev["defective"]:
+            continue
+        for attempt in range(max(4, prev["attempt"] + 1 if prev else 4), max_attempt + 1):
+            try:
+                text = romanize(client, native, attempt=attempt)["natural"]
+            except DailyQuotaExceeded as e:
+                stopped = str(e)[:200]
+                break
+            d = defective({"native": native, "natural": text})
+            done[r["id"]] = {"id": r["id"], "kind": "natural", "text": text, "attempt": attempt, "defective": d,
+                             "prompt": PROMPT_VERSION, "model": MODEL, "replaces_attempt": r["attempt"]}
+            if not d:
+                break
+        if stopped:
+            break
+    with tmp_path(REGEN).open("w", encoding="utf-8") as f:
+        for k in sorted(done):
+            f.write(json.dumps(done[k], ensure_ascii=False) + "\n")
+    commit(tmp_path(REGEN), REGEN)
+    still = sorted(k for k, v in done.items() if v["defective"])
+    print({"n_regenerated": len(done), "clean": sorted(k for k, v in done.items() if not v["defective"]),
+           "still_defective": still, "stopped": stopped}, flush=True)
+    return 3 if stopped else 0
+
+
+def do_blind() -> None:
+    """Blind condition (registered 2026-10-22): N_BLIND of the double-annotated items, chosen with BLIND_SEED from the
+    double items in items_v1.jsonl order. The second annotator sees only the native sentence for these."""
+    dbl = [it["id"] for it in items() if it["double"]]
+    pick = sorted(np.random.default_rng(BLIND_SEED).choice(len(dbl), N_BLIND, replace=False).tolist())
+    ids = [dbl[i] for i in pick]
+    tmp_path(BLIND).write_text(json.dumps({"seed": BLIND_SEED, "n": N_BLIND, "n_double": len(dbl),
+                                           "rule": "numpy default_rng(seed).choice(n_double, n, replace=False) over "
+                                                   "the double items in items_v1.jsonl order",
+                                           "ids": ids}, indent=1), encoding="utf-8")
+    commit(tmp_path(BLIND), BLIND)
+    print({"blind": len(ids), "sentiment": sum(i.startswith("indicsentiment") for i in ids),
+           "flores": sum(i.startswith("flores") for i in ids)})
+
+
 def do_page() -> None:
     drafts = {}
     if DRAFTS.exists():
         drafts = {(r["id"], r["kind"]): r for r in map(json.loads, DRAFTS.open(encoding="utf-8"))}
+    if REGEN.exists():  # clean regenerated natural drafts replace defective ones (deviation of 2026-10-22)
+        for r in map(json.loads, REGEN.open(encoding="utf-8")):
+            if not r["defective"]:
+                drafts[(r["id"], "natural")] = r
+    if MANUAL.exists():  # Aarnav's hand fixes override every Gemini draft
+        for r in map(json.loads, MANUAL.open(encoding="utf-8")):
+            drafts[(r["id"], r["kind"])] = {**r, "defective": False, "source": "manual"}
+    blind = set(json.load(open(BLIND))["ids"]) if BLIND.exists() else set()
     rows = []
     for it in items():
         d = {k: drafts.get((it["id"], k)) for k in ("natural", "kanglish")}
-        rows.append({"id": it["id"], "source": it["source"], "double": it["double"], "native": it["native"],
+        rows.append({"id": it["id"], "source": it["source"], "double": it["double"], "blind": it["id"] in blind,
+                     "native": it["native"],
                      "english": it["english"],
                      **{f"{k}_draft": (v["text"] if v else "") for k, v in d.items()},
                      **{f"{k}_flag": bool(v and v["defective"]) for k, v in d.items()}})
-    html = (REPO / "annotation" / "template_v1.html").read_text(encoding="utf-8")
+    html = TEMPLATE.read_text(encoding="utf-8")
     html = html.replace("__ITEMS_JSON__", json.dumps(rows, ensure_ascii=False).replace("</", "<\\/"))
     PAGE.write_text(html, encoding="utf-8")
-    print({"page": str(PAGE), "n_items": len(rows), "n_missing_drafts": sum(not r["natural_draft"] or
+    print({"page": str(PAGE), "n_items": len(rows), "n_blind": sum(r["blind"] for r in rows),
+           "flagged": [r["id"] for r in rows if r["natural_flag"] or r["kanglish_flag"]], "n_missing_drafts": sum(not r["natural_draft"] or
                                                                              not r["kanglish_draft"] for r in rows)})
 
 
@@ -174,10 +243,13 @@ def do_agreement() -> None:
     from sklearn.metrics import cohen_kappa_score
     files = sorted(ANN_DIR.glob("*.csv"))
     A = {f.stem: pd.read_csv(f, encoding="utf-8-sig").drop_duplicates("item_id", keep="last").set_index("item_id") for f in files}
-    dbl = [it["id"] for it in items() if it["double"]]
+    blind = set(json.load(open(BLIND))["ids"]) if BLIND.exists() else set()
+    # 2026-10-22: the second annotator writes the blind items from scratch (no drafts, no ratings), so rating and
+    # correction agreement is computed on the other double items (60); the blind items are analysed for K3.
+    dbl = [it["id"] for it in items() if it["double"] and it["id"] not in blind]
     full = [a for a, d in A.items() if set(dbl) <= set(d.index)]
     if len(full) < 2:
-        print({"status": "waiting: fewer than two annotators have finished the 100 double items",
+        print({"status": f"waiting: fewer than two annotators have finished the {len(dbl)} non-blind double items",
                "progress": {a: int(len(set(dbl) & set(d.index))) for a, d in A.items()}})
         return
     a, b = full[:2]
@@ -199,6 +271,8 @@ def do_agreement() -> None:
 if __name__ == "__main__":
     sys.path.insert(0, str(REPO / "scripts"))
     step = sys.argv[1]
+    if step == "regen":
+        sys.exit(do_regen())
     if step == "draft":
         sys.exit(do_draft())
-    {"select": do_select, "plan": do_plan, "page": do_page, "agreement": do_agreement}[step]()
+    {"select": do_select, "plan": do_plan, "blind": do_blind, "page": do_page, "agreement": do_agreement}[step]()

@@ -1457,3 +1457,49 @@ ladder registration (L3 on sentiment paired on 198); the 2026-10-22 alignment cu
    the 2026-10-22 correction): based on the unmatched table.
 None of these was a registered test, and no verdict changes. The paper's main tables now use matched items
 (`results/matched/`, `scripts/matched_samples.py`, descriptive, no verdict; full-sample results go to appendix tables).
+
+---
+## PRE-REGISTRATION — K3 revised: blind human-written vs Gemini natural romanization; annotation deviations (written 2026-10-22, Aarnav's design; before any annotation exists and before the page is distributed)
+
+### Deviations from the K1–K3 registration (2026-10-16) and its addendum (2026-10-17)
+- **(a) Defective natural drafts re-asked beyond attempt 3.** 5 natural drafts were still defective after attempts 1–3
+  (leftover Kannada script, CJK characters, or "ā"). Each got attempts 4–5 (same model, prompt, temperature;
+  `scripts/k_annotation.py regen`, output `data/annotation/drafts_regen_v1.jsonl`). Clean after regeneration: flores-1113
+  (attempt 4), flores-931 (attempt 5), indicsentiment-test-991 (attempt 4). **Still defective, flagged for Aarnav to fix
+  by hand:** flores-993 (one word left in Kannada script) and indicsentiment-test-245 ("bāsigeya"). Hand fixes go in
+  `data/annotation/drafts_manual_v1.jsonl` and override every Gemini draft on the page. The E0 natural file
+  (`data/processed/natural_e0_v1.jsonl`, Gate 1 data) is not changed. The draft shown to annotators is recorded per
+  item, so K1–K3 know which text was rated.
+- **(b) Blind condition.** 40 of the 100 double-annotated items, chosen at random: `numpy.random.default_rng(2)
+  .choice(100, 40, replace=False)` over the double items in `items_v1.jsonl` order (`scripts/k_annotation.py blind`,
+  ids in `data/annotation/blind_v1.json`; 16 sentiment, 24 FLORES). For these, the **second annotator sees only the
+  native Kannada sentence** (no English, no drafts) and writes the natural romanization and the Kanglish version from
+  scratch; no draft ratings. The page (`annotation/annotate_v2.html`) puts the 40 blind items first in the second
+  annotator's list, so they are written before any Gemini draft is seen. The primary annotator sees these items
+  normally (drafts, ratings, corrections), as for every item.
+- **(c) Agreement on 60, not 100.** Cohen's kappa (meaning), quadratic-weighted kappa (naturalness) and chrF between
+  the two annotators' corrections are computed on the 60 non-blind double items (the second annotator neither rates
+  nor corrects drafts on the blind 40).
+
+### K3 (replaces the 2026-10-16 K3): Gemini natural romanization vs human-written, on the 40 blind items only
+- **Texts:** for each blind item, the second annotator's from-scratch natural romanization ("human") and the Gemini
+  natural draft shown on the page ("Gemini").
+- **Measure 1, chrF** (sacrebleu chrF, char order 6, word order 0, β = 2) of Gemini against human, per item; mean with a
+  bootstrap CI (10,000 resamples over the 40 items). Reported alongside, as a reference for how much two human
+  romanizations differ: chrF between the two annotators' corrected natural versions on the 60 non-blind items.
+- **Measure 2, naturalness rated by Aarnav:** a separate rating page shows each blind item's native sentence and the
+  two versions, **in random order (seed 3, fixed per item) with the source hidden**; Aarnav rates each version's
+  naturalness 1–5. Paired difference (human − Gemini) per item; mean with a bootstrap CI (10,000 over items).
+- **Decision rule (proposed by Claude Code 2026-10-22; to be confirmed by Aarnav before any blind item is written):**
+  on Measure 2, **K3 holds** ("Gemini's natural romanization is about as natural as a human's") if the CI of the mean
+  difference lies within ±0.5 rating points; **human more natural** if the CI lower bound is above +0.5; **Gemini more
+  natural** if the upper bound is below −0.5; otherwise **inconclusive**. Measure 1 has no threshold (two valid
+  romanizations can differ in spelling) and is reported descriptively next to the human–human reference.
+- **Stated limitations, now:** n = 40, so the CI is wide. Aarnav will have seen (and corrected) the Gemini drafts of
+  these items in his own pass, which can unblind the rating; to limit this, the rating should be done **before**
+  Aarnav annotates those 40 items, or else this is reported as a caveat. Kanglish blind texts are rated the same way
+  and reported descriptively (no K3 rule).
+- **The other 60 double items:** reported descriptively only (the second annotator's ratings of the drafts, draft vs
+  correction chrF, agreement with the primary annotator).
+- **The 2026-10-16 K3 test** (human-corrected vs Gemini natural accuracy within ±5 points on the 200 sentiment items)
+  is **no longer a registered test**; if that scoring is run it is reported as descriptive.
