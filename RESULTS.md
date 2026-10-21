@@ -1409,3 +1409,20 @@ one of the 576 eligible texts is controlled (`complete_all_paired: true`), so th
 A key `gap_all_controlled` with the identical block was added (copied programmatically from the old key, not
 recomputed); the old key is kept. `scripts/e0b_backtranslate_control.py` now writes both, and
 `paper/NUMBERS.md` points to the new key.
+
+---
+## 2026-10-22 — Per-layer English alignment, natural vs native vs ITRANS, M4c test half (post hoc descriptive, 2026-10-22, no verdict)
+Approved by Aarnav for the paper figure. `scripts/m4c_curves.py`, CPU only (cached sentence vectors, no model loaded).
+Output `results/m4c_curves/curves.json`; figure `paper/figures/F_alignment_curves.{pdf,png}`.
+- **What:** unmapped retrieval acc@1 against English at every layer for Qwen3.5-2B, Sarvam-1 and Gemma 4 E2B, forms
+  native, ITRANS and natural, all on the same 248 M4c test-half sentences (M4c split, seed 0; train-half centering;
+  248 candidates). This is M4c's `unmapped_test` measure computed at every layer instead of only at the train-half
+  best layer.
+- **Check:** at each form's train-half best layer the curve reproduces `results/m4c_natural/summary.csv`
+  `unmapped_test` exactly in all 9 model × form cells (asserted in the script). No new number is reported here
+  beyond the curves themselves.
+- **Why:** the earlier figure drew native and ITRANS on all 2,009 sentences (Gate 2) and could not draw natural, which
+  exists only for the M4c sample. The main figure now uses matched sentences for all three forms. The 2,009-sentence
+  native/ITRANS curves are kept as an appendix figure, `paper/figures/F_alignment_curves_2009.{pdf,png}` (from
+  `results/m14_full/<model>/m4.json`).
+- **No verdict.** Nothing here tests or changes a registered prediction.
