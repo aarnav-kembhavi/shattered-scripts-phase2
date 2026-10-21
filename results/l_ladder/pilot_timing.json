@@ -1,0 +1,26 @@
+{
+  "provenance": {
+    "config": {
+      "n": 30,
+      "accuracies": "not computed"
+    },
+    "git_commit": "50c6a5fcf7ca041a4017c419d54e5c7e309f3454",
+    "timestamp_utc": "2026-10-21T20:21:51+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/l_ladder.py",
+      "pilot"
+    ]
+  },
+  "qwen2.5-1.5b": {
+    "load_s": 11.865798473358154,
+    "forward_30_sentences_s": 2.182551860809326,
+    "sib_30_items_incl_load_s": 16.520879983901978
+  },
+  "gemma4-e2b": {
+    "load_s": 10.887035369873047,
+    "forward_30_sentences_s": 4.200024843215942,
+    "sib_30_items_incl_load_s": 37.20833611488342
+  }
+}
