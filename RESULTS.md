@@ -1398,3 +1398,14 @@ the overall range is wrong at its top. Stored values (ITRANS − lossy tokens pe
   tokenizer) to 0.974 (Sarvam-1), so **0.77–0.97**, not 0.78–0.98.
 - **Overall** (15 cells): 0.657–0.974, so **0.66–0.97**.
 The original note is left as written; this entry supersedes its SIB-200 range. No verdict depended on these ranges.
+
+---
+## 2026-10-22 — Note: back-translation summary key renamed (no value changed)
+In `results/e0b_natural_check/summary_control.json` the final back-translation numbers (native 0.838, natural 0.621,
+gap 0.217 [0.201, 0.234], n = 576; RESULTS.md 2026-10-15 "final" entry) sit under the key
+`gap_all_controlled_BIASED_UPWARD_by_selection`. That name dates from the interim run, when the 24 lowest-similarity
+texts had been controlled first, so the controlled set was selected and the gap biased upward. In the full run every
+one of the 576 eligible texts is controlled (`complete_all_paired: true`), so there is no selection and no such bias.
+A key `gap_all_controlled` with the identical block was added (copied programmatically from the old key, not
+recomputed); the old key is kept. `scripts/e0b_backtranslate_control.py` now writes both, and
+`paper/NUMBERS.md` points to the new key.

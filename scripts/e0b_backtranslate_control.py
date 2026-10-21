@@ -86,7 +86,9 @@ def main() -> None:
     while k < len(seq) and seq[k] in d.index:
         k += 1
     summ = {"complete_all_paired": bool(done.sum() == len(df)),
+            # old name kept for compatibility: biased only while the flagged texts were controlled first (interim)
             "gap_all_controlled_BIASED_UPWARD_by_selection": gap(d),
+            "gap_all_controlled": gap(d),  # every controlled text; unbiased once complete_all_paired is true
             "gap_nonflagged_controlled_so_far": gap(nonflag),
             "gap_random_prefix": gap(d.loc[seq[:k]]),
             "n_with_control": int(len(d)), "n_source_noise_excluded": int((done & df.source_noise).sum()),
