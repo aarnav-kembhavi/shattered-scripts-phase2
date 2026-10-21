@@ -1448,9 +1448,9 @@ ladder registration (L3 on sentiment paired on 198); the 2026-10-22 alignment cu
 2. **Gate 1 P1 text:** "Qwen2.5 sentiment (51.5 vs 70.5)": 70.5 is native on all 200; on the 198 matched items native
    is 70.2 (`mcnemar.csv`, `acc_b`). The test and verdict used the matched 198.
 3. **Gate 1 "Hint" and the M4c "Confound" bullet:** natural tokens per word (sentiment: 3.15–4.29) are on 198 texts,
-   ITRANS and lossy on 200. On matched items (`results/matched/tokens_per_word.csv`, sentiment, natural vs the same
-   198 is not stored; the 200-item values differ from 198-item values by 2 texts) the comparison is near-identical but
-   was not computed matched.
+   ITRANS and lossy on 200 (2 extra texts). The paper's main sentiment panel keeps this structure, because natural
+   cannot exist for the 2 defective items; its caption states n = 200, natural n = 198. A strictly matched 198-item
+   tokens-per-word comparison has not been computed.
 4. **M4c reading, "Gate 1 (accuracy) still had native > natural in every model":** read from the unmatched table. On
    the matched items native > natural in every model on sentiment, but Qwen3.5 XNLI is a tie (34.2 vs 34.2, n = 193).
 5. **Definition note (2026-10-15), "natural romanization … scores about the same as ITRANS"** (already superseded by
