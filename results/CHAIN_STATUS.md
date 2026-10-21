@@ -1,6 +1,6 @@
-# Chain status
+# Chain status: m4c (natural romanization in M4)
 
-- state: **WAITING**
-- chain: m4c (natural romanization in M4)
-- heartbeat: 2026-10-16 11:40:04 IST
-- detail: until 2026-10-16 12:45 IST (Gemini reset)
+- state: **DONE**
+- heartbeat: 2026-10-17 05:12:00 IST
+- detail: m4c finished at 2026-10-17 05:12:00 IST; results/m4c_natural/
+- pid: 910 (bash)

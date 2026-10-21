@@ -1,0 +1,31 @@
+{
+  "provenance": {
+    "config": {
+      "sample": "M4c 496 retained",
+      "split_seed": 0,
+      "registered": "RESULTS.md 2026-10-21 (addendum, natural surface baseline)"
+    },
+    "git_commit": "7d86cfcdf96952f8550fd97a9f80b6b8b3643711-dirty",
+    "timestamp_utc": "2026-10-21T16:54:55+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/m4c_surface.py"
+    ]
+  },
+  "status": {
+    "qwen2.5-1.5b|native": "beyond surface",
+    "qwen2.5-1.5b|itrans": "partial",
+    "qwen2.5-1.5b|natural": "partial",
+    "qwen3.5-2b|native": "beyond surface",
+    "qwen3.5-2b|itrans": "partial",
+    "qwen3.5-2b|natural": "beyond surface",
+    "sarvam-1|native": "beyond surface",
+    "sarvam-1|itrans": "partial",
+    "sarvam-1|natural": "beyond surface",
+    "gemma4-e2b|native": "beyond surface",
+    "gemma4-e2b|itrans": "surface-level",
+    "gemma4-e2b|natural": "beyond surface"
+  },
+  "n_sentences": 496
+}

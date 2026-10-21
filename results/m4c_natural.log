@@ -1,0 +1,155 @@
+=== 2026-10-17 02:03:39 romanize (attempt after 0 quota resets): .venv/Scripts/python.exe -u scripts/m4c_natural_flores.py romanize
+Direct use of automatic function calling (AFC) in Models.generate_content is not recommended. Instead, we recommend to use AFC in Chat.send_message. Similarly, direct use of AFC in Models.generate_content_stream is not recommended. Instead, we recommend to use AFC in Chat.send_message_stream.
+{'n_done': 500, 'n_target': 500, 'n_defective_after_retries': 4, 'stopped': None, 'complete': True}
+=== 2026-10-17 04:59:58 forward pass (natural, 4 models): .venv/Scripts/python.exe -u scripts/m4c_natural_flores.py forward
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   4%|▍         | 13/338 [00:00<00:03, 97.96it/s]Loading weights:   7%|▋         | 23/338 [00:00<00:04, 68.48it/s]Loading weights:  10%|█         | 35/338 [00:00<00:03, 82.35it/s]Loading weights:  14%|█▍        | 47/338 [00:00<00:03, 86.64it/s]Loading weights:  17%|█▋        | 57/338 [00:00<00:03, 76.76it/s]Loading weights:  19%|█▉        | 65/338 [00:00<00:03, 72.78it/s]Loading weights:  22%|██▏       | 73/338 [00:00<00:03, 69.96it/s]Loading weights:  25%|██▍       | 83/338 [00:01<00:04, 61.27it/s]Loading weights:  27%|██▋       | 90/338 [00:01<00:04, 56.46it/s]Loading weights:  32%|███▏      | 107/338 [00:01<00:02, 77.70it/s]Loading weights:  35%|███▌      | 119/338 [00:01<00:02, 84.62it/s]Loading weights:  38%|███▊      | 128/338 [00:01<00:02, 77.83it/s]Loading weights:  41%|████      | 137/338 [00:01<00:02, 68.97it/s]Loading weights:  43%|████▎     | 145/338 [00:02<00:03, 62.31it/s]Loading weights:  46%|████▌     | 155/338 [00:02<00:02, 66.08it/s]Loading weights:  49%|████▉     | 166/338 [00:02<00:02, 65.97it/s]Loading weights:  53%|█████▎    | 179/338 [00:02<00:02, 69.21it/s]Loading weights:  57%|█████▋    | 191/338 [00:02<00:01, 75.79it/s]Loading weights:  59%|█████▉    | 199/338 [00:02<00:01, 72.46it/s]Loading weights:  61%|██████    | 207/338 [00:02<00:01, 68.42it/s]Loading weights:  63%|██████▎   | 214/338 [00:03<00:02, 60.00it/s]Loading weights:  67%|██████▋   | 228/338 [00:03<00:01, 75.26it/s]Loading weights:  70%|███████   | 238/338 [00:03<00:01, 70.37it/s]Loading weights:  74%|███████▍  | 251/338 [00:03<00:01, 65.39it/s]Loading weights:  78%|███████▊  | 264/338 [00:03<00:01, 68.77it/s]Loading weights:  81%|████████  | 273/338 [00:03<00:00, 69.30it/s]Loading weights:  85%|████████▍ | 286/338 [00:04<00:00, 64.34it/s]Loading weights:  88%|████████▊ | 298/338 [00:04<00:00, 64.18it/s]Loading weights:  92%|█████████▏| 310/338 [00:04<00:00, 63.41it/s]Loading weights:  95%|█████████▌| 322/338 [00:04<00:00, 64.46it/s]Loading weights: 100%|██████████| 338/338 [00:04<00:00, 71.64it/s]
+qwen2.5-1.5b: natural500 forward done
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]Loading weights:   0%|          | 1/320 [00:00<01:46,  2.99it/s]Loading weights:   2%|▏         | 6/320 [00:00<00:23, 13.58it/s]Loading weights:   4%|▍         | 13/320 [00:00<00:11, 27.59it/s]Loading weights:   7%|▋         | 22/320 [00:00<00:08, 37.00it/s]Loading weights:  10%|█         | 32/320 [00:00<00:06, 46.76it/s]Loading weights:  12%|█▎        | 40/320 [00:01<00:07, 39.44it/s]Loading weights:  18%|█▊        | 58/320 [00:01<00:03, 65.63it/s]Loading weights:  21%|██        | 67/320 [00:01<00:04, 54.96it/s]Loading weights:  23%|██▎       | 75/320 [00:01<00:04, 57.77it/s]Loading weights:  27%|██▋       | 86/320 [00:01<00:03, 66.69it/s]Loading weights:  29%|██▉       | 94/320 [00:01<00:04, 55.62it/s]Loading weights:  32%|███▏      | 101/320 [00:02<00:04, 53.04it/s]Loading weights:  36%|███▌      | 114/320 [00:02<00:03, 61.67it/s]Loading weights:  39%|███▉      | 125/320 [00:02<00:02, 70.33it/s]Loading weights:  42%|████▏     | 133/320 [00:02<00:03, 61.91it/s]Loading weights:  44%|████▍     | 142/320 [00:02<00:03, 57.12it/s]Loading weights:  47%|████▋     | 149/320 [00:02<00:03, 56.90it/s]Loading weights:  51%|█████▏    | 164/320 [00:03<00:02, 68.12it/s]Loading weights:  54%|█████▍    | 173/320 [00:03<00:02, 72.74it/s]Loading weights:  57%|█████▋    | 181/320 [00:03<00:01, 73.59it/s]Loading weights:  59%|█████▉    | 189/320 [00:03<00:01, 73.89it/s]Loading weights:  62%|██████▏   | 197/320 [00:03<00:02, 60.39it/s]Loading weights:  64%|██████▍   | 204/320 [00:03<00:02, 55.18it/s]Loading weights:  67%|██████▋   | 214/320 [00:03<00:01, 62.88it/s]Loading weights:  69%|██████▉   | 221/320 [00:04<00:01, 54.58it/s]Loading weights:  72%|███████▏  | 231/320 [00:04<00:01, 61.87it/s]Loading weights:  74%|███████▍  | 238/320 [00:04<00:01, 56.07it/s]Loading weights:  77%|███████▋  | 246/320 [00:04<00:01, 51.78it/s]Loading weights:  79%|███████▉  | 253/320 [00:04<00:01, 46.49it/s]Loading weights:  84%|████████▍ | 268/320 [00:04<00:00, 62.88it/s]Loading weights:  86%|████████▌ | 275/320 [00:04<00:00, 57.30it/s]Loading weights:  89%|████████▉ | 286/320 [00:05<00:00, 52.94it/s]Loading weights:  93%|█████████▎| 297/320 [00:05<00:00, 49.81it/s]Loading weights:  96%|█████████▌| 306/320 [00:05<00:00, 50.36it/s]Loading weights: 100%|██████████| 320/320 [00:05<00:00, 55.91it/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+qwen3.5-2b: natural500 forward done
+Loading weights:   0%|          | 0/255 [00:00<?, ?it/s]Loading weights:   1%|          | 2/255 [00:00<00:18, 13.62it/s]Loading weights:   4%|▎         | 9/255 [00:00<00:09, 25.92it/s]Loading weights:   5%|▌         | 14/255 [00:00<00:08, 30.12it/s]Loading weights:   7%|▋         | 18/255 [00:00<00:08, 28.77it/s]Loading weights:  11%|█         | 27/255 [00:00<00:05, 40.45it/s]Loading weights:  13%|█▎        | 32/255 [00:00<00:06, 34.49it/s]Loading weights:  15%|█▍        | 37/255 [00:01<00:07, 28.54it/s]Loading weights:  18%|█▊        | 46/255 [00:01<00:06, 31.48it/s]Loading weights:  21%|██        | 54/255 [00:01<00:05, 38.08it/s]Loading weights:  23%|██▎       | 59/255 [00:01<00:05, 34.10it/s]Loading weights:  25%|██▍       | 63/255 [00:01<00:06, 31.52it/s]Loading weights:  27%|██▋       | 68/255 [00:02<00:05, 32.82it/s]Loading weights:  29%|██▊       | 73/255 [00:02<00:05, 33.61it/s]Loading weights:  30%|███       | 77/255 [00:02<00:05, 32.80it/s]Loading weights:  32%|███▏      | 82/255 [00:02<00:06, 28.15it/s]Loading weights:  34%|███▍      | 87/255 [00:02<00:06, 25.91it/s]Loading weights:  36%|███▌      | 92/255 [00:02<00:05, 30.13it/s]Loading weights:  38%|███▊      | 98/255 [00:03<00:04, 32.32it/s]Loading weights:  41%|████      | 104/255 [00:03<00:04, 30.95it/s]Loading weights:  42%|████▏     | 108/255 [00:03<00:05, 28.27it/s]Loading weights:  45%|████▍     | 114/255 [00:03<00:04, 31.86it/s]Loading weights:  47%|████▋     | 119/255 [00:03<00:04, 31.37it/s]Loading weights:  49%|████▉     | 125/255 [00:04<00:04, 26.11it/s]Loading weights:  52%|█████▏    | 133/255 [00:04<00:03, 32.69it/s]Loading weights:  54%|█████▎    | 137/255 [00:04<00:03, 30.07it/s]Loading weights:  56%|█████▋    | 144/255 [00:04<00:03, 30.05it/s]Loading weights:  58%|█████▊    | 148/255 [00:04<00:03, 29.46it/s]Loading weights:  60%|██████    | 153/255 [00:05<00:03, 25.63it/s]Loading weights:  62%|██████▏   | 158/255 [00:05<00:03, 27.96it/s]Loading weights:  64%|██████▍   | 163/255 [00:05<00:03, 29.35it/s]Loading weights:  66%|██████▋   | 169/255 [00:05<00:02, 31.92it/s]Loading weights:  68%|██████▊   | 173/255 [00:05<00:02, 30.23it/s]Loading weights:  71%|███████   | 180/255 [00:05<00:02, 29.44it/s]Loading weights:  74%|███████▍  | 189/255 [00:06<00:02, 31.07it/s]Loading weights:  76%|███████▌  | 194/255 [00:06<00:01, 32.58it/s]Loading weights:  78%|███████▊  | 198/255 [00:06<00:01, 30.49it/s]Loading weights:  80%|████████  | 205/255 [00:06<00:01, 35.71it/s]Loading weights:  82%|████████▏ | 209/255 [00:06<00:01, 32.54it/s]Loading weights:  85%|████████▍ | 216/255 [00:07<00:01, 28.35it/s]Loading weights:  87%|████████▋ | 221/255 [00:07<00:01, 30.95it/s]Loading weights:  89%|████████▉ | 227/255 [00:07<00:00, 33.05it/s]Loading weights:  91%|█████████▏| 233/255 [00:07<00:00, 36.31it/s]Loading weights:  93%|█████████▎| 237/255 [00:07<00:00, 33.50it/s]Loading weights:  95%|█████████▍| 241/255 [00:07<00:00, 32.36it/s]Loading weights:  96%|█████████▌| 245/255 [00:07<00:00, 30.87it/s]Loading weights: 100%|██████████| 255/255 [00:07<00:00, 31.96it/s]
+sarvam-1: natural500 forward done
+Fetching 6 files:   0%|          | 0/6 [00:00<?, ?it/s]Fetching 6 files: 100%|██████████| 6/6 [00:00<00:00, 1200.95it/s]
+gemma4-e2b: natural500 forward done
+=== 2026-10-17 05:05:59 analysis: .venv/Scripts/python.exe -u scripts/m4c_natural_flores.py analyse
+{'model': 'qwen2.5-1.5b', 'form': 'native', 'n_sentences': 496, 'unmapped_all_best': np.float64(0.21774193548387097), 'unmapped_all_best_layer': 16, 'mapped_test': np.float64(0.2903225806451613), 'mapped_test_ci': [0.2338709682226181, 0.3467741906642914], 'mapped_layer': 27, 'unmapped_test': np.float64(0.23790322580645162), 'unmapped_test_ci': [0.1854838728904724, 0.2943548262119293], 'shuffled_control': np.float64(0.008064516129032258)}
+{'model': 'qwen2.5-1.5b', 'form': 'itrans', 'n_sentences': 496, 'unmapped_all_best': np.float64(0.10080645161290322), 'unmapped_all_best_layer': 1, 'mapped_test': np.float64(0.2782258064516129), 'mapped_test_ci': [0.22177419066429138, 0.33467742800712585], 'mapped_layer': 1, 'unmapped_test': np.float64(0.13306451612903225), 'unmapped_test_ci': [0.0927419364452362, 0.17741934955120087], 'shuffled_control': np.float64(0.008064516129032258)}
+{'model': 'qwen2.5-1.5b', 'form': 'natural', 'n_sentences': 496, 'unmapped_all_best': np.float64(0.3326612903225806), 'unmapped_all_best_layer': 1, 'mapped_test': np.float64(0.24596774193548387), 'mapped_test_ci': [0.19354838132858276, 0.30241936445236206], 'mapped_layer': 1, 'unmapped_test': np.float64(0.3790322580645161), 'unmapped_test_ci': [0.31854838132858276, 0.4395161271095276], 'shuffled_control': np.float64(0.004032258064516129)}
+{'model': 'qwen3.5-2b', 'form': 'native', 'n_sentences': 496, 'unmapped_all_best': np.float64(0.9919354838709677), 'unmapped_all_best_layer': 15, 'mapped_test': np.float64(0.9516129032258065), 'mapped_test_ci': [0.9233871102333069, 0.975806474685669], 'mapped_layer': 7, 'unmapped_test': np.float64(1.0), 'unmapped_test_ci': [1.0, 1.0], 'shuffled_control': np.float64(0.004032258064516129)}
+{'model': 'qwen3.5-2b', 'form': 'itrans', 'n_sentences': 496, 'unmapped_all_best': np.float64(0.18951612903225806), 'unmapped_all_best_layer': 5, 'mapped_test': np.float64(0.28225806451612906), 'mapped_test_ci': [0.22580644488334656, 0.33870968222618103], 'mapped_layer': 2, 'unmapped_test': np.float64(0.18951612903225806), 'unmapped_test_ci': [0.1411290317773819, 0.23790322244167328], 'shuffled_control': np.float64(0.016129032258064516)}
+{'model': 'qwen3.5-2b', 'form': 'natural', 'n_sentences': 496, 'unmapped_all_best': np.float64(0.4778225806451613), 'unmapped_all_best_layer': 6, 'mapped_test': np.float64(0.3225806451612903), 'mapped_test_ci': [0.2661290466785431, 0.3790322542190552], 'mapped_layer': 7, 'unmapped_test': np.float64(0.5120967741935484), 'unmapped_test_ci': [0.4516128897666931, 0.5725806355476379], 'shuffled_control': np.float64(0.004032258064516129)}
+{'model': 'sarvam-1', 'form': 'native', 'n_sentences': 496, 'unmapped_all_best': np.float64(0.9657258064516129), 'unmapped_all_best_layer': 24, 'mapped_test': np.float64(0.842741935483871), 'mapped_test_ci': [0.7943548560142517, 0.8870967626571655], 'mapped_layer': 25, 'unmapped_test': np.float64(0.9879032258064516), 'unmapped_test_ci': [0.9717742204666138, 1.0], 'shuffled_control': np.float64(0.004032258064516129)}
+{'model': 'sarvam-1', 'form': 'itrans', 'n_sentences': 496, 'unmapped_all_best': np.float64(0.6169354838709677), 'unmapped_all_best_layer': 17, 'mapped_test': np.float64(0.3185483870967742), 'mapped_test_ci': [0.2620967626571655, 0.375], 'mapped_layer': 21, 'unmapped_test': np.float64(0.6854838709677419), 'unmapped_test_ci': [0.625, 0.7419354915618896], 'shuffled_control': np.float64(0.016129032258064516)}
+{'model': 'sarvam-1', 'form': 'natural', 'n_sentences': 496, 'unmapped_all_best': np.float64(0.9233870967741935), 'unmapped_all_best_layer': 19, 'mapped_test': np.float64(0.6612903225806451), 'mapped_test_ci': [0.600806474685669, 0.7177419066429138], 'mapped_layer': 24, 'unmapped_test': np.float64(0.9193548387096774), 'unmapped_test_ci': [0.8830645084381104, 0.9516128897666931], 'shuffled_control': np.float64(0.008064516129032258)}
+{'model': 'gemma4-e2b', 'form': 'native', 'n_sentences': 496, 'unmapped_all_best': np.float64(0.9979838709677419), 'unmapped_all_best_layer': 7, 'mapped_test': np.float64(0.9435483870967742), 'mapped_test_ci': [0.9112903475761414, 0.9717742204666138], 'mapped_layer': 7, 'unmapped_test': np.float64(1.0), 'unmapped_test_ci': [1.0, 1.0], 'shuffled_control': np.float64(0.0)}
+{'model': 'gemma4-e2b', 'form': 'itrans', 'n_sentences': 496, 'unmapped_all_best': np.float64(0.35685483870967744), 'unmapped_all_best_layer': 7, 'mapped_test': np.float64(0.2540322580645161), 'mapped_test_ci': [0.2016129046678543, 0.30645161867141724], 'mapped_layer': 0, 'unmapped_test': np.float64(0.4435483870967742), 'unmapped_test_ci': [0.38306450843811035, 0.5080645084381104], 'shuffled_control': np.float64(0.0)}
+{'model': 'gemma4-e2b', 'form': 'natural', 'n_sentences': 496, 'unmapped_all_best': np.float64(0.6532258064516129), 'unmapped_all_best_layer': 7, 'mapped_test': np.float64(0.40725806451612906), 'mapped_test_ci': [0.3467741906642914, 0.4677419364452362], 'mapped_layer': 8, 'unmapped_test': np.float64(0.7096774193548387), 'unmapped_test_ci': [0.6532257795333862, 0.7620967626571655], 'shuffled_control': np.float64(0.004032258064516129)}
+warning: in the working copy of 'results/CHAIN_STATUS.md', LF will be replaced by CRLF the next time Git touches it
+       model    form  n_sentences  unmapped_all_best  unmapped_all_best_layer  mapped_test                             mapped_test_ci  mapped_layer  unmapped_test                          unmapped_test_ci  shuffled_control
+qwen2.5-1.5b  native          496              0.218                       16        0.290   [0.2338709682226181, 0.3467741906642914]            27          0.238  [0.1854838728904724, 0.2943548262119293]             0.008
+qwen2.5-1.5b  itrans          496              0.101                        1        0.278 [0.22177419066429138, 0.33467742800712585]             1          0.133 [0.0927419364452362, 0.17741934955120087]             0.008
+qwen2.5-1.5b natural          496              0.333                        1        0.246 [0.19354838132858276, 0.30241936445236206]             1          0.379 [0.31854838132858276, 0.4395161271095276]             0.004
+  qwen3.5-2b  native          496              0.992                       15        0.952    [0.9233871102333069, 0.975806474685669]             7          1.000                                [1.0, 1.0]             0.004
+  qwen3.5-2b  itrans          496              0.190                        5        0.282 [0.22580644488334656, 0.33870968222618103]             2          0.190 [0.1411290317773819, 0.23790322244167328]             0.016
+  qwen3.5-2b natural          496              0.478                        6        0.323   [0.2661290466785431, 0.3790322542190552]             7          0.512  [0.4516128897666931, 0.5725806355476379]             0.004
+    sarvam-1  native          496              0.966                       24        0.843   [0.7943548560142517, 0.8870967626571655]            25          0.988                 [0.9717742204666138, 1.0]             0.004
+    sarvam-1  itrans          496              0.617                       17        0.319                [0.2620967626571655, 0.375]            21          0.685               [0.625, 0.7419354915618896]             0.016
+    sarvam-1 natural          496              0.923                       19        0.661    [0.600806474685669, 0.7177419066429138]            24          0.919  [0.8830645084381104, 0.9516128897666931]             0.008
+  gemma4-e2b  native          496              0.998                        7        0.944   [0.9112903475761414, 0.9717742204666138]             7          1.000                                [1.0, 1.0]             0.000
+  gemma4-e2b  itrans          496              0.357                        7        0.254  [0.2016129046678543, 0.30645161867141724]             0          0.444 [0.38306450843811035, 0.5080645084381104]             0.000
+  gemma4-e2b natural          496              0.653                        7        0.407   [0.3467741906642914, 0.4677419364452362]             8          0.710  [0.6532257795333862, 0.7620967626571655]             0.004
+{
+ "qwen2.5-1.5b|native-natural|mapped": {
+  "diff": 0.044354838709677435,
+  "ci": [
+   -0.024193547666072845,
+   0.1088709682226181
+  ]
+ },
+ "qwen2.5-1.5b|native-natural|unmapped": {
+  "diff": -0.1411290322580645,
+  "ci": [
+   -0.2177419364452362,
+   -0.06451612710952759
+  ]
+ },
+ "qwen2.5-1.5b|natural-itrans|mapped": {
+  "diff": -0.032258064516129004,
+  "ci": [
+   -0.0927419364452362,
+   0.032258063554763794
+  ]
+ },
+ "qwen2.5-1.5b|natural-itrans|unmapped": {
+  "diff": 0.24596774193548387,
+  "ci": [
+   0.19354838132858276,
+   0.30241936445236206
+  ]
+ },
+ "qwen3.5-2b|native-natural|mapped": {
+  "diff": 0.6290322580645162,
+  "ci": [
+   0.5685483813285828,
+   0.6895161271095276
+  ]
+ },
+ "qwen3.5-2b|native-natural|unmapped": {
+  "diff": 0.4879032258064516,
+  "ci": [
+   0.42741936445236206,
+   0.5483871102333069
+  ]
+ },
+ "qwen3.5-2b|natural-itrans|mapped": {
+  "diff": 0.040322580645161255,
+  "ci": [
+   -0.032258063554763794,
+   0.11290322244167328
+  ]
+ },
+ "qwen3.5-2b|natural-itrans|unmapped": {
+  "diff": 0.3225806451612903,
+  "ci": [
+   0.2540322542190552,
+   0.3911290466785431
+  ]
+ },
+ "sarvam-1|native-natural|mapped": {
+  "diff": 0.18145161290322587,
+  "ci": [
+   0.12096773833036423,
+   0.24193547666072845
+  ]
+ },
+ "sarvam-1|native-natural|unmapped": {
+  "diff": 0.06854838709677424,
+  "ci": [
+   0.03629032149910927,
+   0.10483870655298233
+  ]
+ },
+ "sarvam-1|natural-itrans|mapped": {
+  "diff": 0.34274193548387094,
+  "ci": [
+   0.2620967626571655,
+   0.4193548262119293
+  ]
+ },
+ "sarvam-1|natural-itrans|unmapped": {
+  "diff": 0.2338709677419355,
+  "ci": [
+   0.17741934955120087,
+   0.2904233932495117
+  ]
+ },
+ "gemma4-e2b|native-natural|mapped": {
+  "diff": 0.5362903225806452,
+  "ci": [
+   0.4717741906642914,
+   0.600806474685669
+  ]
+ },
+ "gemma4-e2b|native-natural|unmapped": {
+  "diff": 0.29032258064516125,
+  "ci": [
+   0.23790322244167328,
+   0.3467741906642914
+  ]
+ },
+ "gemma4-e2b|natural-itrans|mapped": {
+  "diff": 0.15322580645161293,
+  "ci": [
+   0.07661290466785431,
+   0.22983871400356293
+  ]
+ },
+ "gemma4-e2b|natural-itrans|unmapped": {
+  "diff": 0.26612903225806456,
+  "ci": [
+   0.2016129046678543,
+   0.3306451737880707
+  ]
+ }
+}

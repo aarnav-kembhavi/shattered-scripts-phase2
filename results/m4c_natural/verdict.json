@@ -1,0 +1,134 @@
+{
+  "provenance": {
+    "config": {
+      "model": "gemini-3.5-flash-lite",
+      "prompt": "natural_romanization_v1",
+      "sample_seed": 0,
+      "registered": "RESULTS.md 2026-10-16"
+    },
+    "git_commit": "5e0ded5c03c270a7dd92ebc2a5eccbd38b166da4-dirty",
+    "timestamp_utc": "2026-10-16T23:40:04+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/m4c_natural_flores.py",
+      "analyse"
+    ]
+  },
+  "paired_differences": {
+    "qwen2.5-1.5b|native-natural|mapped": {
+      "diff": 0.044354838709677435,
+      "ci": [
+        -0.024193547666072845,
+        0.1088709682226181
+      ]
+    },
+    "qwen2.5-1.5b|native-natural|unmapped": {
+      "diff": -0.1411290322580645,
+      "ci": [
+        -0.2177419364452362,
+        -0.06451612710952759
+      ]
+    },
+    "qwen2.5-1.5b|natural-itrans|mapped": {
+      "diff": -0.032258064516129004,
+      "ci": [
+        -0.0927419364452362,
+        0.032258063554763794
+      ]
+    },
+    "qwen2.5-1.5b|natural-itrans|unmapped": {
+      "diff": 0.24596774193548387,
+      "ci": [
+        0.19354838132858276,
+        0.30241936445236206
+      ]
+    },
+    "qwen3.5-2b|native-natural|mapped": {
+      "diff": 0.6290322580645162,
+      "ci": [
+        0.5685483813285828,
+        0.6895161271095276
+      ]
+    },
+    "qwen3.5-2b|native-natural|unmapped": {
+      "diff": 0.4879032258064516,
+      "ci": [
+        0.42741936445236206,
+        0.5483871102333069
+      ]
+    },
+    "qwen3.5-2b|natural-itrans|mapped": {
+      "diff": 0.040322580645161255,
+      "ci": [
+        -0.032258063554763794,
+        0.11290322244167328
+      ]
+    },
+    "qwen3.5-2b|natural-itrans|unmapped": {
+      "diff": 0.3225806451612903,
+      "ci": [
+        0.2540322542190552,
+        0.3911290466785431
+      ]
+    },
+    "sarvam-1|native-natural|mapped": {
+      "diff": 0.18145161290322587,
+      "ci": [
+        0.12096773833036423,
+        0.24193547666072845
+      ]
+    },
+    "sarvam-1|native-natural|unmapped": {
+      "diff": 0.06854838709677424,
+      "ci": [
+        0.03629032149910927,
+        0.10483870655298233
+      ]
+    },
+    "sarvam-1|natural-itrans|mapped": {
+      "diff": 0.34274193548387094,
+      "ci": [
+        0.2620967626571655,
+        0.4193548262119293
+      ]
+    },
+    "sarvam-1|natural-itrans|unmapped": {
+      "diff": 0.2338709677419355,
+      "ci": [
+        0.17741934955120087,
+        0.2904233932495117
+      ]
+    },
+    "gemma4-e2b|native-natural|mapped": {
+      "diff": 0.5362903225806452,
+      "ci": [
+        0.4717741906642914,
+        0.600806474685669
+      ]
+    },
+    "gemma4-e2b|native-natural|unmapped": {
+      "diff": 0.29032258064516125,
+      "ci": [
+        0.23790322244167328,
+        0.3467741906642914
+      ]
+    },
+    "gemma4-e2b|natural-itrans|mapped": {
+      "diff": 0.15322580645161293,
+      "ci": [
+        0.07661290466785431,
+        0.22983871400356293
+      ]
+    },
+    "gemma4-e2b|natural-itrans|unmapped": {
+      "diff": 0.26612903225806456,
+      "ci": [
+        0.2016129046678543,
+        0.3306451737880707
+      ]
+    }
+  },
+  "n_sentences": 496,
+  "n_defective_excluded": 4
+}

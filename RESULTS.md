@@ -1195,3 +1195,104 @@ Script `scripts/m4c_surface.py`, CPU only.
 - **Rule:** the same as in (a). Beyond surface if the gain's CI lower bound > 0.10, surface-level if its upper bound
   < 0.10, otherwise partial.
 - **Not blind:** the M4c summary, with its best mapped layers, was already seen.
+
+---
+## 2026-10-17 (written 2026-10-21) — M4c natural romanization in M4 (registered 2026-10-16): refuted, natural is well above ITRANS
+`scripts/m4c_natural_flores.py`, run in the detached `m4c_chain.sh`.
+- **Romanization** finished 2026-10-17 02:47 IST: 500 sentences, 4 still defective after 3 attempts and excluded, so
+  n = 496.
+- **Forward pass** 04:59–05:12 IST, started only after E0c had finished. Analysis followed.
+- **Outputs:** `results/m4c_natural/{summary.csv, verdict.json}`. Split: 248 train, 248 test.
+- **Unmapped** is retrieval on the test half at the train-half best layer, among 248. The all-496 best-layer value is
+  in summary.csv.
+
+| model | native unmapped / mapped | ITRANS unmapped / mapped | natural unmapped / mapped |
+|---|---|---|---|
+| Qwen2.5 | 0.238 / 0.290 | 0.133 / 0.278 | 0.379 / 0.246 |
+| Qwen3.5 | 1.000 / 0.952 | 0.190 / 0.282 | 0.512 / 0.323 |
+| Sarvam-1 | 0.988 / 0.843 | 0.685 / 0.319 | 0.919 / 0.661 |
+| Gemma 4 | 1.000 / 0.944 | 0.444 / 0.254 | 0.710 / 0.407 |
+
+Paired differences [95% CI]:
+
+| model | natural − ITRANS, unmapped | natural − ITRANS, mapped | native − natural, unmapped | native − natural, mapped |
+|---|---|---|---|---|
+| Qwen2.5 | +0.246 [0.194, 0.302] | −0.032 [−0.093, 0.032] | −0.141 [−0.218, −0.065] | +0.044 [−0.024, 0.109] |
+| Qwen3.5 | +0.323 [0.254, 0.391] | +0.040 [−0.032, 0.113] | +0.488 [0.427, 0.548] | +0.629 [0.569, 0.690] |
+| Sarvam-1 | +0.234 [0.177, 0.290] | +0.343 [0.262, 0.419] | +0.069 [0.036, 0.105] | +0.181 [0.121, 0.242] |
+| Gemma 4 | +0.266 [0.202, 0.331] | +0.153 [0.077, 0.230] | +0.290 [0.238, 0.347] | +0.536 [0.472, 0.601] |
+
+**Registered verdict: refuted.**
+- **Part 1, natural ≈ ITRANS (CI within ±0.10, unmapped and mapped, in ≥ 3 of 4 models): not met.**
+  - Unmapped, natural − ITRANS is above 0.10 in all 4 models (CI lower bounds 0.18–0.25).
+  - Mapped, the CI is within ±0.10 only in Qwen2.5.
+- **Part 2, native − natural unmapped CI above 0.10 in Qwen3.5, Sarvam-1 and Gemma 4: not met in Sarvam-1**
+  (0.069 [0.036, 0.105]). Met in Qwen3.5 and Gemma 4.
+- **Refutation rule** ("natural − ITRANS > 0.10 (CI) in at least 3 models"): met on the unmapped measure, in all 4.
+  - The rule did not say which measure counts. Unmapped is M4's primary measure, and part 2 of the rule uses it.
+  - On the mapped measure the refutation would hold only in Sarvam-1, and the verdict would be inconclusive. Both
+    are stated here.
+
+**Reading:**
+- **Natural romanization sits between ITRANS and native.** In Sarvam-1 it is close to native (0.919 vs 0.988).
+- **The familiarity prediction treated the two romanizations alike, and that was wrong.** Natural romanization, the
+  spelling people actually use online, aligns with English far better than the scholarly ITRANS scheme.
+- **Confound (stated, not tested here).** Natural also fragments less than ITRANS, at about the same tokens per word
+  as lossy (E0b sentiment items: natural 3.15–4.29, ITRANS 3.94–5.24, lossy 3.21–4.36). So, as for lossy > ITRANS
+  (note below), natural > ITRANS cannot separate fragmentation from spelling familiarity.
+- **Gate 1 (accuracy) still had native > natural in every model.** Alignment and accuracy agree on the order native >
+  natural, except Qwen2.5, where natural aligns better than native unmapped.
+- **Mapping hurts at this sample size.** With 248 training pairs the ridge map lowers retrieval below unmapped for
+  most cells, so the mapped column is weak evidence here.
+
+---
+## 2026-10-21 — Surface baseline for the natural form (addendum registered above)
+`scripts/m4c_surface.py`; outputs `results/m4c_surface/{surface.csv, verdict.json}`. M4c sample, n_test = 248, ridge
+only.
+
+| model | native L0 → Lb (layer), gain [CI] | ITRANS L0 → Lb (layer), gain [CI] | natural L0 → Lb (layer), gain [CI] |
+|---|---|---|---|
+| Qwen2.5 | 0.093 → 0.290 (27), +0.198 [0.137, 0.258] beyond | 0.153 → 0.278 (1), +0.125 [0.073, 0.181] partial | 0.177 → 0.246 (1), +0.069 [0.016, 0.125] partial |
+| Qwen3.5 | 0.117 → 0.952 (7), +0.835 [0.786, 0.879] beyond | 0.133 → 0.282 (2), +0.149 [0.089, 0.210] partial | 0.137 → 0.323 (7), +0.185 [0.117, 0.254] beyond |
+| Sarvam-1 | 0.246 → 0.843 (25), +0.597 [0.532, 0.661] beyond | 0.190 → 0.319 (21), +0.129 [0.056, 0.202] partial | 0.190 → 0.661 (24), +0.472 [0.395, 0.548] beyond |
+| Gemma 4 | 0.202 → 0.944 (7), +0.742 [0.685, 0.794] beyond | 0.254 → 0.210 (8), −0.044 [−0.113, 0.024] surface | 0.230 → 0.407 (8), +0.177 [0.101, 0.254] beyond |
+
+- **Natural goes beyond the surface in Qwen3.5, Sarvam-1 and Gemma 4.** In Sarvam-1 it gains +0.47, at the same depth
+  as native (layer 24 vs 25).
+- **ITRANS is surface-level in Gemma 4 and partial elsewhere.** The native gains are the largest in every model.
+- **Small-sample caveat.** With 248 training pairs, layer-0 maps are much weaker than in M4b's 1,004-pair fit. For
+  example, Gemma 4 ITRANS L0 is 0.254 here and 0.473 there. So two ITRANS cells move from surface-level or beyond
+  (M4b) to partial here. Compare forms within this table, not across to the M4b table.
+
+---
+## 2026-10-21 — Exploratory note: lossy > ITRANS is confounded (post hoc, Aarnav)
+- **The finding.** Lossy romanization beats lossless ITRANS in accuracy in every model:
+  - Gate 1 (P3 refuted);
+  - E0c, +0.07 to +0.17, all significant.
+- **What it refutes.** The information-loss account, under which more lossy romanization should hurt more.
+- **Why it can't say more.** Lossy differs from ITRANS in two ways at once:
+  - **Fragmentation.** Lossy has fewer tokens per word than ITRANS in every model and every task: by 0.66–0.89 on E0b
+    sentiment/XNLI and 0.78–0.98 on SIB-200 (`results/e0b_familiarity/gate1/accuracy.csv`,
+    `results/e0c_sib/gate/accuracy.csv`).
+  - **Spelling familiarity.** It drops ITRANS's case and diacritic conventions and is closer to how Kannada is
+    informally typed.
+- **Conclusion.** lossy > ITRANS refutes the information-loss account. It cannot tell fragmentation and spelling
+  familiarity apart. The same holds for natural > ITRANS in M4c.
+
+---
+## 2026-10-21 — Chain incident: the Kanglish chain and watcher ended during laptop sleep
+- **What stopped.** The Kanglish chain's last heartbeat was 2026-10-17 15:14:28 IST. The laptop went to sleep at
+  about 15:15 and stayed asleep, apart from brief wakes, until 10-20 13:31 and again 10-21 12:33.
+  - Both scheduled tasks had ended: Kanglish with code 0x40010004, the watcher with code 4.
+  - The watcher ended too, so it never marked the status DEAD, and the file kept saying WAITING. No reboot happened
+    (last boot 10-14).
+  - The Task Scheduler event log is disabled, so the exact cause is not verified.
+- **What finished first.** M4c and E0c were DONE before this. The drafts had reached 849 of 1,000 by 10-17 13:28,
+  using the 10-16 and 10-17 quota windows. The 10-18 to 10-20 windows were lost.
+- **Fix (2026-10-21).**
+  - `scripts/detach.ps1` now also restarts each task at logon and 1 minute after every wake from sleep (System log,
+    Power-Troubleshooter event 1).
+  - A second instance is never started while one is running.
+  - A chain whose status is DONE exits at once.
+  - The Kanglish chain and the watcher were relaunched at 22:21 IST on 10-21, in the open 10-21 quota window.
+  - Not yet tested across a real sleep.
