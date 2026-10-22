@@ -5,8 +5,8 @@
       "log": "natural log of (count + 1)",
       "min_overlap_chars": 20
     },
-    "git_commit": "a00f2ff10acfd7f436dd0a17d1397452049b70d9",
-    "timestamp_utc": "2026-10-22T18:24:34+00:00",
+    "git_commit": "bb9fd5b47fcc58bc9d1e90ff763596d6c45a99d3-dirty",
+    "timestamp_utc": "2026-10-22T19:08:33+00:00",
     "python": "3.12.13",
     "platform": "Windows-11-10.0.26300-SP0",
     "argv": [
