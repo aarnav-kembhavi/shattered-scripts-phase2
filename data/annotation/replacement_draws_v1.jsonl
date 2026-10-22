@@ -1,0 +1,2 @@
+{"replaces": "flores-993", "draw": 1, "seed": [4, 0], "pool_size": 167, "candidate": "flores-546", "natural_defective": false, "kanglish_defective": false, "accepted": true}
+{"replaces": "indicsentiment-test-245", "draw": 1, "seed": [4, 1], "pool_size": 798, "candidate": "indicsentiment-test-295", "natural_defective": false, "kanglish_defective": false, "accepted": true}

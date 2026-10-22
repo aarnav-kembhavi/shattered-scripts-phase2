@@ -12,6 +12,7 @@ Usage: python scripts/k_annotation.py select     # writes data/annotation/items_
        python scripts/k_annotation.py draft      # API; stops on the daily quota (exit 3), re-run to continue
        python scripts/k_annotation.py regen      # API; natural drafts still defective get attempts 4-5 (2026-10-22)
        python scripts/k_annotation.py blind      # writes data/annotation/blind_v1.json (40 blind items, seed 2)
+       python scripts/k_annotation.py replace    # API; replaces flores-993 and indicsentiment-test-245 (2026-10-23)
        python scripts/k_annotation.py page       # writes annotation/annotate_v2.html (drafts embedded)
        python scripts/k_annotation.py agreement  # kappas on the double-annotated items
 """
@@ -29,9 +30,15 @@ from shattered.translit.natural import MODEL, PROMPT_VERSION, TEMPLATE_DIR, defe
 KANGLISH_VERSION = "kanglish_v1"
 N_FLORES, N_DOUBLE = 300, 100
 DIR = REPO / "data" / "annotation"
-ITEMS, DRAFTS = DIR / "items_v1.jsonl", DIR / "drafts_v1.jsonl"
+ITEMS_V1, DRAFTS = DIR / "items_v1.jsonl", DIR / "drafts_v1.jsonl"
+ITEMS_V2 = DIR / "items_v2.jsonl"  # items_v1 with the two replacements (deviation, 2026-10-23); used once it exists
+ITEMS = ITEMS_V2 if ITEMS_V2.exists() else ITEMS_V1
+REPLACE_DRAFTS = DIR / "drafts_replace_v1.jsonl"  # drafts of the replacement items (attempt 1 only)
+DRAWS = DIR / "replacement_draws_v1.jsonl"  # every replacement draw, in order, with its outcome
+REPLACED, REPLACE_SEED = ["flores-993", "indicsentiment-test-245"], 4
 REGEN = DIR / "drafts_regen_v1.jsonl"  # natural drafts re-asked after attempt 3 (deviation, 2026-10-22)
-MANUAL = DIR / "drafts_manual_v1.jsonl"  # drafts fixed by hand by Aarnav ({"id", "kind", "text"}); override all others
+MANUAL = DIR / "drafts_manual_v1.jsonl"  # hand-fixed drafts ({"id", "kind", "text"}); override all others. Unused since
+# 2026-10-23: the two defective items are replaced instead (do_replace)
 BLIND = DIR / "blind_v1.json"  # 40 of the 100 double items written from scratch by the second annotator (2026-10-22)
 N_BLIND, BLIND_SEED = 40, 2
 TEMPLATE = REPO / "annotation" / "template_v2.html"
@@ -200,6 +207,80 @@ def do_blind() -> None:
            "flores": sum(i.startswith("flores") for i in ids)})
 
 
+def do_replace() -> int:
+    """Deviation of 2026-10-23 (Aarnav): flores-993 and indicsentiment-test-245 (natural drafts still defective after 5
+    attempts) are replaced by items drawn from the same source pools: FLORES+ in SIB-200 and in the M4b test half, and
+    the IndicSentiment test split. Excluded: every item in items_v1 and every M4c 500 sentence. One fixed permutation
+    per pool (default_rng(REPLACE_SEED)); candidates are tried in order; natural and Kanglish drafts with the identical
+    prompts, attempt 1 only; a candidate with a defective draft fails and the next is drawn. Every draw is logged. The
+    replacement inherits the double/blind status of the item it replaces."""
+    from e0c_sib import sib
+    from l_ladder import m4c_sample
+    from m14_full import flores_forms
+    from shattered.data import tasks
+    old = [json.loads(x) for x in ITEMS_V1.open(encoding="utf-8")]
+    used = {it["id"] for it in old}
+    R, _, _ = m4c_sample()
+    m4c = {r["index"] for r in R}
+    n = 2009
+    te = np.sort(np.random.default_rng(0).permutation(n)[n // 2:])
+    S = sib("kan_Knda")
+    F, lab = flores_forms(), dict(zip(S.index_id, S.category))
+    fl_pool = [int(i) for i in np.sort(np.intersect1d(S.index_id.to_numpy(), te))
+               if f"flores-{i}" not in used and int(i) not in m4c]
+    se_pool = [it for it in tasks.load_task("sentiment") if it["id"] not in used]
+    pools = {"flores-993": [{"id": f"flores-{i}", "source": "flores_sib", "flores_index": i, "sib_category": lab[i],
+                             "native": F["native"][i], "english": F["english"][i]} for i in fl_pool],
+             "indicsentiment-test-245": [{"id": it["id"], "source": "sentiment", "label": it["label"],
+                                          "native": it["forms"]["native"]["text"],
+                                          "english": it["forms"]["english"]["text"]} for it in se_pool]}
+    client = make_client()
+    draws, drafts, chosen = [], [], {}
+    for k, gone in enumerate(REPLACED):
+        cand = pools[gone]
+        order = np.random.default_rng([REPLACE_SEED, k]).permutation(len(cand))
+        for d, j in enumerate(order):
+            it = cand[j]
+            try:
+                nat = romanize(client, it["native"], attempt=1)["natural"]
+                kan = client.generate(kanglish_prompt(it["native"]), max_tokens=1024, temperature=0.0).text.strip()
+            except DailyQuotaExceeded as e:
+                print({"stopped": str(e)[:200]})
+                return 3
+            bad = {kind: defective({"native": it["native"], "natural": t}) for kind, t in
+                   (("natural", nat), ("kanglish", kan))}
+            ok = not any(bad.values())
+            draws.append({"replaces": gone, "draw": d + 1, "seed": [REPLACE_SEED, k], "pool_size": len(cand),
+                          "candidate": it["id"], "natural_defective": bad["natural"],
+                          "kanglish_defective": bad["kanglish"], "accepted": ok})
+            if ok:
+                chosen[gone] = it
+                for kind, t, v in (("natural", nat, PROMPT_VERSION), ("kanglish", kan, KANGLISH_VERSION)):
+                    drafts.append({"id": it["id"], "kind": kind, "text": t, "attempt": 1, "defective": False,
+                                   "prompt": v, "model": MODEL, "replaces": gone})
+                break
+    for path, rows in ((DRAWS, draws), (REPLACE_DRAFTS, drafts)):
+        with tmp_path(path).open("w", encoding="utf-8") as f:
+            for r in rows:
+                f.write(json.dumps(r, ensure_ascii=False) + "\n")
+        commit(tmp_path(path), path)
+    new = []
+    for it in old:
+        if it["id"] in chosen:
+            rep = {**chosen[it["id"]], "double": it["double"], "replaces": it["id"]}
+            new.append(rep)
+        else:
+            new.append(it)
+    blind = set(json.load(open(BLIND))["ids"])
+    assert not blind & set(chosen), "a replaced item is blind: the blind file would need the new id"
+    with tmp_path(ITEMS_V2).open("w", encoding="utf-8") as f:
+        for it in new:
+            f.write(json.dumps(it, ensure_ascii=False) + "\n")
+    commit(tmp_path(ITEMS_V2), ITEMS_V2)
+    print({"draws": draws, "replaced": {k: v["id"] for k, v in chosen.items()}})
+    return 0 if len(chosen) == len(REPLACED) else 1
+
+
 def do_page() -> None:
     drafts = {}
     if DRAFTS.exists():
@@ -208,7 +289,10 @@ def do_page() -> None:
         for r in map(json.loads, REGEN.open(encoding="utf-8")):
             if not r["defective"]:
                 drafts[(r["id"], "natural")] = r
-    if MANUAL.exists():  # Aarnav's hand fixes override every Gemini draft
+    if REPLACE_DRAFTS.exists():  # drafts of the replacement items (deviation of 2026-10-23)
+        for r in map(json.loads, REPLACE_DRAFTS.open(encoding="utf-8")):
+            drafts[(r["id"], r["kind"])] = r
+    if MANUAL.exists():  # hand fixes override every Gemini draft
         for r in map(json.loads, MANUAL.open(encoding="utf-8")):
             drafts[(r["id"], r["kind"])] = {**r, "defective": False, "source": "manual"}
     blind = set(json.load(open(BLIND))["ids"]) if BLIND.exists() else set()
@@ -275,4 +359,6 @@ if __name__ == "__main__":
         sys.exit(do_regen())
     if step == "draft":
         sys.exit(do_draft())
+    if step == "replace":
+        sys.exit(do_replace())
     {"select": do_select, "plan": do_plan, "blind": do_blind, "page": do_page, "agreement": do_agreement}[step]()
