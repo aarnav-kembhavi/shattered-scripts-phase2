@@ -1765,3 +1765,27 @@ containing them are kept canonical and flagged `atomic_token` (Qwen3, Qwen3.5, G
   registered, threshold unchanged.
 - **Sarvam-1 byte fallback:** 36 of 135,816 lossy tokens are byte-fallback tokens (non-ASCII punctuation in the sources);
   units containing them stay canonical in every condition and are flagged `atomic_token` (other tokenizers: 0).
+
+---
+## 2026-10-22 — NC1 piece-frequency proxy (post hoc descriptive, 2026-10-22, no verdict)
+Replaces the token-id rank proxy (Aarnav). `scripts/nc1_piece_frequency.py`, CPU, tokenizers only; output
+`results/nc1/piece_frequency.csv`. Canonical token frequencies per tokenizer over all lossy text in the study (FLORES+
+dev+devtest 2,009, sentiment 200, XNLI 200, SIB 1,004) plus English FLORES+ dev+devtest (2,009); for the pieces of the
+Kannada span in each condition: mean / median ln(count + 1) and share of pieces with count 0. Splits regenerated with
+NC1's fixed seeds (the ones the run uses); computed without reading any NC1 result.
+
+Mean ln(count + 1), conditions (a) / (b) / (c) (median and unseen share in the CSV):
+
+| model | M4c 496 | sentiment | SIB | XNLI |
+|---|---|---|---|---|
+| Qwen2.5 / Qwen3 (same tokenizer) | 6.18 / 5.22–5.24 / 4.69–4.71 | 6.14 / 5.14–5.15 / 4.54–4.56 | 6.00 / 5.11–5.12 / 4.53–4.55 | 5.95 / 5.01 / 4.46–4.48 |
+| Qwen3.5-2B | 5.87 / 4.98 / 4.41 | 5.96 / 4.93 / 4.39 | 5.85 / 4.97 / 4.38 | 5.89 / 4.92 / 4.34 |
+| Sarvam-1 | 7.09 / 6.57 / 6.15 | 7.16 / 6.60 / 6.16 | 7.06 / 6.55 / 6.12 | 7.11 / 6.58 / 6.14 |
+| Gemma 4 E2B | 5.66 / 4.74 / 4.17 | 5.77 / 4.71 / 4.14 | 5.63 / 4.73 / 4.15 | 5.68 / 4.71 / 4.15 |
+
+(Qwen2.5 and Qwen3 differ slightly because the seeds include the model name.) In every model and dataset the ordering
+is (a) > (b) > (c): **(b) uses more frequent pieces than (c)** (and fewer unseen: Gemma 0.07 vs 0.10, Qwen3.5
+0.05 vs 0.08). This reverses the token-id proxy (which put (b)'s median id above (c)'s); id order is not frequency
+order. Under this proxy, NC-F = (c) − (b) is not inflated by (b) using rarer pieces. Caveat: (a) is in-distribution
+by construction (the reference is canonical); its 2–3% unseen in Qwen comes from the field's first word in a prompt
+carrying a leading-space token that the standalone reference texts lack. No verdict.

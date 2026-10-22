@@ -1,0 +1,16 @@
+{
+  "provenance": {
+    "config": {
+      "status": "post hoc descriptive, 2026-10-22, no verdict",
+      "log": "natural log of (count + 1)"
+    },
+    "git_commit": "16f9e0f3880d2b716c5bc79932ccac0e7df59eda",
+    "timestamp_utc": "2026-10-22T14:57:18+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/nc1_piece_frequency.py"
+    ]
+  },
+  "reference_texts": 5622
+}
