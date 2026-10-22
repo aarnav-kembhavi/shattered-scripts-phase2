@@ -1574,3 +1574,39 @@ script (FLORES forms rebuilt 500 times) was fixed; no method changed. No other d
 
 **Registered confound (unchanged):** L2 changes information as well as fragmentation (lossy drops distinctions), so a
 positive L2 is not attributable to fragmentation alone. L3 accuracy has low power (198 and 257 items).
+
+---
+## 2026-10-22 — Share of English words in natural, lossy and ITRANS (post hoc descriptive, 2026-10-22, no verdict)
+Requested by Aarnav. `scripts/english_share.py`, CPU only (text only, no model). Outputs
+`results/english_share/{shares.csv, wordlist.json}` (commit 7129058 + this script).
+- **Samples (matched):** the 496 retained M4c FLORES+ sentences; the 198 sentiment items with a clean natural
+  romanization (2 of 200 are `natural_defective` and are dropped from every form).
+- **Wordlist:** wordfreq 3.1.1 (Speer et al., https://github.com/rspeer/wordfreq), English "best" list. Primary:
+  words with Zipf frequency ≥ 3 (29,269 words); sensitivity: Zipf ≥ 4 (7,223). A word (whitespace token, edge
+  punctuation stripped, must contain an ASCII letter) is English if its lowercased form is in the list. ITRANS is also
+  given "as written" (any uppercase letter = not English, since ITRANS uppercase marks Kannada phonemes).
+- **Named entities:** no NE list exists in the repo, so proper nouns are approximated by capitalization in natural
+  (capitalized, not sentence-initial). "No proper nouns" drops those words from natural and, best effort, drops the
+  same lowercased word from lossy and ITRANS of that item.
+- Share = English words / words, pooled; 95% CI from a paired bootstrap over items (10,000, seed 0).
+
+| sample | wordlist | variant | natural | lossy | ITRANS | natural − lossy [95% CI] |
+|---|---|---|---|---|---|---|
+| M4c 496 | Zipf ≥ 3 | all words | 0.103 | 0.054 | 0.049 (as written 0.012) | +0.049 [+0.041, +0.057] |
+| M4c 496 | Zipf ≥ 3 | no proper nouns | 0.096 | 0.051 | 0.046 | +0.045 [+0.037, +0.053] |
+| M4c 496 | Zipf ≥ 4 | all words | 0.065 | 0.032 | 0.029 (as written 0.005) | +0.033 [+0.026, +0.041] |
+| M4c 496 | Zipf ≥ 4 | no proper nouns | 0.060 | 0.030 | 0.027 | +0.030 [+0.023, +0.038] |
+| sentiment 198 | Zipf ≥ 3 | all words | 0.110 | 0.041 | 0.038 (as written 0.007) | +0.068 [+0.057, +0.080] |
+| sentiment 198 | Zipf ≥ 3 | no proper nouns | 0.108 | 0.041 | 0.038 | +0.067 [+0.055, +0.078] |
+| sentiment 198 | Zipf ≥ 4 | all words | 0.065 | 0.024 | 0.021 (as written 0.003) | +0.041 [+0.031, +0.051] |
+| sentiment 198 | Zipf ≥ 4 | no proper nouns | 0.064 | 0.024 | 0.021 | +0.040 [+0.029, +0.050] |
+
+(Per-form CIs and natural − ITRANS are in `shares.csv`.)
+- **Caveat, read before using the numbers:** lossy and ITRANS contain no deliberate English, so their share is a
+  baseline of chance collisions between romanized Kannada and the English list (`i`, `a`, `ella`, `ne`, `ide`, `matte`).
+  In natural on M4c, the largest contributors to the excess are Kannada words in natural spelling that happen to be in
+  the list (`ee` = ಈ "this", 65; `na` 21; `aa` 19), not English loans; real loans and names appear lower down
+  (`police`, `british`, `august`, `french`). On sentiment, real English loans contribute visibly (`air`, `collar`,
+  `application`, `wifi`, `cooler`, `play`, `home`). Top-25 matched words per form are in `wordlist.json`. So the
+  natural − lossy difference is an upper bound on "more English words", more so on M4c.
+- **No verdict.** Nothing here tests or changes a registered prediction (L3 stays as registered).
