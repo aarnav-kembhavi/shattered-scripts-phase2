@@ -1756,3 +1756,12 @@ retrieval value was computed; the pilot's log-probs and vectors were held in mem
 token-string space (what the segmenter works on; `chars.json`): true for all four tokenizers, but Sarvam-1 encodes 36
 of 135,816 lossy tokens as byte-fallback tokens (`<0xC2>` etc., from non-ASCII punctuation in the sources); units
 containing them are kept canonical and flagged `atomic_token` (Qwen3, Qwen3.5, Gemma 4: 0).
+
+---
+## 2026-10-22 — NC1 deviations; gate approved (Aarnav)
+- **(c) re-split share below the registered gate:** on the M4c pilot sentences (c) re-split 79.4% (262/330) of
+  multi-token words, below the registered 80% (sentiment 87.7%). Cause: vocabulary — for the remaining words the
+  canonical split is the only k-piece segmentation at the canonical count. Aarnav approved the gate; NC1 proceeds as
+  registered, threshold unchanged.
+- **Sarvam-1 byte fallback:** 36 of 135,816 lossy tokens are byte-fallback tokens (non-ASCII punctuation in the sources);
+  units containing them stay canonical in every condition and are flagged `atomic_token` (other tokenizers: 0).
