@@ -430,6 +430,7 @@ def do_pilot() -> None:
 NC_ACT = REPO / "cache" / "activations" / "nc1"
 SCORES = REPO / "results" / "nc1" / "scores"
 CONTRASTS_NC = [("NC-F", "c", "b"), ("NC-O", "a", "c")]
+GROUPS = {"e0b": ("sentiment", "xnli"), "e0c": ("sib",)}
 
 
 def m4c_conditions(V, m, R, native):
@@ -484,7 +485,7 @@ def do_score() -> None:
     tasks = score_items()
     print({t: len(its) for t, its in tasks}, flush=True)
     for m in lad.ACC_MODELS:
-        todo = [c for c in CONDITIONS if not (SCORES / f"{m}__nc_{c}.parquet").exists()]
+        todo = [c for c in CONDITIONS if not all((SCORES / f"{m}__nc_{c}__{g}.parquet").exists() for g in GROUPS)]
         if not todo:
             continue
         t0 = time.time()
@@ -499,10 +500,12 @@ def do_score() -> None:
                     rows[c].append({"model": m, "task": t, "form": f"nc_{c}", "id": it["id"], "label": it["label"],
                                     "logprobs": lp, "pred_raw": int(np.argmax(lp)), "prompt_tokens": len(P[c][0])})
             print(f"{m}: {t} done ({time.time() - t0:.0f}s since load)", flush=True)
-        for c in todo:
-            path = SCORES / f"{m}__nc_{c}.parquet"
-            pd.DataFrame(rows[c]).to_parquet(tmp_path(path))
-            commit(tmp_path(path), path)
+        for c in todo:  # ids are strings for sentiment/xnli and ints for sib: one file per group, as E0b / E0c
+            df = pd.DataFrame(rows[c])
+            for g, tasks_g in GROUPS.items():
+                path = SCORES / f"{m}__nc_{c}__{g}.parquet"
+                df[df.task.isin(tasks_g)].to_parquet(tmp_path(path))
+                commit(tmp_path(path), path)
         del model
         torch.cuda.empty_cache()
 
@@ -581,10 +584,11 @@ def do_analyse() -> None:
     pd.DataFrame(res).to_csv(out / "retrieval.csv", index=False)
     # accuracy: stored canonical-English rows decide the calibration fallback, as in the ladder
     acc_rows = []
-    for d, tasks in ((lad.E0B_DIR, ("sentiment", "xnli")), (lad.E0C_DIR, ("sib",))):
+    for d, grp in ((lad.E0B_DIR, "e0b"), (lad.E0C_DIR, "e0c")):
+        tasks = GROUPS[grp]
         cf = {m: json.load(open(d / f"cf_{m}.json")) for m in lad.ACC_MODELS}
         B = pd.concat([pd.read_parquet(d / f"{m}__english.parquet") for m in lad.ACC_MODELS]
-                      + [pd.read_parquet(SCORES / f"{m}__nc_{c}.parquet") for m in lad.ACC_MODELS
+                      + [pd.read_parquet(SCORES / f"{m}__nc_{c}__{grp}.parquet") for m in lad.ACC_MODELS
                          for c in CONDITIONS], ignore_index=True)
         B = B[B.task.isin(tasks)]
         B, _ = e0b.apply_calibration(B, cf)
