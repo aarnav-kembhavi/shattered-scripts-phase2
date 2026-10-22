@@ -1727,3 +1727,32 @@ the ladder); McNemar p unadjusted, no test registered.
 
 Descriptively, on sentiment most of L2's gain offsets the loss from lowercasing; only Sarvam-1's net CI excludes 0.
 No verdict.
+
+---
+## 2026-10-22 — NC1 pilot (Gemma 4 E2B; 20 sentiment items + 20 M4c sentences): **stopped at the gate**
+`scripts/nc1.py` (written after the NC1 registration); outputs `results/nc1/{chars.json, pilot.json}`. No accuracy or
+retrieval value was computed; the pilot's log-probs and vectors were held in memory only and not written.
+
+**Checks** (registered gate in bold):
+1. **Decode identity:** forced sequences decode to the same text as canonical in 20/20 per condition (sentiment
+   prompts and M4c sentences); ids outside the text span are unchanged (CPU dry run, 3 tokenizers, 20/20). **Pass.**
+2. **Counts:** (b) hits the lowercase-rung span count in 20/20 (sentiment and M4c; differences all 0); (c) equals
+   canonical in 20/20. Tokens per word, sentiment (a) 3.27 / (b) 4.10 / (c) 3.27 (lower target 4.10); M4c 3.09 / 3.99 /
+   3.09 (target 3.99). No flagged sentences (no negative extra, no unreachable target). **Pass.**
+3. Words re-split, (b) only / (c) only / both, of all words: sentiment 37 / 0 / 292 of 354 (333 multi-token); M4c
+   47 / 0 / 262 of 360 (330 multi-token). Words that cannot be re-split at the canonical count (canonical split
+   unique): sentiment 24, M4c 31 in (c). Token-id rank proxy (median token id of span pieces): sentiment (a) 6,244 /
+   (b) 27,055 / (c) 14,252; M4c 6,244 / 51,405 / 31,012; mean piece length (a) 2.91 / (b) 2.32 / (c) 2.91 chars
+   (sentiment). Descriptively (b) uses higher-id (later-merged, presumably rarer) pieces than (c), which falls under
+   the registered clause: NC-F would reflect fragmentation plus piece rarity.
+4. **Canonical ids through the forced path reproduce stored lossy results:** sentiment raw predictions 20/20, max
+   |Δ log-prob| 0.0; M4c sentence vectors max relative |Δ| 0.0. **Pass.**
+5. Time: forced path 1.05 × the standard path. Estimate for the full run: scoring 2.8 h (ladder `lower` scoring seconds
+   × 1.05 × 3 conditions, 5 models) + forward 14.5 min (Gemma's measured rate, 500 sentences × 3 × 4 models).
+- **Gate criterion "(c) re-splits ≥ 80% of multi-token words": sentiment 87.7% (pass), M4c 79.4% (fail, 262 of 330).**
+  Per the registration the run does not continue without Aarnav's decision.
+
+**Deviation (recorded now):** the registration says every character of lossy is a single vocabulary token. Checked in
+token-string space (what the segmenter works on; `chars.json`): true for all four tokenizers, but Sarvam-1 encodes 36
+of 135,816 lossy tokens as byte-fallback tokens (`<0xC2>` etc., from non-ASCII punctuation in the sources); units
+containing them are kept canonical and flagged `atomic_token` (Qwen3, Qwen3.5, Gemma 4: 0).

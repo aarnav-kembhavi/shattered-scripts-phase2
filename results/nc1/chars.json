@@ -1,0 +1,54 @@
+{
+  "provenance": {
+    "config": {
+      "texts": 2104
+    },
+    "git_commit": "f676f15a822da091a9032f0c46c7d3fa6719323e",
+    "timestamp_utc": "2026-10-22T12:43:50+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/nc1.py",
+      "chars"
+    ]
+  },
+  "qwen3-1.7b": {
+    "n_tokens": 111303,
+    "n_atomic_tokens": 0,
+    "atomic_examples": [],
+    "n_chars": 92,
+    "chars_not_single_tokens": []
+  },
+  "qwen3.5-2b": {
+    "n_tokens": 104313,
+    "n_atomic_tokens": 0,
+    "atomic_examples": [],
+    "n_chars": 92,
+    "chars_not_single_tokens": []
+  },
+  "sarvam-1": {
+    "n_tokens": 135816,
+    "n_atomic_tokens": 36,
+    "atomic_examples": [
+      "<0x80>",
+      "<0x8B>",
+      "<0x95>",
+      "<0xB2>",
+      "<0xB5>",
+      "<0xBD>",
+      "<0xBE>",
+      "<0xC2>",
+      "<0xC3>",
+      "<0xE2>"
+    ],
+    "n_chars": 82,
+    "chars_not_single_tokens": []
+  },
+  "gemma4-e2b": {
+    "n_tokens": 100058,
+    "n_atomic_tokens": 0,
+    "atomic_examples": [],
+    "n_chars": 89,
+    "chars_not_single_tokens": []
+  }
+}

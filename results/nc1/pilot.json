@@ -1,0 +1,198 @@
+{
+  "provenance": {
+    "config": {
+      "status": "pilot, no accuracy or retrieval computed",
+      "n": 20,
+      "model": "gemma4-e2b"
+    },
+    "git_commit": "f676f15a822da091a9032f0c46c7d3fa6719323e",
+    "timestamp_utc": "2026-10-22T12:47:15+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/nc1.py",
+      "pilot"
+    ]
+  },
+  "model": "gemma4-e2b",
+  "load_s": 17.98546814918518,
+  "sentiment_build_s": 0.1658163070678711,
+  "sentiment_check2": {
+    "b_hits_target": 20,
+    "c_equals_canonical": 20,
+    "b_minus_target": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "n": 20
+  },
+  "sentiment_check1_decode_identical": {
+    "a": 20,
+    "b": 20,
+    "c": 20
+  },
+  "sentiment_summary": {
+    "a": {
+      "span_tokens": 1159,
+      "tokens_per_word": 3.274011299435028,
+      "median_token_id": 6244.0,
+      "mean_piece_chars": 2.908541846419327
+    },
+    "b": {
+      "span_tokens": 1453,
+      "tokens_per_word": 4.104519774011299,
+      "median_token_id": 27055.0,
+      "mean_piece_chars": 2.320027529249828
+    },
+    "c": {
+      "span_tokens": 1159,
+      "tokens_per_word": 3.274011299435028,
+      "median_token_id": 14252.0,
+      "mean_piece_chars": 2.908541846419327
+    },
+    "words": {
+      "n": 354,
+      "multi_token": 333,
+      "resplit_b_only": 37,
+      "resplit_c_only": 0,
+      "resplit_both": 292,
+      "c_resplit_share_of_multi_token": 0.8768768768768769,
+      "flags_b": [],
+      "unit_flags_b": {
+        "infeasible_k": 0,
+        "canonical_unique": 17,
+        "atomic_token": 0
+      },
+      "unit_flags_c": {
+        "infeasible_k": 0,
+        "canonical_unique": 24,
+        "atomic_token": 0
+      }
+    }
+  },
+  "sentiment_tokens_per_word_lower_target": 4.104519774011299,
+  "sentiment_check4": {
+    "same_raw_prediction": 20,
+    "n": 20,
+    "max_abs_dlogprob": 0.0
+  },
+  "sentiment_seconds_per_item": {
+    "a": 0.2791321396827698,
+    "b": 0.23996233940124512,
+    "c": 0.2288636803627014,
+    "standard_path": 0.23692641258239747
+  },
+  "m4c_check1_decode_identical": {
+    "a": 20,
+    "b": 20,
+    "c": 20
+  },
+  "m4c_check1_canonical_decode_identical": 20,
+  "m4c_check2": {
+    "b_hits_target": 20,
+    "c_equals_canonical": 20,
+    "b_minus_target": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "n": 20
+  },
+  "m4c_summary": {
+    "a": {
+      "span_tokens": 1113,
+      "tokens_per_word": 3.091666666666667,
+      "median_token_id": 6244.0,
+      "mean_piece_chars": 2.802336028751123
+    },
+    "b": {
+      "span_tokens": 1437,
+      "tokens_per_word": 3.9916666666666667,
+      "median_token_id": 51405.0,
+      "mean_piece_chars": 2.1704940848990955
+    },
+    "c": {
+      "span_tokens": 1113,
+      "tokens_per_word": 3.091666666666667,
+      "median_token_id": 31012.0,
+      "mean_piece_chars": 2.802336028751123
+    },
+    "words": {
+      "n": 360,
+      "multi_token": 330,
+      "resplit_b_only": 47,
+      "resplit_c_only": 0,
+      "resplit_both": 262,
+      "c_resplit_share_of_multi_token": 0.793939393939394,
+      "flags_b": [],
+      "unit_flags_b": {
+        "infeasible_k": 0,
+        "canonical_unique": 37,
+        "atomic_token": 0
+      },
+      "unit_flags_c": {
+        "infeasible_k": 0,
+        "canonical_unique": 31,
+        "atomic_token": 0
+      }
+    }
+  },
+  "m4c_tokens_per_word_lower_target": 3.9916666666666667,
+  "m4c_check4_canonical_vs_stored_vectors": {
+    "max_rel_abs_diff": 0.0,
+    "n": 20
+  },
+  "m4c_seconds_per_sentence": {
+    "a": 0.20280399322509765,
+    "b": 0.11738026142120361,
+    "c": 0.11466028690338134
+  },
+  "estimate": {
+    "forced_over_standard_time_ratio": 1.0523072702817855,
+    "scoring_s_per_model_3_conditions": {
+      "qwen2.5-1.5b": 1360.1902818693316,
+      "qwen3.5-2b": 3014.7697110429685,
+      "sarvam-1": 1898.545972549046,
+      "gemma4-e2b": 2568.821653525404,
+      "qwen3-1.7b": 1240.7970617343622
+    },
+    "scoring_total_h": 2.8008679668669756,
+    "forward_total_min_using_gemma_rate": 14.494818051656088,
+    "basis": "ladder lower-form scoring seconds (E0b sentiment+xnli, E0c sib) x forced/standard ratio measured here x 3 conditions; forward at Gemma's measured rate"
+  }
+}
