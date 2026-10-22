@@ -20,7 +20,11 @@ tokens are the canonical prompt tokens whose character range overlaps the field 
 Usage: python scripts/nc1.py chars   (CPU: every character of every lossy text is a single vocab token, 4 tokenizers)
        python scripts/nc1.py pilot   (GPU, Gemma 4 E2B: 20 sentiment items + 20 M4c sentences; no accuracy or
                                       retrieval value is computed; pilot scores are not kept)
-Outputs: results/nc1/{chars.json, pilot.json}
+       python scripts/nc1.py forward (GPU: (a)/(b)/(c) sentence vectors, 500 M4c sentences, 4 models)
+       python scripts/nc1.py score   (GPU: sentiment, XNLI, SIB-200 in (a)/(b)/(c), 5 models)
+       python scripts/nc1.py analyse (CPU: segmentation checks, retrieval, accuracy, NC-F / NC-O, verdicts)
+Outputs: results/nc1/{chars.json, pilot.json, segmentation.csv, retrieval.csv, accuracy.csv, contrasts.csv,
+         verdict.json}; vectors cache/activations/nc1/<model>/{a,b,c}500.npz; scores results/nc1/scores/
 """
 import json
 import sys
@@ -186,27 +190,51 @@ def span_of(prompt: str, value: str, start: int = 0) -> tuple[int, int]:
     return s, s + len(value)
 
 
+def build_with_spans(task: str, fields: dict) -> tuple[str, dict]:
+    """The prompt (identical to loglik.build_prompt) and the character span of each field in it."""
+    import string
+    from shattered.eval.loglik import TEMPLATES, build_prompt
+    tpl = (TEMPLATES / f"e0_{task}_v1.txt").read_text(encoding="utf-8")
+    out, spans = "", {}
+    for lit, name, _, _ in string.Formatter().parse(tpl):
+        out += lit
+        if name is not None:
+            assert name not in spans, "field used twice"
+            spans[name] = (len(out), len(out) + len(fields[name]))
+            out += fields[name]
+    assert out == build_prompt(task, fields)
+    return out, spans
+
+
 def prompt_conditions(V, model, item_id, task, fields: dict, lower_fields: dict) -> dict:
-    """Forced prompt ids per condition for one item (all text fields re-split)."""
-    from shattered.eval.loglik import build_prompt
+    """Forced prompt ids per condition for one item; every text field is re-split. Each field is re-segmented on the
+    canonical prompt ids (fields never share a token: checked) and the new spans are spliced in from the end."""
     tok = V.tok
-    prompt = build_prompt(task, fields)
-    prompt_low = build_prompt(task, lower_fields)
+    prompt, spans = build_with_spans(task, fields)
+    prompt_low, spans_l = build_with_spans(task, lower_fields)
     enc = tok(prompt, return_offsets_mapping=True, add_special_tokens=False)
     enc_l = tok(prompt_low, return_offsets_mapping=True, add_special_tokens=False)
     ids, offs = enc["input_ids"], enc["offset_mapping"]
-    out = {c: (list(ids), [], []) for c in CONDITIONS}
-    cur, cur_l = 0, 0
-    for key, value in fields.items():  # templates use each field once, in dict order
-        span = span_of(prompt, value, cur)
-        span_l = span_of(prompt_low, lower_fields[key], cur_l)
-        cur, cur_l = span[1], span_l[1]
+    per_field = []
+    for key in fields:
+        span, span_l = spans[key], spans_l[key]
         n_low = sum(1 for a, b in enc_l["offset_mapping"] if a < span_l[1] and b > span_l[0] and b > a)
-        # re-split each field on the current ids of each condition (offsets refer to the canonical prompt, so fields
-        # are processed on the canonical ids and spliced; with one field per prompt this is exact)
+        groups = units(tok, ids, offs, span, prompt)
+        g0, g1 = groups[0][0], groups[-1][-1]
         cond = make_conditions(V, model, f"{item_id}|{key}", ids, offs, span, prompt, n_low)
-        assert len(fields) == 1, "multi-field splicing not implemented (pilot is sentiment only)"
-        out = {c: (cond[c][0], cond[c][1], cond[c][2] + [f"n_lower_span={n_low}"]) for c in CONDITIONS}
+        repl = {c: cond[c][0][g0:len(cond[c][0]) - (len(ids) - g1 - 1)] for c in CONDITIONS}
+        per_field.append((g0, g1, repl, cond, n_low))
+    per_field.sort(key=lambda x: x[0])
+    for (_, e0, *_), (s1, *_) in zip(per_field, per_field[1:]):
+        assert e0 < s1, "two fields share a token"
+    out = {}
+    for c in CONDITIONS:
+        new = list(ids)
+        for g0, g1, repl, _, _ in reversed(per_field):
+            new[g0:g1 + 1] = repl[c]
+        info = [u for *_, cond, _ in per_field for u in cond[c][1]]
+        flags = [f for *_, cond, _ in per_field for f in cond[c][2]]
+        out[c] = (new, info, flags + [f"n_lower_span={sum(x[4] for x in per_field)}"])
     return {"prompt": prompt, "canonical_ids": ids, **out}
 
 
@@ -397,5 +425,211 @@ def do_pilot() -> None:
     print(json.dumps(report, indent=1, default=str), flush=True)
 
 
+# ---------------------------------------------------------------- full run (after the gate, approved 2026-10-22)
+
+NC_ACT = REPO / "cache" / "activations" / "nc1"
+SCORES = REPO / "results" / "nc1" / "scores"
+CONTRASTS_NC = [("NC-F", "c", "b"), ("NC-O", "a", "c")]
+
+
+def m4c_conditions(V, m, R, native):
+    """[(index, text, n_lower, {cond: (ids, info, flags)})] for all 500 M4c rows."""
+    out = []
+    for r, t in zip(R, native):
+        i, text = r["index"], to_lossy(t)
+        enc = V.tok(text, return_offsets_mapping=True, add_special_tokens=False)
+        n_low = len(V.tok(lad.to_lower(t), add_special_tokens=False)["input_ids"])
+        out.append((i, text, n_low, make_conditions(V, m, f"m4c|{i}", enc["input_ids"], enc["offset_mapping"],
+                                                     (0, len(text)), text, n_low)))
+    return out
+
+
+def do_forward() -> None:
+    import torch
+    from shattered.interp.load import load
+    from shattered.runlog import commit, tmp_path
+    R, _, native = lad.m4c_sample()
+    for m in lad.M4_MODELS:
+        todo = [c for c in CONDITIONS if not (NC_ACT / m / f"{c}500.npz").exists()]
+        if not todo:
+            continue
+        t0 = time.time()
+        model, tok = load(m, "cuda")
+        V = Vocab(tok)
+        Q = m4c_conditions(V, m, R, native)
+        for c in todo:
+            vecs = np.stack([sentence_vector(model, tok, q[3][c][0]) for q in Q])
+            path = NC_ACT / m / f"{c}500.npz"
+            path.parent.mkdir(parents=True, exist_ok=True)
+            np.savez(tmp_path(path), flores_states=vecs, index=np.array([q[0] for q in Q]),
+                     n_tokens=np.array([len(q[3][c][0]) for q in Q]))
+            commit(tmp_path(path), path)
+            print(f"{m}: nc {c}500 forward done ({time.time() - t0:.0f}s since load)", flush=True)
+        del model
+        torch.cuda.empty_cache()
+
+
+def score_items():
+    a, c = lad.e0b_items(), lad.e0c_items()
+    return [("sentiment", a["sentiment"]), ("xnli", a["xnli"]), ("sib", c["sib"])]
+
+
+def do_score() -> None:
+    import pandas as pd
+    import torch
+    from shattered.eval.loglik import VERBALIZERS
+    from shattered.interp.load import load
+    from shattered.runlog import commit, tmp_path
+    SCORES.mkdir(parents=True, exist_ok=True)
+    tasks = score_items()
+    print({t: len(its) for t, its in tasks}, flush=True)
+    for m in lad.ACC_MODELS:
+        todo = [c for c in CONDITIONS if not (SCORES / f"{m}__nc_{c}.parquet").exists()]
+        if not todo:
+            continue
+        t0 = time.time()
+        model, tok = load(m, "cuda")
+        V = Vocab(tok)
+        rows = {c: [] for c in todo}
+        for t, its in tasks:
+            for it in its:
+                P = prompt_conditions(V, m, it["id"], t, it["forms"]["lossy"], it["forms"]["lower"])
+                for c in todo:
+                    lp = choice_logprobs_ids(model, tok, P["prompt"], P[c][0], VERBALIZERS[t])
+                    rows[c].append({"model": m, "task": t, "form": f"nc_{c}", "id": it["id"], "label": it["label"],
+                                    "logprobs": lp, "pred_raw": int(np.argmax(lp)), "prompt_tokens": len(P[c][0])})
+            print(f"{m}: {t} done ({time.time() - t0:.0f}s since load)", flush=True)
+        for c in todo:
+            path = SCORES / f"{m}__nc_{c}.parquet"
+            pd.DataFrame(rows[c]).to_parquet(tmp_path(path))
+            commit(tmp_path(path), path)
+        del model
+        torch.cuda.empty_cache()
+
+
+def segmentation_table():
+    """CPU: tokens per word, re-split counts and rank proxy per tokenizer x dataset x condition (deterministic seeds,
+    so identical to the splits used in the forward and score steps)."""
+    import pandas as pd
+    from transformers import AutoTokenizer
+    from shattered.interp.load import MODELS as REPOS
+    global V_ID
+    R, keep, native = lad.m4c_sample()
+    tasks = score_items()
+    lad_tpw = pd.read_csv(REPO / "results/l_ladder/tokens_per_word.csv").set_index(["model", "dataset", "form"])
+    rows = []
+    for m in lad.ACC_MODELS:
+        V = Vocab(AutoTokenizer.from_pretrained(REPOS[m]))
+        V_ID = V.ids
+        sets = {}
+        Q = m4c_conditions(V, m, R, native)
+        sets["m4c496"] = ([{c: q[3][c] for c in CONDITIONS} for q, k in zip(Q, keep) if k],
+                          [len(q[1].split()) for q, k in zip(Q, keep) if k])
+        for t, its in tasks:
+            P = [prompt_conditions(V, m, it["id"], t, it["forms"]["lossy"], it["forms"]["lower"]) for it in its]
+            sets[t] = (P, [sum(len(v.split()) for v in it["forms"]["lossy"].values()) for it in its])
+        for d, (items, words) in sets.items():
+            sm = summarize(items, words)
+            canon_equal = sum(sum(len(u["pieces"]) for u in it["c"][1]) == sum(len(u["pieces"]) for u in it["a"][1])
+                              for it in items)
+            low = lad_tpw.loc[(m, d, "lower"), "tokens_per_word"]
+            for c in CONDITIONS:
+                row = {"model": m, "dataset": d, "condition": c, "n_items": len(items), **sm[c],
+                       "lower_rung_tokens_per_word": low, "ratio_to_lower_rung": sm[c]["tokens_per_word"] / low}
+                if c == "b":
+                    row["b_within_2pct_of_lower"] = abs(sm[c]["tokens_per_word"] / low - 1) <= 0.02
+                if c == "c":
+                    row["c_items_equal_canonical"] = canon_equal
+                row.update({f"words_{k}": v for k, v in sm["words"].items() if not isinstance(v, (list, dict))})
+                row.update({k: json.dumps(sm["words"][k]) for k in ("unit_flags_b", "unit_flags_c", "flags_b")})
+                rows.append(row)
+            print(m, d, "segmentation done", flush=True)
+    return pd.DataFrame(rows)
+
+
+def do_analyse() -> None:
+    import pandas as pd
+    from statsmodels.stats.multitest import multipletests
+    from m4b_mapping import boot, layer_fit
+    from m4c_natural_flores import SEED
+    out = results_dir("nc1")
+    seg = segmentation_table()
+    seg.to_csv(out / "segmentation.csv", index=False)
+    # retrieval: exactly as the ladder (M4c split, train-half best unmapped layer)
+    R, keep, _ = lad.m4c_sample()
+    idx = np.array([r["index"] for r in R])[keep]
+    n = len(idx)
+    order = np.random.default_rng(SEED).permutation(n)
+    tr, te = np.sort(order[: n // 2]), np.sort(order[n // 2:])
+    folds = np.array_split(np.random.default_rng(SEED + 2).permutation(tr), 5)
+    res, con = [], []
+    for m in lad.M4_MODELS:
+        E = np.load(ACT / m / "english.npz")["flores_states"][idx]
+        hits = {}
+        for c in CONDITIONS:
+            z = np.load(NC_ACT / m / f"{c}500.npz")
+            assert np.array_equal(z["index"][keep], idx)
+            X = z["flores_states"][keep]
+            fits = [layer_fit(X[:, l], E[:, l], tr, te, folds) for l in range(X.shape[1])]
+            lu = int(np.argmax([r["unmapped_train"] for r in fits]))
+            hits[c] = fits[lu]["unmapped"]
+            res.append({"model": m, "condition": c, "n_test": len(te), "unmapped_test": hits[c].mean(),
+                        "unmapped_test_ci": boot(hits[c]), "unmapped_layer": lu})
+        for L, a, b in CONTRASTS_NC:
+            con.append({"measure": "retrieval", "model": m, "contrast": L, "a": a, "b": b,
+                        **lad.paired(hits[a], hits[b])})
+    pd.DataFrame(res).to_csv(out / "retrieval.csv", index=False)
+    # accuracy: stored canonical-English rows decide the calibration fallback, as in the ladder
+    acc_rows = []
+    for d, tasks in ((lad.E0B_DIR, ("sentiment", "xnli")), (lad.E0C_DIR, ("sib",))):
+        cf = {m: json.load(open(d / f"cf_{m}.json")) for m in lad.ACC_MODELS}
+        B = pd.concat([pd.read_parquet(d / f"{m}__english.parquet") for m in lad.ACC_MODELS]
+                      + [pd.read_parquet(SCORES / f"{m}__nc_{c}.parquet") for m in lad.ACC_MODELS
+                         for c in CONDITIONS], ignore_index=True)
+        B = B[B.task.isin(tasks)]
+        B, _ = e0b.apply_calibration(B, cf)
+        acc_rows.append(e0b.accuracy_table(B))
+        for t in tasks:
+            measure = t if t != "xnli" else "xnli_reported_only"
+            for m in lad.ACC_MODELS:
+                g = B[(B.model == m) & (B.task == t)]
+                piv = g.pivot_table(index="id", columns="form", values="pred_cal")
+                corr = piv.eq(g.drop_duplicates("id").set_index("id").label.loc[piv.index], axis=0)
+                for L, a, b in CONTRASTS_NC:
+                    con.append({"measure": measure, "model": m, "contrast": L, "a": a, "b": b,
+                                **lad.paired(corr[f"nc_{a}"].to_numpy(), corr[f"nc_{b}"].to_numpy())})
+    pd.concat(acc_rows, ignore_index=True).to_csv(out / "accuracy.csv", index=False)
+    K = pd.DataFrame(con)
+    counted = {"retrieval": lad.COUNT_RETRIEVAL, "sentiment": lad.COUNT_ACC, "sib": lad.COUNT_ACC}
+    need = {"retrieval": 2, "sentiment": 3, "sib": 3}
+    K["counted"] = [m in counted.get(s, []) for s, m in zip(K.measure, K.model)]
+    K["p_holm"] = np.nan
+    for s in counted:
+        k = (K.measure == s) & K.counted
+        K.loc[k, "p_holm"] = multipletests(K.loc[k, "p"], method="holm")[1]
+    K["significant"] = K.p_holm < 0.05
+    K["ci_excludes_0"] = [c[0] > 0 or c[1] < 0 for c in K.ci]
+    K["ci_holm_disagree"] = K.counted & (K.significant != K.ci_excludes_0)
+    K.to_csv(out / "contrasts.csv", index=False)
+    dataset = {"retrieval": "m4c496", "sentiment": "sentiment", "sib": "sib"}
+    verdicts = {}
+    for s in counted:
+        for L, _, _ in CONTRASTS_NC:
+            g = K[(K.measure == s) & (K.contrast == L) & K.counted]
+            pos, neg = int((g.significant & (g["diff"] > 0)).sum()), int((g.significant & (g["diff"] < 0)).sum())
+            v = "effect, positive" if pos >= need[s] else "effect, negative" if neg >= need[s] else "no effect detected"
+            sg = seg[(seg.dataset == dataset[s]) & seg.model.isin(counted[s]) & (seg.condition == "b")]
+            verdicts[f"{L}|{s}"] = {
+                "verdict": v, "status": "registered prediction: positive" if L == "NC-F" else "reported, no prediction",
+                "n_significant_positive": pos, "n_significant_negative": neg, "needed": need[s], "n_counted": len(g),
+                "tpw_check_b_failed_models": sg[~sg.b_within_2pct_of_lower.astype(bool)].model.tolist(),
+                "ci_holm_disagreements": g[g.ci_holm_disagree].model.tolist()}
+    write_json(out / "verdict.json", verdicts, {"registered": "RESULTS.md 2026-10-22 (NC1)",
+                                                 "counted_retrieval": lad.COUNT_RETRIEVAL,
+                                                 "counted_accuracy": lad.COUNT_ACC, "m4c_split_seed": SEED})
+    print("analysis written", flush=True)  # results are read only after the chain finishes
+
+
 if __name__ == "__main__":
-    {"chars": do_chars, "pilot": do_pilot}[sys.argv[1]]()
+    {"chars": do_chars, "pilot": do_pilot, "forward": do_forward, "score": do_score,
+     "analyse": do_analyse}[sys.argv[1]]()
