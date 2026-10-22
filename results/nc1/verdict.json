@@ -1,0 +1,93 @@
+{
+  "provenance": {
+    "config": {
+      "registered": "RESULTS.md 2026-10-22 (NC1)",
+      "counted_retrieval": [
+        "qwen3.5-2b",
+        "sarvam-1",
+        "gemma4-e2b"
+      ],
+      "counted_accuracy": [
+        "qwen3-1.7b",
+        "qwen3.5-2b",
+        "sarvam-1",
+        "gemma4-e2b"
+      ],
+      "m4c_split_seed": 0
+    },
+    "git_commit": "3b1cf25dd971d286dec9ad561aca63c81607f613",
+    "timestamp_utc": "2026-10-22T17:43:40+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/nc1.py",
+      "analyse"
+    ]
+  },
+  "NC-F|retrieval": {
+    "verdict": "no effect detected",
+    "status": "registered prediction: positive",
+    "n_significant_positive": 1,
+    "n_significant_negative": 0,
+    "needed": 2,
+    "n_counted": 3,
+    "tpw_check_b_failed_models": [],
+    "ci_holm_disagreements": [
+      "qwen3.5-2b"
+    ]
+  },
+  "NC-O|retrieval": {
+    "verdict": "effect, positive",
+    "status": "reported, no prediction",
+    "n_significant_positive": 2,
+    "n_significant_negative": 0,
+    "needed": 2,
+    "n_counted": 3,
+    "tpw_check_b_failed_models": [],
+    "ci_holm_disagreements": []
+  },
+  "NC-F|sentiment": {
+    "verdict": "no effect detected",
+    "status": "registered prediction: positive",
+    "n_significant_positive": 0,
+    "n_significant_negative": 0,
+    "needed": 3,
+    "n_counted": 4,
+    "tpw_check_b_failed_models": [],
+    "ci_holm_disagreements": []
+  },
+  "NC-O|sentiment": {
+    "verdict": "no effect detected",
+    "status": "reported, no prediction",
+    "n_significant_positive": 2,
+    "n_significant_negative": 0,
+    "needed": 3,
+    "n_counted": 4,
+    "tpw_check_b_failed_models": [],
+    "ci_holm_disagreements": [
+      "gemma4-e2b"
+    ]
+  },
+  "NC-F|sib": {
+    "verdict": "no effect detected",
+    "status": "registered prediction: positive",
+    "n_significant_positive": 1,
+    "n_significant_negative": 0,
+    "needed": 3,
+    "n_counted": 4,
+    "tpw_check_b_failed_models": [],
+    "ci_holm_disagreements": [
+      "gemma4-e2b"
+    ]
+  },
+  "NC-O|sib": {
+    "verdict": "effect, positive",
+    "status": "reported, no prediction",
+    "n_significant_positive": 3,
+    "n_significant_negative": 0,
+    "needed": 3,
+    "n_counted": 4,
+    "tpw_check_b_failed_models": [],
+    "ci_holm_disagreements": []
+  }
+}

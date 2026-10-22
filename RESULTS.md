@@ -1834,3 +1834,60 @@ effect.
 
 Descriptively, lossy beats ITRANS on retrieval and SIB in every model; only on sentiment does the L1 loss mostly
 cancel the L2 gain. No verdict.
+
+---
+## 2026-10-22 — NC1 full run: non-canonical tokenization of lossy text (registered 2026-10-22)
+`scripts/nc1.py` via `scripts/nc1_chain.sh` (detached, one model at a time; forward → score → analyse); analysis at
+commit 3b1cf25. Outputs `results/nc1/{segmentation.csv, retrieval.csv, accuracy.csv, contrasts.csv, verdict.json}`;
+scores `results/nc1/scores/`; activations `cache/activations/nc1/`. Finished 2026-10-22 23:14 IST.
+
+**Deviation (no method change):** the first score step crashed at 20:56 IST writing one parquet per model × condition
+(`ArrowTypeError`: sentiment/XNLI ids are strings, SIB ids are ints). Fixed by writing sentiment+XNLI and SIB to
+separate files (commit 3b1cf25) and restarted; cached forward activations reused; Qwen2.5 scoring redone from scratch.
+
+**Checks (registered).** (b) tokens per word within ±2% of the lowercase rung: 20/20 model × dataset (ratio 0.999–
+1.002). (c) per-item count equals canonical: all items in every model × dataset. Words re-split in (c) only: 0
+everywhere; (b) only (no non-canonical split at the canonical count): 289–2,237 per model × dataset; (c) re-split share
+of multi-token words 78.7–88.3% (Sarvam-1 79.2% M4c, 78.7% XNLI, 79.3% SIB; others ≥ 81.6%; the 80% was a pilot gate).
+Sentences with negative extra (lowercase count < canonical) flagged: XNLI for Qwen2.5 and Qwen3 only. Token-id rank
+proxy (median token id of span pieces), (a) / (b) / (c): Gemma 6,244–7,077 / 29,406–36,464 / 17,335–23,837; Sarvam-1
+6,618–7,233 / 43,161–49,839 / 21,437–22,207; Qwen3.5 1,183–1,524 / 647–926 / 7,955–8,080; Qwen2.5 and Qwen3 848–927 /
+586–742 / 5,566–5,840.
+
+**NC-F = (c) − (b)** (registered prediction: positive). Holm within measure over 2 contrasts × counted models; Holm
+decides on CI/Holm disagreement.
+
+| measure | Qwen3-1.7B | Qwen3.5-2B | Sarvam-1 | Gemma 4 E2B | Qwen2.5 (not counted) | verdict |
+|---|---|---|---|---|---|---|
+| retrieval (248) | — | +0.073 [+0.012, +0.129] p_H .074 | **+0.117 [+0.065, +0.173] p_H .0002** | −0.044 [−0.105, +0.016] p_H .37 | +0.044 [+0.008, +0.081] | no effect detected (1/3, need 2) |
+| sentiment (200) | +0.045 [−0.030, +0.120] p_H 1 | −0.015 [−0.070, +0.040] p_H 1 | −0.055 [−0.125, +0.015] p_H .72 | −0.015 [−0.065, +0.035] p_H 1 | −0.025 [−0.050, −0.005] | no effect detected (0/4, need 3) |
+| SIB (1,004) | +0.006 [−0.018, +0.030] p_H 1 | +0.016 [−0.010, +0.043] p_H .77 | **+0.057 [+0.028, +0.084] p_H .0005** | −0.028 [−0.055, −0.001] p_H .21 | −0.010 [−0.035, +0.015] | no effect detected (1/4, need 3) |
+
+**Outcome: NC-F refuted as registered** (not detected on any measure). Per the registered interpretation: no evidence
+of a cost from fragmentation alone at the lowercase-rung level; L2's effect belongs to the information/spelling change
+or to familiar pieces, which NC1 cannot separate. CI/Holm disagreements (Holm decides): Qwen3.5 retrieval (CI excludes
+0, p_H .074); Gemma SIB (CI excludes 0 on the negative side, p_H .21). Only Sarvam-1 shows a fragmentation cost on
+retrieval and SIB. Rarity clause: it applies to a positive NC-F, which was not found; for the record, the registered
+token-id proxy has (b) above (c) for Gemma and Sarvam-1 and below for the Qwen tokenizers.
+
+**NC-O = (a) − (c)** (reported, no prediction).
+
+| measure | Qwen3-1.7B | Qwen3.5-2B | Sarvam-1 | Gemma 4 E2B | Qwen2.5 (not counted) | verdict |
+|---|---|---|---|---|---|---|
+| retrieval (248) | — | −0.004 [−0.060, +0.052] p_H 1 | **+0.133 [+0.089, +0.181] p_H < .0001** | **+0.153 [+0.101, +0.206] p_H < .0001** | +0.016 [−0.020, +0.052] | effect, positive (2/3) |
+| sentiment (200) | −0.030 [−0.100, +0.040] p_H 1 | **+0.105 [+0.045, +0.165] p_H .010** | **+0.155 [+0.095, +0.220] p_H < .0001** | +0.055 [+0.005, +0.100] p_H .26 | +0.015 [−0.005, +0.040] | no effect detected (2/4, need 3) |
+| SIB (1,004) | +0.003 [−0.020, +0.027] p_H 1 | **+0.065 [+0.040, +0.090] p_H < .0001** | **+0.170 [+0.140, +0.201] p_H < .0001** | **+0.074 [+0.048, +0.100] p_H < .0001** | +0.034 [+0.009, +0.058] | effect, positive (3/4) |
+
+CI/Holm disagreement: Gemma sentiment (CI excludes 0, p_H .26). XNLI (reported only) NC-F: all CIs include 0; NC-O:
+Sarvam-1 +0.105 [+0.040, +0.170], others include 0.
+
+Accuracy and retrieval levels per condition: `results/nc1/{accuracy.csv, retrieval.csv}` (e.g. Sarvam-1 retrieval
+(a) 0.883, (b) 0.633, (c) 0.750; SIB (a) 0.705, (b) 0.478, (c) 0.535).
+
+**Alongside: piece frequency (post hoc descriptive, see the entry above).** Mean ln(count + 1) in the canonical
+reference, (a) / (b) / (c), is ordered (a) > (b) > (c) in every model × dataset (e.g. Gemma M4c 5.66 / 4.74 / 4.17;
+Sarvam-1 M4c 7.09 / 6.57 / 6.15): by this proxy (c) uses rarer pieces than (b), so NC-F compares more but more
+frequent pieces against fewer but rarer ones. This proxy and the registered token-id proxy disagree for Gemma and
+Sarvam-1. Post hoc, no verdict.
+
+**Next:** report to Aarnav; no further NC1 runs planned.
