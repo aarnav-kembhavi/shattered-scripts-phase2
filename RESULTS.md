@@ -2008,3 +2008,29 @@ conditions in 24–30 min. With ~4× the parameters and bitsandbytes 4-bit dequa
 estimated at **4–8× that: ~35–80 min per form** over the three tasks. A pilot (50 items, one form) would replace this.
 Note: running any of these conflicts with the 2026-10-23 scope rule "no models larger than our current set" and needs
 Aarnav's explicit approval.
+
+---
+## 2026-10-23 — Notes on NC-F and on the loan-free L3 subset (post hoc descriptive, 2026-10-23, no verdict; Aarnav)
+**NC-F's null is not interpretable as "no fragmentation cost at inference".** The registered verdict (NC-F refuted)
+stands. But in the A2 item-level decomposition (2026-10-22, `results/nc1_posthoc/decomposition.csv`), extra pieces and
+piece frequency correlate 0.59–0.73 across (b)/(c) items, and once frequency is included, extra pieces carry a negative
+coefficient with a 95% CI excluding 0 (unadjusted) in Sarvam-1 retrieval (−0.0036 per piece), Sarvam-1 SIB (−0.015),
+Gemma 4 SIB (−0.046) and Qwen3 sentiment (−0.028). NC1 compared more-but-more-frequent pieces (b) with
+fewer-but-rarer pieces (c), so the two costs can offset in NC-F; NC1 does not separate them.
+
+**The loan-free L3 subset differs in register.** `scripts/l3_loanfree_register.py`, output
+`results/l_ladder_posthoc/l3_loanfree_register.csv`. Named-entity proxy: capitalized words that are not
+sentence-initial (English source; the natural romanizations are mostly lowercase, so their count is near 0).
+
+| sample | group | n | native words | natural words | caps (English) | items with ≥ 1 (English) | caps (natural) |
+|---|---|---|---|---|---|---|---|
+| retrieval (M4c test half) | loan-free | 130 | 14.7 | 14.7 | 0.95 | 40% | 0.10 |
+| | other | 118 | 17.3 | 17.7 | 2.72 | 75% | 0.34 |
+| sentiment (198) | loan-free | 80 | 12.8 | 12.8 | 0.41 | 22% | 0.10 |
+| | other | 118 | 19.9 | 19.9 | 0.81 | 37% | 0.06 |
+| SIB-257 | loan-free | 132 | 14.8 | 14.8 | 0.89 | 41% | 0.12 |
+| | other | 125 | 17.0 | 17.1 | 2.72 | 72% | 0.42 |
+
+Loan-free items are shorter (2–7 native words) and carry about a third as many named entities (English side) on
+retrieval and SIB. The smaller loan-free L3 estimates may therefore reflect fewer names and shorter sentences as much
+as the absence of English loans; the subset analysis cannot separate these.

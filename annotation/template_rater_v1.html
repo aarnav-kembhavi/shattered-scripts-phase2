@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Romanization Rating</title>
+<style>
+  :root { --bg:#fafaf8; --card:#fff; --ink:#1d1d1b; --muted:#6b6b66; --line:#ddd9d0; --accent:#1f5f8b; --warn:#a4400b; --ok:#2e6b3a; }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.5 system-ui, "Segoe UI", sans-serif; }
+  header { position:sticky; top:0; z-index:2; background:var(--card); border-bottom:1px solid var(--line); padding:10px 16px;
+           display:flex; flex-wrap:wrap; gap:8px 16px; align-items:center; }
+  header b { font-size:16px; }
+  main { max-width:980px; margin:0 auto; padding:16px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:14px 16px; margin-bottom:14px; }
+  .kn { font-family:"Nirmala UI","Noto Sans Kannada","Tunga",sans-serif; font-size:20px; line-height:1.7; }
+  .label { font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin-bottom:4px; }
+  .text { font:16px/1.5 ui-monospace, Consolas, monospace; overflow-wrap:anywhere; }
+  .row { display:flex; flex-wrap:wrap; gap:8px 24px; align-items:center; margin-top:8px; }
+  .scale label { margin-right:10px; white-space:nowrap; }
+  button { font:inherit; padding:6px 12px; border:1px solid var(--line); background:#f1efe9; border-radius:6px; cursor:pointer; }
+  button.primary { background:var(--accent); color:#fff; border-color:var(--accent); }
+  input[type=text] { font:inherit; padding:4px 8px; border:1px solid var(--line); border-radius:6px; }
+  .flag { color:var(--warn); font-weight:600; }
+  .saved { color:var(--ok); }
+  .muted { color:var(--muted); }
+</style>
+</head>
+<body>
+<header>
+  <b>Romanization rating</b>
+  <span>Rater <input type="text" id="who" size="10" placeholder="your name"></span>
+  <button id="download">Download CSV</button>
+  <span id="status" class="muted">Ratings are kept in this browser. Download the CSV at the end of each session.</span>
+</header>
+<main>
+  <details class="card"><summary><b>Instructions</b></summary>
+    <p>Each item shows a Kannada sentence and two versions of it typed in Latin letters. Rate how natural each version
+      is, from 1 (nobody would type this) to 5 (exactly how people type on a phone). Rate each version on its own; they
+      can get the same rating. Do not look anything up.</p>
+    <p>"Natural romanization" versions are Kannada typed in Latin letters, word for word. "Kanglish" versions mix in
+      English words the way a young person in Bengaluru would write on WhatsApp.</p>
+  </details>
+  <div class="card">
+    <div class="row" style="margin-top:0;justify-content:space-between">
+      <span id="pos" class="muted"></span>
+      <span><button id="prev">← Previous</button> <button id="nextTodo">First unfinished</button>
+            <button id="next">Next →</button></span>
+    </div>
+  </div>
+  <div class="card"><div class="label">Kannada</div><div id="native" class="kn"></div></div>
+  <div class="card"><div class="label" id="kind"></div>
+    <div class="label" style="margin-top:8px">Version 1</div><div id="v1" class="text"></div>
+    <div class="row scale">Naturalness: <span id="r1"></span></div>
+    <div class="label" style="margin-top:14px">Version 2</div><div id="v2" class="text"></div>
+    <div class="row scale">Naturalness: <span id="r2"></span></div>
+  </div>
+  <div class="card"><div class="row" style="margin-top:0"><button class="primary" id="save">Save and next</button>
+    <span id="msg"></span></div></div>
+</main>
+<script id="items" type="application/json">__ITEMS_JSON__</script>
+<script>
+const ALL = JSON.parse(document.getElementById('items').textContent);
+const COLS = ['item_id', 'kind', 'rater', 'v1_naturalness', 'v2_naturalness', 'saved_at'];
+const $ = id => document.getElementById(id);
+const keyOf = r => r.item_id + '|' + r.kind;
+let answers = {}, idx = 0;
+for (const v of ['1', '2'])
+  $('r' + v).innerHTML = [1,2,3,4,5].map(n => `<label><input type="radio" name="r${v}" value="${n}"> ${n}</label>`).join('');
+function storeKey() { return 'k3_rater_v1_' + ($('who').value.trim() || 'anon'); }
+function persist() { try { localStorage.setItem(storeKey(), JSON.stringify(answers)); } catch (e) {} }
+function load() { try { answers = JSON.parse(localStorage.getItem(storeKey()) || '{}'); } catch (e) { answers = {}; } }
+function csvCell(v) { v = v == null ? '' : String(v); return /[",\n\r]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; }
+function toCSV() {
+  const rows = ALL.filter(r => answers[keyOf(r)]).map(r => COLS.map(c => csvCell(answers[keyOf(r)][c])).join(','));
+  return '﻿' + COLS.join(',') + '\n' + rows.join('\n') + (rows.length ? '\n' : '');
+}
+function show() {
+  const r = ALL[idx], a = answers[keyOf(r)] || {};
+  $('native').textContent = r.native; $('v1').textContent = r.v1; $('v2').textContent = r.v2;
+  $('kind').textContent = r.kind === 'natural' ? 'Natural romanization' : 'Kanglish';
+  for (const v of ['1', '2'])
+    document.querySelectorAll(`input[name=r${v}]`).forEach(el => { el.checked = el.value === a['v' + v + '_naturalness']; });
+  const n = ALL.filter(x => answers[keyOf(x)]).length;
+  $('pos').textContent = `Item ${idx + 1} of ${ALL.length} · ${n} rated`;
+  $('msg').textContent = a.saved_at ? 'Saved' : ''; $('msg').className = 'saved';
+}
+$('save').onclick = () => {
+  const who = $('who').value.trim();
+  if (!who) { $('msg').textContent = 'Enter your name first.'; $('msg').className = 'flag'; return; }
+  const rec = {item_id: ALL[idx].item_id, kind: ALL[idx].kind, rater: who, saved_at: new Date().toISOString()};
+  for (const v of ['1', '2']) {
+    const el = document.querySelector(`input[name=r${v}]:checked`);
+    if (!el) { $('msg').textContent = 'Please rate both versions.'; $('msg').className = 'flag'; return; }
+    rec['v' + v + '_naturalness'] = el.value;
+  }
+  answers[keyOf(ALL[idx])] = rec; persist();
+  if (idx < ALL.length - 1) idx++;
+  show();
+};
+$('prev').onclick = () => { if (idx > 0) idx--; show(); };
+$('next').onclick = () => { if (idx < ALL.length - 1) idx++; show(); };
+$('nextTodo').onclick = () => { const k = ALL.findIndex(r => !answers[keyOf(r)]); if (k >= 0) idx = k; show(); };
+$('who').onchange = () => { load(); show(); };
+$('download').onclick = () => {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([toCSV()], {type: 'text/csv'}));
+  a.download = ($('who').value.trim() || 'rater') + '_k3.csv'; a.click();
+};
+load(); show();
+</script>
+</body>
+</html>

@@ -14,10 +14,12 @@ Usage: python scripts/k_annotation.py select     # writes data/annotation/items_
        python scripts/k_annotation.py blind      # writes data/annotation/blind_v1.json (40 blind items, seed 2)
        python scripts/k_annotation.py replace    # API; replaces flores-993 and indicsentiment-test-245 (2026-10-23)
        python scripts/k_annotation.py page       # writes annotation/annotate_v2.html (drafts embedded)
+       python scripts/k_annotation.py rater B.csv  # K3 page for Rater C; refuses until B's 40 blind items are in
        python scripts/k_annotation.py agreement  # kappas on the double-annotated items
 """
 import json
 import sys
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -44,6 +46,10 @@ N_BLIND, BLIND_SEED = 40, 2
 TEMPLATE = REPO / "annotation" / "template_v2.html"
 PAGE = REPO / "annotation" / "annotate_v2.html"
 ANN_DIR = REPO / "annotation" / "results"
+RATER_TEMPLATE = REPO / "annotation" / "template_rater_v1.html"
+RATER_PAGE = REPO / "annotation" / "rate_k3_v1.html"  # Rater C; built only after B's 40 blind items exist
+RATER_KEY = DIR / "k3_rater_key_v1.json"  # which version is human / Gemini; never shown to the rater
+RATER_SEED = 3
 PARAMS = {"max_tokens": 1024, "temperature": 0.0, "system": None}
 
 
@@ -281,7 +287,8 @@ def do_replace() -> int:
     return 0 if len(chosen) == len(REPLACED) else 1
 
 
-def do_page() -> None:
+def shown_drafts() -> dict:
+    """{(id, kind): draft record} exactly as shown on the annotation page."""
     drafts = {}
     if DRAFTS.exists():
         drafts = {(r["id"], r["kind"]): r for r in map(json.loads, DRAFTS.open(encoding="utf-8"))}
@@ -295,6 +302,11 @@ def do_page() -> None:
     if MANUAL.exists():  # hand fixes override every Gemini draft
         for r in map(json.loads, MANUAL.open(encoding="utf-8")):
             drafts[(r["id"], r["kind"])] = {**r, "defective": False, "source": "manual"}
+    return drafts
+
+
+def do_page() -> None:
+    drafts = shown_drafts()
     blind = set(json.load(open(BLIND))["ids"]) if BLIND.exists() else set()
     rows = []
     for it in items():
@@ -310,6 +322,42 @@ def do_page() -> None:
     print({"page": str(PAGE), "n_items": len(rows), "n_blind": sum(r["blind"] for r in rows),
            "flagged": [r["id"] for r in rows if r["natural_flag"] or r["kanglish_flag"]], "n_missing_drafts": sum(not r["natural_draft"] or
                                                                              not r["kanglish_draft"] for r in rows)})
+
+
+def do_rater(b_csv: str, out: str | None = None) -> int:
+    """K3 rating page for Rater C (registered 2026-10-22; roles 2026-10-23). Refuses to build until Annotator B's CSV
+    holds from-scratch texts for all 40 blind items. Each blind item shows the native sentence and two versions of
+    each kind (B's text and the Gemini draft shown on the annotation page), source hidden; which version comes first
+    is drawn once with default_rng(RATER_SEED) over the blind items in blind_v1.json order (natural, then Kanglish).
+    The mapping is written to RATER_KEY, never into the page."""
+    blind = json.load(open(BLIND))["ids"]
+    B = pd.read_csv(b_csv, encoding="utf-8-sig", dtype=str, keep_default_na=False)
+    B = B[(B.condition == "blind") & B.item_id.isin(blind)].drop_duplicates("item_id", keep="last").set_index("item_id")
+    done = [i for i in blind if i in B.index and B.loc[i, "natural_corrected"].strip()
+            and B.loc[i, "kanglish_corrected"].strip()]
+    if len(done) < len(blind):
+        print({"status": "refused: Annotator B's blind items are not all in", "blind_done": len(done),
+               "blind_needed": len(blind)})
+        return 1
+    drafts, its = shown_drafts(), {it["id"]: it for it in items()}
+    flip = np.random.default_rng(RATER_SEED).integers(0, 2, size=(2, len(blind)))
+    rows, key = [], []
+    for j, i in enumerate(blind):
+        for k, kind in enumerate(("natural", "kanglish")):
+            pair = [("human", B.loc[i, f"{kind}_corrected"].strip()), ("gemini", drafts[(i, kind)]["text"])]
+            if flip[k, j]:
+                pair.reverse()
+            rows.append({"item_id": i, "kind": kind, "native": its[i]["native"], "v1": pair[0][1], "v2": pair[1][1]})
+            key.append({"item_id": i, "kind": kind, "v1": pair[0][0], "v2": pair[1][0]})
+    page = Path(out) if out else RATER_PAGE
+    html = RATER_TEMPLATE.read_text(encoding="utf-8")
+    page.write_text(html.replace("__ITEMS_JSON__", json.dumps(rows, ensure_ascii=False).replace("</", "<\\/")),
+                    encoding="utf-8")
+    key_path = page.with_name(page.stem + "_key.json") if out else RATER_KEY
+    key_path.write_text(json.dumps({"seed": RATER_SEED, "b_csv": str(b_csv), "pairs": key}, indent=1), encoding="utf-8")
+    print({"page": str(page), "key": str(key_path), "n_pairs": len(rows),
+           "human_first": sum(r["v1"] == "human" for r in key)})
+    return 0
 
 
 def chrf_stats(hyp: pd.Series, ref: pd.Series, n_boot: int = 10000) -> dict:
@@ -361,4 +409,6 @@ if __name__ == "__main__":
         sys.exit(do_draft())
     if step == "replace":
         sys.exit(do_replace())
+    if step == "rater":
+        sys.exit(do_rater(*sys.argv[2:4]))
     {"select": do_select, "plan": do_plan, "blind": do_blind, "page": do_page, "agreement": do_agreement}[step]()
