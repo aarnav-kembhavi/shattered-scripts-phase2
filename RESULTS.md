@@ -1610,3 +1610,77 @@ Requested by Aarnav. `scripts/english_share.py`, CPU only (text only, no model).
   `application`, `wifi`, `cooler`, `play`, `home`). Top-25 matched words per form are in `wordlist.json`. So the
   natural − lossy difference is an upper bound on "more English words", more so on M4c.
 - **No verdict.** Nothing here tests or changes a registered prediction (L3 stays as registered).
+
+---
+## PRE-REGISTRATION — NC1: non-canonical tokenization of lossy text (written 2026-10-22, Aarnav's design; before any NC1 code is written, run or scored)
+**Question.** With the text held fixed (lossy), does more fragmentation alone lower alignment and accuracy? Every
+condition decodes to the same lossy string, which removes L2's information-loss confound.
+
+**Conditions** (all on the lossy text; the decoded string of the text span is identical to the lossy text):
+- **(a) canonical:** the tokenizer's own output.
+- **(b) non-canonical, fragmented:** per sentence, the text-span token count equals that model's token count for the
+  **lowercase lossless** (E9 `universal|lower`) version of the same sentence, so tokens per word match the lowercase
+  rung.
+- **(c) non-canonical, same count:** every word that (b) re-splits is re-split at that word's **canonical** count,
+  wherever a non-canonical split at that count exists; per-sentence count = canonical. Controls for out-of-distribution
+  segmentation.
+
+**Contrasts.** **NC-F (fragmentation) = (c) − (b)**, predicted significantly positive under the L2 thresholds.
+**NC-O (OOD segmentation) = (a) − (c)**, reported separately with CI and Holm p; no prediction.
+
+**Forced splits, per tokenizer.** All four study tokenizers are HF `tokenizers` BPE (Qwen3/Qwen3.5 byte-level with "Ġ";
+Sarvam-1 and Gemma 4 with "▁" and byte fallback). Method: **random valid segmentation from the vocabulary** (not merge
+dropout, which cannot hit an exact count).
+- Units: canonical tokenization grouped into whitespace words via the offset map (a unit is a word with its space
+  marker), so pretokenizer boundaries are never crossed.
+- For a unit and a target piece count k, a dynamic program counts the segmentations into exactly k vocabulary pieces
+  and one is sampled uniformly, rejecting the canonical split. (Lossy is ASCII lowercase; every character is a single
+  vocabulary token in all four tokenizers — checked in the pilot.) If the canonical split is the only k-piece
+  segmentation, the word stays canonical and is flagged.
+- **(b):** extra pieces E = (lowercase-rung count) − (canonical count) are spread over the sentence's words at random,
+  each word capped at its character length; every multi-token word is also re-split (at its canonical count if it gets
+  no extra piece). If E < 0, words keep their minimal segmentation and the sentence is flagged and counted.
+- **(c):** the words re-split in (b) are re-split at their canonical count where a non-canonical split exists
+  (single-token words cannot be).
+- Seeds: `numpy.random.default_rng` seeded from (base seed 0, model, condition, item id). Only the Kannada text span is
+  re-split; prompt templates and calibration inputs stay canonical.
+
+**Checks** (per model and dataset): (b) tokens per word within ±2% of the lowercase rung; (c) per-sentence count exactly
+canonical; words re-split in (b) only, in (c) only, in both; token-id rank proxy (median token id of text-span pieces)
+for (a), (b), (c). Failing models are flagged, not dropped (as in the ladder).
+
+**Measures and models (as the ladder).** Retrieval: M4c split (seed 0), unmapped test-half acc@1 (248) at the
+train-half best layer per model × condition; counted Qwen3.5, Sarvam-1, Gemma 4, effect if ≥ 2 of 3 significant with
+the same sign. Accuracy: sentiment 200 and SIB 1,004 count (primary calibration with raw fallback), XNLI reported only;
+counted Qwen3, Qwen3.5, Sarvam-1, Gemma 4, effect if ≥ 3 of 4. Qwen2.5 reported, never counted. Exact McNemar, paired
+bootstrap 95% CIs (10,000), Holm within each measure over 2 contrasts × counted models; Holm decides on CI/Holm
+disagreement. All three conditions go through the same forced-ids code path ((a) recomputed; stored lossy scores used
+only for pilot check 4).
+
+**Pilot** (Gemma 4 E2B; 20 sentiment items + 20 M4c sentences; no accuracy or retrieval value computed or looked at;
+pilot scores deleted unseen): (1) every forced sequence decodes exactly to the lossy text (20/20 per condition); (2) (b)
+per-sentence counts hit target (flagged sentences reported), (c) equals canonical 20/20; (3) words re-split in (b)
+only / (c) only / both, and the rank proxy for (a), (b), (c); (4) canonical ids through the new path reproduce the
+stored lossy predictions 20/20, max |Δ log-prob| reported; (5) wall time per item, extrapolated.
+**Gate:** stop and report to Aarnav; continue only if 1, 2 and 4 pass, (c) re-splits ≥ 80% of multi-token words, and
+Aarnav approves the time estimate. Prior estimate from the ladder log (forward 8 min for 2 forms × 4 models; scoring
+68 min): about 12 min forward + 3 h scoring for 3 conditions, one model at a time; replaced by the pilot measurement.
+
+**Interpretation (fixed now).** NC-F positive: more fragmentation lowers performance with string, information and OOD
+status fixed. NC-F not detected: no evidence of a cost from fragmentation alone at the lowercase-rung level; L2's effect
+then belongs to the information/spelling change or to familiar pieces, which NC1 cannot separate. NC-O describes the
+cost of unfamiliar splits at equal count only. **If (b) uses substantially rarer pieces than (c), NC-F reflects
+fragmentation plus piece rarity; reported as such.**
+
+---
+## 2026-10-22 — K3 addendum: independent rater, TOST (Aarnav; before any blind item is written)
+Amends the 2026-10-22 K3 registration; replaces Claude Code's proposed ±0.5 / 95% CI rule.
+- **Primary rater:** a Kannada reader familiar with informal romanized Kannada who has seen **neither the Gemini
+  drafts nor the human versions** (name TBD; not Aarnav, not the second annotator). Each of the 40 blind items shows the
+  native sentence and both versions, **source hidden, order randomized** (seed 3, fixed per item); naturalness 1–5 for
+  each.
+- **Primary measure:** mean paired difference (human − Gemini). **Equivalence (TOST), margin ±0.5, 90% CI** (bootstrap
+  percentile, 10,000 over items; t-based TOST p values alongside): "about as natural" if the 90% CI lies within
+  (−0.5, +0.5); otherwise not shown equivalent, and a difference is reported if the 95% CI excludes 0 (with sign).
+- **If no independent rater is available, K3 is reported descriptively (mean paired difference with 90% CI, chrF
+  Gemini vs human with the human-human reference noted as biased upward); no verdict.**
