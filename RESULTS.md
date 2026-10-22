@@ -2034,3 +2034,44 @@ sentence-initial (English source; the natural romanizations are mostly lowercase
 Loan-free items are shorter (2–7 native words) and carry about a third as many named entities (English side) on
 retrieval and SIB. The smaller loan-free L3 estimates may therefore reflect fewer names and shorter sentences as much
 as the absence of English loans; the subset analysis cannot separate these.
+
+---
+## 2026-10-23 — Dakshina: HF mirror verified against the official release; A1 rerun on the official files
+- **Official source:** https://storage.googleapis.com/gresearch/dakshina/dakshina_dataset_v1.0.tar (Dakshina v1.0,
+  github.com/google-research-datasets/dakshina), CC BY-SA 4.0. MD5 of the full download matches the published hash.
+- **Mirror vs official** (`kn.romanized.rejoined.tsv`): 10,000 vs 10,000 strings, identical row by row (native and
+  romanized); seeded spot check (seed 5) 50 of 50 identical. Splits: dev 5,000 + test 5,000; 23 duplicate native strings.
+- **A1 rerun:** `scripts/nc1_posthoc.py` now reads the official file. `piece_frequency_independent.csv`,
+  `decomposition.csv` and `ladder_piece_familiarity.csv` are byte-identical to the mirror-based run, so every A1–A3
+  number above stands.
+- Hindi (`hi`): 10,000 strings, same procedure and splits, also native-speaker romanizations.
+
+---
+## 2026-10-23 — Phase B: replacements, page rebuild, rater page, instruction sheets, datasheet (no annotation yet)
+- **Replacements (deviation logged above):**
+  - **flores-993 → flores-546.** Pool: FLORES+ in SIB-200 ∩ M4b test half, minus items_v1 and the M4c 500; 167
+    candidates; seed [4, 0]; accepted on draw 1.
+  - **indicsentiment-test-245 → indicsentiment-test-295.** Pool: IndicSentiment test, minus items_v1; 798 candidates;
+    seed [4, 1]; accepted on draw 1; same label (1), so the 100/100 label balance holds.
+  - Natural and Kanglish drafts use the identical prompts, attempt 1, and neither is defective. Draws are logged in
+    `data/annotation/replacement_draws_v1.jsonl`; drafts in `drafts_replace_v1.jsonl`; items in `items_v2.jsonl`
+    (`items_v1.jsonl` is unchanged).
+  - Neither replaced item was double or blind, so neither replacement is.
+  - The sentiment replacement has no E0/E0b scores (the E0 sample is unchanged), so annotation-based scoring on the 200
+    sentiment items covers 199 E0 items plus 1 new item.
+  - Every FLORES pool item is also in the full-set SIB-200 and M4 evaluations, so "not in any sample" means not in the
+    annotation set or the M4c 500.
+- **Page rebuilt** (`annotation/annotate_v2.html`): 500 items, 40 blind, **0 flagged drafts**, 0 missing drafts. The
+  CSV round trip was retested with the page's own `csvCell`/`toCSV`/`parseCSV` (Node) over all 500 items, using quotes,
+  commas, LF/CRLF newlines and Kannada in the answers: 500 rows (40 blind), 0 mismatches in the page parser, 0 in pandas
+  (`utf-8-sig`). The template is unchanged since the 2026-10-22 Chrome test.
+- **Rater page for Rater C:** `python scripts/k_annotation.py rater <B.csv>` builds `annotation/rate_k3_v1.html` only
+  when B's CSV has from-scratch texts for all 40 blind items (tested: 10 of 40 is refused). It shows the native sentence
+  and, for natural and Kanglish, B's text and the Gemini draft as "Version 1/2"; the order is drawn once with seed 3,
+  and the key is in `data/annotation/k3_rater_key_v1.json`, never in the page. Rating: naturalness 1–5 only; CSV
+  download. A test build from synthetic data (scratchpad only) gave 80 pairs, the script compiles, and the words
+  "human"/"Gemini" do not occur in the page. The real page does not exist yet.
+- **Instruction sheets:** `annotation/instructions/{annotator_A, annotator_B, rater_C}.md`, each under one page.
+- **Datasheet draft:** `data/annotation/DATASHEET.md`. Open items: the IndicSentiment license at source, the Gemini
+  output terms, annotator details, release.
+- **K3b:** drafted (`docs/drafts/K3b_prereg_draft.md`); not registered, not run.

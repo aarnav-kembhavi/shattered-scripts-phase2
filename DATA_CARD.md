@@ -9,7 +9,8 @@ Nothing is listed here until its availability and license have been verified on 
 | FLORES+ | HF `openlanguagedata/flores_plus` | `e707e62e762a9e2faca3933aa315f4665cc3cd8f` | CC-BY-SA 4.0 (HF card) | dev, devtest | — | E1, E2 (primary since 2026-10-07), E4 (planned) | 2026-10-07; gated, access granted 2026-10-07 |
 | Wikipedia, Kannada | HF `wikimedia/wikipedia`, config `20231101.kn` | `b04c8d1ceb2f5cd4588862100d08de323dccfbaa` | CC-BY-SA 3.0 and GFDL (HF card) | train (only split) | 31,437 articles, 149.2M chars | E2 (lossy back-map training, round-trip test), E4a/E9 word frequencies | 2026-10-07 |
 | Wikipedia, English (shard 0 of 41) | HF `wikimedia/wikipedia`, config `20231101.en`, file `train-00000-of-00041.parquet` | `b04c8d1ceb2f5cd4588862100d08de323dccfbaa` | CC-BY-SA 3.0 and GFDL (HF card) | train (only split) | 156,289 articles, 700.5M chars | M1 English word-probe contexts | 2026-10-15 |
-| Dakshina (Google Research), Kannada, romanized Wikipedia sentences | HF mirror `Anvesh-Lankala/Copy_Dakshina_Google_research_dataset`, file `data/kn-00000-of-00001.parquet` (original: github.com/google-research-datasets/dakshina) | `765309607a263b86d25a5bd1a4fa20ef34a87a85` | CC-BY-SA 4.0 (mirror HF card; the original Dakshina release is CC BY-SA 4.0) | kn (only) | 10,000 sentences, 1.11M romanized chars | NC1 post hoc independent piece-frequency reference | 2026-10-22 |
+| Dakshina v1.0 (Google Research), official release: `kn` and `hi` romanized | https://storage.googleapis.com/gresearch/dakshina/dakshina_dataset_v1.0.tar (github.com/google-research-datasets/dakshina) | tarball MD5 `pWCGix1nAmAsTqToN5T6Jg==` (base64; matches Google's published hash), Last-Modified 2020-05-27 | CC BY-SA 4.0 (README in the tarball and on GitHub, "License") | romanized rejoined: dev 5,000 + test 5,000 per language | kn: 10,000 strings, 1.11M romanized chars; hi: 10,000 strings, 1.03M romanized chars | NC1 post hoc frequency reference (kn); K3b (draft) | 2026-10-23 |
+| Dakshina (Google Research), Kannada, romanized Wikipedia sentences | HF mirror `Anvesh-Lankala/Copy_Dakshina_Google_research_dataset`, file `data/kn-00000-of-00001.parquet` (original: github.com/google-research-datasets/dakshina) | `765309607a263b86d25a5bd1a4fa20ef34a87a85` | CC-BY-SA 4.0 (mirror HF card; the original Dakshina release is CC BY-SA 4.0) | kn (only) | 10,000 sentences, 1.11M romanized chars | first run of the NC1 post hoc reference; superseded by the official files (identical) | 2026-10-22 |
 | TinyStories V2 (GPT-4) | HF `roneneldan/TinyStories`, files `TinyStoriesV2-GPT4-{train,valid}.txt` | `f54c09fd23315a6f9c86f9dc80f725de7d8f9c64` | CDLA-Sharing-1.0 (HF card) | train (2.23 GB), valid (22.5 MB) | E5: first 400 MB of the seeded document shuffle (proposed budget); tokenizers trained on first 100 MB | E5 | 2026-10-07 |
 | IndicXNLI | HF `Divyanshu/indicxnli` (files `forward/{dev,test,train}/xnli_kn.json`) | `7092c27872e9` | CC0-1.0 (HF card YAML) | test (kn: 5010, balanced 1670/1670/1670; 0 = entailment, 1 = neutral, 2 = contradiction; chance 33.3%) | — (E0 samples 200) | E0, E2, E3, E8 (planned) | 2026-10-07 |
 | IndicSentiment | HF `ai4bharat/IndicSentiment` (files `data/{validation,test}/kn.json`) | `dc8f3f668865` | **not stated on the source card**; mirror `mteb/IndicSentiment` card says CC0-1.0 — to confirm at source (IndicXTREME release) | test (kn: 1000; Positive 506, Negative 492, 2 unlabeled; binary, chance ~50%, not 3-way as the README says). Each item includes the parallel English review. | — | E0, E2, E3 (planned) | 2026-10-07 |
@@ -45,3 +46,14 @@ Notes
 - License: CC BY-SA 4.0 (mirror card; matches the original release).
 - Use: romanized Kannada half of the post hoc piece-frequency reference (`scripts/nc1_posthoc.py`); no evaluation
   item overlaps it (exact match and containment, >= 20 chars: 0 dropped). Not used for training or evaluation.
+
+## Dakshina v1.0, official release (added 2026-10-23)
+- Source: https://storage.googleapis.com/gresearch/dakshina/dakshina_dataset_v1.0.tar (2.0 GB, 2,008,340,480 bytes),
+  linked from github.com/google-research-datasets/dakshina. Streamed once; MD5 of the full stream equals the published
+  `x-goog-hash` (pWCGix1nAmAsTqToN5T6Jg==). Only `kn/romanized/*`, `hi/romanized/*` and `README.md` were kept, in
+  `data/raw/dakshina_official/` (not committed; `data/raw` is ignored).
+- License: CC BY-SA 4.0 (README "License" section, in the tarball and on GitHub).
+- Content: per language, 10,000 Wikipedia strings romanized by native-speaker annotators (strings of 30+ words split for
+  annotation; `*.rejoined.tsv` rejoins them), shuffled into dev and test (5,000 each).
+- Mirror check: the HF mirror's `kn` parquet equals the official `kn.romanized.rejoined.tsv` row by row (10,000 of 10,000,
+  native and romanized; 50 of 50 in a seeded spot check). The official files are used from 2026-10-23.

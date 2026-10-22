@@ -3,8 +3,9 @@ activations, tokenizers; no model is run.
 
 1. Independent piece-frequency reference. The earlier proxy (scripts/nc1_piece_frequency.py) counted pieces on the
    evaluation texts themselves (partly circular). Here the reference excludes every evaluation item:
-   - romanized Kannada: Dakshina `kn` romanized Wikipedia sentences (HF mirror
-     Anvesh-Lankala/Copy_Dakshina_Google_research_dataset, data/raw/dakshina), as written; sentences whose native text
+   - romanized Kannada: Dakshina `kn` romanized Wikipedia sentences (official release v1.0,
+     `kn.romanized.rejoined.tsv`, data/raw/dakshina_official; first run used an HF mirror, identical row by row,
+     2026-10-23), as written; sentences whose native text
      equals, contains or is contained in any evaluation native text (>= 20 chars) are dropped;
    - English: whole articles from the local English Wikipedia shard (20231101.en, shard 0), shuffled with seed 0 and
      taken until their characters match the Dakshina part; articles containing any evaluation English text (>= 20
@@ -38,7 +39,7 @@ import nc1  # noqa: E402
 from m4b_mapping import ACT  # noqa: E402
 from m4c_natural_flores import SEED  # noqa: E402
 
-DAKSHINA = REPO / "data/raw/dakshina/data/kn-00000-of-00001.parquet"
+DAKSHINA = REPO / "data/raw/dakshina_official/dakshina_dataset_v1.0/kn/romanized/kn.romanized.rejoined.tsv"
 WIKI_EN = REPO / "data/raw/wikipedia_en/20231101.en/train-00000-of-00041.parquet"
 MIN_MATCH = 20
 OUT = results_dir("nc1_posthoc")
@@ -59,7 +60,8 @@ def eval_texts() -> tuple[set, set]:
 def reference() -> tuple[list[str], dict]:
     native_ev, english_ev = eval_texts()
     long_nat = [t for t in native_ev if len(t) >= MIN_MATCH]
-    D = pd.read_parquet(DAKSHINA)
+    D = pd.read_csv(DAKSHINA, sep="\t", header=None, names=["native", "romanized"], quoting=3, dtype=str,
+                    keep_default_na=False)
     keep = []
     for nat in D.native.str.strip():
         hit = nat in native_ev or any(t in nat for t in long_nat) or (len(nat) >= MIN_MATCH and
