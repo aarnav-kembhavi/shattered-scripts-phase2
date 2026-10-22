@@ -1891,3 +1891,77 @@ frequent pieces against fewer but rarer ones. This proxy and the registered toke
 Sarvam-1. Post hoc, no verdict.
 
 **Next:** report to Aarnav; no further NC1 runs planned.
+
+---
+## 2026-10-22 — NC1 and ladder: independent frequency reference, item-level decomposition, ladder piece familiarity (post hoc descriptive, 2026-10-22, no verdict)
+Aarnav: NC1 registered verdict kept (NC-F refuted). CPU only, no new GPU run. `scripts/nc1_posthoc.py`; outputs
+`results/nc1_posthoc/{reference.json, piece_frequency_independent.csv, decomposition.csv, ladder_piece_familiarity.csv}`.
+
+**Note on the earlier proxy:** the 2026-10-22 piece-frequency proxy (`results/nc1/piece_frequency.csv`) counted pieces
+on a reference that contained the evaluation texts themselves (all lossy FLORES, sentiment, XNLI, SIB), so (a) was
+in-distribution by construction: **partly circular**. It is superseded by the reference below.
+
+**1. Independent reference.** Romanized Kannada: Dakshina `kn` romanized Wikipedia sentences (HF mirror, see
+DATA_CARD.md), 10,000 sentences, 1.11M chars, 111,105 words, as written (1.7% uppercase chars); 0 dropped for overlap
+with any evaluation native text (exact or containment, ≥ 20 chars). English: 255 whole articles from English
+Wikipedia 20231101 shard 0 (seed-0 shuffle), 1.11M chars, matched to the Dakshina size; 0 skipped for containing an
+evaluation English text. Canonical tokens: 637k (Gemma) to 829k (Sarvam-1). Dakshina is manual natural
+romanization, not the lossy scheme; no scheme-converted text is in the reference.
+
+Mean ln(count + 1), (a) / (b) / (c) [share unseen]:
+
+| model | M4c 496 | sentiment | XNLI | SIB |
+|---|---|---|---|---|
+| Qwen3 (= Qwen2.5 tokenizer) | 6.73 / 6.14 / 5.55 [.007/.014/.023] | 6.69 / 6.11 / 5.45 | 6.60 / 6.03 / 5.43 | 6.60 / 6.09 / 5.45 |
+| Qwen3.5 | 6.38 / 5.87 / 5.20 [.013/.027/.044] | 6.42 / 5.82 / 5.15 | 6.39 / 5.83 / 5.16 | 6.33 / 5.87 / 5.15 |
+| Sarvam-1 | 7.77 / 7.55 / 7.04 [.001/.001/.002] | 7.81 / 7.55 / 7.03 | 7.79 / 7.55 / 7.02 | 7.74 / 7.53 / 7.01 |
+| Gemma 4 | 6.11 / 5.64 / 4.94 [.017/.032/.054] | 6.18 / 5.60 / 4.89 | 6.14 / 5.59 / 4.91 | 6.05 / 5.62 / 4.89 |
+
+The ordering (a) > (b) > (c) of the earlier proxy holds on the independent reference in every model × dataset: (c)
+uses rarer pieces than (b).
+
+**2. Item-level decomposition** (counted models). Score: sentiment/SIB calibrated gold log-prob margin (primary rule);
+retrieval cosine margin (correct English minus best distractor, unmapped, M4c test half, at the layer selected for (a):
+Qwen3.5 7, Sarvam-1 17, Gemma 8; the (a) margins reproduce the registered (a) acc@1). (b) and (c) pooled, y = score −
+score in (a); OLS on extra pieces (vs canonical; 0 in (c)) and Δ mean piece ln-freq (vs (a), step 1 reference),
+item-clustered SEs, 95% CIs. Correlation between the two predictors 0.59–0.73.
+
+| model | measure (items) | per extra piece [95% CI] | per +1 Δ ln-freq [95% CI] |
+|---|---|---|---|
+| Qwen3.5 | retrieval (248) | −0.0006 [−0.0014, +0.0002] | +0.000 [−0.015, +0.016] |
+| Sarvam-1 | retrieval (248) | **−0.0036 [−0.0053, −0.0020]** | **+0.050 [+0.010, +0.091]** |
+| Gemma 4 | retrieval (248) | −0.0007 [−0.0015, +0.0000] | **+0.016 [+0.001, +0.031]** |
+| Qwen3 | sentiment (200) | **−0.028 [−0.046, −0.010]** | +0.24 [−0.16, +0.63] |
+| Qwen3.5 | sentiment (200) | −0.001 [−0.006, +0.003] | −0.01 [−0.12, +0.11] |
+| Sarvam-1 | sentiment (200) | −0.000 [−0.020, +0.020] | +0.07 [−0.56, +0.70] |
+| Gemma 4 | sentiment (200) | −0.040 [−0.100, +0.020] | +1.09 [−0.63, +2.81] |
+| Qwen3 | SIB (1,004) | +0.043 [−0.017, +0.104] | −0.49 [−1.59, +0.61] |
+| Qwen3.5 | SIB (1,004) | −0.006 [−0.016, +0.004] | +0.09 [−0.09, +0.27] |
+| Sarvam-1 | SIB (1,004) | **−0.015 [−0.025, −0.005]** | −0.01 [−0.31, +0.29] |
+| Gemma 4 | SIB (1,004) | **−0.046 [−0.090, −0.003]** | **+1.29 [+0.43, +2.14]** |
+
+Predictor SDs: extra pieces 8.0–11.0, Δ ln-freq 0.34–0.52. Bold = CI excludes 0 (unadjusted, 11 models × measures).
+Descriptively: where either coefficient is distinguishable from 0, extra pieces are negative and piece frequency
+positive (Sarvam-1 retrieval and Gemma SIB show both with the other held fixed); most CIs include 0.
+
+**3. Ladder piece familiarity** (canonical tokenization; reference of step 1). Tokens per word reproduce
+`results/l_ladder/tokens_per_word.csv`.
+
+| model | dataset | tokens/word: ITRANS / lower / lossy / natural | mean ln-freq: ITRANS / lower / lossy / natural |
+|---|---|---|---|
+| Qwen3 (= Qwen2.5) | M4c 496 | 4.32 / 4.40 / 3.56 / 3.53 | 5.83 / 6.00 / 6.73 / 6.64 |
+| Qwen3 (= Qwen2.5) | sentiment | 4.23 / 4.39 / 3.57 / 3.51 | 5.83 / 5.99 / 6.76 / 6.63 |
+| Qwen3.5 | M4c 496 | 4.17 / 4.21 / 3.34 / 3.33 | 5.58 / 5.67 / 6.38 / 6.32 |
+| Qwen3.5 | sentiment | 4.09 / 4.19 / 3.34 / 3.32 | 5.59 / 5.63 / 6.41 / 6.32 |
+| Sarvam-1 | M4c 496 | 5.30 / 5.36 / 4.34 / 4.31 | 7.13 / 7.22 / 7.77 / 7.69 |
+| Sarvam-1 | sentiment | 5.24 / 5.31 / 4.36 / 4.29 | 7.16 / 7.21 / 7.81 / 7.66 |
+| Gemma 4 | M4c 496 | 4.02 / 4.14 / 3.20 / 3.16 | 5.26 / 5.32 / 6.11 / 6.05 |
+| Gemma 4 | sentiment | 3.94 / 4.15 / 3.21 / 3.15 | 5.30 / 5.29 / 6.17 / 6.05 |
+
+Descriptively: L1 (ITRANS → lower) changes neither much; L2 (lower → lossy) lowers tokens per word by ~0.8–1.0 and
+raises piece ln-freq by ~0.55–0.8 together, so the ladder cannot separate them; L3 (lossy → natural) changes both
+slightly (tokens per word −0.01 to −0.07, ln-freq −0.06 to −0.15), so the L3 retrieval effect tracks neither piece
+frequency nor token count. No verdict.
+
+**4. L3 on loan-free items** was done earlier today (entry "L3 on items with no English words in natural",
+`results/l_ladder_posthoc/l3_no_english.csv`); no new computation.

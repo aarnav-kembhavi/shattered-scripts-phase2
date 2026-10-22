@@ -1,0 +1,31 @@
+{
+  "provenance": {
+    "config": {
+      "status": "post hoc descriptive, 2026-10-22, no verdict",
+      "log": "natural log of (count + 1)",
+      "min_overlap_chars": 20
+    },
+    "git_commit": "a00f2ff10acfd7f436dd0a17d1397452049b70d9",
+    "timestamp_utc": "2026-10-22T18:24:34+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/nc1_posthoc.py"
+    ]
+  },
+  "dakshina_sentences_total": 10000,
+  "dakshina_dropped_overlap": 0,
+  "dakshina_sentences": 10000,
+  "dakshina_chars": 1108579,
+  "dakshina_words": 111105,
+  "dakshina_uppercase_char_share": 0.01676921536489506,
+  "english_articles": 255,
+  "english_chars": 1109371,
+  "english_articles_skipped_overlap": 0,
+  "english_source": "wikimedia/wikipedia 20231101.en shard 0 (local), seed-0 shuffle",
+  "reference_tokens_qwen2.5-1.5b": 681740,
+  "reference_tokens_qwen3.5-2b": 662593,
+  "reference_tokens_sarvam-1": 828554,
+  "reference_tokens_gemma4-e2b": 636786,
+  "reference_tokens_qwen3-1.7b": 681740
+}
