@@ -1789,3 +1789,48 @@ is (a) > (b) > (c): **(b) uses more frequent pieces than (c)** (and fewer unseen
 order. Under this proxy, NC-F = (c) − (b) is not inflated by (b) using rarer pieces. Caveat: (a) is in-distribution
 by construction (the reference is canonical); its 2–3% unseen in Qwen comes from the field's first word in a prompt
 carrying a leading-space token that the standalone reference texts lack. No verdict.
+
+---
+## 2026-10-22 — L3 on items with no English words in natural; net ITRANS → lossy on retrieval and SIB (post hoc descriptive, 2026-10-22, no verdict)
+`scripts/l_ladder_posthoc.py` (CPU; stored ladder scores and cached vectors; retrieval per-item hits recomputed with
+the ladder's procedure and asserted to reproduce `results/l_ladder/contrasts.csv` for L1, L2, L3 in every model).
+Outputs `results/l_ladder_posthoc/{l3_no_english.csv, net_itrans_to_lossy_all.csv}`. McNemar p unadjusted; no test
+is registered here; the registered L3 verdicts are unchanged.
+
+**L3 (natural − lossy), full sample vs items whose natural text has no English word of 4+ characters** (wordfreq en,
+Zipf ≥ 3, as the English-share entry). Difference [95% paired bootstrap CI]:
+
+| measure | model | full: n, L3 | no-English subset: n, L3 |
+|---|---|---|---|
+| retrieval | Qwen3.5-2B | 248, +0.137 [+0.081, +0.194] | 130, +0.077 [+0.000, +0.154] |
+| retrieval | Sarvam-1 | 248, +0.036 [+0.004, +0.069] | 130, +0.023 [−0.023, +0.069] |
+| retrieval | Gemma 4 E2B | 248, +0.137 [+0.081, +0.198] | 130, +0.085 [+0.000, +0.169] |
+| retrieval | Qwen2.5 (not counted) | 248, +0.177 [+0.129, +0.230] | 130, +0.062 [+0.015, +0.108] |
+| sentiment | Qwen3-1.7B | 198, −0.005 [−0.076, +0.066] | 80, −0.025 [−0.150, +0.100] |
+| sentiment | Qwen3.5-2B | 198, +0.040 [−0.025, +0.106] | 80, −0.013 [−0.100, +0.063] |
+| sentiment | Sarvam-1 | 198, +0.000 [−0.040, +0.040] | 80, +0.025 [−0.038, +0.087] |
+| sentiment | Gemma 4 E2B | 198, +0.015 [−0.035, +0.066] | 80, −0.037 [−0.112, +0.038] |
+| sentiment | Qwen2.5 (not counted) | 198, +0.020 [−0.005, +0.051] | 80, −0.013 [−0.038, +0.000] |
+| SIB-257 | Qwen3-1.7B | 257, +0.054 [+0.008, +0.101] | 132, +0.000 [−0.053, +0.053] |
+| SIB-257 | Qwen3.5-2B | 257, +0.035 [−0.012, +0.086] | 132, +0.023 [−0.038, +0.083] |
+| SIB-257 | Sarvam-1 | 257, +0.058 [+0.016, +0.105] | 132, +0.045 [−0.023, +0.114] |
+| SIB-257 | Gemma 4 E2B | 257, +0.058 [+0.000, +0.117] | 132, +0.038 [−0.053, +0.129] |
+| SIB-257 | Qwen2.5 (not counted) | 257, +0.074 [+0.019, +0.128] | 132, +0.023 [−0.038, +0.091] |
+
+Descriptively: on items without English words, the retrieval L3 estimates are roughly half the full-sample ones in
+every model, with CIs reaching 0 (n = 130); the subset is about half the sample and is not a random half (sentences
+without loans or names may differ in other ways), so this neither confirms nor removes the registered L3 retrieval
+effect.
+
+**Net ITRANS → lossy (L1 + L2 = lossy − ITRANS)**, difference [95% paired bootstrap CI]:
+
+| model | retrieval (248) | sentiment (200) | SIB-200 (1,004) |
+|---|---|---|---|
+| Qwen3-1.7B | — | +0.035 [−0.040, +0.105] | +0.067 [+0.041, +0.093] |
+| Qwen3.5-2B | +0.185 [+0.121, +0.246] | +0.025 [−0.035, +0.090] | +0.134 [+0.107, +0.162] |
+| Sarvam-1 | +0.198 [+0.141, +0.254] | +0.075 [+0.025, +0.125] | +0.166 [+0.134, +0.199] |
+| Gemma 4 E2B | +0.129 [+0.065, +0.194] | +0.035 [−0.015, +0.085] | +0.130 [+0.100, +0.162] |
+| Qwen2.5 (not counted) | +0.069 [+0.032, +0.109] | +0.005 [−0.020, +0.030] | +0.089 [+0.059, +0.119] |
+
+Descriptively, lossy beats ITRANS on retrieval and SIB in every model; only on sentiment does the L1 loss mostly
+cancel the L2 gain. No verdict.

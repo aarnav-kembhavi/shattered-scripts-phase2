@@ -1,0 +1,17 @@
+{
+  "provenance": {
+    "config": {
+      "status": "post hoc descriptive, 2026-10-22, no verdict",
+      "english": "wordfreq en Zipf>=3, len>=4"
+    },
+    "git_commit": "0221b44def30c91600373510c02334ec7dc41d45",
+    "timestamp_utc": "2026-10-22T15:03:09+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/l_ladder_posthoc.py"
+    ]
+  },
+  "l3_rows": 14,
+  "net_rows": 14
+}
