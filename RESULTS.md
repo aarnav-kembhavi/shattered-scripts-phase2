@@ -1965,3 +1965,46 @@ frequency nor token count. No verdict.
 
 **4. L3 on loan-free items** was done earlier today (entry "L3 on items with no English words in natural",
 `results/l_ladder_posthoc/l3_no_english.csv`); no new computation.
+
+---
+## 2026-10-23 — Annotation deviations: roles, replacement of the two defective items (Aarnav; before any annotation exists and before any page is distributed)
+- **Roles.** Aarnav is not an annotator or rater (not fluent enough); Aarnav coordinates only. **Annotator A** does all
+  500 items (Aarnav may later split this 250/250 between A1 and A2; if so it is logged before it happens).
+  **Annotator B** does the 100 double-annotated items, the 40 blind items first (native sentence only, as registered).
+  **Rater C** (independent; sees no drafts and no human versions before rating) rates the 40 blind pairs. "Primary
+  annotator" in the K1–K3 registrations means Annotator A; "second annotator" means Annotator B.
+- **K3 amended.** Measure 2 in the 2026-10-22 K3 revision ("naturalness rated by Aarnav") is superseded: Rater C rates,
+  as in the 2026-10-22 K3 addendum. Any fallback in which Aarnav rates is removed. **If no independent rater is
+  available, K3 is reported descriptively with no verdict** (unchanged from the addendum). The limitation about
+  Aarnav's own pass unblinding the rating no longer applies (Rater C sees no drafts); Annotator A sees the Gemini
+  drafts of the blind items, but A neither writes the blind texts nor rates them.
+- **flores-993 and indicsentiment-test-245 are replaced, not hand-fixed** (supersedes "flagged for Aarnav to fix by
+  hand" in deviation (a) of 2026-10-22). Two replacement items are drawn at random with a fixed, logged seed from the
+  same source pools (FLORES+ dev+devtest; IndicSentiment test), excluding every item already in any study sample. Drafts
+  come from the identical Gemini prompt; any draft with a non-Latin character fails and triggers a new draw, and every
+  draw is logged. Each replacement inherits the double-annotated and blind status of the item it replaces. Then the page
+  is rebuilt, 0 flagged drafts confirmed and the CSV round trip retested (Phase B; not done yet).
+
+---
+## 2026-10-23 — A6: largest family model for 4-bit accuracy-only runs on the RTX 3070 (information only; no download, nothing run)
+Parameter counts from the HF safetensors metadata, architectures from each `config.json` (2026-10-23). bitsandbytes
+0.50.2 is installed in `.venv` (native Windows wheels since 0.43); its CUDA kernels are **not yet tested on this
+machine**. GPU: 8.0 GiB. Weight memory estimated as NF4 with double quantization (~0.52 bytes per Linear parameter),
+input embeddings and lm_head kept in bf16 (transformers default), vision/audio towers not loaded (as for Gemma 4 E2B
+now). These are estimates, not measurements; a pilot would replace them.
+
+| family | candidate | params | est. GPU weights at 4-bit | fits 8 GB? |
+|---|---|---|---|---|
+| Qwen3 | Qwen3-8B (untied embeddings) | 8.19B | ~6.1 GB (~4.8 GB with the input embedding on CPU) | yes, ~6.6 GB peak with activations and CUDA context |
+| Qwen3 | Qwen3-14B | 14.77B | ~9.9 GB (~8.4 GB embedding on CPU) | no |
+| Qwen3.5 | Qwen3.5-9B (untied, vision tower 27 layers) | 9.65B | ~7.8 GB; ~5.7 GB with the input embedding on CPU | only with the embedding on CPU (as CPULookup does for Gemma's PLE) |
+| Qwen3.5 | Qwen3.5-4B (tied) | 4.66B | ~3 GB | yes |
+| Gemma 4 | Gemma 4 12B (tied, 262k vocab, 48 layers) | 11.96B | ~7.5 GB | no (no headroom) |
+| Gemma 4 | Gemma 4 E4B (PLE table on CPU) | 8.0B | ~3.5–4 GB | yes |
+| Sarvam | sarvam-m (24B) | 23.57B | ~12.5 GB | no; no general Sarvam LM between sarvam-1 (2.5B) and sarvam-m |
+
+Runtime (extrapolated from the NC1 log, not measured at 4-bit): the 2B bf16 models scored sentiment + XNLI + SIB for 3
+conditions in 24–30 min. With ~4× the parameters and bitsandbytes 4-bit dequantization overhead, an 8–9B model is
+estimated at **4–8× that: ~35–80 min per form** over the three tasks. A pilot (50 items, one form) would replace this.
+Note: running any of these conflicts with the 2026-10-23 scope rule "no models larger than our current set" and needs
+Aarnav's explicit approval.
