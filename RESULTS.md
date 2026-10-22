@@ -1684,3 +1684,22 @@ Amends the 2026-10-22 K3 registration; replaces Claude Code's proposed ±0.5 / 9
   (−0.5, +0.5); otherwise not shown equivalent, and a difference is reported if the 95% CI excludes 0 (with sign).
 - **If no independent rater is available, K3 is reported descriptively (mean paired difference with 90% CI, chrF
   Gemini vs human with the human-human reference noted as biased upward); no verdict.**
+
+---
+## 2026-10-22 — English-word share: sensitivity excluding words of ≤ 3 characters (post hoc descriptive, 2026-10-22, no verdict)
+Addendum to the English-share entry above (Aarnav's request). `scripts/english_share.py`, variant "words of 4+
+characters": words of 3 characters or fewer are dropped from every form and from the denominator; Zipf ≥ 3 list; same
+samples, bootstrap and seed (earlier rows of `results/english_share/shares.csv` reproduce exactly).
+
+| sample | wordlist | variant | natural | lossy | ITRANS | natural − lossy [95% CI] |
+|---|---|---|---|---|---|---|
+| M4c 496 | Zipf ≥ 3 | words of 4+ characters | 0.071 | 0.022 | 0.018 | +0.049 [+0.042, +0.057] |
+| sentiment 198 | Zipf ≥ 3 | words of 4+ characters | 0.084 | 0.018 | 0.015 | +0.066 [+0.054, +0.078] |
+
+The difference is almost unchanged (+0.049 and +0.066 vs +0.049 and +0.068 with all words) while lossy's chance
+baseline drops by more than half. In natural, the top matched 4+ character words are now mostly real English loans and
+names (M4c: `police`, `british`, `august`, `french`, `website`, `internet`, `station`; sentiment: `collar`,
+`application`, `wifi`, `cooler`, `bluetooth`), with some remaining collisions shared with lossy (`ella`, `matte`);
+top-25 lists in `results/english_share/wordlist.json` (`top_matched_words_zipf3_4plus_chars`). This weakens the
+earlier caveat that the M4c excess is mostly short Kannada words: those words inflate natural's share, but natural −
+lossy survives their removal. No verdict.

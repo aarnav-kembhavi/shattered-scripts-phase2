@@ -15,6 +15,8 @@ No named-entity list exists in this repo, so proper nouns are approximated by ca
 word that starts with an uppercase letter and is not sentence-initial (not the first word of the text and not after a
 word ending in . ! ?). "no proper nouns" removes those words from natural and, best effort, removes from lossy and
 ITRANS of the same item any word whose lowercased form equals one of them.
+Sensitivity (2026-10-22, post hoc): "words of 4+ characters" drops words of 3 characters or fewer from every form (and
+from the denominator), removing most chance collisions (ee, na, aa, i, a, ide).
 
 Share = English words / words, pooled over items. CI: paired bootstrap over items, 10,000 resamples, seed 0,
 percentile 95%.
@@ -77,13 +79,13 @@ def samples() -> dict:
     return {"m4c496": m4c, "sentiment198": sent}
 
 
-def counts(items, wl, drop_proper, as_written=False):
+def counts(items, wl, drop_proper, as_written=False, min_len=1):
     """(n_items, n_forms, 2) array: English words and words per item and form."""
     out = np.zeros((len(items), len(FORMS), 2))
     for i, it in enumerate(items):
         P = proper(it["natural"]) if drop_proper else set()
         for j, f in enumerate(FORMS):
-            W = [w for w in words(it[f]) if w.lower() not in P]
+            W = [w for w in words(it[f]) if w.lower() not in P and len(w) >= min_len]
             eng = [w for w in W if w.lower() in wl and not (as_written and f == "itrans" and w != w.lower())]
             out[i, j] = len(eng), len(W)
     return out
@@ -98,9 +100,10 @@ def main() -> None:
     for d, items in S.items():
         idx = rng.integers(0, len(items), size=(B, len(items)))
         for wk, wl in WL.items():
-            for variant, dp, aw in (("all words", False, False), ("no proper nouns", True, False),
-                                    ("all words, ITRANS as written", False, True)):
-                C = counts(items, wl, dp, aw)
+            for variant, dp, aw, ml in (("all words", False, False, 1), ("no proper nouns", True, False, 1),
+                                        ("all words, ITRANS as written", False, True, 1),
+                                        ("words of 4+ characters", False, False, 4)):
+                C = counts(items, wl, dp, aw, ml)
                 share = C[:, :, 0].sum(0) / C[:, :, 1].sum(0)
                 bs = C[idx].sum(1)                      # (B, forms, 2)
                 bshare = bs[:, :, 0] / bs[:, :, 1]
@@ -119,10 +122,14 @@ def main() -> None:
     pd.DataFrame(rows).to_csv(out / "shares.csv", index=False)
     top = {d: {f: Counter(w.lower() for it in items for w in words(it[f]) if w.lower() in WL["zipf>=3"])
                .most_common(25) for f in FORMS} for d, items in S.items()}
+    top4 = {d: {f: Counter(w.lower() for it in items for w in words(it[f])
+                           if len(w) >= 4 and w.lower() in WL["zipf>=3"]).most_common(25) for f in FORMS}
+            for d, items in S.items()}
     write_json(out / "wordlist.json", {"source": "wordfreq " + md.version("wordfreq") + ", language en, list 'best'",
                                        "url": "https://github.com/rspeer/wordfreq",
                                        "sizes": {k: len(v) for k, v in WL.items()},
                                        "top_matched_words_zipf3_all_words": top,
+                                       "top_matched_words_zipf3_4plus_chars": top4,
                                        "proper_noun_rule": "capitalized, not sentence-initial, in natural"},
                {"status": "post hoc descriptive, 2026-10-22, no verdict", "bootstrap": B, "seed": SEED})
     print(pd.DataFrame(rows).to_string())
