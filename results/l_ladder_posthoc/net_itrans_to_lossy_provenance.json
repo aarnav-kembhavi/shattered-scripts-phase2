@@ -1,0 +1,16 @@
+{
+  "provenance": {
+    "config": {
+      "status": "post hoc descriptive, 2026-10-22, no verdict",
+      "task": "sentiment (200)"
+    },
+    "git_commit": "5ec703c98f771ec6fecd985c1786bfe7d435af03",
+    "timestamp_utc": "2026-10-22T12:39:12+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/l_ladder_net.py"
+    ]
+  },
+  "rows": 5
+}

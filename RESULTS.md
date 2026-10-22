@@ -1703,3 +1703,27 @@ names (M4c: `police`, `british`, `august`, `french`, `website`, `internet`, `sta
 top-25 lists in `results/english_share/wordlist.json` (`top_matched_words_zipf3_4plus_chars`). This weakens the
 earlier caveat that the M4c excess is mostly short Kannada words: those words inflate natural's share, but natural −
 lossy survives their removal. No verdict.
+
+---
+## 2026-10-22 — L1 casing: post hoc note (post hoc descriptive, 2026-10-22, no verdict)
+The registered L1 verdict stays **no effect detected** on all three measures. Descriptively
+(`results/l_ladder/{tokens_per_word_checks.csv, contrasts.csv}`): casing changed tokens per word by only **+0.8% to
++5.1%** (all models and datasets; L2 changed it by −18.0% to −23.0%), yet it moved **sentiment by −0.115 (Qwen3.5-2B,
+Holm p 0.0048) and −0.185 (Gemma 4 E2B, Holm p 6.3e−7)**, and **SIB with mixed signs** (Qwen3.5 +0.055, Gemma 4
++0.048, Sarvam-1 −0.043, all Holm-significant; Qwen3 +0.001). So in single models casing alone shifted accuracy with
+fragmentation nearly unchanged; the registered 3-of-4 same-sign rule is not met.
+
+**Net ITRANS → lossy sentiment change = L1 + L2** (same items, so the differences add exactly; checked in the script).
+`scripts/l_ladder_net.py` → `results/l_ladder_posthoc/net_itrans_to_lossy.csv`; paired bootstrap 95% CI (10,000, as
+the ladder); McNemar p unadjusted, no test registered.
+
+| model | L1 | L2 | net lossy − ITRANS [95% CI] | McNemar p (unadj.) |
+|---|---|---|---|---|
+| Qwen3-1.7B | −0.045 | +0.080 | +0.035 [−0.040, +0.105] | 0.43 |
+| Qwen3.5-2B | −0.115 | +0.140 | +0.025 [−0.035, +0.090] | 0.53 |
+| Sarvam-1 | −0.055 | +0.130 | +0.075 [+0.025, +0.125] | 0.0059 |
+| Gemma 4 E2B | −0.185 | +0.220 | +0.035 [−0.015, +0.085] | 0.26 |
+| Qwen2.5-1.5B (not counted) | −0.025 | +0.030 | +0.005 [−0.020, +0.030] | 1.0 |
+
+Descriptively, on sentiment most of L2's gain offsets the loss from lowercasing; only Sarvam-1's net CI excludes 0.
+No verdict.
