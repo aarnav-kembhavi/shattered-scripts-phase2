@@ -2075,3 +2075,130 @@ as the absence of English loans; the subset analysis cannot separate these.
 - **Datasheet draft:** `data/annotation/DATASHEET.md`. Open items: the IndicSentiment license at source, the Gemini
   output terms, annotator details, release.
 - **K3b:** drafted (`docs/drafts/K3b_prereg_draft.md`); not registered, not run.
+
+---
+## PRE-REGISTRATION — K3b: Gemini vs native-speaker natural romanization on Dakshina Kannada (written 2026-10-23 01:00 IST, Aarnav-approved with one change; before any Dakshina text is sent to Gemini)
+Script: `scripts/k3b_dakshina.py` (written after this registration). Gemini quota: runs after the Hindi drafts below.
+- **Data:** Dakshina v1.0 official release (MD5-verified 2026-10-23, CC BY-SA 4.0),
+  `kn/romanized/kn.romanized.rejoined.tsv`: 10,000 Kannada Wikipedia strings romanized by native-speaker annotators.
+  No overlap with any evaluation item.
+- **Sample:** every native string occurring more than once is dropped (all copies), as is every string with fewer than
+  3 native words (counts logged). From the rest, 500 are drawn with `numpy.random.default_rng(6)`.
+- **Gemini primary:** `gemini-3.5-flash-lite`, prompt `natural_romanization_v1` (identical to our natural drafts),
+  temperature 0, cached. A defective output (`defective()`: any Indic-script character or new non-ASCII character)
+  gets attempts 2–3; strings still defective are excluded and counted.
+- **Resample reference:** 200 of the 500 (`default_rng(7)`) get two more samples, G1 and G2, at temperature 1.0 with
+  the same prompt. A defective sample is not retried; that string drops out of the reference.
+- **Normalization:** both sides are lowercased. Letters are `[a-z]`.
+- **Descriptive only (no rule):** chrF (sacrebleu, char order 6, word order 0, β = 2) of Gemini vs human (500, mean with
+  bootstrap 95% CI) and of G1 vs G2 (≤ 200).
+- **Statistics with the rule:**
+  - (1) vowel doubling: occurrences of aa, ee, ii, oo, uu (non-overlapping, left to right) per 100 letters;
+  - (2) h-digraph use: kh, gh, chh, jh, th, dh, ph, bh per 100 letters ("chh" counted once, not also as "ch"+"h");
+  - (3) English-word share: words of 4+ letters in the wordfreq English list with Zipf ≥ 3 (`scripts/english_share.py`
+    `words()` and list), as a share of words.
+  - Each is pooled over strings: R = (Σ count_Gemini / Σ units_Gemini) / (Σ count_human / Σ units_human), with paired
+    bootstrap CIs over strings (10,000; seed 0).
+- **Decision rule:**
+  - Per statistic: **matches** if the 90% CI of R lies within [0.80, 1.25]; **differs** if the 95% CI excludes 1 and
+    the 90% CI is not within [0.80, 1.25]; otherwise **inconclusive** (also if the human pooled rate is 0).
+  - **K3b holds** only if all three statistics match. **K3b refuted** if any differs (named with direction). Otherwise
+    **inconclusive**.
+- **Limitations stated now:**
+  - Dakshina is formal Wikipedia text, romanized under the annotators' own instructions.
+  - "th"/"dh" also mark dental consonants, so (2) is h-digraph use, not aspiration.
+  - The temperature-1.0 reference likely overstates Gemini's everyday variation.
+
+---
+## PRE-REGISTRATION — Hindi natural romanization drafts and H-Hindi (written 2026-10-23 01:00 IST, Aarnav's design; before any Hindi draft or Hindi model output exists)
+Scripts: `scripts/h_hindi.py` (written after this registration), chains `scripts/h_drafts_chain.sh` (Gemini, then
+K3b) and `scripts/h_gpu_chain.sh` (GPU). Outputs in `results/h_hindi/`.
+
+### Data (checked 2026-10-23 before registration; no model run)
+- **FLORES+ `hin_Deva` dev + devtest:** 2,009 sentences, the same indices as Kannada.
+- **IndicSentiment `data/test/hi.json`** (revision dc8f3f66886531c6897fedffca1e938a68fc5013): 1,000 rows, row-aligned
+  with `kn.json`. English review and label are identical in all 1,000 rows, so the ids `indicsentiment-test-{row}` are
+  shared.
+- **SIB-200 `hin_Deva`** (same revision as Kannada): 1,004 items, the same index ids and topic labels. Native text is
+  taken from FLORES+ by index, as for Kannada (SIB's own Hindi text equals FLORES+ in 917 of 1,004).
+- **Items:**
+  - the 200 Kannada E0 sentiment ids;
+  - SIB 1,004;
+  - the M4c rows: the same 500 FLORES indices, 496 retained by the Kannada mask.
+
+### Forms
+- **native:** Devanagari, NFC.
+- **ITRANS (lossless):** the project's ITRANS scheme generated for Devanagari (`itrans_for(SCRIPTS["hin_Deva"])`).
+  Encoded per sentence: it round-trips exactly on 2,009/2,009 FLORES+ and 1,000/1,000 sentiment texts. Per-word encoding,
+  as used for Kannada FLORES, fails on 13 Hindi sentences.
+- **lossy:** `to_lossy(text, "hin_Deva")`, the same rule table as Kannada with no change:
+  - long → short vowels; retroflex → dental; aspirated → unaspirated;
+  - anusvara → m before labials or at a word end, else n; chandrabindu (.N) → n;
+  - nukta letters: क़ → k, ख़ → k, ग़ → g, ड़/ढ़ → d, य़ → y; फ़ → f and ज़ → z are kept;
+  - avagraha dropped; then lowercased.
+  - Not adapted: the Hindi inherent schwa is kept (for example सोमवार → "somavara"), because the Kannada rules have no
+    schwa deletion. Hindi lossy is therefore further from natural Hindi than Kannada lossy is from natural Kannada.
+- **natural:** Gemini drafts, `gemini-3.5-flash-lite`, temperature 0, cached.
+  - Prompt `natural_romanization_hi_v1` is `natural_romanization_v1` with "Kannada" replaced by "Hindi" (3
+    occurrences), verbatim:
+    > Romanize the following Hindi sentence the way an ordinary Hindi speaker would type it in Latin script on a phone:
+    > informal spelling, no diacritics, no special symbols. / Keep every word and the original word order. Do not
+    > translate, explain, add or remove anything. Keep numbers, punctuation and any English words as they are. /
+    > Output only the romanized sentence. / Hindi sentence: / {text}
+  - Drafted for the 496 M4c sentences and the 200 sentiment items.
+  - Same defect check and retries as Kannada: `defective()` (any Indic-script character, U+0900–U+0DFF, or new
+    non-ASCII character); attempts 2–3; still defective → excluded and counted.
+  - SIB natural is the M4c overlap (Kannada `natural257`) minus Hindi defects.
+
+### Baseline gate (automatic, fixed now)
+- **Accuracy:** a model counts for Hindi accuracy if its native Hindi accuracy CI excludes chance, lying above it, on
+  BOTH sentiment 200 (0.5) and SIB 1,004 (1/7). Accuracy is the calibrated primary rule with bootstrap 95% CI (10,000).
+- **Retrieval:** a model counts for Hindi retrieval if its native Hindi unmapped retrieval exceeds 0.5. This is acc@1
+  on the M4c 248 test half at the train-half best layer, the same split and code as Kannada.
+- **Counted for H1:** a model must pass the Hindi gate and also be counted for that measure in the Kannada ladder
+  (retrieval: Qwen3.5, Sarvam-1, Gemma 4; accuracy: Qwen3, Qwen3.5, Sarvam-1, Gemma 4).
+  - Qwen2.5 is reported, never counted.
+  - Qwen3 has Hindi retrieval reported only, since there is no Kannada retrieval for it; its English M4c vectors are
+    computed for this.
+- Models failing the gate are reported, not counted.
+
+### H1 (prediction): the native − natural gap is smaller for Hindi than for Kannada
+- **Statistic per counted model:** d̄ = mean over items of [(Kannada native − Kannada natural) − (Hindi native −
+  Hindi natural)], paired over the same item ids; 95% paired bootstrap CI (10,000; seed 0). Per-item scores are
+  retrieval hit (0/1) or correctness (0/1, calibrated primary rule).
+- **Measures:**
+  - **Retrieval:** item set D = Kannada-retained ∩ Hindi-natural-clean M4c rows. Every form in both languages is
+    recomputed on D with the M4c split restricted to D (train ∩ D, test ∩ D, folds as the ladder). Unmapped acc@1 on
+    test ∩ D, with the best layer chosen on the train half per form and language. If no Hindi draft is defective, the
+    Kannada values equal the ladder's.
+  - **Sentiment:** the 198 clean Kannada natural ids ∩ Hindi-clean (n reported).
+  - **SIB:** the 257 M4c-overlap ids ∩ Hindi-clean (n reported).
+- **Calibration:** contextual calibration (mean of "N/A", "", "[MASK]") from each language's own run. The raw
+  fallback is decided on the English rows of each model × task already scored for Kannada (identical English items).
+- **Significance:** two-sided bootstrap p = 2·min(P(d* ≤ 0), P(d* ≥ 0)), floor 1/10,000, Holm-adjusted within each
+  measure over its counted models. A model is positive if Holm p < 0.05 and d̄ > 0. Holm decides when it disagrees
+  with the raw CI.
+- **Verdict per measure:**
+  - **Effect (H1 supported on that measure)** if positive in ≥ 2 of 3 counted retrieval models, or in ≥ 3 of 4 counted
+    accuracy models (sentiment and SIB each separately).
+  - If fewer models pass the gate: all but one, minimum 2. With fewer than 2 counted models the measure is "not
+    testable".
+  - **Refuted** on a measure if no effect. No pooled verdict across measures.
+- **Exploratory, no prediction:** the same difference of gaps for native − ITRANS, on the same item sets.
+- **Caveat stated now:** Hindi native performance is likely higher overall, so ceiling effects can shrink Hindi gaps.
+  Native accuracy per language is reported next to every gap.
+- **Ordering rule:** H1 is computed only after natural Hindi is scored (and its vectors computed) for every counted
+  model.
+
+### Run plan (overnight, detached, one model load at a time)
+- **GPU, 5 models:** Hindi native, ITRANS and lossy on sentiment 200 and SIB 1,004. M4c 500-row sentence vectors for
+  native, ITRANS and lossy, plus English for Qwen3. Tokens per word for every form, model and dataset. Then the gate.
+- **Natural Hindi** (vectors and scores) runs when the drafts are complete.
+- **Checks that stop the chain with a status file:**
+  - data alignment as above;
+  - vector arrays have the Kannada layer count and no NaN;
+  - score files have the expected row counts and no NaN log-probs;
+  - every natural draft is clean or excluded.
+- **Estimate** (from the Kannada logs): forward about 15 min, scoring about 2.5 h for 3 forms × 5 models, natural about
+  1 h once drafted. Drafts: about 700 Gemini requests plus retries (about 1 h). K3b follows: about 900–1,500 requests,
+  likely over the 12:45 IST reset.
