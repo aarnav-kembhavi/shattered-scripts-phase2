@@ -2286,8 +2286,8 @@ Qwen2.5 (reported, never counted): retrieval −0.431, SIB −0.211, sentiment 0
   0.355 [0.129, 0.548]); sentiment n = 6, 0 of 4. Rule outcome (descriptive): not met on any measure.
 - **Registered interpretation applies:** H1 holds on retrieval and SIB on the full set but not on the loan-free set, so
   both are reported as **possibly driven by English loans**. The loan-free sets are small (41, 31, 6 items), so the
-  loan-free outcome is low-powered; d̄ stays positive for 7 of 7 counted retrieval/SIB models (4 of 7 CIs exclude 0
-  before Holm). These are stated, not used to override the registered reading.
+  loan-free outcome is low-powered; d̄ stays positive for 7 of 7 counted retrieval/SIB models (3 of 7 CIs exclude 0
+  before Holm; Qwen3.5 SIB lower bound is 0.000). These are stated, not used to override the registered reading.
 
 ### Exploratory native − ITRANS (no prediction)
 Positive (Holm): retrieval Qwen3.5 0.276, Gemma 4 0.329; Sarvam-1 retrieval −0.122 (Hindi ITRANS gap larger). No
