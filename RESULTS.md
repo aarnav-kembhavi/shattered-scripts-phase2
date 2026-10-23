@@ -2561,3 +2561,10 @@ alignment_check.json}`. No recovery value was computed. GPU check before each lo
   `flash-linear-attention` are not installed); layer counts differ across models (the point count scales the run).
   The estimates are from Qwen3.5 only.
 - **Stopped at both gates; no full run started.**
+
+## 2026-10-23 — Note on H1 and English loans after v2 (post hoc descriptive, dated, no verdict; Aarnav)
+- **Retrieval:** on the retrieval items the v2 loan-share difference (Hindi minus Kannada natural) is +0.005
+  [−0.005, 0.015], so the retrieval H1 effect cannot be attributed to English loans.
+- **SIB:** the v2 loan-free subset (n = 74) does not meet the rule, and v2 is a lower bound on loan share, so the SIB
+  reading awaits H1-LF option 1.
+- The registered H1 verdicts and the registered H1-LF option 2 verdicts are unchanged.
