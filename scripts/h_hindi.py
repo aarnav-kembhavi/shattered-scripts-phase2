@@ -33,6 +33,7 @@ from shattered.translit.scheme import SCRIPTS, itrans_for
 
 sys.path.insert(0, str(REPO / "scripts"))
 import e0b_familiarity as e0b  # noqa: E402
+import english_share as es  # noqa: E402
 import l_ladder as lad  # noqa: E402
 from m4b_mapping import ACT, boot, layer_fit  # noqa: E402
 from m4c_natural_flores import SEED  # noqa: E402
@@ -381,7 +382,6 @@ def paired_stat(d: np.ndarray) -> dict:
 
 
 def do_analyse() -> int:
-    from statsmodels.stats.multitest import multipletests
     gate = json.load(open(OUT / "gate.json"))
     del gate["provenance"]
     nat = clean_natural()
@@ -394,14 +394,73 @@ def do_analyse() -> int:
     ids, keep = m4c_rows()
     D_ret = [i for i, k in zip(ids, keep) if k and f"flores-{i}" in nat]
     K, H = calibrated("kannada", ["native", "itrans", "natural", "natural257"]), calibrated("hindi", FORMS + ["natural"])
+    R = h1_table(gate, K, H, D_ret, None, check_ladder=len(D_ret) == int(keep.sum()))
+    R[R.comparison == "native-natural"].to_csv(OUT / "h1.csv", index=False)
+    R[R.comparison == "native-itrans"].to_csv(OUT / "exploratory_itrans.csv", index=False)
+    verdict = h1_rule(R)
+    write_json(OUT / "h1_verdict.json", verdict, {"registered": "RESULTS.md 2026-10-23 (H-Hindi + 12:05 addendum)",
+                                                   "n_retrieval_items_D": len(D_ret)})
+    # secondary (addendum item 3, no separate verdict): English-word share and loan-free H1
+    wl = es.wordlists()["zipf>=3"]
+    texts = natural_pairs(nat)
+    ids_by = {"retrieval": D_ret, "sentiment": R.attrs["ids"]["sentiment"], "sib": R.attrs["ids"]["sib"]}
+    key = lambda t, i: ("sentiment", i) if t == "sentiment" else ("m4c", int(i))  # noqa: E731
+    share, loan_free = {}, {}
+    for t, its in ids_by.items():
+        e = np.array([[en_count(texts[key(t, i)][lg], wl) for lg in (0, 1)] for i in its], dtype=float)  # (n, lang, 2)
+        sh = e[:, :, 0] / np.maximum(e[:, :, 1], 1)
+        d = sh[:, 1] - sh[:, 0]
+        bs = d[np.random.default_rng(0).integers(0, len(d), (N_BOOT, len(d)))].mean(1)
+        free = (e[:, 0, 0] == 0) & (e[:, 1, 0] == 0)
+        share[t] = {"n": len(d), "kannada_share": float(sh[:, 0].mean()), "hindi_share": float(sh[:, 1].mean()),
+                    "hindi_minus_kannada": float(d.mean()), "ci": [float(x) for x in np.percentile(bs, [2.5, 97.5])],
+                    "n_english_free_both": int(free.sum())}
+        loan_free[t] = {i for i, f in zip(its, free) if f}
+    L = h1_table(gate, K, H, [i for i in D_ret if i in loan_free["retrieval"]], loan_free, check_ladder=False)
+    L[L.comparison == "native-natural"].to_csv(OUT / "h1_loanfree.csv", index=False)
+    lf = h1_rule(L)
+    for t in lf:
+        lf[t]["rule_outcome_descriptive"] = lf[t].pop("verdict")
+        lf[t]["flag"] = ("possibly driven by English loans" if verdict[t]["verdict"].startswith("effect")
+                         and not lf[t]["rule_outcome_descriptive"].startswith("effect") else None)
+    write_json(OUT / "h1_secondary.json", {"english_word_share": share, "loan_free_h1": lf},
+               {"registered": "RESULTS.md 2026-10-23 12:05 addendum, item 3", "status": "secondary, no separate verdict",
+                "wordlist": "wordfreq en best, Zipf >= 3, words longer than 3 characters, lowercased"})
+    print("H1 analysis and secondary written", flush=True)
+    return 0
+
+
+def en_count(text: str, wl: set) -> tuple[int, int]:
+    """(English words, words): lowercased `english_share.words()`, longer than 3 characters, Zipf >= 3 list."""
+    w = [x.lower() for x in es.words(text)]
+    return sum(len(x) > 3 and x in wl for x in w), len(w)
+
+
+def natural_pairs(nat: dict) -> dict:
+    """{("sentiment", id) | ("m4c", index): (Kannada natural, Hindi natural)} for items clean in both languages."""
+    out = {}
+    for it in lad.e0b_items()["sentiment"]:
+        if not it["natural_defective"] and it["id"] in nat:
+            out[("sentiment", it["id"])] = (it["forms"]["natural"]["text"], nat[it["id"]])
+    R, keep, _ = lad.m4c_sample()
+    for r, k in zip(R, keep):
+        if k and f"flores-{r['index']}" in nat:
+            out[("m4c", int(r["index"]))] = (r["natural"], nat[f"flores-{r['index']}"])
+    return out
+
+
+def h1_table(gate: dict, K: pd.DataFrame, H: pd.DataFrame, D_ret: list, restrict: dict | None,
+             check_ladder: bool) -> pd.DataFrame:
+    """H1 and exploratory rows per model; `restrict` limits the sentiment/SIB ids (loan-free secondary)."""
+    from statsmodels.stats.multitest import multipletests
     lad_ret = pd.read_csv(REPO / "results/l_ladder/retrieval.csv").set_index(["model", "form"])
-    rows = []
+    rows, used = [], {}
     for m in MODELS:
         # retrieval (models with Kannada retrieval only)
         if m in lad.M4_MODELS:
             h = {(lang, f): retrieval_hits(m, lang, f, D_ret) for lang in ("kannada", "hindi")
                  for f in ("native", "natural", "itrans")}
-            if len(D_ret) == int(keep.sum()):  # no Hindi defect: Kannada must reproduce the ladder
+            if check_ladder:  # no Hindi defect: Kannada must reproduce the ladder
                 for f in ("native", "natural", "itrans"):
                     assert np.isclose(h[("kannada", f)].mean(), lad_ret.loc[(m, f), "unmapped_test"]), (m, f)
             for comp in ("natural", "itrans"):
@@ -416,6 +475,9 @@ def do_analyse() -> int:
             k = K[(K.model == m) & (K.task == t)].pivot_table(index="id", columns="form", values="correct")
             hh = H[(H.model == m) & (H.task == t)].pivot_table(index="id", columns="form", values="correct")
             ok = k.index[k[kn_nat].notna()].intersection(hh.index[hh["natural"].notna()])
+            if restrict is not None:
+                ok = ok[ok.isin(list(restrict[t]))]
+            used[t] = list(ok)
             for comp, kc, hc in (("natural", kn_nat, "natural"), ("itrans", "itrans", "itrans")):
                 a, b = k.loc[ok], hh.loc[ok]
                 d = (a["native"].astype(float) - a[kc]) - (b["native"].astype(float) - b[hc])
@@ -429,8 +491,11 @@ def do_analyse() -> int:
         R.loc[g.index, "p_holm"] = multipletests(g.p, method="holm")[1]
     R["positive"] = R.counted & (R.p_holm < 0.05) & (R.diff_of_gaps > 0)
     R["ci_holm_disagree"] = R.counted & (R.positive != [c[0] > 0 for c in R.ci])
-    R[R.comparison == "native-natural"].to_csv(OUT / "h1.csv", index=False)
-    R[R.comparison == "native-itrans"].to_csv(OUT / "exploratory_itrans.csv", index=False)
+    R.attrs["ids"] = used
+    return R
+
+
+def h1_rule(R: pd.DataFrame) -> dict:
     verdict = {}
     for s in ("retrieval", "sentiment", "sib"):
         g = R[(R.measure == s) & (R.comparison == "native-natural") & R.counted]
@@ -438,12 +503,10 @@ def do_analyse() -> int:
         need = (2 if s == "retrieval" else 3) if n == (3 if s == "retrieval" else 4) else max(n - 1, 2)
         pos = int(g.positive.sum())
         verdict[s] = {"n_counted": n, "needed": need, "n_positive": pos, "counted_models": g.model.tolist(),
+                      "n_items": int(g.n.iloc[0]) if n else 0,
                       "verdict": "not testable" if n < 2 else ("effect (H1 supported)" if pos >= need else "refuted"),
                       "ci_holm_disagreements": g[g.ci_holm_disagree].model.tolist()}
-    write_json(OUT / "h1_verdict.json", verdict, {"registered": "RESULTS.md 2026-10-23 (H-Hindi)",
-                                                   "n_retrieval_items_D": len(D_ret)})
-    print("H1 analysis written", flush=True)
-    return 0
+    return verdict
 
 
 if __name__ == "__main__":

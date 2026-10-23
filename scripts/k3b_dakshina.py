@@ -1,10 +1,11 @@
 """K3b: Gemini vs native-speaker natural romanization on Dakshina Kannada (pre-registered in RESULTS.md, 2026-10-23,
 before this script was written).
 
-Usage: python scripts/k3b_dakshina.py sample    (CPU: 500 strings, seed 6; resample subset 200, seed 7)
-       python scripts/k3b_dakshina.py draft     (API; exit 3 on a quota stop, re-run to continue)
-       python scripts/k3b_dakshina.py analyse   (CPU)
-Outputs: results/k3b/{sample.json, drafts.jsonl, chrf.json, stats.csv, verdict.json}
+Usage: python scripts/k3b_dakshina.py sample [hi]   (CPU: 500 strings, seed 6; resample subset 200, seed 7)
+       python scripts/k3b_dakshina.py draft [hi]    (API; exit 3 on a quota stop, re-run to continue)
+       python scripts/k3b_dakshina.py analyse [hi]  (CPU)
+`hi` runs K3b-hi (registered 2026-10-23 12:05 IST): Dakshina Hindi, prompt `natural_romanization_hi_v1`, same design.
+Outputs: results/k3b/ (results/k3b_hi/ for hi): {sample.json, drafts.jsonl, chrf.json, stats.csv, verdict.json}
 """
 import csv
 import json
@@ -21,8 +22,12 @@ from shattered.translit.natural import MODEL, PROMPT_VERSION, defective, make_cl
 sys.path.insert(0, str(REPO / "scripts"))
 import english_share as es  # noqa: E402
 
-SRC = REPO / "data/raw/dakshina_official/dakshina_dataset_v1.0/kn/romanized/kn.romanized.rejoined.tsv"
-OUT = results_dir("k3b")
+LANG = sys.argv[2] if len(sys.argv) > 2 else "kn"
+assert LANG in ("kn", "hi"), LANG
+SRC = REPO / f"data/raw/dakshina_official/dakshina_dataset_v1.0/{LANG}/romanized/{LANG}.romanized.rejoined.tsv"
+OUT = results_dir("k3b" if LANG == "kn" else "k3b_hi")
+PV = PROMPT_VERSION if LANG == "kn" else "natural_romanization_hi_v1"
+REGISTERED = "RESULTS.md 2026-10-23 (K3b)" if LANG == "kn" else "RESULTS.md 2026-10-23 12:05 (K3b-hi)"
 SAMPLE, DRAFTS = OUT / "sample.json", OUT / "drafts.jsonl"
 N, N_RES, SEED, SEED_RES, N_BOOT = 500, 200, 6, 7, 10000
 VOWELS = re.compile(r"aa|ee|ii|oo|uu")
@@ -56,7 +61,7 @@ def do_draft() -> int:
             if not (key in done and (not done[key]["defective"] or done[key]["attempt"] >= 3)):
                 start = done[key]["attempt"] + 1 if key in done else 1
                 for attempt in range(start, 4):
-                    out = romanize(client, r["native"], attempt=attempt)["natural"]
+                    out = romanize(client, r["native"], version=PV, attempt=attempt)["natural"]
                     d = defective({"native": r["native"], "natural": out})
                     done[key] = {"pos": pos, "kind": "primary", "text": out, "attempt": attempt, "defective": d}
                     if not d:
@@ -65,7 +70,7 @@ def do_draft() -> int:
                 for k in ("G1", "G2"):
                     if (pos, k) in done:
                         continue
-                    out = client.generate(prompt(r["native"], PROMPT_VERSION), max_tokens=1024, temperature=1.0,
+                    out = client.generate(prompt(r["native"], PV), max_tokens=1024, temperature=1.0,
                                           resample=k).text.strip()
                     done[(pos, k)] = {"pos": pos, "kind": k, "text": out, "attempt": 1,
                                       "defective": defective({"native": r["native"], "natural": out})}
@@ -137,10 +142,10 @@ def do_analyse() -> None:
     verdict = ("holds" if all(v == "matches" for v in vs) else
                "refuted" if any(v.startswith("differs") for v in vs) else "inconclusive")
     pd.DataFrame([{"statistic": k, **v} for k, v in stats.items()]).to_csv(OUT / "stats.csv", index=False)
-    write_json(OUT / "chrf.json", chrf, {"registered": "RESULTS.md 2026-10-23 (K3b)"})
+    write_json(OUT / "chrf.json", chrf, {"registered": REGISTERED})
     write_json(OUT / "verdict.json", {"K3b": verdict, "statistics": stats, "n": len(ok),
                                       "n_primary_defective_excluded": len(rows) - len(ok)},
-               {"registered": "RESULTS.md 2026-10-23 (K3b)", "model": MODEL, "prompt": PROMPT_VERSION})
+               {"registered": REGISTERED, "model": MODEL, "prompt": PV})
     print("K3b analysis written", flush=True)
 
 

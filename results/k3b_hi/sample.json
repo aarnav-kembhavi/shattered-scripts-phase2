@@ -1,0 +1,2725 @@
+{
+  "provenance": {
+    "config": {
+      "n_total": 10000,
+      "n_dropped_duplicate_native": 158,
+      "n_dropped_short": 656,
+      "pool": 9186,
+      "seed": 6,
+      "seed_resample": 7
+    },
+    "git_commit": "176c2841a6c06f332723e8e6cf63813fbfbfdfbf-dirty",
+    "timestamp_utc": "2026-10-23T06:56:05+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/k3b_dakshina.py",
+      "sample",
+      "hi"
+    ]
+  },
+  "rows": [
+    {
+      "row": 13,
+      "native": "आदरणीय भारत के राष्ट्रिय नागरिक महोदय व् नागरिक बन्धुओं हमारे भरत के नागरिकों पर राज करने वाले राष्ट्रिय नागरिकों से विनम्र अपील हमारे देश का कोई भी प्रधानमंत्री अगर किसी राज्य में बीस करोड़ की मदद देने की घोषणा करते है यह तो अच्चा है परन्तु मान लो की किसी राज्य की जनता पेड़ के पत्तों के पत्तल दोने का व्यापर करने में सक्षम है तो प्रधानमन्त्री जी को यह घोषणा करने की करपा करनी चाहिए की केन्द्र सर्कार दस करोड़ नगद देगे और दस करोड़ के सालाना राज्य की जनता से पेड़ के पत्तों के पत्तल दोने खरीदेंगे फिर देश की जनता को भोज के लिए हर गैस सरेण्डर के साथ मुफ्त देंगे जो देश की जनता जल पानी बर्बादी से जानलेवा मलेरिया व जल पानी बर्बादी से स्टील के बर्तन व् स्टील के ठीकरे धोनें पर चमड़ी कटने की बीमारी न हो जो जितना आमिर आदमी उतना बरबाद क्यों उसका इलाज ही नहीं होता स्टील के बर्तन को धोने वाले की परेशानी दूर बर्तन धोने वाले को रोज लगभग दोनों समय 150 ठकरे धोने से निजात मिलेगी स्टील के बरतन को धोने से जो जल बहता है जल बहने से मलेरिया के मछरों का आतंक मिट सकता है मलेरिया की बिमारियों पर परिवार बरबाद होने में कमी आएगी दवाइयों में शासनात्मक कमीशन बाजी व घोटाले बाजी जो देश को बरबाद करने में तुली हुई ह उसमें कमी आ सकती है यह योजना हर परिवार के पास पहुचती है तो हर परिवार ६ सदस्य ४० हजार रूपये की बचत व सरकार को मलेरिया के लिए परेशानी में कमी आएगी मानव व जानवरों को एलरजी नमक बिमारियों से छुटकारा पाने में मदद मिलेगी और किसी राज्य का मुख्यमंत्री जो अपने राज्य को मेहनतकस व महत्वाकान्सी आत्म शक्तिशाली बनाना चाहता है तो अपनी राज्य की जनता को पेड़ के पत्तों के पत्तल दोने का व्यापर करवाने व पेड़ के पत्तों के पत्तल दोने में खाने का प्रचार होना चाहिए सरकारें जनता नो पेड़ के पत्तों के पत्तल दोने का व्यापर का अनुदान देगी तो उस राज्य में हरियाली की कमी कभी नहीं आएगी== महुआ ==",
+      "human": "Adarniy Bharat ke rashtriy nagarik mahoday v nagarik bandhuon hamare Bharat ke nagarikon par raj karne wale rashtriy nagarikon se vinamr appeal Hamare desh ka koi bhi Pradhanmantri agar kisi rajya men bees crore ki madad dene ki ghoshana karte hain to yah achha hai parant maan lo ki kisi rajya ki janta ped ke patton ke pattal done ka vyapar karne men sakshan hai to pradhanmantri ji ko yah ghoshana karne ki karpa karni chahiye ki kendra sarkar das crore nagad denge aur das crore ke salana rajya ki janta se ped ke patto ke pattal done kharidenge fir desh ki janta ko bhoj je liye har gas surrender ke saath muft denge jo desh ki janta jal pani barbadi se janleva malaria v jal pani barbadi se steel ke bartan va steel ke thikare dhhone par chamdi katne ki bimari n ho ji jitna amirr admi utna barbad kyon uska ilaj hi nahi hota steel ke bartan ko dhone wale ki pareshani dur bartan dhone wale ko roj lagbhag dono samay 150 thakre dhone se nijaat milegi steel ke bartan ko dhone se jo jal bahata hai jal bahane se malaria ke machharon ka atank mit sakta hai malaria ke bimariyon par parivar barbad hone men kami ayegi davaiyon men shasanatmak commission baji va ghotale baji jo desh ko barbad karne men tuli hui hai usmen kami aa sakti hai yah yojana har parivar ke pas pahunchti hai to har parivar 6 sadasya 40 hajar rupaye ki bachat v sarkar ko malaria ke liye pareshani men kami ayegi manav va janvaron ko allergy namak bimariyon se chhutkara pane men madad milegi aur kisi rajya ka mukhyamantri jo apne rajya ko mehnatkas va mahattwakansi atm Shaktishali banana chahata hai to apni rajya ki janta ko ped ke patto ke pattal done ka vyapar karnave v ped ke patton ke patta dono men khane ka prachar hona chahiye Sarkaren janta no ped ke patton je patta done ka vyapar ka anudan degi to us rajya men haiyali ki kami kabhi nahi ayegi== mahua =="
+    },
+    {
+      "row": 52,
+      "native": "ए. बेरेडल कीथ: एक हिस्ट्री ऑव संस्कृत लिटरेचर;",
+      "human": "A. Beredal Keith: A history of Sanskrit Literature;"
+    },
+    {
+      "row": 56,
+      "native": "वह ब्रिटेन के स्कॉलैंड यार्ड में महानगरीय पुलिस में विशेष प्रशिक्षण भी हासिल कर चुकी हैं।",
+      "human": "Vah vritain ke Scotland Yard men Mahanagaroy Police men vishesh prashikshan bhi hasil kar chuki hain."
+    },
+    {
+      "row": 71,
+      "native": "चौरंगा एक हिन्दी फ़िल्म है।",
+      "human": "Chauranga ek Hindi film hai."
+    },
+    {
+      "row": 85,
+      "native": "वे शेख मुजीब के तानाशाही रवईये के विरोधी थे, और 1975 में शेख मुजीब ने विपक्ष को बर्खास्त कर बाकसाल नामक एकदलीय शासत स्थापित किया, तब अहमद उनके विचारों से पूर्णतः विरुद्ध थे।",
+      "human": "Ve Shaikh Mujib ke Tanashashi ravaiye ke virodhi the, aur 1975 men Shaikh Mujib ne vipaksh ko barkhast kar Baksal namak ekdaliya shasat sthapit kiya, ab Ahmad unke vicharon se purnatah virudhha the."
+    },
+    {
+      "row": 87,
+      "native": "सय्यद वहीद अशरफ़",
+      "human": "Sayyad Wahid Ashraf"
+    },
+    {
+      "row": 116,
+      "native": "दिसंबर 2000 क़ो, अमेरिकन एक्सप्रेस ने पेसिफिक सेंचुरी फ़ाइनेंशियल कॉरपोरेशन के डिवीज़न, बैंक ऑफ हवाई के क्रेडिट कार्ड पोर्टफोलियो का अधिग्रहण करने की सहमति दी।",
+      "human": "December 2000 ko, American Express ne Pacific Century Financial Corporation ke division, Bank of Hawaii ke credit card portfolio ka adhigrahan karne ki sahamati di."
+    },
+    {
+      "row": 164,
+      "native": "2016 मे पानमा पेपर लीक में नाम आने के बाद 2017 में सुप्रीम काेर्ट ने प्रधानमंत्री के पद के लिए अयोग करार दिया 28 जुलाई 2017 में नवाज़ शरीफ काे प्रधानमंत्री के पद से हटाना पड़ा , नवाज़ शरीफ को वर्ष 2000 में तत्कालीन सैन्य शासक मुशर्रफ़ ने निर्वासित कर दिया था, इसके पहले उनकी निर्वाचित सरकार को भी बर्खास्त कर दिया गया था।",
+      "human": "2016 me Panama Paper leak men naam ane ke baad 2017 men Supreme Court ne Pradhanmantri ke pad ke liye ayog karar diya 28 July 2017 men Nawaz Sharif ko pradhanmantri ke pad se hatna pada , Nawaz Sharif ko varsh 2000 men tatkalin sainya Shasak Musharaf ne nirvasit kar diya tha, iske pahale unki nirvachit sarakar ko bhi barkhast kar diya gaya tha."
+    },
+    {
+      "row": 219,
+      "native": "इमारतें और बन्दर, कोहरे में कैद रंग, धूल पौधों पर।",
+      "human": "Imaraton aur bandar, kohare men kaid rang, dhul paudhon par."
+    },
+    {
+      "row": 260,
+      "native": "फरीदपुर सिंघारा , भारतीय जनगणना अनुसार यह गाँव, तहसील बिलारी, जिला मुरादाबाद, उत्तर प्रदेश में स्थित है।",
+      "human": "Faridpur singhara , Bharatoy Janganana anusar yah gaon, Tahsil bilari, Zilla Muradabad, Uttar Pradesh men sthit hai."
+    },
+    {
+      "row": 294,
+      "native": "उनकी साफ सुथरी छवि के कारण ही उन्हें 1964 में देश का प्रधानमन्त्री बनाया गया।",
+      "human": "Inki saaf suthari chhavi ke karan hi unhe 1964 men desh ka pradhanmantri banaya gaya."
+    },
+    {
+      "row": 337,
+      "native": "सिंगापुर का स्वयंभू समुद्री डाकू साओ फेंग (चाउ युन-फैट विशेष रूप से उसकी ओर घृणा का भाव रखता है।",
+      "human": "Singapore ka swayambhu samudri daku Sao feng (Chow Yun-Fat vishesh rup se uski aur ghrunaa ka bhav rakhta hai."
+    },
+    {
+      "row": 401,
+      "native": "आम तौर पर बुढ़ापे तक जीवित रहते हैं।",
+      "human": "aam taur par budhape tak jivit rahte hain."
+    },
+    {
+      "row": 411,
+      "native": "१९९४ के बाद से यह दल चामलिंग के नेतृत्व में राज्य में निरंतर सत्ता में है।",
+      "human": "1994 ke baad se yah dal Chamling ke netrutwa men rajya men nirantar satta men hai."
+    },
+    {
+      "row": 436,
+      "native": "परन्तु उन्हें उनमें कुछ विशेष धन प्राप्त नहीं हो सका।",
+      "human": "Parantu Unhe unmen kuchh vishesh dhan prapt nahi ho saka."
+    },
+    {
+      "row": 451,
+      "native": "इसका उलट भी सत्य है।",
+      "human": "Iska ulat bhi satya hai."
+    },
+    {
+      "row": 459,
+      "native": "बुंदेलखंड को ह्मष साम्राजय् के बाहर माना गया है।",
+      "human": "Bundelkhand ko hashm samrajya ke bahar mana gaya hai."
+    },
+    {
+      "row": 488,
+      "native": "पौधों की वृद्धि एवं विकास के लिए भौतिक रसायनिक तथा जैविक शक्ति तीनों का अपना-अपना महत्व है यदि एक भी शक्ति कम है,तो मृदा की उर्वरता यह स्वास्थ्य कम होगा।",
+      "human": "Paudhon ke vruddhi evam vikas ke liye bhautik rasayanik tatha jaivik shakti tinon ka apna-apna mahattwa hai yadi ek bhi shakti kam hai,to mruda ki uvarta yah swasthya kam hoga,"
+    },
+    {
+      "row": 491,
+      "native": "राजा मंदिरों की व्यवस्था के लिये कभी कभी भूमिकर का दान दे देता था।",
+      "human": "Raja mandiron ki vyvastha ke liye kabhi kabhi bhumikar ka daan de deta tha."
+    },
+    {
+      "row": 569,
+      "native": "चूजे अंडे सेने के बाद बाहर आते ही माँ के पीछे पीछे घूमने लगते हैं।",
+      "human": "Chooje ande sene ke baad bahar ate hi maa ke picche pichhe ghumne lagte hain."
+    },
+    {
+      "row": 571,
+      "native": "सोने की मुहरोंवाली थैली",
+      "human": "Sone ki muharonwali thaili"
+    },
+    {
+      "row": 572,
+      "native": "पार्कर संयुक्त राज्य अमेरिका के दक्षिण डकोटा राज्य की काउण्टी की काउण्टी सीट है।",
+      "human": "Parker sanyukta Rajya America ke dakshan Dakota Rajya ki county ki kounty seat hai."
+    },
+    {
+      "row": 574,
+      "native": "ये 100 से भी ज्यादा पर्यटन स्थलों पर अपनी सुविधाएं उपलब्ध कराती हैं।",
+      "human": "ye 100 se bhi jyada paryatan sthalon par pani svidhayen upalabdh karati hain."
+    },
+    {
+      "row": 604,
+      "native": "तुम ने तो हुक्म-ए-तर्क-ए-तमन्ना सुना दिया, किस दिल से आह तर्क-ए-तमन्ना करे कोई",
+      "human": "Tum ne to Hukum-e-trk-e-tamanna suna diya, kis dil se aah tark-e-tamanna kare koi"
+    },
+    {
+      "row": 628,
+      "native": "तंत्रशास्त्र की दृष्टि से अधिकार शब्द का मूल्य साधनात्मक है।",
+      "human": "Tantrashastra ki drushti se adhikar shabd ka mulya sadhanatmak hai."
+    },
+    {
+      "row": 669,
+      "native": "आधुनिक कला की राष्ट्रीय गैलरी -भारत सरकार",
+      "human": "Adhunik kala ki rashtriy gallery -Bharat Sarkar."
+    },
+    {
+      "row": 716,
+      "native": "समूचे देश में स्थान-स्थान पर चिनगारियों के रूप में नई-नई समितियाँ गठित हो गयीं।",
+      "human": "Samuche Desh men sthan-sthan par chingariyon ke rup men nai-nai samitoyan gathit ho gayi."
+    },
+    {
+      "row": 726,
+      "native": "स्टैंडर्ड एंड पूअर्स बिल्डिंग",
+      "human": "Standard and Poors Building"
+    },
+    {
+      "row": 735,
+      "native": "थॉमसन ने प्रिंसटन विश्वविद्यालय में वर्ष १८९६ में चार व्याख्यानों की शृंखला रखी जो वर्ष १८९७ में डिसचार्ज ऑफ़ इलेक्ट्रीसिटी थ्रो गैसेस (अनुवाद: गैसों में विद्युत् विसर्जन) के रूप में प्रकाशित हुई।",
+      "human": "Tomson ne Priceton Vishwavidyalay men varsh 1896 men char vyakhyanon ki shrnkhala rakhi jo varsh 1897 men discharge of electricity throw gases (anuvad: Gaison men vidyt visarjan) ke rup men prakashit hui."
+    },
+    {
+      "row": 761,
+      "native": "शायद ही कभी यह एकल प्रस्तुति हो सकती है, जिसे टीवी प्रोग्राम कहा जाता है।",
+      "human": "Shayad hi kabhi ya ekal prastuti ho sakti hai, jise TV program kaha jata hai."
+    },
+    {
+      "row": 766,
+      "native": "१ दिसम्बर २०१२ को दोपहर बाद ३ बजे उनकी अंत्येष्टि शान्ति वन और विजय घाट के मध्यवर्ती क्षेत्र \"स्मृति स्थल\" पर पूरे राजकीय सम्मान के साथ की गयी।",
+      "human": "1 December 2012 ko dopahar baad 3 baje unki antyeshti shanti van aur Vijay Ghat ke madhyavarti kshetra \"Smruti Sthal\" par pure rajakiy samman ke saath ki gai."
+    },
+    {
+      "row": 788,
+      "native": "यह यूफॉरबिएसिई कुल का छोटा झाड़ीदार वृक्ष है, जिसका बीज सुखाकर तेल निकालने के लिये पैदा किया जाता है।",
+      "human": "Yah EufraBiCi kul ka chhota jhadidar vruksha hai, jiska beej sukhakar tel nikalne ke liye paida kiya jata hai."
+    },
+    {
+      "row": 819,
+      "native": "बंदूकधारियों के पास नौ बंधक थे; योसेफ गुटफ़्रुंड, तेजतर्रार निशानेबाज़ी के प्रशिक्षक केहत शोर, खेल कूद के प्रशिक्षक अमीतजुर शपीरा, तलवारबाजी के खिलाडी आंद्रे स्पिट्जर, भारोत्तोलन के पंच याकोव स्प्रिंगर, पहलवान एलीज़र हाल्फिन और मार्क स्लेविन, और भारोत्तोलक डेविड बर्जर और जेव फ्राइडमैन।",
+      "human": "Bandukdhariyon ke pas nau bandhak the; Yosef Gutfrund, teztarrar nishanebaji ke prashikshak kehat shor, khel kud ke prashikshak Amitjur Shapira, Talwarbaji ke khiladi Andre Spitzer, Bharottolam ke panch Yakov Springer, Pahalvan Elizar Halfin aur Mark Slewin aur Bharottolak David Burger aur Jev Friedman."
+    },
+    {
+      "row": 821,
+      "native": "विभाजन के बाद इन दोनों को प्रशासन करने कि ज़िम्मेदारी उन्ही की थी।",
+      "human": "Vibhajan ke baad in dinon ko prashan karne ki jimmedari unhi ki thi."
+    },
+    {
+      "row": 878,
+      "native": "भारत की राष्ट्रीय क्रिकेट टीम ने 1980-81 के मौसम में ऑस्ट्रेलिया का दौरा किया और 3 टेस्ट मैच खेले।",
+      "human": "Bharat ki rashtriy cricket team ne 1980-81 ke mausam men Australia ka daura kiya aur 3 test match khelen."
+    },
+    {
+      "row": 884,
+      "native": "\"नखोन\" थाई भाषा में \"नगर\" का रूप है जबकि ख्मेर में \"फनोम\" का अर्थ \"पहाड़\" है।",
+      "human": "\"Nakhon\" Thai bhasha men \"nagar\" ka rup hai jabki Khmer men \"Phnom\" ka arth \"pahad\" hain."
+    },
+    {
+      "row": 892,
+      "native": "बुकोविना के साथ रोमानिया के विलेय की पुष्टि 1919 में सेन्ट जर्मन की संधि में हुई, और बेसर्बिया के साथ 1920 में पेरिस की संधि में हुई.",
+      "human": "Bukovina ke saath Romania ke vilay ki prushti 1919 men Saint German ki sandhi men hui, aur Besbirya ke saath 1920 men Paris ki sandhi men hui."
+    },
+    {
+      "row": 915,
+      "native": "आधुनिक भारत में सामाजिक परिवर्तन - एम.एन. श्रीनिवास",
+      "human": "Adhunik Bharat men samajik parivartan - M.N. Shrinivas"
+    },
+    {
+      "row": 927,
+      "native": "उदाहरण के लिए, यदि जेनर वोल्टेज से अधिक रिवर्स-बायस्ड वोल्टेज प्रयोग किया जाता है तो एक डायोड जिसका जेनर निपात वोल्टेज 3.2V है, 3.2 V वोल्टेज ड्रॉप का प्रदर्शन करेगा।",
+      "human": "Udaharan ke liye, yadi genre voltage se adhik reverse-baised voltage prayog kiya jat hai to ek diode jiska jener nipaat voltage 3.2V hain, 3.2 V voltage drop ka pradarshan karega."
+    },
+    {
+      "row": 930,
+      "native": "अत: भावी निष्पत्तियों के पूर्वकथानात्मक परीक्षण विभिन्न योग्यताओं से संबद्ध होते हैं, अत: कार्य के विभिन्न क्षेत्रों का प्रतिनिधित्व करने के लिये अनेक अभिवृत्तिपरीक्षणों का निर्माण किया गया है।",
+      "human": "Atah bhavi nishpatiyon ke purvakathanatmak parikshan vibhinn yogyataon se sambandh hote hain, atah karya ke vibhinn kshetron ka partinidhitwa karne ke liye anek abhivyaktiparishanon ka nirman kiy gaya hai."
+    },
+    {
+      "row": 1002,
+      "native": "भारतीय दर्शन में चार्वाक ने ही बिना धर्म और ईश्वर के सुख की कल्पना की।",
+      "human": "Bharatiy darshan men chaarvaak ne hi bina dharm aur ishwar ke sukh ki kalpana ki."
+    },
+    {
+      "row": 1006,
+      "native": "वॄष राशि वालो के लिये अपने ही अन्दर डूबे रहने की और आलस की आदत के अलावा और कोई बडी बीमारी नहीं होती है, इनमे शारीरिक अक्षमता की आदत नहीं होती है, इनके अन्दर टांसिल, डिप्थीरिया, पायरिया, जैसे मुँह और गले के रोग होते हैं, जब तक इनके दांत ठीक होते है, यह लोग आराम से जीवन को निकालते हैं, और दांत खराब होते ही इनका जीवन समाप्ति की ओर जाने लगता है।",
+      "human": "Vrush rashi valon ke liye apne hi andar dube rahne ki aur alas ki adat ke alava aur koi badi bimari nahi hoi hai, inmen sharirik akshamata ki adat nahi hoti hai, inke andar tonsol, diphteria, payriya jaise muh aur gale ke rog hote hain, jab tak inke dant thik hote hai, yah log aaram se jivan ko nikalte hain, aur daant kharab hote hi inka jivan samapti ki or jane lagta hai."
+    },
+    {
+      "row": 1025,
+      "native": "इसके तट पर एक कटेवा जनपद था।",
+      "human": "Iske tat par ek kateva janpad tha."
+    },
+    {
+      "row": 1026,
+      "native": "हमारी हिंदी भाषा में संधि के द्वारा पुरे शब्दों को लिखने की परम्परा नहीं है।",
+      "human": "Hamari Hindi Bhasha men sandhi ke dwara pure shabdon ko likhne ki parampara nahi hai."
+    },
+    {
+      "row": 1067,
+      "native": "शब्दकोश से प्रतिदिन एक शब्द याद कीजिये और उसे अपने वार्तालाप में प्रयोग करन की कोशिश कीजिये।",
+      "human": "Shabdkosh se pratidin ek shabd yad kijiye aur use apne vartalap men prayog karne ki koshish kijiye."
+    },
+    {
+      "row": 1095,
+      "native": "यह दो बीटा श्रृंखला के बहुलक प्रक्रिया को प्रेरित करता है और इसलिए उनका स्वरूप पहेली (या ताला और चाबी) के समान होता है; जिसका मतलब है कि वे एक अनुदैर्ध्य बहुलक का निर्माण करते हुए एक-दूसरे में फिट होते हैं जो कोशिका को विरूपित और अत्यंत कठोर करता है जिससे नाड़ी अंतर्विरोध फलित होता है।",
+      "human": "Yah do beta shrunkhala ke bahulak prakriya ko prerit karta hai aur isliye unka swarup paheli (ya tala aur chabi) ke saman hota hai; jiska matlab hai ki Ve ek anudairdhya bahulak ka nirman karte huye ek-dusre men fir hote hain jo koshika ko virupit aur atyant kathor karta hai jisse nadi antarvirodh falit hota hai."
+    },
+    {
+      "row": 1120,
+      "native": "2008 में अपनी प्रेमिका, प्रीति जिंटा के साथ वाडिया ने मोहाली-अवस्थित इंडियन प्रीमियर लीग (IPL) के ट्वेंटी 20 क्रिकेट टीम का स्वामित्व अधिकार हासिल किया।",
+      "human": "2008 men apni premika, Preeti Zinta ke saath Wadia ne Mohali-avasthit Indian Premiere League (IPL) ke twenty 20 cricket team ka swamitwa adhikar hasil kiya."
+    },
+    {
+      "row": 1123,
+      "native": "यह यात्रा ५ किलोमीटर लम्बी होती है।",
+      "human": "Yah yatra 5 kilometer lambi hoti hai."
+    },
+    {
+      "row": 1127,
+      "native": "सन्‌ 1851 में आस्ट्रिया के लिंज तथा डोनाविट्ज़ धातुविज्ञों ने बेसेमर विधि के संपरिवर्तित रूप की खोज की, जिसे उनके नाम पर एल.",
+      "human": "San 1851 men Austria men Linz tatha Donawitz Dhatuvigyon ne Basemar vidhi ke samparivartit rup ki khoj ki, jise unke naam par L"
+    },
+    {
+      "row": 1133,
+      "native": "लघु देवी देवताओं के रूप में ईरानी म्थ्राि, (युद्ध के देवता) इटाली लाइवर पेटर (सुरा देवी) वद्याल (सूर्य देवता) मा और आइसिस, लेनस और वोल्कनेस की बड़ी मान्यता थी।",
+      "human": "Laghu Devi devataon ke rup men Irani Mithra, (Yudh ki devata) Italy Live Peter (Sura Devi) Vadyal (Surya Devta) ma aur Isis, Lenos, aur Volcanus ki badi manyata thi."
+    },
+    {
+      "row": 1143,
+      "native": "विक्रम ने सच जानकर भवन की ओर कदम बढ़ा दिया।",
+      "human": "Vikram ne sach jankar bhawan ki or kadam badha diya."
+    },
+    {
+      "row": 1147,
+      "native": "आचार्य दण्डी मुक्तक नाम से न सही पर अनिबद्ध काव्य के रूप में इससे परिचित थे.",
+      "human": "Acharya Dandi muktak naam se na sahi par anibiddha kavya ke rup men isse parichit the."
+    },
+    {
+      "row": 1153,
+      "native": "वो १६वीं लोकसभा में जयपुर ग्रामीण लोकसभा क्षेत्र से भाजपा के सांसद चुने गये।",
+      "human": "vo 16vin Loksabha men Jaipur Gramin Loksabha kshetra se BJP ke sansad chune gaye."
+    },
+    {
+      "row": 1156,
+      "native": "जयसिम्हा ने आग्रह स्वीकार किया और अपने पुत्र अवनिजनश्रया पुलकेसी को नागभट्ट प्रथम को समर्थन देने के लिए भेजा ।",
+      "human": "Jaisimha ne agraha swikar kiya aur apne putra avanijanshraya pulkesi ko naagbhatt pratham ko samarthan dene ke liye bheja ."
+    },
+    {
+      "row": 1160,
+      "native": "इस दिशा में, कुछ देशों में स्कूल नागरिकता शिक्षा उपलब्ध करते हैं।",
+      "human": "Is disha men, kuch deshon me school nagarikta shiksha upalabdh karte hain."
+    },
+    {
+      "row": 1162,
+      "native": "प्रशासनिक दृष्टि से यह मिमारोपा प्रशासनिक क्षेत्र का भाग है और प्रान्त का दर्जा रखता है।",
+      "human": "Prashasanik drushti se yh mimaropa Prashasanik kshetra ka bhag hai aur prant ka darja rakhata hai."
+    },
+    {
+      "row": 1165,
+      "native": "उत्तर प्रान्त (लेबनान)",
+      "human": "Uttar Prant (Lebanon)"
+    },
+    {
+      "row": 1208,
+      "native": "मानव बस्तियों के पास रहने वाले वयस्क मोरों का शिकार कभी कभी घरेलू कुत्ते द्वारा किया जाता है, (दक्षिणी तमिलनाडु) में कहावत है कि मोर के तेल लोक उपचार होता है।",
+      "human": "manav bastiyon ke paas rahne wale vayask moron ka shikar kabhi kabhi gharelu kutte dwara kiya jata hai, (Dakshini Tamilnadu) men Kahavat hai ki Mor ke tel lok upchar hota hai."
+    },
+    {
+      "row": 1238,
+      "native": "कविता में श्रीकृष्ण के विषय की उन कहानियों का वर्णन है जिनका संबंध उनके जन्म से लेकर अंत तक है।",
+      "human": "Kavita men Shrikrushna ke vishay ki un kahaniyon ka varnan hai jinka sambandh unke janam se lekar ant tak hai."
+    },
+    {
+      "row": 1323,
+      "native": "बुकारेस्ट यहाँ की राजधानी तथा रेलों का केंद्र है।",
+      "human": "Bucharest yaha ki rajdhani tatha relon ka kendra hai."
+    },
+    {
+      "row": 1329,
+      "native": "तो उनके प्रशंसकों व शुभचिन्तकों की अपार भीड़ उनके बँगले पर जमा हो गयी।",
+      "human": "o unke prashansakon va shubhchintakon ki apar bheed unke bangle par jama ho gai."
+    },
+    {
+      "row": 1362,
+      "native": "उर्दू के श्रेष्ठ हास्य व्यंग्य - स. सुरजीत",
+      "human": "Urdu ke shresht hasya vyangya - S. Surjeet"
+    },
+    {
+      "row": 1393,
+      "native": "इस्लामी स्वर्ण युग",
+      "human": "Islami swarna yug"
+    },
+    {
+      "row": 1395,
+      "native": "ग्रंथ को लेकर वे सातवाहन नरेश की सभा में पुन: गए जहाँ उन्हें वांछित सत्कार नहीं मिला।",
+      "human": "Granth ko lekar ve satvaahan naresh ki sabha men punah gaye jahan unhe vanchhit satkar nahi mila."
+    },
+    {
+      "row": 1413,
+      "native": "यह मारगाँव से एक घण्टे की दूरी पर है।",
+      "human": "Yah Maargoa se ek ghante ki duri par hai."
+    },
+    {
+      "row": 1439,
+      "native": "बिस्मिल की अन्त्येष्टि के बाद बाबा राघव दास ने गोरखपुर के पास स्थित देवरिया जिले के बरहज नामक स्थान पर ताम्रपात्र में उनकी अस्थियों को संचित कर एक चबूतरा जैसा स्मृति-स्थल बनवा दिया।",
+      "human": "Bismil ki anteshti ke baad Baba Raghav Das ne Gorakhapur ke paas sthit Devariya Zile ke barhaj Namak sthan par tamrapaatra men unki asthuyon ko sanchit kar ek chabutara jaisa smruti-sthal banva diya."
+    },
+    {
+      "row": 1455,
+      "native": "उन्होंने बाद में राइट के साथ बात की और उन्हें अपना समर्थन दिया, लेकिन एल्बम पर उनके योगदान की कमी के बारे में उन्हें याद दिलाया।",
+      "human": "Unhone baad men Right ke saath baat ki aur unhe apna samarthan diya, lekin album par unke yogdan ki kami ke bare men unhe uyaad dilaya."
+    },
+    {
+      "row": 1469,
+      "native": "व्याकरणिक आधार सबसे अधिक प्रामाणिक होता है।",
+      "human": "Vyakaranik aadhar sabse adhik pramanik hota hai."
+    },
+    {
+      "row": 1492,
+      "native": "इस शो में एक गाना है,\"ला विए बोहेम,\" जो उत्तराधुनिक बोहेमियन संस्कृति का कीर्तिगान करता है।",
+      "human": "Is show men ek gana hai, \"la Via Bohem,\"jo uttaradhunik Bohemian sanskruti ka kirtigaan karta hai."
+    },
+    {
+      "row": 1535,
+      "native": "काबा को 692 में मक्का की दूसरी घेराबंदी में पत्थरों से बमबारी कर दिया गया था, जिसमें उमाय्याद सेना का नेतृत्व अल-हजज इब्न यूसुफ ने किया था।",
+      "human": "Kaba ko 692 men Mecca ki dusri gherabandi men patharon se bambari kar diya gaya tha, jismen Umaayaad sena ka netrutwa Al-Hajj Ibin Yusuf ne kiya tha."
+    },
+    {
+      "row": 1550,
+      "native": "वेंडी पिल्ट्ज़ एक ऑस्ट्रेलियाई महिला क्रिकेट टीम की पूर्व महिला क्रिकेट खिलाड़ी है, जो ऑस्ट्रेलिया के लिए १९८० के दशक में एक दिवसीय अंतर्राष्ट्रीय मैच और टेस्ट क्रिकेट मैच खेला करती थी।",
+      "human": "Wendy Piltrij ek austreliyayi mahila cricket teem ki purva mahila cricket khiladi hai, jo Australia ke liye 1980 ke dashak men ek diasaiy antarrashtriy match aur test cricket match khela karti thi."
+    },
+    {
+      "row": 1559,
+      "native": "BBC 6Music के लिए मई 2008 के साक्षात्कार में, डेविड गिल्मर ने संकेत दिया कि वे एक और एकल प्रस्तुति के पक्ष में हैं, लेकिन एक पूर्ण दौरे को खारिज कर दिया।",
+      "human": "BBC 6Music ke liye May 2008 ke sakshatkar men, David Gilmer ne sanker diya ki ve ek aur ekal prastuti ke paksh men hain, lekin ek purn daure ko kharij kar diya."
+    },
+    {
+      "row": 1605,
+      "native": "एक दिन उन लोगों को यह अजगर मिल गया और उन्होंने मिलकर उसे मृत्यु के घाट उतार कर उसको समाप्त कर दिया।",
+      "human": "Ek din un logon ko yah ajgar il gaya aur unhone milkar use mrutyu ki ghat utaar kar isko samapt kar diya."
+    },
+    {
+      "row": 1627,
+      "native": "यहाँ का चित्र संग्रह, विशेषकर लघुचित्रों का विश्व में अपना एक विशिष्ट स्थान रखता है।",
+      "human": "yahan ka chitra sangrah, visheshkar laghuchitron ka vishwa men apna ek vishishta sthan rakhata hai."
+    },
+    {
+      "row": 1637,
+      "native": "परंतु नई कविता की यथार्थवादी दृष्टि काल्पनिक या आदर्शवादी मानववाद से संतृष्ट न होकर जीवन का मूल्य, उसका सौंदर्य, उसका प्रकाश जीवन में ही खोजती है।",
+      "human": "parantu nai kavita ki yatharthvadi drushti kalpanik y adarshwadi manavvad se santusht n hokar jivan ka mulya, uska saundarya, uska prakash jivan men hi khojati hai."
+    },
+    {
+      "row": 1643,
+      "native": "इसमें दोनों के बीच में एक ऐसी प्रतियोगिता शुरू हो जाती है जिसमें दोनों में से कोई भी पीछे नहीं हटना चाहता लेकिन किसी के भी न हटने पर दोनों को भारी हानि होती है।",
+      "human": "Ismen dono ke beeech men ek aisi pratiyogita shuru ho jaati hai jismen donon men se koi bhi Picche nahi hatna chahta lekin kisi ke bhi n hatne par donon ko bhari hani hoti hai."
+    },
+    {
+      "row": 1673,
+      "native": "फिल्म निर्माण का सामूहीकरण को कम्युनिस्ट राज्य की प्रोग्रामिक पूर्ति के लिए केंद्रीय था।",
+      "human": "Film nirman ka samuhikaran ko communist rajya ki programmik purti ke liye kendriy tha."
+    },
+    {
+      "row": 1678,
+      "native": "इसमें न तो कहनी जैसी एकसूत्रता, सघन बुनावट और प्रभावान्विति होती है और न ही उपन्यास जैसा फैलाव तथा निरूपण वैविध्य।",
+      "human": "Ismen n to kahni jaise eksutrata, saghan bunavat aur prabhavanviti hoti hai aur n hi upanyas jaisa failab tatha nirupan vaividhya."
+    },
+    {
+      "row": 1681,
+      "native": "इस उत्पाद में फिश स्टिक की एक श्रृंखला थी, जिसे चिकन टेंडर्स जैसी शैली वाले डिब्बों में ही बेचा जाता था और इसमें डुबोने के लिये एक टार्टर सॉस पैकेज होता था।",
+      "human": "Us utapad men fish stick ki ek shrunkhala thi, jise chicken tenders jaisi shaili wale dibbon me hi becha jata hai aur ismen Dubone ke liye ek tartar sauce package hota hai"
+    },
+    {
+      "row": 1685,
+      "native": "सिटीजनस बैंक पार्क, फिलाडेल्फिया नगर, संयुक्त राज्य अमेरिका में स्थित एक बेसबॉल स्टेडियम है।",
+      "human": "Citizen's Bank park, Philedelphia nagar, Sanyukta rajya Americ men sthit ek baseball stadium hai."
+    },
+    {
+      "row": 1690,
+      "native": "धरती में पहुंचकर वे व्हाइट हाउस में घुसते हैं, और संयुक्त राज्य के राष्ट्रपति को एक अंतर्राष्ट्रीय टेलीविजन प्रसारण के दौरान पूरे ग्रह की तरफ से आत्मसमर्पण करने के लिए कहते हैं।",
+      "human": "Dharti men pahunchkar ve White House men ghuste hain, aur sanyukta rajya ke rashtrapati ko ek antararashtriy television prasaran ke dauan pure grah ki taraf se aatmasamarpan karne ke liye kahate hain."
+    },
+    {
+      "row": 1709,
+      "native": "डॉ अहमद ने एक लोकप्रिय आंदोलन का विरोध किया था और मुस्लिम जनता को अलगाव करने का जोखिम उठाया था।",
+      "human": "Dr Ahmad ne ek lokpriya andolan ka virodh kiya tha aur Muslim janta ko algaav karne ka jokhim uthaya tha."
+    },
+    {
+      "row": 1744,
+      "native": "सातवीं बार युद्ध में बन्दी बनाकर उसकी हत्या कर दी गयी।",
+      "human": "Saatvin baar yuddh men bandi banakar uski hatya kar di gayi."
+    },
+    {
+      "row": 1759,
+      "native": "रुपांतरण एक अंतर्वलन है, जहाँ,",
+      "human": "Rupantar ek antarvalan hai, jahan,"
+    },
+    {
+      "row": 1764,
+      "native": "उत्तराफ़ाल्गुनी के दूसरे चरण के स्वामी सूर्य और शनि है।",
+      "human": "Uttarafalguni ke dusre charan ke swami Surya aur shani hai."
+    },
+    {
+      "row": 1786,
+      "native": "साहिर लुधियानवी के प्रबल आशावाद 'वो सुबह कभी तो आयेगी' और फ़ैज़ के मोहभंग 'वो इन्‍तज़ार था जिसका ये वो स‍हर तो नहीं' की स्‍मृति जगाता यह उपन्‍यास एक उपलब्धि है।",
+      "human": "Sahir Ludhiyanvi ke prabal ashawada 'wo subah kahi to ayega' aur Faiz ke mohbhang 'vo intezaar. tha jiska ye vo sahar to nahi ki smruti jagata yah upanyas ek upalabdhi hai."
+    },
+    {
+      "row": 1791,
+      "native": "धूल की प्रकृति एवं रंग के आधार पर इन्हें काली अथवा पीली आँधियां कहा जाता है।",
+      "human": "Dhul ki prakruti eva rang ke adhaar par inhe kali athava pili andhitan kaha jata hai."
+    },
+    {
+      "row": 1825,
+      "native": "आधुनिक विद्वानों मिथकों को देखें और उन्हें एक करने की कोशिश में अध्ययन करने के लिए प्राचीन ग्रीस, इसके सभ्यता के धार्मिक और राजनीतिक संस्थाओं पर प्रकाश फेंक और मिथक खुद बनाने की प्रकृति की समझ सकें.",
+      "human": "Adhunik vidwanon mithakon ko dekhen aur unhe ek karne ki koshish men adhyayan karne ke liye prachin Greece, iske Sabhyata ke dharmik aur rajnitik sansthaon par prakash fenk aur mithak khud banane ki prakruti ki samajh saken."
+    },
+    {
+      "row": 1830,
+      "native": "आज शेफील्ड तथा डानकैस्टर के बीच की डान की घाटी इस्पात का मुख्य प्रदेश बन गई है।",
+      "human": "Aaj Sheffield tatha Dancaster ke beech ki Daan ki ghati ispat ka mukhya pradesh ban gai hai."
+    },
+    {
+      "row": 1851,
+      "native": "वाकाटक साम्राज्य एवं शासक",
+      "human": "Wakatak Samrajya evam shasak"
+    },
+    {
+      "row": 1864,
+      "native": "मराठी चलचित्र उद्योग भी मुंबई में ही स्थित है।",
+      "human": "Marathi Chalchitra udyog bhi Mumbai men hi sthit hai."
+    },
+    {
+      "row": 1874,
+      "native": "वैश्विक मंदी विश्वव्यापी आर्थिक मंदी की अवधि है।",
+      "human": "Vaishwik mandi vishwavyapi aarthik mandi ko avadhi hai."
+    },
+    {
+      "row": 1903,
+      "native": "कथा में आने वाले अलौकिक प्रसंग जैसे कृष्‍ण के जन्म के समय कारागार के द्वार स्वत: खुल जाने को तर्कसंगत एवं युगानुकूल बनाया गया है।",
+      "human": "Katha men ane wale aalaukik prrasang jaise Krushna ke janam ke samay karagar ke dwar swatah khul jane ko tarksangat evam yuganukul banaya gaya hai."
+    },
+    {
+      "row": 1921,
+      "native": "ऐसा तापमान और दबाव, जिसमें किसी पदार्थ की तीनों अवस्थाएँ (ठोस, तरल और वाष्प) एक साथ संतुलन में रहते हैं।",
+      "human": "aisa taapman aur dabav, jismen kisi padarth ki teenon avasthayen (thos, taral aur vashpa) ek saath santulan men rahte hain."
+    },
+    {
+      "row": 1924,
+      "native": "नर गौरैया को चिड़ा और मादा चिड़ी या चिड़िया भी कहते हैं।",
+      "human": "Nar gaureya ko chida aur mada chidi ya chidiya bhi kahte hain."
+    },
+    {
+      "row": 1954,
+      "native": "उसके ना-नुकुर करने पर घोड़े ने उसे समझाया कि वह राजा का दूत है, इसलिए उसके उपहार का उपयोग वह कर सकता है।",
+      "human": "Uske na-nukr karne par ghode ne use samjhaya ki vah raja ka doot hai, isliye uske uphar ka upayog vah kar sakta hai."
+    },
+    {
+      "row": 1961,
+      "native": "हिन्दी की उपभाषाओं, बोलियों, व्यवहारिक हिन्दी, मानक हिन्दी में बोला जाता है- 'ग़ालिब का दीवान'।",
+      "human": "Hini ki upabhashaon, boliyon, vyavaharik Hindi, manak Hindi men bola jata hai- 'Gaalib ka Diwan'."
+    },
+    {
+      "row": 1962,
+      "native": "सलन्द्र कहलगाँव, भागलपुर, बिहार स्थित एक गाँव है।",
+      "human": "Salandra Kahalagaon, Bhagalapur, Bihar sthit ek gaon hai."
+    },
+    {
+      "row": 2001,
+      "native": "पर तब तक जर्मन अपार्टमेंट में कई संवाददाताओं ने स्तिथी का प्रसारण शुरू किया था जिस कारण आतंकवादीयों को इस निती का पता चल गया।",
+      "human": "par tab tak German Apartment men kai sanvaddaton ne sthiti ka prasaran shuru kiya tha jis karam atankwadiyon ko is niti ka pata chal gaya."
+    },
+    {
+      "row": 2014,
+      "native": "यह राजा मेरा अतिथि है इसलिये मैं इसको शाप भी नहीं दे सकता और इसके पास विशाल सेना होने के कारण इससे युद्ध में भी विजय प्राप्त नहीं कर सकता।",
+      "human": "Yah raja mera athiti hai isliye main iskoo shaap bhi nahi de sakta aur iske paas vishal seba hone ke karan isse yuddh ,en bhi vijay prapt nahi kar sakta"
+    },
+    {
+      "row": 2033,
+      "native": "शाहजहाँपुर: शहीदे-आज़म पं॰ रामप्रसाद बिस्मिल ट्रस्ट.",
+      "human": "Shanjahanpur: Shahde-aajam Pan. Ramprasasd bismal trust."
+    },
+    {
+      "row": 2045,
+      "native": "कैरियर में एक, मलेरिया परजीवी की उपस्थिति के साथ समय से पहले दोषपूर्ण हीमोग्लोबिन लाल रक्त कोशिकाओं का कारण बनता है टूटना, पुन: पेश करने के लिए प्लाज्मोडियम में असमर्थ है।",
+      "human": "kariyar men em, Maleriya prjeevi ki upsthiti ke sath samy se pahle doshpoorn Himoglobin lall rakt. koshikaaon ka karan banta hai tootna, punah pesh karne ke liye Paajmodiyam me asmarth hai."
+    },
+    {
+      "row": 2050,
+      "native": "मुंशी इन्द्रजीत ने रामप्रसाद को आर्य समाज के सम्बन्ध में बताया और स्वामी दयानन्द सरस्वती की लिखी पुस्तक सत्यार्थ प्रकाश पढ़ने को दी।",
+      "human": "munshi Indrjeet ne Ramprasad ko Arya samaj ke sambahdh men bataya aur Swami Dayanand Sarswwati kii likhi pustak Satyarth Prakash padhne ko dee."
+    },
+    {
+      "row": 2067,
+      "native": "इस माप को पूर्ण माना जाता है क्योंकि यह किसी मानदंड को संदर्भित नहीं करता है और मानदंड के खराब विकल्प से संबंधित कमियों से दूर रहता है।",
+      "human": "is maap ko poorn mana jaata hai kyonki yah kis manddand ko sandrbhit nahin karra hai aur mandand ke kharaab vikalp se sambandhit kamiyon se door rahta hai."
+    },
+    {
+      "row": 2106,
+      "native": "प्लूटोनियम के समस्थानिक",
+      "human": "Plyutoninum ke samsthanki"
+    },
+    {
+      "row": 2118,
+      "native": "इनका रंग काला, भूरा, लाल, अथवा सन के रेशे सा होता है।",
+      "human": "inka rang kala, bhoora, laal, athva san ke reshe saa hota hai."
+    },
+    {
+      "row": 2140,
+      "native": "किंतु अभी यह कहना कठिन है कि परिवार का संयुक्त रूप समाप्त हो रह है।",
+      "human": "kint abhi yah kahna kathin hai ki pariar kaa sanyukt roop samapt ho raha his."
+    },
+    {
+      "row": 2179,
+      "native": "फिलिप वी कार्डन फूड एंड एग्रीकल्चरल आर्गनाइज़ेशन के तीसरे महानिदेशक थे।",
+      "human": "Filip vee Kaardan food and agrikalchar organizeshan ke teesre mahanirdeshak the."
+    },
+    {
+      "row": 2210,
+      "native": "वर्तमान में अस्तित्व रखने वाली अधिकतर जातियाँ निशाचरी (रात्रि को सक्रीय) हैं।",
+      "human": "vartman men astitwa rakhane waali adhiktar jatiya nishachari (ratri ko sakriya) hain."
+    },
+    {
+      "row": 2216,
+      "native": "डाइक्रोमेट भी जलविलेय होता है।",
+      "human": "Daikromet bhi jalviley hota hai."
+    },
+    {
+      "row": 2249,
+      "native": "इतिहास का क्षेत्र बड़ा व्यापक है।",
+      "human": "itihas ka shetra bada vyapak hai."
+    },
+    {
+      "row": 2269,
+      "native": "तथापि, आदेश को उस हद तक संशोधित किया गया है कि किसानों को मूल्‍य समर्थन सुनिश्चित करने के लिए चावल के लेवी आदेश को बरकरार रखा गया है, जबकि सार्वजनिक वितरण प्रणाली/कल्‍याण योजनाओं के लिए भारतीय खाद्य निगम/राज्‍य सरकार की एजेंसियों के अधिकार में चावल की पर्याप्‍त उपलब्‍धता सुनिश्चित की गई है।",
+      "human": "tatapi, aadesh ko us had tak sanshodhit kiya gaya hai ki kisanon ko mulya samrthan sunichit karane ke liye chaval ke levi aadesh ko barkarar rakha gaya hai, jabki sarwjanik vitran pranali/kalyan yojnaon ke liye bhartiy khadya nigam/rajya sarkar ki yejensiyo ke adhikar men chaval ki paryapt uplabdata sunichit ki gai hai."
+    },
+    {
+      "row": 2315,
+      "native": "इसका अनुभव प्राप्त करना और एक ही जीवन में सभी कर्मों का फल भुगतना असंभव है।",
+      "human": "iska anubhav prapt karna aur ek hi jivan men sabhi karmon ka fal bhugtna asambhav hai."
+    },
+    {
+      "row": 2327,
+      "native": "क्योंकि उनका मानना था की न्युरोसिस अच्छे जीवन के लिए आवश्यक भी है।",
+      "human": "kyonki unka manana tha kee Nurosis achhe jivan ke liye aavshak bhi hai."
+    },
+    {
+      "row": 2338,
+      "native": "विरोध प्रदर्शन में कई छात्रों की मृत्यु हो गई, जो बंगाली भाषा को भविष्य की पीढ़ियों के लिए बचाना चाहते थे।",
+      "human": "virodh pradarshan men kai chhatron ki mrutu ho gai, jo Bangali Bhasha ko bhavishya ki pidhiyon ke liye bachana chahate the."
+    },
+    {
+      "row": 2345,
+      "native": "इस हमले में खुद मेजर जनरल प्रसाद के काफिले पर भी भीषण हमला हुआ और उन्हें अपना वाहन छोड़ कर पीछे हटना पड़ा।",
+      "human": "is hamle men khud mejar Jenral Prasad ke kafile par bhi bhisan hamla hua aur unhen apna vaahan chhod kar pinchhen hatna pada."
+    },
+    {
+      "row": 2366,
+      "native": "पुट्ठे और पूंछ के बालों की छंटाई से पिछले पैरों तथा शक्तिशाली पतवार-जैसी पूंछ के संचालन में आसानी होती है।",
+      "human": "Putthe aur Punchh ke balon ki chhantai se pichhale pairon tatha shaktishali patvaar-jaisi punchh ke sanchalan men aasani hoti hai."
+    },
+    {
+      "row": 2394,
+      "native": "अंग्रेजों का इस क्षेत्र पर पूर्ण अधिकार 4 अप्रैल 1816 को सुगौली की सन्धि के बाद इस पूरे क्षेत्र पर हो गया और नेपाल की सीमा काली नदी घोषित हुई।",
+      "human": "Angrejon ka is shetra par purn adhikar 4 April 1816 ko Sugauli ki sandhi ke baad is poore shetra par ho gaya aur Nepaal ki seema Kali nadi ghoshit hui."
+    },
+    {
+      "row": 2395,
+      "native": "इनमें अंतराआण्विक दूरियाँ लघु होती हैं।",
+      "human": "inmen antaraanvik duriya laghu hoti hain."
+    },
+    {
+      "row": 2405,
+      "native": "यह स्थल पानीपत की लड़ाई से ताल्लुक रखता है।",
+      "human": "yah sthal Panipat ki ladai se talluk rakhata hai."
+    },
+    {
+      "row": 2424,
+      "native": "मर्रियट होटल ब्रांड का पहला होटल था जो इंडिया में खोला गया था।",
+      "human": "Marriott Hotel brond ka pahila hotel tha jo India men khola gaya tha."
+    },
+    {
+      "row": 2426,
+      "native": "संकर्षा (कॉर्सेट) बनाना यहाँ की विशेषता है।",
+      "human": "Sakrsha (Corset) banana yaha ki visheshta hai."
+    },
+    {
+      "row": 2443,
+      "native": "उक्त कन्हाई नाटयशाला में राधाकृष्ण एवं चैतन्य महाप्रभु के पदचिह्न आज भी मौजूद है।",
+      "human": "ukt kanhai natyashala men Radhakrushna avm Chaitnya Mahaprabhu ke padchihan aaj bhi maujud hai."
+    },
+    {
+      "row": 2449,
+      "native": "चूंकि व्यक्ति, व्यापार संस्थान तथा सरकार सभी के काम करने के लिये वित्त अत्यावश्यक है, इसलिये वित्त के क्षेत्र को भी तीन प्रकार से विभाजित किया जाता है-",
+      "human": "chunki vyakti, vyapar sansthan tatha sakar sabhi ke kaam karne ke liye vitt atyavshyak hai, isliye vitt ke shetra ko bhi teen prakar se vibhajit kiya jata hai-"
+    },
+    {
+      "row": 2497,
+      "native": "मेला तीन दिन या अधिक भी चलता है।",
+      "human": "Mela teen din ya adhik bhi chalta hai."
+    },
+    {
+      "row": 2504,
+      "native": "प्रांत जिलों और ग्रामों में विभक्त थे।",
+      "human": "prant jilon aur gramon men vibhakt the."
+    },
+    {
+      "row": 2517,
+      "native": "तारों से प्राप्त होनेवाली प्रकाशतरंगों से व्यतिकरण द्वारा तारों की दिशा, दूरी तथा विस्तार का निर्धारण किया जाता है।",
+      "human": "taron se prapt honewali prakashtarangon se vyaktikaran dwara taron ki disha, duri tatha visthar ka nirdharan kiya jata hai."
+    },
+    {
+      "row": 2519,
+      "native": "केंद्रीय कक्ष के दरवाजे के ऊपर हमें पंचतंत्र से संस्‍कृत का एक पद्यांश देखने को मिलता है :-",
+      "human": "kendriy kaksh ke darwaje ke upar hamen Panchtantr se sansrut ka ek padyansh dekhane ko milta hai :-"
+    },
+    {
+      "row": 2520,
+      "native": "अंग फिटिंग केंद्र गतिविधि, विशेष शिविर गतिविधि, ए0डी0आई0पी0 - सर्व शिक्षा अभियान, शिविर गतिविधि, मुख्यालय गतिविधि के माध्यम से सबसे बड़ी ए0डी0आई0पी0 कार्यान्वयन एजेंसी की स्थिति बनाए रखना।",
+      "human": "ang feeting kendra gatividhi, vishesh shivir gatividhi A.D.I.P. - sarv shiksha abhiyan, shivir gatividhi, mukhyalay gatividhi ke madhyam se sabse badi A.D.I.P. karyanvayan Agency ki sthiti banaye rakhana."
+    },
+    {
+      "row": 2560,
+      "native": "इस समय भारोपीय परिवार की भाषाओं का अध्ययन इतना हो चुका है कि यह पूर्ण प्रक्रिया उस पर लागू हो जाती है।",
+      "human": "is samay Bharopiy parivaar ki bhashaon ka adhyayan itna ho chuka hai ki yah purn prakirya us par lagu ho jati hai."
+    },
+    {
+      "row": 2566,
+      "native": "न कुछ खाना, न पीना, सोना और आराम करना भूलकर साधना में लीन रहे।",
+      "human": "n kuchh khana, n pina, sona aur aaram karna bhulkar sadhana men leen rahe."
+    },
+    {
+      "row": 2569,
+      "native": "गौरतलब है कि इससे पहले उत्तरी अमेरिका में देवदार के 4,000 से 5,000 वर्ष पुराने पेड़ों के बारे में पता चला था।",
+      "human": "gaurtalab hai ki isse pahle Uttari America men Devdar ke 4,000 se 5,000 varsh purane pedon ke baare men pata chala tha."
+    },
+    {
+      "row": 2571,
+      "native": "उदाहरण के लिए, कौशितकी उपनिषद 1.2 कहता है कि कृमि, कीड़े-मकौड़े, मछली, पंक्षी, सिंह, सुअर, सांप या मानव जैसे जीवन का विभिन्न अवस्था में जन्म लेना व्यक्ति द्वारा किए गए कार्यों और ज्ञान द्वारा निर्धारित होता है।",
+      "human": "udaharan ke liye, Kaushitki upnishad 1.2 kahta hai ki Krumi, Kide-Makode, Machhali, Pankshi, Sinh, Suar, Sanp ya Manav jaise jivan ka vibhinn avstha men janm lena vyakti dwara kiye gaye karyon aur dnyan dwara nirdharit hota hai."
+    },
+    {
+      "row": 2575,
+      "native": "इससे वह अपनी नींद खो देता है।",
+      "human": "isse wah apni nind kho deta hai."
+    },
+    {
+      "row": 2598,
+      "native": "अदी ने इसे जल्दी से उठाया और फेकने का प्रयास किया किन्तु ग्रेनेड ने विस्फोट कर दिया और अदी घायल हो गए।",
+      "human": "adi ne ise jaldi se uthaya aur fekne ka pryas kiya kintu Grened ne visphot kar diya aur adi ghayal ho gaye."
+    },
+    {
+      "row": 2609,
+      "native": "वृद्धावस्था एक धीरे-धीरे आने वाली अवस्था है जो कि स्वभाविक व प्राकृतिक घटना है।",
+      "human": "vrudavstha ek dhire-dhire aane wali avstha hai jo ki swabhavik v prakritik ghatna hai."
+    },
+    {
+      "row": 2613,
+      "native": "फ्रैंक ग्रिलो ऑलरोवि पर",
+      "human": "Frank Grilo Aulrovi par"
+    },
+    {
+      "row": 2618,
+      "native": "सिकल सेल रोग के परिणामस्वरूप रक्ताल्पता तथा ऐसे संकट उत्पन्न हो सकते हैं जो कई प्रकार के होते हैं जैसे वाहिका-पूर्णावरोधक संकट, अविकासी संकट, ज़ब्ती संकट, उच्च अरक्तता संकट, तथा अन्य प्रकार के संकट.",
+      "human": "sikal cell rog ke parinamswarup raktalpata tatha aise sankat utpann ho sakte hain jo kai prakar ke hote hain jaise vahika-purnavrodhak sankat, aviksi sankat, jbti sankat, ucch arktata sankat, tatha anya prakar ke sankat."
+    },
+    {
+      "row": 2688,
+      "native": "अथार्त जब दो शब्द आपस में मिलकर कोई तीसरा शब्द बनती हैं तब जो परिवर्तन होता है , उसे संधि कहते हैं।",
+      "human": "arthat jab do shabd aapas men milkar koi teesra shabd banati hain tab jo parivartan hota hai , use sandhi kahte hain."
+    },
+    {
+      "row": 2743,
+      "native": "राजस्थानी रंगमंच पर अब तक जितने भी नाटकों का मंचन हुआ है या तो वे गुमनामी की चादर ओढ़े हुए है या उन्हें दर्शकों तक पहुँचाने में असमर्थता प्रमुख कारण रहा हो...",
+      "human": "Rajsthani rangmanch par ab tak jitne bhi natkon ka manchan hua hai ya to ve gumnami ki Chadar odhe huye hai ya unhen darshkon tak pahunchane men asmarthata pramukh karan raha ho…"
+    },
+    {
+      "row": 2753,
+      "native": "इस दृष्टि से यह संस्था भारतीय भाषाओं की आवाज है।",
+      "human": "is drushti se yah sanstha Bhartiy bhashaon ki aawaaj hai."
+    },
+    {
+      "row": 2794,
+      "native": "२४ जुलाई २०१६ को अल्पमत में आ जाने पर राष्ट्रपति को अपना त्यागपत्र सौंप दिया।",
+      "human": "24 Jully 2016 ko alpmat men aa jane par Rashtrapati ko apna tyagpatr saunp diya."
+    },
+    {
+      "row": 2815,
+      "native": "साथ ही, ये हमले मैदानों में बसे हुए समुदायों पर अपनी ताकत दिखलाने का भी एक तरीका था।",
+      "human": "saath hi ye hamle maidanon men base huye samudayon par apni taakat dikhalane ka bhi ek tarikha tha."
+    },
+    {
+      "row": 2822,
+      "native": "विशेष रूप से, कार्सवेल ने पाए गए चोटों का वर्णन \" शोष के साथ मेरु रज्जु के एक विलक्षण घाव\" के रूप में किया।",
+      "human": "vishesh roop se, Karsvel ne paye gaye choton ka varnan \"shosh ke saath Meru rajju ke ek vilkshan ghav\" ke roop men kiya ."
+    },
+    {
+      "row": 2850,
+      "native": "इसे कृत्रिम-अतिवृद्धि कहा जाता है।",
+      "human": "ise krutrim-ativruddhi kaha jata hai."
+    },
+    {
+      "row": 2883,
+      "native": "वहां एक स्त्री उनके पास आई और बोली -",
+      "human": "wahan ek stri unke paas aai aur boli -"
+    },
+    {
+      "row": 2887,
+      "native": "एजरिन, वाटर्स के एकल एल्बम पर काम करने में असमर्थ थे और इसके बजाए उन्होंने गिल्मर के साथ काम करने का फैसला किया: \"... डेव और मेरे लिए फ़्लॉइड रिकॉर्ड का हमारा संस्करण बनाना अपेक्षाकृत काफी आसान है।\"",
+      "human": "Yejrin, Waters ke yekal album par kaam karne men asmarth the aur iske bajaye unhone Gilmar ke sath kaam karne ka faisla kiya: \"… Dev aur mere liye flaid record ka hamara sanskaran banana apekshakrut kafi aasan hai.\""
+    },
+    {
+      "row": 2938,
+      "native": "दलितों को लगने लगा है कि हिंदू धर्म से बाहर निकलना उनके लिए बेहतर रास्ता हो सकता है क्योंकि बीते सालों में नवयान बौद्धों की हालत सुधरी है जबकि हिंदू दलितों की जिंदगी वोट बैंक के रूप संगठित होने के बावजूद ज्यादा नहीं बदली है।",
+      "human": "Daliton ko lagne laga hai ki Hindu dharm se bahar nikalna unke liye behatar rasta ho sakta hai kyonki beete salon men Navyaan Bauddhon ki haalat sudhari hai jabki Hindu Daliton ki jindagi vot bank ke roop sangathit hone ke bavjud jyada nahin badli hai."
+    },
+    {
+      "row": 2943,
+      "native": "किसी भी मात्रा में व्‍यापारी को मुक्‍त खरीददारी करने, भण्‍डारण बिक्री, परिवहन, वितरण, बिक्री करने की अनुमति दी गई है।.",
+      "human": "kisi bhi matra men vyapari ko mukt khariddari karne, bhandaran bikri, parivahan, vitaran, bikri karne ki anumati di gai hai."
+    },
+    {
+      "row": 2948,
+      "native": "हमसफ़र, टीम या एकल डाइविंग",
+      "human": "Hansafar, team ya ekal daiwing"
+    },
+    {
+      "row": 2954,
+      "native": "कंपनी ने अपने कायापलट की कहानी रची है।",
+      "human": "Company ne apne kayapalat ki kahaani rachi hai."
+    },
+    {
+      "row": 2956,
+      "native": "प्रत्येक साल नवरात्र के दौरान यहां पर एक बड़े मेले का आयोजन महान देशभक्त के त्याग का गुणगान करने के लिए किया जाता है।",
+      "human": "pratyek saal Navratr ke dauran yahan par ek bade mele ka aayojan mahaan deshbhakt ke tyaag ka gungaan karne ke liye kiya jata hai."
+    },
+    {
+      "row": 2960,
+      "native": "ऋण जोखिम, एक ऐसा जोखिम है कि बाध्यताधारी द्वारा देय पैसे का भुगतान नहीं किया जाएगा.",
+      "human": "run jokhinm, ek aisa jokhim hai ki badhyatadhari dwara dey paise ka bhugtaan nahin kiya jayega."
+    },
+    {
+      "row": 2963,
+      "native": "शहरों, कस्बों गाँवों और खेतों के आसपास यह बहुतायत से पाई जाती है।",
+      "human": "shahron, kasbon gaonon aur kheton ke aaspaas yah bahutayat se paai jaati hai."
+    },
+    {
+      "row": 2996,
+      "native": "सालिम अली का जन्म बॉम्बे के एक सुलेमानी बोहरा मुस्लिम परिवार में हुआ।",
+      "human": "Salim Ali ka janm Bombey ke ek Sulemani Bohra Muslim pariwaar men huaa."
+    },
+    {
+      "row": 3016,
+      "native": "भस्मीकरण या उसके समान ऊष्मीय ऑक्सीकरण प्रक्रिया अभी भी आम तौर पर रोगनिदान संबंधी अपशिष्ट और अन्य बहुत विषाक्त और/या संक्रामक चिकित्सा अपशिष्ट के लिए अनिवार्य होती है।",
+      "human": "bhasmikaran ya uske samaan ushmiy oxikaran prakriya abhi bhi aam taur par rognidaan sanbandhi apshisht aur any bahut vishakt aur/ya sankraman chikitsa apshisht ke liye anivary hoti hai."
+    },
+    {
+      "row": 3045,
+      "native": "763 ग्रेगोरी कैलंडर का एक साधारण वर्ष है।",
+      "human": "763 Gregori Calender ka ek sadharan varsh hai."
+    },
+    {
+      "row": 3050,
+      "native": "जो लकडी और लकडी की बनी चीज़ेँ जैसे फर्निचर आदि कुतरकर खा जाते हैँ।",
+      "human": "jo lakdi aur lakdi ki bani chijen jaise farnichar aadi katarkar kha jate hain."
+    },
+    {
+      "row": 3080,
+      "native": "लापुटा के उड़ान द्वीप के खिलाफ लिंडालीनो के सतही शहर के विद्रोह को बताने वाला, भाग III का छोटा एपिसोड (पांच पैराग्राफ से युक्त), ड्रेपियर्स लेटर्स के लिए स्पष्ट रूप से अन्योक्तिपरक था, जिस पर स्विफ्ट को गर्व था।",
+      "human": "Laputa ke udaan dwip ke khilap Lidalino ke satahi shahar ke vidroh ko batane wala, bhag ||| ka chhota Episod (panch pairagraf se yukt), Drepiyars letars ke liye spasht roop se anyoktiparak tha, jis par swift ko garv tha."
+    },
+    {
+      "row": 3091,
+      "native": "वर्त्तमान में डॉ॰ विनायक पाण्डेय यह दायित्व निभा रहे है।",
+      "human": "vartmaan men Dr. Vinayak Pandey yah dayitw nibha rahe hai."
+    },
+    {
+      "row": 3095,
+      "native": "कर्म के परिणाम या उसके अभाव को नियंत्रित करने में दैवीय शक्ति की भूमिका के बारे में हिंदू धर्म में कई भिन्न प्रकार के दर्शन हैं, कुछ का स्वरूप आज भी वर्तमान है और कुछ ऐतिहासिक हैं।",
+      "human": "karm ke parinaam ya uske abhaav ko niyantrit karne men daiviy shakti ki bhumika ke baare men Hindu darm men kai bhinn prakar ke darshan hain, kuchh ka swarup aaj bhi vartmaan hai aur kuchh aitihasik hai."
+    },
+    {
+      "row": 3096,
+      "native": "हेल (अंग्रेज़ी: Hale) एक उत्तर लंदन में बार्नेट बरो का जिला है।",
+      "human": "Hel (angreji; Hale) ek uttar London men Barnet Baro ka jila hai."
+    },
+    {
+      "row": 3100,
+      "native": "इन गतिविधियों का विवरण देते हुए, जाधव ने कहा:",
+      "human": "in gatividhiyon ka vivran dete huye, Jadhav ne kaha:"
+    },
+    {
+      "row": 3141,
+      "native": "२०१५ में उन्होंने पंजाबी फिल्म \"अंग्रेज़\" से अपना फ़िल्मी करियर शिरू किया।",
+      "human": "2015 men unhone Panjabi film \"Angrej\" se apna filmi kariyar shiru kiya."
+    },
+    {
+      "row": 3193,
+      "native": "कथाकार की कल्पना अब सीमाबद्ध हो गई।",
+      "human": "kathakar ki kalpna ab seemabaddh ho gai."
+    },
+    {
+      "row": 3218,
+      "native": "राज एक्सप्रेस भारत में प्रकाशित होने वाला हिंदी भाषा का एक समाचार पत्र (अखबार) है।",
+      "human": "Raaj express Bharat men prakashit hone wala Hindi bhasha ka ek samachar patr (akhabaar) hai."
+    },
+    {
+      "row": 3235,
+      "native": "कुछ समय बाद उसके नाना भी नहीं रहे।",
+      "human": "kuchh samay baad uske nana bhi nahin rahe."
+    },
+    {
+      "row": 3267,
+      "native": "इस गुरुशिष्य-परम्परा को सुनियोजित रूप देते हुए संस्कृत के अनेक अध्ययन केन्द्र देश भर में चलते रहे उसी परम्परा में ही 20 वीं सदी में अनेक संस्कृत विश्वविद्यालय स्थापित हुए।",
+      "human": "is gurishishy-parmpara ko suniyojit roop dete hua Sanskrut ke anek adhyayan kendr desh bhar men chalte rahe usi parampara men hi 20 vu sadi men anek Sanskrut vishwavidyalay sthapit huye."
+    },
+    {
+      "row": 3347,
+      "native": "2005 में एंजल जलप्रपात पर पैरामोटर का उनका प्रयास, होप एण्ड होम्स फॉर चिल्ड्रेन चैरिटी की मदद के लिए था।",
+      "human": "2005 men anjal jalprapaat par pairamotar ka unka prayas, hop and homes for chidren charity ki madad ke liye tha."
+    },
+    {
+      "row": 3367,
+      "native": "उत्तराखण्ड राज्य राजमार्ग ४० दो अलग अलग मार्गों के नाम से प्रख्यात है; पहला कालाढूंगी रोड, जो मंगल पड़ाव से शुरू होकर पश्चिम की ओर कालाढूंगी होते हुए रामनगर तक जाता है, और दूसरा चोरगलिया रोड, जो काठगोदाम से शुरू होकर दक्षिण की ओर चोरगलिया होते हुए सितारगंज तक जाता है।",
+      "human": "Uttarakhand rajy rajmarg 40 do alag alag margon ke naam se prakhyat hai; pahla Kaladhungi rod, jo Mangal padav se shuru hokar pashchim ki aur Kaladhungi hote huye Ramnagar tak jata hai, aur dusra Chorgaliya rod, jo Kathgodam se shuru hokar Dakshin ki aur Chorgaliya hote huye Sitarganj tak jata hai."
+    },
+    {
+      "row": 3415,
+      "native": "पाकिस्तानी इंटर सर्विसेज इंटेलिजेंस ने बगावत को प्रोत्साहित किया और समर्थन किया।",
+      "human": "Pakisthani Inter sarvices Inteligence ne bagavat ko protsahit kiya aur samrthan kiya."
+    },
+    {
+      "row": 3416,
+      "native": "उनकी तपोभूमि धारा नगरी में उनकी तपस्या और साधना से प्रसन्न हो कर माँ सरस्वती ने स्वयं प्रकट हो कर दर्शन दिए।",
+      "human": "unki tapobhumi dhara nagri men unki tapsya aur sadhna se prasann ho kar maa Sarswati ne swayn prakat ho kar darshan diye."
+    },
+    {
+      "row": 3422,
+      "native": "भारतीय मीडिया ने सरकारी सूत्रों का हवाला दिया कि जाधव का ईरान में कार्गो व्यवसाय था और वह बंदर अब्बास और चाबहार बंदरगाहों से काम कर रहा था।",
+      "human": "Bhartiy midiya ne sarkari sutron ka havala diya ki Jadhav ka Iran men kargo vyavsaay tha aur wah Bandar Abbas aur Chabhar banargahon se kaam kar raha tha."
+    },
+    {
+      "row": 3461,
+      "native": "मसलन अक्टूबर १९६२ में हुए क्यूबाई मिसाइल संकट में सोवियत संघ और संयुक्त राज्य अमेरिका के बीच तनाव लगातार बढ़ता गया और अगर कोई पीछे न हटता हो परमाणु प्रलय हो सकता था, लेकिन उसमें सोवियत संघ ने पीछे पाँव खींच लिए।",
+      "human": "Maslan Octomber 1962 men huye Qubai misail sankat men Soviyat sangh aur sanyukt rajy America ke beech tanav lagataar badhta gaya aur agar koi pichhe n hatata ho paarmanu pralay ho sakta tha, lekin usmen Soviyat sangh ne pichhe pav khinch liye."
+    },
+    {
+      "row": 3470,
+      "native": "इसी कल्पना के आधार पर मिस्र में सूर्य की आदिकल्पना तथा मूर्तिविधान में सूर्य को सपक्ष आभामंडल (्ध्रत्दढ़ड्ढड्ड द्मद्वद ड्डत्द्मत्त्) के रूप में माना गया।",
+      "human": "isi kalpna ke aadhar par Misr men Sury ki aadikalpna tatha murtividhan main Sury ko sapksh aabhamandal (udhtdtdhdddhddd yaddvd idtdhtthu) ke roop men mana gaya."
+    },
+    {
+      "row": 3518,
+      "native": "बुंदेलखंड का राजविद्रोह वास्तव में जनता का विद्रोह न होकर सामन्तों और सेना का विद्रोह था इसी पृष्ठभूमि में सांस्कृतिक और धार्मिक भावना के साथ साथ स्वामिभक्ति का पुट विशेष है।",
+      "human": "Bundelkhand ka rajvidroh vastav men janta ka vidroh n hokar samantton aur sena ka vidroh tha isi prushtbhumi men sanskrutik aur dharmik bhavna ke sath sath Swamibhakti ka put vishesh hai."
+    },
+    {
+      "row": 3549,
+      "native": "लखनऊ जिला जेल, जो उन दिनों संयुक्त प्रान्त (यू॰पी॰) की सेण्ट्रल जेल कहलाती थी, की ११ नम्बर बैरक में सभी क्रान्तिकारियों को एक साथ रक्खा गया और हजरतगंज चौराहे के पास रिंग थियेटर नाम की एक आलीशान बिल्डिंग में अस्थाई अदालत का निर्माण किया गया।",
+      "human": "Lakhanau jila jel, jo un dinon sanyukt prant (U.P.) ki central jel kahlati thi, ki 11 nambar bairak men sabhi krantikariyon ko ek sath rakkha gaya aur Hajaratganj chaurahe ke paas Ring theater naam ki ek aalishan bilding men asthai adalat ka nirmaan kiya gaya."
+    },
+    {
+      "row": 3565,
+      "native": "1985 में यह संयुक्त राष्ट्र का विशिष्ट अभिकरण बन गया।",
+      "human": "1985 men yah Sanyukt Rashtr ka vishisht abhikaran ban gaya."
+    },
+    {
+      "row": 3595,
+      "native": "श्री जगन्नाथ संस्कृत विश्वविद्यालय का जालघर",
+      "human": "Shri Jagnnath Sanskrut Vishwavidyalay ka jaalghar"
+    },
+    {
+      "row": 3610,
+      "native": "ये हैं हाउस स्पैरो, स्पेनिश स्पैरो, सिंड स्पैरो, रसेट स्पैरो, डेड सी स्पैरो और ट्री स्पैरो।",
+      "human": "ye hain House Sparo, Spenish, Sparo, Sind Sparo, Raset Sparo, Ded C Sparo aur Tree Sparo."
+    },
+    {
+      "row": 3615,
+      "native": "बांग्लादेशी महिलाओं और लड़कियों को पुरुषों के रूप में हर जगह आंदोलन की आजादी का अधिकार नहीं मिलता है, समाज पितृसत्तात्मक मूल्यों और महिलाओं और लड़की की स्वतंत्रता के प्रति सामाजिक रूढ़िवादी नीतियों पर आधारित है|",
+      "human": "Bangadeshi Mahilaon aur Ladkion ko Purushon ke roop men har jagah aandolan ki aajadi ka adhikar nahin milta hai, samaj pitrusattatmak mulyon aur Mahilaon aur Ladki ki swantrata ke prati samajik rudhiwadi nitiyon par aadharit hai."
+    },
+    {
+      "row": 3667,
+      "native": "यह एक छोटी-सी गर्त भूमि पर है जहां वर्षा का पानी जमा हो जाता है जो कुछ महीनों तक भरा रहता है और बाद में सूख जाता है।",
+      "human": "yah ek chhoti-si gart Bhumi par hai jahan Varsha ka pani jama ho jata hai jo kuchh Mahinon tak bhara raahta hai aur baad men sukh jata hai."
+    },
+    {
+      "row": 3668,
+      "native": "मानव जीवन का मनोवैज्ञानिक विकास पर चर्चा करने के लिए एरिक एरिकस ने मनोसामाजिक विकास के अपने चरणों का प्रसताव दिया।",
+      "human": "Maanav jeevan ka Manovaidhnyanik vikas par charcha karne ke liye Arik Aricus ne Manosamajik vikaas ke apne charnon ka prastav diya."
+    },
+    {
+      "row": 3682,
+      "native": "बाद में सन् 1935 में बालक और बालिकाओं दोनों के लिये बंबई में वीदृ पीदृ कामथ ने मराठी और कन्नड़ में बिने स्केल की रचना की।",
+      "human": "baad men san 1935 men balak aur baalikaon donon ke liye bambai men vitt pitt kamath ne marathi aur kannade men bine skel kii rachna kii."
+    },
+    {
+      "row": 3705,
+      "native": "हालांकि बैरेट उनके मुख्य गीतकार थे, वाटर्स और राइट ने नई सामग्री तैयार की, जैसे कि \"इट वुड बी सो नाइस\" और \"केयरफुल विथ दैट एक्स, यूजीन\".",
+      "human": "hanaanki Bairet unke mukhy geetkaar the, Waters aur Wrie ne naii samgri taiya kii, jaise ki \"It would be so nice\" aur \"Careful with that ax, Yugin.\"."
+    },
+    {
+      "row": 3726,
+      "native": "जो न केवल ब्राह्मणवादी व मनुवादी साहित्यिक संकल्पना है बल्कि व्यक्तिगत महिमामंडन और अवैज्ञानिक भी है।",
+      "human": "jo na keval brahmanwadi v vanuwadi sahitiyaik sankalpna hai bali yaktigat mahimamandan aur avaigyanki bhi hai."
+    },
+    {
+      "row": 3732,
+      "native": "टामस एक्विनस की धारणा थी कि ज्ञान के कुछ क्षेत्र विश्वास के ही विषय हैं; इसपर भी इंद्रियदत्त ज्ञान उन मूल नियमों की सहायता से, जो प्रत्येक की सक्रिय बुद्धि में विद्यमान हैं, विश्व और परमात्मा के स्वरूप के विषय में कुछ बता सकता है।",
+      "human": "Tomas Aquinas kee dhaarna thee ki gyan ke kuchh kshetr vishwas ke hi vishay hain; ispar bhi indirydatt gyan un mool niyamon kee sahayata se, jo pratyek kii sakriy buddi men vidyaman hain, vishv aur pramatma ke swarup ke vishay men kuchh bata sakta hain."
+    },
+    {
+      "row": 3741,
+      "native": "शेयरसन लोएब रोड्स, स्वयं ही १९७० के दशक में कई विलयों का जनक था, जिनमें १९७४ का वेइल्स हेडन, स्टोन एंड कंपनी का शेयरसन हेडन स्टोन से शेयरसन, हैम्मिल एंड कंपनी के साथ किया गया विलय शामिल है।",
+      "human": "Sheyson Loab Rhods, swaym hi 1970 ke dashak men kaii vilayon ka janak tha, jinmen 1974 ka Wedls Heden, Stone & Company ka Sheyarson Heden Stone se Sheyarson, Hammil & Company ke sath kya gya vilay shamil hai."
+    },
+    {
+      "row": 3770,
+      "native": "अत: यह मत साक्ष्यसंमत नहीं प्रतीत होता।",
+      "human": "atah yah mat sakshysammat nahin pratit hota."
+    },
+    {
+      "row": 3799,
+      "native": "सन्‌ १९१२ में गुरुद्वारा ठीकरीवाल का शिलान्यास किया गया।",
+      "human": "san 1912 men gurudwara Theekariwal ka shilanyas kiya gaya."
+    },
+    {
+      "row": 3809,
+      "native": "1987 में, अमेरिकन एक्सप्रेस ने अपना पहला क्रेडिट कार्ड उत्पाद, ऑप्टिमा कार्ड प्रस्तुत किया।",
+      "human": "1987 men, American Express ne apna pahla Credit Card utpaad, Optima Card prastut kiya."
+    },
+    {
+      "row": 3842,
+      "native": "करण मल्होत्रा, भारतीय फ़िल्म निर्देशक तथा लेखक",
+      "human": "Karan Malhotra, Bhartiy Film nirdeshak tatha Lekhak"
+    },
+    {
+      "row": 3847,
+      "native": "जब वह 15 साल की थी तब लक्ष्मी पर एसिड अटैक हुआ था।",
+      "human": "jab wah 15 saal ki thi tab Laxmi par Acid Attack hua tha."
+    },
+    {
+      "row": 3893,
+      "native": "दौरा इस अवसर पर, नज़दीक था।",
+      "human": "daur is avasar par, najdik tha."
+    },
+    {
+      "row": 3924,
+      "native": "यह ट्वेंटी-20 में रनों के मामले में पाकिस्तान की सबसे बड़ी जीत थी।",
+      "human": "yah Twenty-20 men ranon ke mamle men Pakisthan ki sabse badi jeet thi."
+    },
+    {
+      "row": 3965,
+      "native": "फिर चाचा ने विशाल को गोली मारने की कोशिश में अरुण को गोली मार दी।",
+      "human": "fir Chacha ne Vishal ko goli marne ki koshish men Arun ko goli maar di."
+    },
+    {
+      "row": 3993,
+      "native": "वह कप्तान जो तीसरी विनाशकारी यात्रा में गुलिवर को अपने जहाज पर सर्जन का काम करने के लिए आमंत्रित करता है, उसका नाम रोबिनसन है।",
+      "human": "wah kaptaan jo teesri vinashkaari yatra men Guliwar ko apne Jahaaj par sarjan ka kaam karne ke liye aamantrit karta hai, uska naam Robonson hai."
+    },
+    {
+      "row": 4022,
+      "native": "जैन धर्म बाहुबली",
+      "human": "Jain Dharm Bahubali"
+    },
+    {
+      "row": 4026,
+      "native": "रमैनी में चार स्थलों पर जीवों को चेतावनी दी गई हैं।",
+      "human": "Ramaini men char sthalon par jeevon ko chetawani di gai hain."
+    },
+    {
+      "row": 4033,
+      "native": "कनाडा में, चॅक के आकार और प्रकार - और साथ ही परांकन अपेक्षाएं तथा MICR छूट पर कैनेडियन पेमेंट्स एसोसिएशन (CPA) की निगरानी रहती है।",
+      "human": "Canada men, chek ke aakar aur prakar - aur sath hi parankan apekshayen tatha MICR chhut par Canedian Pements Asosiation (CPA) ki nigrani rahti hai."
+    },
+    {
+      "row": 4058,
+      "native": "यहां हम आपको बताते चलें कि मगध के सबसे प्राचीन वंश के संस्थापक का नाम भी",
+      "human": "yahan ham aapko batate chalen ki Magadh ke sabse Prachin Vansh ke Sansthapak ka naam bhi"
+    },
+    {
+      "row": 4070,
+      "native": "जाबिर हुसैन ने डायरी विधा में एक अभिनव प्रयोग किया है जो",
+      "human": "Jabir Husain ne dayri Vidha men ek Abhinav prayog kiya hai jo"
+    },
+    {
+      "row": 4071,
+      "native": "इस वंश के सम्राटों के संस्कृत नाम थे।",
+      "human": "is Vansh ke Samraton ke Sanskrut naam the."
+    },
+    {
+      "row": 4090,
+      "native": "लक्ष्मणगढ़ दुर्ग सीकर से 30 किलोमीटर की दूरी पर स्थित है।",
+      "human": "Laxmangadh Durgh Seekar se 30 kilometer ki duri par sthit hai."
+    },
+    {
+      "row": 4130,
+      "native": "साहित्यिक रूप से फ्रेंच कल्पना में बोहीमियन लोग घुमंतू रोमानी लोगों से सम्बंधित माने जाते थे (ऐसा माना जाता था की वे बोहेमियासे आये हैं), पारंपरिक समाज से हटकर और उनकी असम्मती से बेफिक्र।",
+      "human": "Sahityik roop se French kalpana men Bohimian Log Ghumantu Romaani logon se sambdhit mane jate the (aisa mana jata tha kee we Bohemiyase aaye hain), paramparik Samaaj se hatkar aur unki asammati se Befikr."
+    },
+    {
+      "row": 4163,
+      "native": "नागों द्वारा स्थापित शिवाल्यों के अवशेष भ्रमरा (नागौद) बैजनाथ (रीवाँ के पास) कुहरा (अजयगढ़) में अब भी मिलते हैं।",
+      "human": "nagon dwara sthapit Shivalyon ke avshesh Bhramara (Nagaud) Baijynaath (Reevon ke paas) Kuhra (Ajaygadh) men ab bhi milte hain."
+    },
+    {
+      "row": 4164,
+      "native": "तुरंत उपयुक्त चिकित्सा अपेक्षित है।",
+      "human": "turant upyukt chikitsa apekshit hai."
+    },
+    {
+      "row": 4165,
+      "native": "कई स्ट्रेपसिराइनी प्राणियों के जबड़ों के सामने के निचले दांत कंघी जैसी व्यवस्था में होते हैं जिनसे वे अपने बाल सँवार सकते हैं।",
+      "human": "kai Strepsirrhine praniyon ke jabdon ke saamne ke nichale Dant Kanghi jaisi vyavsta men hote hain jinse we apne baal sanvaar sakte hain."
+    },
+    {
+      "row": 4171,
+      "native": "उसके ठीक बाद क्या हुआ यह अस्पष्ट बना हुआ है।",
+      "human": "uske thik baad kya hua yah aspsht bana hua hai."
+    },
+    {
+      "row": 4172,
+      "native": "इस वजह से, विषम युग्मज में, दोनों सम युग्मज की तुलना में उच्च फिटनेस होगी.",
+      "human": "is wajah se, Visham Yugmaj men, donon sam Yugmaj ki tulna men ucch Fitness hogi."
+    },
+    {
+      "row": 4187,
+      "native": "भविष्य का धर्म एवं दर्शन",
+      "human": "bhavishy ka dharm evm darshan"
+    },
+    {
+      "row": 4194,
+      "native": "इन में शामिल हैं, सरकार के प्रकाशन, पद के आदेश, मंत्री नियमों और नगर निगम के द्वारा-कानूनों.",
+      "human": "in men shamil hain, sarkar ke prakashan, pad ke aadesh, manti niyamon aur nagar nigam ke dwara-kanoonon"
+    },
+    {
+      "row": 4227,
+      "native": "यह अवश्य है कि, मलूकदास धरमदास, दादूदयाल, नानक, आदि भक्तों के संबंध में 'भक्तमाल' में कुछ नहीं कहा गया।",
+      "human": "yah avashya hai ki, Malukdas Dharmadas, Daddyaal, Nanak, aadi bhakto ke sambandh men 'Bhaktmaal' men kuchh nahin kaha gaya."
+    },
+    {
+      "row": 4229,
+      "native": "मगर यदा कदा इन्हें गैर आदिवासी साबित करने की कोशिश किया जाना एवं इसके लिये तरह तरह के छोटी-मोटी गलतियां ढ़ूंढ़ने और उसे ऐन-केन-प्रकारेण सही साबित करने की कोशिश करना अत्यंत दुर्भाग्यपूर्ण है।",
+      "human": "magar yada kada inhne fair aadivasi sabit karne ki koshish kiya jana evm iske liye tarah tarah ke chhoti-moti galatiyan dhoondhne aur use ain-ken-prakaren sahi saabit karne kii koshish karna atyant durbhagyapoorn hai."
+    },
+    {
+      "row": 4245,
+      "native": "तृतीय शताब्दी ईo पूo के उत्तरार्ध में जीवित था।",
+      "human": "tritiy shatabdi ee poo ke uttrardh men jeevit thaa."
+    },
+    {
+      "row": 4252,
+      "native": "उड़ी, जम्मू और कश्मीर",
+      "human": "Udi, Jammu aur Kashmir"
+    },
+    {
+      "row": 4260,
+      "native": "इनके अतिरिक्त अन्य कई पेड़ों और लताओं से भी रबर प्राप्त होता है।",
+      "human": "inke atirikt anya kaii pedon aur lataon se bhi rabar prapt hota hai."
+    },
+    {
+      "row": 4268,
+      "native": "इस प्रकार हैहय वंशी राजाओं के शिवनाथ के उत्तर में अठारह और शिवनाथ के दक्षिण में अठारह अर्थात् छत्तीस गढ़ हो गये और यही इस क्षेत्र का 'छत्तीसगढ़' कहलाने का कारण बना।",
+      "human": "is prakar haihay vanshi rajaaon ke Shivnath ke uttar men atharah aur Shivnath ke dakshin men atharah arthat Chhatis Gadh ho vaye aur yahi is kshetr ka 'Chhatisgadh' kahlane ka karan bana."
+    },
+    {
+      "row": 4287,
+      "native": "मुख्य मेला अष्टमी को प्रारंभ होता है।",
+      "human": "mukhy mela ashtmi ko prarambh hota hai."
+    },
+    {
+      "row": 4288,
+      "native": "चेरुश्शेरि ने अपने पूर्ववर्ती लेखकों द्वारा प्रयुत्त संस्कृत एवं तमिल छंदों का बहिष्कार किया है।",
+      "human": "Cherusshere ne apne poorvarti lekhakon dwara prayukt sanskrit evm tamil chhandon ka bahishkar kiya hai."
+    },
+    {
+      "row": 4302,
+      "native": "भारतीय पशु और पक्षी",
+      "human": "bhariya pashu aur pakshi"
+    },
+    {
+      "row": 4306,
+      "native": "वह समाज कर्मसिद्धांत पर आधारित था।",
+      "human": "vah samaj karmshiddhan par aadharit thaa."
+    },
+    {
+      "row": 4313,
+      "native": "चेरुशेरी मलयालम में कविता लेखन के गाधा शैली के प्रवर्तक है।",
+      "human": "Chrusheri malyalam men kavit lekhan kee gaadha shaili ke prvarak hai."
+    },
+    {
+      "row": 4317,
+      "native": "मुस्लिम की पुस्तक कद में धीरे-धीरे बढ़ी है, जैसे कि सुन्नी मुसलमानों में हदीस का सबसे प्रामाणिक संग्रह माना जाता है, सहीह बुख़ारी के बाद दूसरा स्थान प्राप्त किया है।",
+      "human": "mulsmi kii pustak kad men dheere-dheere badhi hai, jais ki sunni musalmaanon me hadis ka sabse pramanik sangrah mana jata hai, Sahih Bukhari ke baad doosra shtan prapt kiya his."
+    },
+    {
+      "row": 4325,
+      "native": "ललित कला अकादमी द्वारा \"फाड़ चित्रकारी और श्री लाल जोशी\"",
+      "human": "Lalti Kala Akadami dwara \"Faad Chitrakari aur Shri Lal Joshi\""
+    },
+    {
+      "row": 4327,
+      "native": "सातवाहनों के पश्चात इक्ष्वाकु नरेशों ने यहाँ राज्य किया।",
+      "human": "saatvahanon ke pashchatg icchaku narshon ne yahan rajy kiya."
+    },
+    {
+      "row": 4346,
+      "native": "गोविन्द मिश्र अनेक प्रतिष्ठित संस्थाओं द्वारा पुरस्कृत सम्मानित किया गया है।",
+      "human": "Govind Mishr anek pratishthit sansthaon dwara purskirt sammanit kiya gaya hai."
+    },
+    {
+      "row": 4410,
+      "native": "वे सभी उज़बेक समुदाय से हैं और अपने गानों में उज़्बेकिस्तान की लोक-धुनों और कविताओं का मिश्रण करते हैं।",
+      "human": "ve sabhi Ujbek samuday se hai aur apne ganon men Ujbekistan kii log-dhunon aur kavitaaon ka mishran karte hain."
+    },
+    {
+      "row": 4415,
+      "native": "इसमें एक बड़ा क़दम जागीरदारों को हटाना था, जिनका झोऊ ज़माने में हर किसान मोहताज होता था।",
+      "human": "ismen ek bada kadam jaagirdaarohn ko hatana tha, jinka jhou jamane men har kisan mohtaj hota tha."
+    },
+    {
+      "row": 4428,
+      "native": "प्रथम शताब्दी में यहाँ सातवाहन नरेशों का राज्य था।",
+      "human": "pratham shatabdi men yahan saatvahan nareshon ka rajy tha."
+    },
+    {
+      "row": 4441,
+      "native": "संख्या सिद्धान्त और ज्यामिति जैसे अन्य क्षेत्रों से योगदान के बाद, समूह धारणा को सामान्यीकृत और दृढ़तापूर्वक 1870 के आसपास स्थापित किया गया था।",
+      "human": "sankya siddhant aur jyamiti jaise anya kshetron se yogdan ke baad, samuh dharanaa ko samavikrit aur dridhtapurvak 1870 ke aaspaas sthapit kiya gaya tha."
+    },
+    {
+      "row": 4454,
+      "native": "गर्भावस्था बीमारी के पुनरावर्तन के प्रति अतिसंवेदनशीलता को प्रभावित कराती है जिसमें गर्भावस्था के प्रत्येक त्रिमास में बीमारी के पुनरावर्तन की दर निम्न होती है।",
+      "human": "garbhavastha bimari ke punravartan ke prati atisanvedansheelta ko prabhavit karati hai jismen garbhavstha ke prtyek trimas me bimari ke punarvartan kii dar nimn hoti hai."
+    },
+    {
+      "row": 4478,
+      "native": "वह विशुद्ध चैतन्य स्वरूप की ओर अग्रसर हो रहा होता है।",
+      "human": "vah vishuddh chaitanya swarup ki or agrasar ho raha hota hai."
+    },
+    {
+      "row": 4505,
+      "native": "वे राजमहल की पहाड़ियों के इर्द-गिर्द रहा करते थे।",
+      "human": "ve rajmahl kii pahadiyon ke ird-grid raha karte the."
+    },
+    {
+      "row": 4533,
+      "native": "यह ऊमेनेट नामित निगम द्वरा शहर में बिजली और इंटरनेट के सेवाएं प्रदान करती है।",
+      "human": "yan Umnet namit nigak dwara shahar men bijli aur internet ke sevayen pradan karti hai."
+    },
+    {
+      "row": 4568,
+      "native": "‘अग्निपुराण’ में मुक्तक को परिभाषित करते हुए कहा गया कि:",
+      "human": "Agnipuraan' men muktak ko paribhashit karte huye kaha gaya ki:"
+    },
+    {
+      "row": 4572,
+      "native": "संदर्भ को परिभाषित करने की इस प्रारंभिक प्रक्रिया के बाद, संदर्भ का मूल्यांकन स्थल की विस्तृत जानकारी के सम्बन्ध में इसलिए किया जाता है कि जिससे स्थल को चरणों में बांटने की आवश्यकता को जांचा जा सके, इसके पश्चात इसे विभिन्न तरीकों से हटाया व रिकॉर्ड किया जाता है।",
+      "human": "sandarbh ko paribhashit karne ki is prarambhik prakriya ke baad, sandarbh ka mulyankan Sthal ki vistrut jankari ke sambandh men isliye kiya jata hai ki jisse Sthal ko charnon men bantane ki aavshyakta ko jancha ja sake, iske pashchat ise vibhinn tarikon se hataya v Record kiya jata hai."
+    },
+    {
+      "row": 4579,
+      "native": "मुंबई में बहुत से समाचार-पत्र, प्रकाशन गृह, दूरदर्शन और रेडियो स्टेशन हैं।",
+      "human": "Mumbai men bahut se Samachaar-Patr, Prakashan Gruh, Doordarshan aur Redio station hain."
+    },
+    {
+      "row": 4593,
+      "native": "१९३१ में पार्कर क़ूईक्क् (त्वरित सुखाने स्याही) जो ब्बॉळ्टीण्ग्ग लिए की आवश्यकता समाप्त बनाया।",
+      "human": "1931 men Parker Quink (twarit sukhane syahi) jo Boltignh liye ki aavshyakta samapt banaya."
+    },
+    {
+      "row": 4595,
+      "native": "एक संविदागत अनुबंध, जिसमें संविदा दिनांक को पूर्व-निर्धारित ब्याज दरों पर ब्याज दर राशि का निपटान निर्दिष्ट होता है।",
+      "human": "ek Sanvidagat Anubandh, jismen Sanvidha Dinank ko purv-nirdharit byaaj daron par byaaj dar Rashi ka niptaan nirdisht hota hai."
+    },
+    {
+      "row": 4674,
+      "native": "उपनिवेशवादियों को मजबूरन नक्रूमा को सत्तारूढ़ होने के लिए जेल से रिहा करना पड़ा।",
+      "human": "upniveshvadiyon ko majburan nkrumah ko sattarudh hone ke liye jel se riha karna pada."
+    },
+    {
+      "row": 4710,
+      "native": "शुक्राणु की सूक्ष्म पता लगान",
+      "human": "shukranu ki sukshma pata lagan."
+    },
+    {
+      "row": 4718,
+      "native": "हिन्दुस्थान समाचार (यूनिकोडित)",
+      "human": "hindustan samachaar (unicodit)"
+    },
+    {
+      "row": 4725,
+      "native": "संसार में दांपत्य जीवन में प्राय: एकपत्नीत्व ही सबसे अधिक प्रचलित है, यद्यपि अनेक समाजों में पुरुषों को एक से अधिक पत्नियाँ रखने की भी छूट है।",
+      "human": "sansaar mein dampatya jeevan mein prayah ekpatnitva hi sabse adhik prachalit hai, yadyapi anek samaajon mein purushon ko ek se adhik patniya rakhne ki bhi chhut hai."
+    },
+    {
+      "row": 4726,
+      "native": "अत्यधिक काटा जाना चरण को लापरवाही के साथ हटाया जाना परिलक्षित करता है।",
+      "human": "atyadhik kata jana charan ko laparwahi ke saath hataya jana parilakshit karta hai."
+    },
+    {
+      "row": 4842,
+      "native": "उत्तम कोटि के पादप, जैसे अनावृतबीजी तथा आवृतबीजी की लगभग ३०,००० जातियाँ इस देश में पाई जाती हैं।",
+      "human": "uttam koti ke padap, jaise anavritabiji tatha aavritabiji ki lagabhag 30,000 jatiyan is desh mein pai jaati hain."
+    },
+    {
+      "row": 4875,
+      "native": "उनके दो बेटे हैं।",
+      "human": "unke do bete hain."
+    },
+    {
+      "row": 4878,
+      "native": "बिबर प्रबेस कीन्ह जेहि भाँती। कपिन्ह बहोरि मिला संपाती।।",
+      "human": "bibar prabes kinh jehi bhaanti. kapinh bahori milaa sanpaati.."
+    },
+    {
+      "row": 4932,
+      "native": "बातों ही बातों में उस अधिकारी को वीडिओ फूटेज दिखा दिए। ..",
+      "human": "baaton hi baaton mein us adhikaari ko vidio footage dikhaa diye. .."
+    },
+    {
+      "row": 4938,
+      "native": "एक समय पूडल अधिक लंबे बालों वाले हुआ करते थे, जो कि पुर्तगाली समुद्री कुत्ते की एक किस्म है।",
+      "human": "ek samay pudal adhik lambe baalon wale huaa karte the, jo ki purtagaali samudri kutte ki ek kism hai."
+    },
+    {
+      "row": 4958,
+      "native": "यह सूची एशिया के देशों के शहरों की है:-",
+      "human": "yah suchi Asia ke deshon ke shaharon ki hai:-"
+    },
+    {
+      "row": 5044,
+      "native": "उन्‍होने अपने कैरियर के दौरान एक चावल की 19,000 प्रजातियाँ एकत्र की थी।",
+      "human": "un‍hone apne career ke dauraan ek chaval ki 19,000 prajatiyan ektra ki thi."
+    },
+    {
+      "row": 5052,
+      "native": "लेसोथो नाम मोटे तौर पर \"सेसोथो बोलने वाले लोगों की भूमि\" का अनुवाद करता है।",
+      "human": "Lesotho naam mote taur par \"sesotho bolne wale logon ki bhumi\" ka anuvaad karta hai."
+    },
+    {
+      "row": 5080,
+      "native": "1945 के बाद ही अंग्रेज़ों ने मलाया के अनुदारपंथी परम्परागत शासकों के साथ गठजोड़ करके एक केंद्रीकृत प्रशासन खड़ा कर लिया था।",
+      "human": "1945 ke baad hi angrejon ne malaya ke anudarpanthi paramparagat shaaskon ke saath gathjode karke ek kendrikrit prashasan khada kar liya tha."
+    },
+    {
+      "row": 5102,
+      "native": "उर्दू कहानीकार राजेन्द्र सिंह बेदी - नन्द किशोर विक्रम",
+      "human": "Urdu kahanikaar Rajendra Singh Bedi - Nand Kishor Vikram"
+    },
+    {
+      "row": 5113,
+      "native": "इसे लौकिक, शास्त्र, पहाड़ी या कच्चा संवत्‌ भी कहते हैं।",
+      "human": "ise laukik, shastra, pahadi ya kachcha samvata bhi kahte hain."
+    },
+    {
+      "row": 5119,
+      "native": "इंटरसिटी एक्स्प्रेस 3503 भारतीय रेल द्वारा संचालित एक मेल एक्स्प्रेस ट्रेन है।",
+      "human": "intercity express 3503 bhartiya rail dwaraa sanchalit ek mail expres train hai."
+    },
+    {
+      "row": 5122,
+      "native": "(2) संसारगत कार्य-कारण-नियम को जगत् पर लागू करके यह कहा जाता है कि जैसे यहां प्रत्येक कार्य के उपादान और निमित्त कारण होते हैं, उसी प्रकार समस्त जगत् का उपादान और निमित्त कारण भी होना चाहिए और वह ईश्वर है (कास्मोलॉजिकल, अर्थात् सृष्टिकारण युक्ति)।",
+      "human": "(2) sansargat kary-kaaran-niyam ko jagat par lagu karke yah kaha jata hai ki jaise yahan pratyek kary ke upaadaan aur nimitt kaaran hote hain, usi prakaar samast jagat kaa upaadaan aur nimitt kaaran bhi hona chahiye aur vah ishwar hai (cosmological, arthaat sristikaaran yukti)."
+    },
+    {
+      "row": 5124,
+      "native": "कुछ परंपरा में आकाश देवता को नारी रूप में मान्यता प्राप्त हैं।",
+      "human": "kuchh paramparaa mein aakash devta ko naari roop mein manyataa prapt hain."
+    },
+    {
+      "row": 5129,
+      "native": "गढिया किले के पूर्वी दिशा मे स्थित द्वार धरमदेव राजा के नाम पर धरम द्वार कहलाता था।",
+      "human": "Gadhiyaa kile ke purvi disha me sthit dvaar Dharamdev raja ke naam par dharam dvaar kahlata tha."
+    },
+    {
+      "row": 5150,
+      "native": "अधिक खतरनाक है, लेकिन बहुत कम आम हैं इंटरफेरॉन से होने वाली गुर्दे की क्षति; ह्रदय संबंधी गंभीर विषाक्तता, बांझपन और माइटॉक्सैनट्रोन kaa गंभीर मज्जाभ (myeloid) ल्यूकेमिया, और नैतैलीज़ुमैब (natalizumab) एवं तेजी से फैलने वाले बहुकेंद्रीय मस्तिष्क संबंधी ल्यूकेमिया के बीच विख्यात संबंध.",
+      "human": "adhik khatarnaak hai, lekin bahut kam aam hain Interferon se hone wali gurde ki kshati; hriday sambandhi gambhir visaaktataa, baanjhpan aur Mitoxantrone ka gambhir majjaabh (myeloid) Leukaemia, aur Natalizumab (natalizumab) evam teji se failne wale bahukendriy mastisk sambandhi leukaemia ke bich vikhyaat sambandh."
+    },
+    {
+      "row": 5168,
+      "native": "शहरों की सूची",
+      "human": "shaharon ki suchi"
+    },
+    {
+      "row": 5194,
+      "native": "न्याय मंजरी पदवाक्यप्रमाणपारावरीणजरन्नैयायिक जयन्तहभट्ट कृत एक वृत्ति ग्रन्थ है |",
+      "human": "nyaay manjari padvakyapramanparavarinjarnnaiyayik jayantahbhatt krut ek vrutti granth hai ."
+    },
+    {
+      "row": 5196,
+      "native": "१९४८ में, मार्गरेट लेई ने कैथोलिक धर्म में परिवर्तित किया और १९५० में एक कॉन्वेंट में प्रवेश किया।",
+      "human": "1948 mein margaret lai ne katholik dharma mein parivartit kiya aur 1950 mein ek convent mein pravesh kiya."
+    },
+    {
+      "row": 5208,
+      "native": "1970 में दि पार्टी एट किट्टी एंड स्टड के अलावा, स्टैलोन नो प्लेस टू हाइड में भी नजर आए, जिसे पुन:संपादित किया गया और फिर उसे नया नाम रिबेल दिया गया, इस दूसरे संस्करण में स्टैलोन उसके स्टार के रूप में दिखे.",
+      "human": "1970 mein The party at kitty and stud ke alavaa, Stalleone No place to hide mein bhi najar aaye, jise pun:sampaadit kiya gaya aur fir use nyaa naam rebel diya gaya, is dusare sanskaran mein Stallone uske star ke rup mein dikhe."
+    },
+    {
+      "row": 5220,
+      "native": "\"दुनिया वाले भी क्या याद\" - ज़ुर्म",
+      "human": "\"duniyaa vaale bhi kyaa yaad\" - jurm"
+    },
+    {
+      "row": 5224,
+      "native": "डेप एक पुरानी हॉलीवुड शैली के पुनर्जीवित होने की संभावना से उत्साहित थे और बाद में यह देखकर खुश हुए कि स्क्रिप्ट उनकी अनोखी संवेदनशीलताओं से मेल खाती थी: ब्लैक पर्ल का चालक दल खजाने की खोज के लिए नहीं जा रहा था बल्कि इसकी बजाय इसे उनके अभिशाप को हटाने के लिए वापस आ रहा था।",
+      "human": "Depp ek puraani hollywood shaili ke punarjivit hone ki sambhavna se utsaahit the aur baad mein yah dekhkar khush hue ki skript unki anokhi samvedanshiltaaon se mel khaati thi: Black Pearl kaa chaalak dal khajaane ki khoj ke liye nahin jaa rhaa thaa balki iski bajaay ise unke abhishaap ko hataane ke liye vaapas aa raha tha."
+    },
+    {
+      "row": 5225,
+      "native": "रंग दे बसंती की तरह इंडिया गेट पर मोमबत्ती जला के लोगों ने प्रियदर्शिनी मट्टू और जेसिका लाल के केसों में अदालत के फैसलों के खिलाफ मोर्चा निकाला और शायद स्वतंत्र भारत के इतिहास में पहली बार इस तरह से शांतिप्रिय जुलूस निकाल के उच्च न्यायालय को और सरकार को ये मुकदमे फिर से खोलने पर मजबूर कर दिया।",
+      "human": "Rang De Basanti ki tarah India Gate par mombatti jala ke logo ne Priyadarshini Mattu aur Jessica Lal ke keson mein adaalat ke faisalon ke khilaaf morchaa nikala aur shaayad svatntra bharat ke itihaas mein pahali baar is tarah se shaatipriya julus nikaal ke uchch nyayaalaya ko aur sarkaar ko ye mukadme fir se kholne par majbur kar diyaa."
+    },
+    {
+      "row": 5263,
+      "native": "अनन्त राव सार देसाई, जो कि मराठी और पुर्तगाली भाषाओ के रेडियों के नाटककार और लघु-कथा लेखक जो मार्दोल में रहे और औषधि-शास्त्र का अभ्यास किया।",
+      "human": "Anant Rao Sardesai, jo ki marathi aur purtgali bhasao ke radio ke natkaar aur laghu-katha lekhak jo maardol mein rehe aur ausadhi-shastra ka abhyaas kiya."
+    },
+    {
+      "row": 5285,
+      "native": "यह जलवाष्प उष्मामापी से कुछ भिन्न होता है।",
+      "human": "yah jalvashp ushmaamaapi se kuchh bhinna hota hai."
+    },
+    {
+      "row": 5314,
+      "native": "इस लोककथा से ही इस प्रपात का नाम तब से उस अजगर के नाम पर पड़ गया और इस झरने की लोकप्रियता और भी बढ़ गयी।",
+      "human": "is lokakatha se hi is prapaat ka naam tab se us ajgar ke naam par pad gaya aur is jharne ki lokpriyta aur bhi badh gayi."
+    },
+    {
+      "row": 5328,
+      "native": "खड़ी बोली वह बोली है जिसपर ब्रजभाषा या अवधी आदि की छाप न हो।",
+      "human": "khadi boli vah boli hai jispar brajbhasha ya awadhi aadi ki chhaap na ho."
+    },
+    {
+      "row": 5329,
+      "native": "इसके बावजूद ज्योतिबा फूले ने हमेशा ही तथाकथित 'नीची' जाति के लोगों के अधिकारों की पैरवी की।",
+      "human": "iske bavjud Jyotiba Phule ne hamesha hi tathakathit 'nichi' jaati ke logon ke adhikaron ki pairvi ki."
+    },
+    {
+      "row": 5340,
+      "native": "1985 में, सेगा के तीसरे-व्यक्ति वाले आर्केड रेल शूटर खेल स्पेस हैरियर में एक वास्तविक एनालॉग उड़ान छड़ी, जिसका प्रयोग गतिशीलता के लिए किया जाता था, प्रस्तुत की गई।",
+      "human": "1985 mein, Sega ke tisre-vyakti vale orked rel shootar khel spes heriyar mein ek vaastvik enalog udan chhadi, jiska prayog gatishilta ke liye kiya jataa tha, prastut ki gayi."
+    },
+    {
+      "row": 5385,
+      "native": "इसके बावजूद, गर्भाशय ग्रीवा agenesis के साथ महिलाओं में कई गर्भधारण की सूचना मिली है, जो शल्य चिकित्सा उपचार किया गया था।",
+      "human": "isake bavjud, garbhashay griva agenesis ke sath mahilaon mein kayi garbhdharan ki suchna mili hai, jo shalya chikitsa upchar kiya gaya tha."
+    },
+    {
+      "row": 5397,
+      "native": "प्रख्यात उपन्यासकार नरेन्द्र कोहली ने अपने उपन्यास ‘वसुदेव’ के द्वारा इस कमी को पूरा करने का प्रयास किया है।",
+      "human": "prakhyat upnyaskar Narendra Kohli ne apne upanyas 'Vasudev' ke dwara is kammi ko pura karne ka prayas kiya hai."
+    },
+    {
+      "row": 5414,
+      "native": "10 जनवरी- भारत और पाकिस्तान ने शांति समझौता किया।",
+      "human": "10 January- Bharat aur Pakistan ne shanti samjhauta kiya."
+    },
+    {
+      "row": 5442,
+      "native": "इस प्रकार, उन्होंने जाति व्यवस्था की नई व्याख्या दी, जैसा कि उनका मानना है कि किसी व्यक्ति की जाति उसके स्वभाव से संबंधित है, न कि उसके जन्म से; माधव के अनुसार जन्म वर्ण द्वारा निर्धारित नहीं होता है; धर्मपरायण प्रबुद्ध चांडाल (जातिच्युत) एक अज्ञानी ब्राह्मण से कहीं अधिक श्रेष्ठ है।",
+      "human": "is prakar, unhone jati vyavstha ki nayi vyakhya di, jaisa ki unka manna hai ki kisi vyakti ki jati uske svabhav se sambandhit hai, na ki uske janm se; Madhav ke anusar janm varn dvara nirdharit nahi hota hai; dharmaparayan prabuddh chandaal (jatichyut) ek agyani brahman se kahin adhik shreshth hai."
+    },
+    {
+      "row": 5448,
+      "native": "आधुनिक दर्शन के प्रमुख झुकाव",
+      "human": "adhunik darshan ke pramukh jhukav"
+    },
+    {
+      "row": 5449,
+      "native": "भगवान ने कर्म के नियम बनाये हैं और भगवान इसका उल्लंघन नहीं करेंगे।",
+      "human": "Bhagwan ne karm ke niyam banaye hain aur bhagwan iska ullanghan nahi karenge."
+    },
+    {
+      "row": 5497,
+      "native": "जे सी शाह भारत के सर्वोच्च न्यायालय के भूतपूर्व न्यायाधीश रहे हैं।",
+      "human": "J C Shah Bharat ke sarvochch nyayalay ke bhutpurv nyayadhish rahe hain."
+    },
+    {
+      "row": 5502,
+      "native": "शब्द पुरातात्विक उत्खनन के दो अर्थ हैं।",
+      "human": "shabd puratatvik utkhanan ke do arth hain."
+    },
+    {
+      "row": 5506,
+      "native": "तब शरीर की और लसीका ग्रंथियाँ (गिल्टियाँ) सूजती हैं।",
+      "human": "tab sharir ki aur lasica granthiyan (giltiyan) sujati hain."
+    },
+    {
+      "row": 5539,
+      "native": "आकांक्षा सरीन - अर्पिता, पुचकी की माँ",
+      "human": "Akanksha Sareen - Arpita, Puchki ki maa"
+    },
+    {
+      "row": 5570,
+      "native": "बीरबल दि क्लैवर",
+      "human": "Birbal The Clever"
+    },
+    {
+      "row": 5578,
+      "native": "खाद्य व्यवसायियों का यह अनैतिक एवं समाजविरोधी आचरण संसार के सभी देशों में पाया जाता है, किंतु अशिक्षित, निर्धन और अल्पविकसित देशों में यह अधिक देखने में आता है।",
+      "human": "khadya vyavsayiyon ka yah anaitik evam samajvirodhi achran sansar ke sabhi deshon mein paya jata hai, kintu ashikshit, nirdhan aur alpviksit deshon mein yah adhik dekhne mein aata hai."
+    },
+    {
+      "row": 5631,
+      "native": "वेइल्स शेयरसन लोएब रोड्स को शेयरसन/अमेरिकन एक्सप्रेस को खरीदा.",
+      "human": "Welles Shearson Loeb Rhodes ko Shareerson/American Express ko kharida."
+    },
+    {
+      "row": 5656,
+      "native": "शिरोभूषण जो कि पोशाक का सबसे पवित्र तथ्य है, देवत की मूर्ति के साम्ने पहना जाता है, पार्ंपरिक वाध्यों के साथ कलाकार अपना प्रतिबिंब आइने में देखता है।",
+      "human": "shirobhushan jo ki poshaak ka sabse paavitra tathya hai, devat ki murti ke saamne pahnaa jata hai, paramparik vaadhyon ke saath kalakar apna pratibimb aaine men dekhtaa hai."
+    },
+    {
+      "row": 5665,
+      "native": "पुस्तक की सूक्ष्मता और गहराई के बावजूद, इसे अक्सर बच्चों के कहानियों के रूप में वर्गीकृत किया जाता है।",
+      "human": "pustak ki sukshmta aur gahrayi ke baavjud, ise aksar bachchon ke kahaaniyon ke rup mein vargikrit kiya jaata hai."
+    },
+    {
+      "row": 5674,
+      "native": "इस तकनीक में और अधिक शोध करने पर जीन चिकित्सा, रक्त आधान एवं सामयिक दवाओं के क्षेत्र लाभान्वित होने की संभावना को नकारा नहीं जा सकता.",
+      "human": "is taknik mein aur adhik shodh karne par gene chikitsaa, rakt aadhaan evam saamayik davaaon ke kshetra labhanvit hone ki sambhavna ko nakara nahin ja sakaa."
+    },
+    {
+      "row": 5723,
+      "native": "मरीन पार्क में प्रशिक्षित डॉल्फिन अपने करतब दिखाती हैं।",
+      "human": "marine park mein prashikshit dolphin apne kartab dikhaati hain."
+    },
+    {
+      "row": 5727,
+      "native": "बुराई की समस्या",
+      "human": "burai ki samsyaa"
+    },
+    {
+      "row": 5729,
+      "native": "राज्य के बाकी हिस्सों में पश्चिम में गहन कृषि के लिए दिया गया प्रेरी है और दक्षिणपूर्व में पतझड़ी जंगल शामिल है।",
+      "human": "rajya ke baki hisson mein pashchim mein gahan krishi ke liye diya gaya preri hai aur dakshinpurv mein patjhadi jangal shaamil hai."
+    },
+    {
+      "row": 5740,
+      "native": "उमर पचपन की दिल बचपन का 1992 में बनी हिन्दी भाषा की फिल्म है।",
+      "human": "umar pachapan ki dil bachapan ka 1992 mein bni hindi bhasaa ki film hai."
+    },
+    {
+      "row": 5757,
+      "native": "अपर्याप्त निधि वाले खाते से आहरित किये गए चॅक को नकारा गया कहते हैं या रबर चॅक कहा जा सकता है।",
+      "human": "aparyaapt nidhi wale khaate se aaharit kiye gaye cheque ko nakara gaya kahte hain ya rabar cheque kaha ja sakta hai."
+    },
+    {
+      "row": 5777,
+      "native": "कानूनी राशि (शब्दों में राशि) की भी अत्यधिक सिफारिश की जाती है, पर सख्ती से ज़रूरी नहीं है।",
+      "human": "kaanuni rashi (shabdon mein rashi) ki bhi atyadhik sifaarish ki jati hai, par sakhti se jaruri nahin hai."
+    },
+    {
+      "row": 5831,
+      "native": "1980 के दशक के मध्य में, अनुसंधान परिषद ने सिफारिश की कि एनएएल को भारत की नागरिक उड्डयन आवश्यकताओं का अध्ययन करना चाहिए और एक व्यवहार्य नागरिक उड्डयन उद्योग की स्थापना के तरीके सुझाए जाने चाहिए।",
+      "human": "1980 ke dashak ke madhya mein, anusandhaan parisad ne sifaarish kee ki NAL ko bharat ki nagarik uddayan aavashyakataaon ka adhyayan karnaa chahiye aur ek vyavhaary nagarik uddayan udyoga ki sthaapanaa ke tarike sujhaye jane chahiye."
+    },
+    {
+      "row": 5883,
+      "native": "कभी कभी संदर्भों से जमा किये गए नमूने भी लिए जाते हैं ताकि बाद में इनका पर्यावरणीय विश्लेषण अथवा वैज्ञानिक कालांकन किया जा सके।",
+      "human": "kabhi kabhi sandarbhon se jamaa kiye gaye namune bhi liye jaate hain taaki baad mein inkaa paryaavaraniy vishleshan athavaa vaigyaanik kaalaankan kiya ja sake."
+    },
+    {
+      "row": 5898,
+      "native": "अर्देशिर, जनरल रतंजीबा के परिवार के थे जिन्होंने शिवाजी की सेना का नेतृत्व किया था और उन्हें 100 गांवों से सम्मानित किया गया था जिसमें तारापोर मुख्य गांव था, जहां से परिवार का नाम आता है।",
+      "human": "Ardeshi, General Ratangiba ke parivaar ke the jinhonne shivaji ki sena ka netritva kiya tha aur unhein 100 gaavon se sammaanit kiya gaya tha jismein Tarapor mukhya gaon tha, jahan se parivaar ka naam ataa hai."
+    },
+    {
+      "row": 5914,
+      "native": "भारत में सामूहिक विनाश के हथियार",
+      "human": "bharat mein samuhik vinaash ke hathiyaar"
+    },
+    {
+      "row": 5942,
+      "native": "अपनी बेटी को बचाने के लिए अर्पिता वहाँ से अपनी बेटी के साथ भागने का प्रयास भी करती है, लेकिन भागने में विफल हो जाती है।",
+      "human": "apni beti ko bachaane ke liye Arpita vahan se apni beti ke saath bhaagane ka prayaas bhi karti hai, lekin bhaagane mein vifal ho jati hai."
+    },
+    {
+      "row": 5946,
+      "native": "कुछ पर जया बच्चन द्वारा दूरदर्शन धारावाहिक सात फेरे का निर्माण किया गया है तथा कुछ कहानियां गुलज़ार के दूरदर्शन धारावाहिक किरदार में तथा भावना धारावाहिक में शामिल की जा चुकी हैं।",
+      "human": "kuchh par jaya bachchan dwara doordarshan dharavahik Saat Phere ka nirmaan kiya gaya hai tatha kuchh kahaaniyaan Gulzar ke doordarshan dharavahik kirdaar mein tatha bhavna dharavahik mein shaamil ki ja chuki hain."
+    },
+    {
+      "row": 5974,
+      "native": "श्री मुथुस्वमि दीक्षितर का यह मानना था की वडिवेलू गानो के बोल को एक बार सुनते ही दोहरा सकते थे।",
+      "human": "Shri Muthuswami Dikshitar ka yah maananaa tha ki Vadivelu gaano ke bol ko ek baar sunate hi doharaa sakte the."
+    },
+    {
+      "row": 5996,
+      "native": "सौरमान एवं चांद्रमान के ३२ महीनों में १ महीने का अंतर पड़ जाता है।",
+      "human": "saurmaan evam chandramaan ke 32 mahinon mein 1 mahine ka antar pada jata hai."
+    },
+    {
+      "row": 6039,
+      "native": "समाज के विभिन्न आयामों को उनसे अधिक विश्वसनीयता से दिखा पाने वाले परिदर्शक को हिन्दी-उर्दू की दुनिया नहीं जानती.",
+      "human": "samaaj ke vibhinn aayaamon ko unse adhik vishvsaniyataa se dikhaa pane wale paridarshak ko hindi-urdu ki duniya nahin jaanati."
+    },
+    {
+      "row": 6045,
+      "native": "इस प्रकार ये केवल इनपुट उपकरण ही नहीं, बल्कि सक्रिय उपकरण भी हैं।",
+      "human": "is prakaar ye keval input upakaran hi nahin, balki sakriya upakaran bhi hain."
+    },
+    {
+      "row": 6050,
+      "native": "इसमें पीले छोटे फल लगते हैं, जो खाने में काफी मीठे और स्वादिष्ठ होते हैं।",
+      "human": "ismein peele chhote fal lagate hain, jo khaane mein kaafi mithe aur swaadisht hote hain."
+    },
+    {
+      "row": 6081,
+      "native": "ये दिल्ली राज्य से हैं।",
+      "human": "ye Delhi rajya se hain."
+    },
+    {
+      "row": 6082,
+      "native": "ओसीआनास और थीटिस ही यूनानी देवपरिवार के आदि पिता और माता है।",
+      "human": "Oceania aur thetis hi yunani devpariwar ke aadi pita aur mata hai."
+    },
+    {
+      "row": 6099,
+      "native": "विद्युत प्रवृत्ति है,",
+      "human": "vidyut pravrutti hai,"
+    },
+    {
+      "row": 6125,
+      "native": "यदि गर्मी अच्छी पड़ती है तो वर्षा भी खूब होती है।",
+      "human": "yadi garmi achchi padti hai to varsha bhi khoob hoti hai."
+    },
+    {
+      "row": 6136,
+      "native": "निम्नलिखित धर्म या नेकी करने से कैसे बुरे कर्म को कम किया जा सकता है इसके उदाहरण हैं: अच्छे काम करना, जैसे कि दूसरों की सहायता करना; भक्ति योग, या दया पाने के लिए भगवान की पूजा करना; और भगवान की दया पाने के लिए चिदंबरम मंदिर या रामेश्वरम जैसे पवित्र स्थलों की तीर्थयात्रा करना।",
+      "human": "nimnlikhit dharm ya neki karne se kaise bure karm ko kam kiya ja sakta hai iske udaaharan hain: achche kaam karna, jaise ki dusron ki sahayta karna; bhakti yog, ya daya paane ke liye bhagvan ki pooja karna; aur bhagvaan ki daya paane ke liye Chidabaram Mandir ya Rameshwaram jaise pavitra sthalon ki tirthyatra karna."
+    },
+    {
+      "row": 6148,
+      "native": "ऐसी समस्या के उपस्थित होने पर, जिसका समाधान कई तरह से हो सकता है, व्यक्ति अपनी बुद्धि का जिस प्रकार प्रयोग करता है वह उसके व्यक्तित्व गठन को प्रतिबिंबित करता है।",
+      "human": "aisi samasya ke upsthit hone par, jiska samadhan kai tarah se ho sakta hai, vyakti apni buddhi ka jis prakar prayog karta hai vah uske vyaktitv gathan ko pratibimbit karta hai."
+    },
+    {
+      "row": 6207,
+      "native": "संवेद फाउण्डेशन की इस अनियतकालीन पत्रिका की शुरूआत बिहार के छोटे से कस्बे जमालपुर (मुंगेर) में सन् 1991 ईस्वी में हुई।",
+      "human": "Samved Foundation ki is aniyatkaalin patrika ki shuruaat Bihar ke chhote se kasbe Jamalpur (Munger) mein san 1991 isvi mein hui."
+    },
+    {
+      "row": 6227,
+      "native": "मुंबई: सोमैया प्रकाशन.",
+      "human": "Mumbai: Somaiya Prakashan."
+    },
+    {
+      "row": 6235,
+      "native": "टोडा जनजाति की भाषा में तमिल भाषा के काफी शब्द पाए जाते हैं और शेष बडागा जनजाति की भाषा से मिलते हुए होते हैं।",
+      "human": "toda janjaati ki bhasha mein tamil bhasha ke kafi shabd paaye jate hain aur shesh badaga janjaati ki bhasha se milte huye hote hain."
+    },
+    {
+      "row": 6256,
+      "native": "कुल मिलाकर यह 800 किलोमीटर की ऊंचाई तक पहुंचेगी।",
+      "human": "kul milakar yah 800 kilometer ki unchai tak pahunchegi."
+    },
+    {
+      "row": 6277,
+      "native": "उनके इस प्रकार कहने से त्रिशंकु ने क्रोधित होकर वशिष्ठ जी के पुत्रों को अपशब्द कहे।",
+      "human": "unke is prakar kahne se Trishanku ne krodhit hokar Vashishth ji ke putron ko apshabd kahe."
+    },
+    {
+      "row": 6340,
+      "native": "जफरनगर मुंगेर, मुंगेर, बिहार स्थित एक गाँव है।",
+      "human": "Jaffarnagar Munger, Munger, Bihar sthit ek gaanv hai."
+    },
+    {
+      "row": 6352,
+      "native": "यह संस्तुति राज्यों के लिए बाध्यता मूलक नहीं थी क्योंकि शिक्षा राज्यों का विषय है।",
+      "human": "yah sanstuti rajyon ke liye badhyata mulak nahi thi kyonki shiksha rajyon ka vishay hai."
+    },
+    {
+      "row": 6369,
+      "native": "भारत के विभिन्न प्रांतों में विभिन्न नामों से पायी जाती है।",
+      "human": "Bharat ke vibhinn praanton mein vibhinn namon se paai jaati hai."
+    },
+    {
+      "row": 6392,
+      "native": "इस तरह की टिप्पणियां न्यू जर्सी के रटगर्स विश्वविद्यालय के धर्म के संयुक्त प्राध्यापक एडविन ब्रायंट द्वारा प्रदान की गयी हैं।",
+      "human": "is tarah ki tippniyan New Jersey ke Rutgers vishwavidyalay ke dhar ke sanyukt praadhyapak Edwin Briant dvara pradan ki gayi hain."
+    },
+    {
+      "row": 6427,
+      "native": "व्यसन के इस प्रकार में शान्तिदायक या पीड़ाशामक मादक पदार्थ आते हैं।",
+      "human": "vyasan ke is praakar mein shantidayak ya peedashamak maadak padarth aate hain."
+    },
+    {
+      "row": 6454,
+      "native": "इसमें सहजावस्था विषयासक्ति से आत्मप्रतीति का अभाव, आत्मपूजा, रामनाम के व्यवसायी, संसार की असारता का विचार, आत्मपरिचय की आवश्यकता का उल्लेख, संसार की असारता और विनाशिता, शरीर की हीनता और अनित्यता, राम राजा का आत्मपरिचय और राम कहानी, ननद और भावज का प्रपंच, गाली शब्द और माया के आखेट खेल का निरूपण किया गया है।",
+      "human": "ismein sahjavastha vishayasakti se aatmpratiti ka abhav aatmapooja, ramnaam ke vyavsaayi, sansaar ki asarta ka vichar, aatmaparichay ki avshyakta ka ullekh, sansaar ki asarta aur vinashita, sharir ki heenta aur anityata, Ram raja ka aatmaparichay aur Ram kahani, nanad aur bhavaj ka prapanch, gaali shand aur maya ke aakhet khel ka niroopan kiya gaya hai."
+    },
+    {
+      "row": 6466,
+      "native": "ऋजु रेखाओं द्वारा जनन होनेवाले, अर्थात्‌ रेखज पृष्ठों के प्रतिरूप, सरलतापूर्वक बनाए जा सकते हैं, क्योंकि जनकों को क्रमिक ताने हुए डोरकों से निरूपति किया जा सकता है।",
+      "human": "riju rekhaon dvara janan honevale, arthat rekhaj pruthon ke pratiroop, saraltapurvak banaye jaa sakte hain, kyonki janakon ko kramik taane huye dorakon se niroopit kiya ja sakta hai."
+    },
+    {
+      "row": 6495,
+      "native": "राष्ट्रीय राजमार्ग १०९, जिसे नैनीताल रोड, या बरेली-बागेश्वर हाईवे भी कहा जाता है, रुद्रपुर से शुरू होकर पंतनगर, हल्द्वानी, नैनीताल, भवाली, अल्मोड़ा, रानीखेत, द्वाराहाट, चौखुटिया, गैरसैण तथा आदिबद्री होते हुए कर्णप्रयाग तक जाता है।",
+      "human": "rashtriy rajmarg 109, jise Nainital road, ya Bareilly-Bageshwar highway bhi kaha jata hai, Rudrapur se shuru hokar Pantnagar, Haldwani, Nainital, Bhawali, Almora, Ranikhet, Dwarahat, Chaukhootia, Gairsain tatha Adibadri hote hue Karnaprang tak jata hai."
+    },
+    {
+      "row": 6520,
+      "native": "विशाखापट्‌नम- गुंटूर प्रदेश",
+      "human": "Visakhapatnam- Guntur Pradesh"
+    },
+    {
+      "row": 6564,
+      "native": "अब समुद्री डाकुओं का विद्रोह शुरू हो जाता है और ये डाकू कुछ समय के लिए उसे अपने साथ रखते हैं और फिर उसे पहले शांत भूमि क्षेत्र में छोड़ देते हैं।",
+      "human": "ab samudri daakuon ka vidroh shuru ho jata hai aur ye daaku kuchh samay ke liye use apne saath rakhte hain aur fir use pahle shaant bhumi kshetra mein chhod dete hain."
+    },
+    {
+      "row": 6584,
+      "native": "उन्होंने दो ऐसे चरित्रों को निभाया, जो अमेरिकी सांस्कृतिक शब्दकोश का एक हिस्सा बन गए: रॉकी बैलबोआ, मुक्केबाज जिसने प्रेम और गौरव की राह में आयी बाधाओं के लिए लड़ाई लड़ कर जीत हासिल की और जॉन रैंबो, एक साहसी सैनिक जो हिंसा से राहत और प्रतिशोध मिशन का विशेषज्ञ था।",
+      "human": "unhonne do aise charitron ko nibhaya, jo americi saanskritik shabdkosh ka ek hissaa ban gaye: Rocky Balboa, mukkebaaj jisne prem aur gaurav ki raah mein aayi badhaon ke liye ladai lad kar jeet haasil ki aur john rainbow, ek saahasi sainik jo hinsaa se raahat aur pratishodh mission ka vishesagy tha."
+    },
+    {
+      "row": 6614,
+      "native": "'साहित्यिक भाषा' में भाषा के अलावा अन्य बहुत से तत्व होते हैं।",
+      "human": "saahityik bhasa' mein bhasa ke alawa anya bahut se tatv hote hain."
+    },
+    {
+      "row": 6636,
+      "native": "वल्कनीकरण प्रेस में, या भाप की उपस्थिति में, या शुष्क ताप पर संपन्न हाता है।",
+      "human": "valkanikaran press mein, ya bhaap ki upsthiti mein, ya shusk taap par sampann hota hai."
+    },
+    {
+      "row": 6645,
+      "native": "एलो वरिएगटा - तीतर-छाती एलो, टाइगर एलो",
+      "human": "Aloe Vertegata - titar-chhati Aloe, Tiger Aloe"
+    },
+    {
+      "row": 6704,
+      "native": "बर्लिन समिति 1915 के बाद बाद से भारतीय स्वतंत्रता समिति (जर्मन: दास इंडिस्की अनभांगिग्केट्स्कोमी), 1914 में जर्मनी में भारतीय छात्रों और देश में रहने वाले राजनीतिक कार्यकर्ताओं द्वारा प्रथम विश्व युद्ध के दौरान जर्मनी में गठित एक संगठन था।",
+      "human": "Berlin samiti 1915 ke baad baad se bharatiy svatantrtaa samiti (German: Das Indiski Anbhangigatskosumi), 1914 mein Germany mein bhaaratiy chhaatron aur desh mein rahne wale rajnitik karykartaon dwara pratham vishv yuddh ke dauran Germany mein gathit ek sangathan tha."
+    },
+    {
+      "row": 6705,
+      "native": "डी के बीच रहता करते है।",
+      "human": "D ke bich rahtaa karte hai."
+    },
+    {
+      "row": 6718,
+      "native": "2006 में, रोमानिया में कम्युनिस्ट तानाशाही के अध्ययन के लिए राष्ट्रपति आयोग ने दो मिलियन लोगों पर कम्युनिस्ट दमन के प्रत्यक्ष पीड़ितों की संख्या का अनुमान लगाया.",
+      "human": "2006 mein, romaniya mein communist tanashahi ke adhyayan ke liye rastrapati aayoga ne do milion logon par communist daman ke pratyaksh piditon ki sankhayaa ka anuman lagaya."
+    },
+    {
+      "row": 6750,
+      "native": "परंतु फिर भी टोडा लोग तमिल को भली प्रकार बोल-समझ लेते हैं।",
+      "human": "prantu fir bhi toda log tamil ko bhali prakaar bol-samajh lete hain."
+    },
+    {
+      "row": 6751,
+      "native": "युवराज इंटरनेट मूवी डेटाबेस पर",
+      "human": "Yuvraj internet movie database par"
+    },
+    {
+      "row": 6805,
+      "native": "यह द फ्लिनस्टोन के ठीक विपरित है, जहां फ्लिनस्टोन पक्षियों और डायनासोर द्वारा चलित वाहनों के साथ पाषाण युग में जीवन बसर करता है, वहीं जेटसन में सुदूर भविष्य 2062 में रोबोट, एलियंस, होलोग्राम और इसी तरह के अन्य अविष्कारों के बीच जीवनबसर करता है।",
+      "human": "yah the Flynnstone ke thik viparit hai, jahan flinstone pakashiyon aur dinosaurs dwara chalit vaahanon ke saath paasaan yuga mein jivan basar karta hai, vahin Jetson mein sudur bhavisya 2062 mein robot, alien, hologram aur isi tarah ke anya aviskaaron ke bich jivanbasar kartaa hai."
+    },
+    {
+      "row": 6811,
+      "native": "इसके बाद लंबे समय तक नरसंहार और अत्याचार का दौर चला।",
+      "human": "iske baad lambe samay tak narsanhaar aur atyaachaar kaa daur chalaa."
+    },
+    {
+      "row": 6818,
+      "native": "वाक्पति मुंज के बाद उसका छोटा भाई सिन्धु परमार वंश का शासक हुआ।",
+      "human": "vaakpati munj ke baad uska chhota bhai sindhu parmaar vansh ka shaasak hua."
+    },
+    {
+      "row": 6830,
+      "native": "हार्बल औषधि का इस्तेमाल कई पश्चिमी देशों में 1950 के दशक में इस लोकप्रिय हुआ था।",
+      "human": "Herbal ausadhi ka istemaal kai pashchimi deshon mein 1950 ke dashak mein is lokpriy hua tha."
+    },
+    {
+      "row": 6860,
+      "native": "पक्षियों की आम पक्षियों आवाज बहुत तेज पिया-ओ या मिया-ओ होती है।",
+      "human": "pakshiyon ki aam pakshiyon aawaj bahut tej piya-o ya miya-o hoti hai."
+    },
+    {
+      "row": 6870,
+      "native": "प्रख्यात साहित्यकार अज्ञेय ने यद्यपि कहानियां कम ही लिखीं और एक समय के बाद कहानी लिखना बिलकुल बंद कर दिया, परंतु हिन्दी कहानी को आधुनिकता की दिशा में एक नया और स्थायी मोड़ देने का श्रेय भी उन्हीं को प्राप्त है।",
+      "human": "prakhyaat saahitykaar agyeya ne yadyapi kahaniyaan kam hi likhin aur ek samay ke baad kahani likhanaa bilkul band kar diya, parantu hindi kahaani ko aadhuniktaa ki disha mein ek naya aur sthaayi mode dene ka shrey bhi unhin ko praapt hai."
+    },
+    {
+      "row": 6950,
+      "native": "क्रियाओं के माध्यम से जो हम स्वयं करते हैं।",
+      "human": "kriyaon ke madhyam se jo ham svayam karte hain."
+    },
+    {
+      "row": 6975,
+      "native": "प्रथम के कन्नारशाह, उदयशाह और जामशाह पैदा हुए।",
+      "human": "pratham ke Kannarshah, Udayshah aur Jamshah paida huye."
+    },
+    {
+      "row": 7028,
+      "native": "मेडिसिन हेड का एल्बम, एक व्यावसायिक असफलता रही और इसलिए शीर्षक को बैंड की मूल वरीयता में वापस बदल दिया गया।",
+      "human": "Medicine Head ka elbam, ek vyaavasayik asafalta rahi aur isliye shirshak ko baind ki mool variyta mein vaapas badal diya gaya."
+    },
+    {
+      "row": 7053,
+      "native": "उत्तेजक द्रव्य अधिकांशतः मुख से लिए जाते हैं लेकिन कुछ पदार्थ जैसे मेथेड्रीन इंजेक्शान द्वारा भी लिए जाते हैं।",
+      "human": "uttejak dravya adhikanshatah mukh se liye jaate hain lekin kuch padarth jaise methedrin injekshan dvara bhi liye jaate hain."
+    },
+    {
+      "row": 7076,
+      "native": "यह परिनिष्ठित पश्चिमी हिंदी का एक रूप है।",
+      "human": "yah parinishthit pashchimi hindi ka ek roop hai."
+    },
+    {
+      "row": 7099,
+      "native": "सहारनपुर लखनऊ एक्स्प्रेस 5012 भारतीय रेल द्वारा संचालित एक मेल एक्स्प्रेस ट्रेन है।",
+      "human": "saharanpur lucknow express 5012 bhartiya rail dwara sanchalit ek mail express train hai."
+    },
+    {
+      "row": 7125,
+      "native": "चंडोज्ञ उपनिषद 5.10.7 ने अच्छे जन्म, जैसे कि आध्यात्मिक परिवार में जन्म, अर्थात (ब्राह्मण जाति) या बुरा जन्म, जैसे कि कुत्ता या सुअर के रूप में जन्म लेने के बीच के अंतर को बताता है।",
+      "human": "chandoz upnishad 5.10.7 ne acche janam, jaise ki aadhyatmik pariwar mein janam, arthat (brahman jaati) ya bura janam, jaise ki kutta ya suar ke roop mein janam lene ke beech ke antar ko btaata hai."
+    },
+    {
+      "row": 7139,
+      "native": "इस गतिशील व्यक्ति के साथ एक लंबी अवधि के रिश्ते चाहने वाले लोगों में निष्ठा और ईमानदारी सबसे जरूरी है।",
+      "human": "is gatishil vyakti ke sath ek lambi avadhi ke rishte chahne wale logon mein nistha aur imanadari sabase jaruri hai."
+    },
+    {
+      "row": 7151,
+      "native": "इधर वनजीवों के मांसाभाव का कारण जानने के लिये सातवाहन द्वारा पूछताछ किए जाने पर लुब्धकों ने जो उत्तर दिया उसके अनुसार वे गुणाढ्य को मनाने अथवा ‘बड्डकहा’ को बचाने के उद्देश्य से वन की ओर गए।",
+      "human": "idhar vanjeevo ke masanbhav ka kaaran janne ke liye satvaahan dwara puchtach kiye jaane par lubhdhako ne jo uttar diya uske anusar ve gunadhay ko manane athva 'baddkaha' ko bachane ke uddeshya se van ki aur gae."
+    },
+    {
+      "row": 7157,
+      "native": "कई प्रशंसकों को उम्मीद थी कि बैंड की लाइव 8 पर उपस्थिति, एक पुनर्मिलन दौरे में फलित होगी।",
+      "human": "kai prashansko ko umeed thi ki band ki live 8 par upasthitti, ek punarmilan daure mein falit hogi."
+    },
+    {
+      "row": 7176,
+      "native": "तारीख एक शाम से दूसरी शाम तक चलती है।",
+      "human": "taarikh ekk sham se dusri sham tak chalti hai."
+    },
+    {
+      "row": 7217,
+      "native": "ग्रीष्म ऋतु, वर्ष की छह ऋतओं में से एक ऋतु है, जिसमें वातावरण का तापमान प्रायः उच्च रहता है।",
+      "human": "garishma ritu, varsh ki chaha rituon mein se ek ritu hai, jismein vatavarana ka tapman prayah uccha rehta hai."
+    },
+    {
+      "row": 7242,
+      "native": "सर असुतोश मुखर्जी कलकत्ता विश्वविद्यालय के कुलपति थे।.",
+      "human": "sir ashutos mukharji kalakatta visvavidyalaya ke kulapati the.."
+    },
+    {
+      "row": 7281,
+      "native": "हम यह नहीं मानते कि कोई भी अल्लाह के उच्चतम ज्ञान के बराबर हो सकता है, या इसे स्वतंत्र रूप से प्राप्त कर सकता है, और न ही हम यह कहते हैं कि अल्लाह ने पैगंबर को ज्ञान दिया है (अल्लाह उसे आशीर्वाद देता है और उसे शांति देता है) कुछ भी नहीं है।",
+      "human": "ham yeh nahi mante ki koi bhi allah ke ucchtam gyan ke barabar ho sakta hai, ya ise swatantra rup se prapt kar sakta hai, aur na hi ham yeh kehte hai ki allah ne paigambar ko gyan diya hai (allah use ashirvad deta hai aur use shanti deta hai) kuch bhi nahi hai."
+    },
+    {
+      "row": 7286,
+      "native": "आप सफल कैंसे हों - जेम्स ऐलन",
+      "human": "aap safal kaise ho - james allen"
+    },
+    {
+      "row": 7308,
+      "native": "भारत सरकार के अनुदान से बृहत् हिंदी शब्दकोश प्रकाशित किया गया।",
+      "human": "bharat sarakar ke anudan se brhat hindi sabdakosh prakashit kiya gaya."
+    },
+    {
+      "row": 7324,
+      "native": "नींद के खो जाने से उसकी थकावट और भी बढ़ जाती है और फिर वह पागलपन की स्थिति में आ जाता है।",
+      "human": "nind ke kho jane se uski thakavat aur bhi badh jati hai aur fir veh pagalpan ki sthiti me aa jata hai."
+    },
+    {
+      "row": 7367,
+      "native": "दस्तावेजों में सजरे नस्बे, कुर्सी नामा (जो साबित करता है कि रतन सिंह महाराजा रणजीत सिंह की दूसरी पत्नी से पैदा हुए थे) महाराजा रणजीत सिंह और उनके बेटे रतन सिंह के चित्र शामिल हैं।",
+      "human": "dastavejo me sajre nasbe, kursi nama (jo sabit karta hai ki ratna singh maharaja ranjeet singh ki dusri patni se paida hue the) maharaja ranjeet singh aur unke bete ratan singh ke chitr shamil hai."
+    },
+    {
+      "row": 7376,
+      "native": "राजनीतिक और सामाजिक हर रूप में इसका विरोध स्वाभाविक था।",
+      "human": "rajnitik aur samajik har rup me iska virodh svabhavik tha."
+    },
+    {
+      "row": 7384,
+      "native": "संयुक्त राष्ट्र अमरीका का संविधान;",
+      "human": "sanyukt rashtra america ka sanvidhan;"
+    },
+    {
+      "row": 7390,
+      "native": "इसका उद्भव मिथुन तारामंडल से माना जाता है।",
+      "human": "iska udbhav mithun taramandal se mana jata hai."
+    },
+    {
+      "row": 7403,
+      "native": "भूटान में सनथन धर्म की आध्यात्मिक परंपराओं और प्रथाओं को बढ़ावा देने के लिए समर्पित है ताकि मानव मूल्यों को बढ़ावा और मजबूत किया जा सके।",
+      "human": "bhutan me sanathana dharma ki adhyatmik paramparao aur prathao ko badhava dene ke lie samarpita hai taki manav mulyo ko badhava aur majbut kiya ja sake."
+    },
+    {
+      "row": 7410,
+      "native": "इस उपन्यास में हॅरी पॉटर का सामना अनिष्ठ देव (वोल्डेमॉर्ट) से होता है।",
+      "human": "is upanyas me harry potter ka samna anistha deva (voldemorta) se hota hai."
+    },
+    {
+      "row": 7425,
+      "native": "वे भारतीय जनता पार्टी से संबद्ध हैं।",
+      "human": "ve bharatiya janta party se sambaddh hai."
+    },
+    {
+      "row": 7443,
+      "native": "पाठ्यक्रम शुरू में इस्लामी धार्मिक अध्ययन, इस्लामी क़ानून, अरबी साहित्य और अंकगणित पर केंद्रित था, और बाद में इतिहास, गणित, भौतिक विज्ञान और संगीत में विस्तारित किया गया था।",
+      "human": "pathyakrama shuru me islami dharmika adhyayana, islami kanun, arbi sahitya aur ankganit par kendrit tha, aur baad me itihas, ganit, bhautik vigyan aur sangeet me vistarit kiya gaya tha."
+    },
+    {
+      "row": 7459,
+      "native": "नौसेना - जो समुद्रों, झीलों व नदियों पर लड़ती है",
+      "human": "nausena - jo samudro, jhilom v nadiyo par ladti hai"
+    },
+    {
+      "row": 7466,
+      "native": "उसने लिखा, गंजुरिया में अभी-अभी काफ़ी जुताई की गई है जिससे यह पता चलता है कि इसे कितने शानदार इला्के बदला जा सकता है मैं सोचता हूँ, इसकी सुंदरता और समृद्ध विश्व के किसी भी क्षेत्र जैसी विकसित की जा सकती है।",
+      "human": "usne likha, ganjuriya me abhi-abhi kafi jutai ki gai hai jisse yeh pata chalta hai ki ise kitne shanadar ilake badla ja sakta hai mai sochta hu, iski sundarta aur samrddha vishv ke kisi bhi kshetra jaisi viksit ki ja sakti hai."
+    },
+    {
+      "row": 7470,
+      "native": "इरोम शर्मिला इस कानून का विरोध करने वालों में मणिपुर की कार्यकर्ता इरोम शर्मिला का नाम प्रमुख है, जो इस कानून के खिलाफ 16 वर्षों से उपवास पर",
+      "human": "irom sharmila is kanun ka virodh karne valo me manipur ki karyakarta irom sharmila ka nam pramukha hai, jo is kanuna ke khilaf 16 varsho se upvas par"
+    },
+    {
+      "row": 7513,
+      "native": "इन उपायों में से अधिकांशतः शौक्षणिक उपायों में नशे के शारीर और मन पर पड़ने वाले प्रभाव के सम्बन्ध में ज्ञान प्रदान कर जागरूकता लाने का प्रयास किया जाता है ताकि नशीले पदार्थ के सेवन के प्रति भय उत्पन्न हो जाए।",
+      "human": "in upayo me se adhikansatah saukshanik upayo me nashe ke sharir aur man par padne vale prabhav ke sambandh me gyan pradan kar jagrukta laane ka prayas kiya jata hai taki nashile padartha ke sevan ke prati bhay utpanna ho jae."
+    },
+    {
+      "row": 7519,
+      "native": "यदि कच्चे लोहे में फॉस्फोरस की मात्रा अधिक होती है तो समाक्षारीय विधि का उपयोग किया जाता है।",
+      "human": "yadi kacche lohe me phosphoras ki matra adhik hoti hai to samakshariy vidhi ka upyog kiya jata hai."
+    },
+    {
+      "row": 7563,
+      "native": "बुकानन जहाँ कहीं भी गया, वहाँ उसने निवासियों के व्यवहार को शत्रुतापूर्ण पाया।",
+      "human": "bukanan jahan kahin bhi gaya, vahan usne nivasiyo ke vyavahar ko shatrutapurn paya."
+    },
+    {
+      "row": 7604,
+      "native": "1905 में, खान ने हिजाज के समकालीन लोगों के अनुरोध पर, पेपर का उपयोग मुद्रा के रूप में उपयोग करने की अनुमति पर एक फैसले लिखा, जिसका शीर्षक किफ्ल-उल-फैक्हेहिल फेहिम फे अहकम-ए-किर्तस दहरिम था।",
+      "human": "1905 me, khan ne hijaj ke samkalin logo ke anurodh par, paper ka upyog mudra ke rup me upyog karne ki anumati par ek faisle likha, jiska shirshak kifal-ul-faik'hehil fehim fe ehkam-e-kirtas deharim tha."
+    },
+    {
+      "row": 7617,
+      "native": "उनके चित्रों में एक-सी घरेलू वस्तुओं का फीका संयोजन बहुतायत में दीखता है।",
+      "human": "unake citrom mem eka-si gharelu vastu'om ka phika sanyojana bahutayata mem dikhata hai."
+    },
+    {
+      "row": 7621,
+      "native": "इस राजवंश का शासन मध्यप्रदेश के अधिक भूभाग तथा प्राचीन बरार (आंध्र प्रदेश) पर विस्तृत था, जिसके सर्वप्रथम शासक विन्ध्यशक्ति का नाम वायुपुराण तथा अजंतालेख मे मिलता है।",
+      "human": "isa rajavansa ka sasana madhyapradesa ke adhika bhubhaga tatha pracina barara (andhra pradesa) para vistrta tha, jisake sarvaprathama sasaka vindhyasakti ka nama vayupurana tatha ajantalekha me milata hai."
+    },
+    {
+      "row": 7646,
+      "native": "उदाहरण में, भगवती तेय्यम की पंथ, जिसे देवी की मातृ रूप में पूजा की जाती है, देवी के मूल रूप से व्युत्पन्न है।",
+      "human": "udaharana mem, bhagavati teyyama ki pantha, jise devi ki matr rupa mem puja ki jati hai, devi ke mula rupa se vyutpanna hai."
+    },
+    {
+      "row": 7664,
+      "native": "वह मोहनीश बहल की मौसी और रानी मुखर्जी की ताई हैं।",
+      "human": "vaha mohanisa bahala ki mausi aura rani mukharji ki ta'i haim."
+    },
+    {
+      "row": 7688,
+      "native": "इसका मुख्यालय दिल्ली में है।",
+      "human": "isaka mukhyalaya dilli mem hai."
+    },
+    {
+      "row": 7719,
+      "native": "652 ग्रेगोरी कैलंडर का एक अधिवर्ष है।",
+      "human": "652 gregori kailandara ka eka adhivarsa hai."
+    },
+    {
+      "row": 7742,
+      "native": "अब विजय क्रोध में फूट गया और अपने सभी दुश्मनों को नष्ट करने के लिए जेल से भाग गया।",
+      "human": "aba vijaya krodha mem phuta gaya aura apane sabhi dusmanom ko nasta karane ke li'e jela se bhaga gaya."
+    },
+    {
+      "row": 7753,
+      "native": "अधिक संभवतः एम्एस कुछ आनुवंशिक, पर्यावरण संबंधी और संक्रमण संबंधी कारकों के एक परिणाम के रूप में उत्पन्न होता है।",
+      "human": "adhika sambhavatah emesa kucha anuvansika, paryavarana sambandhi aura sankramana sambandhi karakom ke eka parinama ke rupa mem utpanna hota hai."
+    },
+    {
+      "row": 7758,
+      "native": "आगे चलकर देश के राजनयिकों ने भी इस तरह की भाषा को मान्यता देने की कोशिश की और कहा कि इसे फारसी और नागरी दोनों लिपियों में लिखा जा सकता है।",
+      "human": "age calakara desa ke rajanayikom ne bhi isa taraha ki bhasa ko man'yata dene ki kosisa ki aura kaha ki ise pharasi aura nagari donom lipiyom mem likha ja sakata hai."
+    },
+    {
+      "row": 7781,
+      "native": "देवकी-वसुदेव की कथा कहते हुए लेखक ने बड़ी कुशलता से कृष्ण की बाललीलाओं का भी चित्रण किया है।",
+      "human": "devki-vasudev ki katha kehte hue lekhak ne badi kushalta se krishna ki baallilao ka bhi chitran kiya hai."
+    },
+    {
+      "row": 7837,
+      "native": "हुमा क़ुरैशी (झिमली)",
+      "human": "huma qureshi (jhimli)"
+    },
+    {
+      "row": 7842,
+      "native": "उनके नाना-नानी होलोकौस्ट उत्तरजीवी थे।",
+      "human": "unke nana-nani holocaust uttarjivi the."
+    },
+    {
+      "row": 7858,
+      "native": "इन व्यक्तियों का उपचार विभिन्न चिकित्सा केन्द्रों, मेडिकल कॉलेजों एवं नशा मुक्ति केन्द्रों पर निःशुल्क भी किया जाता है।",
+      "human": "in vyaktiyo ka upchar vibhinn chikitsa kendro, medical collejo evam nasha mukti kendro par nihshulk bhi kiya jata hai."
+    },
+    {
+      "row": 7873,
+      "native": "बंद की गये रेकाडसो को फिर से खोल दि जा रहि है।",
+      "human": "band ki gaye rekadso ko fir se khol di ja rahi hai."
+    },
+    {
+      "row": 7887,
+      "native": "अभ्यास रूप में, आवेश संरक्षण एक भौतिक नियम है जिसके अनुसार एक निश्चित आयतन में विद्युत आवेश में कुल अंतर, उन आयतन में आगम आवेश और उस आयतन से निर्गत आवेश के अन्तर के एकदम बराबर होता है।",
+      "human": "abhyas rup me, aavesh sanrakshan ek bhautik niyam hai jiske anusar ek nischit aaytan me vidyut aavesh me kul antar, un aaytan me aagam aavesh aur us aaytan se nirgat aavesh ke antar ke ekdum barabar hota hai."
+    },
+    {
+      "row": 7892,
+      "native": "कभी उन्हें शिकायत का कोई मौका नहीं दिया।",
+      "human": "kabhi unhe sikhayat ka koi mauka nahi diya."
+    },
+    {
+      "row": 7900,
+      "native": "विभिन्न मात्रा में ज्ञान संबंधी दुर्बलता और अवसाद के लक्षण या अस्थिर मन भी सामान्य हैं।",
+      "human": "vibhinn matra me gyan sambandhi durbalta aur avsad ke lakshan ya asthir man bhi samany hai."
+    },
+    {
+      "row": 7902,
+      "native": "इसके बाद यह नाटक इतनी चर्चा में आ गया कि इसके प्रदर्शन कराची, दुबई, वाशिंगटन डीसी, सिडनी, लाहौर तथा अन्य शहरों में हुए।",
+      "human": "iske baad yeh natak itni charcha me aa gaya ki iske pradarshan karachi, dubai, washington DC, sydney, lahore tatha anya sheharo me hue."
+    },
+    {
+      "row": 7927,
+      "native": "मुंशी इन्द्रजीत ने रामप्रसाद को स्वामीजी की सेवा में नियुक्त कर दिया।",
+      "human": "munshi indrajeet ne ramprasad ko swamiji ki seva me niyukt kar diya."
+    },
+    {
+      "row": 7935,
+      "native": "ये वे गाँव थे जिनके नामों के अंत में पत आता है।",
+      "human": "ye ve ganv the jinke naamo ke ant me pat aata hai."
+    },
+    {
+      "row": 7939,
+      "native": "तिमोर सागर, एक अपेक्षाकृत उथला समुद्र है जो उत्तर में तिमोर द्वीप, पूर्व में अराफुरा सागर, दक्षिण में ऑस्ट्रेलिया और पश्चिम में हिंद महासागर से घिरा है।",
+      "human": "timor sagar, ek apekshakrit uthla samundra hai jo uttar me timor dvip, purv me arafura sagar, dakshin me austrelia aur paschim me hind mahasagar se ghira hai."
+    },
+    {
+      "row": 7948,
+      "native": "खड़ी बोली से तात्पर्य खड़ी बोली हिंदी से है जिसे भारतीय संविधान ने राजभाषा के रूप में स्वीकृत किया है।",
+      "human": "khadi boli se tatpary khadi boli hindi se hai jise bharatiy sanvidhan ne rajbhasha ke rup me svikrit kiya hai."
+    },
+    {
+      "row": 7963,
+      "native": "लोहा धरती के गर्भ में स्वतंत्र अवस्था में नहीं पाया जाता है, बल्कि यह ऑक्सीजन और सल्फर के साथ यौगिक अवस्था में पाया जाता है।",
+      "human": "loha dharti ke garbh me svatantr avastha me nahi paya jata hai, balki yeh oxygen aura sulphur ke sath yaugik avastha me paya jata hai."
+    },
+    {
+      "row": 7972,
+      "native": "जाने कितने मेमोरेंडम दिये गये कितने आंदोलन किये गये, मगर धोखा, छल व ठगी के अलावे अब तक कुछ नहीं मिला।",
+      "human": "jaane kitne memorendam diye gaye kitne aandolan kiye gaye, magar dhokha, chal va thagi ke alava ab tak kuch nahi mila."
+    },
+    {
+      "row": 7981,
+      "native": "फिर वो दोनों आवारा घूमते हैं।",
+      "human": "phir vo dono aawara ghumte hai."
+    },
+    {
+      "row": 7990,
+      "native": "945 तक ख़लीफा का रहने की जगह बनाई गई थी।",
+      "human": "945 tak khalifa ka rehne ki jagah banai gai thi."
+    },
+    {
+      "row": 8001,
+      "native": "जनमत जागरण की भी आवश्यकता है।",
+      "human": "janmat jagran ki bhi aavashyakta hai."
+    },
+    {
+      "row": 8017,
+      "native": "इसके आस-पास का सौंदर्य पर्यटकों को बरबस ही अपनी ओर आकर्षित कर लेता है।",
+      "human": "iske aas-paas ka saundary paryatako ko barbas hi apni aur aakarshit kar leta hai."
+    },
+    {
+      "row": 8027,
+      "native": "समाजसेवा में संबंध ही संपूर्ण सहायता का आधार है और यह व्यावसायिक संबंध सदैव साभिप्रय होता है।",
+      "human": "samajseva me sambandh hi sampurn sahayta ka aadhar hai aur yeh vyavasayik sambandh sadaiv sabhipray hota hai."
+    },
+    {
+      "row": 8042,
+      "native": "उन्‍होंने कुश्‍ती में भारत को अंतरराष्‍ट्रीय स्‍तर पर पहचान दिलाने में अहम भूमिका निभाई थी।",
+      "human": "unhone kushti me bharat ko antarrashtriy star par pehchan dilane me ahem bhumika nibhai thi."
+    },
+    {
+      "row": 8056,
+      "native": "उन दिनों ये माउजर आज की ए॰ के॰ - ४७ रायफल की तरह चर्चित थे।",
+      "human": "un dino ye mauser aaj ki A K - 47 rifle ki tarah charchit the."
+    },
+    {
+      "row": 8058,
+      "native": "इस प्रकार, कर्म के लिए आस्तिकता-संबंधी एक प्रशासक या पर्यवेक्षक होना ही चाहिए, अर्थात, भगवान होना ही चाहिए।",
+      "human": "is prakar, karma ke lie aastikta-sambandhi ek prashasak ya paryavekshak hona hi chahiye, arthat, bhagvan hona hi chahiye."
+    },
+    {
+      "row": 8067,
+      "native": "प्रोफेट का मतलब पैगाम देने वाला और प्रोफेसी करने वाला।",
+      "human": "prophet ka matlab paigam dene vala aur prophesi karne vala."
+    },
+    {
+      "row": 8074,
+      "native": "नए संस्करण में 120 चित्र शामिल हैं।",
+      "human": "nae sanskaran me 120 chitr shamil hai."
+    },
+    {
+      "row": 8112,
+      "native": "रामेसेस द्वितीय के प्रताप के कारण लोग पिछले सभी महान फैरो जैसे सेती प्रथम और ठुतोमोस तृतीय की वीरता को भूल गए।",
+      "human": "rameses dvitiya ke pratap ke karan log pichle sabhi mahan fairo jaise seti pratham aur thutomos trtiya ki virta ko bhul gae."
+    },
+    {
+      "row": 8146,
+      "native": "पूर्व प्रधानमंत्री श्री अटलबिहारी वाजपेयी जी भी युवावस्था में वीणा के लेखक रहे हैं।",
+      "human": "purv pradhanmantri shri atalbihari vajpayi ji bhi yuvavastha me vina ke lekhak rahe hai."
+    },
+    {
+      "row": 8169,
+      "native": "जनता के दर्शनार्थ उनका पार्थिव शरीर उनके सरकारी आवास ५ जनपथ नई दिल्ली में रक्खा गया।",
+      "human": "janta ke darshanarth unka parthiv sharir unke sarkari aavas 5 janpath nayi delhi me rakkha gaya."
+    },
+    {
+      "row": 8180,
+      "native": "इसका गूदा संतरी रंग का होता है जो साधारण केलों के सफ़ेद एवं पीले गूदे से पूर्णतया भिन्न है।",
+      "human": "iska guda santari rang ka hota hai jo sadharan kelo ke safed evam pile gude se purnataya bhinn hai."
+    },
+    {
+      "row": 8236,
+      "native": "ATVS प्रणाली के विभिन्न घटकों के संचालन के लिए ड्राइवर पीआरएल में विकसित किए गए हैं।",
+      "human": "ATVS pranali ke vibhinna ghatako ke sanchalan ke lie driver PRL mem viksit kiye gaye hai."
+    },
+    {
+      "row": 8271,
+      "native": "रक्त-मस्तिष्क अवरोध में रिसाव पैदा होते हैं, जो बदले में अन्य क्षति पहुंचाने वाले प्रभाव उत्पन्न करते हैं जैसे कि सूजन, वृहत भक्षक कोशिका (मैक्रोफेज) का सक्रियण और साइटोकाइन तथा अन्य हानिकर प्रोटीनों का अधिक सक्रियण.",
+      "human": "rakt-mastishka avarodh me risav paida hote hai, jo badle me anya kshati pahuchane vale prabhav utpann karte hai jaise ki sujan, vrihat bhaksak koshika (macrophase) ka sakriyan aur cycotine tatha anya haanikar proteino ka adhik sakriyan."
+    },
+    {
+      "row": 8275,
+      "native": "ध्वनिविज्ञान में, ध्वनि के परावर्तन के कारण प्रतिध्वनि सुनाई पड़ती है जो सोनार में उपयोग में लायी जाती है।",
+      "human": "dhvanivigyan me, dhvani ke paravartan ke karan pratidhvani sunai padti hai jo sonar me upayog me laayi jati hai."
+    },
+    {
+      "row": 8300,
+      "native": "रॉय ब्रान्सगीस्ट (राइनो)",
+      "human": "roy bransgist (rhino)"
+    },
+    {
+      "row": 8325,
+      "native": "इन नामों में थोड़ी हेर-फेर हो सकता है, किन्तु इस प्रक्रिया की अवस्थाओं में प्रायः कोई अन्तर नहीं होता।",
+      "human": "in naamo me thodi her-pher ho sakta hai, kintu is prakriya ki avasthao me prayh koi antar nahi hota."
+    },
+    {
+      "row": 8345,
+      "native": "उसके बाद शंकर और गौरी वहाँ से भाग जाते हैं।",
+      "human": "uske baad shankar aur gauri vaha se bhag jate hai."
+    },
+    {
+      "row": 8349,
+      "native": "यह विधि इस कल्पना पर निर्धारित है कि जब कोई वस्तु किसी समावृत्त (environment) में शीतल होती है तो समय की उस अवधि में उसके द्वारा उत्सर्जित उष्मा dQ वस्तु के समावृत्त पर, ताप के आधिक्य पर, उसके तल की प्रकृति पर, तथा तल के क्षेत्रफल पर निर्भर करती है।",
+      "human": "yeh vidhi is kalpana par nirdharit hai ki jab koi vastu kisi samavritt (environment) me shital hoti hai to samay ki us avadhi me uske dvara utsarjit ushma dQ vastu ke samavritt par, taap ke adhikya par, uske tal ki prakriti par, tatha tal ke kshetrafal par nirbhar karti hai."
+    },
+    {
+      "row": 8360,
+      "native": "बहुरूपी रूपों के बीच परिवर्तन कुछ विशेष कारकों अर्थात दाब, प्रकाश व ताप के प्रभाव से शुरू होता है।",
+      "human": "bahurupi rupo ke bich parivartan kuch vishesh karko arthat daab, prakash va taap ke prabhav se shuru hota hai."
+    },
+    {
+      "row": 8390,
+      "native": "व्यवहार्यता अध्ययन (नवंबर 1989) ने दिखाया कि देश में 9-14 सीट मल्टी-रोल एलटीए के लिए एक महत्वपूर्ण मांग थी और अगले 10 वर्षों में लगभग 250-350 विमानों की बाजार संभावना का अनुमान लगाया गया था।",
+      "human": "vyavaharyta adhyayan (november 1989) ne dikhaya ki desh me 9-14 seat multi-role LTA ke lie ek mahatvpurn mang thi aur agle 10 varsho me lagbhag 250-350 vimano ki bajar sambhavna ka anuman lagaya gaya tha."
+    },
+    {
+      "row": 8404,
+      "native": "ऐसा रूप जिसमें प्राप्त सभी विकल्पों में एक को मानक मान लिया गया हो तथा जिस भाषा रूप को उस भाषा के सारे बोलने वाले मानक स्वीकार करते हों।",
+      "human": "aisa rup jisme prapt sabhi vikalpo me ek ko manak man liya gaya ho tatha jis bhasha rup ko us bhasha ke sare bolne vale manak svikar karte ho."
+    },
+    {
+      "row": 8441,
+      "native": "विशिष्ट संयोजन के साथ इसका अक्सर एक विशेष अर्थ होता है जैसे कि कर्म योग या कर्म-कांड का अर्थ क्रमश: \"योग या कार्य\" या \"भौतिकवादी गतिविधि की कार्यप्रणाली\" है।",
+      "human": "vishist sanyojan ke sath iska aksar ek vishesh arth hota hai jaise ki karma yoga ya karma-kand ka arth kramasa: \"yoga ya karya\" ya \"bhautikvadi gatividhi ki karyapranali\" hai."
+    },
+    {
+      "row": 8457,
+      "native": "प्रथम इकाई पैकी तथा दूसरी इकाई पेक्कन, कट्टन, केन्ना तथा टोडी उप-इकाईयों में बंटी हुई है।",
+      "human": "pratham ikai paiki tatha dusri ikai pekkan, kattan, kenna tatha todi up-ikaiyo me banti hui hai."
+    },
+    {
+      "row": 8468,
+      "native": "इनमें से सबसे प्रसिद्ध हैं मरीन पार्क और सफारी।",
+      "human": "inme se sabse prasiddh hai marine park aur safari."
+    },
+    {
+      "row": 8480,
+      "native": "अर्पिता की मौत हो जाती है।",
+      "human": "arpita ki maut ho jati hai."
+    },
+    {
+      "row": 8497,
+      "native": "दस न्यूरोटिक आवश्यकताओं की जांच करने पर हरनी ने उन्हें तीन व्यापक श्रेणीओं में रखा हैं-",
+      "human": "dus neurotic aavashyaktao ki janch karne par harni ne unhe teen vyapak shrenio me rakha hai-"
+    },
+    {
+      "row": 8506,
+      "native": "मोट्टे ने गुमनाम रहते हुए गुलिवर्स ट्रेवल्स का प्रकाशन किया, इसके बाद अगले कुछ सालों में कई अनुवर्तियों (मेमोइर्स ऑफ़ द कोर्ट ऑफ़ लिलिपुट), पेरोडियों, (टू लिलीपुटीयन ओडीज़, द फर्स्ट ओन द फेमस इंजन विथ विच केप्टिन गुलिवर एक्सटिंगविश्ड द पेलेस फायर) और \"कीस\" (गुलिवर देसिफर'द और लेम्यूल गुलिवर्स ट्रेवल्स इनटू सेवरल रिमोट रीजन्स ऑफ़ द वर्ल्ड कम्पेंदीयसली मेथादिज़'द, दूसरी को एडमड कर्ल के द्वारा इसी तरह से 1705 में स्विफ्ट की टेल ऑफ़ अ टब के लिए एक \"की\" के रूप में लिखा गया) का उत्पादन किया गया।",
+      "human": "motte ne gumnam rehte hue gulivers travels ka prakashan kiya, iske baad agle kuch salo me kai anuvartiyo (memoirs of the court of liliput), perodiyo, (to liliputian odiz, the first on the famous engine with which captin gulivar extinguished the palace fire) aur \"kiss\" (gulivar desifar'the aur lemyul gulivars travels into several remote regions of the world compendiyasali methadiz'da, dusri ko edmad curl ke dvara isi tarah se 1705 me swift ki tail of a tub ke lie ek \"key\" ke rup me likha gaya) ka utpadan kiya gaya."
+    },
+    {
+      "row": 8510,
+      "native": "बृज बिहारी प्रसाद बिहार राज्य के पूर्व विधायक और मंत्री रहे थे।",
+      "human": "brij bihari prasad bihar rajya ke purv vidhayak aur mantri rahe the."
+    },
+    {
+      "row": 8518,
+      "native": "अत: गुणाढ्य का काल निस्संदेह तृतीय चतुर्थ शताब्दी में कभी माना जा सकता है।",
+      "human": "ata: gunadhya ka kaal nissandeh tritiya chaturth shatabdi me kabhi mana ja sakta hai."
+    },
+    {
+      "row": 8523,
+      "native": "यह मुख्यतः अलमुनियम के सिलिकेट एवं अन्य बहुसिलिकेट (पॉलीसिलिकेट) का मिश्रण है।",
+      "human": "yah mukhyatah almunium ke silicate evam anya bahusilicate (polisilicate) ka mishran hai."
+    },
+    {
+      "row": 8536,
+      "native": "प्रशिक्षण, प्रलेखन, प्रकाशन एवं अन्तराष्ट्रीय सम्पर्क इत्यादि।",
+      "human": "prashikshan, pralekhan, prakashan evam antarashtriya sampark ityadi."
+    },
+    {
+      "row": 8560,
+      "native": "षष्ठी के दिन गोधूली बेला में केले के पोड़ों का चयन विशिष्ट प्रक्रिया और विधि-विधान के साथ किया जाता है।",
+      "human": "sasthi ke din godhuli bela me kele ke podo ka chayan vishist prakriya aur vidhi-vidhan ke sath kiya jata hai."
+    },
+    {
+      "row": 8564,
+      "native": "सपोटरा डांग जो की बंदूक धारी बागियों और बीहड क्षेत्र होने के कारण दुर्दान्त रहा और पानी के अभाव में खेती बाडी न होने, अवेध खनन् से पर्यावरण बर्बाद होने जैसे कारणों से ग्राम वासियों को रहने में दुर्गम कठिनाईयों का सामना करना पड़ता रहा होगा।",
+      "human": "sapotra dang jo ki banduk dhari bagiyo aur bihad kshetra hone ke karan durdant raha aur pani ke abhav me kheti baadi na hone, avedh khanan se paryavaran barbad hone jaise karano se gram vasiyo ko rehne me durgam kathinaiyo ka samna karna padta raha hoga."
+    },
+    {
+      "row": 8598,
+      "native": "बोल्शेविकों की करतूत: स्वतन्त्र भारत में प्रथम बार सन् २००६ में प्रकाशित रामप्रसाद 'बिस्मिल' का क्रान्तिकारी उपन्यास।",
+      "human": "bolsheviko ki karatut: svatantr bharat me pratham baar san 2006 me prakashit ramprasad 'bismil' ka krantikari upanyas."
+    },
+    {
+      "row": 8603,
+      "native": "भागवत पुराण की 10वीं पुस्तक के अध्याय 1 में वसुदेव कंस को अपनी पत्नी और कृष्ण की मां देवकी की ह्त्या न करने का उपदेश देते हैं, यह कहते हुए कि जिन्होंने जन्म लिया है उनके लिए मृत्यु निश्चित है और जब शरीर पंच तत्वों में विलीन हो जाता है, तब आत्मा शरीर छोड़कर असहाय होकर कर्म के नियम के अनुरूप अन्य रूप धारण करती है, उन्होंने बृहदारण्यक उपनिषद, IV:4:3 के उद्धरण का उल्लेख किया।",
+      "human": "bhagavata puran ki 10vi pustak ke adhyay 1 me vasudev kans ko apni patni aur krishna ki ma devki ki hatya na karne ka updesh dete hai, yah kehte hue ki jinhone janma liya hai unke lie mrityu nischit hai aur jab sharir panch tatvo me vilin ho jata hai, tab aatma sharir chodkar asahay hokar karma ke niyam ke anurup anya rup dharan karti hai, unhone brhadaranyak upnishad, IV:4:3 ke uddharan ka ullekh kiya."
+    },
+    {
+      "row": 8644,
+      "native": "दूसरे विश्व युद्ध में इंग्लैण्ड को बुरी तरह उलझता देख जैसे ही नेताजी ने आजाद हिन्द फौज को \"दिल्ली चलो\" का नारा दिया, गान्धी जी ने मौके की नजाकत को भाँपते हुए 8 अगस्त 1942 की रात में ही बम्बई से अँग्रेजों को \"भारत छोड़ो\" व भारतीयों को \"करो या मरो\" का आदेश जारी किया और सरकारी सुरक्षा में यरवदा पुणे स्थित आगा खान पैलेस में चले गये।",
+      "human": "dusre vishv yuddh me englanda ko buri tarah ulajhta dekh jaise hi netaji ne azaad hind fauj ko \"dilli chalo\" ka nara diya, gandhi ji ne mauke ki najakat ko bhampte hue 8 august 1942 ki raat me hi bambai se angrejo ko \"bharat chodo\" va bharatiyo ko \"karo ya maro\" ka aadesh jari kiya aur sarkari suraksha me yarvada pune sthit aaga khan palace me chale gaye."
+    },
+    {
+      "row": 8723,
+      "native": "हालांकि इसराइल सीडब्ल्यूसी पर हस्ताक्षर किए हैं,परंतु संधि की पुष्टि नहीं की है और इसलिए आधिकारिक तौर पर अपने सिद्धांतों से बाध्य नहीं है।",
+      "human": "halanki isrile CWC par hastakshar kie hai,parantu sandhi ki pushti nahi ki hai aur isliye adhikarik taur par apne siddhanto se badhya nahi hai."
+    },
+    {
+      "row": 8732,
+      "native": "एल्बम दिसम्बर, 1976 में पूरा हो गया और उसके आवरण पर काम शुरू हुआ।",
+      "human": "album december, 1976 me pura ho gaya aur uske avran par kam shuru hua."
+    },
+    {
+      "row": 8759,
+      "native": "इससे साबित होता है, कि छोटानागपुर के कुड़मी शेष भारत के कुर्मियों से पूर्णतया भिन्न हैं।",
+      "human": "isse sabit hota hai, ki chotanagpur ke kudmi shesh bharata ke kudmiyo se purnataya bhinna hai."
+    },
+    {
+      "row": 8767,
+      "native": "अन्य किसी तंत्र के माध्यम से सहायता प्रदान करना",
+      "human": "anya kisi tantra ke madhyam se sahayata pradan karna"
+    },
+    {
+      "row": 8786,
+      "native": "केसरी को ऋषि-मुनियों ने अत्यंत बलशाली और सेवाभावी संतान होने का आशीर्वाद दिया।",
+      "human": "kesari ko rishi-muniyo ne atyant balshali aur sevabhavi santan hone ka ashirvad diya."
+    },
+    {
+      "row": 8800,
+      "native": "२००६ में, राष्ट्रीय नाट्य विद्यालय ने थियेटर आलोचक, दिवान सिंह बजेली द्वारा लिखी गई उनकी आत्मकथा प्रकाशित की, जिसका शीर्षक था, \"मोहन उप्रेती - द मैन एंड हिस आर्ट\"।",
+      "human": "2006 me, rashtriya natya vidyalaya ne theater alochak, divan singh bajeli dvara likhi gai unki aatmkatha prakashit ki, jiska sirshak tha, \"mohan upreti - the man and his art\"."
+    },
+    {
+      "row": 8816,
+      "native": "इस राज्य के लोग इतने आत्मनिर्भर है#े कि सारा काम खुद ही करते हैं, इसलिए उसे कोई रोज़गार भी नहीं देता।",
+      "human": "is rajya ke log itne aatmnirbhar hai#e ki sara kaam khud hi karte hai, isliye use koi rozgar bhi nahi deta."
+    },
+    {
+      "row": 8817,
+      "native": "वो शंकर से अपने सारे गलत कामों के लिए माफी मांगता है, पर राजा उसे माफ नहीं करता और आग में डाल देता है।",
+      "human": "vo shankar se apne sare galat kamo ke lie mafi mangta hai, par raja use maaf nahi karta aur aag me daal deta hai."
+    },
+    {
+      "row": 8831,
+      "native": "वैसे आप ग्रीष्म ऋतु को छोड़कर किसी भी समय यहां आ-जा सकते हैं।",
+      "human": "vaise aap grishma ritu ko chodkar kisi bhi samay yaha aa-jaa sakte hai."
+    },
+    {
+      "row": 8871,
+      "native": "लक्ष्मी प्रसाद सिहरे को १९८६ में भारत सरकार ने प्रशासकीय सेवा के क्षेत्र में पद्म भूषण से सम्मानित किया था।",
+      "human": "lakshmi prasad sihre ko 1986 me bharat sarkar ne prashasakiy seva ke kshetra me padma bhushan se sammanit kiya tha."
+    },
+    {
+      "row": 8874,
+      "native": "शास्त्रीजी ने एक वाक्य में तत्काल उत्तर दिया: \"आप देश की रक्षा कीजिये और मुझे बताइये कि हमें क्या करना है?\"",
+      "human": "shastriji ne ek vakya me tatkal uttar diya: \"aap desh ki raksha kijiye aur mujhe bataiye ki hame kya karna hai?\""
+    },
+    {
+      "row": 8947,
+      "native": "क्षेत्रीय और अंतर्राष्ट्रीय संबंधों में उनके उपलब्धियों के लिए मध्य पूर्व बिजनेसवमेन एंड लीडर अचीवमेंट अवार्ड (२००७)",
+      "human": "kshetriya aur antarrashtriya sambandho me unke upalabdhiyo ke lie madhya purva businessmen and leader achievement award (2007)"
+    },
+    {
+      "row": 8984,
+      "native": "ये स्वभी कर्मचारी एवं अधिकारी विभिन्न पदों पर आसीन रहते हैं।",
+      "human": "ye svabhi karmachari evam adhikari vibhinna pado par aasin rehte hai."
+    },
+    {
+      "row": 8995,
+      "native": "यह उस द्वीपसमूह के सेरम द्वीप पर भारी वनों से ढका हुआ खड़ा है।",
+      "human": "yah us dvipsamuh ke seram dvip par bhari vano se dhaka hua khada hai."
+    },
+    {
+      "row": 9001,
+      "native": "बुढापे में जलोदर और लकवा वाले रोग भी पीछे पड जाते है।",
+      "human": "budhape me jalodar aur lakva vale rog bhi piche pad jate hai."
+    },
+    {
+      "row": 9025,
+      "native": "'वंशभास्कर' को पूर्ण करने का कार्य कवि सूर्यमल के दत्तक पुत्र मुरारीदान ने किया था।",
+      "human": "vanshabhaskar' ko purn karne ka karya kavi suryamal ke dattak putra muraridan ne kiya tha."
+    },
+    {
+      "row": 9036,
+      "native": "या जब कम स्टॉक हो, दीर्घ वायदे करते हैं।",
+      "human": "ya jab kam stock ho, dirgh vayade karte hai."
+    },
+    {
+      "row": 9056,
+      "native": "(3) सर्व खलु इदं ब्रह्म - यह समस्त संसार ब्रह्म ही है (पैथीज्म), इस सिद्धांत के अनुसार संसार और भगवान कोई अलग-अलग वस्तु नहीं हैं।",
+      "human": "(3) sarva khalu idam brahma - yah samast sansar brahma hi hai (pathijm), is siddhant ke anusar sansar aur bhagavan koi alag-alag vastu nahi hai."
+    },
+    {
+      "row": 9178,
+      "native": "मामले के अभी भी लंबित होने की हालत में, वाटर्स ने ओ'रुरके को निकाल दिया और पीटर रुज को अपने मामलों के प्रबंधन के लिए नियुक्त किया।",
+      "human": "mamal ke abhi bhi lambit hone ki halat me, waters ne o'rurke ko nikal diya aur peter ruj ko apne mamlo ke prabandhan ke lie niyukt kiya."
+    },
+    {
+      "row": 9211,
+      "native": "इनका प्राइमरी क्लासिफिकेशन परीक्षण, शैक्षिक और बुद्धिपरीक्षणों का संमिश्रण था और यह हिंदी, उर्दू तथा अंग्रेजी में तैयार किया गया था।",
+      "human": "inka primary classification parikshan, shaikshik aur buddhiparikshano ka sammishran tha aur yah hindi, urdu tatha angreji me taiyar kiya gaya tha."
+    },
+    {
+      "row": 9217,
+      "native": "चन्देल काल में बुंदेलखंड में मूर्तिकला, वास्तुकला तथा अन्य कलाओं का विशेष विकास हुआ।",
+      "human": "chandel kaal me bundelkhand me murtikala, vastukala tatha anya kalao ka vishesh vikas hua."
+    },
+    {
+      "row": 9225,
+      "native": "यह गार्डन बड़ी संख्या में पर्यटकों को अपनी ओर आकर्षित करता है।",
+      "human": "yaha gardana bari sankhya mem paryatakom ko apani ora akarsita karata hai."
+    },
+    {
+      "row": 9227,
+      "native": "वह अपनी पीढ़ी के सबसे महत्वपूर्ण ऑस्ट्रेलियाई बल्लेबाज थे।",
+      "human": "vah apni pidhi ke sabse mahatvpurn austreliai ballebaj the."
+    },
+    {
+      "row": 9228,
+      "native": "धारा.3 ये स्पष्ट नही करती है कि किस आधार पर किसी क्षेत्र को अशाँत घोषित किया जाएगा ।",
+      "human": "dhara.3 ye spasht nahi karti hai ki kis adhar par kisi kshetra ko ashant ghoshit kiya jaega ."
+    },
+    {
+      "row": 9237,
+      "native": "वर्ष 2010 में हार्दिक सहजानन्द महाविद्यालय, अहमदाबाद में बीकॉम की पढ़ाई की।",
+      "human": "varsh 2010 me hardik sahajanand mahavidyalaya, ahmadabad me b.com ki padhai ki."
+    },
+    {
+      "row": 9248,
+      "native": "जगत् में सामंजस्य एवं समन्वय इसके चेतन कर्ता से आता है।",
+      "human": "jagat me samanjasya evam samanvaya iske chetan karta se aata hai."
+    },
+    {
+      "row": 9252,
+      "native": "एक समय ऐसा भी था जब उनके नाटकों ने पेशावर, लाहौर और अमृतसर से लेकर दिल्ली, जोधपुर, बंबई, मद्रास और ढाका तक पूरे हिन्दुस्तान में धूम मचा रक्खी थी।",
+      "human": "ek samay aisa bhi tha jab unke natako ne peshavar, lahore aur amritsar se lekar dilli, jodhpur, bambai, madras aur dhaka tak pure hindustan me dhoom macha rakkhi thi."
+    },
+    {
+      "row": 9277,
+      "native": "अमेरिकन एक्सप्रेस कार्ड के लिए एक विशिष्ट विज्ञापन शुरु की गई जिसमें मशहूर हस्तियां दर्शकों से पूछते हैं कि: \"क्या आप मुझे जानते हैं?\"",
+      "human": "american express card ke lie ek vishisht vigyapan shuru ki gai jisme mashur hastiya darshako se puchte hai ki: \"kya aap mujhe jante hai?\""
+    },
+    {
+      "row": 9285,
+      "native": "शाम, झूलती जड़ें, परतों के बीच और यात्राएं ...",
+      "human": "sham, jhulti jade, parto ke bich aur yatrae ..."
+    },
+    {
+      "row": 9322,
+      "native": "हेमंत चौधरी — गौरी शंकर सुराना, समर के पिता",
+      "human": "hemant chaudhari - gauri shankar surana, samar ke pita"
+    },
+    {
+      "row": 9340,
+      "native": "जॉर्डन के शहरों की सूची",
+      "human": "jordan ke sheharo ki suchi"
+    },
+    {
+      "row": 9346,
+      "native": "इसी बीच नारायण लाल को स्थानीय निवासियों की सहायता से एक पाठशाला में सात रुपये मासिक पर नौकरी मिल गयी।",
+      "human": "is bich narayan lal ko sthaniya nivasiyo ki sahayata se ek pathshala me saat rupaye masik par naukari mil gayi."
+    },
+    {
+      "row": 9372,
+      "native": "बहुत से लोगों को इस के कई लाभकारी परिणामों का लाभ मिला है, कई लोग इस स्वास्थ्य संबंधी डेटा को लाभकारी मानते हैं, लेकिन इस तरह के काम अक्सर विवादास्पद होते हैं क्योंकि कई मापदंड इस तरह के रूप गुणवत्ता समायोजित जीवन वर्ष और विकलांगता से समायोजित जीवन वर्ष से प्रेरित होते हैं, जो व्यक्तिपरक अवधारणाओं जैसे अस्तित्व, जीवन की गुणवत्ता और उत्पादकता के मापदंडों के लाभ के अनुसार होते हैं।",
+      "human": "bahut se logo ko is ke kai labhkari parinamo ka labh mila hai, kai log is svasthya sambandhi data ko labhkari mante hai, lekin is tarah ke kaam aksar vivadaspad hote hai kyonki kai mapdand is tarah ke rup gunavatta samayojit jivan varsh aur viklangta se samayojit jivan varsh se prerit hote hai, jo vyaktiparak avdharanao jaise astitva, jivan ki gunvatta aur utpadakata ke mapdando ke labh ke anusar hote hai."
+    },
+    {
+      "row": 9378,
+      "native": "वे अपने साम्राज्य को औपचारिक रूप से 'श्वेत और उच्च महान शिया राज्य' (, फियोव ब्यिय ल्हयिय ल्हयिय) बुलाते थे।",
+      "human": "ve apne samrajya ko aupcharik rup se 'shwet aur ucch mahan shiya rajya' (, phiyov byiya lhayiya lhayiya) bulate the."
+    },
+    {
+      "row": 9380,
+      "native": "वे तीरथराज निषाद के पु्त्र एवं प्रयागराज के पौत्र थे और निषाद राज एक महान महाराजा थे",
+      "human": "ve tirathraj nishad ke putr evam prayagraj ke pautra the aur nishad raj ek mahan maharaja the"
+    },
+    {
+      "row": 9395,
+      "native": "इसने सशस्त्र आक्रामकता से निपटने के लिए राज्य सशस्त्र पुलिस की अपर्याप्तता का खुलासा किया जिसके कारण भारत सरकार ने विशेष रूप से नियंत्रित सीमा सुरक्षा बल की आवश्यकता महसूस की, जिसे पाकिस्तान के साथ अंतर्राष्ट्रीय सीमा बनाने के लिए सशस्त्र और प्रशिक्षित किया जाएगा।",
+      "human": "isne sashastra akramakta se nipatne ke lie rajya sashastra police ki aparyaptata ka khulasa kiya jiske karan bharat sarkar ne visesh rup se niyantrit sima suraksha bal ki aavashyakta mehsus ki, jise pakistan ke sath antarrashtriya sima banane ke lie sashastra aur prasikshit kiya jaega."
+    },
+    {
+      "row": 9424,
+      "native": "हालांकि शुक्र के वायुमंडलीय मापन के अपने अभियान मे यह विफल हो गया, पर किसी अन्य ग्रह की धरती को छुने वाली यह पहली मानव निर्मित वस्तुं बन गई।",
+      "human": "halanki shukr ke vayumandaliya mapan ke apne abhiyan me yah vifal ho gaya, par kisi anya grah ki dharti ko chune vali yah pehli manav nirmit vastu ban gai."
+    },
+    {
+      "row": 9454,
+      "native": "प्रिओम गुज्जर — विजय शंकर सुराना, समर का चचेरा भाई",
+      "human": "priyom gujjar - vijay shankar surana, samar ka chacera bhai"
+    },
+    {
+      "row": 9455,
+      "native": "बिस्मिल की आत्मकथा को हिन्दी में काकोरी षड्यन्त्र नामक एक पुस्तक के अन्दर निज जीवन की एक छटा के नाम से भजनलाल बुकसेलर ने आर्ट प्रेस सिन्ध (अब पाकिस्तान) से और काकोरी के शहीद शीर्षक से गणेश शंकर विद्यार्थी ने प्रताप प्रेस, कानपुर से छापा था।",
+      "human": "bismil ki aatmkatha ko hindi me kakori shadyantra namak ek pustak ke andar nij jivan ki ek chata ke nam se bhajanlal bookseller ne art press sindh (ab pakistan) se aur kakori ke shahid sirshak se ganesh shankar vidyarthi ne pratap press, kanpur se chapa tha."
+    },
+    {
+      "row": 9489,
+      "native": "श्रीकांत शास्त्री काल जैसे मगही साहित्य काल की भी परिकल्पना कर ली है।",
+      "human": "shrikant shastri kaal jaise maghi sahitya kaal ki bhi parikalpana kar li hai."
+    },
+    {
+      "row": 9496,
+      "native": "अलू कप (पीएनजी) अपने पहले वनडे में अंपायर के रूप में खड़ा था।",
+      "human": "alu cup (PNG) apne pehle oneday me umpire ke rup me khada tha."
+    },
+    {
+      "row": 9511,
+      "native": "वह उलझन में पड़ा था कि एक दिन स्वप्न में विक्रम खुद आए।",
+      "human": "vah uljhan me pada tha ki ek din svapna me vikram khuda aae."
+    },
+    {
+      "row": 9515,
+      "native": "जब रॅपन्ज़ेल की उम्र बारह साल की थी, जादूगरनी ने उसे सबकी नज़रों से दूर जंगल के बीच एक ऐसी मीनार में बंद कर दिया, जिस पर चढ़ने के लिए न तो सीढ़ियां थीं और ना ही अंदर घुसने के लिए कोई दरवाज़ा, उसमें था तो सिर्फ़ एक कमरा और एक खिड़की.",
+      "human": "jab repanzel ki umr barah sal ki thi, jadugarni ne use sabki nazro se dur jungle ke bich ek aisi minar me band kar diya, jis par chadhne ke lie na to sidhiyan thi aur na hi andar ghusne ke lie koi darvaza, usme tha to sirf ek kamra aur ek khidki."
+    },
+    {
+      "row": 9534,
+      "native": "यहां पहाड़ों के मध्य फैली झील के आसपास किसी गेस्ट हाउस में रुक प्रकृति का मजा उठा सकते हैं।",
+      "human": "yaha pahado ke madhya faili jhil ke aaspas kisi guest house me ruk prakriti ka maja utha sakte hai."
+    },
+    {
+      "row": 9549,
+      "native": "एक सराहनीय अग्रणी सूचीपत्र इस संग्रह के सभी सहित, शीर्षक, अध्याय और colophons, द्वारा बनाया गया था कनेको में जापान.",
+      "human": "ek sarahaniya agarni suchipatr is sangrah ke sabhi sahit, sirshak, adhyaya aur colophons, dvara banaya gaya tha kaneko me japan."
+    },
+    {
+      "row": 9575,
+      "native": "ग्रिल्स यह पद संभालने वाले दसवें व्यक्ति हैं और 1920 में रॉबर्ट बेडन पावेल के लिए इस पद के रचे जाने के बाद सबसे युवा चीफ़ स्काउट.",
+      "human": "grills yah pad sambhalne vale dasve vyakti hai aur 1920 me robert bedan pavel ke liye is pad ke rache jane ke baad sabse yuva chief scout."
+    },
+    {
+      "row": 9590,
+      "native": "2004 में ग्रिल्स को रॉयल नेवल रिज़र्व में लेफ्टिनेंट कमांडर के मानद दर्जे से सम्मानित किया गया।",
+      "human": "2004 me grills ko royal neval reserve me leftinent commander ke manad darje se sammanit kiya gaya."
+    },
+    {
+      "row": 9637,
+      "native": "गतिशीलता के प्रभाव के लिए संगीत की लय को त्यागकर नई कविता ध्वनि-परिवर्तन की ओर बढ़ती गई है।",
+      "human": "gatishilta ke prabhav ke liye sangeet ki laiy ko tyagkar nayi kavita dhvani-parivartan ki or badhti gai hai."
+    },
+    {
+      "row": 9644,
+      "native": "लघु वित्त (माइक्रो फाइनेंस)",
+      "human": "laghu vitt (micro finance)"
+    },
+    {
+      "row": 9668,
+      "native": "एडविन म्योर : द स्ट्रक्चर ऑव द नावेल",
+      "human": "edwin myor : the structure ov the naavel"
+    },
+    {
+      "row": 9673,
+      "native": "यहाँ की सबसे ऊँची पर्वत नजूरीकुण्ड है।",
+      "human": "yaha ki sabse unchi parvat najurikund hai."
+    },
+    {
+      "row": 9751,
+      "native": "इसमें जटिल यौगिक बनाने की भी प्रवृत्ति पाई जाती है।",
+      "human": "isme jatil yaugik banane ki bhi pravritti payi jati hai."
+    },
+    {
+      "row": 9787,
+      "native": "जिन लाहौर नईं वेख्या ओ जम्याइ नईं - 1991 (दिनमान प्रकाशन, दिल्ली से; बाद में वाणी प्रकाशन, नयी दिल्ली से)",
+      "human": "jin lahore nayi vekhya o jamyai nayi - 1991 (dinman prakashan, delhi se; baad me vani prakashan, new delhi se)"
+    },
+    {
+      "row": 9788,
+      "native": "इसको मुर्गी और तीतर के बीच का बताया जाता है।",
+      "human": "isko murgi aur titar ke bich ka bataya jata hai."
+    },
+    {
+      "row": 9802,
+      "native": "जनवरी 2006 को, अमेरिकन एक्सप्रेस ने अपने बैंक ऑफ हवाई कार्ड पोर्टफोलियो को बैंक ऑफ अमेरिका (MBNA) को बेच दिया।",
+      "human": "january 2006 ko, american express ne apne bank of havai card portfolio ko bank of america (MBNA) ko bech diya."
+    },
+    {
+      "row": 9851,
+      "native": "बाल प्रधानत: निम्नलिखित चार प्रकार के होते हैं :",
+      "human": "baal pradhanata: nimnalikhit chaar prakar ke hote hai :"
+    },
+    {
+      "row": 9901,
+      "native": "संयुक्त राज्य अमेरिका में एक दोहरी नागरिकता प्रणाली है जिसमें व्यक्ति अपने निवास राज्य के साथ संयुक्त राज्य का भी नागरिक है।",
+      "human": "sanyukta rajya america me ek dohri nagrikta pranali hai jisme vyakti apne nivas rajya ke sath sanyukta rajya ka bhi nagrik hai."
+    },
+    {
+      "row": 9923,
+      "native": "राजस्थानी भाषा के साहित्यकार गोरधन सिंह शेखावत द्वारा संपादित शेखावाटी के साहित्यकार व रघुनाथ प्रसाद तिवारी 'उमंग' के ग्रंथ खंडेला क्षेत्र का सांस्कृतिकवैभव में भी जोशी का वर्णन है।",
+      "human": "rajsthani bhasha ke sahityakar gordhan singh shekhavat dvara sampadit shekhavati ke sahityakar va raghunath prasad tivari 'umang' ke granth khandela kshetra ka sanskrtikvaibhav me bhi joshi ka varnan hai."
+    },
+    {
+      "row": 9932,
+      "native": "इस एल्बम के जारी होने पर लगभग किसी का ध्यान नहीं गया।",
+      "human": "is album ke jari hone par lagbhag kisi ka dhyan nahi gaya."
+    },
+    {
+      "row": 9949,
+      "native": "इसका उपयोग कुटीर उद्योग के रूप में सूत उत्पादन में किया जाता है।",
+      "human": "iska upayog kutir udyog ke rup me sut utpadan me kiya jata hai."
+    },
+    {
+      "row": 9965,
+      "native": "पाश्चात्य दर्शन के सम्प्रदाय (गूगल पुस्तक; लेखिका - शोभा निगम)",
+      "human": "paschatya darshan ke sampraday (google pustak; lekhika - shobha nigam)"
+    },
+    {
+      "row": 9969,
+      "native": "2003 में गद्दाफी ने पश्चिमी देशों के साथ \"मैत्री\" के बदले में सीडब्ल्यूसी को स्वीकार करने के लिए सहमति प्रदान की।",
+      "human": "2003 me gaddafi ne paschimi desho ke sath \"maitri\" ke badle me cwc ko svikar karne ke liye sehmati pradan ki."
+    }
+  ],
+  "resample_positions": [
+    1,
+    3,
+    4,
+    6,
+    12,
+    15,
+    16,
+    17,
+    18,
+    22,
+    24,
+    27,
+    28,
+    35,
+    36,
+    37,
+    39,
+    41,
+    42,
+    43,
+    49,
+    55,
+    58,
+    59,
+    61,
+    64,
+    66,
+    69,
+    70,
+    71,
+    73,
+    74,
+    83,
+    84,
+    88,
+    90,
+    92,
+    93,
+    94,
+    96,
+    97,
+    102,
+    103,
+    110,
+    114,
+    115,
+    128,
+    132,
+    133,
+    137,
+    138,
+    145,
+    149,
+    154,
+    155,
+    157,
+    158,
+    164,
+    165,
+    166,
+    169,
+    174,
+    176,
+    177,
+    179,
+    181,
+    183,
+    184,
+    185,
+    186,
+    188,
+    189,
+    192,
+    196,
+    202,
+    203,
+    207,
+    210,
+    211,
+    214,
+    218,
+    219,
+    221,
+    225,
+    227,
+    232,
+    233,
+    235,
+    237,
+    239,
+    240,
+    241,
+    244,
+    247,
+    249,
+    251,
+    253,
+    255,
+    256,
+    257,
+    259,
+    260,
+    262,
+    266,
+    267,
+    268,
+    270,
+    272,
+    275,
+    276,
+    284,
+    285,
+    286,
+    288,
+    289,
+    290,
+    293,
+    295,
+    296,
+    302,
+    311,
+    313,
+    323,
+    326,
+    327,
+    328,
+    332,
+    336,
+    337,
+    338,
+    342,
+    343,
+    347,
+    348,
+    356,
+    357,
+    358,
+    359,
+    362,
+    363,
+    369,
+    370,
+    374,
+    375,
+    381,
+    386,
+    387,
+    389,
+    394,
+    399,
+    400,
+    401,
+    402,
+    406,
+    407,
+    408,
+    409,
+    412,
+    414,
+    415,
+    417,
+    420,
+    421,
+    422,
+    423,
+    424,
+    425,
+    426,
+    429,
+    430,
+    437,
+    438,
+    446,
+    447,
+    448,
+    451,
+    452,
+    455,
+    456,
+    460,
+    461,
+    466,
+    468,
+    469,
+    472,
+    473,
+    475,
+    476,
+    477,
+    478,
+    479,
+    482,
+    483,
+    484,
+    488,
+    489,
+    491,
+    493,
+    497,
+    499
+  ]
+}
