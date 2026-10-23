@@ -2202,3 +2202,44 @@ K3b) and `scripts/h_gpu_chain.sh` (GPU). Outputs in `results/h_hindi/`.
 - **Estimate** (from the Kannada logs): forward about 15 min, scoring about 2.5 h for 3 forms × 5 models, natural about
   1 h once drafted. Drafts: about 700 Gemini requests plus retries (about 1 h). K3b follows: about 900–1,500 requests,
   likely over the 12:45 IST reset.
+
+### H-Hindi — clarification and addendum (written 2026-10-23 12:05 IST, Aarnav's text; before natural Hindi results exist)
+Status when written: Hindi natural drafts 486/696 (quota stop); no natural Hindi output has been scored or vectorized.
+The native/ITRANS/lossy Hindi runs, tokens per word and the baseline gate already exist (`results/h_hindi/gate.json`).
+1. **Counted models.** A model counts for H1 on a measure only if it passes the baseline in BOTH languages for that
+   measure. Qwen2.5 passes the Hindi gate but is excluded: its native Kannada is at floor, so its Kannada gap is
+   uninterpretable. Qwen3 is excluded from retrieval (no Kannada retrieval count). Counted: accuracy Qwen3, Qwen3.5,
+   Sarvam-1, Gemma 4; retrieval Qwen3.5, Sarvam-1, Gemma 4. (Same lists the gate step already applied.)
+2. **Defective drafts.** Items with a defective natural draft in EITHER language are dropped from BOTH languages for
+   that measure: retrieval D = Kannada-retained ∩ Hindi-clean M4c rows; sentiment = Kannada-clean ∩ Hindi-clean ids;
+   SIB = the M4c-overlap ids (Kannada-clean by construction) ∩ Hindi-clean. n is reported per measure.
+3. **Secondary analysis** (registered now, reported with H1, no separate verdict):
+   - (a) **English-word share** of natural Hindi vs natural Kannada on the same item ids (each measure's H1 item set).
+     A word is English if, lowercased with edge punctuation stripped (`english_share.words()`), it is longer than 3
+     characters and in the wordfreq English list with Zipf ≥ 3. Per-item share = English words / words. Statistic:
+     mean over items of (Hindi share − Kannada share), with a paired bootstrap 95% CI (10,000; seed 0). No proper-noun
+     filter.
+   - (b) **Loan-free H1:** H1 recomputed exactly as registered (same statistic, Holm within measure over the counted
+     models, same counting rule) on the items whose natural text has zero such English words in BOTH languages.
+     For retrieval, D is restricted further and the M4c split restricted to it, with the layer re-chosen on its train
+     half. n is reported. Its rule outcome is descriptive only.
+   - **Interpretation fixed now:** if H1 holds on a measure on the full set but not on the loan-free set, it is
+     reported as possibly driven by English loans.
+4. **Primary emphasis.** Hindi native sentiment is near ceiling (0.925–0.990 across the five models), so H1 is
+   interpreted mainly from SIB and retrieval; sentiment is reported with the ceiling caveat. The registered decision
+   rule is unchanged.
+
+---
+## PRE-REGISTRATION — K3b-hi: Gemini vs native-speaker natural romanization on Dakshina Hindi (written 2026-10-23 12:05 IST, Aarnav's design; before any Dakshina Hindi text is sent to Gemini)
+- **Design and rule:** identical to K3b (Kannada) above: same filters (duplicate native strings dropped, all copies;
+  strings with fewer than 3 native words dropped), 500 strings drawn with `default_rng(6)`, resample subset of 200 with
+  `default_rng(7)` and G1/G2 at temperature 1.0, same defect check and retries, same three statistics, same pooled
+  ratio with bootstrap CIs, same [0.80, 1.25] rule, chrF descriptive only. K3b-hi holds only if all three match.
+- **Data:** Dakshina v1.0 official release (MD5-verified 2026-10-23), `hi/romanized/hi.romanized.rejoined.tsv` (10,000
+  rows, native Devanagari TAB native-speaker romanization).
+- **Prompt:** `natural_romanization_hi_v1` (the K3b prompt with only the language name changed; the same prompt as the
+  Hindi drafts above), `gemini-3.5-flash-lite`, temperature 0 for the primary draft.
+- **Quota priority:** lowest. It runs only after the Hindi drafts and K3b (Kannada) are complete, in its own chain.
+- **Outputs:** `results/k3b_hi/`. Separate verdict from K3b; no pooled verdict.
+- **Limitation stated now:** "th"/"dh" and the h-digraphs mark aspiration and dentals differently in Hindi practice,
+  so (2) remains h-digraph use, not aspiration; Hindi Wikipedia text has more English and Perso-Arabic loans.
