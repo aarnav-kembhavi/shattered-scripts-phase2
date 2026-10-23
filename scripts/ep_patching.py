@@ -13,7 +13,11 @@ Usage: python scripts/ep_patching.py items          (CPU: item lists vs the regi
                                                      distinctness for 4 tokenizers; SIB word-count alignment)
        python scripts/ep_patching.py pilot1         (GPU, Qwen3.5-2B, 10 SIB primary items; checks + timing only)
        python scripts/ep_patching.py pilot2         (GPU, Qwen3.5-2B, 10 SIB primary items; checks + timing only)
-Pilots compute no recovery value. Outputs: results/ep1/{items.json, pilot.json}, results/ep2/{items.json, pilot.json}
+       python scripts/ep_patching.py run <1|2> <model>  (GPU: full run for one model, one process per model load;
+                                                     resumable; exit 1 on a failed integrity check)
+       python scripts/ep_patching.py analyse <1|2>  (CPU: R curves, held-out peak, registered predictions, figures)
+Pilots compute no recovery value. Outputs: results/ep{1,2}/{items.json, pilot.json, raw/<model>.json, curves.csv,
+predictions.json}; figures paper/figures/ep{1,2}_*.{pdf,png}
 """
 import json
 import sys
@@ -316,6 +320,196 @@ def do_pilot(exp: int) -> int:
     return 0 if out["all_passed"] else 1
 
 
+# ---------------------------------------------------------------- full runs
+
+SCHEMES = {1: ("final", "all"), 2: ("word", "read")}
+FIG_NAME: dict = {}  # default figure names; tests override
+N_BOOT = 10000
+
+
+def lib_versions() -> dict:
+    import importlib.util
+
+    import accelerate
+    import torch
+    import transformers
+    return {"torch": torch.__version__, "cuda": torch.version.cuda, "transformers": transformers.__version__,
+            "accelerate": accelerate.__version__, "numpy": np.__version__,
+            "causal_conv1d_installed": importlib.util.find_spec("causal_conv1d") is not None,
+            "flash_linear_attention_installed": importlib.util.find_spec("fla") is not None}
+
+
+def do_run(exp: int, m: str) -> int:
+    from shattered.eval.loglik import VERBALIZERS
+    from shattered.gpuguard import wait_gpu_free
+    from shattered.interp.load import load
+    from shattered.runlog import commit, tmp_path
+    raw = OUT[exp] / "raw"
+    raw.mkdir(parents=True, exist_ok=True)
+    final, part = raw / f"{m}.json", raw / f"{m}.partial.json"
+    if final.exists():
+        return 0
+    L, by_id = item_lists(exp), items_by_id()
+    todo = [(t, kind, i) for t in ("sib", "sentiment") for kind in ("primary", "control") for i in L[(m, t)][kind]]
+    done = {(r["task"], r["kind"], r["id"]): r for r in json.load(open(part))["rows"]} if part.exists() else {}
+    used = wait_gpu_free()
+    t0 = time.time()
+    model, tok = load(m, "cuda")
+    pt = Patcher(model)
+    V = nc1.Vocab(tok) if exp == 1 else None
+    meta = {"model": m, "n_layers": pt.n, "n_points": pt.n + 1, "gpu_mb_before_load": used, "libraries": lib_versions(),
+            "load_seconds": time.time() - t0}
+    print(json.dumps(meta), flush=True)
+    excluded, worst = [], {"no_patch": 0.0, "integrity": 0.0}
+
+    def flush(rows):
+        tmp = tmp_path(part)
+        tmp.write_text(json.dumps({"meta": meta, "rows": rows}), encoding="utf-8")
+        commit(tmp, part)
+
+    t1 = time.time()
+    for k, (t, kind, i) in enumerate(todo):
+        if (t, kind, i) in done:
+            continue
+        it, gold = by_id[t][i], int(by_id[t][i]["label"])
+        if exp == 1:
+            pr = ep1_pair(V, tok, m, t, it)
+            if not (pr["aligned"] and pr["words_match"]):
+                excluded.append([t, kind, i])
+                continue
+            fids = first_ids(tok, pr["prompt"], VERBALIZERS[t])
+            src, dst = pr["a"], pr["c"]
+            text_pos = sorted(q for g in pr["groups"] for q in g)
+            pos = {"final": ([g[-1] for g in pr["groups"]],) * 2, "all": (text_pos, text_pos)}
+        else:
+            pr = ep2_pair(tok, t, it)
+            if not (pr["same_word_count"] and pr["words_decode"]):
+                excluded.append([t, kind, i])
+                continue
+            fids = first_ids(tok, pr["prompt_native"], VERBALIZERS[t])
+            assert fids == first_ids(tok, pr["prompt_lossy"], VERBALIZERS[t])
+            src, dst = pr["native"], pr["lossy"]
+            pos = {"word": (pr["last_native"], pr["last_lossy"]), "read": ([len(src) - 1], [len(dst) - 1])}
+        assert len(set(fids)) == len(fids), "verbalizer first tokens not distinct"
+        lg, rec = run_source(model, pt, src)
+        m_src = margin(lg, fids, gold)
+        m_dst = margin(last_logits(model, dst), fids, gold)
+        curves = {s: [margin(run_patched(model, pt, dst, P, pd_, rec[P][ps]), fids, gold) for P in range(pt.n + 1)]
+                  for s, (ps, pd_) in pos.items()}
+        if k < 3:  # integrity: hooks without a patch change nothing
+            pt.remove()
+            plain = margin(last_logits(model, dst), fids, gold)
+            pt = Patcher(model)
+            worst["no_patch"] = max(worst["no_patch"], abs(plain - m_dst))
+        if exp == 2:  # integrity: the readout patch at the final point is the native final residual (exact)
+            worst["integrity"] = max(worst["integrity"], abs(curves["read"][pt.n] - m_src))
+        else:  # E-P1: every text piece at P = 0 (exact except Gemma 4, whose per-layer embeddings follow (c)'s ids)
+            worst["integrity"] = max(worst["integrity"], abs(curves["all"][0] - m_src))
+        done[(t, kind, i)] = {"task": t, "kind": kind, "id": i, "m_src": m_src, "m_dst": m_dst, **curves}
+        if len(done) % 25 == 0:
+            flush(list(done.values()))
+            print(f"{m}: {len(done)}/{len(todo)} items, {time.time() - t1:.0f}s", flush=True)
+    pt.remove()
+    meta.update({"run_seconds": time.time() - t1, "n_items": len(done), "excluded": excluded,
+                 "max_abs_no_patch_delta": worst["no_patch"], "max_abs_integrity_delta": worst["integrity"],
+                 "integrity_check": "readout at final point vs M_native" if exp == 2 else
+                 "all text pieces at P=0 vs M_a (reported; Gemma 4 not exact by design)"})
+    write_json(final, {"meta": meta, "rows": list(done.values())}, {"registered": "RESULTS.md 2026-10-23 16:00 IST"})
+    part.unlink(missing_ok=True)
+    print(json.dumps({k: v for k, v in meta.items() if k != "excluded"}), flush=True)
+    bad = worst["no_patch"] >= TOL or (exp == 2 and worst["integrity"] >= TOL) or (
+        exp == 1 and m != "gemma4-e2b" and worst["integrity"] >= TOL)
+    if bad:
+        print(f"CHECK FAILED: integrity {worst}", flush=True)
+        return 1
+    return 0
+
+
+# ---------------------------------------------------------------- analysis
+
+def ratio_boot(Ms: np.ndarray, Md: np.ndarray, Mp: np.ndarray) -> tuple:
+    """R per point (ratio of means) and bootstrap draws [B, points] over items (multinomial weights, seed 0)."""
+    n = len(Ms)
+    W = np.random.default_rng(SEED).multinomial(n, np.full(n, 1 / n), size=N_BOOT).astype(np.float64) / n
+    num, den = Mp - Md[:, None], Ms - Md
+    return num.mean(0) / den.mean(), (W @ num) / (W @ den)[:, None]
+
+
+def ci(bs: np.ndarray) -> list:
+    return [float(v) for v in np.nanpercentile(bs, [2.5, 97.5], axis=0)] if bs.ndim == 1 else \
+        np.nanpercentile(bs, [2.5, 97.5], axis=0)
+
+
+def do_analyse(exp: int) -> int:
+    s_main, s_other = SCHEMES[exp]
+    curves, preds = [], {}
+    for m in MODELS:
+        R = json.load(open(OUT[exp] / "raw" / f"{m}.json"))
+        n_layers = R["meta"]["n_layers"]
+        D = pd.DataFrame(R["rows"])
+        for (t, kind), g in D.groupby(["task", "kind"]):
+            g = g.set_index("id").loc[[i for i in item_lists(exp)[(m, t)][kind] if i in set(g.id)]]
+            Ms, Md = g.m_src.to_numpy(float), g.m_dst.to_numpy(float)
+            for s in SCHEMES[exp]:
+                r, bs = ratio_boot(Ms, Md, np.stack(g[s].to_numpy()).astype(float))
+                lo, hi = ci(bs)
+                curves += [{"model": m, "task": t, "kind": kind, "scheme": s, "point": P, "n_layers": n_layers,
+                            "n": len(g), "R": float(r[P]), "lo": float(lo[P]), "hi": float(hi[P])}
+                           for P in range(len(r))]
+            if (t, kind) != ("sib", "primary"):
+                continue
+            # selection-safe peak: 50/50 split (seed 0) of the SIB primary items in their registered order
+            perm = np.random.default_rng(SEED).permutation(len(g))
+            sel, hold = perm[: len(g) // 2], perm[len(g) // 2:]
+            Xm = np.stack(g[s_main].to_numpy()).astype(float)
+            Xo = np.stack(g[s_other].to_numpy()).astype(float)
+            r_sel = (Xm[sel] - Md[sel, None]).mean(0) / (Ms[sel] - Md[sel]).mean()
+            Ls = int(np.argmax(r_sel))
+            rm, bm = ratio_boot(Ms[hold], Md[hold], Xm[hold][:, [Ls]])
+            ro, bo = ratio_boot(Ms[hold], Md[hold], Xo[hold][:, [Ls]])
+            p = {"n_layers": n_layers, "n_items": len(g), "n_selection": len(sel), "n_heldout": len(hold),
+                 "L_star": Ls, f"heldout_R_{s_main}": float(rm[0]), f"heldout_R_{s_main}_ci": ci(bm[:, 0])}
+            if exp == 1:
+                p["P1a_positive"] = p["heldout_R_final_ci"][0] > 0.5
+                p["P1b_bound"] = (2 * n_layers) // 3
+                p["P1b_positive"] = Ls <= p["P1b_bound"]
+                p["heldout_R_all_at_L_star_reported"] = float(ro[0])
+            else:
+                p["P2a_positive"] = p["heldout_R_word_ci"][0] > 0.5
+                p["heldout_R_read_at_L_star"], p["heldout_R_read_ci"] = float(ro[0]), ci(bo[:, 0])
+                p["heldout_word_minus_read"] = float(rm[0] - ro[0])
+                p["heldout_word_minus_read_ci"] = ci(bm[:, 0] - bo[:, 0])
+                p["P2b_positive"] = p["heldout_word_minus_read_ci"][0] > 0
+                r_read_all, _ = ratio_boot(Ms, Md, Xo)
+                above = np.where(r_read_all >= 0.5)[0]
+                p["L_read_reported"] = int(above[0]) if len(above) else None
+                p["L_star_word_lt_L_read_reported"] = (p["L_read_reported"] is not None and Ls < p["L_read_reported"])
+            # control items (reported): R at L* on all control items
+            c = D[(D.task == "sib") & (D.kind == "control")]
+            if len(c):
+                rc, bc = ratio_boot(c.m_src.to_numpy(float), c.m_dst.to_numpy(float),
+                                    np.stack(c[s_main].to_numpy()).astype(float)[:, [Ls]])
+                p["control_n"], p["control_R_at_L_star"], p["control_R_ci"] = len(c), float(rc[0]), ci(bc[:, 0])
+                p["control_same_sign"] = bool(rc[0] > 0)
+            preds[m] = p
+    C = pd.DataFrame(curves)
+    C.to_csv(OUT[exp] / "curves.csv", index=False)
+    keys = ("P1a", "P1b") if exp == 1 else ("P2a", "P2b")
+    verdict = {}
+    for k in keys:
+        pos = sum(bool(preds[m][f"{k}_positive"]) for m in MODELS)
+        verdict[k] = {"n_positive": pos, "needed": 3, "of": len(MODELS),
+                      "outcome": "confirmed" if pos >= 3 else "refuted"}
+    write_json(OUT[exp] / "predictions.json", {"per_model": preds, "verdict": verdict},
+               {"registered": "RESULTS.md 2026-10-23 16:00 IST", "split_seed": SEED, "n_boot": N_BOOT})
+    from shattered.plots.ep import curves_figure
+    print(curves_figure(exp, OUT[exp], FIG_NAME.get(exp)), flush=True)
+    print(json.dumps(verdict), flush=True)
+    return 0
+
+
 if __name__ == "__main__":
     step = sys.argv[1]
-    sys.exit({"items": do_items, "pilot1": lambda: do_pilot(1), "pilot2": lambda: do_pilot(2)}[step]() or 0)
+    sys.exit({"items": do_items, "pilot1": lambda: do_pilot(1), "pilot2": lambda: do_pilot(2),
+              "run": lambda: do_run(int(sys.argv[2]), sys.argv[3]),
+              "analyse": lambda: do_analyse(int(sys.argv[2]))}[step]() or 0)
