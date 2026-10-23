@@ -2412,3 +2412,94 @@ Most frequent matches (wordfreq English, Zipf ≥ 3, longer than 3 characters) o
 `ShatteredScripts_h1lf` (`scripts/h1lf_chain.sh`): waits for K3b (Kannada), then SIB-1,004 drafts both languages, then
 scoring (4 models × 2 languages); stops before `analyse1`. `ShatteredScripts_k3bhi` re-queued to wait for the H1-LF
 drafts marker (it was waiting, no request had been made).
+
+---
+## PRE-REGISTRATION — English-loan measure v2 (written 2026-10-23 16:00 IST, Aarnav's design; follows the 2026-10-23 diagnostic of the English-word measure; before any H1-LF option 1 score exists and before any v2 count is computed)
+- **Definition v2:** a word in a romanized text (lowercased `english_share.words()`) counts as an English loan if (i)
+  it is in the wordfreq English list with Zipf ≥ 3, (ii) it is longer than 3 characters, and (iii) it appears in the
+  item's parallel English sentence (FLORES+ `eng_Latn` for FLORES/SIB items, the IndicSentiment English review for
+  sentiment items), case-insensitive, as the exact token or a simple plural/possessive variant. Variant rule: with w
+  the romanized word and E the set of lowercased English tokens (each also with a trailing possessive 's removed),
+  after removing a trailing possessive 's from w, w matches if w ∈ E, w+"s" ∈ E, w+"es" ∈ E, or w ends in "s" and
+  w[:-1] ∈ E, or w ends in "es" and w[:-2] ∈ E. v2 share = v2 loans / words. **Stated as a lower bound on loan share**
+  (loans respelled, or absent from the English sentence, are missed).
+- **Validity check, fixed now:** Hindi ITRANS minus Kannada ITRANS v2 share on the same ids (the H1 retrieval test set
+  and the H1 SIB set), mean paired difference with bootstrap 95% CI (10,000; seed 0), must lie within [−0.01, +0.01]
+  on BOTH retrieval and SIB items. If it fails: stop and report; v2 is not used.
+- **If the check passes:** v2 replaces the registered definition for H1-LF option 1 (loan-free subset = zero v2 loans
+  in both languages). The original definition is also reported alongside.
+- **Post hoc (labelled as such, no verdict):** recompute with v2 the addendum English-share comparison, the loan-free
+  H1, and option 2 (intercept, slope, tertiles). Report the top 20 v2-matched words per language (natural texts) as a
+  sanity list.
+
+---
+## PRE-REGISTRATION — E-P1: word-aligned activation patching, NC1 (a) → (c) (written 2026-10-23 16:00 IST; the 2026-10-23 draft, approved by Aarnav with changes; before any patching code is written or run)
+Local 2B models only, bf16, one model load at a time. Script `scripts/ep_patching.py` (written after this
+registration); outputs `results/ep1/`.
+- **Question.** NC-O showed that unfamiliar segmentations at the same token count cost accuracy (SIB: Qwen3.5,
+  Sarvam-1, Gemma 4). Is that cost carried by the word representations built at each word's last token? (a) and (c)
+  decode to the same lossy text and every word has the same number of pieces in both, so token positions align exactly.
+- **Models:** Qwen3-1.7B, Qwen3.5-2B, Sarvam-1, Gemma 4 E2B. Qwen2.5 is not run.
+- **Items** (stored NC1 scores, calibrated primary rule), per model × task: primary = (a) correct and (c) wrong;
+  control = (c) correct and (a) wrong. Available (primary / control), SIB: Qwen3 73/70, Qwen3.5 117/52, Sarvam-1
+  222/51, Gemma 4 133/59; sentiment: 23/29, 31/10, 39/8, 18/7. **Primary SIB items capped at 200 per model (random,
+  seed 0); all control items.** SIB carries the prediction; sentiment (n < 40) is descriptive.
+- **Metric.** Gold margin M at the final prompt position: logit of the gold verbalizer's first token minus the largest
+  logit among the other verbalizers' first tokens. Pilot check: first tokens must be distinct per tokenizer; otherwise
+  the full-verbalizer log-prob margin is used for that model (logged).
+- **Patching** at layer L (residual stream entering layer L; L = 0 is the embedding output; L = 0..N); the template
+  stays canonical in both runs:
+  - **final (primary):** replace the residual at every text word's last-token position in the (c) run with the (a)
+    run's residual at the same position.
+  - **all pieces (added; no prediction):** replace the residual at every piece of every text word.
+  - Recovery R(L) = mean(M_patched − M_c) / mean(M_a − M_c) (ratio of means), bootstrap 95% CI (10,000 over items).
+    R_all(L) is reported next to R_final(L).
+- **Selection-safe peak.** 50/50 item split (seed 0); L* = argmax R_final(L) on the selection half; R_final(L*) and CI
+  on the held-out half; full curves on all items.
+- **Predictions (SIB, primary items):**
+  - **P1a:** held-out R_final(L*) has a 95% CI lower bound > 0.5 in ≥ 3 of 4 models.
+  - **P1b:** L* ≤ ⌊2N/3⌋ in ≥ 3 of 4 models.
+  - **Control (reported):** on control items R(L*) has the same sign.
+- **Caveats:** discordant-item selection inflates M_a − M_c (regression to the mean); Gemma 4's per-layer embeddings
+  make its residual patches partial (lower bound); for "final", non-final pieces stay as in (c).
+- **Pilot (Qwen3.5-2B, 10 SIB primary items); each check stops the run on failure:**
+  1. Patching all text positions at L = 0 reproduces M_a (|Δ| < 0.05).
+  2. Patching nothing reproduces M_c (|Δ| < 0.05).
+  3. Patched-position indices map to the same decoded word in (a) and (c) (10/10).
+  4. Wall time per item × layer × scheme, extrapolated. **Stop at the pilot gate and report.**
+
+---
+## PRE-REGISTRATION — E-P2: word-aligned patching native → lossy, with readout-position patching (written 2026-10-23 16:00 IST; the 2026-10-23 draft, approved by Aarnav with changes; before any patching code is written or run)
+Same script; outputs `results/ep2/`. Models and rules as E-P1.
+- **Question.** Is the lossy cost carried by the word representations (word-final residuals) or by later processing at
+  the readout position? Positions aligned by word (lossy is word-by-word: 200/200 sentiment items have equal word
+  counts; SIB is checked in the pilot, mismatches excluded and counted).
+- **Items:** primary = native correct and lossy wrong; control = lossy correct and native wrong (SIB primary/control:
+  Qwen3 398/31, Qwen3.5 345/43, Sarvam-1 126/65, Gemma 4 293/39; sentiment 69/16, 27/16, 16/4, 41/2). **Primary SIB
+  capped at 200 per model (seed 0); all control items.** SIB carries the predictions; sentiment is descriptive.
+- **Metric:** gold margin M as E-P1; R(L) = mean(M_patched − M_lossy) / mean(M_native − M_lossy), bootstrap 95% CI.
+- **Patch points L = 0..N+1:** L ≤ N is the residual entering layer L; **L = N+1 is the final residual stream after
+  layer N, before the final norm.**
+  - **word-aligned:** for each text word k, the lossy run's residual at word k's last token is replaced with the native
+    run's residual at native word k's last token.
+  - **readout:** only the final prompt position's residual is replaced with the native run's final-position residual.
+- **Selection-safe peak:** 50/50 split (seed 0); L*_word = argmax R_word(L) on the selection half.
+- **Predictions (SIB, primary items):**
+  - **P2a:** held-out R_word(L*_word) has a 95% CI lower bound > 0.5 in ≥ 3 of 4 models.
+  - **P2b (revised):** at L*_word, held-out R_word(L*_word) − R_read(L*_word) (paired over items, bootstrap) has a 95%
+    CI lower bound > 0 in ≥ 3 of 4 models.
+  - **Reported, no threshold:** the old comparison (L_read = first L with R_read(L) ≥ 0.5 on all items, vs L*_word) and
+    the full R_word / R_read curves with CIs.
+- **Caveats:** native vs lossy differ in information and familiarity; discordant selection; Gemma 4 per-layer
+  embeddings; only word-final native pieces are patched.
+- **Pilot (Qwen3.5-2B, 10 SIB primary items); each check stops the run on failure:**
+  1. Readout patch at L = N+1 reproduces M_native (|Δ| < 0.05).
+  2. No patch reproduces M_lossy (|Δ| < 0.05).
+  3. Word alignment: equal word counts, and each patched pair decodes to word k in both (10/10).
+  4. Wall time per item × layer × scheme. **Stop at the pilot gate and report.**
+
+## 2026-10-23 16:00 IST — GPU safety rule (Aarnav)
+Before every model load in every chain and patching run: check GPU memory with nvidia-smi. Under the WDDM driver
+nvidia-smi does not report per-process memory, so the check is: total GPU memory in use ≤ 500 MB before our own load
+(desktop baseline 148 MB); otherwise wait and retry every 5 minutes, logging the used memory and the listed GPU
+processes. Another project's job (C:\PROJECTS\ISM) may be running.
