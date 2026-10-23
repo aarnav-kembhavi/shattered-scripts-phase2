@@ -1,0 +1,39 @@
+{
+  "provenance": {
+    "config": {
+      "registered": "RESULTS.md 2026-10-23 16:00 IST (v2 validity check)",
+      "rule": "Hindi ITRANS - Kannada ITRANS v2 share, 95% CI within [-0.01, 0.01] on retrieval and SIB"
+    },
+    "git_commit": "f12603cbfe340aa304170f66ac23ec381d940cee-dirty",
+    "timestamp_utc": "2026-10-23T10:34:11+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/h1lf.py",
+      "v2"
+    ]
+  },
+  "retrieval": {
+    "n": 246,
+    "kannada": 0.009041313538500732,
+    "hindi": 0.003861963064493125,
+    "hindi_minus_kannada": -0.005179350474007607,
+    "ci": [
+      -0.007975964103060793,
+      -0.0024911999554997075
+    ],
+    "within_pm_0.01": true
+  },
+  "sib": {
+    "n": 256,
+    "kannada": 0.009683528443472846,
+    "hindi": 0.0034161588373085657,
+    "hindi_minus_kannada": -0.0062673696061642786,
+    "ci": [
+      -0.009670477835670694,
+      -0.003199285175342369
+    ],
+    "within_pm_0.01": true
+  },
+  "passed": true
+}

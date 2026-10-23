@@ -1,0 +1,157 @@
+{
+  "provenance": {
+    "config": {
+      "registered": "RESULTS.md 2026-10-23 16:00 IST",
+      "status": "pilot; no R computed"
+    },
+    "git_commit": "f12603cbfe340aa304170f66ac23ec381d940cee-dirty",
+    "timestamp_utc": "2026-10-23T10:42:15+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/ep_patching.py",
+      "pilot2"
+    ]
+  },
+  "model": "qwen3.5-2b",
+  "n_items": 10,
+  "n_points": 25,
+  "gpu_mb_before_load": 156,
+  "load_seconds": 18.22974967956543,
+  "checks_passed_of_10": {
+    "check2_no_patch_reproduces_dst": 10,
+    "check1_readout_at_final_point_reproduces_native": 10,
+    "check3_same_word_count": 10,
+    "check3_words_decode": 10,
+    "first_tokens_distinct": 10
+  },
+  "all_passed": true,
+  "seconds_per_patched_forward": {
+    "word": 0.1032464952468872,
+    "read": 0.1046281566619873
+  },
+  "items_full_run_all_models": 1095,
+  "estimate_hours_full_run_at_pilot_speed": 1.5807134988903997,
+  "rows": [
+    {
+      "id": 954,
+      "first_tokens_distinct": true,
+      "check2_no_patch_reproduces_dst": true,
+      "check2_delta": 0.0,
+      "check1_readout_at_final_point_reproduces_native": true,
+      "check1_delta": 0.0,
+      "check3_same_word_count": true,
+      "check3_words_decode": true,
+      "n_tokens_src": 92,
+      "n_tokens_dst": 64
+    },
+    {
+      "id": 555,
+      "first_tokens_distinct": true,
+      "check2_no_patch_reproduces_dst": true,
+      "check2_delta": 0.0,
+      "check1_readout_at_final_point_reproduces_native": true,
+      "check1_delta": 0.0,
+      "check3_same_word_count": true,
+      "check3_words_decode": true,
+      "n_tokens_src": 85,
+      "n_tokens_dst": 66
+    },
+    {
+      "id": 1353,
+      "first_tokens_distinct": true,
+      "check2_no_patch_reproduces_dst": true,
+      "check2_delta": 0.0,
+      "check1_readout_at_final_point_reproduces_native": true,
+      "check1_delta": 0.0,
+      "check3_same_word_count": true,
+      "check3_words_decode": true,
+      "n_tokens_src": 87,
+      "n_tokens_dst": 66
+    },
+    {
+      "id": 282,
+      "first_tokens_distinct": true,
+      "check2_no_patch_reproduces_dst": true,
+      "check2_delta": 0.0,
+      "check1_readout_at_final_point_reproduces_native": true,
+      "check1_delta": 0.0,
+      "check3_same_word_count": true,
+      "check3_words_decode": true,
+      "n_tokens_src": 132,
+      "n_tokens_dst": 83
+    },
+    {
+      "id": 1140,
+      "first_tokens_distinct": true,
+      "check2_no_patch_reproduces_dst": true,
+      "check2_delta": 0.0,
+      "check1_readout_at_final_point_reproduces_native": true,
+      "check1_delta": 0.0,
+      "check3_same_word_count": true,
+      "check3_words_decode": true,
+      "n_tokens_src": 89,
+      "n_tokens_dst": 63
+    },
+    {
+      "id": 1637,
+      "first_tokens_distinct": true,
+      "check2_no_patch_reproduces_dst": true,
+      "check2_delta": 0.0,
+      "check1_readout_at_final_point_reproduces_native": true,
+      "check1_delta": 0.0,
+      "check3_same_word_count": true,
+      "check3_words_decode": true,
+      "n_tokens_src": 78,
+      "n_tokens_dst": 62
+    },
+    {
+      "id": 1113,
+      "first_tokens_distinct": true,
+      "check2_no_patch_reproduces_dst": true,
+      "check2_delta": 0.0,
+      "check1_readout_at_final_point_reproduces_native": true,
+      "check1_delta": 0.0,
+      "check3_same_word_count": true,
+      "check3_words_decode": true,
+      "n_tokens_src": 121,
+      "n_tokens_dst": 92
+    },
+    {
+      "id": 110,
+      "first_tokens_distinct": true,
+      "check2_no_patch_reproduces_dst": true,
+      "check2_delta": 0.0,
+      "check1_readout_at_final_point_reproduces_native": true,
+      "check1_delta": 0.0,
+      "check3_same_word_count": true,
+      "check3_words_decode": true,
+      "n_tokens_src": 149,
+      "n_tokens_dst": 92
+    },
+    {
+      "id": 1075,
+      "first_tokens_distinct": true,
+      "check2_no_patch_reproduces_dst": true,
+      "check2_delta": 0.0,
+      "check1_readout_at_final_point_reproduces_native": true,
+      "check1_delta": 0.0,
+      "check3_same_word_count": true,
+      "check3_words_decode": true,
+      "n_tokens_src": 68,
+      "n_tokens_dst": 49
+    },
+    {
+      "id": 1894,
+      "first_tokens_distinct": true,
+      "check2_no_patch_reproduces_dst": true,
+      "check2_delta": 0.0,
+      "check1_readout_at_final_point_reproduces_native": true,
+      "check1_delta": 0.0,
+      "check3_same_word_count": true,
+      "check3_words_decode": true,
+      "n_tokens_src": 81,
+      "n_tokens_dst": 66
+    }
+  ]
+}

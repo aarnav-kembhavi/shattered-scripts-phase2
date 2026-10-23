@@ -1,0 +1,157 @@
+{
+  "provenance": {
+    "config": {
+      "registered": "RESULTS.md 2026-10-23 16:00 IST",
+      "status": "pilot; no R computed"
+    },
+    "git_commit": "f12603cbfe340aa304170f66ac23ec381d940cee-dirty",
+    "timestamp_utc": "2026-10-23T10:40:16+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/ep_patching.py",
+      "pilot1"
+    ]
+  },
+  "model": "qwen3.5-2b",
+  "n_items": 10,
+  "n_points": 25,
+  "gpu_mb_before_load": 156,
+  "load_seconds": 20.002334356307983,
+  "checks_passed_of_10": {
+    "check2_no_patch_reproduces_dst": 10,
+    "check1_all_text_at_0_reproduces_a": 10,
+    "check3_aligned": 10,
+    "check3_words_match": 10,
+    "first_tokens_distinct": 10
+  },
+  "all_passed": true,
+  "seconds_per_patched_forward": {
+    "final": 0.13447243976593018,
+    "all": 0.12590789222717286
+  },
+  "items_full_run_all_models": 920,
+  "estimate_hours_full_run_at_pilot_speed": 1.6635410099559362,
+  "rows": [
+    {
+      "id": 1929,
+      "first_tokens_distinct": true,
+      "check2_no_patch_reproduces_dst": true,
+      "check2_delta": 0.0,
+      "check1_all_text_at_0_reproduces_a": true,
+      "check1_delta": 0.0,
+      "check3_aligned": true,
+      "check3_words_match": true,
+      "n_tokens_src": 104,
+      "n_tokens_dst": 104
+    },
+    {
+      "id": 865,
+      "first_tokens_distinct": true,
+      "check2_no_patch_reproduces_dst": true,
+      "check2_delta": 0.0,
+      "check1_all_text_at_0_reproduces_a": true,
+      "check1_delta": 0.0,
+      "check3_aligned": true,
+      "check3_words_match": true,
+      "n_tokens_src": 95,
+      "n_tokens_dst": 95
+    },
+    {
+      "id": 1856,
+      "first_tokens_distinct": true,
+      "check2_no_patch_reproduces_dst": true,
+      "check2_delta": 0.0,
+      "check1_all_text_at_0_reproduces_a": true,
+      "check1_delta": 0.0,
+      "check3_aligned": true,
+      "check3_words_match": true,
+      "n_tokens_src": 68,
+      "n_tokens_dst": 68
+    },
+    {
+      "id": 378,
+      "first_tokens_distinct": true,
+      "check2_no_patch_reproduces_dst": true,
+      "check2_delta": 0.0,
+      "check1_all_text_at_0_reproduces_a": true,
+      "check1_delta": 0.0,
+      "check3_aligned": true,
+      "check3_words_match": true,
+      "n_tokens_src": 94,
+      "n_tokens_dst": 94
+    },
+    {
+      "id": 815,
+      "first_tokens_distinct": true,
+      "check2_no_patch_reproduces_dst": true,
+      "check2_delta": 0.0,
+      "check1_all_text_at_0_reproduces_a": true,
+      "check1_delta": 0.0,
+      "check3_aligned": true,
+      "check3_words_match": true,
+      "n_tokens_src": 78,
+      "n_tokens_dst": 78
+    },
+    {
+      "id": 414,
+      "first_tokens_distinct": true,
+      "check2_no_patch_reproduces_dst": true,
+      "check2_delta": 0.0,
+      "check1_all_text_at_0_reproduces_a": true,
+      "check1_delta": 0.0,
+      "check3_aligned": true,
+      "check3_words_match": true,
+      "n_tokens_src": 80,
+      "n_tokens_dst": 80
+    },
+    {
+      "id": 1076,
+      "first_tokens_distinct": true,
+      "check2_no_patch_reproduces_dst": true,
+      "check2_delta": 0.0,
+      "check1_all_text_at_0_reproduces_a": true,
+      "check1_delta": 0.0,
+      "check3_aligned": true,
+      "check3_words_match": true,
+      "n_tokens_src": 86,
+      "n_tokens_dst": 86
+    },
+    {
+      "id": 124,
+      "first_tokens_distinct": true,
+      "check2_no_patch_reproduces_dst": true,
+      "check2_delta": 0.0,
+      "check1_all_text_at_0_reproduces_a": true,
+      "check1_delta": 0.0,
+      "check3_aligned": true,
+      "check3_words_match": true,
+      "n_tokens_src": 101,
+      "n_tokens_dst": 101
+    },
+    {
+      "id": 1747,
+      "first_tokens_distinct": true,
+      "check2_no_patch_reproduces_dst": true,
+      "check2_delta": 0.0,
+      "check1_all_text_at_0_reproduces_a": true,
+      "check1_delta": 0.0,
+      "check3_aligned": true,
+      "check3_words_match": true,
+      "n_tokens_src": 62,
+      "n_tokens_dst": 62
+    },
+    {
+      "id": 1881,
+      "first_tokens_distinct": true,
+      "check2_no_patch_reproduces_dst": true,
+      "check2_delta": 0.0,
+      "check1_all_text_at_0_reproduces_a": true,
+      "check1_delta": 0.0,
+      "check3_aligned": true,
+      "check3_words_match": true,
+      "n_tokens_src": 89,
+      "n_tokens_dst": 89
+    }
+  ]
+}

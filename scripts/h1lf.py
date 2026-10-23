@@ -3,6 +3,8 @@ after the H1 results; this script was written after that registration).
 
 Usage: python scripts/h1lf.py opt2      (CPU: intercept of d_i on English-share difference; sensitivity a, b)
        python scripts/h1lf.py itrans    (CPU: English share of Hindi vs Kannada ITRANS on the H1 item sets)
+       python scripts/h1lf.py v2        (CPU: English-loan measure v2 validity check (registered 2026-10-23 16:00 IST);
+                                         if it passes, the post hoc v2 recomputations; exit 1 if the check fails)
        python scripts/h1lf.py draft     (API: natural drafts for all 1,004 SIB items, both languages; exit 3 on a quota
                                          stop, re-run to continue)
        python scripts/h1lf.py score <model> <kannada|hindi>  (GPU: one counted model x language on natural SIB
@@ -14,6 +16,7 @@ Outputs: results/h1lf/{opt2.csv, opt2_verdict.json, opt2_sensitivity.csv, opt2_t
          data/processed/natural_sib1004_{kn,hi}_v1.jsonl
 """
 import json
+import re
 import sys
 
 import numpy as np
@@ -80,6 +83,38 @@ def share(text: str, wl: set) -> float:
     return e / max(n, 1)
 
 
+POSS = re.compile("['\u2019]s$")
+
+
+def english_of() -> dict:
+    """{("sentiment", id) | ("m4c", FLORES index): the item's parallel English sentence}."""
+    from m14_full import flores_forms
+    en = flores_forms()["english"]
+    out = {("sentiment", it["id"]): it["forms"]["english"]["text"] for it in lad.e0b_items()["sentiment"]}
+    out.update({("m4c", i): t for i, t in enumerate(en)})
+    return out
+
+
+def v2_loans(text: str, eng: str, wl: set) -> tuple[list, int]:
+    """v2 (registered 2026-10-23 16:00 IST): Zipf >= 3 list, longer than 3 characters, and present in the parallel
+    English sentence as the exact token or a simple plural/possessive variant. Returns (matched words, word count)."""
+    E = set()
+    for w in es.words(eng):
+        E |= {w.lower(), POSS.sub("", w.lower())}
+    words, hits = es.words(text), []
+    for w in words:
+        w = POSS.sub("", w.lower())
+        if len(w) > 3 and w in wl and (w in E or w + "s" in E or w + "es" in E or (w.endswith("s") and w[:-1] in E)
+                                       or (w.endswith("es") and w[:-2] in E)):
+            hits.append(w)
+    return hits, len(words)
+
+
+def v2_share(text: str, eng: str, wl: set) -> float:
+    h, n = v2_loans(text, eng, wl)
+    return len(h) / max(n, 1)
+
+
 # ---------------------------------------------------------------- option 2
 
 def retrieval_outcomes(m: str, lang: str, form: str, ids_d: list) -> tuple[np.ndarray, np.ndarray]:
@@ -135,7 +170,8 @@ def opt2_items(nat: dict) -> tuple[dict, pd.DataFrame, pd.DataFrame]:
     return {"D_ret": D_ret}, K, H
 
 
-def do_opt2() -> int:
+def do_opt2(defn: str = "v1") -> int:
+    """defn "v1": the registered option 2; "v2": post hoc recomputation with the v2 loan measure (no verdict)."""
     gate = json.load(open(hh.OUT / "gate.json"))
     del gate["provenance"]
     nat = hh.clean_natural()
@@ -144,7 +180,12 @@ def do_opt2() -> int:
     D_ret = S["D_ret"]
     wl = es.wordlists()["zipf>=3"]
     texts = hh.natural_pairs(nat)
-    delta = lambda key: share(texts[key][1], wl) - share(texts[key][0], wl)  # noqa: E731
+    if defn == "v1":
+        delta = lambda key: share(texts[key][1], wl) - share(texts[key][0], wl)  # noqa: E731
+    else:
+        eng = english_of()
+        delta = lambda key: v2_share(texts[key][1], eng[key], wl) - v2_share(texts[key][0], eng[key], wl)  # noqa: E731
+    sfx = "" if defn == "v1" else "_v2_posthoc"
     rows, sens, terts = [], [], []
     for m in hh.MODELS:
         per = {}
@@ -185,27 +226,25 @@ def do_opt2() -> int:
         R.loc[g.index, "p_holm"] = multipletests(g.p, method="holm")[1]
     R["positive"] = R.counted & (R.p_holm < 0.05) & (R.intercept > 0)
     R["ci_holm_disagree"] = R.counted & (R.positive != [c[0] > 0 for c in R.intercept_ci])
-    R.to_csv(OUT / "opt2.csv", index=False)
-    pd.DataFrame(sens).to_csv(OUT / "opt2_sensitivity.csv", index=False)
-    pd.DataFrame(terts).to_csv(OUT / "opt2_tertiles.csv", index=False)
+    R.to_csv(OUT / f"opt2{sfx}.csv", index=False)
+    pd.DataFrame(sens).to_csv(OUT / f"opt2{sfx}_sensitivity.csv", index=False)
+    pd.DataFrame(terts).to_csv(OUT / f"opt2{sfx}_tertiles.csv", index=False)
     v = hh.h1_rule(R)
     for s in v:
         v[s]["verdict"] = v[s]["verdict"].replace("effect (H1 supported)", "effect at equal English share")
-    write_json(OUT / "opt2_verdict.json", v, {"registered": "RESULTS.md 2026-10-23 15:44 IST (H1-LF option 2, "
-                                                            "follow-up registered post H1)"})
+        if defn != "v1":
+            v[s]["rule_outcome_descriptive"] = v[s].pop("verdict")
+    write_json(OUT / f"opt2{sfx}_verdict.json", v,
+               {"registered": "RESULTS.md 2026-10-23 15:44 IST (H1-LF option 2, follow-up registered post H1)"
+                if defn == "v1" else "RESULTS.md 2026-10-23 16:00 IST (v2; post hoc, no verdict)"})
+    if defn != "v1":
+        return 0
     print(json.dumps({s: (x["n_positive"], x["needed"], x["verdict"]) for s, x in v.items()}), flush=True)
     return 0
 
 
-def do_itrans() -> int:
-    nat = hh.clean_natural()
-    S, K, H = opt2_items(nat)
-    wl = es.wordlists()["zipf>=3"]
-    from m14_full import flores_forms
-    kn_fl, hi_fl = flores_forms()["itrans"], hh.flores_hi()
-    kn_se = {it["id"]: it["forms"]["itrans"]["text"] for it in lad.e0b_items()["sentiment"]}
-    hi_se = {it["id"]: it["forms"]["itrans"]["text"] for it in hh.sentiment_items()}
-    hi_it = lambda i: hh.forms_of(hi_fl[i])["itrans"]  # noqa: E731
+def h1_sets(S: dict, K: pd.DataFrame, H: pd.DataFrame) -> dict:
+    """The H1 item sets as keys: retrieval test half of D, sentiment and SIB items clean in both languages."""
     _, te, _ = hh.retrieval_split(S["D_ret"])
     sets = {"retrieval": [("m4c", S["D_ret"][p]) for p in te]}
     for t, kn_nat in (("sentiment", "natural"), ("sib", "natural257")):
@@ -213,10 +252,36 @@ def do_itrans() -> int:
         h = H[(H.model == "sarvam-1") & (H.task == t)].pivot_table(index="id", columns="form", values="correct")
         ok = k.index[k[kn_nat].notna()].intersection(h.index[h["natural"].notna()])
         sets[t] = [(t if t == "sentiment" else "m4c", i) for i in ok]
+    return sets
+
+
+def itrans_texts() -> tuple:
+    from m14_full import flores_forms
+    kn_fl, hi_fl = flores_forms()["itrans"], hh.flores_hi()
+    kn_se = {it["id"]: it["forms"]["itrans"]["text"] for it in lad.e0b_items()["sentiment"]}
+    hi_se = {it["id"]: it["forms"]["itrans"]["text"] for it in hh.sentiment_items()}
+    kn = lambda src, i: kn_se[i] if src == "sentiment" else kn_fl[int(i)]  # noqa: E731
+    hi = lambda src, i: hi_se[i] if src == "sentiment" else hh.forms_of(hi_fl[int(i)])["itrans"]  # noqa: E731
+    return kn, hi
+
+
+def paired(kn: np.ndarray, hi: np.ndarray) -> dict:
+    d = hi - kn
+    bs = d[boot_idx(len(d))].mean(1)
+    return {"n": len(d), "kannada": float(kn.mean()), "hindi": float(hi.mean()), "hindi_minus_kannada": float(d.mean()),
+            "ci": [float(v) for v in np.percentile(bs, [2.5, 97.5])]}
+
+
+def do_itrans() -> int:
+    nat = hh.clean_natural()
+    S, K, H = opt2_items(nat)
+    wl = es.wordlists()["zipf>=3"]
+    sets = h1_sets(S, K, H)
+    kn_t, hi_t = itrans_texts()
     out = {}
     for s, keys in sets.items():
-        kn = np.array([share(kn_se[i] if src == "sentiment" else kn_fl[int(i)], wl) for src, i in keys])
-        hi = np.array([share(hi_se[i] if src == "sentiment" else hi_it(int(i)), wl) for src, i in keys])
+        kn = np.array([share(kn_t(src, i), wl) for src, i in keys])
+        hi = np.array([share(hi_t(src, i), wl) for src, i in keys])
         d = hi - kn
         bs = d[boot_idx(len(d))].mean(1)
         out[s] = {"n": len(d), "kannada_itrans_share": float(kn.mean()), "hindi_itrans_share": float(hi.mean()),
@@ -225,6 +290,62 @@ def do_itrans() -> int:
     write_json(OUT / "itrans_share.json", out, {"registered": "RESULTS.md 2026-10-23 15:44 IST (exploratory note)",
                                                 "status": "exploratory, no verdict"})
     print(json.dumps(out, indent=1), flush=True)
+    return 0
+
+
+def do_v2() -> int:
+    from collections import Counter
+    nat = hh.clean_natural()
+    S, K, H = opt2_items(nat)
+    wl = es.wordlists()["zipf>=3"]
+    sets, eng = h1_sets(S, K, H), english_of()
+    kn_t, hi_t = itrans_texts()
+    check = {}
+    for s in ("retrieval", "sib"):
+        keys = sets[s]
+        r = paired(np.array([v2_share(kn_t(*k), eng[k], wl) for k in keys]),
+                   np.array([v2_share(hi_t(*k), eng[k], wl) for k in keys]))
+        r["within_pm_0.01"] = bool(-0.01 <= r["ci"][0] and r["ci"][1] <= 0.01)
+        check[s] = r
+    check["passed"] = all(check[s]["within_pm_0.01"] for s in ("retrieval", "sib"))
+    write_json(OUT / "v2_check.json", check, {"registered": "RESULTS.md 2026-10-23 16:00 IST (v2 validity check)",
+                                              "rule": "Hindi ITRANS - Kannada ITRANS v2 share, 95% CI within [-0.01, 0.01] "
+                                                      "on retrieval and SIB"})
+    print(json.dumps(check, indent=1), flush=True)
+    if not check["passed"]:
+        print("CHECK FAILED: v2 validity check; v2 is not used", flush=True)
+        return 1
+    # post hoc (no verdict): addendum share comparison, loan-free H1, option 2, sanity list
+    texts = hh.natural_pairs(nat)
+    share_cmp, free = {}, {}
+    for s, keys in sets.items():
+        kn = [v2_loans(texts[k][0], eng[k], wl) for k in keys]
+        hi = [v2_loans(texts[k][1], eng[k], wl) for k in keys]
+        r = paired(np.array([len(h) / max(n, 1) for h, n in kn]), np.array([len(h) / max(n, 1) for h, n in hi]))
+        r["n_loan_free_both"] = int(sum(not a[0] and not b[0] for a, b in zip(kn, hi)))
+        share_cmp[s] = r
+        free[s] = {k[1] for k, a, b in zip(keys, kn, hi) if not a[0] and not b[0]}
+    gate = json.load(open(hh.OUT / "gate.json"))
+    del gate["provenance"]
+    Kc, Hc = hh.calibrated("kannada", ["native", "itrans", "natural", "natural257"]), hh.calibrated("hindi", hh.FORMS + ["natural"])
+    # retrieval: restrict D to items whose natural texts have no v2 loan in either language (split restricted, as H1)
+    nofree = {k[1] for k in texts if k[0] == "m4c" and not v2_loans(texts[k][0], eng[k], wl)[0]
+              and not v2_loans(texts[k][1], eng[k], wl)[0]}
+    D_lf = [i for i in S["D_ret"] if i in nofree]
+    L = hh.h1_table(gate, Kc, Hc, D_lf, {"sentiment": free["sentiment"], "sib": free["sib"]}, check_ladder=False)
+    L[L.comparison == "native-natural"].to_csv(OUT / "h1_loanfree_v2_posthoc.csv", index=False)
+    lf = hh.h1_rule(L)
+    for t in lf:
+        lf[t]["rule_outcome_descriptive"] = lf[t].pop("verdict")
+    top = {}
+    for lg, j in (("kannada", 0), ("hindi", 1)):
+        c = Counter(w for k in texts for w in v2_loans(texts[k][j], eng[k], wl)[0])
+        top[lg] = c.most_common(20)
+    write_json(OUT / "v2_posthoc.json", {"english_share_natural": share_cmp, "loan_free_h1": lf,
+                                         "n_retrieval_D_loan_free": len(D_lf), "top20_v2_words_natural": top},
+               {"registered": "RESULTS.md 2026-10-23 16:00 IST (v2)", "status": "post hoc, no verdict"})
+    do_opt2("v2")
+    print("v2 post hoc written", flush=True)
     return 0
 
 
@@ -332,11 +453,16 @@ def do_analyse1() -> int:
     wl = es.wordlists()["zipf>=3"]
     nk, nh = clean1("kannada"), clean1("hindi")
     both = sorted(set(nk) & set(nh))
-    free = [i for i in both if hh.en_count(nk[i], wl)[0] == 0 and hh.en_count(nh[i], wl)[0] == 0]
+    free_v1 = [i for i in both if hh.en_count(nk[i], wl)[0] == 0 and hh.en_count(nh[i], wl)[0] == 0]
+    eng = english_of()
+    free_v2 = [i for i in both if not v2_loans(nk[i], eng[("m4c", i)], wl)[0] and not v2_loans(nh[i], eng[("m4c", i)], wl)[0]]
+    v2_ok = json.load(open(OUT / "v2_check.json"))["passed"]  # registered 16:00 IST: v2 replaces v1 only if it passed
+    free, primary_def = (free_v2, "v2") if v2_ok else (free_v1, "v1")
     K = pd.concat([scored({"sib": lad.E0C_DIR}, ["native"]), scored({"sib": SCORE1["kannada"]}, [FORM1])])
     H = pd.concat([scored({"sib": hh.SCORE_DIRS["sib"]}, ["native"]), scored({"sib": SCORE1["hindi"]}, [FORM1])])
     rows = []
-    for subset, ids in (("loan_free", free), ("all_clean", both)):
+    for subset, ids in (("loan_free", free), ("loan_free_v1" if v2_ok else "loan_free_v2_unused", free_v1 if v2_ok
+                        else free_v2), ("all_clean", both)):
         for m in lad.COUNT_ACC:
             a = K[K.model == m].pivot_table(index="id", columns="form", values="correct").loc[ids]
             b = H[H.model == m].pivot_table(index="id", columns="form", values="correct").loc[ids]
@@ -354,7 +480,8 @@ def do_analyse1() -> int:
     R.to_csv(OUT / "opt1.csv", index=False)
     g = R[R.subset == "loan_free"]
     pos = int(g.positive.sum())
-    v = {"n_items_loan_free": len(free), "n_items_clean_both": len(both), "n_positive": pos, "needed": 3,
+    v = {"loan_definition": primary_def, "n_items_loan_free": len(free), "n_items_loan_free_v1": len(free_v1),
+         "n_items_loan_free_v2": len(free_v2), "n_items_clean_both": len(both), "n_positive": pos, "needed": 3,
          "verdict": "loan-free effect" if pos >= 3 else "refuted",
          "all_clean_descriptive_n_positive": int(R[R.subset == "all_clean"].positive.sum())}
     write_json(OUT / "opt1_verdict.json", v, {"registered": "RESULTS.md 2026-10-23 15:44 IST (H1-LF option 1, "
@@ -364,5 +491,5 @@ def do_analyse1() -> int:
 
 
 if __name__ == "__main__":
-    sys.exit({"opt2": do_opt2, "itrans": do_itrans, "draft": do_draft,
+    sys.exit({"opt2": do_opt2, "itrans": do_itrans, "v2": do_v2, "draft": do_draft,
               "score": lambda: do_score(*sys.argv[2:4]), "analyse1": do_analyse1}[sys.argv[1]]() or 0)

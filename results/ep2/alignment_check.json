@@ -1,0 +1,99 @@
+{
+  "provenance": {
+    "config": {},
+    "git_commit": "f12603cbfe340aa304170f66ac23ec381d940cee-dirty",
+    "timestamp_utc": "2026-10-23T10:38:05+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/ep_patching.py",
+      "items"
+    ]
+  },
+  "E-P1": {
+    "gemma4-e2b|sentiment": [
+      18,
+      7
+    ],
+    "gemma4-e2b|sib": [
+      133,
+      59
+    ],
+    "qwen3-1.7b|sentiment": [
+      23,
+      29
+    ],
+    "qwen3-1.7b|sib": [
+      73,
+      70
+    ],
+    "qwen3.5-2b|sentiment": [
+      31,
+      10
+    ],
+    "qwen3.5-2b|sib": [
+      117,
+      52
+    ],
+    "sarvam-1|sentiment": [
+      39,
+      8
+    ],
+    "sarvam-1|sib": [
+      200,
+      51
+    ]
+  },
+  "E-P2": {
+    "gemma4-e2b|sentiment": [
+      41,
+      2
+    ],
+    "gemma4-e2b|sib": [
+      200,
+      39
+    ],
+    "qwen3-1.7b|sentiment": [
+      69,
+      16
+    ],
+    "qwen3-1.7b|sib": [
+      200,
+      31
+    ],
+    "qwen3.5-2b|sentiment": [
+      27,
+      16
+    ],
+    "qwen3.5-2b|sib": [
+      200,
+      43
+    ],
+    "sarvam-1|sentiment": [
+      16,
+      4
+    ],
+    "sarvam-1|sib": [
+      126,
+      65
+    ]
+  },
+  "first_token_distinct": {
+    "qwen3-1.7b": {
+      "items_x_forms_with_shared_first_token": 0
+    },
+    "qwen3.5-2b": {
+      "items_x_forms_with_shared_first_token": 0
+    },
+    "sarvam-1": {
+      "items_x_forms_with_shared_first_token": 0
+    },
+    "gemma4-e2b": {
+      "items_x_forms_with_shared_first_token": 0
+    }
+  },
+  "sib_word_count_mismatch": {
+    "n": 0,
+    "of": 1004
+  }
+}

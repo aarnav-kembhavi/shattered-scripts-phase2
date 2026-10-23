@@ -2503,3 +2503,61 @@ Before every model load in every chain and patching run: check GPU memory with n
 nvidia-smi does not report per-process memory, so the check is: total GPU memory in use ≤ 500 MB before our own load
 (desktop baseline 148 MB); otherwise wait and retry every 5 minutes, logging the used memory and the listed GPU
 processes. Another project's job (C:\PROJECTS\ISM) may be running.
+
+---
+## 2026-10-23 — English-loan measure v2: validity check (registered 16:00 IST)
+`scripts/h1lf.py v2`; `results/h1lf/v2_check.json`. Hindi ITRANS minus Kannada ITRANS v2 share, same ids:
+retrieval (n = 246) −0.0052 [−0.0080, −0.0025]; SIB (n = 256) −0.0063 [−0.0097, −0.0032]. Both CIs lie within
+[−0.01, +0.01]: **check passed**. v2 therefore replaces the registered definition for H1-LF option 1 (the original is
+reported alongside; `h1lf.py analyse1` now does this). Residual Kannada ITRANS matches are loans transliterated from
+Kannada script (v2 share 0.009 Kannada, 0.004 Hindi), so the CI excludes 0 in the Kannada direction while staying in
+the band.
+
+## 2026-10-23 — v2 recomputations (post hoc descriptive, dated, no verdict)
+Outputs `results/h1lf/{v2_posthoc.json, h1_loanfree_v2_posthoc.csv, opt2_v2_posthoc*.csv/json}`.
+- **Sanity list (top 20 v2 words, natural texts).** Kannada: collar, table, home, internet, lens, police, british,
+  august, french, website, play, dark, cooler, buckle, water, star, brush, traffic, video, roman. Hindi: quality,
+  design, police, system, video, sound, content, skin, film, material, control, collar, product, team, italy, japan,
+  airline, show, table, dark. All are English loans or names; the native-word collisions of v1 (mein, aura, ella,
+  matte) are gone.
+- **English share, natural Hindi minus natural Kannada (v2):** retrieval +0.005 [−0.005, +0.015] (v1: +0.040);
+  SIB +0.023 [0.012, 0.034] (v1: +0.050); sentiment +0.084 [0.070, 0.099] (v1: +0.106). Loan-free in both
+  languages: retrieval 97 of 246, SIB 74 of 256, sentiment 21 of 197 (v1: 41 of 246, 31, 6).
+- **Loan-free H1 (v2; rule outcome descriptive):**
+  - retrieval (D = 172 rows, 97 test): rule met, 2 of 3 positive (Qwen3.5 0.485 [0.381, 0.588]; Gemma 4 0.258
+    [0.165, 0.351]; Sarvam-1 0.021 [−0.021, 0.062]);
+  - SIB (n = 74): not met, 1 of 4 positive (Gemma 4 0.270 [0.108, 0.419]); Qwen3.5 0.149 [0.000, 0.297] and Qwen3
+    0.149 [0.000, 0.284], Holm p 0.156; Sarvam-1 0.027;
+  - sentiment (n = 21): not met, 0 of 4.
+- **Option 2 with v2 δ (rule outcome descriptive):** same outcomes as the registered option 2: retrieval met (2 of 3:
+  Qwen3.5 intercept 0.431 [0.363, 0.499], Gemma 4 0.261 [0.205, 0.322]); SIB met (3 of 4: Qwen3 0.149, Qwen3.5 0.140,
+  Gemma 4 0.164, all CIs exclude 0); sentiment not met (2 of 4: Qwen3 0.213, Gemma 4 0.129). Slopes with v2 are
+  positive and their CIs exclude 0 for retrieval (Qwen3.5 1.65, Sarvam-1 0.45, Gemma 4 1.39) and SIB Qwen3 (0.84):
+  items where Hindi carries more real loans show larger Hindi advantages, but the intercept at equal loan share
+  stays positive. δ ≤ 0 for 63% (retrieval), 51% (SIB), 24% (sentiment) of items, so the intercept is not an
+  extrapolation on retrieval and SIB. Continuous-outcome intercepts: CIs exclude 0 for every counted cell except
+  Sarvam-1 SIB (0.144 [−0.058, 0.347]).
+
+## 2026-10-23 — E-P1 and E-P2 pilot gates (registered 16:00 IST)
+`scripts/ep_patching.py`; `results/ep1/{items.json, pilot.json}`, `results/ep2/{items.json, pilot.json,
+alignment_check.json}`. No recovery value was computed. GPU check before each load: 156 MB in use.
+- **Items:** every registered primary/control count reproduces exactly from the stored scores (asserted). After the cap:
+  E-P1 SIB primary Qwen3 73, Qwen3.5 117, Sarvam-1 200 (of 222), Gemma 4 133; E-P2 SIB primary 200 for Qwen3,
+  Qwen3.5 and Gemma 4, Sarvam-1 126.
+- **Verbalizer first tokens** are distinct for every item × form under all four tokenizers: the full-verbalizer fallback
+  is not needed. **SIB word counts:** native = lossy for 1,004 of 1,004 items (no exclusions).
+- **Patch points:** Qwen3.5-2B has 24 layers, so there are 25 points: P = 0 (embedding output), the residual entering
+  each later layer, and P = 24 = the final residual stream after the last layer, before the final norm (the
+  registration's E-P2 "L = N+1").
+- **E-P1 pilot (Qwen3.5-2B, 10 SIB primary items): all checks 10/10.** (1) all text positions patched at P = 0
+  reproduce M_a: |Δ| = 0.0000 on all 10; (2) hooks without a patch reproduce M_c: |Δ| = 0.0000; (3) (a) and (c)
+  aligned with equal per-word piece counts and identical decoded words, 10/10. Time: 0.134 s (final), 0.126 s (all) per
+  patched forward; 920 items over 4 models, 2 schemes, 25 points: about 1.7 h at Qwen3.5 speed.
+- **E-P2 pilot (Qwen3.5-2B, 10 SIB primary items): all checks 10/10.** (1) readout patch at the final point
+  reproduces M_native: |Δ| = 0.0000; (2) no patch reproduces M_lossy: |Δ| = 0.0000; (3) equal word counts and every
+  word-final pair decodes to word k in both, 10/10. Time: 0.103 s (word), 0.105 s (read) per patched forward; 1,095
+  items: about 1.6 h at Qwen3.5 speed.
+- **Timing caveat:** Qwen3.5 runs its linear-attention layers on the reference PyTorch fallback (`causal_conv1d` and
+  `flash-linear-attention` are not installed); layer counts differ across models (the point count scales the run).
+  The estimates are from Qwen3.5 only.
+- **Stopped at both gates; no full run started.**

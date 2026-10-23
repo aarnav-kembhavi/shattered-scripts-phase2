@@ -1,0 +1,261 @@
+{
+  "provenance": {
+    "config": {
+      "registered": "RESULTS.md 2026-10-23 16:00 IST (v2)",
+      "status": "post hoc, no verdict"
+    },
+    "git_commit": "f12603cbfe340aa304170f66ac23ec381d940cee-dirty",
+    "timestamp_utc": "2026-10-23T10:35:44+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/h1lf.py",
+      "v2"
+    ]
+  },
+  "english_share_natural": {
+    "retrieval": {
+      "n": 246,
+      "kannada": 0.0525072355498768,
+      "hindi": 0.05763424526074243,
+      "hindi_minus_kannada": 0.005127009710865629,
+      "ci": [
+        -0.00462736535085937,
+        0.01469192508119882
+      ],
+      "n_loan_free_both": 97
+    },
+    "sentiment": {
+      "n": 197,
+      "kannada": 0.05380297738372687,
+      "hindi": 0.13765497275986627,
+      "hindi_minus_kannada": 0.08385199537613941,
+      "ci": [
+        0.06956951713221658,
+        0.09858163454694854
+      ],
+      "n_loan_free_both": 21
+    },
+    "sib": {
+      "n": 256,
+      "kannada": 0.053979289032881,
+      "hindi": 0.07693403977689925,
+      "hindi_minus_kannada": 0.022954750744018256,
+      "ci": [
+        0.01223648609810336,
+        0.03368763970983716
+      ],
+      "n_loan_free_both": 74
+    }
+  },
+  "loan_free_h1": {
+    "retrieval": {
+      "n_counted": 3,
+      "needed": 2,
+      "n_positive": 2,
+      "counted_models": [
+        "qwen3.5-2b",
+        "sarvam-1",
+        "gemma4-e2b"
+      ],
+      "n_items": 97,
+      "ci_holm_disagreements": [],
+      "rule_outcome_descriptive": "effect (H1 supported)"
+    },
+    "sentiment": {
+      "n_counted": 4,
+      "needed": 3,
+      "n_positive": 0,
+      "counted_models": [
+        "qwen3.5-2b",
+        "sarvam-1",
+        "gemma4-e2b",
+        "qwen3-1.7b"
+      ],
+      "n_items": 21,
+      "ci_holm_disagreements": [],
+      "rule_outcome_descriptive": "refuted"
+    },
+    "sib": {
+      "n_counted": 4,
+      "needed": 3,
+      "n_positive": 1,
+      "counted_models": [
+        "qwen3.5-2b",
+        "sarvam-1",
+        "gemma4-e2b",
+        "qwen3-1.7b"
+      ],
+      "n_items": 74,
+      "ci_holm_disagreements": [],
+      "rule_outcome_descriptive": "refuted"
+    }
+  },
+  "n_retrieval_D_loan_free": 172,
+  "top20_v2_words_natural": {
+    "kannada": [
+      [
+        "collar",
+        5
+      ],
+      [
+        "table",
+        4
+      ],
+      [
+        "home",
+        4
+      ],
+      [
+        "internet",
+        4
+      ],
+      [
+        "lens",
+        4
+      ],
+      [
+        "police",
+        4
+      ],
+      [
+        "british",
+        4
+      ],
+      [
+        "august",
+        4
+      ],
+      [
+        "french",
+        4
+      ],
+      [
+        "website",
+        4
+      ],
+      [
+        "play",
+        3
+      ],
+      [
+        "dark",
+        3
+      ],
+      [
+        "cooler",
+        3
+      ],
+      [
+        "buckle",
+        3
+      ],
+      [
+        "water",
+        3
+      ],
+      [
+        "star",
+        3
+      ],
+      [
+        "brush",
+        3
+      ],
+      [
+        "traffic",
+        3
+      ],
+      [
+        "video",
+        3
+      ],
+      [
+        "roman",
+        3
+      ]
+    ],
+    "hindi": [
+      [
+        "quality",
+        13
+      ],
+      [
+        "design",
+        10
+      ],
+      [
+        "police",
+        9
+      ],
+      [
+        "system",
+        8
+      ],
+      [
+        "video",
+        8
+      ],
+      [
+        "sound",
+        8
+      ],
+      [
+        "content",
+        7
+      ],
+      [
+        "skin",
+        7
+      ],
+      [
+        "film",
+        7
+      ],
+      [
+        "material",
+        6
+      ],
+      [
+        "control",
+        6
+      ],
+      [
+        "collar",
+        6
+      ],
+      [
+        "product",
+        6
+      ],
+      [
+        "team",
+        6
+      ],
+      [
+        "italy",
+        6
+      ],
+      [
+        "japan",
+        6
+      ],
+      [
+        "airline",
+        6
+      ],
+      [
+        "show",
+        5
+      ],
+      [
+        "table",
+        5
+      ],
+      [
+        "dark",
+        5
+      ]
+    ]
+  }
+}
