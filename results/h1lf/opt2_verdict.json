@@ -1,0 +1,56 @@
+{
+  "provenance": {
+    "config": {
+      "registered": "RESULTS.md 2026-10-23 15:44 IST (H1-LF option 2, follow-up registered post H1)"
+    },
+    "git_commit": "6fa02b35dadb0e7f7d7e021b9430bfbaca245de2-dirty",
+    "timestamp_utc": "2026-10-23T10:21:57+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/h1lf.py",
+      "opt2"
+    ]
+  },
+  "retrieval": {
+    "n_counted": 3,
+    "needed": 2,
+    "n_positive": 2,
+    "counted_models": [
+      "qwen3.5-2b",
+      "sarvam-1",
+      "gemma4-e2b"
+    ],
+    "n_items": 246,
+    "verdict": "effect at equal English share",
+    "ci_holm_disagreements": []
+  },
+  "sentiment": {
+    "n_counted": 4,
+    "needed": 3,
+    "n_positive": 2,
+    "counted_models": [
+      "qwen3.5-2b",
+      "sarvam-1",
+      "gemma4-e2b",
+      "qwen3-1.7b"
+    ],
+    "n_items": 197,
+    "verdict": "refuted",
+    "ci_holm_disagreements": []
+  },
+  "sib": {
+    "n_counted": 4,
+    "needed": 3,
+    "n_positive": 3,
+    "counted_models": [
+      "qwen3.5-2b",
+      "sarvam-1",
+      "gemma4-e2b",
+      "qwen3-1.7b"
+    ],
+    "n_items": 256,
+    "verdict": "effect at equal English share",
+    "ci_holm_disagreements": []
+  }
+}

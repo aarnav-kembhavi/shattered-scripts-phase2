@@ -1,0 +1,52 @@
+{
+  "provenance": {
+    "config": {
+      "registered": "RESULTS.md 2026-10-23 15:44 IST (exploratory note)",
+      "status": "exploratory, no verdict"
+    },
+    "git_commit": "6fa02b35dadb0e7f7d7e021b9430bfbaca245de2",
+    "timestamp_utc": "2026-10-23T10:17:08+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/h1lf.py",
+      "itrans"
+    ]
+  },
+  "retrieval": {
+    "n": 246,
+    "kannada_itrans_share": 0.017770625679426555,
+    "hindi_itrans_share": 0.06668995841147284,
+    "hindi_minus_kannada": 0.04891933273204628,
+    "ci": [
+      0.04118246274619258,
+      0.05674794844815665
+    ],
+    "items_with_any_english_kannada": 55,
+    "items_with_any_english_hindi": 187
+  },
+  "sentiment": {
+    "n": 197,
+    "kannada_itrans_share": 0.013313736104598857,
+    "hindi_itrans_share": 0.06614848390463042,
+    "hindi_minus_kannada": 0.052834747800031556,
+    "ci": [
+      0.04448494126764333,
+      0.061094431725147336
+    ],
+    "items_with_any_english_kannada": 39,
+    "items_with_any_english_hindi": 160
+  },
+  "sib": {
+    "n": 256,
+    "kannada_itrans_share": 0.018945726736091406,
+    "hindi_itrans_share": 0.06928941178436289,
+    "hindi_minus_kannada": 0.050343685048271476,
+    "ci": [
+      0.042356466074938585,
+      0.05821973723911247
+    ],
+    "items_with_any_english_kannada": 62,
+    "items_with_any_english_hindi": 198
+  }
+}

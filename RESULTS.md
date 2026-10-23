@@ -2357,3 +2357,58 @@ same ids (each H1 item set), mean paired difference with bootstrap 95% CI. Repor
 
 ### Gemini queue order
 K3b (Kannada, running) → H1-LF option 1 drafts → K3b-hi.
+
+---
+## 2026-10-23 — H1-LF option 2 results (follow-up registered post H1, 15:44 IST)
+Script `scripts/h1lf.py opt2`; outputs `results/h1lf/{opt2.csv, opt2_verdict.json, opt2_sensitivity.csv,
+opt2_tertiles.csv}`. Check passed: the binary d_i reproduce the H1 n and d̄ for every model × measure.
+OLS d_i = a + b·δ_i; a = H1 effect at equal English share (as measured; see the diagnostic below).
+
+| measure | model | n | H1 d̄ | intercept a [95% CI] | Holm p | positive | slope b [95% CI] |
+|---|---|---|---|---|---|---|---|
+| retrieval | Qwen3.5 | 246 | 0.439 | 0.418 [0.346, 0.496] | <0.001 | yes | 0.67 [−0.20, 1.39] |
+| | Sarvam-1 | 246 | 0.016 | 0.013 [−0.013, 0.041] | 0.336 | no | 0.11 [−0.17, 0.43] |
+| | Gemma 4 | 246 | 0.268 | 0.248 [0.187, 0.314] | <0.001 | yes | 0.67 [−0.03, 1.29] |
+| SIB | Qwen3 | 256 | 0.168 | 0.156 [0.077, 0.239] | <0.001 | yes | 0.23 [−0.51, 0.96] |
+| | Qwen3.5 | 256 | 0.152 | 0.151 [0.075, 0.226] | 0.001 | yes | 0.04 [−0.60, 0.64] |
+| | Sarvam-1 | 256 | −0.012 | 0.009 [−0.059, 0.076] | 0.814 | no | −0.41 [−1.13, 0.26] |
+| | Gemma 4 | 256 | 0.176 | 0.164 [0.078, 0.246] | 0.001 | yes | 0.24 [−0.34, 0.89] |
+| sentiment | Qwen3 | 197 | 0.208 | 0.195 [0.049, 0.336] | 0.026 | yes | 0.13 [−0.71, 1.12] |
+| | Qwen3.5 | 197 | 0.036 | 0.037 [−0.071, 0.152] | 0.498 | no | −0.02 [−0.80, 0.75] |
+| | Sarvam-1 | 197 | 0.056 | 0.054 [−0.007, 0.119] | 0.163 | no | 0.02 [−0.25, 0.29] |
+| | Gemma 4 | 197 | 0.183 | 0.116 [0.024, 0.215] | 0.042 | yes | 0.63 [−0.05, 1.21] |
+
+δ: mean 0.031 (retrieval), 0.050 (SIB), 0.106 (sentiment); share of items with δ ≤ 0: 0.40, 0.33, 0.17.
+
+**Verdicts (H1 rule):** retrieval **effect at equal English share** (2 of 3, needed 2); SIB **effect at equal English
+share** (3 of 4, needed 3); sentiment **refuted** (2 of 4, needed 3). Every counted slope CI includes 0.
+- **Sensitivity (a), continuous outcomes (no verdict):** intercept CIs exclude 0 for every counted model × measure
+  except Sarvam-1 SIB (0.155 [−0.051, 0.359]); same direction as the binary results.
+- **Sensitivity (b), tertiles of δ (no verdict):** in the lowest tertile (δ ≤ 0.003; Hindi no more "English" than
+  Kannada), mean d is 0.163–0.209 on SIB for Qwen3, Qwen3.5, Gemma 4 (CIs exclude 0) and 0.207–0.402 on retrieval for
+  Qwen3.5, Gemma 4; no monotone trend across tertiles.
+
+## 2026-10-23 — Exploratory note result: English share of ITRANS (registered 15:44 IST; exploratory, no verdict)
+`results/h1lf/itrans_share.json`. Hindi ITRANS minus Kannada ITRANS English share, same ids: retrieval +0.049
+[0.041, 0.057], SIB +0.050 [0.042, 0.058], sentiment +0.053 [0.044, 0.061]. **Not near zero.** Items with any match:
+Hindi 187/246, Kannada 55/246 (retrieval set). Since ITRANS adds no loans, the measure itself flags Hindi words.
+
+## 2026-10-23 — Diagnostic of the English-word measure (post hoc descriptive, dated, no verdict)
+Most frequent matches (wordfreq English, Zipf ≥ 3, longer than 3 characters) on the 493 retrieval rows:
+- **Hindi ITRANS (821 matches):** aura (और, 296), para (पर, 136), kara, karate, vale, jane, hone, hara, anya, mana —
+  native Hindi words.
+- **Hindi natural (1,238):** mein (में, 169), hone, logo, anya, jane, mana, band, agar, bare, karan, vale — native Hindi
+  words — mixed with real loans (police, team, airline, design, million).
+- **Kannada natural (518):** ella, matte, andre, vega, bali, sari (Kannada words) mixed with loans (police, british,
+  website, internet, station). Kannada ITRANS: 133.
+- **Consequence:** the addendum's English-word share and loan-free subset, option 2's δ, and option 1's registered
+  loan-free subset all count native words (in Hindi far more than Kannada) as English. Option 2's intercept is
+  therefore "at equal flagged-word share", not at equal loan share. The registered verdicts above stand as computed;
+  this note qualifies what the measure means. No definition was changed. The option 1 analysis (`analyse1`) is held
+  until Aarnav decides whether to keep or revise the definition (drafts and scoring are queued; they do not depend on
+  it).
+
+### Queue (2026-10-23 16:30 IST)
+`ShatteredScripts_h1lf` (`scripts/h1lf_chain.sh`): waits for K3b (Kannada), then SIB-1,004 drafts both languages, then
+scoring (4 models × 2 languages); stops before `analyse1`. `ShatteredScripts_k3bhi` re-queued to wait for the H1-LF
+drafts marker (it was waiting, no request had been made).
