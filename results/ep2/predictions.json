@@ -1,0 +1,166 @@
+{
+  "provenance": {
+    "config": {
+      "registered": "RESULTS.md 2026-10-23 16:00 IST",
+      "split_seed": 0,
+      "n_boot": 10000
+    },
+    "git_commit": "23c422be54005175cf0e502190bd34e6ab440008",
+    "timestamp_utc": "2026-10-23T20:16:52+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/ep_patching.py",
+      "analyse",
+      "2"
+    ]
+  },
+  "per_model": {
+    "qwen3-1.7b": {
+      "n_layers": 28,
+      "n_items": 200,
+      "n_selection": 100,
+      "n_heldout": 100,
+      "L_star": 11,
+      "heldout_R_word": 0.3708914303618988,
+      "heldout_R_word_ci": [
+        0.29128835770863326,
+        0.45271641072979324
+      ],
+      "P2a_positive": false,
+      "heldout_R_read_at_L_star": 0.020053266489111706,
+      "heldout_R_read_ci": [
+        0.0054593858903426475,
+        0.03450551675569546
+      ],
+      "heldout_word_minus_read": 0.3508381638727871,
+      "heldout_word_minus_read_ci": [
+        0.27292476637466623,
+        0.4303777591371316
+      ],
+      "P2b_positive": true,
+      "L_read_reported": 18,
+      "L_star_word_lt_L_read_reported": true,
+      "control_n": 31,
+      "control_R_at_L_star": 0.46557298527122504,
+      "control_R_ci": [
+        0.300298594649744,
+        0.6436016577920343
+      ],
+      "control_same_sign": true
+    },
+    "qwen3.5-2b": {
+      "n_layers": 24,
+      "n_items": 200,
+      "n_selection": 100,
+      "n_heldout": 100,
+      "L_star": 6,
+      "heldout_R_word": 0.5508817343471929,
+      "heldout_R_word_ci": [
+        0.49480271347476246,
+        0.6037412722270918
+      ],
+      "P2a_positive": false,
+      "heldout_R_read_at_L_star": -0.005015369681281346,
+      "heldout_R_read_ci": [
+        -0.014606551212641733,
+        0.004333012962447943
+      ],
+      "heldout_word_minus_read": 0.5558971040284743,
+      "heldout_word_minus_read_ci": [
+        0.5000834725853198,
+        0.6095706023807879
+      ],
+      "P2b_positive": true,
+      "L_read_reported": 16,
+      "L_star_word_lt_L_read_reported": true,
+      "control_n": 43,
+      "control_R_at_L_star": 0.4122994652406417,
+      "control_R_ci": [
+        0.25797589319700204,
+        0.538723830483607
+      ],
+      "control_same_sign": true
+    },
+    "sarvam-1": {
+      "n_layers": 28,
+      "n_items": 126,
+      "n_selection": 63,
+      "n_heldout": 63,
+      "L_star": 14,
+      "heldout_R_word": 0.47476901208244493,
+      "heldout_R_word_ci": [
+        0.41045694799659005,
+        0.5371601228699581
+      ],
+      "P2a_positive": false,
+      "heldout_R_read_at_L_star": -0.07818052594171998,
+      "heldout_R_read_ci": [
+        -0.11550703934821491,
+        -0.045745585713032645
+      ],
+      "heldout_word_minus_read": 0.5529495380241649,
+      "heldout_word_minus_read_ci": [
+        0.46918551128316494,
+        0.6396396396396395
+      ],
+      "P2b_positive": true,
+      "L_read_reported": 22,
+      "L_star_word_lt_L_read_reported": true,
+      "control_n": 65,
+      "control_R_at_L_star": 0.024806201550387597,
+      "control_R_ci": [
+        -0.20001022494887527,
+        0.18107493193092378
+      ],
+      "control_same_sign": true
+    },
+    "gemma4-e2b": {
+      "n_layers": 35,
+      "n_items": 200,
+      "n_selection": 100,
+      "n_heldout": 100,
+      "L_star": 9,
+      "heldout_R_word": 0.5201953176494198,
+      "heldout_R_word_ci": [
+        0.45041964392444284,
+        0.5895672777867308
+      ],
+      "P2a_positive": false,
+      "heldout_R_read_at_L_star": -0.0019454047130441968,
+      "heldout_R_read_ci": [
+        -0.004203377497400369,
+        0.00028658781738425895
+      ],
+      "heldout_word_minus_read": 0.522140722362464,
+      "heldout_word_minus_read_ci": [
+        0.4522450631254503,
+        0.5914664987402138
+      ],
+      "P2b_positive": true,
+      "L_read_reported": 23,
+      "L_star_word_lt_L_read_reported": true,
+      "control_n": 39,
+      "control_R_at_L_star": 0.546271701310461,
+      "control_R_ci": [
+        0.386944949354477,
+        0.7075474655139404
+      ],
+      "control_same_sign": true
+    }
+  },
+  "verdict": {
+    "P2a": {
+      "n_positive": 0,
+      "needed": 3,
+      "of": 4,
+      "outcome": "refuted"
+    },
+    "P2b": {
+      "n_positive": 4,
+      "needed": 3,
+      "of": 4,
+      "outcome": "confirmed"
+    }
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "provenance": {
+    "config": {
+      "registered": "RESULTS.md 2026-10-23 16:00 IST",
+      "split_seed": 0,
+      "n_boot": 10000
+    },
+    "git_commit": "23c422be54005175cf0e502190bd34e6ab440008",
+    "timestamp_utc": "2026-10-23T17:28:59+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/ep_patching.py",
+      "analyse",
+      "1"
+    ]
+  },
+  "per_model": {
+    "qwen3-1.7b": {
+      "n_layers": 28,
+      "n_items": 73,
+      "n_selection": 36,
+      "n_heldout": 37,
+      "L_star": 5,
+      "heldout_R_final": 0.3737526459026308,
+      "heldout_R_final_ci": [
+        0.21586872403357643,
+        0.555386548795285
+      ],
+      "P1a_positive": false,
+      "P1b_bound": 18,
+      "P1b_positive": true,
+      "heldout_R_all_at_L_star_reported": 0.976716056849108,
+      "control_n": 70,
+      "control_R_at_L_star": 0.34342211460855526,
+      "control_R_ci": [
+        0.244191195355786,
+        0.45086786016724645
+      ],
+      "control_same_sign": true
+    },
+    "qwen3.5-2b": {
+      "n_layers": 24,
+      "n_items": 117,
+      "n_selection": 58,
+      "n_heldout": 59,
+      "L_star": 7,
+      "heldout_R_final": 0.4129137276180141,
+      "heldout_R_final_ci": [
+        0.2842422539920761,
+        0.5332177040014932
+      ],
+      "P1a_positive": false,
+      "P1b_bound": 16,
+      "P1b_positive": true,
+      "heldout_R_all_at_L_star_reported": 0.7932718393922952,
+      "control_n": 52,
+      "control_R_at_L_star": 0.3712797619047619,
+      "control_R_ci": [
+        0.2746310716556832,
+        0.47077739210001535
+      ],
+      "control_same_sign": true
+    },
+    "sarvam-1": {
+      "n_layers": 28,
+      "n_items": 200,
+      "n_selection": 100,
+      "n_heldout": 100,
+      "L_star": 15,
+      "heldout_R_final": 0.4756871035940803,
+      "heldout_R_final_ci": [
+        0.42159682443975494,
+        0.5293479361027988
+      ],
+      "P1a_positive": false,
+      "P1b_bound": 18,
+      "P1b_positive": true,
+      "heldout_R_all_at_L_star_reported": 0.8234672304439745,
+      "control_n": 51,
+      "control_R_at_L_star": 0.44230769230769235,
+      "control_R_ci": [
+        0.2535211267605634,
+        0.6269841269841269
+      ],
+      "control_same_sign": true
+    },
+    "gemma4-e2b": {
+      "n_layers": 35,
+      "n_items": 133,
+      "n_selection": 66,
+      "n_heldout": 67,
+      "L_star": 9,
+      "heldout_R_final": 0.46101155004076017,
+      "heldout_R_final_ci": [
+        0.3778535204905811,
+        0.542191978110641
+      ],
+      "P1a_positive": false,
+      "P1b_bound": 23,
+      "P1b_positive": true,
+      "heldout_R_all_at_L_star_reported": 0.8888244678990657,
+      "control_n": 59,
+      "control_R_at_L_star": 0.3062208240308504,
+      "control_R_ci": [
+        0.22027842468253855,
+        0.3984177137381146
+      ],
+      "control_same_sign": true
+    }
+  },
+  "verdict": {
+    "P1a": {
+      "n_positive": 0,
+      "needed": 3,
+      "of": 4,
+      "outcome": "refuted"
+    },
+    "P1b": {
+      "n_positive": 4,
+      "needed": 3,
+      "of": 4,
+      "outcome": "confirmed"
+    }
+  }
+}

@@ -2568,3 +2568,52 @@ alignment_check.json}`. No recovery value was computed. GPU check before each lo
 - **SIB:** the v2 loan-free subset (n = 74) does not meet the rule, and v2 is a lower bound on loan share, so the SIB
   reading awaits H1-LF option 1.
 - The registered H1 verdicts and the registered H1-LF option 2 verdicts are unchanged.
+
+---
+## 2026-10-24 01:50 IST — E-P1 and E-P2 results (registered 2026-10-23 16:00 IST; full runs approved by Aarnav)
+Chain `scripts/ep_chain.sh` (code at commit 23c422b), 2026-10-23 21:25 → 2026-10-24 01:47 IST, one model load at a
+time; the GPU guard read 147–173 MB in use before every load. **Libraries (logged in every raw file's meta, unchanged
+from earlier Qwen3.5 work):** torch 2.14.1+cu126 (CUDA 12.6), transformers 5.19.0, accelerate 1.15.0, numpy 2.5.3;
+causal_conv1d and flash-linear-attention not installed. Files: `results/ep{1,2}/raw/<model>.json`,
+`results/ep{1,2}/curves.csv`, `results/ep{1,2}/predictions.json`; figures `paper/figures/ep{1,2}_recovery_curves.{pdf,png}`
+(full R(L) curves with bootstrap 95% CIs: SIB primary, SIB control, sentiment primary descriptive).
+- **Integrity:** no item excluded in either experiment (E-P1 alignment / word match; E-P2 equal word counts and
+  decoding). No-patch |Δ| = 0.0 for every model in both experiments. E-P2 readout patch at the final point vs M_native:
+  |Δ| = 0.0 for all four models. E-P1 all pieces at P = 0 vs M_a: |Δ| = 0.0 for Qwen3, Qwen3.5, Sarvam-1; Gemma 4
+  21.96 (registered caveat: its per-layer embeddings follow (c)'s ids, so the patch is partial; logged, not a stop).
+
+### E-P1 (NC1 (a) → (c), SIB primary items; L* from the selection half, R on the held-out half)
+| model | N | n (sel/held) | L* | ⌊2N/3⌋ | held-out R_final(L*) [95% CI] | P1a | P1b | control n, R(L*) [95% CI] |
+|---|---|---|---|---|---|---|---|---|
+| Qwen3-1.7B | 28 | 73 (36/37) | 5 | 18 | 0.374 [0.216, 0.555] | no | yes | 70, 0.343 [0.244, 0.451] |
+| Qwen3.5-2B | 24 | 117 (58/59) | 7 | 16 | 0.413 [0.284, 0.533] | no | yes | 52, 0.371 [0.275, 0.471] |
+| Sarvam-1 | 28 | 200 (100/100) | 15 | 18 | 0.476 [0.422, 0.529] | no | yes | 51, 0.442 [0.254, 0.627] |
+| Gemma 4 E2B | 35 | 133 (66/67) | 9 | 23 | 0.461 [0.378, 0.542] | no | yes | 59, 0.306 [0.220, 0.398] |
+- **P1a: refuted** (0 of 4; ≥ 3 needed). **P1b: confirmed** (4 of 4). **Control (reported):** R(L*) has the same
+  (positive) sign in all four models.
+- Reported, no prediction: held-out R_all(L*) = 0.977 (Qwen3), 0.793 (Qwen3.5), 0.823 (Sarvam-1), 0.889 (Gemma 4).
+
+### E-P2 (native → lossy, SIB primary items; L*_word from the selection half, R on the held-out half)
+| model | N | n (sel/held) | L*_word | held-out R_word [95% CI] | R_read(L*_word) [95% CI] | R_word − R_read [95% CI] | P2a | P2b | control n, R_word(L*) [95% CI] |
+|---|---|---|---|---|---|---|---|---|---|
+| Qwen3-1.7B | 28 | 200 (100/100) | 11 | 0.371 [0.291, 0.453] | 0.020 [0.005, 0.035] | 0.351 [0.273, 0.430] | no | yes | 31, 0.466 [0.300, 0.644] |
+| Qwen3.5-2B | 24 | 200 (100/100) | 6 | 0.551 [0.495, 0.604] | −0.005 [−0.015, 0.004] | 0.556 [0.500, 0.610] | no | yes | 43, 0.412 [0.258, 0.539] |
+| Sarvam-1 | 28 | 126 (63/63) | 14 | 0.475 [0.410, 0.537] | −0.078 [−0.116, −0.046] | 0.553 [0.469, 0.640] | no | yes | 65, 0.025 [−0.200, 0.181] |
+| Gemma 4 E2B | 35 | 200 (100/100) | 9 | 0.520 [0.450, 0.590] | −0.002 [−0.004, 0.0003] | 0.522 [0.452, 0.591] | no | yes | 39, 0.546 [0.387, 0.708] |
+- **P2a: refuted** (0 of 4; ≥ 3 needed; Qwen3.5's lower bound is 0.495, Gemma 4's 0.450). **P2b: confirmed** (4 of 4).
+  **Control (reported):** same (positive) sign in all four models; Sarvam-1's control CI includes 0.
+- Reported, no threshold: L_read (first point with R_read ≥ 0.5 on all items) = 18 (Qwen3), 16 (Qwen3.5), 22
+  (Sarvam-1), 23 (Gemma 4); L*_word < L_read in all four.
+
+### Post hoc descriptive (dated 2026-10-24, no verdict)
+- E-P1: held-out R_final(L*) is below 0.5 in all four models, while patching every piece of every word recovers
+  0.79–0.98 at the same L*: much of the (a)/(c) difference is carried at non-final pieces, which "final" leaves as in
+  (c) (a registered caveat).
+- E-P2: the word-final curve falls to near 0 before the readout curve begins to rise in all four models (figure;
+  `curves.csv`), consistent with the relevant information moving from word positions to the readout position in the
+  middle layers.
+- Discordant-item selection inflates the denominators (registered caveat), so the absolute scale of R is uncertain.
+  Control items (selected the other way) give R(L*) within 0.16 of the held-out primary R in 7 of 8
+  model × experiment cells; the exception is Sarvam-1 in E-P2 (0.025 vs 0.475).
+
+Next: the queue is unchanged (K3b drafts resume after 12:45 IST; then H1-LF option 1 drafts and scoring; then K3b-hi).

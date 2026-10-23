@@ -46,7 +46,8 @@ def curves_figure(exp: int, base=None, name: str | None = None) -> list:
             if m in P:
                 ax.axvline(P[m]["L_star"], color=style.INK_MUTED, linewidth=0.8, linestyle=":")
             n = int(g.n.iloc[0]) if not g.empty else 0
-            ax.text(0.02, 0.97, f"n = {n}", transform=ax.transAxes, va="top", fontsize=8, color=style.INK_MUTED)
+            ax.text(0.98, 0.04, f"n = {n}", transform=ax.transAxes, ha="right", va="bottom", fontsize=8,
+                    color=style.INK_MUTED, bbox=dict(facecolor="white", edgecolor="none", alpha=0.8, pad=1.5))
             if c == 0:
                 ax.set_ylabel(f"{title}\nrecovery R")
     h, lab = next((ax.get_legend_handles_labels() for ax in axes.flat if ax.get_legend_handles_labels()[0]), ([], []))
