@@ -2299,3 +2299,61 @@ native: Qwen 4.78, Qwen3.5 2.18, Sarvam 1.40, Gemma 1.39. ITRANS 2.52–3.29, lo
 full table `results/h_hindi/tokens_per_word.csv`.
 
 **Next:** K3b drafts 276/900 (quota stop; resumes 2026-10-24 12:45 IST), then K3b-hi.
+
+---
+## PRE-REGISTRATION — H1-LF: H1 at equal English-loan content (written 2026-10-23 15:00 IST, Aarnav's design; FOLLOW-UP REGISTERED POST H1: written after the H1 results and the loan-free secondary above were seen, before any H1-LF statistic, script or draft exists)
+The registered H1 verdicts stand unchanged (retrieval effect, SIB effect, sentiment refuted; retrieval and SIB flagged
+"possibly driven by English loans"). H1-LF asks whether the H1 effect survives at equal English-word share. Because it
+was designed after seeing H1, it is a follow-up test, reported as such. Script `scripts/h1lf.py` (written after this
+registration); outputs `results/h1lf/`.
+
+### Option 2 (run now, CPU, existing scores and vectors)
+- **Items and outcomes:** the H1 item sets and the same binary outcomes as H1 (retrieval hit at the train-half best
+  layer, n = 246 test items; SIB n = 256; sentiment n = 197; calibrated primary rule), per counted model × measure
+  (same counted models as H1).
+- **Per item:** d_i = (Kannada native − natural)_i − (Hindi native − natural)_i (linear probability);
+  δ_i = Hindi natural English share − Kannada natural English share (the addendum definition: lowercased
+  `english_share.words()`, words longer than 3 characters in the wordfreq English list with Zipf ≥ 3; share = English
+  words / words).
+- **Model:** OLS d_i = a + b·δ_i. **Primary statistic: the intercept a** (H1 effect at equal English share), 95% item
+  bootstrap CI (10,000; seed 0; percentile). Slope b reported with its CI.
+- **Significance and rule (same as H1):** two-sided bootstrap p for a = 2·min(P(a* ≤ 0), P(a* ≥ 0)), floor 1/10,000;
+  Holm within measure over the counted models; positive if Holm p < 0.05 and a > 0. Effect on a measure if positive in
+  ≥ 2 of 3 counted retrieval models or ≥ 3 of 4 counted accuracy models (same fallback rule). Verdict per measure:
+  "effect at equal English share" or "refuted". No pooled verdict.
+- **Sensitivity (reported, no verdict):**
+  - (a) Continuous outcomes, same regression and bootstrap. Retrieval: at the same chosen layer per language × form,
+    after the same train-mean centering, cos(x_i, e_i) − max_{j≠i} cos(x_i, e_j) over the test set (similarity to the
+    correct English sentence minus the best distractor). Accuracy: gold margin on the scores used for the calibrated
+    primary prediction (avg3-calibrated log-probs, or raw where the English-row fallback applies): s_gold − max over
+    other labels.
+  - (b) δ binned into tertiles (within each measure's item set, by rank, ties broken by item order), mean d per bin
+    with bootstrap 95% CI.
+- **Caveats stated now:** δ is mostly positive (Hindi natural has more English), so the intercept partly extrapolates
+  to δ = 0; the fraction of items with δ ≤ 0 is reported. The linear-probability model is a linearity assumption.
+
+### Exploratory note (no verdict): native − ITRANS is a loan-free comparison
+The exploratory native − ITRANS difference of gaps is positive for retrieval in Qwen3.5 (+0.276) and Gemma 4 (+0.329)
+(`results/h_hindi/exploratory_itrans.csv`): the native − ITRANS gap is smaller for Hindi. ITRANS is a deterministic
+transliteration of the native script and adds no English loans, so this bears on the loan account. To confirm the
+English share is near equal, the English share (same definition) of Hindi ITRANS vs Kannada ITRANS is computed on the
+same ids (each H1 item set), mean paired difference with bootstrap 95% CI. Reported, no verdict.
+
+### Option 1 (queued; Gemini quota after K3b, before K3b-hi)
+- **Drafts:** natural romanization for all 1,004 SIB items in both languages with the identical prompts and settings
+  (Kannada `natural_romanization_v1` on the FLORES+ `kan_Knda` native text, as in E0c; Hindi `natural_romanization_hi_v1`
+  on `hin_Deva`; `gemini-3.5-flash-lite`, temperature 0, cached; `defective()`, attempts 2–3, still defective →
+  excluded and counted). The overlap items already drafted are the same API calls and come from the cache.
+  About 1,500 new requests (several days of quota).
+- **Scoring:** the counted accuracy models (Qwen3, Qwen3.5, Sarvam-1, Gemma 4) on natural SIB, all clean items, both
+  languages (form `natural1004`), one model load at a time; calibration and fallback exactly as H1.
+- **Checks (stop the chain on failure):** row counts and no NaN log-probs; on overlap items whose new draft text is
+  identical to the H1 natural text, pred_cal agrees with the H1 natural predictions for ≥ 98% of items per model ×
+  language.
+- **Statistic and rule:** the H1 statistic (d̄, paired bootstrap, Holm over the 4 counted models, positive if Holm
+  p < 0.05 and d̄ > 0, effect if ≥ 3 of 4) on the **loan-free subset of all 1,004**: items clean in both languages
+  with zero English words longer than 3 characters (Zipf ≥ 3) in both natural texts. n reported. Verdict: "loan-free
+  effect" or "refuted". The same statistic on all clean 1,004 items is reported descriptively.
+
+### Gemini queue order
+K3b (Kannada, running) → H1-LF option 1 drafts → K3b-hi.
