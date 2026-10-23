@@ -2301,7 +2301,7 @@ full table `results/h_hindi/tokens_per_word.csv`.
 **Next:** K3b drafts 276/900 (quota stop; resumes 2026-10-24 12:45 IST), then K3b-hi.
 
 ---
-## PRE-REGISTRATION — H1-LF: H1 at equal English-loan content (written 2026-10-23 15:00 IST, Aarnav's design; FOLLOW-UP REGISTERED POST H1: written after the H1 results and the loan-free secondary above were seen, before any H1-LF statistic, script or draft exists)
+## PRE-REGISTRATION — H1-LF: H1 at equal English-loan content (written 2026-10-23 15:44 IST, Aarnav's design; FOLLOW-UP REGISTERED POST H1: written after the H1 results and the loan-free secondary above were seen, before any H1-LF statistic, script or draft exists)
 The registered H1 verdicts stand unchanged (retrieval effect, SIB effect, sentiment refuted; retrieval and SIB flagged
 "possibly driven by English loans"). H1-LF asks whether the H1 effect survives at equal English-word share. Because it
 was designed after seeing H1, it is a follow-up test, reported as such. Script `scripts/h1lf.py` (written after this
