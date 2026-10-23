@@ -2243,3 +2243,59 @@ The native/ITRANS/lossy Hindi runs, tokens per word and the baseline gate alread
 - **Outputs:** `results/k3b_hi/`. Separate verdict from K3b; no pooled verdict.
 - **Limitation stated now:** "th"/"dh" and the h-digraphs mark aspiration and dentals differently in Hindi practice,
   so (2) remains h-digraph use, not aspiration; Hindi Wikipedia text has more English and Perso-Arabic loans.
+
+---
+## 2026-10-23 — H-Hindi results (registered 01:00 IST + 12:05 IST addendum)
+Commit 7b4e869 (code); outputs `results/h_hindi/{gate.json, tokens_per_word.csv, h1.csv, h1_verdict.json,
+exploratory_itrans.csv, h1_secondary.json, h1_loanfree.csv}`. GPU chain finished 14:16 IST; no failed check.
+- **Drafts:** 696/696 Hindi natural drafts; 4 still defective after 3 attempts (flores-114, flores-1465, flores-1606,
+  indicsentiment-test-846), excluded. Item sets: retrieval D = 493 rows (246 test), sentiment n = 197, SIB n = 256.
+- **Gate:** all five models pass (Hindi native sentiment 0.895–0.990, SIB 0.660–0.781, retrieval 0.698–1.000). Counted:
+  retrieval Qwen3.5, Sarvam-1, Gemma 4; accuracy Qwen3, Qwen3.5, Sarvam-1, Gemma 4.
+
+### H1 (d̄ = Kannada native−natural gap minus Hindi gap; 95% paired bootstrap CI; Holm within measure)
+| measure | model | Kn native | Kn natural | Hi native | Hi natural | d̄ [95% CI] | Holm p | positive |
+|---|---|---|---|---|---|---|---|---|
+| retrieval (n=246) | Qwen3.5 | 1.000 | 0.516 | 0.992 | 0.947 | 0.439 [0.370, 0.508] | <0.001 | yes |
+| | Sarvam-1 | 0.988 | 0.919 | 0.992 | 0.939 | 0.016 [−0.012, 0.045] | 0.311 | no |
+| | Gemma 4 | 1.000 | 0.711 | 1.000 | 0.980 | 0.268 [0.207, 0.329] | <0.001 | yes |
+| SIB (n=256) | Qwen3 | 0.668 | 0.371 | 0.660 | 0.531 | 0.168 [0.086, 0.250] | <0.001 | yes |
+| | Qwen3.5 | 0.699 | 0.457 | 0.723 | 0.633 | 0.152 [0.082, 0.223] | <0.001 | yes |
+| | Sarvam-1 | 0.750 | 0.727 | 0.758 | 0.723 | −0.012 [−0.074, 0.051] | 0.772 | no |
+| | Gemma 4 | 0.758 | 0.543 | 0.773 | 0.734 | 0.176 [0.102, 0.246] | <0.001 | yes |
+| sentiment (n=197) | Qwen3 | 0.832 | 0.558 | 0.944 | 0.878 | 0.208 [0.107, 0.310] | 0.001 | yes |
+| | Qwen3.5 | 0.736 | 0.721 | 0.924 | 0.944 | 0.036 [−0.046, 0.122] | 0.426 | no |
+| | Sarvam-1 | 0.954 | 0.893 | 0.970 | 0.964 | 0.056 [0.010, 0.107] | 0.058 | no (Holm decides; raw CI excludes 0) |
+| | Gemma 4 | 0.985 | 0.802 | 0.990 | 0.990 | 0.183 [0.122, 0.244] | <0.001 | yes |
+
+Qwen2.5 (reported, never counted): retrieval −0.431, SIB −0.211, sentiment 0.056.
+
+**Verdicts (registered rule):**
+- **Retrieval: effect (H1 supported)**, 2 of 3 positive (needed 2).
+- **SIB: effect (H1 supported)**, 3 of 4 positive (needed 3).
+- **Sentiment: refuted**, 2 of 4 positive (needed 3). Hindi native sentiment is near ceiling (0.924–0.990); per the
+  addendum, sentiment is reported with the ceiling caveat and H1 is interpreted mainly from SIB and retrieval.
+- Sarvam-1 is not positive on any measure: its Kannada natural gap is already small (retrieval 0.069, SIB 0.023).
+
+### Secondary (addendum item 3; no separate verdict)
+- **(a) English-word share, Hindi natural minus Kannada natural (same ids):** retrieval items 0.104 vs 0.064, +0.040
+  [0.031, 0.049]; SIB 0.119 vs 0.069, +0.050 [0.037, 0.063]; sentiment 0.178 vs 0.073, +0.106 [0.089, 0.122]. Natural
+  Hindi contains more English words than natural Kannada on every item set.
+- **(b) Loan-free H1** (items with zero English words in both languages): retrieval n = 41 test items, 1 of 3 positive
+  (Gemma 4, d̄ 0.171 [0.073, 0.293]; Qwen3.5 0.195 [0.024, 0.366], Holm p 0.061); SIB n = 31, 1 of 4 positive (Gemma 4,
+  0.355 [0.129, 0.548]); sentiment n = 6, 0 of 4. Rule outcome (descriptive): not met on any measure.
+- **Registered interpretation applies:** H1 holds on retrieval and SIB on the full set but not on the loan-free set, so
+  both are reported as **possibly driven by English loans**. The loan-free sets are small (41, 31, 6 items), so the
+  loan-free outcome is low-powered; d̄ stays positive for 7 of 7 counted retrieval/SIB models (4 of 7 CIs exclude 0
+  before Holm). These are stated, not used to override the registered reading.
+
+### Exploratory native − ITRANS (no prediction)
+Positive (Holm): retrieval Qwen3.5 0.276, Gemma 4 0.329; Sarvam-1 retrieval −0.122 (Hindi ITRANS gap larger). No
+accuracy model is positive; Sarvam-1 is negative on all three (SIB −0.102, sentiment −0.107, retrieval −0.122),
+Qwen3.5 sentiment −0.142.
+
+### Tokens per word (Hindi; SIB / natural on M4c 496)
+native: Qwen 4.78, Qwen3.5 2.18, Sarvam 1.40, Gemma 1.39. ITRANS 2.52–3.29, lossy 1.90–2.67, natural (M4c) 1.67–2.52;
+full table `results/h_hindi/tokens_per_word.csv`.
+
+**Next:** K3b drafts 276/900 (quota stop; resumes 2026-10-24 12:45 IST), then K3b-hi.

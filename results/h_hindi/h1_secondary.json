@@ -1,0 +1,102 @@
+{
+  "provenance": {
+    "config": {
+      "registered": "RESULTS.md 2026-10-23 12:05 addendum, item 3",
+      "status": "secondary, no separate verdict",
+      "wordlist": "wordfreq en best, Zipf >= 3, words longer than 3 characters, lowercased"
+    },
+    "git_commit": "7b4e869de00e422b1e17f26c6eec9b44b3cc70c7-dirty",
+    "timestamp_utc": "2026-10-23T08:45:39+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/h_hindi.py",
+      "analyse"
+    ]
+  },
+  "english_word_share": {
+    "retrieval": {
+      "n": 493,
+      "kannada_share": 0.0642749235949141,
+      "hindi_share": 0.10443818172343591,
+      "hindi_minus_kannada": 0.04016325812852181,
+      "ci": [
+        0.03140249825517279,
+        0.04883893877081539
+      ],
+      "n_english_free_both": 67
+    },
+    "sentiment": {
+      "n": 197,
+      "kannada_share": 0.07262916104660293,
+      "hindi_share": 0.1781649191615365,
+      "hindi_minus_kannada": 0.10553575811493358,
+      "ci": [
+        0.08946535560558928,
+        0.12197336722918936
+      ],
+      "n_english_free_both": 6
+    },
+    "sib": {
+      "n": 256,
+      "kannada_share": 0.06906919966325174,
+      "hindi_share": 0.11919288958197771,
+      "hindi_minus_kannada": 0.05012368991872598,
+      "ci": [
+        0.03702615893214939,
+        0.06313080178208379
+      ],
+      "n_english_free_both": 31
+    }
+  },
+  "loan_free_h1": {
+    "retrieval": {
+      "n_counted": 3,
+      "needed": 2,
+      "n_positive": 1,
+      "counted_models": [
+        "qwen3.5-2b",
+        "sarvam-1",
+        "gemma4-e2b"
+      ],
+      "n_items": 41,
+      "ci_holm_disagreements": [
+        "qwen3.5-2b"
+      ],
+      "rule_outcome_descriptive": "refuted",
+      "flag": "possibly driven by English loans"
+    },
+    "sentiment": {
+      "n_counted": 4,
+      "needed": 3,
+      "n_positive": 0,
+      "counted_models": [
+        "qwen3.5-2b",
+        "sarvam-1",
+        "gemma4-e2b",
+        "qwen3-1.7b"
+      ],
+      "n_items": 6,
+      "ci_holm_disagreements": [
+        "qwen3-1.7b"
+      ],
+      "rule_outcome_descriptive": "refuted",
+      "flag": null
+    },
+    "sib": {
+      "n_counted": 4,
+      "needed": 3,
+      "n_positive": 1,
+      "counted_models": [
+        "qwen3.5-2b",
+        "sarvam-1",
+        "gemma4-e2b",
+        "qwen3-1.7b"
+      ],
+      "n_items": 31,
+      "ci_holm_disagreements": [],
+      "rule_outcome_descriptive": "refuted",
+      "flag": "possibly driven by English loans"
+    }
+  }
+}

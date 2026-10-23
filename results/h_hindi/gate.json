@@ -1,0 +1,186 @@
+{
+  "provenance": {
+    "config": {
+      "registered": "RESULTS.md 2026-10-23 (H-Hindi)",
+      "rule": "fixed before data"
+    },
+    "git_commit": "0a6e64ccd76dc32bbfd1145d74bf3e7f89047266-dirty",
+    "timestamp_utc": "2026-10-22T22:49:46+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/h_hindi.py",
+      "gate"
+    ]
+  },
+  "qwen2.5-1.5b": {
+    "sentiment": {
+      "n": 200,
+      "acc": 0.895,
+      "ci": [
+        0.85,
+        0.935
+      ],
+      "chance": 0.5,
+      "above_chance": true
+    },
+    "sib": {
+      "n": 1004,
+      "acc": 0.6603585657370518,
+      "ci": [
+        0.6314741035856574,
+        0.6902390438247012
+      ],
+      "chance": 0.14285714285714285,
+      "above_chance": true
+    },
+    "retrieval": {
+      "n_test": 248,
+      "unmapped_test": 0.6975806451612904,
+      "ci": [
+        0.6410282254219055,
+        0.7540322542190552
+      ]
+    },
+    "counts_accuracy": true,
+    "counts_retrieval": true,
+    "counted_h1_accuracy": false,
+    "counted_h1_retrieval": false
+  },
+  "qwen3.5-2b": {
+    "sentiment": {
+      "n": 200,
+      "acc": 0.925,
+      "ci": [
+        0.885,
+        0.96
+      ],
+      "chance": 0.5,
+      "above_chance": true
+    },
+    "sib": {
+      "n": 1004,
+      "acc": 0.7191235059760956,
+      "ci": [
+        0.6902390438247012,
+        0.7470119521912351
+      ],
+      "chance": 0.14285714285714285,
+      "above_chance": true
+    },
+    "retrieval": {
+      "n_test": 248,
+      "unmapped_test": 0.9919354838709677,
+      "ci": [
+        0.9798387289047241,
+        1.0
+      ]
+    },
+    "counts_accuracy": true,
+    "counts_retrieval": true,
+    "counted_h1_accuracy": true,
+    "counted_h1_retrieval": true
+  },
+  "sarvam-1": {
+    "sentiment": {
+      "n": 200,
+      "acc": 0.97,
+      "ci": [
+        0.945,
+        0.99
+      ],
+      "chance": 0.5,
+      "above_chance": true
+    },
+    "sib": {
+      "n": 1004,
+      "acc": 0.7808764940239044,
+      "ci": [
+        0.7559760956175299,
+        0.8057768924302788
+      ],
+      "chance": 0.14285714285714285,
+      "above_chance": true
+    },
+    "retrieval": {
+      "n_test": 248,
+      "unmapped_test": 0.9919354838709677,
+      "ci": [
+        0.9798387289047241,
+        1.0
+      ]
+    },
+    "counts_accuracy": true,
+    "counts_retrieval": true,
+    "counted_h1_accuracy": true,
+    "counted_h1_retrieval": true
+  },
+  "gemma4-e2b": {
+    "sentiment": {
+      "n": 200,
+      "acc": 0.99,
+      "ci": [
+        0.975,
+        1.0
+      ],
+      "chance": 0.5,
+      "above_chance": true
+    },
+    "sib": {
+      "n": 1004,
+      "acc": 0.7739043824701195,
+      "ci": [
+        0.74800796812749,
+        0.798804780876494
+      ],
+      "chance": 0.14285714285714285,
+      "above_chance": true
+    },
+    "retrieval": {
+      "n_test": 248,
+      "unmapped_test": 1.0,
+      "ci": [
+        1.0,
+        1.0
+      ]
+    },
+    "counts_accuracy": true,
+    "counts_retrieval": true,
+    "counted_h1_accuracy": true,
+    "counted_h1_retrieval": true
+  },
+  "qwen3-1.7b": {
+    "sentiment": {
+      "n": 200,
+      "acc": 0.945,
+      "ci": [
+        0.91,
+        0.975
+      ],
+      "chance": 0.5,
+      "above_chance": true
+    },
+    "sib": {
+      "n": 1004,
+      "acc": 0.6912350597609562,
+      "ci": [
+        0.6623256972111554,
+        0.7191235059760956
+      ],
+      "chance": 0.14285714285714285,
+      "above_chance": true
+    },
+    "retrieval": {
+      "n_test": 248,
+      "unmapped_test": 0.8709677419354839,
+      "ci": [
+        0.8266128897666931,
+        0.9112903475761414
+      ]
+    },
+    "counts_accuracy": true,
+    "counts_retrieval": true,
+    "counted_h1_accuracy": true,
+    "counted_h1_retrieval": false
+  }
+}
