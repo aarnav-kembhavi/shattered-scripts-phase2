@@ -2408,7 +2408,7 @@ Most frequent matches (wordfreq English, Zipf ≥ 3, longer than 3 characters) o
   until Aarnav decides whether to keep or revise the definition (drafts and scoring are queued; they do not depend on
   it).
 
-### Queue (2026-10-23 16:30 IST)
+### Queue (2026-10-23 15:50 IST)
 `ShatteredScripts_h1lf` (`scripts/h1lf_chain.sh`): waits for K3b (Kannada), then SIB-1,004 drafts both languages, then
 scoring (4 models × 2 languages); stops before `analyse1`. `ShatteredScripts_k3bhi` re-queued to wait for the H1-LF
 drafts marker (it was waiting, no request had been made).
