@@ -5,7 +5,9 @@ Usage: python scripts/h1lf.py opt2      (CPU: intercept of d_i on English-share 
        python scripts/h1lf.py itrans    (CPU: English share of Hindi vs Kannada ITRANS on the H1 item sets)
        python scripts/h1lf.py draft     (API: natural drafts for all 1,004 SIB items, both languages; exit 3 on a quota
                                          stop, re-run to continue)
-       python scripts/h1lf.py score     (GPU: counted accuracy models on natural SIB 1,004, both languages)
+       python scripts/h1lf.py score <model> <kannada|hindi>  (GPU: one counted model x language on natural SIB
+                                              1,004; one process per load so the chain checks the GPU before each)
+       python scripts/h1lf.py score check    (CPU: row counts and the reproduction check over all four models)
        python scripts/h1lf.py analyse1  (CPU: H1 on the loan-free subset of the 1,004)
 Outputs: results/h1lf/{opt2.csv, opt2_verdict.json, opt2_sensitivity.csv, opt2_tertiles.csv, itrans_share.json,
          scores/{kannada,hindi}/, sib1004_drafts.DONE, opt1.csv, opt1_verdict.json};
@@ -278,22 +280,30 @@ def clean1(lang: str) -> dict:
     return {int(k.split("-")[1]): r["natural"] for k, r in load_drafts(lang).items() if not r["defective"]}
 
 
-def do_score() -> int:
+def do_score(which: str, only: str | None = None) -> int:
     assert DONE.exists(), "SIB-1004 drafts are not complete"
+    assert which == "check" or which in lad.COUNT_ACC, which
     base = {"kannada": {int(it["id"]): it for it in lad.e0c_items()["sib"]},
             "hindi": {int(it["id"]): it for it in hh.sib_items()}}
     for lang in LANGS:
+        if only and lang != only:
+            continue
         nat = clean1(lang)
         items = [{"task": "sib", "id": i, "label": it["label"],
                   "forms": {"native": it["forms"]["native"], FORM1: {"text": nat[i]}}}
                  for i, it in sorted(base[lang].items()) if i in nat]
         SCORE1[lang].mkdir(parents=True, exist_ok=True)
         for m in lad.COUNT_ACC:
-            e0b.score_model(m, {"sib": items}, [FORM1], SCORE1[lang])
+            if which != "check":
+                if m == which:
+                    e0b.score_model(m, {"sib": items}, [FORM1], SCORE1[lang])
+                continue
             x = pd.read_parquet(SCORE1[lang] / f"{m}__{FORM1}.parquet")
             if len(x) != len(items) or x.logprobs.map(lambda v: np.isnan(np.asarray(v)).any()).any():
                 print(f"CHECK FAILED: {lang}/{m} has {len(x)} rows (expected {len(items)}) or NaN log-probs", flush=True)
                 return 1
+    if which != "check":
+        return 0
     # reproduction check: overlap items with identical text agree with the H1 natural predictions
     nat_h1 = {"kannada": {it["id"]: it["forms"]["natural257"]["text"] for it in lad.sib257_items()["sib"]},
               "hindi": {int(k.split("-")[1]): v for k, v in hh.clean_natural().items() if k.startswith("flores-")}}
@@ -354,5 +364,5 @@ def do_analyse1() -> int:
 
 
 if __name__ == "__main__":
-    sys.exit({"opt2": do_opt2, "itrans": do_itrans, "draft": do_draft, "score": do_score,
-              "analyse1": do_analyse1}[sys.argv[1]]() or 0)
+    sys.exit({"opt2": do_opt2, "itrans": do_itrans, "draft": do_draft,
+              "score": lambda: do_score(*sys.argv[2:4]), "analyse1": do_analyse1}[sys.argv[1]]() or 0)

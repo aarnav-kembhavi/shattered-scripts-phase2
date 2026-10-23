@@ -45,3 +45,16 @@ wait_ram() {  # wait_ram <GB> : before any model load (RAM is the binding constr
   local f; f=$(free_gb | tr -d '\r')
   while [ "$f" -lt "$1" ]; do st WAITING "free RAM ${f} GB < $1 GB needed for a model load"; sleep "$HB"; f=$(free_gb | tr -d '\r'); done
 }
+
+gpu_used_mb() { nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits | head -1 | tr -d '\r '; }
+
+wait_gpu() {  # before every model load (rule of 2026-10-23): total GPU memory in use must be <= 500 MB (under WDDM
+  # nvidia-smi has no per-process memory, so anything above the desktop baseline is another process); retry every 5 min
+  local u; u=$(gpu_used_mb)
+  while [ -z "$u" ] || [ "$u" -gt 500 ]; do
+    local apps; apps=$(nvidia-smi --query-compute-apps=pid,process_name --format=csv,noheader | tr '\r\n' '  ')
+    echo "$(date '+%F %T') wait_gpu: ${u:-?} MB in use > 500 MB; GPU processes: $apps" >> "$LOG"
+    st WAITING "GPU busy: ${u:-?} MB in use by another process (> 500 MB); retry in 5 min"
+    sleep 300; u=$(gpu_used_mb)
+  done
+}

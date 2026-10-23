@@ -23,6 +23,9 @@ for i in $(seq 0 8); do
   wait_until "$(next_reset)" "SIB-1004 drafts: Gemini quota stop; resume after the next reset"
 done
 [ -f results/h1lf/sib1004_drafts.DONE ] || fail "SIB-1004 drafts finished without the DONE marker"
-wait_ram 8
-run_hb "scoring natural SIB 1,004 (4 models x 2 languages)" $PY -u scripts/h1lf.py score || fail "score exited $?"
+for m in qwen3-1.7b qwen3.5-2b sarvam-1 gemma4-e2b; do for lg in kannada hindi; do  # one process per model load
+  wait_ram 8; wait_gpu
+  run_hb "scoring natural SIB 1,004, $m $lg" $PY -u scripts/h1lf.py score $m $lg || fail "score $m $lg exited $?"
+done; done
+run_hb "scoring checks (rows, reproduction)" $PY -u scripts/h1lf.py score check || fail "score check exited $?"
 st DONE "drafts and scores finished at $(date '+%F %T %Z'); analyse1 held for Aarnav (English-word definition)"

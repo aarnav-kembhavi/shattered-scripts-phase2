@@ -9,9 +9,9 @@ cd "$(dirname "$0")/.."
 STATUS=results/CHAIN_STATUS_HGPU.md; TITLE="H-Hindi GPU chain status"; LOG=results/h_gpu.log
 . scripts/chainlib.sh
 run_hb "data check" $PY -u scripts/h_hindi.py check || fail "data check failed (exit $?)"
-wait_ram 8
+wait_ram 8; wait_gpu
 run_hb "forward native/itrans/lossy (5 models)" $PY -u scripts/h_hindi.py forward || fail "forward exited $?"
-wait_ram 8
+wait_ram 8; wait_gpu
 run_hb "scoring native/itrans/lossy (5 models)" $PY -u scripts/h_hindi.py score || fail "score exited $?"
 run_hb "tokens per word" $PY -u scripts/h_hindi.py tpw || fail "tpw exited $?"
 run_hb "baseline gate" $PY -u scripts/h_hindi.py gate || fail "gate exited $?"
@@ -20,9 +20,9 @@ while [ ! -f results/h_hindi/natural_drafts.DONE ]; do
   [ "$s" = FAILED ] && fail "the Hindi drafts chain FAILED"
   st WAITING "gate done; waiting for the Hindi natural drafts (drafts chain: ${s:-none})"; sleep "$HB"
 done
-wait_ram 8
+wait_ram 8; wait_gpu
 run_hb "forward natural (5 models)" $PY -u scripts/h_hindi.py forward natural || fail "natural forward exited $?"
-wait_ram 8
+wait_ram 8; wait_gpu
 run_hb "scoring natural (5 models)" $PY -u scripts/h_hindi.py score natural || fail "natural score exited $?"
 run_hb "tokens per word (with natural)" $PY -u scripts/h_hindi.py tpw || fail "tpw exited $?"
 run_hb "H1 analysis" $PY -u scripts/h_hindi.py analyse || fail "analyse exited $?"
