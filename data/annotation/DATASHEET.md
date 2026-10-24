@@ -34,11 +34,42 @@ release. Nothing in this file has been released.
 |---|---|---|---|
 | FLORES+ (`openlanguagedata/flores_plus`, revision e707e62e) | 300 Kannada sentences and their English | CC BY-SA 4.0 | verified on the HF card, 2026-10-07 |
 | SIB-200 (`Davlan/sib200`, revision 38977a66) | topic labels of the FLORES items | CC BY-SA 4.0 (card YAML; derived from FLORES-200) | verified, 2026-10-07 |
-| IndicSentiment (`ai4bharat/IndicSentiment`, revision dc8f3f66) | 200 Kannada reviews, English, labels | **not stated on the source card**; a mirror says CC0-1.0 | **TBD: confirm at source (IndicXTREME release) before release** |
-| Gemini drafts (`gemini-3.5-flash-lite`, temperature 0, prompts `natural_romanization_v1`, `kanglish_v1`) | drafts shown to annotators | subject to the Gemini API terms | **TBD: check output-use terms before release** |
+| IndicSentiment (`ai4bharat/IndicSentiment`, revision dc8f3f66) | 200 Kannada reviews, English, labels | CC0 1.0 (official AI4Bharat release; see note 1) | resolved 2026-10-24 at the official source (not a mirror) |
+| Gemini drafts (`gemini-3.5-flash-lite`, temperature 0, prompts `natural_romanization_v1`, `kanglish_v1`) | drafts shown to annotators | Google claims no ownership of generated content (see note 2) | resolved 2026-10-24 (Gemini API Additional Terms) |
 
-Derived text from CC BY-SA sources is released under CC BY-SA 4.0 (share-alike), unless the IndicSentiment check
-requires otherwise.
+**Note 1: IndicSentiment license (checked 2026-10-24).** The dataset card on Hugging Face (`ai4bharat/IndicSentiment`)
+states no license. IndicSentiment is one of the new IndicXTREME test sets released by AI4Bharat with IndicBERT v2
+(Doddapaneni et al., ACL 2023). The official repository's README (github.com/AI4Bharat/IndicBERT, branch `main`, commit
+4890441, "LICENSE" section) says: "All the datasets created as part of this work will be released under a CC-0
+license". The README lists IndicSentiment as "A new, multilingual, and n-way parallel dataset for sentiment analysis in
+13 Indic languages", so it is one of "the datasets created as part of this work". We therefore record CC0 1.0. CC0 puts
+no condition on reuse, so it does not constrain the release. We still cite the paper and name the source.
+
+**Note 2: Gemini API terms (checked 2026-10-24; "Gemini API Additional Terms of Service", ai.google.dev/gemini-api/terms,
+"Effective March 23, 2026", page "Last updated 2026-04-28 UTC").**
+- Section "Use of Generated Content": "Some of our Services allow you to generate original content. Google won't claim
+  ownership over that content. You acknowledge that Google may generate the same or similar content for others and that
+  we reserve all rights to do so. As required by the API Terms, you'll comply with applicable law in using generated
+  content, which may require the provision of attribution to your users when returned as part of an API call. [...]
+  You're responsible for your use of generated content, and for the use of that content by anyone you share it with."
+- Section "Use Restrictions": "You may not use the Services to develop models that compete with the Services (e.g.,
+  Gemini API or Google AI Studio)."
+- Reading (not legal advice): the terms do not forbid publishing generated drafts in a research dataset. The project
+  stays responsible for how the drafts are used, including by people it shares them with, and Google keeps the right
+  to produce similar text. The competing-models restriction binds the project's own use of the API. Whether the
+  release should also warn users against using the drafts to train competing models is Aarnav's decision. The release
+  marks every draft as Gemini output (model, prompt, temperature) and keeps it separate from the human versions.
+
+**Release plan (decided by Aarnav 2026-10-24; not yet released).**
+- **Where:** a Hugging Face dataset repository, with this datasheet as the card and the paper citation.
+- **License:** CC BY-SA 4.0 for the whole release. The FLORES+-derived items (and their SIB-200 labels) are CC BY-SA
+  4.0, which requires share-alike. The IndicSentiment items (CC0, note 1) and the Gemini drafts (no ownership claimed by
+  Google, note 2) can be included under CC BY-SA 4.0 without conflict.
+- **Constraint from (a):** none, because CC0 imposes no conditions. The card still credits AI4Bharat and links the
+  source.
+- **Attribution:** the card credits FLORES+ (and the NLLB team), SIB-200, IndicSentiment / IndicXTREME (AI4Bharat), and
+  states that the drafts were generated with Gemini (model, prompt version, temperature).
+- **Not released:** annotator names or any identifying information (see Annotators).
 
 ## Collection and annotation protocol
 - **Tool.** An offline HTML page (`annotation/annotate_v2.html`) that writes a CSV after every item; instructions in
@@ -66,6 +97,7 @@ requires otherwise.
   writer); inferring anything about individual annotators.
 
 ## Distribution and maintenance
-- **Release:** TBD (with the paper; format CSV/JSONL with this datasheet). Not distributed before Aarnav says so.
+- **Release:** with the paper, on Hugging Face under CC BY-SA 4.0 (see the release plan above); format CSV/JSONL with this
+  datasheet. Not distributed before Aarnav says so.
 - **Maintainer and contact:** TBD (Aarnav).
 - **Errata:** corrections will be logged with dates in the release notes.
