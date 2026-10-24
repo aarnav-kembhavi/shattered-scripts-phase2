@@ -1,0 +1,19 @@
+Hi [name]! Thank you so much for helping with the Kannada project 🙏
+
+I'm attaching a zip file. Please unzip it on your laptop/desktop. Inside:
+• annotate_v2.html: the annotation page (open it in Chrome or Edge)
+• quick_start.pdf: one page with pictures of every step (please read this first)
+• worked_examples.pdf: 3 examples of how to rate and correct
+• instructions.pdf: the full instructions
+
+What you'll do (100 sentences):
+1) First 40: you only see a Kannada sentence. Type it yourself in English letters, the way you'd type on your phone, and also write it as Kanglish. Please do all 40 first, and don't click ahead.
+2) Other 60: you see AI-written versions. Rate each one first, then correct it.
+
+Important: in the page, choose "Second annotator (100 items)", never "All 500 items".
+
+Time: [about N minutes per item, please fill in]. Short sessions are fine: everything is saved to your CSV file after each item.
+
+Sending it back: as soon as the first 40 are done, send me your CSV file here on WhatsApp (attach it as a Document), then send it again when you finish.
+
+Please don't use Google Translate, AI tools or dictionaries, and don't discuss the sentences with anyone. Any question, just message me!

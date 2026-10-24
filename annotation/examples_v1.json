@@ -1,0 +1,61 @@
+{
+  "_about": "Worked examples for the annotator quick start (2026-10-24). Items are NOT in the 500 (items_v2.jsonl): flores-993 and indicsentiment-test-245 were replaced on 2026-10-23 and are no longer annotation items; flores-212 is an M4c sentence outside the 500. Drafts are the stored Gemini drafts (gemini-3.5-flash-lite, prompts natural_romanization_v1 / kanglish_v1; files named per draft). Ratings, corrections and explanations were written by Claude Code as teaching material and must be checked by a Kannada speaker (Aarnav) before the packages are sent. They are not data and are never analysed.",
+  "examples": [
+    {
+      "id": "flores-993",
+      "native": "ಆದಾಗ್ಯೂ, ಚಳಿಗಾಲದಲ್ಲಿ ಅವರು ವಿಭಿನ್ನ ರೀತಿಯ ಸೌಂದರ್ಯ ಮತ್ತು ಮೋಡಿ ಹೊಂದಿದ್ದಾರೆ, ಜೊತೆಗೆ     ಅನೇಕ ಗಿರಿಧಾಮಗಳು ಆರೋಗ್ಯಕರ ಪ್ರಮಾಣದ ಹಿಮವನ್ನು ಪಡೆಯುತ್ತವೆ ಮತ್ತು ಹಿಮದ ಮೇಲೆ ಪ್ರಯಾಣ ಮಾಡುವಂತಹ ಮತ್ತು ಹಿಮದ ಮೇಲೆ ಜಾರುವಂತಹ ಚಟುವಟಿಕೆಗಳನ್ನು ನೀಡುತ್ತವೆ.",
+      "english": "However, they have a different kind of beauty and charm during winter, with many hill stations receiving healthy amounts of snow and offering activities such as skiing and snowboarding.",
+      "natural": {
+        "draft_source": "data/annotation/drafts_regen_v1.jsonl (attempt 5)",
+        "draft": "aadagyu, chaligatalli avaru vibhinna reetiya saundarya mattu modi hondiddare, jotege aneka giridhamagalu arogyakara pramanavannu himavannu ಪಡೆಯುತ್ತವೆ mattu himada mele prayana maduvanthaha mattu himada mele jaruvanthaha chatuvatikegalannu niduttave.",
+        "naturalness": 2,
+        "meaning": "yes",
+        "corrected": "aadagyu, chaligaladalli avaru vibhinna reethiya saundarya mattu modi hondiddare, jothege aneka giridhamagalu arogyakara pramanada himavannu padeyuttave mattu himada mele prayana maduvanthaha mattu himada mele jaruvanthaha chatuvatikegalannu needuttave.",
+        "why": "One word was left in Kannada script (ಪಡೆಯುತ್ತವೆ), \"chaligatalli\" is misspelt and \"pramanavannu himavannu\" does not read right. The meaning is all there, so meaning = yes, but nobody would type it like this: naturalness 2. The correction fixes only those words and keeps every Kannada word, in order."
+      },
+      "kanglish": {
+        "draft_source": "data/annotation/drafts_v1.jsonl (attempt 3)",
+        "draft": "aadre chadigaladalli avru different type of beauty mattu magic hodhre, jothege thumba hill stations healthy amountalli snow get maadthave mattu snow mele travel maadtha iruvanthe mattu snow mele jaaruvanthe activities koda kodthave",
+        "naturalness": 2,
+        "meaning": "no",
+        "corrected": "aadre winter alli avakke bere thara beauty mattu charm ide, thumba hill stations alli olle snow beeltade, mattu skiing, snowboarding thara activities kooda irtave.",
+        "why": "\"hodhre\" (\"if they go\") changes the meaning, \"chadigaladalli\" is misspelt, and \"snow mele travel maadtha iruvanthe\" is a clumsy way to say skiing. Meaning = no, naturalness 2. The correction uses the English words people really use on WhatsApp (winter, charm, skiing, snowboarding) and keeps the full meaning."
+      }
+    },
+    {
+      "id": "indicsentiment-test-245",
+      "native": "ನನ್ನ 5 ವರ್ಷದ ಮಗುವನ್ನು ರಿಫ್ರೆಶ್ ಮಾಡಲು ಬೇಸಿಗೆಯ ಸಮಯದಲ್ಲಿ ನಾವು ತೆಗೆದುಕೊಂಡಿದ್ದೇವೆ ಮತ್ತು ಅವನು ಅದನ್ನು ತುಂಬಾ ಇಷ್ಟಪಡುತ್ತಾನೆ. ಇದು ಚಟುವಟಿಕೆ ಆಧಾರಿತ ಪುಸ್ತಕವಾಗಿದ್ದು, ಆಕರ್ಷಕ ಸಂಖ್ಯೆಯ ಆಕಾರ, ಪ್ರಾಣಿಗಳ ಚಿತ್ರಗಳನ್ನು ಹೊಂದಿದೆ.",
+      "english": "We have taken it in summer time to refresh my 5 yrs kid and he likes it very much. It is an activity oriented book with attractive number shapes, animal pictures.",
+      "natural": {
+        "draft_source": "data/annotation/drafts_regen_v1.jsonl (attempt 5)",
+        "draft": "nanna 5 varshada maguvannu refresh madalu bāsigeya samayalladi navu tegedukondiddave mattu avanu adannu tumba ishtapaduttane. idu chatuvatike adharita pustakavagiddu, akarshaka samkhyeya akara, pranigala chitragalannu hondide.",
+        "naturalness": 3,
+        "meaning": "yes",
+        "corrected": "nanna 5 varshada maguvannu refresh madalu besigeya samayadalli navu tegedukondiddeve mattu avanu adannu tumba ishtapaduttane. idu chatuvatike adharita pustakavagiddu, akarshaka sankhyeya akara, pranigala chitragalannu hondide.",
+        "why": "Mostly fine. Three small problems: \"bāsigeya\" has an accent mark (people do not type these on a phone) and the wrong vowel, \"samayalladi\" should be \"samayadalli\", and \"tegedukondiddave\" should be \"tegedukondiddeve\". Naturalness 3, meaning yes; fix just those words."
+      },
+      "kanglish": {
+        "draft_source": "data/annotation/drafts_v1.jsonl (attempt 1)",
+        "draft": "nanna 5 years maguvannu refresh madoke summer timealli navu take madkondidivi mattu avnu adannu tumba istapatane. Idu activity based book agide, attractive numbers shape, animals images ondetu ide.",
+        "naturalness": 3,
+        "meaning": "yes",
+        "corrected": "nam 5 year maguge refresh agli anta summer alli idanna thogondvi, avnige tumba ishta aaytu. Idu activity based book, attractive number shapes, animal pictures ella ide.",
+        "why": "The meaning is kept, but \"take madkondidivi\" and \"ondetu ide\" are not how people write. Naturalness 3, meaning yes. The correction is shorter and sounds like a real message."
+      }
+    },
+    {
+      "id": "flores-212",
+      "native": "ಅಪಾರ್ಟ್‍ಮೆಂಟ್‌ನ ಒಳಗಡೆ  ಯಾರೂ ಇರಲಿಲ್ಲ.",
+      "english": "No one was inside the apartment.",
+      "natural": {
+        "draft_source": "data/processed/natural_flores_m4_500_v1.jsonl (index 212)",
+        "draft": "apartment n olagade yaaru irlilla.",
+        "naturalness": 4,
+        "meaning": "yes",
+        "corrected": "apartment n olagade yaaru irlilla.",
+        "why": "This is how people type it. You might write \"apartmentna\" or \"iralilla\", but there is no single correct spelling, so the draft is left unchanged. Do not change a draft just to match your own spelling."
+      },
+      "kanglish": null
+    }
+  ]
+}
