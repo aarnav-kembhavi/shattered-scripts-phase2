@@ -298,12 +298,18 @@ def quickstart_html(role: dict, steps: list, out: Path, extra_cols: int) -> None
     foot += ("<b>Rules:</b> type the way you really type; there is no single correct spelling. No translation tools, "
              "AI tools or dictionaries. Do not discuss items with anyone. Use the Note box for anything odd. "
              "Questions or problems: ask Aarnav.")
+    # Annotator A checks the worked examples before annotating (Aarnav, 2026-10-25); B gets them only after Part 1
+    first = "" if B else (
+        '<div class="foot" style="margin:0 0 8px; background:#fdf1e6; border:1px solid #e8b48a">'
+        '<span class="n" style="background:#a4400b">0</span><b>Before you start: check the 3 worked examples.</b> '
+        "Open <b>worked_examples.pdf</b> and read the 3 examples. If anything looks wrong (a rating, a correction, a "
+        "spelling, a meaning), tell Aarnav what and why. Then start annotating with step 1.</div>")
     doc = f"""<!doctype html><html><head><meta charset="utf-8"><title>Quick start</title><style>{CSS}
 .grid {{ grid-template-columns: repeat({extra_cols}, 1fr); }}</style></head><body>
 <h1>Quick start: {role['name']} ({role['n']} items)</h1>
 <div class="sub">Kannada romanization check. You need <b>annotate_v2.html</b> and Chrome or Edge on a laptop or
-desktop. Worked examples: <b>worked_examples.pdf</b>. Full instructions: <b>instructions.pdf</b>.</div>
-<div class="grid">{cells}</div><div class="foot">{foot}</div></body></html>"""
+desktop.{'' if B else ' Worked examples: <b>worked_examples.pdf</b>.'} Full instructions: <b>instructions.pdf</b>.</div>
+{first}<div class="grid">{cells}</div><div class="foot">{foot}</div></body></html>"""
     out.write_text(doc, encoding="utf-8")
 
 
@@ -370,41 +376,47 @@ body {{ font-size: 12px; }} li {{ margin: 2px 0; }}</style></head><body>{''.join
                    encoding="utf-8")
 
 
-WHATSAPP = {
+WHATSAPP = {  # ready to paste; times set by Aarnav 2026-10-25
     "annotator_A": """Hi {first}! Thank you so much for helping with the Kannada project 🙏
 
-I'm attaching a zip file. Please unzip it on your laptop/desktop. Inside:
+I'm attaching a zip file (A.zip). Please unzip it on your laptop/desktop. Inside:
 • annotate_v2.html: the annotation page (open it in Chrome or Edge)
 • quick_start.pdf: one page with pictures of every step (please read this first)
 • worked_examples.pdf: 3 examples of how to rate and correct
 • instructions.pdf: the full instructions
 
+Before you start: please read the 3 worked examples and check them. If anything looks wrong (a rating, a correction, a spelling), tell me what and why. Then start annotating.
+
 What you'll do: for each of 500 sentences you see the Kannada, the English, and two AI-written versions (Kannada typed in English letters, and Kanglish). Rate each one first, then correct it so it sounds the way people really type.
 
-Time: [about N minutes per item, please fill in]. About 25 items a day works well, so roughly 4 weeks. Short sessions are fine: everything is saved to your CSV file after each item.
+Time: about 2 minutes per item, so about 15 hours in total. About 25 items a day (under an hour) works well. Short sessions are fine: everything is saved to your CSV file after each item.
 
 Sending it back: at the end of each week, send me your CSV file here on WhatsApp (attach it as a Document).
 
 Please don't use Google Translate, AI tools or dictionaries, and don't discuss the sentences with anyone. Any question, just message me!""",
-    "annotator_B": """Hi {first}! Thank you so much for helping with the Kannada project 🙏
+    "annotator_B_part1": """Hi {first}! Thank you so much for helping with the Kannada project 🙏
 
-I'm attaching a zip file. Please unzip it on your laptop/desktop. Inside:
+I'm attaching a zip file (B_part1.zip). Please unzip it on your laptop/desktop. Inside:
 • annotate_v2.html: the annotation page (open it in Chrome or Edge)
 • quick_start.pdf: one page with pictures of every step (please read this first)
-• worked_examples.pdf: 3 examples of how to rate and correct
 • instructions.pdf: the full instructions
 
 What you'll do (100 sentences):
 1) First 40: you only see a Kannada sentence. Type it yourself in English letters, the way you'd type on your phone, and also write it as Kanglish. Please do all 40 first, and don't click ahead.
-2) Other 60: you see AI-written versions. Rate each one first, then correct it.
+2) Other 60: you see AI-written versions. Rate each one first, then correct it. Before you start these, I'll send you a short file with 3 worked examples.
 
 Important: in the page, choose "Second annotator (100 items)", never "All 500 items".
 
-Time: [about N minutes per item, please fill in]. Short sessions are fine: everything is saved to your CSV file after each item.
+Time: about 2 minutes per item, so about 3 hours in total. Short sessions are fine: everything is saved to your CSV file after each item.
 
-Sending it back: as soon as the first 40 are done, send me your CSV file here on WhatsApp (attach it as a Document), then send it again when you finish.
+Sending it back: as soon as the first 40 are done, send me your CSV file here on WhatsApp (attach it as a Document) and wait for the examples file. Send the CSV again when you finish.
 
 Please don't use Google Translate, AI tools or dictionaries, and don't discuss the sentences with anyone. Any question, just message me!""",
+    "annotator_B_part2": """Thanks {first}, got your first 40! 🙏
+
+Here is B_part2.zip with worked_examples.pdf: 3 examples of how to rate an AI-written version and then correct it. Please read it, then carry on with the other 60 sentences in the same page and the same CSV file (open the page, enter the same name, choose "Second annotator (100 items)", click "Continue a CSV file…" and pick your file, then "First unfinished").
+
+Rate each version first, before changing anything, then correct it. About 2 minutes per item. Send me the CSV here when you finish. Any question, just message me!""",
 }
 
 
@@ -438,12 +450,22 @@ def build() -> None:
             for p, _ in steps:  # keep the screenshots next to the PDF for reuse
                 (d / "screenshots").mkdir(exist_ok=True)
                 shutil.copyfile(p, d / "screenshots" / p.name)
-            (d / "whatsapp_message.txt").write_text(WHATSAPP[role_id].replace("{first}", "[name]"), encoding="utf-8")
-            z = DIST / f"{role_id}.zip"
-            with zipfile.ZipFile(z, "w", zipfile.ZIP_DEFLATED) as zf:
-                for f in ("annotate_v2.html", "quick_start.pdf", "worked_examples.pdf", "instructions.pdf"):
-                    zf.write(d / f, f"{role_id}/{f}")
-            print(role_id, "steps", len(steps), "->", z.relative_to(REPO), z.stat().st_size, "bytes")
+            for key, text in WHATSAPP.items():
+                if key.startswith(role_id):
+                    name = "whatsapp_message" + key[len(role_id):] + ".txt"
+                    (d / name).write_text(text.replace("{first}", "[name]"), encoding="utf-8")
+            # A.zip: everything (A checks the examples first). B: part 1 without the worked examples (for the 40
+            # blind items); part 2 = the examples only, sent after B's 40 blind items and A's check of the examples.
+            zips = {"annotator_A": {"A.zip": ("annotate_v2.html", "quick_start.pdf", "worked_examples.pdf",
+                                              "instructions.pdf")},
+                    "annotator_B": {"B_part1.zip": ("annotate_v2.html", "quick_start.pdf", "instructions.pdf"),
+                                    "B_part2.zip": ("worked_examples.pdf",)}}[role_id]
+            for zname, files in zips.items():
+                z = DIST / zname
+                with zipfile.ZipFile(z, "w", zipfile.ZIP_DEFLATED) as zf:
+                    for f in files:
+                        zf.write(d / f, f"{role_id}/{f}")
+                print(role_id, "steps", len(steps), "->", z.relative_to(REPO), z.stat().st_size, "bytes")
     finally:
         c.close()
         shutil.rmtree(work, ignore_errors=True)

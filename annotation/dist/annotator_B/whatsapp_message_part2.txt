@@ -1,0 +1,5 @@
+Thanks [name], got your first 40! 🙏
+
+Here is B_part2.zip with worked_examples.pdf: 3 examples of how to rate an AI-written version and then correct it. Please read it, then carry on with the other 60 sentences in the same page and the same CSV file (open the page, enter the same name, choose "Second annotator (100 items)", click "Continue a CSV file…" and pick your file, then "First unfinished").
+
+Rate each version first, before changing anything, then correct it. About 2 minutes per item. Send me the CSV here when you finish. Any question, just message me!

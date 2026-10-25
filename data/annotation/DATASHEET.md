@@ -56,8 +56,8 @@ no condition on reuse, so it does not constrain the release. We still cite the p
   Gemini API or Google AI Studio)."
 - Reading (not legal advice): the terms do not forbid publishing generated drafts in a research dataset. The project
   stays responsible for how the drafts are used, including by people it shares them with, and Google keeps the right
-  to produce similar text. The competing-models restriction binds the project's own use of the API. Whether the
-  release should also warn users against using the drafts to train competing models is Aarnav's decision. The release
+  to produce similar text. The competing-models restriction binds the project's own use of the API. Decided by
+  Aarnav (2026-10-25): the release card carries a usage note passing this restriction on (see Intended uses). The release
   marks every draft as Gemini output (model, prompt, temperature) and keeps it separate from the human versions.
 
 **Release plan (decided by Aarnav 2026-10-24; not yet released).**
@@ -95,6 +95,15 @@ no condition on reuse, so it does not constrain the release. We still cite the p
   human romanization (as in K3).
 - **Not intended for:** training a system that claims to define "correct" Kannada romanization (spelling varies by
   writer); inferring anything about individual annotators.
+- **Usage note (Gemini-drafted texts; added 2026-10-25 at Aarnav's decision).** The `*_draft` fields were generated
+  with Google's Gemini API (`gemini-3.5-flash-lite`). They may not be used to develop models that compete with
+  Google's Gemini services. The Gemini API Additional Terms of Service (ai.google.dev/gemini-api/terms, "Effective
+  March 23, 2026", page "Last updated 2026-04-28 UTC"; checked 2026-10-24), section "Use Restrictions", state: "You may
+  not use the Services to develop models that compete with the Services (e.g., Gemini API or Google AI Studio)." The
+  same terms, section "Use of Generated Content", make the project "responsible for [its] use of generated content,
+  and for the use of that content by anyone [it shares] it with", so this note applies to everyone who uses the
+  drafts. The texts Annotator B wrote from scratch (blind items) are not Gemini output. Corrected texts start from a
+  draft and can keep it unchanged in whole or in part, so the card treats them as covered too.
 
 ## Distribution and maintenance
 - **Release:** with the paper, on Hugging Face under CC BY-SA 4.0 (see the release plan above); format CSV/JSONL with this
