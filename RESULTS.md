@@ -2617,3 +2617,26 @@ causal_conv1d and flash-linear-attention not installed. Files: `results/ep{1,2}/
   model × experiment cells; the exception is Sarvam-1 in E-P2 (0.025 vs 0.475).
 
 Next: the queue is unchanged (K3b drafts resume after 12:45 IST; then H1-LF option 1 drafts and scoring; then K3b-hi).
+
+---
+## 2026-10-25 17:05 IST — PROTOCOL CHANGE: annotation format HTML page → Excel (.xlsx) (Aarnav's decision; before anything is sent)
+Nothing had been sent to any annotator or rater (the HTML packages were never distributed).
+- **Change.** Annotators A and B, and later Rater C, work in Excel workbooks instead of the offline HTML pages
+  (`annotation/annotate_v2.html`, `annotation/template_rater_v1.html`). The tasks are unchanged: the same items
+  (`data/annotation/items_v2.jsonl`, with the logged replacements flores-546 and indicsentiment-test-295), the same
+  blind set (`blind_v1.json`, 40 items, written first and from scratch), the same drafts (as shown on the page,
+  `k_annotation.shown_drafts`), the same fields and options (naturalness 1–5, meaning yes/no, corrected text, note;
+  for C naturalness 1–5 of each version), and the same rating-before-correcting instruction.
+- **Reason.** Annotator convenience and offline use: Excel is familiar, works without a browser, and the file is the
+  saved work.
+- **Consequence.** Per-item timing is no longer recorded: the page wrote a timestamp per saved item (`saved_at`);
+  the merge script (`annotation/merge_xlsx.py`) fills `saved_at` with the workbook's last-saved time, the same for
+  every row of a file. The merge writes the same CSV format the page wrote, so downstream code is unchanged.
+  Workbooks are protected without a password (to prevent accidents only); answers are checked by the merge script
+  (IDs, required cells, valid values) and cells that look auto-corrected are flagged for Aarnav to check with the
+  annotator (never fixed automatically).
+- **B's items are split in two workbooks** so that B's first file contains no Gemini draft at all (the HTML page held
+  every draft, including those of the blind items, in its embedded data): part 1 = the 40 blind items (native text
+  only); part 2 = the other 60 double items with drafts, released under the existing rule for B's part 2 (after B's
+  40 blind items are in and A has confirmed the worked examples).
+- **No registered prediction changes** (K1, K2, K3, K3b and their addenda stay as registered).
