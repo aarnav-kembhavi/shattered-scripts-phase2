@@ -1,0 +1,281 @@
+{
+  "provenance": {
+    "config": {
+      "registered": "RESULTS.md 2026-10-26 02:40 IST (EP-R, exploratory)",
+      "status": "pilot; no R computed"
+    },
+    "git_commit": "4cb7644ded5366b2b35b3aee172e6464e9e14dd4",
+    "timestamp_utc": "2026-10-25T21:10:25+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/ep_robust.py",
+      "pilot"
+    ]
+  },
+  "model": "qwen3.5-2b",
+  "gpu_mb_before_load": 148,
+  "n_points": 25,
+  "E-P1": {
+    "eligible_of_1004": 1004,
+    "stored_items_reproduced": "10/10",
+    "max_abs_delta_vs_stored": 0.0,
+    "no_patch_max_abs_delta": 0.0,
+    "integrity_max_abs_delta": 0.0,
+    "new_items_eligible": "10/10",
+    "seconds_per_item_qwen3.5": 2.8751160979270933,
+    "new_items_to_run": {
+      "qwen3-1.7b": 861,
+      "qwen3.5-2b": 835,
+      "sarvam-1": 753,
+      "gemma4-e2b": 812
+    },
+    "rows": [
+      {
+        "id": 1929,
+        "stored": true,
+        "eligible": true,
+        "max_abs_delta_vs_stored": 0.0
+      },
+      {
+        "id": 865,
+        "stored": true,
+        "eligible": true,
+        "max_abs_delta_vs_stored": 0.0
+      },
+      {
+        "id": 1856,
+        "stored": true,
+        "eligible": true,
+        "max_abs_delta_vs_stored": 0.0
+      },
+      {
+        "id": 378,
+        "stored": true,
+        "eligible": true,
+        "max_abs_delta_vs_stored": 0.0
+      },
+      {
+        "id": 815,
+        "stored": true,
+        "eligible": true,
+        "max_abs_delta_vs_stored": 0.0
+      },
+      {
+        "id": 6,
+        "stored": true,
+        "eligible": true,
+        "max_abs_delta_vs_stored": 0.0
+      },
+      {
+        "id": 23,
+        "stored": true,
+        "eligible": true,
+        "max_abs_delta_vs_stored": 0.0
+      },
+      {
+        "id": 142,
+        "stored": true,
+        "eligible": true,
+        "max_abs_delta_vs_stored": 0.0
+      },
+      {
+        "id": 228,
+        "stored": true,
+        "eligible": true,
+        "max_abs_delta_vs_stored": 0.0
+      },
+      {
+        "id": 291,
+        "stored": true,
+        "eligible": true,
+        "max_abs_delta_vs_stored": 0.0
+      },
+      {
+        "id": 1635,
+        "stored": false,
+        "eligible": true
+      },
+      {
+        "id": 1584,
+        "stored": false,
+        "eligible": true
+      },
+      {
+        "id": 1187,
+        "stored": false,
+        "eligible": true
+      },
+      {
+        "id": 986,
+        "stored": false,
+        "eligible": true
+      },
+      {
+        "id": 551,
+        "stored": false,
+        "eligible": true
+      },
+      {
+        "id": 79,
+        "stored": false,
+        "eligible": true
+      },
+      {
+        "id": 22,
+        "stored": false,
+        "eligible": true
+      },
+      {
+        "id": 602,
+        "stored": false,
+        "eligible": true
+      },
+      {
+        "id": 351,
+        "stored": false,
+        "eligible": true
+      },
+      {
+        "id": 157,
+        "stored": false,
+        "eligible": true
+      }
+    ]
+  },
+  "E-P2": {
+    "eligible_of_1004": 1004,
+    "stored_items_reproduced": "10/10",
+    "max_abs_delta_vs_stored": 0.0,
+    "no_patch_max_abs_delta": 0.0,
+    "integrity_max_abs_delta": 0.0,
+    "new_items_eligible": "10/10",
+    "seconds_per_item_qwen3.5": 2.9148720145225524,
+    "new_items_to_run": {
+      "qwen3-1.7b": 773,
+      "qwen3.5-2b": 761,
+      "sarvam-1": 813,
+      "gemma4-e2b": 765
+    },
+    "rows": [
+      {
+        "id": 954,
+        "stored": true,
+        "eligible": true,
+        "max_abs_delta_vs_stored": 0.0
+      },
+      {
+        "id": 555,
+        "stored": true,
+        "eligible": true,
+        "max_abs_delta_vs_stored": 0.0
+      },
+      {
+        "id": 1353,
+        "stored": true,
+        "eligible": true,
+        "max_abs_delta_vs_stored": 0.0
+      },
+      {
+        "id": 282,
+        "stored": true,
+        "eligible": true,
+        "max_abs_delta_vs_stored": 0.0
+      },
+      {
+        "id": 1140,
+        "stored": true,
+        "eligible": true,
+        "max_abs_delta_vs_stored": 0.0
+      },
+      {
+        "id": 22,
+        "stored": true,
+        "eligible": true,
+        "max_abs_delta_vs_stored": 0.0
+      },
+      {
+        "id": 69,
+        "stored": true,
+        "eligible": true,
+        "max_abs_delta_vs_stored": 0.0
+      },
+      {
+        "id": 117,
+        "stored": true,
+        "eligible": true,
+        "max_abs_delta_vs_stored": 0.0
+      },
+      {
+        "id": 126,
+        "stored": true,
+        "eligible": true,
+        "max_abs_delta_vs_stored": 0.0
+      },
+      {
+        "id": 186,
+        "stored": true,
+        "eligible": true,
+        "max_abs_delta_vs_stored": 0.0
+      },
+      {
+        "id": 1651,
+        "stored": false,
+        "eligible": true
+      },
+      {
+        "id": 1607,
+        "stored": false,
+        "eligible": true
+      },
+      {
+        "id": 1211,
+        "stored": false,
+        "eligible": true
+      },
+      {
+        "id": 988,
+        "stored": false,
+        "eligible": true
+      },
+      {
+        "id": 556,
+        "stored": false,
+        "eligible": true
+      },
+      {
+        "id": 94,
+        "stored": false,
+        "eligible": true
+      },
+      {
+        "id": 26,
+        "stored": false,
+        "eligible": true
+      },
+      {
+        "id": 637,
+        "stored": false,
+        "eligible": true
+      },
+      {
+        "id": 366,
+        "stored": false,
+        "eligible": true
+      },
+      {
+        "id": 157,
+        "stored": false,
+        "eligible": true
+      }
+    ]
+  },
+  "points_per_model": {
+    "qwen3-1.7b": 29,
+    "qwen3.5-2b": 25,
+    "sarvam-1": 29,
+    "gemma4-e2b": 36
+  },
+  "estimate_hours_at_qwen3.5_speed": 6.093708502117792,
+  "all_passed": true
+}

@@ -2860,3 +2860,19 @@ verdict; the registered P1a/P1b/P2a/P2b outcomes stay as recorded whatever this 
   gate and report.**
 - **Run:** detached Task Scheduler chain, one model load at a time, GPU guard (≤ 500 MB in use) before every load.
   Outputs `results/ep_robust/`.
+
+---
+## 2026-10-26 03:00 IST — EP-R pilot gate (registered 02:40 IST; exploratory)
+`scripts/ep_robust.py pilot` → `results/ep_robust/pilot.json`. Qwen3.5-2B, GPU guard 148 MB before the load. No R
+computed.
+- **Eligibility:** 1,004 of 1,004 SIB items pass the alignment checks in both E-P1 and E-P2 (Qwen3.5); 10/10 new pilot
+  items eligible in each.
+- **Stored curves reproduce:** 10/10 already-run items (5 primary, 5 control) per experiment, max |Δ| = 0.0 at every
+  point; reuse of the registered runs' rows is exact.
+- **Integrity:** hooks without a patch reproduce M_dst (|Δ| = 0.0); E-P1 all text pieces at P = 0 reproduce M_a
+  (|Δ| = 0.0); E-P2 final-position patch at P = N reproduces M_native (|Δ| = 0.0).
+- **Items still to run** (1,004 minus those reused): E-P1 Qwen3 861, Qwen3.5 835, Sarvam-1 753, Gemma 4 812; E-P2 773,
+  761, 813, 765 (6,373 in total). Time: 2.88 s (E-P1) and 2.91 s (E-P2) per item on Qwen3.5 (25 points); scaled by
+  point counts (29, 25, 29, 36) about 6.1 h at Qwen3.5 speed (Gemma 4 has been slower per point; estimate from Qwen3.5
+  only).
+- **Stopped at the gate; full run not started.** Chain ready: `scripts/ep_robust_chain.sh` (detached).
