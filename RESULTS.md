@@ -2640,3 +2640,30 @@ Nothing had been sent to any annotator or rater (the HTML packages were never di
   only); part 2 = the other 60 double items with drafts, released under the existing rule for B's part 2 (after B's
   40 blind items are in and A has confirmed the worked examples).
 - **No registered prediction changes** (K1, K2, K3, K3b and their addenda stay as registered).
+
+---
+## 2026-10-25 23:45 IST — Annotation distributed
+- Aarnav confirmed the send on 2026-10-25 (logged 23:45 IST): **A** got `annotation/dist/A.zip` with
+  `messages/whatsapp_A.txt`; **B** got `annotation/dist/B_part1.zip` with `messages/whatsapp_B_part1.txt`
+  (built at commit 7a2eb5e; B part 1 leak check clean: 0 of 10 XML parts contain any draft text or the words
+  gemini/draft; the same check finds drafts in 2 parts of A's workbook, so it does detect them).
+- Not sent: `B_part2.zip` (released only once B's 40 blind items are in and A has confirmed the worked examples) and
+  Rater C's workbook (built from B's returned blind 40).
+
+---
+## 2026-10-25 23:45 IST — RESULT: K3b (registered 2026-10-23): **refuted**
+Source: `results/k3b/verdict.json`, `stats.csv`, `chrf.json` (analysis run 2026-10-25 16:32 IST, commit 8b988cb).
+- n = 493 Dakshina Kannada strings (500 sampled; 7 excluded because the primary draft was still defective after 3
+  attempts).
+- Ratio R (Gemini / human, pooled), 90% CI, 95% CI, verdict under the registered rule:
+  - vowel doubling: R = 0.359, 90% [0.324, 0.395], 95% [0.318, 0.402]: **differs (Gemini lower)**;
+  - h-digraph use: R = 1.048, 90% [0.983, 1.115], 95% [0.971, 1.129]: matches;
+  - English-word share: R = 0.895, 90% [0.824, 0.968], 95% [0.810, 0.981]: matches.
+- **K3b refuted**: Gemini doubles vowels at about a third of the human rate; the other two statistics match.
+- Descriptive only: chrF Gemini vs human 79.95 [79.14, 80.76] (n = 493); Gemini vs Gemini resample (temperature 1.0)
+  91.85 [90.59, 93.07] (n = 184 of 200).
+- Registered limitations apply (formal Wikipedia text; "th"/"dh" also mark dentals; the temperature-1.0 reference
+  likely overstates Gemini's own variation).
+
+Next: H1-LF option 1 SIB-1,004 drafts, Kannada 878 done (8 defective), Hindi 0; stopped on Gemini quota, resumes after
+2026-10-26 12:45 IST; then scoring; then K3b-hi.
