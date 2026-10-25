@@ -1,0 +1,39 @@
+{
+  "provenance": {
+    "config": {
+      "registered": "RESULTS.md 2026-10-25 23:58 IST (exploratory)",
+      "seed": 26,
+      "sim_min": 0.5
+    },
+    "git_commit": "d6e1c9592b01274bac168f5b647d337c311919c3",
+    "timestamp_utc": "2026-10-25T18:31:50+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/v_dbl.py",
+      "build"
+    ]
+  },
+  "gate": {
+    "failure_rate_long_vowel_words": 0.1210833775889538,
+    "n_long_vowel_words": 3766,
+    "n_failed_long_vowel_words": 456,
+    "failure_rate_all_words": 0.09717388277878324,
+    "n_words": 7183,
+    "n_english_list_words_unchanged": 451,
+    "n_unaligned_long": 154,
+    "n_count_mismatch_long": 302,
+    "gate": 0.2,
+    "passed": true
+  },
+  "keep_p": 0.6200868807917013,
+  "target_rate": 0.045342854948936494,
+  "natural_rate": 0.01578898771967622,
+  "rate_p1": 0.06261358972855718,
+  "natural_dbl_rate": 0.04534734453831686,
+  "n_strings": 496,
+  "n_candidates": 3246,
+  "n_doubled": 2012,
+  "shortfall": false,
+  "n_strings_changed": 463
+}

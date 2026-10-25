@@ -2726,3 +2726,32 @@ human rate). No prediction, no verdict; no registered verdict changes whatever i
     unadjusted, n.
 - **Outputs:** `results/v_dbl/`, vectors `cache/activations/m14full/<model>/natural_dbl500.npz`, scores
   `results/v_dbl/scores/`. Nothing in the registered result directories changes.
+
+---
+## 2026-10-26 00:20 IST — natural+dbl: vowel-doubling sensitivity (exploratory, registered 2026-10-25 23:58 IST; post hoc descriptive, dated, no verdict)
+`scripts/v_dbl.py`; outputs `results/v_dbl/{build.json, word_failures.csv, natural_dbl500.jsonl, tokens_per_word.csv,
+differences.csv, summary.json, gpu.log}`. No registered verdict changes.
+- **Build:** alignment failure rate 12.1% of native words with a long vowel (456 of 3,766: 154 unaligned, 302 with a
+  nucleus/vowel-group count mismatch), under the 20% gate; 9.7% over all native words (7,183). 451 natural words in
+  the English list left unchanged. 3,246 candidates; keep rate p = 0.620 gives 2,012 doublings in 463 of 496 strings;
+  pooled doubling rate 0.0158 (natural) → 0.0453 (natural+dbl; target, Dakshina human rate, 0.0453; p = 1 would give
+  0.0626).
+- Limitation seen in the output: English loans written with a suffix in Kannada script are not in the English list as a
+  whole word and get doubled (e.g. ಓಪನ್‌ನಲ್ಲಿ "opennalli" → "oopennalli").
+- **Pieces per word, natural → natural+dbl (M4c 496):** Qwen2.5/Qwen3 3.53 → 3.66 (+3.6%), Qwen3.5 3.33 → 3.46
+  (+4.1%), Sarvam-1 4.31 → 4.45 (+3.3%), Gemma 4 3.16 → 3.29 (+4.1%); SIB-257 the same within 0.2 points of a percent.
+- **natural+dbl − natural** [paired 95% bootstrap CI], exact McNemar p unadjusted (natural values reproduce
+  `results/l_ladder/{retrieval,accuracy}.csv`):
+
+| measure | model | n | natural | natural+dbl | difference | p |
+|---|---|---|---|---|---|---|
+| retrieval | Qwen3.5-2B | 248 | 0.512 | 0.528 | +0.016 [−0.032, +0.065] | 0.64 |
+| retrieval | Sarvam-1 | 248 | 0.919 | 0.915 | −0.004 [−0.028, +0.020] | 1.00 |
+| retrieval | Gemma 4 E2B | 248 | 0.710 | 0.694 | −0.016 [−0.044, +0.012] | 0.39 |
+| SIB-257 | Qwen3.5-2B | 257 | 0.455 | 0.451 | −0.004 [−0.039, +0.031] | 1.00 |
+| SIB-257 | Sarvam-1 | 257 | 0.728 | 0.724 | −0.004 [−0.035, +0.031] | 1.00 |
+| SIB-257 | Gemma 4 E2B | 257 | 0.545 | 0.521 | −0.023 [−0.066, +0.016] | 0.34 |
+
+- Descriptively: every CI includes 0, and the estimates are within ±0.025. Raising vowel doubling to the Dakshina
+  human rate does not visibly move the natural-form results in these three models, at these sample sizes. Note: the
+  retrieval layer chosen on the training half moved for Qwen3.5 (16 → 6); Sarvam-1 18 → 17, Gemma 4 7 → 7.

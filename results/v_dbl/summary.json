@@ -1,0 +1,110 @@
+{
+  "provenance": {
+    "config": {
+      "registered": "RESULTS.md 2026-10-25 23:58 IST (exploratory)",
+      "status": "post hoc descriptive, no verdict",
+      "difference": "natural_dbl - natural",
+      "p": "exact McNemar, unadjusted"
+    },
+    "git_commit": "d6e1c9592b01274bac168f5b647d337c311919c3",
+    "timestamp_utc": "2026-10-25T18:48:15+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/v_dbl.py",
+      "analyse"
+    ]
+  },
+  "differences": [
+    {
+      "measure": "retrieval",
+      "model": "qwen3.5-2b",
+      "n": 248,
+      "acc_natural_dbl": 0.5282258064516129,
+      "acc_natural": 0.5120967741935484,
+      "diff": 0.016129032258064502,
+      "ci_low": -0.032258063554763794,
+      "ci_high": 0.06451612710952759,
+      "dbl_only": 22,
+      "natural_only": 18,
+      "p_mcnemar": 0.6358280026288412,
+      "layer_natural": 16.0,
+      "layer_natural_dbl": 6.0
+    },
+    {
+      "measure": "retrieval",
+      "model": "sarvam-1",
+      "n": 248,
+      "acc_natural_dbl": 0.9153225806451613,
+      "acc_natural": 0.9193548387096774,
+      "diff": -0.0040322580645161255,
+      "ci_low": -0.02822580561041832,
+      "ci_high": 0.02016128972172737,
+      "dbl_only": 4,
+      "natural_only": 5,
+      "p_mcnemar": 1.0,
+      "layer_natural": 18.0,
+      "layer_natural_dbl": 17.0
+    },
+    {
+      "measure": "retrieval",
+      "model": "gemma4-e2b",
+      "n": 248,
+      "acc_natural_dbl": 0.6935483870967742,
+      "acc_natural": 0.7096774193548387,
+      "diff": -0.016129032258064502,
+      "ci_low": -0.04435483738780022,
+      "ci_high": 0.012096773833036423,
+      "dbl_only": 4,
+      "natural_only": 8,
+      "p_mcnemar": 0.3876953125,
+      "layer_natural": 7.0,
+      "layer_natural_dbl": 7.0
+    },
+    {
+      "measure": "sib257",
+      "model": "qwen3.5-2b",
+      "n": 257,
+      "acc_natural_dbl": 0.45136186770428016,
+      "acc_natural": 0.45525291828793774,
+      "diff": -0.0038910505836575737,
+      "ci_low": -0.038910504430532455,
+      "ci_high": 0.031128404662013054,
+      "dbl_only": 9,
+      "natural_only": 10,
+      "p_mcnemar": 1.0,
+      "layer_natural": NaN,
+      "layer_natural_dbl": NaN
+    },
+    {
+      "measure": "sib257",
+      "model": "sarvam-1",
+      "n": 257,
+      "acc_natural_dbl": 0.7237354085603113,
+      "acc_natural": 0.7276264591439688,
+      "diff": -0.0038910505836575737,
+      "ci_low": -0.03501945361495018,
+      "ci_high": 0.031128404662013054,
+      "dbl_only": 9,
+      "natural_only": 10,
+      "p_mcnemar": 1.0,
+      "layer_natural": NaN,
+      "layer_natural_dbl": NaN
+    },
+    {
+      "measure": "sib257",
+      "model": "gemma4-e2b",
+      "n": 257,
+      "acc_natural_dbl": 0.5214007782101168,
+      "acc_natural": 0.5447470817120622,
+      "diff": -0.023346303501945442,
+      "ci_low": -0.06614785641431808,
+      "ci_high": 0.015564202331006527,
+      "dbl_only": 11,
+      "natural_only": 17,
+      "p_mcnemar": 0.34492845088243484,
+      "layer_natural": NaN,
+      "layer_natural_dbl": NaN
+    }
+  ]
+}
