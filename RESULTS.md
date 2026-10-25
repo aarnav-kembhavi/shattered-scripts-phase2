@@ -2758,8 +2758,7 @@ differences.csv, summary.json, gpu.log}`. No registered verdict changes.
 
 ---
 ## 2026-10-26 00:40 IST — PROTOCOL CHANGE: annotation "rate + correct" → "verify" (Aarnav's decision; before any valid annotation is returned)
-No valid annotation exists: nothing returned so far is used (Annotator A's returned workbook is archived as invalid,
-logged separately).
+No annotation exists: nothing has been returned by any annotator.
 - **Change.** Annotators verify the Gemini drafts instead of rating and correcting them: for each draft, **fine**
   (how people would type it on WhatsApp, and keeps the meaning) or **wrong**, with their fix. The verified text is the
   draft if fine, the fix if wrong. The naturalness 1–5 and meaning yes/no ratings are dropped. Annotator B still
@@ -2774,6 +2773,25 @@ logged separately).
 |---|---|
 | K1 (Kanglish beats natural) | applies, rule unchanged, with the data label "human verified Gemini romanization" in place of "human-corrected" (A's verified natural and Kanglish); Gemini drafts stay the secondary comparison |
 | K2a, K2b (more English, better) | apply, rules unchanged, on "human verified Gemini romanization" Kanglish |
-| K3 (blind human vs Gemini natural; independent rater, TOST) | **descriptive, no verdict**, per the registered rule "if no independent rater is available, K3 is reported descriptively". No naturalness ratings exist, so the descriptive report is chrF Gemini vs B's blind text (with the human-human reference, A verified vs B verified on the 60, noted as biased upward), plus the anchoring measures |
+| K3 (blind human vs Gemini natural; independent rater, TOST) | **descriptive, no verdict**, per the registered rule "if no independent rater is available, K3 is reported descriptively". No naturalness ratings exist, so the descriptive report is chrF Gemini vs B's blind text (with the human-human reference, A verified vs B verified on the 60, noted as biased upward), plus the anchoring measures and the K3b statistics for B's blind 40 vs Gemini on the same items (vowel doubling, h-digraphs, English-word share ratios with 90% CIs, as K3b; descriptive, no rule; added 2026-10-26 01:00, Aarnav) |
 | K3b, K3b-hi (Dakshina) | apply as registered; no annotation involved (K3b already reported) |
 | Agreement addendum (2026-10-17) | descriptive as before; kappas on naturalness and meaning cannot be computed (no ratings) and are replaced by Cohen's kappa on fine/wrong (A vs B, 60 items); chrF between A's and B's verified texts and draft-to-verified edit size as registered |
+
+---
+## 2026-10-26 01:05 IST — The 2026-10-25 A workbook, and artefacts in the Gemini drafts (post hoc descriptive, dated, no verdict)
+- **The A.zip sent on 2026-10-25 contained no ratings and no corrections.** Its `annotator_A.xlsx` is byte-identical
+  (SHA-256 f7ae393d…) to the build in `annotation/xlsx/` (commit 7a2eb5e). In the sheet XML the naturalness, meaning
+  and note columns hold only their header cells (F1, G1, J1, K1, M1), and the corrected columns equal the drafts in
+  all 1,000 cells. The filled values Aarnav saw while reviewing (ratings, Yes/No, 24 changed rows) are not in this
+  file or in any file this repo wrote; their origin is not known from here.
+- **Artefacts in the Gemini drafts shown to annotators** (1,000 drafts):
+  - HTML tag: 1 (indicsentiment-test-792 natural ends "… honde</h4>"; the native text has no tag). The same text is
+    in `natural_e0_v1.jsonl` and was used in E0b (Gate 1), the ladder and the matched tables (1 of the 198 sentiment
+    natural texts).
+  - Spaces before punctuation: 8 drafts, all copying a space that is in the native source text; the same holds for the
+    2 such texts in `natural_e0_v1` and 6 in the M4c file. Not an artefact of Gemini.
+  - "nige" for ನಿಮಗೆ (expected "nimage"): 3 drafts; in the experiment texts 4 in `natural_e0_v1` and 1 in the M4c file
+    (flores-1811, used in retrieval and SIB-257).
+  - "romba" (Tamil for "very"; Kannada "tumba"): 3 Kanglish drafts; Kanglish drafts are not used in any experiment yet.
+- Nothing is fixed: the drafts are what annotators verify, and the experiment texts stay as run. Gemini's raw output
+  is the "Gemini natural" condition by design; these are its errors.
