@@ -2823,3 +2823,40 @@ No annotation exists: nothing has been returned by any annotator.
   written from the Kannada alone. So B blind vs A verified reflects seeing the draft **plus** seeing the English, not
   the draft alone, and is reported that way (also in `merge_xlsx.py anchor` output). B blind vs the Gemini draft is
   unaffected by this.
+
+---
+## PRE-REGISTRATION (exploratory) — EP-R: E-P1 / E-P2 recovery on all eligible items (written 2026-10-26 02:40 IST, Aarnav's design; before any new patching run)
+**Status:** exploratory robustness check of the registered E-P1 and E-P2 results (2026-10-24). No prediction, no
+verdict; the registered P1a/P1b/P2a/P2b outcomes stay as recorded whatever this shows.
+- **Problem.** E-P1 and E-P2 ran only discordant items (primary: source form correct, destination wrong, SIB capped at
+  200; control: the reverse), which inflates the gap M_src − M_dst in the denominator of R.
+- **Items:** all SIB-200 items (1,004) per model, for the four models already run (Qwen3-1.7B, Qwen3.5-2B, Sarvam-1,
+  Gemma 4 E2B); eligible = the registered alignment checks pass (E-P1: (a)/(c) aligned with equal per-word piece counts
+  and matching decoded words; E-P2: equal word counts and word-final pieces decoding to word k). Sentiment is not run.
+- **Patching:** unchanged (`scripts/ep_patching.py` functions): E-P1 scheme "final" (each text word's last piece,
+  (a) → (c)); E-P2 scheme "word" (lossy word k's last piece ← native word k's last piece); all points P = 0..N; same
+  models, bf16, same metric (gold margin M). Items already run (registered primary and control) are reused from
+  `results/ep{1,2}/raw/` after the pilot shows they reproduce (|Δ| < 0.05 at every point); only the other items are run.
+- **Sets:** (a) selected = the registered SIB primary items as run (all of them, not only the held-out half);
+  (b) all eligible items; (c) excluded by selection = (b) minus (a) (control items, concordant items, and Sarvam-1's
+  E-P1 primary items beyond the cap). Breakdown of (c) into control / concordant reported alongside.
+- **Estimates:**
+  - Main: ratio of sums, R = Σ(M_patched − M_dst) / Σ(M_src − M_dst), which is the registered ratio of means; 95%
+    bootstrap CI over items (10,000, seed 0).
+  - Median of per-item R = (M_patched − M_dst)/(M_src − M_dst), over items with gap M_src − M_dst ≥ 0.5 logits only,
+    with bootstrap 95% CI and the count used.
+  - Gap counts per set: gap < 0 (negative), 0 ≤ gap < 0.5 (near 0), ≥ 0.5. Handling: every item stays in the ratio of
+    sums (negative-gap items count with their sign); near-0 and negative items are left out of the per-item median
+    only. Sensitivity: ratio of sums on gap ≥ 0.5 items.
+- **Points ("layer bands"):** the registered L* per model (E-P1 L*, E-P2 L*_word, from `predictions.json`), and three
+  bands of points: early P < ⌊N/3⌋, middle ⌊N/3⌋ ≤ P < ⌊2N/3⌋, late P ≥ ⌊2N/3⌋ (P = 0..N). Band R = ratio of sums over
+  items and the band's points (= the mean of R(P) over the band).
+- **Integrity (each stops the run):** hooks without a patch reproduce M_dst (first 3 items per model, |Δ| < 0.05); E-P2:
+  patching the final position at P = N reproduces M_src (first 3 items); E-P1: all text pieces at P = 0 reproduce M_src
+  (first 3 items; Gemma 4 not exact by design, reported).
+- **Pilot (Qwen3.5-2B, 20 SIB items per experiment: 10 already-run items, 5 primary + 5 control, and 10 new items,
+  `default_rng(0)`): stored curves reproduce (|Δ| < 0.05 at every point, 10/10); eligibility of all 1,004 items for
+  Qwen3.5; integrity checks; timing per item and extrapolated run time. No R is computed in the pilot. Stop at the pilot
+  gate and report.**
+- **Run:** detached Task Scheduler chain, one model load at a time, GPU guard (≤ 500 MB in use) before every load.
+  Outputs `results/ep_robust/`.
