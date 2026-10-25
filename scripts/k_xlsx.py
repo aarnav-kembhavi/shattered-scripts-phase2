@@ -48,6 +48,9 @@ SAVE = ("Save with File > Save as an Excel Workbook (.xlsx), never as CSV. Type 
         "Send the .xlsx file to Aarnav on WhatsApp")
 RULES = ("Type the way you really type: there is no single correct spelling. No translation tools, AI tools or "
          "dictionaries; do not discuss the items with anyone. Questions: ask Aarnav.")
+PHONE_C = PHONE.replace("automatic capitals", "auto-capitals")
+RULES_C = ("Go with your first impression: there are no right answers. No translation tools, other online tools or "
+           "dictionaries; do not discuss the items with anyone. Questions: ask Aarnav.")
 README = {
     "A": ["What to do: first check the 3 examples in the sheet \"worked_examples\" (OK, or write your correction), "
           "save, and send this file to Aarnav within a day. Then, in the sheet \"items\", for each AI draft: rate it "
@@ -60,9 +63,10 @@ README = {
     "B2": ["What to do: first read worked_examples.xlsx. Then, in the sheet \"items\", for each AI draft: rate it first "
            "(naturalness 1-5, keeps the meaning yes/no), then correct it in \"your corrected version\" (leave it as it "
            "is if it is fine).", SAVE + " when you finish.", AUTOCORRECT, PHONE, RULES],
+    # C is never told where a version comes from (registered K3 design; RESULTS.md 2026-10-26): no mention of AI
     "C": ["What to do: in the sheet \"items\", rate how natural each version sounds, from 1 (nobody would type this) "
           "to 5 (exactly how people type on a phone). Rate each version on its own; both can get the same rating. Do "
-          "not try to guess who or what wrote a version.", SAVE + " when you finish.", AUTOCORRECT, PHONE, RULES],
+          "not try to guess where a version came from.", SAVE + " when you finish.", AUTOCORRECT, PHONE_C, RULES_C],
     "EX": ["These are 3 worked examples (not items you will annotate): the AI draft, how it was rated, and a good "
            "correction. Ratings are your own judgement; the examples show the idea, not the only right answer.",
            "Read them before you start rating the drafts in annotator_B_part2.xlsx.", "Nothing to fill in here.",
@@ -179,13 +183,39 @@ def build():
     data_sheet(wb, M.EXAMPLES, M.EXAMPLES_SHEET, example_rows())
     set_props(wb, "Kannada annotation: worked examples")
     wb.save(OUT / "worked_examples.xlsx")
-    # Rater C: empty template (filled by `rater` once B's blind items are in)
+    template_c()
+    print({"built": sorted(p.name for p in OUT.glob("*.xlsx")), "A": len(A), "B_part1": len(B1), "B_part2": len(B2)})
+
+
+def template_c():
+    """Rater C: empty template (filled by `rater` once B's blind items are in)."""
+    OUT.mkdir(parents=True, exist_ok=True)
     wb = Workbook()
     readme_sheet(wb, README["C"])
     data_sheet(wb, M.ITEMS, M.RATER_SHEET, [])
     set_props(wb, "Kannada rating: Rater C")
     wb.save(OUT / "template_rater_C.xlsx")
-    print({"built": sorted(p.name for p in OUT.glob("*.xlsx")), "A": len(A), "B_part1": len(B1), "B_part2": len(B2)})
+
+
+# words that would tell C where a version comes from; searched in every part of C's workbook and in C's texts
+C_FORBIDDEN = re.compile(r"\b(gemini|ai|a\.i\.|machine|generated|model|drafts?|human|computer|chatbot|llm|"
+                         r"automatic|automatically|google|bot)\b", re.I)
+
+
+def wordcheck_c(paths) -> list:
+    """Every XML part of each xlsx, and each text/markdown file, searched for C_FORBIDDEN. Returns the hits."""
+    hits = []
+    for path in map(Path, paths):
+        if path.suffix == ".xlsx":
+            with zipfile.ZipFile(path) as z:
+                texts = {f"{path.name}:{n}": z.read(n).decode("utf-8", errors="replace") for n in z.namelist()}
+        else:
+            texts = {path.name: path.read_text(encoding="utf-8")}
+        for name, t in texts.items():
+            t = re.sub(r"<[^>]*>", " ", t) if name.endswith((".xml", ".rels")) else t  # text content, not tags
+            hits += [{"part": name, "word": m.group(0), "context": t[max(0, m.start() - 30):m.end() + 30]}
+                     for m in C_FORBIDDEN.finditer(t)]
+    return hits
 
 
 def leakcheck(path: Path = OUT / "annotator_B_part1.xlsx") -> dict:
@@ -257,5 +287,10 @@ if __name__ == "__main__":
     elif step == "leakcheck":
         r = leakcheck(Path(sys.argv[2]) if len(sys.argv) > 2 else OUT / "annotator_B_part1.xlsx")
         sys.exit(1 if r["hits"] or r["hidden_sheets"] or r["hidden_columns"] or r["comments"] else 0)
+    elif step == "template_c":
+        template_c()
+        h = wordcheck_c([OUT / "template_rater_C.xlsx"])
+        print({"template": str(OUT / "template_rater_C.xlsx"), "forbidden_word_hits": h})
+        sys.exit(1 if h else 0)
     elif step == "rater":
         sys.exit(rater(sys.argv[2], Path(sys.argv[3]) if len(sys.argv) > 3 else None))

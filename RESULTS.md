@@ -2659,11 +2659,70 @@ Source: `results/k3b/verdict.json`, `stats.csv`, `chrf.json` (analysis run 2026-
   - vowel doubling: R = 0.359, 90% [0.324, 0.395], 95% [0.318, 0.402]: **differs (Gemini lower)**;
   - h-digraph use: R = 1.048, 90% [0.983, 1.115], 95% [0.971, 1.129]: matches;
   - English-word share: R = 0.895, 90% [0.824, 0.968], 95% [0.810, 0.981]: matches.
-- **K3b refuted**: Gemini doubles vowels at about a third of the human rate; the other two statistics match.
-- Descriptive only: chrF Gemini vs human 79.95 [79.14, 80.76] (n = 493); Gemini vs Gemini resample (temperature 1.0)
-  91.85 [90.59, 93.07] (n = 184 of 200).
+- **K3b refuted**: Gemini differs from Dakshina human romanizations in vowel doubling (about a third of their rate);
+  on h-digraphs and English-word share it matches them. (Wording revised 2026-10-26, Aarnav: the comparison is with
+  Dakshina's human romanizations, not with how people type in general.)
+- **What the human side is:** Dakshina's romanizations are native speakers' transcriptions of Wikipedia sentences,
+  written under the dataset's own instructions; they may be more careful (e.g. more consistent about vowel length)
+  than casual typing, so K3b says nothing directly about everyday chat typing.
+- **Drops:** 7 of 500 strings excluded because Gemini's primary output was still invalid (defective) after 3 attempts;
+  all three statistics use the same 493 strings on both sides.
+- Descriptive only, and **not a matched comparison** (different strings and different n): chrF of Gemini vs human,
+  79.95 [79.14, 80.76] on the 493 strings; chrF between two temperature-1.0 Gemini samples, 91.85 [90.59, 93.07] on
+  the 184 of the 200 resample strings where both samples were valid. The two numbers are not to be read as a gap.
 - Registered limitations apply (formal Wikipedia text; "th"/"dh" also mark dentals; the temperature-1.0 reference
   likely overstates Gemini's own variation).
 
 Next: H1-LF option 1 SIB-1,004 drafts, Kannada 878 done (8 defective), Hindi 0; stopped on Gemini quota, resumes after
 2026-10-26 12:45 IST; then scoring; then K3b-hi.
+
+---
+## 2026-10-25 23:58 IST — Rater C: "no drafts" means "never told which text is Gemini" (Aarnav)
+Rater C's constraint "C sees no Gemini drafts" means C is **never told which text is Gemini**, consistent with the
+registered K3 design (2026-10-22; addendum 2026-10-22): C rates B's blind text and the Gemini draft as an unlabelled
+pair, "Version 1 / Version 2", left/right drawn per pair with `default_rng(3)` (`k_annotation.RATER_SEED`), the side
+mapping in `data/annotation/k3_rater_key_v1.json`, never in C's package. C's workbook, instructions and message do not
+say that any text is machine generated and do not mention Gemini or AI (checked by `k_xlsx.wordcheck_c` on every XML
+part; it finds 25 hits in B part 2's workbook and instructions, so the check works). Template built now
+(`annotation/xlsx/template_rater_C.xlsx`); filled only after B's blind 40 arrive (`k_xlsx.py rater`, then
+`k_package.py c`).
+
+---
+## PRE-REGISTRATION (exploratory, post hoc) — natural+dbl: vowel-doubling sensitivity (written 2026-10-25 23:58 IST, Aarnav's design; before any natural+dbl text, count, score or vector exists)
+**Status:** exploratory, motivated post hoc by the K3b result (Gemini doubles vowels at about a third of the Dakshina
+human rate). No prediction, no verdict; no registered verdict changes whatever it shows.
+- **Question:** do the natural-form results (M4c retrieval, SIB-257) move if Gemini's natural romanization doubles long
+  vowels as often as Dakshina's human romanizations?
+- **Source:** the M4c natural romanizations (`data/processed/natural_flores_m4_500_v1.jsonl`), the 496 retained
+  sentences (those behind the natural retrieval, 248 test half, and SIB-257 results). Defective rows keep their text
+  (they are never used).
+- **Build (`scripts/v_dbl.py`, CPU):**
+  - Native words: whitespace tokens with at least one Kannada letter. Natural words: whitespace tokens.
+  - Word alignment: monotonic DP (Needleman–Wunsch, gaps free) between native and natural words; similarity =
+    1 − normalized Levenshtein between `to_lossy(native word)` and the natural word, both lowercased, letters only, with
+    runs of the same vowel collapsed; a pair counts only if similarity ≥ 0.5. A native word with no pair is an
+    alignment failure.
+  - Within a pair: native vowel nuclei (independent vowels; each consonant's sign, or inherent a; none after virama)
+    against the natural word's vowel groups (maximal runs of a, e, i, o, u). If the counts differ, the word is an
+    alignment failure. Otherwise each long nucleus (ಾ/ಆ → a, ೀ/ಈ → i, ೂ/ಊ → u, ೇ/ಏ → e, ೋ/ಓ → o) whose group is
+    exactly the single same letter is a candidate (a → aa, etc.).
+  - Natural words in the English list used by K3b (4+ letters, wordfreq Zipf ≥ 3) are left unchanged and counted
+    separately (e.g. "traffic" for ಟ್ರಾಫಿಕ್ is not doubled). This exclusion is a design choice made here, before
+    running.
+  - **Alignment failure rate** = failed / native words with at least one long vowel (English-list words excluded from
+    both), also reported over all native words. **Gate: above 20%, stop and report; nothing else runs.** Failed words
+    are left unchanged.
+  - Keep rate: each candidate gets u ~ U(0, 1) from `default_rng([26, sentence index])` (a per-string generator) and is
+    doubled if u < p; one p for the corpus, found by bisection so that the pooled doubling rate of the 496 strings (K3b
+    `counts()`: aa, ee, ii, oo, uu per letter) equals the Dakshina human rate, 0.045343 (`results/k3b/verdict.json`).
+    If p = 1 falls short, p = 1 is used and the shortfall reported.
+- **Pieces per word:** natural vs natural+dbl, every model's tokenizer (5), on the M4c 496 and SIB-257 texts.
+- **Reruns (GPU, Qwen3.5-2B, Sarvam-1, Gemma 4 E2B; one model load at a time; GPU guard before each load):**
+  - Retrieval: natural+dbl sentence vectors for the 500 M4c rows; unmapped retrieval against English with the ladder's
+    procedure (`l_ladder.retrieval_part`: same split, seed, layer choice) on the same 248 test sentences.
+  - SIB: the same 257 items, E0c prompt, calibration from the stored E0c content-free files and the English
+    fallback rule, exactly as `natural257`.
+  - Report natural+dbl − natural per model, paired 95% bootstrap CI (10,000; `m4b_mapping.boot`), exact McNemar p
+    unadjusted, n.
+- **Outputs:** `results/v_dbl/`, vectors `cache/activations/m14full/<model>/natural_dbl500.npz`, scores
+  `results/v_dbl/scores/`. Nothing in the registered result directories changes.

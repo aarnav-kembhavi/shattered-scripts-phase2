@@ -13,7 +13,8 @@ Workbooks come from scripts/k_xlsx.py (run `build` first). Quick-start pictures 
 workbooks that hold only the worked-example items (never one of the 500), captured with scripts/xlshot.ps1 (Excel
 COM); the one-page PDFs are printed by headless Chrome. Rater C's workbook is built later (k_xlsx.py rater).
 
-Usage: python scripts/k_package.py
+Usage: python scripts/k_package.py      (A, B part 1, B part 2; already sent, do not rebuild)
+       python scripts/k_package.py c    (Rater C: message now; package once rater_C.xlsx is filled)
 """
 from __future__ import annotations
 
@@ -392,6 +393,57 @@ def build() -> None:
     shutil.rmtree(work, ignore_errors=True)
 
 
+# Rater C (registered K3 design): never told where a version comes from; no mention of Gemini or AI anywhere
+WHATSAPP_C = """Hi [name]! Thank you so much for helping with the Kannada project 🙏
+
+I'm attaching C.zip. Please unzip it on your laptop/desktop. Inside:
+• rater_C.xlsx: your rating file (open it in Excel)
+• instructions.pdf: the instructions (one short page)
+
+For each of 40 Kannada sentences you see two versions typed in English letters, once as natural romanization and once as Kanglish (80 rows). Rate how natural each version sounds, from 1 (nobody would type this) to 5 (exactly how people type on a phone), with the dropdowns. Rate each version on its own; both can get the same rating. Go with your first impression.
+
+Type your name in the yellow cell on the sheet READ_ME. When you finish, save as .xlsx (never CSV) and send me the file here on WhatsApp (as a Document).
+
+Please don't use translation or other online tools, and don't discuss the sentences with anyone. Any question, just message me!"""
+
+
+def build_c() -> int:
+    """Rater C's package, built only after `k_xlsx.py rater` has filled rater_C.xlsx from B's returned blind 40. The
+    side mapping stays in data/annotation/k3_rater_key_v1.json and is never packaged. Every XML part of the workbook,
+    the instructions and the message are searched for words that say where a version comes from."""
+    import k_xlsx as K
+    (DIST / "messages").mkdir(parents=True, exist_ok=True)
+    msg = DIST / "messages" / "whatsapp_C.txt"
+    msg.write_text(WHATSAPP_C, encoding="utf-8")
+    book = XLSX / "rater_C.xlsx"
+    if not book.exists():
+        h = K.wordcheck_c([XLSX / "template_rater_C.xlsx", ANN / "instructions/rater_C.md", msg])
+        print({"status": "message written; rater_C.xlsx not built yet (needs B's blind 40)", "forbidden_word_hits": h})
+        return 1 if h else 0
+    d = DIST / "C"
+    if d.exists():
+        shutil.rmtree(d)
+    d.mkdir(parents=True)
+    shutil.copyfile(book, d / "rater_C.xlsx")
+    work = Path(tempfile.mkdtemp(prefix="kpkg_c_"))
+    c = Chrome()
+    try:
+        md_html(ANN / "instructions/rater_C.md", work / "ins_C.html")
+        c.pdf((work / "ins_C.html").as_uri(), d / "instructions.pdf")
+    finally:
+        c.close()
+    h = K.wordcheck_c([d / "rater_C.xlsx", ANN / "instructions/rater_C.md", msg])
+    if h:
+        print({"status": "refused: forbidden words in C's package", "hits": h})
+        return 1
+    with zipfile.ZipFile(DIST / "C.zip", "w", zipfile.ZIP_DEFLATED) as zf:
+        for f in ("rater_C.xlsx", "instructions.pdf"):
+            zf.write(d / f, f"C/{f}")
+    print({"C.zip": (DIST / "C.zip").stat().st_size, "forbidden_word_hits": 0})
+    shutil.rmtree(work, ignore_errors=True)
+    return 0
+
+
 def one_page(c, html_path: Path, pdf: Path) -> None:
     for scale in (1.0, 0.95, 0.9, 0.85, 0.8, 0.75):  # largest print scale that keeps it to one page
         if c.pdf(html_path.as_uri(), pdf, scale) == 1:
@@ -400,4 +452,6 @@ def one_page(c, html_path: Path, pdf: Path) -> None:
 
 
 if __name__ == "__main__":
+    if sys.argv[1:] == ["c"]:
+        sys.exit(build_c())
     build()

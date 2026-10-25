@@ -18,12 +18,12 @@ Rate **each** version for naturalness with the dropdown:
 - 1: nobody would type this
 - 5: exactly how people type on a phone
 
-Rate each version on its own merits. Both can get the same rating, high or low. Do not try to guess who or what wrote
-a version. There are 80 rows in total (40 sentences, each in both kinds).
+Rate each version on its own merits. Both can get the same rating, high or low. Do not try to guess where a
+version came from. There are 80 rows in total (40 sentences, each in both kinds).
 
 ## Rules
 - Go with your first impression; there are no right answers.
-- Do not use translation tools, AI tools or dictionaries.
+- Do not use translation tools, other online tools or dictionaries.
 - Do not discuss the items with anyone, including others working on this project.
 
 ## Sending your work

@@ -1,0 +1,11 @@
+Hi [name]! Thank you so much for helping with the Kannada project 🙏
+
+I'm attaching C.zip. Please unzip it on your laptop/desktop. Inside:
+• rater_C.xlsx: your rating file (open it in Excel)
+• instructions.pdf: the instructions (one short page)
+
+For each of 40 Kannada sentences you see two versions typed in English letters, once as natural romanization and once as Kanglish (80 rows). Rate how natural each version sounds, from 1 (nobody would type this) to 5 (exactly how people type on a phone), with the dropdowns. Rate each version on its own; both can get the same rating. Go with your first impression.
+
+Type your name in the yellow cell on the sheet READ_ME. When you finish, save as .xlsx (never CSV) and send me the file here on WhatsApp (as a Document).
+
+Please don't use translation or other online tools, and don't discuss the sentences with anyone. Any question, just message me!
