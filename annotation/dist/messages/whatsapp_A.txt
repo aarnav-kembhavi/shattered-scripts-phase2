@@ -1,0 +1,18 @@
+Hi [name]! Thank you so much for helping with the Kannada project 🙏
+
+I'm attaching A.zip. Please unzip it on your laptop/desktop. Inside:
+• annotator_A.xlsx: your annotation file (open it in Excel)
+• quick_start.pdf: one page with every step (please read this first)
+• instructions.pdf: the full instructions
+
+First, today or tomorrow: open the sheet "worked_examples" in annotator_A.xlsx and check the 3 examples. For each one choose OK, or "needs correction" and write what you would change. Save the file and send it back to me within a day, as a separate message, before you start the main items.
+
+Then the main work: for each of 500 sentences you see the Kannada, the English, and two AI-written versions (Kannada typed in English letters, and Kanglish). Rate each one first with the dropdowns, then correct it so it sounds the way people really type.
+
+Before typing, please turn off AutoCorrect in Excel (File > Options > Proofing > AutoCorrect Options: untick "Correct TWo INitial CApitals", "Capitalize first letter of sentences" and "Replace text as you type"), and keyboard autocorrect if you use your phone.
+
+Time: about 2 minutes per item, so about 15 hours in total. About 25 items a day (under an hour) works well; short sessions are fine.
+
+Sending it back: save as .xlsx (never CSV) and send me the file here on WhatsApp (as a Document) at the end of each week.
+
+Please don't use Google Translate, AI tools or dictionaries, and don't discuss the sentences with anyone. Any question, just message me!

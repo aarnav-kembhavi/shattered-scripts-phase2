@@ -1,11 +1,17 @@
-"""Annotator packages (2026-10-24, Aarnav): annotation/dist/annotator_{A,B}/ with the annotation page, a one-page quick
-start (PDF, screenshots of every step), three worked examples (PDF; items not in the 500), the instructions (PDF), a
-ready-to-paste WhatsApp message, and a zip of the folder (the message is left out of the zip: it is for Aarnav).
+"""Annotator packages, Excel version (protocol change of 2026-10-25, RESULTS.md; the HTML packages of 2026-10-24 were
+never sent and are in git history only).
 
-Screenshots come from a demo copy of annotate_v2.html whose embedded items are replaced by the worked-example items
-(so no screenshot shows any of the 500 items or any draft of a blind item) and whose file pickers are stubbed (the
-browser's own Save/Open window cannot be captured; the quick start describes it in words). Headless Chrome is driven
-over the DevTools protocol. Rater C's package is not built here (only after B's 40 blind items arrive).
+  annotation/dist/A/        annotator_A.xlsx (500 items + worked_examples sheet to check first), quick_start.pdf,
+                            instructions.pdf                                                   -> A.zip
+  annotation/dist/B_part1/  annotator_B_part1.xlsx (40 blind items, no Gemini draft anywhere), quick_start.pdf,
+                            instructions.pdf                                                   -> B_part1.zip
+  annotation/dist/B_part2/  annotator_B_part2.xlsx (60 items with drafts), worked_examples.xlsx, quick_start.pdf
+                            -> B_part2.zip (send only after B's 40 blind items are in and A has confirmed the examples)
+  annotation/dist/messages/ WhatsApp texts for A, B part 1, B part 2 (for Aarnav; not in any zip)
+
+Workbooks come from scripts/k_xlsx.py (run `build` first). Quick-start pictures are Excel's own rendering of DEMO
+workbooks that hold only the worked-example items (never one of the 500), captured with scripts/xlshot.ps1 (Excel
+COM); the one-page PDFs are printed by headless Chrome. Rater C's workbook is built later (k_xlsx.py rater).
 
 Usage: python scripts/k_package.py
 """
@@ -18,6 +24,7 @@ import re
 import shutil
 import socket
 import subprocess
+import sys
 import tempfile
 import time
 import urllib.request
@@ -28,64 +35,11 @@ import websocket
 
 REPO = Path(__file__).resolve().parents[1]
 ANN = REPO / "annotation"
-PAGE = ANN / "annotate_v2.html"
-EXAMPLES = ANN / "examples_v1.json"
 DIST = ANN / "dist"
+XLSX = ANN / "xlsx"
 CHROME = Path("C:/Program Files/Google/Chrome/Application/chrome.exe")
-ROLES = {"annotator_A": {"name": "Annotator A", "mode": "all", "n": 500, "md": ANN / "instructions/annotator_A.md"},
-         "annotator_B": {"name": "Annotator B", "mode": "double", "n": 100, "md": ANN / "instructions/annotator_B.md"}}
-
-
-# ---------------------------------------------------------------- inputs
-
-def load_examples() -> list:
-    """The worked examples, with every draft checked against the stored draft file it is quoted from."""
-    E = json.load(open(EXAMPLES, encoding="utf-8"))["examples"]
-    items = {json.loads(x)["id"] for x in (REPO / "data/annotation/items_v2.jsonl").open(encoding="utf-8")}
-    natives = {json.loads(x)["native"] for x in (REPO / "data/annotation/items_v2.jsonl").open(encoding="utf-8")}
-    stored = {}
-    for f in ("drafts_v1.jsonl", "drafts_regen_v1.jsonl"):
-        for x in (REPO / "data/annotation" / f).open(encoding="utf-8"):
-            r = json.loads(x)
-            stored.setdefault((r["id"], r["kind"]), []).append(r["text"])
-    for x in (REPO / "data/processed/natural_flores_m4_500_v1.jsonl").open(encoding="utf-8"):
-        r = json.loads(x)
-        stored.setdefault((f"flores-{r['index']}", "natural"), []).append(r["natural"])
-    for e in E:
-        assert e["id"] not in items and e["native"] not in natives, f"{e['id']} is one of the 500 items"
-        for kind in ("natural", "kanglish"):
-            if e[kind]:
-                assert e[kind]["draft"] in stored.get((e["id"], kind), []), f"{e['id']} {kind}: draft not in files"
-    return E
-
-
-def demo_page(E: list, out: Path) -> None:
-    """annotate_v2.html with the worked-example items in place of the 500, and stubbed file pickers."""
-    src = PAGE.read_text(encoding="utf-8")
-    demo = []
-    for k, e in enumerate(E[:2]):  # standard items (drafts shown)
-        demo.append({"id": e["id"], "source": "flores_sib" if e["id"].startswith("flores") else "sentiment",
-                     "native": e["native"], "english": e["english"], "natural_draft": e["natural"]["draft"],
-                     "kanglish_draft": e["kanglish"]["draft"], "double": True, "blind": False})
-    b = E[2]  # the second annotator's first screen: a blind item (no drafts shown)
-    demo.insert(0, {"id": b["id"], "source": "flores_sib", "native": b["native"], "english": b["english"],
-                    "natural_draft": "", "kanglish_draft": "", "double": True, "blind": True})
-    new, n = re.subn(r'(<script id="items" type="application/json">)(.*?)(</script>)',
-                     lambda m: m.group(1) + json.dumps(demo, ensure_ascii=False) + m.group(3), src, count=1, flags=re.S)
-    assert n == 1
-    stub = """<script>
-window.__saved = '';
-const __handle = name => ({name, createWritable: async () => ({write: async t => { window.__saved = t; }, close: async () => {}}),
-  requestPermission: async () => 'granted', getFile: async () => ({text: async () => window.__saved})});
-window.showSaveFilePicker = async o => __handle(o.suggestedName);
-window.showOpenFilePicker = async () => [__handle(window.__resumeName)];
-</script>
-"""
-    new = new.replace('<script id="items"', stub + '<script id="items"', 1)
-    out.write_text(new, encoding="utf-8")
-
-
-# ---------------------------------------------------------------- headless Chrome over CDP
+sys.path[:0] = [str(ANN), str(REPO / "scripts")]
+import merge_xlsx as M  # noqa: E402
 
 class Chrome:
     def __init__(self, width=720, height=900):
@@ -163,109 +117,6 @@ class Chrome:
 
 # ---------------------------------------------------------------- screenshots
 
-HL = "outline:3px solid #d62728; outline-offset:2px; border-radius:6px;"
-
-
-def highlight(c: Chrome, sel: str | None):
-    c.js("document.querySelectorAll('[data-hl]').forEach(e => { e.style.outline = ''; e.removeAttribute('data-hl'); });")
-    if sel:
-        c.js(f"(() => {{ const e = document.querySelector({json.dumps(sel)}); e.setAttribute('data-hl', 1); "
-             f"e.style.cssText += {json.dumps(HL)}; }})()")
-
-
-def screenshots(c: Chrome, demo: Path, role: dict, E: list, out: Path) -> list:
-    """(file, caption) per step. The demo page holds: [blind item, example 1, example 2]."""
-    out.mkdir(parents=True, exist_ok=True)
-    c.goto(demo.as_uri())
-    c.js("localStorage.clear()")
-    c.goto(demo.as_uri())
-    steps, hdr = [], ["header"]
-    name, B = role["name"], role["mode"] == "double"
-    c.js("document.querySelectorAll('textarea').forEach(t => t.style.minHeight = '135px')")
-    if not B:  # Annotator A never sees the blind item, and A's items are not marked double
-        c.js("ALL.shift(); ALL.forEach(r => r.double = false); show();")
-
-    def step(fn, caption, sel, hl=None, **kw):
-        highlight(c, hl)
-        p = out / f"step{len(steps) + 1}.png"
-        c.shot(p, sel, **kw)
-        steps.append((p, caption))
-
-    step(None, "Open <b>annotate_v2.html</b> in Chrome or Edge (double-click it, or drag it into a browser window).",
-         ["header", "details"])
-    c.js(f"document.getElementById('who').value = {json.dumps(name)}; "
-         "document.getElementById('who').dispatchEvent(new Event('change'));")
-    step(None, f"Type your name in the <b>Annotator</b> box (here \"{name}\"). Use exactly the same name every time.",
-         hdr, hl="#who")
-    if B:
-        c.js("document.querySelector('input[value=double]').click();")
-        step(None, "Select <b>Second annotator (100 items)</b>. Never use \"All 500 items\".", hdr,
-             hl="input[value=double]")
-    else:
-        step(None, "Keep <b>All 500 items</b> selected.", hdr, hl="input[value=all]")
-    c.js(f"document.getElementById('newfile').click();")
-    time.sleep(0.4)
-    step(None, "Click <b>New CSV file…</b>. A Save window opens: choose a folder you will find again (e.g. Documents) "
-         "and click Save. The bar then says <i>Connected to …csv</i>.", hdr, hl="#newfile")
-    if B:
-        c.js("document.getElementById('ta-natural').value = 'apartment olagade yaaru iralilla.'; "
-             "document.getElementById('ta-kanglish').value = 'apartment olage yaru irlilla';")
-        step(None, "<b>Part 1 (first 40 items):</b> you see only the Kannada. Write both versions yourself, from "
-             "scratch, then click Save and next. Nothing to rate.", ["#blind-banner", "#native", "#box-natural",
-                                                                      "#box-kanglish"], max_h=520)
-        c.js("document.getElementById('save').click();")
-        time.sleep(0.4)
-    e = E[0]
-    for kind in ("natural", "kanglish"):
-        c.js(f"document.querySelector('input[name={kind}_naturalness][value=\"{e[kind]['naturalness']}\"]').click();"
-             f"document.querySelector('input[name={kind}_meaning][value=\"{1 if e[kind]['meaning'] == 'yes' else 0}\"]').click();")
-    step(None, "<b>Rate first</b>, before changing anything: naturalness 1–5 and whether the draft keeps the meaning "
-         "(yes/no), for both drafts.", ["#box-natural"], hl="#box-natural .scale", max_h=330)
-    c.js(f"document.getElementById('ta-natural').value = {json.dumps(e['natural']['corrected'])};")
-    step(None, "<b>Then correct</b> the draft in the box. If it is already fine, leave it unchanged (Reset brings "
-         "the draft back). Do the same for the Kanglish draft.", ["#box-natural"], hl="#ta-natural")
-    c.js(f"document.getElementById('ta-kanglish').value = {json.dumps(e['kanglish']['corrected'])};")
-    c.js("document.getElementById('save').click();")
-    time.sleep(0.5)
-    c.js("idx = list().findIndex(r => r.id === %s); show();" % json.dumps(e["id"]))
-    step(None, "Click <b>Save and next</b>. Every save rewrites your CSV file (the bar shows <i>Saved to …csv</i>), "
-         "so nothing is lost if you close the page.", ["header", "#save", "#msg"], hl="#save", max_h=10)
-    # the save row lives at the bottom of the page: shoot header and save row separately and stack them
-    p_hdr, p_save = out / "_hdr.png", out / "_save.png"
-    highlight(c, None)
-    c.shot(p_hdr, ["header"])
-    highlight(c, "#save")
-    c.shot(p_save, ["#save", "#msg"], pad=10)
-    stack(p_hdr, p_save, steps[-1][0])
-    csv = c.js("window.__saved")
-    c.js("localStorage.clear()")
-    c.goto(demo.as_uri())
-    c.js("window.__saved = %s; window.__resumeName = %s;" % (json.dumps(csv), json.dumps(f"{name}.csv")))
-    if not B:
-        c.js("ALL.shift(); ALL.forEach(r => r.double = false); show();")
-    c.js(f"document.getElementById('who').value = {json.dumps(name)};")
-    if B:
-        c.js("document.querySelector('input[value=double]').click();")
-    c.js("document.getElementById('openfile').click();")
-    time.sleep(0.5)
-    step(None, "<b>Next time:</b> open the page, enter the same name (and the same choice), click <b>Continue a CSV "
-         "file…</b> and pick the same file. Then click <b>First unfinished</b>.", hdr, hl="#openfile")
-    (out / "_hdr.png").unlink(missing_ok=True)
-    (out / "_save.png").unlink(missing_ok=True)
-    return steps
-
-
-def stack(a: Path, b: Path, out: Path):
-    from PIL import Image
-    A, B = Image.open(a), Image.open(b)
-    W = max(A.width, B.width)
-    im = Image.new("RGB", (W, A.height + B.height + 16), "white")
-    im.paste(A, (0, 0))
-    im.paste(B, (0, A.height + 16))
-    im.save(out)
-
-
-# ---------------------------------------------------------------- documents
 
 CSS = """
 @page { size: A4; margin: 10mm; }
@@ -286,55 +137,6 @@ h1 { font-size: 17px; margin: 0 0 2px; } h2 { font-size: 13px; margin: 10px 0 4p
 .rate { font-weight: 600; } .why { color: #333; margin-top: 3px; }
 """
 
-
-def quickstart_html(role: dict, steps: list, out: Path, extra_cols: int) -> None:
-    B = role["mode"] == "double"
-    cells = "".join(f'<div class="step"><span class="n">{k}</span>{cap}<img src="{p.name}"></div>'
-                    for k, (p, cap) in enumerate(steps, 1))
-    foot = ("<b>Order:</b> do the first 40 items (Part 1, write from scratch) before anything else and do not click "
-            "ahead. <b>Send your CSV to Aarnav as soon as Part 1 is done</b>, then again when you finish. "
-            if B else "<b>Pace:</b> about 25 items a day; short sessions are fine. <b>Send your CSV to Aarnav at the "
-            "end of each week</b> (attach the .csv file in WhatsApp as a Document). ")
-    foot += ("<b>Rules:</b> type the way you really type; there is no single correct spelling. No translation tools, "
-             "AI tools or dictionaries. Do not discuss items with anyone. Use the Note box for anything odd. "
-             "Questions or problems: ask Aarnav.")
-    # Annotator A checks the worked examples before annotating (Aarnav, 2026-10-25); B gets them only after Part 1
-    first = "" if B else (
-        '<div class="foot" style="margin:0 0 8px; background:#fdf1e6; border:1px solid #e8b48a">'
-        '<span class="n" style="background:#a4400b">0</span><b>Before you start: check the 3 worked examples.</b> '
-        "Open <b>worked_examples.pdf</b> and read the 3 examples. If anything looks wrong (a rating, a correction, a "
-        "spelling, a meaning), tell Aarnav what and why. Then start annotating with step 1.</div>")
-    doc = f"""<!doctype html><html><head><meta charset="utf-8"><title>Quick start</title><style>{CSS}
-.grid {{ grid-template-columns: repeat({extra_cols}, 1fr); }}</style></head><body>
-<h1>Quick start: {role['name']} ({role['n']} items)</h1>
-<div class="sub">Kannada romanization check. You need <b>annotate_v2.html</b> and Chrome or Edge on a laptop or
-desktop.{'' if B else ' Worked examples: <b>worked_examples.pdf</b>.'} Full instructions: <b>instructions.pdf</b>.</div>
-{first}<div class="grid">{cells}</div><div class="foot">{foot}</div></body></html>"""
-    out.write_text(doc, encoding="utf-8")
-
-
-def examples_html(role: dict, E: list, out: Path) -> None:
-    def kind_block(e, kind, title):
-        k = e[kind]
-        if not k:
-            return ""
-        same = k["corrected"] == k["draft"]
-        return f"""<div class="lab">{title}: draft</div><div class="mono">{html.escape(k['draft'])}</div>
-<div class="rate">Rating: naturalness {k['naturalness']} · keeps the meaning: {k['meaning']}</div>
-<div class="lab">{title}: corrected{' (left unchanged)' if same else ''}</div>
-<div class="mono">{html.escape(k['corrected'])}</div><div class="why">{html.escape(k['why'])}</div>"""
-    blocks = "".join(f"""<div class="ex"><h2>Example {n}</h2>
-<div class="lab">Kannada</div><div class="kn">{html.escape(e['native'])}</div>
-<div class="lab">English</div><div>{html.escape(e['english'])}</div>
-{kind_block(e, 'natural', 'Natural romanization')}{kind_block(e, 'kanglish', 'Kanglish')}</div>"""
-                     for n, e in enumerate(E, 1))
-    note = ("These examples are for the items where you see drafts (Part 2). In Part 1 you see no drafts: write both "
-            "versions yourself the way you would type them." if role["mode"] == "double" else "")
-    doc = f"""<!doctype html><html><head><meta charset="utf-8"><title>Worked examples</title><style>{CSS}</style></head>
-<body><h1>Worked examples</h1><div class="sub">Three sentences that are <b>not</b> among the items you will
-annotate. Each shows the AI draft, how to rate it (before changing anything), and a good correction. Ratings are
-your own judgement: these show the idea, not the only right answer. {note}</div>{blocks}</body></html>"""
-    out.write_text(doc, encoding="utf-8")
 
 
 def md_html(md: Path, out: Path) -> None:
@@ -376,99 +178,225 @@ body {{ font-size: 12px; }} li {{ margin: 2px 0; }}</style></head><body>{''.join
                    encoding="utf-8")
 
 
-WHATSAPP = {  # ready to paste; times set by Aarnav 2026-10-25
-    "annotator_A": """Hi {first}! Thank you so much for helping with the Kannada project 🙏
 
-I'm attaching a zip file (A.zip). Please unzip it on your laptop/desktop. Inside:
-• annotate_v2.html: the annotation page (open it in Chrome or Edge)
-• quick_start.pdf: one page with pictures of every step (please read this first)
-• worked_examples.pdf: 3 examples of how to rate and correct
+
+# ---------------------------------------------------------------- pictures of the workbooks (Excel's own rendering)
+
+def demo_books(work: Path) -> dict:
+    """Demo workbooks with the worked-example items only, filled the way an annotator would."""
+    import k_xlsx as K
+    from openpyxl import Workbook
+    E = json.load(open(ANN / "examples_v1.json", encoding="utf-8"))["examples"]
+    e1, e3 = E[0], E[2]
+    row = {"item_id": e1["id"], "source": "flores_sib", "native": e1["native"], "english": e1["english"],
+           "natural_draft": e1["natural"]["draft"], "natural_naturalness": int(e1["natural"]["naturalness"]),
+           "natural_meaning": e1["natural"]["meaning"], "natural_corrected": e1["natural"]["corrected"],
+           "kanglish_draft": e1["kanglish"]["draft"], "kanglish_corrected": e1["kanglish"]["draft"]}
+    books = {}
+    wb = Workbook()
+    K.readme_sheet(wb, K.README["A"])
+    wb[M.README][M.NAME_CELL] = "Annotator A"
+    K.data_sheet(wb, M.ITEMS, M.DRAFT_SHEET, [row])
+    ex = K.example_rows()
+    ex[0]["check"] = "OK"
+    K.data_sheet(wb, M.EXAMPLES, M.EXAMPLES_SHEET + M.EXAMPLES_CHECK, ex)
+    books["A"] = work / "demo_A.xlsx"
+    wb.save(books["A"])
+    wb = Workbook()
+    K.readme_sheet(wb, K.README["B1"])
+    wb[M.README][M.NAME_CELL] = "Annotator B"
+    K.data_sheet(wb, M.ITEMS, M.BLIND_SHEET, [{"item_id": e3["id"], "native": e3["native"],
+                                               "natural_corrected": "apartment olagade yaaru iralilla.",
+                                               "kanglish_corrected": "apartment olage yaru irlilla"}])
+    books["B1"] = work / "demo_B1.xlsx"
+    wb.save(books["B1"])
+    wb = Workbook()
+    K.readme_sheet(wb, K.README["B2"])
+    wb[M.README][M.NAME_CELL] = "Annotator B"
+    K.data_sheet(wb, M.ITEMS, M.DRAFT_SHEET, [row])
+    books["B2"] = work / "demo_B2.xlsx"
+    wb.save(books["B2"])
+    return books
+
+
+def shot(book: Path, sheet: str, rng: str, png: Path) -> Path:
+    """Excel's picture of a range; the clipboard copy is occasionally blank, so blank pictures are retaken."""
+    from PIL import Image
+    for _ in range(4):
+        png.unlink(missing_ok=True)
+        p = subprocess.run(["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File",
+                            str(REPO / "scripts/xlshot.ps1"), "-book", str(book), "-sheet", sheet, "-range", rng,
+                            "-png", str(png)], capture_output=True, text=True)
+        if png.exists():
+            im = Image.open(png).convert("RGBA").convert("L")
+            inner = im.crop((4, 4, im.width - 4, im.height - 4))  # a blank picture is white inside its frame
+            dark = sum(inner.histogram()[:200]) / max(1, inner.width * inner.height)
+            if dark > 0.005:
+                return png
+        time.sleep(2)
+    raise SystemExit(f"Excel picture failed for {book.name}!{rng}: {p.stdout[-300:]} {p.stderr[-300:]}")
+
+
+# ---------------------------------------------------------------- documents
+
+def quickstart(title: str, intro: str, steps: list, foot: str, out: Path, first: str = "") -> None:
+    cells = "".join(f'<div class="step"><span class="n">{k}</span>{cap}'
+                    + "".join(f'<img src="{p.name}">' for p in imgs) + "</div>"
+                    for k, (cap, imgs) in enumerate(steps, 1))
+    out.write_text(f"""<!doctype html><html><head><meta charset="utf-8"><title>Quick start</title><style>{CSS}
+.grid {{ grid-template-columns: 1fr; gap: 6px; }} .step img {{ max-height: 230px; width: auto; max-width: 100%; }}
+</style></head><body><h1>{title}</h1><div class="sub">{intro}</div>{first}<div class="grid">{cells}</div>
+<div class="foot">{foot}</div></body></html>""", encoding="utf-8")
+
+
+AUTOCORRECT = ("<b>Turn off AutoCorrect before typing.</b> In Excel: File &gt; Options &gt; Proofing &gt; AutoCorrect "
+               "Options, and untick <i>Correct TWo INitial CApitals</i>, <i>Capitalize first letter of sentences</i> "
+               "and <i>Replace text as you type</i>. On a phone or tablet, also turn off autocorrect and automatic "
+               "capitals in your keyboard settings.")
+NAME = "Open the file. On the sheet <b>READ_ME</b>, type your name in the yellow cell (the same name every time)."
+SAVE = ("<b>Save</b> with Ctrl+S as an Excel Workbook (<b>.xlsx</b>), never as CSV. You can close and reopen the file "
+        "any time: your work is in the file.")
+RULES = ("<b>Rules:</b> type the way you really type; there is no single correct spelling. No translation tools, AI "
+         "tools or dictionaries. Do not discuss items with anyone. Use the Note column for anything odd. Only the "
+         "yellow cells can be changed. Questions or problems: ask Aarnav.")
+
+
+WHATSAPP = {  # ready to paste (Aarnav, 2026-10-25: about 2 minutes per item; A about 15 hours, B about 3 hours)
+    "A": """Hi [name]! Thank you so much for helping with the Kannada project 🙏
+
+I'm attaching A.zip. Please unzip it on your laptop/desktop. Inside:
+• annotator_A.xlsx: your annotation file (open it in Excel)
+• quick_start.pdf: one page with every step (please read this first)
 • instructions.pdf: the full instructions
 
-Before you start: please read the 3 worked examples and check them. If anything looks wrong (a rating, a correction, a spelling), tell me what and why. Then start annotating.
+First, today or tomorrow: open the sheet "worked_examples" in annotator_A.xlsx and check the 3 examples. For each one choose OK, or "needs correction" and write what you would change. Save the file and send it back to me within a day, as a separate message, before you start the main items.
 
-What you'll do: for each of 500 sentences you see the Kannada, the English, and two AI-written versions (Kannada typed in English letters, and Kanglish). Rate each one first, then correct it so it sounds the way people really type.
+Then the main work: for each of 500 sentences you see the Kannada, the English, and two AI-written versions (Kannada typed in English letters, and Kanglish). Rate each one first with the dropdowns, then correct it so it sounds the way people really type.
 
-Time: about 2 minutes per item, so about 15 hours in total. About 25 items a day (under an hour) works well. Short sessions are fine: everything is saved to your CSV file after each item.
+Before typing, please turn off AutoCorrect in Excel (File > Options > Proofing > AutoCorrect Options: untick "Correct TWo INitial CApitals", "Capitalize first letter of sentences" and "Replace text as you type"), and keyboard autocorrect if you use your phone.
 
-Sending it back: at the end of each week, send me your CSV file here on WhatsApp (attach it as a Document).
+Time: about 2 minutes per item, so about 15 hours in total. About 25 items a day (under an hour) works well; short sessions are fine.
+
+Sending it back: save as .xlsx (never CSV) and send me the file here on WhatsApp (as a Document) at the end of each week.
 
 Please don't use Google Translate, AI tools or dictionaries, and don't discuss the sentences with anyone. Any question, just message me!""",
-    "annotator_B_part1": """Hi {first}! Thank you so much for helping with the Kannada project 🙏
+    "B_part1": """Hi [name]! Thank you so much for helping with the Kannada project 🙏
 
-I'm attaching a zip file (B_part1.zip). Please unzip it on your laptop/desktop. Inside:
-• annotate_v2.html: the annotation page (open it in Chrome or Edge)
-• quick_start.pdf: one page with pictures of every step (please read this first)
+I'm attaching B_part1.zip. Please unzip it on your laptop/desktop. Inside:
+• annotator_B_part1.xlsx: your file for part 1 (open it in Excel)
+• quick_start.pdf: one page with every step (please read this first)
 • instructions.pdf: the full instructions
 
-What you'll do (100 sentences):
-1) First 40: you only see a Kannada sentence. Type it yourself in English letters, the way you'd type on your phone, and also write it as Kanglish. Please do all 40 first, and don't click ahead.
-2) Other 60: you see AI-written versions. Rate each one first, then correct it. Before you start these, I'll send you a short file with 3 worked examples.
+Part 1 (40 sentences): you only see a Kannada sentence. For each one, type it yourself in English letters, the way you'd type on your phone, and also write it as Kanglish. Nothing to rate. Please don't look anything up.
 
-Important: in the page, choose "Second annotator (100 items)", never "All 500 items".
+Before typing, please turn off AutoCorrect in Excel (File > Options > Proofing > AutoCorrect Options: untick "Correct TWo INitial CApitals", "Capitalize first letter of sentences" and "Replace text as you type"), and keyboard autocorrect if you use your phone.
 
-Time: about 2 minutes per item, so about 3 hours in total. Short sessions are fine: everything is saved to your CSV file after each item.
+Time: about 2 minutes per item, so about 3 hours for all 100 sentences across both parts.
 
-Sending it back: as soon as the first 40 are done, send me your CSV file here on WhatsApp (attach it as a Document) and wait for the examples file. Send the CSV again when you finish.
+Sending it back: as soon as all 40 are done, save as .xlsx (never CSV) and send me the file here on WhatsApp (as a Document). I'll then send you part 2 (the other 60).
 
 Please don't use Google Translate, AI tools or dictionaries, and don't discuss the sentences with anyone. Any question, just message me!""",
-    "annotator_B_part2": """Thanks {first}, got your first 40! 🙏
+    "B_part2": """Thanks [name], got your first 40! 🙏
 
-Here is B_part2.zip with worked_examples.pdf: 3 examples of how to rate an AI-written version and then correct it. Please read it, then carry on with the other 60 sentences in the same page and the same CSV file (open the page, enter the same name, choose "Second annotator (100 items)", click "Continue a CSV file…" and pick your file, then "First unfinished").
+Here is B_part2.zip, with:
+• worked_examples.xlsx: 3 examples of how to rate an AI-written version and then correct it (please read this first)
+• annotator_B_part2.xlsx: the other 60 sentences
+• quick_start.pdf: the steps for part 2
 
-Rate each version first, before changing anything, then correct it. About 2 minutes per item. Send me the CSV here when you finish. Any question, just message me!""",
+For each sentence you see the Kannada, the English, and two AI-written versions. Rate each one first with the dropdowns, then correct it so it sounds the way people really type. Type your name in the yellow cell on READ_ME, as before, and keep AutoCorrect off.
+
+About 2 minutes per item. Save as .xlsx (never CSV) and send me the file here when you finish. Any question, just message me!""",
 }
 
 
-# ---------------------------------------------------------------- build
-
 def build() -> None:
-    E = load_examples()
-    work = Path(tempfile.mkdtemp(prefix="kpkg_work_"))
-    demo = work / "demo.html"
-    demo_page(E, demo)
+    for name in ("annotator_A.xlsx", "annotator_B_part1.xlsx", "annotator_B_part2.xlsx", "worked_examples.xlsx"):
+        assert (XLSX / name).exists(), f"run scripts/k_xlsx.py build first ({name} missing)"
+    work = Path(tempfile.mkdtemp(prefix="kpkg_xlsx_"))
+    books = demo_books(work)
+    img = lambda key, sheet, rng, name: shot(books[key], sheet, rng, work / name)
+    # remove the HTML-era packages and anything older from dist (kept in git history)
+    if DIST.exists():
+        shutil.rmtree(DIST)
+    (DIST / "messages").mkdir(parents=True)
     c = Chrome()
     try:
-        for role_id, role in ROLES.items():
-            d = DIST / role_id
-            if d.exists():
-                shutil.rmtree(d)
-            d.mkdir(parents=True)
-            shutil.copyfile(PAGE, d / "annotate_v2.html")
-            shots = work / role_id
-            steps = screenshots(c, demo, role, E, shots)
-            quickstart_html(role, steps, shots / "quick_start.html", 2)
-            for scale in (1.0, 0.95, 0.9, 0.85, 0.8):  # largest print scale that keeps it to one page
-                if c.pdf((shots / "quick_start.html").as_uri(), d / "quick_start.pdf", scale) == 1:
-                    break
-            else:
-                raise SystemExit(f"{role_id}: quick start does not fit one page")
-            examples_html(role, E, shots / "worked_examples.html")
-            c.pdf((shots / "worked_examples.html").as_uri(), d / "worked_examples.pdf")
-            md_html(role["md"], shots / "instructions.html")
-            c.pdf((shots / "instructions.html").as_uri(), d / "instructions.pdf")
-            for p, _ in steps:  # keep the screenshots next to the PDF for reuse
-                (d / "screenshots").mkdir(exist_ok=True)
-                shutil.copyfile(p, d / "screenshots" / p.name)
-            for key, text in WHATSAPP.items():
-                if key.startswith(role_id):
-                    name = "whatsapp_message" + key[len(role_id):] + ".txt"
-                    (d / name).write_text(text.replace("{first}", "[name]"), encoding="utf-8")
-            # A.zip: everything (A checks the examples first). B: part 1 without the worked examples (for the 40
-            # blind items); part 2 = the examples only, sent after B's 40 blind items and A's check of the examples.
-            zips = {"annotator_A": {"A.zip": ("annotate_v2.html", "quick_start.pdf", "worked_examples.pdf",
-                                              "instructions.pdf")},
-                    "annotator_B": {"B_part1.zip": ("annotate_v2.html", "quick_start.pdf", "instructions.pdf"),
-                                    "B_part2.zip": ("worked_examples.pdf",)}}[role_id]
-            for zname, files in zips.items():
-                z = DIST / zname
-                with zipfile.ZipFile(z, "w", zipfile.ZIP_DEFLATED) as zf:
-                    for f in files:
-                        zf.write(d / f, f"{role_id}/{f}")
-                print(role_id, "steps", len(steps), "->", z.relative_to(REPO), z.stat().st_size, "bytes")
+        # ---- A
+        qs = [(AUTOCORRECT, []),
+              (NAME, [img("A", M.README, "A1:B7", "a_readme.png")]),
+              ("In the sheet <b>items</b> (one row per item): <b>rate each draft first</b>, before changing anything: "
+               "choose naturalness 1&ndash;5 and keeps-the-meaning yes/no from the dropdowns. <b>Then correct</b> the "
+               "draft in <i>your corrected version</i> (it starts as a copy of the draft; leave it if it is fine). Do "
+               "the same for the Kanglish draft.", [img("A", M.ITEMS, "E1:H2", "a_items.png")]),
+              (SAVE + " <b>Send the .xlsx to Aarnav at the end of each week</b> (WhatsApp, as a Document).", [])]
+        first = ('<div class="foot" style="margin:0 0 8px; background:#fdf1e6; border:1px solid #e8b48a">'
+                 '<span class="n" style="background:#a4400b">0</span><b>First, within a day: check the 3 worked '
+                 'examples.</b> Open the sheet <b>worked_examples</b>. For each row choose <b>OK</b> or <b>needs '
+                 'correction</b> (and write your correction in the last column). Save and send the file to Aarnav, '
+                 'then start the items.' f'<img src="a_examples.png" style="width:100%; margin-top:4px"></div>')
+        img("A", M.EXAMPLES, "I1:L3", "a_examples.png")
+        d = DIST / "A"
+        d.mkdir()
+        shutil.copyfile(XLSX / "annotator_A.xlsx", d / "annotator_A.xlsx")
+        quickstart("Quick start: Annotator A (500 items, Excel)", "You need <b>annotator_A.xlsx</b> and Excel. Full "
+                   "instructions: <b>instructions.pdf</b>. About 2 minutes per item; about 25 items a day works well.",
+                   qs, RULES, work / "qs_A.html", first)
+        one_page(c, work / "qs_A.html", d / "quick_start.pdf")
+        md_html(ANN / "instructions/annotator_A.md", work / "ins_A.html")
+        c.pdf((work / "ins_A.html").as_uri(), d / "instructions.pdf")
+        # ---- B part 1 (no draft text anywhere: the demo shows only a worked-example sentence written by hand)
+        qs = [(AUTOCORRECT, []),
+              (NAME.replace("every time", "in both parts"), [img("B1", M.README, "A1:B7", "b1_readme.png")]),
+              ("In the sheet <b>items</b> you see only a Kannada sentence. In the yellow cells, <b>write both versions "
+               "yourself</b>, from scratch: natural romanization (word for word, as you type on a phone) and Kanglish. "
+               "Nothing to rate. Do all 40.", [img("B1", M.ITEMS, "A1:E2", "b1_items.png")]),
+              (SAVE + " <b>As soon as all 40 are done, send the .xlsx to Aarnav</b> (WhatsApp, as a Document). Part 2 "
+               "follows after that.", [])]
+        d = DIST / "B_part1"
+        d.mkdir()
+        shutil.copyfile(XLSX / "annotator_B_part1.xlsx", d / "annotator_B_part1.xlsx")
+        quickstart("Quick start: Annotator B, part 1 (40 items, Excel)", "You need <b>annotator_B_part1.xlsx</b> and "
+                   "Excel. Full instructions: <b>instructions.pdf</b>. About 2 minutes per item.", qs, RULES,
+                   work / "qs_B1.html")
+        one_page(c, work / "qs_B1.html", d / "quick_start.pdf")
+        md_html(ANN / "instructions/annotator_B.md", work / "ins_B.html")
+        c.pdf((work / "ins_B.html").as_uri(), d / "instructions.pdf")
+        # ---- B part 2
+        qs = [("Read <b>worked_examples.xlsx</b> first: 3 examples (not among your items) of an AI draft, how it was "
+               "rated, and a good correction.", []),
+              ("Open <b>annotator_B_part2.xlsx</b>, type your name in the yellow cell on <b>READ_ME</b> (the same name "
+               "as in part 1), and keep AutoCorrect off.", []),
+              ("In the sheet <b>items</b>: <b>rate each draft first</b> with the dropdowns (naturalness 1&ndash;5, "
+               "keeps the meaning yes/no), <b>then correct</b> it in <i>your corrected version</i> (leave it if it is "
+               "fine). Same for the Kanglish draft.", [img("B2", M.ITEMS, "E1:H2", "b2_items.png")]),
+              (SAVE + " <b>Send the .xlsx to Aarnav when you finish.</b>", [])]
+        d = DIST / "B_part2"
+        d.mkdir()
+        for f in ("annotator_B_part2.xlsx", "worked_examples.xlsx"):
+            shutil.copyfile(XLSX / f, d / f)
+        quickstart("Quick start: Annotator B, part 2 (60 items, Excel)", "You need <b>annotator_B_part2.xlsx</b>, "
+                   "<b>worked_examples.xlsx</b> and Excel. About 2 minutes per item.", qs, RULES, work / "qs_B2.html")
+        one_page(c, work / "qs_B2.html", d / "quick_start.pdf")
     finally:
         c.close()
-        shutil.rmtree(work, ignore_errors=True)
+    for k, t in WHATSAPP.items():
+        (DIST / "messages" / f"whatsapp_{k}.txt").write_text(t, encoding="utf-8")
+    zips = {"A.zip": ("A", ["annotator_A.xlsx", "quick_start.pdf", "instructions.pdf"]),
+            "B_part1.zip": ("B_part1", ["annotator_B_part1.xlsx", "quick_start.pdf", "instructions.pdf"]),
+            "B_part2.zip": ("B_part2", ["annotator_B_part2.xlsx", "worked_examples.xlsx", "quick_start.pdf"])}
+    for z, (folder, files) in zips.items():
+        with zipfile.ZipFile(DIST / z, "w", zipfile.ZIP_DEFLATED) as zf:
+            for f in files:
+                zf.write(DIST / folder / f, f"{folder}/{f}")
+        print(z, files, (DIST / z).stat().st_size, "bytes")
+    shutil.rmtree(work, ignore_errors=True)
+
+
+def one_page(c, html_path: Path, pdf: Path) -> None:
+    for scale in (1.0, 0.95, 0.9, 0.85, 0.8, 0.75):  # largest print scale that keeps it to one page
+        if c.pdf(html_path.as_uri(), pdf, scale) == 1:
+            return
+    raise SystemExit(f"{pdf}: does not fit one page")
 
 
 if __name__ == "__main__":

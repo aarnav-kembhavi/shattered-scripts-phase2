@@ -1,0 +1,16 @@
+Hi [name]! Thank you so much for helping with the Kannada project 🙏
+
+I'm attaching B_part1.zip. Please unzip it on your laptop/desktop. Inside:
+• annotator_B_part1.xlsx: your file for part 1 (open it in Excel)
+• quick_start.pdf: one page with every step (please read this first)
+• instructions.pdf: the full instructions
+
+Part 1 (40 sentences): you only see a Kannada sentence. For each one, type it yourself in English letters, the way you'd type on your phone, and also write it as Kanglish. Nothing to rate. Please don't look anything up.
+
+Before typing, please turn off AutoCorrect in Excel (File > Options > Proofing > AutoCorrect Options: untick "Correct TWo INitial CApitals", "Capitalize first letter of sentences" and "Replace text as you type"), and keyboard autocorrect if you use your phone.
+
+Time: about 2 minutes per item, so about 3 hours for all 100 sentences across both parts.
+
+Sending it back: as soon as all 40 are done, save as .xlsx (never CSV) and send me the file here on WhatsApp (as a Document). I'll then send you part 2 (the other 60).
+
+Please don't use Google Translate, AI tools or dictionaries, and don't discuss the sentences with anyone. Any question, just message me!

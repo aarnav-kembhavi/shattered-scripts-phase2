@@ -330,6 +330,24 @@ def do_rater(b_csv: str, out: str | None = None) -> int:
     each kind (B's text and the Gemini draft shown on the annotation page), source hidden; which version comes first
     is drawn once with default_rng(RATER_SEED) over the blind items in blind_v1.json order (natural, then Kanglish).
     The mapping is written to RATER_KEY, never into the page."""
+    pairs = rater_pairs(b_csv)
+    if pairs is None:
+        return 1
+    rows, key = pairs
+    page = Path(out) if out else RATER_PAGE
+    html = RATER_TEMPLATE.read_text(encoding="utf-8")
+    page.write_text(html.replace("__ITEMS_JSON__", json.dumps(rows, ensure_ascii=False).replace("</", "<\\/")),
+                    encoding="utf-8")
+    key_path = page.with_name(page.stem + "_key.json") if out else RATER_KEY
+    key_path.write_text(json.dumps({"seed": RATER_SEED, "b_csv": str(b_csv), "pairs": key}, indent=1), encoding="utf-8")
+    print({"page": str(page), "key": str(key_path), "n_pairs": len(rows),
+           "human_first": sum(r["v1"] == "human" for r in key)})
+    return 0
+
+
+def rater_pairs(b_csv):
+    """The registered K3 pairs (shared by the HTML page and the xlsx workbook, 2026-10-25): ([{item_id, kind, native,
+    v1, v2}], [{item_id, kind, v1, v2: 'human'|'gemini'}]) or None if B's 40 blind items are not all in."""
     blind = json.load(open(BLIND))["ids"]
     B = pd.read_csv(b_csv, encoding="utf-8-sig", dtype=str, keep_default_na=False)
     B = B[(B.condition == "blind") & B.item_id.isin(blind)].drop_duplicates("item_id", keep="last").set_index("item_id")
@@ -338,7 +356,7 @@ def do_rater(b_csv: str, out: str | None = None) -> int:
     if len(done) < len(blind):
         print({"status": "refused: Annotator B's blind items are not all in", "blind_done": len(done),
                "blind_needed": len(blind)})
-        return 1
+        return None
     drafts, its = shown_drafts(), {it["id"]: it for it in items()}
     flip = np.random.default_rng(RATER_SEED).integers(0, 2, size=(2, len(blind)))
     rows, key = [], []
@@ -349,15 +367,7 @@ def do_rater(b_csv: str, out: str | None = None) -> int:
                 pair.reverse()
             rows.append({"item_id": i, "kind": kind, "native": its[i]["native"], "v1": pair[0][1], "v2": pair[1][1]})
             key.append({"item_id": i, "kind": kind, "v1": pair[0][0], "v2": pair[1][0]})
-    page = Path(out) if out else RATER_PAGE
-    html = RATER_TEMPLATE.read_text(encoding="utf-8")
-    page.write_text(html.replace("__ITEMS_JSON__", json.dumps(rows, ensure_ascii=False).replace("</", "<\\/")),
-                    encoding="utf-8")
-    key_path = page.with_name(page.stem + "_key.json") if out else RATER_KEY
-    key_path.write_text(json.dumps({"seed": RATER_SEED, "b_csv": str(b_csv), "pairs": key}, indent=1), encoding="utf-8")
-    print({"page": str(page), "key": str(key_path), "n_pairs": len(rows),
-           "human_first": sum(r["v1"] == "human" for r in key)})
-    return 0
+    return rows, key
 
 
 def chrf_stats(hyp: pd.Series, ref: pd.Series, n_boot: int = 10000) -> dict:
