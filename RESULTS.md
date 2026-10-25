@@ -2876,3 +2876,80 @@ computed.
   point counts (29, 25, 29, 36) about 6.1 h at Qwen3.5 speed (Gemma 4 has been slower per point; estimate from Qwen3.5
   only).
 - **Stopped at the gate; full run not started.** Chain ready: `scripts/ep_robust_chain.sh` (detached).
+
+---
+## 2026-10-26 03:10 IST — PROTOCOL CHANGE: Annotator A is a pool of about 50 people (Aarnav)
+- **A = a pool of about 50 native Kannada speakers** who together verified the 500 items in one workbook
+  (`annotation/xlsx/annotator_A_filled.xlsx`, file time 2026-10-26 02:57). There are no per-item annotator IDs.
+- **Consequences:** agreement within A cannot be computed; A vs B agreement (kappa on fine/wrong, 60 items) compares
+  B with a pool, not with one person; "Annotator A" in K1–K3 and the agreement addendum now means this pool. Consent
+  and the datasheet entries are per pool (to be filled by Aarnav in `data/annotation/DATASHEET.md`).
+- No decision rule or threshold changes.
+
+## 2026-10-26 03:10 IST — Merge of A's verification
+`annotation/merge_xlsx.py A annotation/xlsx/annotator_A_filled.xlsx --final` → `annotation/results/annotator_A.csv`
+(+ `_flags.csv`, `_invalid.csv`, `_quality.json`).
+- **Integrity vs the build** (`annotator_A.xlsx`, commit 852f0c2): every item ID, Kannada, English and Gemini draft cell
+  and all 3 example rows are identical (0 of 2,540 cells differ: 500 items × 5 locked columns, plus the header and the 3 example rows in full; value and type compared); the header and READ_ME are
+  unchanged; no cells outside the layout. Sheet protection was removed on the items sheet (not refused, as instructed).
+- **Counts (500 items, examples excluded):** natural fine 472, wrong 28; Kanglish fine 473, wrong 27. Empty cells 0;
+  invalid cells 0; identical fixes repeated across rows 0.
+- **AutoCorrect check:** 48 flags, all R1 (a sentence starting with a capital), 4 in natural fixes and 44 in Kanglish
+  fixes; 41 are not in the draft. In the 28 wrong natural items the drafts have 14 sentence-initial capitals and the
+  fixes 4; in the 27 wrong Kanglish items 32 and 44. Capitals added at sentence starts are consistent with Excel's
+  "Capitalize first letter of sentences" or deliberate typing; not fixed (no R2 or R3 flags).
+- **indicsentiment-test-249, natural fix: a paraphrase that drops content** (54 → 36 words; e.g. "ondata", "ellarigu",
+  the check-in/check-out timings are dropped). Kept in the data and marked in the release notes; **not used in the
+  natural_verified experiments: the draft is used for this item** (substitution logged in the verified-text build).
+
+---
+## 2026-10-26 03:15 IST — Verified texts built
+`scripts/k_verified.py` → `data/annotation/verified_A_v1.jsonl` (500 items, A's data as given),
+`data/processed/natural_e0_verified_v1.jsonl` and `data/processed/natural_flores_m4_500_verified_v1.jsonl` (the
+experiment files with the natural text replaced by the verified one, same format; `results/k_verified/build.json`).
+A verified text replaces the experiment's text only where A's draft is identical to it.
+- **E0 file (sentiment):** 199 of A's sentiment items are in it; 198 verified against the exact experiment text, **18
+  changed**; indicsentiment-test-991 not substituted (A verified a regenerated draft; the E0 text was defective and is
+  excluded from natural analyses anyway). indicsentiment-test-245 (E0) was replaced in the annotation set, so it is
+  not verified; indicsentiment-test-295 is annotated but not in E0.
+- **M4c file (retrieval, SIB-257):** 80 of A's FLORES items are in the M4c sample; 80 verified, **3 changed**.
+- **Substitution:** indicsentiment-test-249 natural uses the draft (A's fix drops content), as decided.
+
+---
+## PRE-REGISTRATION (exploratory) — V-VER: natural_verified vs the natural drafts (written 2026-10-26 03:15 IST, Aarnav's design; before any run)
+No prediction, no verdict; registered verdicts are unchanged.
+- **Texts:** `natural_flores_m4_500_verified_v1.jsonl` and `natural_e0_verified_v1.jsonl` (built above) vs the
+  original natural files; everything else identical.
+- **Measures, same matched items as the natural results, all counted models:** retrieval (M4c, 248 test sentences,
+  ladder procedure, unmapped, train-half layer; Qwen3.5, Sarvam-1, Gemma 4); SIB-257 and sentiment (198 clean natural
+  items) accuracy with the E0b/E0c prompts and stored calibration (Qwen3, Qwen3.5, Sarvam-1, Gemma 4).
+- **Report:** verified − original per model with paired 95% bootstrap CI (10,000), exact McNemar p unadjusted, and how
+  many items' texts differ in each set (and how many predictions/hits change).
+- `scripts/v_ver.py`; outputs `results/v_ver/`. GPU: queued after EP-R, detached chain, one model load at a time, GPU
+  guard before each load.
+
+---
+## 2026-10-26 03:15 IST — K1 and K2: implementation choices written before the scoring script runs (registration 2026-10-16; no rule or threshold changed)
+The K1–K2 registration (2026-10-16) leaves these details to the scoring script; they are fixed here before any K1/K2
+score exists.
+- **Data:** "human-corrected" = A's verified text ("human verified Gemini romanization", protocol change of 2026-10-26);
+  natural uses the draft for indicsentiment-test-249 (as decided). Gemini drafts = the drafts A verified (secondary).
+- **Models:** the five E0b models (Qwen2.5-1.5B, Qwen3-1.7B, Qwen3.5-2B, Sarvam-1, Gemma 4 E2B) for K1 and K2a; the four
+  M4 models (Qwen2.5, Qwen3.5, Sarvam-1, Gemma 4) for K2b.
+- **Scoring:** E0b `score_model` unchanged (log-likelihood of label words, BOS, content-free calibration avg of "N/A",
+  "", "[MASK]"); the raw-fallback decision per model × task is taken from the full stored English rows of E0b (sentiment)
+  and E0c (SIB), exactly as in Gate 1 and E0c.
+- **Informative cell:** stored English accuracy on the same items (199 sentiment items in E0b; 300 SIB items in E0c)
+  ≥ chance + 5 points.
+- **K1:** McNemar exact on paired correctness, Kanglish verified vs natural verified, Holm across informative cells.
+- **K2a:** logit(correct on Kanglish verified) ~ z(English share) + z(log tokens), tokens = the Kanglish text's tokens
+  under that model's tokenizer (no special tokens); English share from `shattered.translit.codemix`; one-sided p for the
+  share coefficient; Holm across counted cells (informative and constant-label rate ≤ 90% on Kanglish verified).
+- **K2b:** sentence vectors of the 300 Kanglish-verified FLORES texts (`shattered.interp.collect`, as M4); layer =
+  M4b's train-half best unmapped layer for native (`results/m4b_mapping/summary.csv`); outcome = rank of the true English
+  sentence among the 1,005 M4b test-half English vectors (cosine); OLS −log rank ~ z(English share) + z(log tokens);
+  one-sided p; Holm across the four models.
+- **Pilot (Qwen3.5-2B, 20 items: 10 sentiment, 10 SIB):** item mapping and labels; recomputed content-free log-probs
+  equal the stored ones; prompts build for all four K forms; K2b vectors computed for the 10 SIB items; English share
+  and token counts computed; timing and extrapolation. No accuracy, coefficient or test is computed. **Stop for Aarnav's
+  OK.**

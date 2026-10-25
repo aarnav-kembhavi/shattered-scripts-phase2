@@ -87,6 +87,15 @@ no condition on reuse, so it does not constrain the release. We still cite the p
   blind items are complete.
 - **Agreement.** On the 60 non-blind double items: Cohen's kappa (meaning), quadratic-weighted kappa (naturalness), and
   chrF between A's and B's corrections.
+- **Protocol as run (2026-10-26; supersedes the tool, roles, standard condition, rater design and agreement bullets
+  above, which describe the earlier plan).** Excel workbooks. Annotators verify each Gemini draft: "fine" (how people
+  would type it on WhatsApp, and keeps the meaning) or "wrong" with their fix; verified text = the draft if fine, the
+  fix if wrong. Annotator B writes the 40 blind items from scratch (Kannada sentence only) and verifies the other 60.
+  Rater C was dropped. **Annotator A is a pool of about 50 native Kannada speakers** who together verified the 500
+  items; there are no per-item annotator IDs, so agreement within A cannot be computed. Agreement: Cohen's kappa on
+  fine/wrong, A (pool) vs B, 60 items; chrF between A's and B's verified texts.
+- **Annotator pool A (to be filled by Aarnav).** Number: about 50. Kannada background (native/first language, region,
+  age range): TBD. Recruitment: TBD. Compensation: TBD. Consent to release their annotations, per pool: TBD.
 - **Annotators.** TBD: number, Kannada background (native/first language, region, age range), how they were recruited,
   compensation, and consent to release their annotations. No identifying information is released.
 
@@ -110,3 +119,8 @@ no condition on reuse, so it does not constrain the release. We still cite the p
   datasheet. Not distributed before Aarnav says so.
 - **Maintainer and contact:** TBD (Aarnav).
 - **Errata:** corrections will be logged with dates in the release notes.
+
+## Release notes
+- **indicsentiment-test-249, natural, Annotator A's fix (2026-10-26):** a paraphrase that drops content (54 → 36 words;
+  e.g. the check-in/check-out timings are left out). Kept in the data as A's verified text and marked here; the study's
+  natural_verified experiments use the Gemini draft for this item instead (RESULTS.md 2026-10-26).

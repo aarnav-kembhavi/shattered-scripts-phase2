@@ -1,0 +1,64 @@
+{
+  "provenance": {
+    "config": {
+      "source": "annotation\\results\\annotator_A.csv"
+    },
+    "git_commit": "dee1a28d81d2fb8430cbc3a3b134a5e6ad525366-dirty",
+    "timestamp_utc": "2026-10-25T21:41:36+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/k_verified.py"
+    ]
+  },
+  "substitutions": [
+    {
+      "item_id": "indicsentiment-test-249",
+      "form": "natural",
+      "reason": "A's fix is a paraphrase that drops content (Aarnav, 2026-10-26)"
+    }
+  ],
+  "natural_e0": {
+    "rows": 587,
+    "annotated_items_in_file": 199,
+    "draft_equals_experiment_text": 198,
+    "draft_differs_from_experiment_text": [
+      "indicsentiment-test-991"
+    ],
+    "verified": 198,
+    "verified_changed": 18,
+    "changed_items": [
+      "indicsentiment-test-857",
+      "indicsentiment-test-581",
+      "indicsentiment-test-234",
+      "indicsentiment-test-913",
+      "indicsentiment-test-145",
+      "indicsentiment-test-419",
+      "indicsentiment-test-792",
+      "indicsentiment-test-81",
+      "indicsentiment-test-343",
+      "indicsentiment-test-673",
+      "indicsentiment-test-882",
+      "indicsentiment-test-549",
+      "indicsentiment-test-520",
+      "indicsentiment-test-636",
+      "indicsentiment-test-709",
+      "indicsentiment-test-314",
+      "indicsentiment-test-826",
+      "indicsentiment-test-604"
+    ]
+  },
+  "natural_flores_m4_500": {
+    "rows": 500,
+    "annotated_items_in_file": 80,
+    "draft_equals_experiment_text": 80,
+    "draft_differs_from_experiment_text": [],
+    "verified": 80,
+    "verified_changed": 3,
+    "changed_items": [
+      "flores-692",
+      "flores-1027",
+      "flores-1936"
+    ]
+  }
+}
