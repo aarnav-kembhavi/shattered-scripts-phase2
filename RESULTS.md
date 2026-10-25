@@ -2755,3 +2755,25 @@ differences.csv, summary.json, gpu.log}`. No registered verdict changes.
 - Descriptively: every CI includes 0, and the estimates are within ±0.025. Raising vowel doubling to the Dakshina
   human rate does not visibly move the natural-form results in these three models, at these sample sizes. Note: the
   retrieval layer chosen on the training half moved for Qwen3.5 (16 → 6); Sarvam-1 18 → 17, Gemma 4 7 → 7.
+
+---
+## 2026-10-26 00:40 IST — PROTOCOL CHANGE: annotation "rate + correct" → "verify" (Aarnav's decision; before any valid annotation is returned)
+No valid annotation exists: nothing returned so far is used (Annotator A's returned workbook is archived as invalid,
+logged separately).
+- **Change.** Annotators verify the Gemini drafts instead of rating and correcting them: for each draft, **fine**
+  (how people would type it on WhatsApp, and keeps the meaning) or **wrong**, with their fix. The verified text is the
+  draft if fine, the fix if wrong. The naturalness 1–5 and meaning yes/no ratings are dropped. Annotator B still
+  types the 40 blind items from scratch (native sentence only, before seeing any draft), unchanged. **Rater C is
+  dropped.**
+- **Reason.** Annotator time. Anchoring on the draft is no longer avoided by design; it is measured on B's blind 40
+  (B's from-scratch text vs the Gemini draft and vs A's verified text).
+- **Items, drafts, blind set, double set, seeds:** unchanged.
+- **No decision rule or threshold changes.** How each registered prediction is affected:
+
+| prediction | status after this change |
+|---|---|
+| K1 (Kanglish beats natural) | applies, rule unchanged, with the data label "human verified Gemini romanization" in place of "human-corrected" (A's verified natural and Kanglish); Gemini drafts stay the secondary comparison |
+| K2a, K2b (more English, better) | apply, rules unchanged, on "human verified Gemini romanization" Kanglish |
+| K3 (blind human vs Gemini natural; independent rater, TOST) | **descriptive, no verdict**, per the registered rule "if no independent rater is available, K3 is reported descriptively". No naturalness ratings exist, so the descriptive report is chrF Gemini vs B's blind text (with the human-human reference, A verified vs B verified on the 60, noted as biased upward), plus the anchoring measures |
+| K3b, K3b-hi (Dakshina) | apply as registered; no annotation involved (K3b already reported) |
+| Agreement addendum (2026-10-17) | descriptive as before; kappas on naturalness and meaning cannot be computed (no ratings) and are replaced by Cohen's kappa on fine/wrong (A vs B, 60 items); chrF between A's and B's verified texts and draft-to-verified edit size as registered |
