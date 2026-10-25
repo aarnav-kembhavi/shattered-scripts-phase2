@@ -58,3 +58,13 @@ wait_gpu() {  # before every model load (rule of 2026-10-23): total GPU memory i
     sleep 300; u=$(gpu_used_mb)
   done
 }
+
+wait_h1lf() {  # standing rule (Aarnav, 2026-10-26): once the H1-LF SIB-1004 drafts are complete, H1-LF scoring goes
+  # ahead of everything queued. Call before every model load of any other chain; it never interrupts a running model.
+  while [ -f results/h1lf/sib1004_drafts.DONE ]; do
+    local s; s=$(state_of results/CHAIN_STATUS_H1LF.md)
+    case "$s" in DONE|FAILED|DEAD) return 0 ;; esac
+    st WAITING "H1-LF scoring has priority (H1-LF chain: ${s:-no status}); waiting before the next model load"
+    sleep 120
+  done
+}

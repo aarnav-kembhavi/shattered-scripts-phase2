@@ -2953,3 +2953,17 @@ score exists.
   equal the stored ones; prompts build for all four K forms; K2b vectors computed for the 10 SIB items; English share
   and token counts computed; timing and extrapolation. No accuracy, coefficient or test is computed. **Stop for Aarnav's
   OK.**
+
+---
+## 2026-10-26 03:45 IST — Rules (Aarnav)
+- **Wording.** In RESULTS.md and the paper, "human verified" applies only to the annotated subset: sentiment 198 items
+  and FLORES 300 items, of which 80 overlap the M4c sample. Never state that the natural alignment (M4c retrieval) or
+  natural accuracy results as a whole are human verified; V-VER replaces the natural text only for those items.
+- **Standing rule, GPU queue.** When the H1-LF SIB-1004 drafts complete, H1-LF scoring goes ahead of everything queued,
+  but a model already running is never interrupted (`wait_h1lf` in `scripts/chainlib.sh`, called before every model
+  load of other chains; EP-R, started before the rule, finishes before the drafts can complete).
+- **V-VER, changed to splicing (before any V-VER run):** retrieval and SIB-257 recompute only the items whose verified
+  text differs (3 sentences each) and splice them into the stored per-item results; 2 unchanged items per model are
+  recomputed as a control and must reproduce the stored vectors / log-probs (|Δ| < 1e-3). Sentiment is scored in full
+  (18 changed items). Chain `scripts/vver_chain.sh`, queued after EP-R. The K1/K2 pilot is held until Aarnav approves
+  the implementation details.

@@ -124,3 +124,5 @@ no condition on reuse, so it does not constrain the release. We still cite the p
 - **indicsentiment-test-249, natural, Annotator A's fix (2026-10-26):** a paraphrase that drops content (54 → 36 words;
   e.g. the check-in/check-out timings are left out). Kept in the data as A's verified text and marked here; the study's
   natural_verified experiments use the Gemini draft for this item instead (RESULTS.md 2026-10-26).
+- **Capital letters in A's fixes (2026-10-26):** left exactly as typed. Some fixes start sentences with a capital where
+  the draft did not (consistent with Excel's automatic capitalization or deliberate typing); nothing was changed.

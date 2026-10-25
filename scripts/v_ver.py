@@ -6,8 +6,12 @@ data/processed/natural_e0_verified_v1.jsonl (sentiment), built by scripts/k_veri
 natural pipeline unchanged (ladder retrieval procedure; E0b/E0c prompts, stored content-free calibration and the
 raw-fallback rule from the full stored English rows).
 
-Usage: python scripts/v_ver.py forward <model>   (GPU; retrieval models; GPU guard first)
-       python scripts/v_ver.py score <model>     (GPU; sentiment + SIB-257; GPU guard first)
+Retrieval and SIB-257 (Aarnav, 2026-10-26): only the items whose verified text differs are recomputed and spliced into
+the stored per-item results (natural500.npz vectors; natural257 scores); a few unchanged items are recomputed as a
+control and must reproduce the stored values. Sentiment is scored in full.
+
+Usage: python scripts/v_ver.py forward <model>   (GPU; retrieval models; changed sentences + controls; GPU guard first)
+       python scripts/v_ver.py score <model>     (GPU; sentiment in full, SIB-257 changed items + controls)
        python scripts/v_ver.py analyse           (CPU)
 Outputs: results/v_ver/{differences.csv, summary.json, scores_e0b/, scores_e0c/},
          cache/activations/m14full/<model>/natural_verified500.npz
@@ -34,6 +38,7 @@ RET_MODELS = lad.COUNT_RETRIEVAL  # qwen3.5-2b, sarvam-1, gemma4-e2b
 ACC_MODELS = lad.COUNT_ACC  # qwen3-1.7b, qwen3.5-2b, sarvam-1, gemma4-e2b
 FORM_SIB, FORM_SENT = "natural_verified257", "natural_verified"
 REGISTERED = "RESULTS.md 2026-10-26 03:15 IST (V-VER, exploratory)"
+N_CONTROL = 2  # unchanged items recomputed per spliced run; must reproduce the stored values
 
 
 def m4v() -> list:
@@ -64,27 +69,47 @@ def guard() -> None:
     wait_gpu_free()
 
 
+def changed_and_controls(ids, changed) -> tuple[list, list]:
+    ch = [i for i in ids if i in changed]
+    return ch, [i for i in ids if i not in changed][:N_CONTROL]
+
+
 def do_forward(m: str) -> None:
+    """Vectors only for the sentences whose verified text differs (+ controls), spliced into natural500.npz."""
     path = ACT / m / "natural_verified500.npz"
     if path.exists():
         print(f"{m}: natural_verified500 exists", flush=True)
         return
+    R = m4v()
+    V = {r["index"]: r for r in R}
+    old = np.load(ACT / m / "natural500.npz")
+    pos = {int(i): k for k, i in enumerate(old["index"])}
+    ch, ctrl = changed_and_controls([r["index"] for r in R], {i for i in V if V[i]["verified_changed"]})
     guard()
     import torch
     from shattered.interp.load import load
-    R = m4v()
     t0 = time.time()
     model, tok = load(m, "cuda")
-    out = lad.forward_form(model, tok, [r["natural"] for r in R], [r["index"] for r in R])
-    np.savez(tmp_path(path), flores_states=out["sent_states"], index=np.array([r["index"] for r in R]),
-             n_tokens=out["n_tokens"])
-    commit(tmp_path(path), path)
-    print(f"{m}: natural_verified500 forward done ({time.time() - t0:.0f}s incl. load)", flush=True)
+    out = lad.forward_form(model, tok, [V[i]["natural"] for i in ch + ctrl], ch + ctrl)
     del model
     torch.cuda.empty_cache()
+    S = out["sent_states"]
+    ctrl_delta = float(max(np.abs(S[len(ch) + k].astype(np.float64) - old["flores_states"][pos[i]].astype(np.float64)).max()
+                           for k, i in enumerate(ctrl)))
+    if ctrl_delta > 1e-3:
+        raise SystemExit(f"{m}: control sentences do not reproduce the stored vectors (max |d| {ctrl_delta})")
+    X, nt = old["flores_states"].copy(), old["n_tokens"].copy()
+    for k, i in enumerate(ch):
+        X[pos[i]], nt[pos[i]] = S[k], out["n_tokens"][k]
+    np.savez(tmp_path(path), flores_states=X, index=old["index"], n_tokens=nt, spliced=np.array(ch),
+             control=np.array(ctrl), control_max_abs_delta=ctrl_delta)
+    commit(tmp_path(path), path)
+    print(f"{m}: {len(ch)} changed sentences spliced; controls {ctrl} reproduce (max |d| {ctrl_delta:.2e}); "
+          f"{time.time() - t0:.0f}s", flush=True)
 
 
 def do_score(m: str) -> None:
+    """Sentiment: all items. SIB-257: only the items whose verified text differs, plus controls."""
     import e0b_familiarity as e0b
     todo = []
     for d, src, form in ((OUT / "scores_e0b", lad.E0B_DIR, FORM_SENT), (OUT / "scores_e0c", lad.E0C_DIR, FORM_SIB)):
@@ -98,7 +123,14 @@ def do_score(m: str) -> None:
         return
     guard()
     for d, form in todo:  # score_model loads the model once per call; one load at a time
-        e0b.score_model(m, sent_items() if form == FORM_SENT else sib_items(), [form], d)
+        if form == FORM_SENT:
+            e0b.score_model(m, sent_items(), [form], d)
+        else:
+            s = sib_items()
+            changed = {i for i, r in ((r["index"], r) for r in m4v()) if r["verified_changed"]}
+            ch, ctrl = changed_and_controls([it["id"] for it in s["sib"]], changed)
+            keep = set(ch + ctrl)
+            e0b.score_model(m, {"sib": [it for it in s["sib"] if it["id"] in keep]}, [form], d)
 
 
 def paired(a: np.ndarray, b: np.ndarray) -> dict:
@@ -109,7 +141,7 @@ def paired(a: np.ndarray, b: np.ndarray) -> dict:
 
 def do_analyse() -> None:
     import e0b_familiarity as e0b
-    rows = []
+    rows, sib_control_delta = [], None
     # retrieval
     R, keep, _ = lad.m4c_sample()
     idx = np.array([r["index"] for r in R])[keep]
@@ -143,8 +175,22 @@ def do_analyse() -> None:
             ("sentiment", OUT / "scores_e0b", lad.E0B_DIR, FORM_SENT, "natural", None)):
         cf = {m: json.load(open(src / f"cf_{m}.json")) for m in ACC_MODELS}
         full_en = pd.concat([pd.read_parquet(src / f"{m}__english.parquet") for m in ACC_MODELS], ignore_index=True)
-        C = pd.concat([full_en] + [pd.read_parquet(src / f"{m}__{orig}.parquet") for m in ACC_MODELS]
-                      + [pd.read_parquet(d / f"{m}__{form}.parquet") for m in ACC_MODELS], ignore_index=True)
+        new = [pd.read_parquet(d / f"{m}__{form}.parquet") for m in ACC_MODELS]
+        if task == "sib":  # splice: stored natural257 rows, with the changed items replaced by their new rows
+            spliced, checks = [], {}
+            changed = {r["index"] for r in m4v() if r["verified_changed"]}
+            for m, nw in zip(ACC_MODELS, new):
+                st_ = pd.read_parquet(src / f"{m}__{orig}.parquet")
+                ctrl = nw[~nw.id.isin(changed)].set_index("id")
+                ref_ = st_.set_index("id").loc[ctrl.index]
+                checks[m] = float(max(np.abs(np.array(a) - np.array(b)).max() for a, b in zip(ctrl.logprobs, ref_.logprobs)))
+                assert checks[m] < 1e-3, (m, "SIB control items do not reproduce the stored scores", checks[m])
+                sp = pd.concat([st_[~st_.id.isin(changed)], nw[nw.id.isin(changed)]], ignore_index=True)
+                spliced.append(sp.assign(form=form))
+            new = spliced
+            sib_control_delta = checks
+        C = pd.concat([full_en] + [pd.read_parquet(src / f"{m}__{orig}.parquet") for m in ACC_MODELS] + new,
+                      ignore_index=True)
         C, _ = e0b.apply_calibration(C, cf)  # raw-fallback decided on the full stored English rows, as stored
         if task == "sentiment":
             ev = {r["native"]: r for r in map(json.loads, E0V.open(encoding="utf-8"))}
@@ -165,7 +211,10 @@ def do_analyse() -> None:
                          **paired(corr[form].to_numpy(), corr[orig].to_numpy())})
     K = pd.DataFrame(rows)
     K.to_csv(OUT / "differences.csv", index=False)
-    write_json(OUT / "summary.json", {"differences": K.to_dict("records")},
+    ctrl_ret = {m: float(np.load(ACT / m / "natural_verified500.npz")["control_max_abs_delta"]) for m in RET_MODELS}
+    write_json(OUT / "summary.json", {"differences": K.to_dict("records"),
+                                      "control_max_abs_delta": {"retrieval_vectors": ctrl_ret,
+                                                                "sib_logprobs": sib_control_delta}},
                {"registered": REGISTERED, "status": "exploratory, no verdict", "difference": "verified - original"})
     pd.set_option("display.width", 250)
     print(K.round(4).to_string(index=False))
