@@ -2801,7 +2801,7 @@ No annotation exists: nothing has been returned by any annotator.
 - `scripts/k_xlsx.py build` → `annotation/xlsx/annotator_A.xlsx` (500 items), `annotator_B_part1.xlsx` (40 blind),
   `annotator_B_part2.xlsx` (B's other 60, verify layout). Each items sheet: Kannada | English | Gemini natural | Natural
   OK? | Natural fix | Gemini Kanglish | Kanglish OK? | Kanglish fix | Note | Item ID; B part 1: Kannada | English |
-  Your natural | Your Kanglish | Note | Item ID. The verify sheets have 3 locked EXAMPLE rows on top (one fine, one wrong
+  Your natural | Your Kanglish | Note | Item ID (English column removed 2026-10-26 01:35, see below). The verify sheets have 3 locked EXAMPLE rows on top (one fine, one wrong
   with a fix, one wrong because the meaning changed; written by Claude Code, checked by A before use).
 - Checks on the unzipped XML of every built file (`k_xlsx.py xmlcheck`): no answer cell has a value, formula or inline
   string; no hidden sheets, columns or rows, no names, comments or cells outside the layout. B part 1 leak check: 0 of
@@ -2813,8 +2813,13 @@ No annotation exists: nothing has been returned by any annotator.
   left out; changed IDs, locked drafts and example rows are refused; B parts 1 + 2 merge to 100 rows; kappa and
   anchoring run; Excel's own open-and-save keeps protection, the dropdown (stop alert), Text format and the frozen
   header, and merges to the same rows.
-- **Open question for Aarnav (deviation from the registered blind condition, not applied silently):** B part 1 now
-  shows the English translation, as specified on 2026-10-26. The registered blind condition (deviation (b),
-  2026-10-22) says B sees "only the native Kannada sentence (no English, no drafts)". Showing English can push B's
-  Kanglish towards the English wording (e.g. names copied), which affects the anchoring comparison. Needs Aarnav's
-  decision before B_part1.zip is sent.
+
+---
+## 2026-10-26 01:35 IST — B part 1 back to the registered blind condition; how the anchoring comparison is read (Aarnav)
+- **B part 1 shows the Kannada sentence only** (no English, no drafts), as in the registered blind condition
+  (deviation (b), 2026-10-22). The English column of the 01:15 build is removed; B_part1.zip rebuilt. A's and B part
+  2's workbooks are unchanged.
+- **Reading of the anchoring comparison.** Annotator A sees the English sentence and the Gemini draft; B's blind 40 are
+  written from the Kannada alone. So B blind vs A verified reflects seeing the draft **plus** seeing the English, not
+  the draft alone, and is reported that way (also in `merge_xlsx.py anchor` output). B blind vs the Gemini draft is
+  unaffected by this.

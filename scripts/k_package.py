@@ -2,7 +2,7 @@
 The rate-and-correct packages of 2026-10-25 are in git history only.
 
   annotation/dist/A/        annotator_A.xlsx (500 items, 3 example rows at the top), instructions.pdf     -> A.zip
-  annotation/dist/B_part1/  annotator_B_part1.xlsx (40 blind items: Kannada and English, no Gemini text),
+  annotation/dist/B_part1/  annotator_B_part1.xlsx (40 blind items: Kannada only, no English, no Gemini text),
                             instructions.pdf                                                           -> B_part1.zip
   annotation/dist/B_part2/  annotator_B_part2.xlsx (B's other 60, verify layout)                       -> B_part2.zip
                             (send only after B's 40 blind items are in and A has confirmed the examples)
@@ -11,7 +11,7 @@ The rate-and-correct packages of 2026-10-25 are in git history only.
 Workbooks come from scripts/k_xlsx.py (run `build` first); before packaging, every workbook must pass the XML check
 (answer cells empty, nothing hidden) and B part 1 the draft leak check. Instructions are printed by headless Chrome.
 
-Usage: python scripts/k_package.py
+Usage: python scripts/k_package.py [A.zip B_part1.zip B_part2.zip]   (default: all)
 """
 from __future__ import annotations
 
@@ -221,19 +221,25 @@ PACKAGES = {  # zip: (folder, workbook, instructions markdown or None)
 }
 
 
-def build() -> None:
+def build(only=None) -> None:
     import k_xlsx as K
     for _, book, _ in PACKAGES.values():
         assert (XLSX / book).exists(), f"run scripts/k_xlsx.py build first ({book} missing)"
         assert K.xmlcheck(XLSX / book)["clean"], f"{book}: answer cells not empty or something hidden"
     assert not K.leakcheck(XLSX / "annotator_B_part1.xlsx")["hits"], "B part 1 contains Gemini draft text"
     work = Path(tempfile.mkdtemp(prefix="kpkg_verify_"))
-    if DIST.exists():  # the rate-and-correct packages of 2026-10-25 (git history only)
+    if only:  # rebuild these packages only; the others stay as they are
+        for z in only:
+            shutil.rmtree(DIST / PACKAGES[z][0], ignore_errors=True)
+            (DIST / z).unlink(missing_ok=True)
+    elif DIST.exists():  # the rate-and-correct packages of 2026-10-25 (git history only)
         shutil.rmtree(DIST)
-    (DIST / "messages").mkdir(parents=True)
+    (DIST / "messages").mkdir(parents=True, exist_ok=True)
     c = Chrome()
     try:
         for z, (folder, book, md) in PACKAGES.items():
+            if only and z not in only:
+                continue
             d = DIST / folder
             d.mkdir()
             shutil.copyfile(XLSX / book, d / book)
@@ -254,4 +260,4 @@ def build() -> None:
 
 
 if __name__ == "__main__":
-    build()
+    build(sys.argv[1:] or None)  # optional: A.zip B_part1.zip B_part2.zip (default all)

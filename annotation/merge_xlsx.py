@@ -49,8 +49,8 @@ VERIFY_SHEET = [
     ("kanglish_draft", "Gemini Kanglish", "locked"), ("kanglish_ok", "Kanglish OK?", "ok"),
     ("kanglish_fix", "Kanglish fix", "text"),
     ("note", "Note", "text"), ("item_id", "Item ID", "id")]
-BLIND_SHEET = [
-    ("native", "Kannada", "locked"), ("english", "English", "locked"),
+BLIND_SHEET = [  # registered blind condition (2026-10-22): the native sentence only, no English, no drafts
+    ("native", "Kannada", "locked"),
     ("natural_own", "Your natural", "text"), ("kanglish_own", "Your Kanglish", "text"),
     ("note", "Note", "text"), ("item_id", "Item ID", "id")]
 ITEMS, README = "items", "READ_ME"
@@ -360,7 +360,9 @@ def anchoring(a_csv, b_csv) -> dict:
     A = {r["item_id"]: r for r in read_csv(a_csv)}
     B = {r["item_id"]: r for r in read_csv(b_csv) if r["condition"] == "blind"}
     stats = {"natural": "natural", "kanglish": "kanglish"}
-    res = {"blind_items": len(blind), "status": "descriptive, no rule"}
+    res = {"blind_items": len(blind), "status": "descriptive, no rule",
+           "reading": "A saw the Gemini draft and the English sentence; B's blind texts were written from the Kannada "
+                      "alone. B blind vs A verified reflects seeing the draft plus the English, not the draft alone."}
     for k in stats:
         ids = [i for i in blind if i in B and B[i][f"{k}_text"]]
         texts = {"B": [B[i][f"{k}_text"] for i in ids], "gemini": [exp[i][f"{k}_draft"] for i in ids]}

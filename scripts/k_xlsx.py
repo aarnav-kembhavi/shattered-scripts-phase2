@@ -3,7 +3,7 @@ fine / wrong + fix; B's 40 blind items typed from scratch; Rater C dropped). The
 2026-10-25 are in git history only.
 
   python scripts/k_xlsx.py build            -> annotation/xlsx/annotator_A.xlsx (500 items + 3 example rows),
-                                               annotator_B_part1.xlsx (40 blind items: Kannada and English only),
+                                               annotator_B_part1.xlsx (40 blind items: Kannada only),
                                                annotator_B_part2.xlsx (B's other 60, A's layout + the examples)
   python scripts/k_xlsx.py leakcheck [xlsx] -> every part of the xlsx searched for any Gemini draft text (B part 1)
   python scripts/k_xlsx.py xmlcheck [xlsx]  -> every answer cell empty in the sheet XML; no hidden sheets, columns or
@@ -119,7 +119,7 @@ def set_props(wb, title):
     p.subject = p.description = p.keywords = p.category = None
 
 
-def build():
+def build(only=None):
     OUT.mkdir(parents=True, exist_ok=True)
     A, B1, B2 = M.expected("A"), M.expected("B", 1), M.expected("B", 2)
     assert (len(A), len(B1), len(B2)) == (500, 40, 60)
@@ -127,11 +127,13 @@ def build():
     ex = M.example_rows()
     for name, key, spec, rows, examples, title in (
             ("annotator_A.xlsx", "A", M.VERIFY_SHEET, A, ex, "Kannada annotation: Annotator A"),
-            # B part 1: built from ID, Kannada and English alone (no draft field is ever read)
+            # B part 1: built from ID and Kannada alone (no draft or English field is ever read)
             ("annotator_B_part1.xlsx", "B1", M.BLIND_SHEET,
-             [{"item_id": r["item_id"], "native": r["native"], "english": r["english"]} for r in B1], (),
+             [{"item_id": r["item_id"], "native": r["native"]} for r in B1], (),
              "Kannada annotation: Annotator B, part 1"),
             ("annotator_B_part2.xlsx", "B2", M.VERIFY_SHEET, B2, ex, "Kannada annotation: Annotator B, part 2")):
+        if only and key not in only:
+            continue
         wb = Workbook()
         readme_sheet(wb, README[key])
         items_sheet(wb, spec, rows, examples)
@@ -237,8 +239,8 @@ def xmlcheck(path: Path) -> dict:
 
 if __name__ == "__main__":
     step = sys.argv[1]
-    if step == "build":
-        build()
+    if step == "build":  # optional: A B1 B2 (default all)
+        build(sys.argv[2:] or None)
     elif step == "leakcheck":
         r = leakcheck(Path(sys.argv[2]) if len(sys.argv) > 2 else OUT / "annotator_B_part1.xlsx")
         sys.exit(1 if r["hits"] else 0)

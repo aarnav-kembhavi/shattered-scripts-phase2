@@ -10,7 +10,7 @@ Thank you for helping. Part 1 replaces the file sent earlier; please use only th
 - On a phone or tablet, also turn off autocorrect and automatic capitals in your keyboard settings.
 
 ## Part 1: 40 sentences, your own way (file annotator_B_part1.xlsx)
-Each row has a Kannada sentence and its English translation. Write it yourself, from scratch:
+Each row has a Kannada sentence. Write it yourself, from scratch:
 - **Your natural:** the Kannada typed in English letters, the way you would type it on WhatsApp, word for word.
 - **Your Kanglish:** how a young person in Bengaluru would write the same message on WhatsApp, with English words
   mixed in where that is natural. Keep the full meaning.
