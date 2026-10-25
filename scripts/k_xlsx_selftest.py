@@ -1,11 +1,15 @@
-"""End-to-end test of the Excel annotation round trip on DUMMY answers (2026-10-25). Nothing is written under
+"""End-to-end test of the VERIFY workbooks (protocol change of 2026-10-26) on DUMMY answers. Nothing is written under
 annotation/results/ or data/: every file goes to the directory given (default: a new temp directory).
 
-For each workbook in annotation/xlsx/: fill a copy with random valid answers (seed 0) plus planted AutoCorrect
-artefacts, merge it with annotation/merge_xlsx.py, and check the output against the page CSV format and against the
-answers that were filled in. Also: B part 1 + part 2 merge into one CSV; Rater C's workbook is built from that CSV
-(registered pairs) and merged back; error cases (partly answered row, invalid value, changed ID, edited locked cell)
-must be refused; one filled workbook is opened and saved by Excel itself (COM) and must merge to the same rows.
+1. A: a copy filled with random fine/wrong (seed 0), fixes for "wrong", planted AutoCorrect artefacts and one fix
+   repeated in two rows; merged; the CSV must equal the filled answers (fine -> draft, wrong -> fix).
+2. A with planted invalid cells (wrong + empty fix, wrong + fix equal to the draft, fine + fix, fix with empty OK?,
+   value not fine/wrong) and empty cells: each must be reported, left out, and the exit code 1.
+3. Structural refusals: changed item ID, edited locked draft, edited example row; --final with empty cells.
+4. B part 1 (blind) + part 2 (verify) merged into one CSV; one blind row with only one version is invalid.
+5. Agreement (kappa fine/wrong, A vs B on the 60) and anchoring (blind 40) on the merged CSVs.
+6. The filled A workbook opened and saved by Excel itself (COM): protection, dropdown and formats survive, and it
+   merges to the same rows.
 
 Usage: python scripts/k_xlsx_selftest.py [OUTDIR]
 """
@@ -13,6 +17,7 @@ from __future__ import annotations
 
 import csv
 import json
+import os
 import random
 import shutil
 import subprocess
@@ -34,201 +39,201 @@ PLANT = {"R1": "Nanna hesaru", "R2": "THe", "R3": "don’t"}
 
 def merge(*args):
     p = subprocess.run([PY, str(REPO / "annotation/merge_xlsx.py"), *map(str, args)], capture_output=True, text=True,
-                       encoding="utf-8", env={**__import__("os").environ, "PYTHONIOENCODING": "utf-8",
-                                              "PYTHONPATH": str(REPO / "src")})
-    return p.returncode, p.stdout + p.stderr
+                       encoding="utf-8", env={**os.environ, "PYTHONIOENCODING": "utf-8", "PYTHONPATH": str(REPO / "src")})
+    out = p.stdout
+    rep = json.loads(out[:out.index("\n}") + 2]) if out.startswith("{") else {"raw": (out + p.stderr)[-800:]}
+    return p.returncode, rep, out
 
 
 def col(spec, field):
     return [f for f, _, _ in spec].index(field) + 1
 
 
-def fill_drafts(path, n_partial=0, plant=True):
-    """Ratings for every row; about a third of the corrections edited; planted artefacts in the first rows."""
+def fill_verify(path, agree_with=None, p_fine=0.7, plant=True):
+    """Every OK? cell filled; returns {item_id: {form: (verdict, text)}}. agree_with: copy those verdicts 80% of the
+    time (for a non-trivial kappa)."""
     wb = load_workbook(path)
-    wb[M.README][M.NAME_CELL] = "Dummy Tester"
     ws = wb[M.ITEMS]
-    truth = {}
-    for r in range(2, ws.max_row + 1):
-        i = ws.cell(r, 1).value
-        rec = {}
-        for k in ("natural", "kanglish"):
-            nat, mea = RNG.choice(M.NAT_OPTS), RNG.choice(M.MEAN_OPTS)
-            ws.cell(r, col(M.DRAFT_SHEET, f"{k}_naturalness"), int(nat))
-            ws.cell(r, col(M.DRAFT_SHEET, f"{k}_meaning"), mea)
-            c = ws.cell(r, col(M.DRAFT_SHEET, f"{k}_corrected"))
-            if RNG.random() < 0.33:
-                c.value = c.value.lower().replace(" mattu ", " matte ")
-            rec.update({f"{k}_naturalness": nat, f"{k}_meaning": "1" if mea == "yes" else "0",
-                        f"{k}_corrected": c.value.strip()})
-        truth[i] = rec
+    truth, first = {}, M.FIRST_ROW["verify"]
+    for r in range(first, ws.max_row + 1):
+        i = ws.cell(r, col(M.VERIFY_SHEET, "item_id")).value
+        truth[i] = {}
+        for k in M.FORMS:
+            draft = ws.cell(r, col(M.VERIFY_SHEET, f"{k}_draft")).value
+            v = agree_with[i][k][0] if agree_with and i in agree_with and RNG.random() < 0.8 else \
+                ("fine" if RNG.random() < p_fine else "wrong")
+            ws.cell(r, col(M.VERIFY_SHEET, f"{k}_ok")).value = v
+            fix = None
+            if v == "wrong":
+                fix = draft.rstrip(".") + " antha"
+                ws.cell(r, col(M.VERIFY_SHEET, f"{k}_fix")).value = fix
+            truth[i][k] = (v, draft if v == "fine" else fix)
     if plant:
-        for (rule, text), r in zip(PLANT.items(), (2, 3, 4)):
-            c = ws.cell(r, col(M.DRAFT_SHEET, "kanglish_corrected"))
-            c.value = (text + " " + c.value.lower()) if rule == "R1" else (c.value.lower() + " " + text)
-            truth[ws.cell(r, 1).value]["kanglish_corrected"] = c.value.strip()
-    if M.EXAMPLES in wb.sheetnames:
-        we = wb[M.EXAMPLES]
-        for r in range(2, we.max_row + 1):
-            we.cell(r, len(M.EXAMPLES_SHEET) + 1, "OK" if r != 3 else "needs correction")
-            if r == 3:
-                we.cell(r, len(M.EXAMPLES_SHEET) + 2, "dummy comment: spell it chaligaladalli")
+        rows = list(range(first, first + 5))
+        for (rule, text), r in zip(PLANT.items(), rows):
+            ws.cell(r, col(M.VERIFY_SHEET, "natural_ok")).value = "wrong"
+            ws.cell(r, col(M.VERIFY_SHEET, "natural_fix")).value = text + " " + "idu sari"
+            truth[ws.cell(r, col(M.VERIFY_SHEET, "item_id")).value]["natural"] = ("wrong", text + " idu sari")
+        for r in rows[3:5]:  # the same fix in two rows
+            ws.cell(r, col(M.VERIFY_SHEET, "kanglish_ok")).value = "wrong"
+            ws.cell(r, col(M.VERIFY_SHEET, "kanglish_fix")).value = "same fix text"
+            truth[ws.cell(r, col(M.VERIFY_SHEET, "item_id")).value]["kanglish"] = ("wrong", "same fix text")
     wb.save(path)
     return truth
 
 
-def fill_blind(path):
+def fill_blind(path, one_missing=False):
     wb = load_workbook(path)
-    wb[M.README][M.NAME_CELL] = "Dummy Tester"
-    ws, truth = wb[M.ITEMS], {}
-    for r in range(2, ws.max_row + 1):
-        i = ws.cell(r, 1).value
-        nat, kan = f"dummy natural {r} idu ondu vakya", f"dummy kanglish {r} idu one sentence"
-        ws.cell(r, col(M.BLIND_SHEET, "natural_corrected"), nat)
-        ws.cell(r, col(M.BLIND_SHEET, "kanglish_corrected"), kan)
-        truth[i] = {"natural_corrected": nat, "kanglish_corrected": kan}
+    ws = wb[M.ITEMS]
+    truth = {}
+    for r in range(M.FIRST_ROW["blind"], ws.max_row + 1):
+        i = ws.cell(r, col(M.BLIND_SHEET, "item_id")).value
+        t = {"natural": f"nanna swanta baraha {r} saaku", "kanglish": f"my own Kanglish {r} type madide"}
+        ws.cell(r, col(M.BLIND_SHEET, "natural_own")).value = t["natural"]
+        ws.cell(r, col(M.BLIND_SHEET, "kanglish_own")).value = t["kanglish"]
+        truth[i] = t
+    if one_missing:
+        ws.cell(M.FIRST_ROW["blind"], col(M.BLIND_SHEET, "kanglish_own")).value = None
     wb.save(path)
     return truth
 
 
 def read_out(path):
-    raw = path.read_bytes()
-    assert raw.startswith(b"\xef\xbb\xbf"), "no BOM"
-    rows = list(csv.DictReader(path.open(encoding="utf-8-sig", newline="")))
-    head = path.open(encoding="utf-8-sig").readline().strip().split(",")
-    return head, rows
+    with open(path, encoding="utf-8-sig", newline="") as f:
+        r = csv.reader(f)
+        head = next(r)
+        return head, [dict(zip(head, x)) for x in r]
 
 
-def check_rows(rows, truth, condition):
+def mismatches(rows, truth):
     bad = 0
-    for x in rows:
-        t = truth[x["item_id"]]
-        bad += x["condition"] != condition or any(x[k] != v for k, v in t.items())
+    for row in rows:
+        t = truth[row["item_id"]]
+        for k in M.FORMS:
+            if (row[f"{k}_verdict"], row[f"{k}_text"]) != tuple(t[k]):
+                bad += 1
     return bad
 
 
+def edit(src, dst, fn):
+    shutil.copyfile(src, dst)
+    wb = load_workbook(dst)
+    fn(wb[M.ITEMS])
+    wb.save(dst)
+    return dst
+
+
 def excel_roundtrip(src: Path, dst: Path) -> str:
-    """Open and save the workbook with Excel itself (COM); returns 'ok' or the reason it was skipped."""
+    """Open and save the workbook with Excel itself (COM); returns Excel's view of the sheet, or the error."""
+    r = M.FIRST_ROW["verify"]
+    ok, fix, idc = (f"{c}{r}" for c in ("D", "E", "J"))
     ps = (f"$xl = New-Object -ComObject Excel.Application; $xl.DisplayAlerts = $false; "
-          f"$wb = $xl.Workbooks.Open('{src}'); $ws = $wb.Worksheets.Item('items'); "
-          f"$o = @{{protected = $ws.ProtectContents; valtype = $ws.Range('F2').Validation.Type; "
-          f"errstyle = $ws.Range('F2').Validation.AlertStyle; fmt = $ws.Range('H2').NumberFormat; "
-          f"idlocked = $ws.Range('A2').Locked; anslocked = $ws.Range('H2').Locked}}; "
+          f"$wb = $xl.Workbooks.Open('{src}'); $ws = $wb.Worksheets.Item('items'); $null = $ws.Activate(); "
+          f"$o = @{{protected = $ws.ProtectContents; valtype = $ws.Range('{ok}').Validation.Type; "
+          f"errstyle = $ws.Range('{ok}').Validation.AlertStyle; formula = $ws.Range('{ok}').Validation.Formula1; "
+          f"fixfmt = $ws.Range('{fix}').NumberFormat; idlocked = $ws.Range('{idc}').Locked; "
+          f"oklocked = $ws.Range('{ok}').Locked; examplelocked = $ws.Range('D2').Locked; "
+          f"frozen_row = $xl.ActiveWindow.SplitRow; frozen = $xl.ActiveWindow.FreezePanes}}; "
           f"$wb.SaveAs('{dst}', 51); $wb.Close($false); $xl.Quit(); $o | ConvertTo-Json -Compress")
     p = subprocess.run(["powershell", "-NoProfile", "-Command", ps], capture_output=True, text=True)
-    return (p.stdout.strip() or p.stderr.strip()[-300:])
+    return p.stdout.strip() or p.stderr.strip()[-300:]
 
 
 def main(out: Path):
     out.mkdir(parents=True, exist_ok=True)
     res = {}
-    # --- A
+    # 1. A, valid
     a = out / "A_filled.xlsx"
     shutil.copyfile(X / "annotator_A.xlsx", a)
-    truth_a = fill_drafts(a)
-    rc, log = merge("A", a, "--final", "--out", out / "annotator_A.csv")
-    head, rows = read_out(out / "annotator_A.csv") if rc == 0 else ([], [])
-    res["A"] = {"merge_exit": rc, "header_is_page_format": head == M.PAGE_COLS, "rows": len(rows),
-                "rows_matching_filled_answers": len(rows) - check_rows(rows, truth_a, "draft"),
-                "flags": {k: json.loads(log[:log.index("\n}") + 2])[k] for k in ("flag_rules", "flags_new_not_in_draft")}
-                if rc == 0 else log[-600:],
-                "planted_flags_found": {k: (out / "annotator_A_flags.csv").read_text(encoding="utf-8-sig").count(k)
-                                        > 0 for k in PLANT} if rc == 0 else None,
-                "examples_check": json.loads(log[:log.index("\n}") + 2]).get("worked_examples_check") if rc == 0
-                else None}
-    # --- A, saved by Excel itself
-    xa = out / "A_filled_saved_by_excel.xlsx"
-    res["A_excel_roundtrip"] = {"excel": excel_roundtrip(a.resolve(), xa.resolve())}
-    if xa.exists():
-        rc2, log2 = merge("A", xa, "--final", "--out", out / "annotator_A_excel.csv")
-        _, rows2 = read_out(out / "annotator_A_excel.csv") if rc2 == 0 else ([], [])
-        strip = lambda rs: [{k: v for k, v in r.items() if k != "saved_at"} for r in rs]
-        res["A_excel_roundtrip"].update({"merge_exit": rc2, "same_rows_as_before_except_saved_at":
-                                         strip(rows2) == strip(rows), "saved_at": rows2[0]["saved_at"] if rows2 else
-                                         log2[-400:]})
-    # --- B part 1 + part 2
+    truth_a = fill_verify(a)
+    rc, rep, log = merge("A", a, "--final", "--out", out / "annotator_A.csv")
+    head, rows = read_out(out / "annotator_A.csv")
+    flags = (out / "annotator_A_flags.csv").read_text(encoding="utf-8-sig")
+    res["1_A_valid"] = {"merge_exit": rc, "header": head == M.CSV_COLS, "rows": len(rows),
+                        "cells_not_matching_filled_answers": mismatches(rows, truth_a),
+                        "fine_share": rep["fine_share"], "empty_cells": rep["empty_cells"], "invalid": rep["invalid"],
+                        "repeated_fixes": rep["repeated_fixes"], "flag_rules_not_in_draft": rep["autocorrect_flag_rules"],
+                        "planted_flags_found": {k: (k in flags) for k in PLANT}}
+    # 2. A, invalid and empty cells
+    f = M.FIRST_ROW["verify"]
+    C = lambda k: col(M.VERIFY_SHEET, k)  # noqa: E731
+
+    def plant_invalid(ws):
+        draft = ws.cell(f + 10, C("natural_draft")).value
+        ws.cell(f + 10, C("natural_ok")).value, ws.cell(f + 10, C("natural_fix")).value = "wrong", None
+        ws.cell(f + 11, C("natural_ok")).value, ws.cell(f + 11, C("natural_fix")).value = "wrong", \
+            ws.cell(f + 11, C("natural_draft")).value
+        ws.cell(f + 12, C("natural_ok")).value, ws.cell(f + 12, C("natural_fix")).value = "fine", "some fix"
+        ws.cell(f + 13, C("natural_ok")).value, ws.cell(f + 13, C("natural_fix")).value = None, "fix but no OK"
+        ws.cell(f + 14, C("natural_ok")).value = "maybe"  # bypasses the dropdown (as a paste can)
+        for r in range(f + 20, f + 23):
+            ws.cell(r, C("natural_ok")).value = ws.cell(r, C("natural_fix")).value = None
+        assert draft
+    bad = edit(a, out / "A_invalid.xlsx", plant_invalid)
+    rc, rep, log = merge("A", bad, "--out", out / "A_invalid.csv")
+    inv = [x for x in csv.DictReader(open(out / "A_invalid_invalid.csv", encoding="utf-8-sig"))]
+    res["2_A_invalid_and_empty"] = {"merge_exit": rc, "invalid": rep["invalid"], "empty_cells": rep["empty_cells"],
+                                    "problems": sorted(x["problem"] for x in inv),
+                                    "rows_written": len(read_out(out / "A_invalid.csv")[1])}
+    rc, rep, _ = merge("A", bad, "--final", "--out", out / "A_invalid_final.csv")
+    res["2_A_invalid_and_empty"]["final_refused"] = rc == 1 and rep["written"] is None
+    # 3. structural refusals
+    cases = {
+        "changed item ID": lambda ws: setattr(ws.cell(f + 3, C("item_id")), "value", "flores-999999"),
+        "edited locked draft": lambda ws: setattr(ws.cell(f + 4, C("natural_draft")), "value", "changed"),
+        "edited example row": lambda ws: setattr(ws.cell(2, C("natural_ok")), "value", "wrong"),
+    }
+    res["3_refusals"] = {}
+    for name, fn in cases.items():
+        p = edit(a, out / f"A_{name.replace(' ', '_')}.xlsx", fn)
+        rc, rep, _ = merge("A", p, "--out", out / f"refused_{name.replace(' ', '_')}.csv")
+        res["3_refusals"][name] = {"refused": rc == 1 and rep.get("written") is None,
+                                   "message": rep.get("structural_errors", rep)}
+    # 4. B part 1 + part 2
     b1, b2 = out / "B1_filled.xlsx", out / "B2_filled.xlsx"
     shutil.copyfile(X / "annotator_B_part1.xlsx", b1)
     shutil.copyfile(X / "annotator_B_part2.xlsx", b2)
-    tb1, tb2 = fill_blind(b1), fill_drafts(b2, plant=False)
-    rc, log = merge("B", b1, "--final", "--out", out / "annotator_B_part1only.csv")
-    _, rows1 = read_out(out / "annotator_B_part1only.csv") if rc == 0 else ([], [])
-    res["B_part1_only"] = {"merge_exit": rc, "rows": len(rows1),
-                           "rows_matching": len(rows1) - check_rows(rows1, tb1, "blind"),
-                           "drafts_and_ratings_empty": all(not r[k] for r in rows1 for k in (
-                               "natural_draft", "kanglish_draft", "natural_naturalness", "natural_meaning",
-                               "kanglish_naturalness", "kanglish_meaning"))}
-    rc, log = merge("B", b1, b2, "--final", "--out", out / "annotator_B.csv")
-    head, rows = read_out(out / "annotator_B.csv") if rc == 0 else ([], [])
-    res["B_both_parts"] = {"merge_exit": rc, "header_is_page_format": head == M.PAGE_COLS, "rows": len(rows),
-                           "blind": sum(r["condition"] == "blind" for r in rows),
-                           "rows_matching": len(rows) - check_rows([r for r in rows if r["condition"] == "blind"], tb1,
-                                                                   "blind")
-                           - check_rows([r for r in rows if r["condition"] == "draft"], tb2, "draft"),
-                           "order_is_page_order": [r["item_id"] for r in rows] ==
-                           [e["item_id"] for e in M.expected("A") if e["double"]]}
-    # --- C from B's merged CSV (registered pairs), then merged back
-    import k_xlsx
-    c = out / "C_filled.xlsx"
-    rc = k_xlsx.rater(str(out / "annotator_B.csv"), c)
-    import k_annotation as K
-    wb = load_workbook(c)
-    wb[M.README][M.NAME_CELL] = "Dummy Rater"
-    ws, truth_c = wb[M.ITEMS], []
-    for r in range(2, ws.max_row + 1):
-        v = [RNG.choice(M.NAT_OPTS) for _ in range(2)]
-        ws.cell(r, col(M.RATER_SHEET, "v1_naturalness"), int(v[0]))
-        ws.cell(r, col(M.RATER_SHEET, "v2_naturalness"), int(v[1]))
-        truth_c.append(v)
-    shown = [ws.cell(r, col(M.RATER_SHEET, f)).value for r in range(2, ws.max_row + 1) for f in ("v1", "v2")]
-    wb.save(c)
-    drafts = K.shown_drafts()
-    gem = {drafts[(p["item_id"], p["kind"])]["text"] for p in json.load(open(out / "C_filled_key.json"))["pairs"]}
-    rc, log = merge("C", c, "--final", "--key", out / "C_filled_key.json", "--out", out / "rater_C_k3.csv")
-    head, rows = read_out(out / "rater_C_k3.csv") if rc == 0 else ([], [])
-    res["C"] = {"merge_exit": rc, "header_is_rater_page_format": head == M.RATER_COLS, "rows": len(rows),
-                "rows_matching": sum([r["v1_naturalness"], r["v2_naturalness"]] == t for r, t in zip(rows, truth_c)),
-                "versions_shown": len(shown), "of_which_gemini_drafts_source_hidden": sum(s in gem for s in shown),
-                "workbook_mentions_gemini_or_human": any(w in json.dumps([c_.value for row in ws.iter_rows()
-                                                                          for c_ in row]).lower()
-                                                         for w in ("gemini", "human", "\"ai"))}
-    # --- refusals
-    cases = {}
-    for name, edit in {
-        "partly answered row": lambda ws: setattr(ws.cell(2, col(M.DRAFT_SHEET, "kanglish_meaning")), "value", None),
-        "invalid value": lambda ws: ws.cell(3, col(M.DRAFT_SHEET, "natural_naturalness"), 7),
-        "changed item ID": lambda ws: ws.cell(4, 1, "flores-999999"),
-        "edited locked draft": lambda ws: ws.cell(5, col(M.DRAFT_SHEET, "natural_draft"), "edited"),
-    }.items():
-        p = out / f"A_bad_{name.replace(' ', '_')}.xlsx"
-        shutil.copyfile(a, p)
-        wb = load_workbook(p)
-        edit(wb[M.ITEMS])
-        wb.save(p)
-        bad_out = out / f"should_not_exist_{name.replace(' ', '_')}.csv"
-        rc, log = merge("A", p, "--out", bad_out)
-        cases[name] = {"refused": rc == 1 and not bad_out.exists(),
-                       "message": json.loads(log[:log.index("\n}") + 2])["errors"][:1]}
-    res["refusals"] = cases
-    # --- partial (weekly) file: half the rows untouched
-    p = out / "A_half.xlsx"
-    shutil.copyfile(X / "annotator_A.xlsx", p)
-    wb = load_workbook(p)
-    wb[M.README][M.NAME_CELL] = "Dummy Tester"
-    ws = wb[M.ITEMS]
-    for r in range(2, 252):
-        for k in ("natural", "kanglish"):
-            ws.cell(r, col(M.DRAFT_SHEET, f"{k}_naturalness"), 4)
-            ws.cell(r, col(M.DRAFT_SHEET, f"{k}_meaning"), "yes")
-    wb.save(p)
-    rc, log = merge("A", p, "--out", out / "annotator_A_half.csv")
-    rcf, _ = merge("A", p, "--final", "--out", out / "should_not_exist2.csv")
-    r = json.loads(log[:log.index("\n}") + 2])
-    res["A_weekly_partial"] = {"merge_exit": rc, "answered": r["answered"], "not_yet": r["not_yet_answered"],
-                               "refused_with_final": rcf == 1}
+    truth_b1 = fill_blind(b1)
+    truth_b2 = fill_verify(b2, agree_with=truth_a, plant=False)
+    rc, rep, _ = merge("B", b1, b2, "--final", "--out", out / "annotator_B.csv")
+    head, rows = read_out(out / "annotator_B.csv")
+    blind_rows = [r for r in rows if r["condition"] == "blind"]
+    res["4_B"] = {"merge_exit": rc, "rows": len(rows), "blind": len(blind_rows),
+                  "blind_text_matches": sum(r["natural_text"] == truth_b1[r["item_id"]]["natural"] and
+                                            r["kanglish_text"] == truth_b1[r["item_id"]]["kanglish"]
+                                            for r in blind_rows),
+                  "blind_drafts_empty": all(not r["natural_draft"] and not r["kanglish_draft"] for r in blind_rows),
+                  "part2_cells_not_matching": mismatches([r for r in rows if r["condition"] == "draft"], truth_b2),
+                  "page_order": [r["item_id"] for r in rows] == [e["item_id"] for e in M.expected("A")
+                                                                 if e["double"]]}
+    b1x = out / "B1_one_missing.xlsx"
+    shutil.copyfile(X / "annotator_B_part1.xlsx", b1x)
+    fill_blind(b1x, one_missing=True)
+    rc, rep, _ = merge("B", b1x, "--out", out / "B1_one_missing.csv")
+    res["4_B"]["one_version_missing"] = {"merge_exit": rc, "invalid": rep["invalid"]}
+    # 5. agreement and anchoring
+    rc, agr, _ = merge("agree", out / "annotator_A.csv", out / "annotator_B.csv", "--out", out / "agreement.json")
+    res["5_agreement"] = {k: {x: agr[k][x] for x in ("n", "kappa", "agree_share")} for k in M.FORMS}
+    rc, anc, _ = merge("anchor", out / "annotator_A.csv", out / "annotator_B.csv", "--out", out / "anchoring.json")
+    res["5_anchoring"] = {k: {"n_B": anc[k]["n_B"], "n_with_A": anc[k]["n_with_A"],
+                              "vowel_doubling_ratio_gemini_to_B": anc[k]["gemini"]["vowel_doubling"]["ratio_other_to_B"],
+                              "ci90": anc[k]["gemini"]["vowel_doubling"]["ci90"],
+                              "chrf_gemini_vs_B": round(anc[k]["gemini"]["chrf_other_vs_B"]["mean"], 1),
+                              "chrf_A_vs_B": round(anc[k]["A_verified"]["chrf_other_vs_B"]["mean"], 1)}
+                          for k in M.FORMS}
+    # 6. Excel round trip
+    xa = out / "A_saved_by_excel.xlsx"
+    res["6_excel_roundtrip"] = {"excel": excel_roundtrip(a.resolve(), xa.resolve())}
+    if xa.exists():
+        rc, rep, _ = merge("A", xa, "--final", "--out", out / "annotator_A_excel.csv")
+        _, rx = read_out(out / "annotator_A_excel.csv")
+        _, r0 = read_out(out / "annotator_A.csv")
+        strip = lambda rs: [{k: v for k, v in r.items() if k != "saved_at"} for r in rs]  # noqa: E731
+        res["6_excel_roundtrip"].update({"merge_exit": rc, "same_rows_apart_from_saved_at": strip(rx) == strip(r0)})
     print(json.dumps(res, indent=1, ensure_ascii=False))
+    (out / "selftest.json").write_text(json.dumps(res, indent=1, ensure_ascii=False), encoding="utf-8")
     return res
 
 
 if __name__ == "__main__":
-    main(Path(sys.argv[1]) if len(sys.argv) > 1 else Path(tempfile.mkdtemp(prefix="xlsx_selftest_")))
+    main(Path(sys.argv[1]) if len(sys.argv) > 1 else Path(tempfile.mkdtemp(prefix="kxlsx_selftest_")))

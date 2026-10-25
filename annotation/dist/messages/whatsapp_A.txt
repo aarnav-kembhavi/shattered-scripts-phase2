@@ -1,18 +1,15 @@
 Hi [name]! Thank you so much for helping with the Kannada project 🙏
 
-I'm attaching A.zip. Please unzip it on your laptop/desktop. Inside:
-• annotator_A.xlsx: your annotation file (open it in Excel)
-• quick_start.pdf: one page with every step (please read this first)
-• instructions.pdf: the full instructions
+The file I sent earlier is replaced: please delete it and use this one (A.zip). Unzip it on your laptop/desktop. Inside:
+• annotator_A.xlsx: your file (open it in Excel)
+• instructions.pdf: the instructions (short)
 
-First, today or tomorrow: open the sheet "worked_examples" in annotator_A.xlsx and check the 3 examples. For each one choose OK, or "needs correction" and write what you would change. Save the file and send it back to me within a day, as a separate message, before you start the main items.
+The new task is much faster: for each sentence you see two versions typed in English letters (natural and Kanglish). For each one just pick "fine" or "wrong" from the dropdown, and if it is wrong type your fix. About 20 seconds per item, so about 3 hours in total.
 
-Then the main work: for each of 500 sentences you see the Kannada, the English, and two AI-written versions (Kannada typed in English letters, and Kanglish). Rate each one first with the dropdowns, then correct it so it sounds the way people really type.
+First, within a day: look at the 3 shaded EXAMPLE rows at the top of the sheet "items" and reply to me "examples ok", or send me your corrections. Then start the items.
 
-Before typing, please turn off AutoCorrect in Excel (File > Options > Proofing > AutoCorrect Options: untick "Correct TWo INitial CApitals", "Capitalize first letter of sentences" and "Replace text as you type"), and keyboard autocorrect if you use your phone.
+Before typing, please turn off AutoCorrect in Excel (File > Options > Proofing > AutoCorrect Options: untick the capitals options and "Replace text as you type"), and keyboard autocorrect if you use your phone.
 
-Time: about 2 minutes per item, so about 15 hours in total. About 25 items a day (under an hour) works well; short sessions are fine.
+Sending it back: save as .xlsx (never CSV) and send me the file here on WhatsApp (as a Document) every week.
 
-Sending it back: save as .xlsx (never CSV) and send me the file here on WhatsApp (as a Document) at the end of each week.
-
-Please don't use Google Translate, AI tools or dictionaries, and don't discuss the sentences with anyone. Any question, just message me!
+Please don't use AI or translation tools, and don't discuss the sentences with anyone. Any question, just message me!

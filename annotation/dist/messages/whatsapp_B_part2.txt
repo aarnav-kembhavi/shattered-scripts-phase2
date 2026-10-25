@@ -1,10 +1,5 @@
-Thanks [name], got your first 40! 🙏
+Thanks [name], got your 40! 🙏
 
-Here is B_part2.zip, with:
-• worked_examples.xlsx: 3 examples of how to rate an AI-written version and then correct it (please read this first)
-• annotator_B_part2.xlsx: the other 60 sentences
-• quick_start.pdf: the steps for part 2
+Here is B_part2.zip with annotator_B_part2.xlsx: the 60 checks. For each sentence you see two versions typed in English letters (natural and Kanglish). Pick "fine" or "wrong" from the dropdown, and if it is wrong type your fix. The 3 shaded EXAMPLE rows at the top show how. About 20 seconds each.
 
-For each sentence you see the Kannada, the English, and two AI-written versions. Rate each one first with the dropdowns, then correct it so it sounds the way people really type. Type your name in the yellow cell on READ_ME, as before, and keep AutoCorrect off.
-
-About 2 minutes per item. Save as .xlsx (never CSV) and send me the file here when you finish. Any question, just message me!
+Keep AutoCorrect off as before. Save as .xlsx (never CSV) and send me the file here when you finish. Any question, just message me!

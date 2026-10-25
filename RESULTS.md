@@ -2795,3 +2795,26 @@ No annotation exists: nothing has been returned by any annotator.
   - "romba" (Tamil for "very"; Kannada "tumba"): 3 Kanglish drafts; Kanglish drafts are not used in any experiment yet.
 - Nothing is fixed: the drafts are what annotators verify, and the experiment texts stay as run. Gemini's raw output
   is the "Gemini natural" condition by design; these are its errors.
+
+---
+## 2026-10-26 01:15 IST — Verify workbooks built (protocol change of 00:40 IST; nothing sent yet)
+- `scripts/k_xlsx.py build` → `annotation/xlsx/annotator_A.xlsx` (500 items), `annotator_B_part1.xlsx` (40 blind),
+  `annotator_B_part2.xlsx` (B's other 60, verify layout). Each items sheet: Kannada | English | Gemini natural | Natural
+  OK? | Natural fix | Gemini Kanglish | Kanglish OK? | Kanglish fix | Note | Item ID; B part 1: Kannada | English |
+  Your natural | Your Kanglish | Note | Item ID. The verify sheets have 3 locked EXAMPLE rows on top (one fine, one wrong
+  with a fix, one wrong because the meaning changed; written by Claude Code, checked by A before use).
+- Checks on the unzipped XML of every built file (`k_xlsx.py xmlcheck`): no answer cell has a value, formula or inline
+  string; no hidden sheets, columns or rows, no names, comments or cells outside the layout. B part 1 leak check: 0 of
+  10 XML parts contain any line of any Gemini draft (grep, 1,007 patterns; positive control: A's workbook matches) and
+  none mention gemini/draft; the 6-word-run check matches only "Sporting Shooters Association of Australia (NSW)", the
+  English source sentence of flores-1292, which the Kanglish draft copied (source text, not draft text).
+- Self-test on dummy copies (`scripts/k_xlsx_selftest.py`): merges reproduce the filled answers exactly; invalid cells
+  (wrong + empty fix, fix = draft, fine + fix, fix without OK?, value not fine/wrong) and empty cells are reported and
+  left out; changed IDs, locked drafts and example rows are refused; B parts 1 + 2 merge to 100 rows; kappa and
+  anchoring run; Excel's own open-and-save keeps protection, the dropdown (stop alert), Text format and the frozen
+  header, and merges to the same rows.
+- **Open question for Aarnav (deviation from the registered blind condition, not applied silently):** B part 1 now
+  shows the English translation, as specified on 2026-10-26. The registered blind condition (deviation (b),
+  2026-10-22) says B sees "only the native Kannada sentence (no English, no drafts)". Showing English can push B's
+  Kanglish towards the English wording (e.g. names copied), which affects the anchoring comparison. Needs Aarnav's
+  decision before B_part1.zip is sent.

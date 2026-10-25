@@ -1,27 +1,27 @@
-"""Merge returned annotation workbooks (.xlsx) into the CSV format the HTML pages wrote (protocol change of
-2026-10-25, RESULTS.md), so downstream code (scripts/k_annotation.py: agreement, rater pairs, K1-K3 scoring) is
-unchanged.
+"""Merge returned VERIFY workbooks (.xlsx) into CSV (protocol change of 2026-10-26, RESULTS.md: annotation is
+verification of the Gemini drafts, fine / wrong + fix; Annotator B's 40 blind items are typed from scratch).
 
-Checks, per file: the item IDs equal the expected set exactly (no missing, extra or duplicate rows); the locked
-source columns are unchanged; every answered row has every required cell; every value is one of the fixed options.
-A row counts as answered as soon as any answer cell differs from its starting value; a partly answered row is an
-error (the page would not have saved it). With --final every row must be answered.
+Checks, per file: the sheet layout and header are as issued; the item IDs equal the expected set exactly (no missing,
+extra or duplicate rows, same order); the locked columns (Kannada, English, drafts) and the 3 example rows are
+unchanged. Per draft:
+  fine            -> verified text = the draft; a fix typed next to "fine" makes the draft invalid;
+  wrong           -> the fix must be non-empty and differ from the draft, else invalid;
+  empty OK?       -> not done yet (reported as an empty cell); a fix with an empty OK? is invalid.
+Blind items (B part 1): both own versions are needed; one of the two missing is invalid.
+Structural errors refuse the whole file (nothing written). Invalid drafts are reported, left out of the CSV and listed
+in <name>_invalid.csv; the exit code is then 1. With --final every draft must be answered.
 
-AutoCorrect detection (reported, never fixed): in every romanized text the annotator typed or kept, flag
-  R1 a sentence that starts with an uppercase letter,
-  R2 a token with two leading capitals ("THe"),
-  R3 an Excel AutoCorrect replacement (annotation/autocorrect_en_excel16.tsv, exported from Excel 16 on 2026-10-25):
-     a non-ASCII character that the list produces (e.g. ’ … ©), the token "I", or a token equal to a replacement
-     whose misspelling occurs in the item's draft (or in romanized Kannada at all: i, cafe, thge).
-Each flag says whether the same pattern is already in the Gemini draft (then it is probably not AutoCorrect).
+Quality report per batch: share of "fine" per form; identical fixes repeated across rows. AutoCorrect check on every
+fix (and own text): capitals or Excel AutoCorrect replacements that are not in the draft (annotation/
+autocorrect_en_excel16.tsv, exported from Excel 16 on 2026-10-25); reported, never fixed.
 
 Usage:
   python annotation/merge_xlsx.py A annotator_A.xlsx [--final] [--out PATH]
   python annotation/merge_xlsx.py B annotator_B_part1.xlsx [annotator_B_part2.xlsx] [--final] [--out PATH]
-  python annotation/merge_xlsx.py C rater_C.xlsx [--final] [--out PATH] [--key KEY.json]
-Outputs (default annotation/results/): annotator_<A|B>.csv (page format), rater_C_k3.csv (rater page format), and
-<name>_flags.csv / <name>_examples_check.csv / <name>_notes.csv where they apply. Exit code 1 on any error (nothing is
-written then).
+  python annotation/merge_xlsx.py agree annotator_A.csv annotator_B.csv [--out PATH]    (kappa fine/wrong, 60 items)
+  python annotation/merge_xlsx.py anchor annotator_A.csv annotator_B.csv [--out PATH]   (blind 40, K3 descriptive)
+Outputs (default annotation/results/): annotator_<A|B>.csv, <name>_invalid.csv, <name>_flags.csv,
+<name>_quality.json; agreement.json; anchoring.json.
 """
 from __future__ import annotations
 
@@ -29,6 +29,7 @@ import csv
 import json
 import re
 import sys
+from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -36,63 +37,59 @@ REPO = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(REPO / "scripts"), str(REPO / "src")]
 
 # ---------------------------------------------------------------- the sheet layout (shared with scripts/k_xlsx.py)
-PAGE_COLS = ["item_id", "annotator", "source", "natural_draft", "natural_corrected", "natural_naturalness",
-             "natural_meaning", "kanglish_draft", "kanglish_corrected", "kanglish_naturalness", "kanglish_meaning",
-             "note", "saved_at", "condition"]  # annotation/template_v2.html, COLS
-RATER_COLS = ["item_id", "kind", "rater", "v1_naturalness", "v2_naturalness", "saved_at"]  # template_rater_v1.html
-
-NAT_OPTS, MEAN_OPTS = ["1", "2", "3", "4", "5"], ["yes", "no"]
-CHECK_OPTS = ["OK", "needs correction"]
-# (field, header, kind): kind = id | locked | rating | meaning | text | check
-DRAFT_SHEET = [
-    ("item_id", "Item ID", "id"), ("source", "Source", "locked"), ("native", "Kannada", "locked"),
-    ("english", "English", "locked"),
-    ("natural_draft", "1. Natural romanization: AI draft", "locked"),
-    ("natural_naturalness", "Natural: naturalness of the draft (1 = nobody would type this, 5 = exactly how people "
-                            "type)", "rating"),
-    ("natural_meaning", "Natural: draft keeps the meaning (yes / no)", "meaning"),
-    ("natural_corrected", "Natural: your corrected version (starts as the draft; leave it if it is fine)", "text"),
-    ("kanglish_draft", "2. Kanglish: AI draft", "locked"),
-    ("kanglish_naturalness", "Kanglish: naturalness of the draft (1-5)", "rating"),
-    ("kanglish_meaning", "Kanglish: draft keeps the meaning (yes / no)", "meaning"),
-    ("kanglish_corrected", "Kanglish: your corrected version (starts as the draft; leave it if it is fine)", "text"),
-    ("note", "Note (optional)", "text")]
+CSV_COLS = ["item_id", "annotator", "source", "natural_draft", "natural_verdict", "natural_text", "kanglish_draft",
+            "kanglish_verdict", "kanglish_text", "note", "saved_at", "condition"]
+OK_OPTS = ["fine", "wrong"]
+FORMS = ("natural", "kanglish")
+# (field, header, kind): kind = id | locked | ok | text
+VERIFY_SHEET = [
+    ("native", "Kannada", "locked"), ("english", "English", "locked"),
+    ("natural_draft", "Gemini natural", "locked"), ("natural_ok", "Natural OK?", "ok"),
+    ("natural_fix", "Natural fix", "text"),
+    ("kanglish_draft", "Gemini Kanglish", "locked"), ("kanglish_ok", "Kanglish OK?", "ok"),
+    ("kanglish_fix", "Kanglish fix", "text"),
+    ("note", "Note", "text"), ("item_id", "Item ID", "id")]
 BLIND_SHEET = [
-    ("item_id", "Item ID", "id"), ("native", "Kannada", "locked"),
-    ("natural_corrected", "Natural romanization: your version (Kannada typed in English letters, word for word)",
-     "text"),
-    ("kanglish_corrected", "Kanglish: your version (as a young person in Bengaluru would write it on WhatsApp)", "text"),
-    ("note", "Note (optional)", "text")]
-RATER_SHEET = [
-    ("item_id", "Item ID", "id"), ("kind_label", "Kind", "locked"), ("native", "Kannada", "locked"),
-    ("v1", "Version 1", "locked"),
-    ("v1_naturalness", "Version 1: naturalness (1 = nobody would type this, 5 = exactly how people type on a phone)",
-     "rating"),
-    ("v2", "Version 2", "locked"), ("v2_naturalness", "Version 2: naturalness (1-5)", "rating"),
-    ("note", "Note (optional)", "text")]
-EXAMPLES_SHEET = [
-    ("example", "Example", "locked"), ("item_id", "Item ID", "locked"), ("native", "Kannada", "locked"),
-    ("english", "English", "locked"), ("kind", "Kind", "locked"), ("draft", "AI draft", "locked"),
-    ("ex_naturalness", "Example rating: naturalness", "locked"), ("ex_meaning", "Example rating: keeps the meaning",
-                                                                   "locked"),
-    ("ex_corrected", "Example: good corrected version", "locked"), ("why", "Why", "locked")]
-EXAMPLES_CHECK = [("check", "Your check (OK / needs correction)", "check"),
-                  ("check_comment", "If it needs correction: your correction or comment", "text")]
-ITEMS, README, EXAMPLES = "items", "READ_ME", "worked_examples"
-NAME_CELL = "B7"  # READ_ME: "Your name:" in A7, the name in B7 (unlocked)
-KIND_LABEL = {"natural": "Natural romanization", "kanglish": "Kanglish"}
+    ("native", "Kannada", "locked"), ("english", "English", "locked"),
+    ("natural_own", "Your natural", "text"), ("kanglish_own", "Your Kanglish", "text"),
+    ("note", "Note", "text"), ("item_id", "Item ID", "id")]
+ITEMS, README = "items", "READ_ME"
+N_EXAMPLES = 3  # rows 2-4 of a verify sheet: locked worked examples, item ID "EXAMPLE 1".."EXAMPLE 3"
+FIRST_ROW = {"verify": 2 + N_EXAMPLES, "blind": 2}
+
+
+def example_rows() -> list:
+    """The 3 worked examples (not among the 500 items), in verify-sheet fields. One fine, one wrong with a fix, one
+    wrong because the meaning changed. Written by Claude Code as teaching material; Annotator A checks them first."""
+    E = {e["id"]: e for e in json.load(open(REPO / "annotation/examples_v1.json", encoding="utf-8"))["examples"]}
+    a, b, c = E["flores-212"], E["indicsentiment-test-245"], E["flores-993"]
+    return [
+        {"item_id": "EXAMPLE 1", "native": a["native"], "english": a["english"],
+         "natural_draft": a["natural"]["draft"], "natural_ok": "fine", "natural_fix": None,
+         "kanglish_draft": "(no Kanglish draft in this example)", "kanglish_ok": None, "kanglish_fix": None,
+         "note": "EXAMPLE: fine. This is how people type it; do not change a draft just to match your own spelling."},
+        {"item_id": "EXAMPLE 2", "native": b["native"], "english": b["english"],
+         "natural_draft": b["natural"]["draft"], "natural_ok": "wrong", "natural_fix": b["natural"]["corrected"],
+         "kanglish_draft": b["kanglish"]["draft"], "kanglish_ok": "wrong", "kanglish_fix": b["kanglish"]["corrected"],
+         "note": "EXAMPLE: wrong + fix. \"bāsigeya\" has an accent mark and two words are misspelt; \"take "
+                 "madkondidivi\" is not how people write."},
+        {"item_id": "EXAMPLE 3", "native": c["native"], "english": c["english"],
+         "natural_draft": c["natural"]["draft"], "natural_ok": "wrong", "natural_fix": c["natural"]["corrected"],
+         "kanglish_draft": c["kanglish"]["draft"], "kanglish_ok": "wrong", "kanglish_fix": c["kanglish"]["corrected"],
+         "note": "EXAMPLE: Kanglish wrong because the meaning changed (\"hodhre\" means \"if they go\"); natural wrong "
+                 "because one word is still in Kannada script."}]
 
 
 # ---------------------------------------------------------------- expected content
 
 def expected(role: str, part: int = 1) -> list:
-    """Rows a workbook must contain, in order (same order as the page's list())."""
+    """Rows a workbook must contain, in order."""
     import k_annotation as K
     blind = set(json.load(open(K.BLIND))["ids"])
     drafts = K.shown_drafts()
     rows = []
     for it in K.items():
-        d = {k: drafts[(it["id"], k)]["text"] for k in ("natural", "kanglish")}
+        d = {k: drafts[(it["id"], k)]["text"] for k in FORMS}
         rows.append({"item_id": it["id"], "source": it["source"], "native": it["native"], "english": it["english"],
                      "natural_draft": d["natural"], "kanglish_draft": d["kanglish"], "double": it["double"],
                      "blind": it["id"] in blind})
@@ -119,6 +116,9 @@ def tokens(t: str) -> list:
 
 
 def flags_for(text: str, draft: str) -> list:
+    """R1 a sentence that starts with a capital, R2 a token with two leading capitals, R3 an AutoCorrect replacement
+    (a non-ASCII symbol the list produces, the token "I", or a replacement whose misspelling is in the draft or in
+    RISKY_KEYS). Each flag says whether the same pattern is already in the draft (then it is probably not AutoCorrect)."""
     global AC
     if AC is None:
         AC = autocorrect_list()
@@ -143,10 +143,7 @@ def flags_for(text: str, draft: str) -> list:
         if v in tw and k.lower() != v.lower() and (k.lower() in d_low or k.lower() in RISKY_KEYS) \
                 and v.lower() not in d_low:
             out.append((f"R3 AutoCorrect {k} -> {v}", v))
-    res = []
-    for rule, what in out:
-        res.append({"rule": rule, "match": what, "also_in_draft": bool(d) and what in d})
-    return res
+    return [{"rule": rule, "match": what, "also_in_draft": bool(d) and what in d} for rule, what in out]
 
 
 # ---------------------------------------------------------------- reading a workbook
@@ -164,14 +161,14 @@ def cell_str(v) -> str:
     return str(v)
 
 
-def read_sheet(wb, spec, name, P: Problems) -> list:
-    if name not in wb.sheetnames:
-        P.add(name, "sheet missing")
+def read_sheet(wb, spec, P: Problems, label: str) -> list:
+    if ITEMS not in wb.sheetnames:
+        P.add(label, f"sheet '{ITEMS}' missing")
         return []
-    ws = wb[name]
+    ws = wb[ITEMS]
     head = [cell_str(c.value) for c in ws[1]][:len(spec)]
     if head != [h for _, h, _ in spec]:
-        P.add(name, f"header changed: {head}")
+        P.add(f"{label} {ITEMS}", f"header changed: {head}")
         return []
     rows = []
     for r in ws.iter_rows(min_row=2, max_col=len(spec)):
@@ -190,8 +187,7 @@ def saved_at(wb, path: Path) -> str:
     return t.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.000Z")
 
 
-def check_ids(rows, exp_ids, where, P):
-    got = [cell_str(r["item_id"]) for r in rows]
+def check_ids(got, exp_ids, where, P):
     dup = sorted({x for x in got if got.count(x) > 1})
     missing, extra = [x for x in exp_ids if x not in got], [x for x in got if x not in exp_ids]
     if dup or missing or extra:
@@ -201,191 +197,263 @@ def check_ids(rows, exp_ids, where, P):
         P.add(where, "item rows are in a different order than issued (IDs are complete; order changed)")
 
 
-def read_annotator(path: Path, part_spec, exp, final, P: Problems, F: list, label: str):
+def read_verify(path: Path, exp: list, P: Problems, label: str, who: str) -> dict:
+    """{recs: {item_id: csv row}, invalid: [...], empty: [...], flags: [...], fixes: [...]}"""
     import openpyxl
     wb = openpyxl.load_workbook(path, data_only=True)
-    name = cell_str(wb[README][NAME_CELL].value).strip() if README in wb.sheetnames else ""
-    if not name:
-        P.add(f"{label} {README}!{NAME_CELL}", "annotator name is empty")
-    rows = read_sheet(wb, part_spec, ITEMS, P)
-    exp_by = {e["item_id"]: e for e in exp}
-    check_ids(rows, [e["item_id"] for e in exp], f"{label} {ITEMS}", P)
-    when, recs = saved_at(wb, path), {}
-    blind = part_spec is BLIND_SHEET
-    n_todo = 0
+    rows = read_sheet(wb, VERIFY_SHEET, P, label)
+    ex, data = rows[:N_EXAMPLES], rows[N_EXAMPLES:]
+    want = example_rows()
+    if [cell_str(r["item_id"]) for r in ex] != [w["item_id"] for w in want] or any(
+            cell_str(r[f]) != cell_str(w[f]) for r, w in zip(ex, want) for f, _, _ in VERIFY_SHEET):
+        P.add(f"{label} {ITEMS}", "the 3 example rows were changed or moved")
+    check_ids([cell_str(r["item_id"]) for r in data], [e["item_id"] for e in exp], f"{label} {ITEMS}", P)
+    exp_by, when = {e["item_id"]: e for e in exp}, saved_at(wb, path)
+    out = {"recs": {}, "invalid": [], "empty": [], "flags": [], "fixes": []}
+    for r in data:
+        i = cell_str(r["item_id"])
+        if i not in exp_by:
+            continue
+        e, where = exp_by[i], f"{label} {ITEMS}!row {r['_row']} ({i})"
+        for f, _, kind in VERIFY_SHEET:
+            if kind == "locked" and cell_str(r[f]) != cell_str(e[f]):
+                P.add(where, f"locked column '{f}' was changed")
+        rec = {"item_id": i, "annotator": who, "source": e["source"], "note": cell_str(r["note"]).strip(),
+               "saved_at": when, "condition": "draft"}
+        for k in FORMS:
+            ok, fix, draft = cell_str(r[f"{k}_ok"]).strip(), cell_str(r[f"{k}_fix"]).strip(), e[f"{k}_draft"]
+            rec[f"{k}_draft"] = draft
+            rec[f"{k}_verdict"] = rec[f"{k}_text"] = ""
+            bad = None
+            if not ok:
+                if fix:
+                    bad = "a fix is typed but OK? is empty"
+                else:
+                    out["empty"].append({"file": path.name, "row": r["_row"], "item_id": i, "cell": f"{k} OK?"})
+                    continue
+            elif ok not in OK_OPTS:
+                bad = f"OK? is {ok!r}, not fine/wrong"
+            elif ok == "fine" and fix:
+                bad = "marked fine but a fix is typed"
+            elif ok == "wrong" and not fix:
+                bad = "marked wrong but the fix is empty"
+            elif ok == "wrong" and fix == draft.strip():
+                bad = "marked wrong but the fix equals the draft"
+            if bad:
+                out["invalid"].append({"file": path.name, "row": r["_row"], "item_id": i, "form": k, "ok": ok,
+                                       "fix": fix, "problem": bad})
+                continue
+            rec[f"{k}_verdict"], rec[f"{k}_text"] = ok, (draft if ok == "fine" else fix)
+            if ok == "wrong":
+                out["fixes"].append({"item_id": i, "form": k, "fix": fix})
+                for fl in flags_for(fix, draft):
+                    out["flags"].append({"file": path.name, "row": r["_row"], "item_id": i, "field": f"{k} fix", **fl,
+                                         "text": fix})
+        if any(rec[f"{k}_verdict"] for k in FORMS) or rec["note"]:
+            out["recs"][i] = rec
+    return out
+
+
+def read_blind(path: Path, exp: list, P: Problems, label: str, who: str) -> dict:
+    import openpyxl
+    wb = openpyxl.load_workbook(path, data_only=True)
+    rows = read_sheet(wb, BLIND_SHEET, P, label)
+    check_ids([cell_str(r["item_id"]) for r in rows], [e["item_id"] for e in exp], f"{label} {ITEMS}", P)
+    exp_by, when = {e["item_id"]: e for e in exp}, saved_at(wb, path)
+    out = {"recs": {}, "invalid": [], "empty": [], "flags": [], "fixes": []}
     for r in rows:
         i = cell_str(r["item_id"])
         if i not in exp_by:
             continue
         e, where = exp_by[i], f"{label} {ITEMS}!row {r['_row']} ({i})"
-        for f, _, kind in part_spec:
+        for f, _, kind in BLIND_SHEET:
             if kind == "locked" and cell_str(r[f]) != cell_str(e[f]):
                 P.add(where, f"locked column '{f}' was changed")
-        txt = {f: cell_str(r[f]).strip() for f, _, k in part_spec if k == "text"}
-        if blind:
-            filled = [txt["natural_corrected"] != "", txt["kanglish_corrected"] != ""]
-            if not any(filled) and not txt["note"]:
-                n_todo += 1
-                continue
-            if not all(filled):
-                P.add(where, "please write both versions (one is empty)")
-                continue
-            rec = {"natural_draft": "", "natural_naturalness": "", "natural_meaning": "",
-                   "kanglish_draft": "", "kanglish_naturalness": "", "kanglish_meaning": "", "condition": "blind"}
-        else:
-            nat = {k: cell_str(r[f"{k}_naturalness"]).strip() for k in ("natural", "kanglish")}
-            mea = {k: cell_str(r[f"{k}_meaning"]).strip() for k in ("natural", "kanglish")}
-            changed = any(txt[f"{k}_corrected"] != e[f"{k}_draft"].strip() for k in ("natural", "kanglish"))
-            if not any(nat.values()) and not any(mea.values()) and not changed and not txt["note"]:
-                n_todo += 1
-                continue
-            bad = False
-            for k in ("natural", "kanglish"):
-                if nat[k] not in NAT_OPTS:
-                    P.add(where, f"{k} naturalness {'missing' if not nat[k] else repr(nat[k]) + ' is not 1-5'}")
-                    bad = True
-                if mea[k] not in MEAN_OPTS:
-                    P.add(where, f"{k} meaning {'missing' if not mea[k] else repr(mea[k]) + ' is not yes/no'}")
-                    bad = True
-            if bad:
-                continue
-            rec = {"condition": "draft"}
-            for k in ("natural", "kanglish"):
-                rec.update({f"{k}_draft": e[f"{k}_draft"], f"{k}_naturalness": nat[k],
-                            f"{k}_meaning": "1" if mea[k] == "yes" else "0"})
-        rec.update({"item_id": i, "annotator": name, "source": e["source"], "note": txt["note"], "saved_at": when,
-                    "natural_corrected": txt["natural_corrected"], "kanglish_corrected": txt["kanglish_corrected"]})
-        recs[i] = rec
-        for k in ("natural", "kanglish"):
-            for fl in flags_for(rec[f"{k}_corrected"], rec[f"{k}_draft"]):
-                F.append({"file": path.name, "row": r["_row"], "item_id": i, "field": f"{k}_corrected", **fl,
-                          "text": rec[f"{k}_corrected"]})
-    if final and n_todo:
-        P.add(f"{label} {ITEMS}", f"{n_todo} rows not answered (--final)")
-    examples = []
-    if EXAMPLES in wb.sheetnames and label.startswith("A"):
-        for r in read_sheet(wb, EXAMPLES_SHEET + EXAMPLES_CHECK, EXAMPLES, P):
-            c = cell_str(r["check"]).strip()
-            if c and c not in CHECK_OPTS:
-                P.add(f"{label} {EXAMPLES}!row {r['_row']}", f"check {c!r} is not one of {CHECK_OPTS}")
-            if c == "needs correction" and not cell_str(r["check_comment"]).strip():
-                P.add(f"{label} {EXAMPLES}!row {r['_row']}", "marked 'needs correction' but no correction given")
-            examples.append({"example": r["example"], "item_id": r["item_id"], "kind": r["kind"], "check": c,
-                             "comment": cell_str(r["check_comment"]).strip()})
-    return recs, n_todo, examples
+        own = {k: cell_str(r[f"{k}_own"]).strip() for k in FORMS}
+        if not any(own.values()):
+            out["empty"] += [{"file": path.name, "row": r["_row"], "item_id": i, "cell": f"your {k}"} for k in FORMS]
+            continue
+        if not all(own.values()):
+            out["invalid"].append({"file": path.name, "row": r["_row"], "item_id": i, "form": "both", "ok": "",
+                                   "fix": "", "problem": "only one of the two versions is written"})
+            continue
+        rec = {"item_id": i, "annotator": who, "source": e["source"], "note": cell_str(r["note"]).strip(),
+               "saved_at": when, "condition": "blind"}
+        for k in FORMS:
+            rec.update({f"{k}_draft": "", f"{k}_verdict": "", f"{k}_text": own[k]})
+            for fl in flags_for(own[k], ""):
+                out["flags"].append({"file": path.name, "row": r["_row"], "item_id": i, "field": f"your {k}", **fl,
+                                     "text": own[k]})
+        out["recs"][i] = rec
+    return out
 
 
-def read_rater(path: Path, key: dict, final, P: Problems):
-    import openpyxl
-    wb = openpyxl.load_workbook(path, data_only=True)
-    name = cell_str(wb[README][NAME_CELL].value).strip() if README in wb.sheetnames else ""
-    if not name:
-        P.add(f"{README}!{NAME_CELL}", "rater name is empty")
-    rows = read_sheet(wb, RATER_SHEET, ITEMS, P)
-    exp = [(p["item_id"], p["kind"]) for p in key["pairs"]]
-    got = [(cell_str(r["item_id"]), {v: k for k, v in KIND_LABEL.items()}.get(cell_str(r["kind_label"]), "?"))
-           for r in rows]
-    if sorted(got) != sorted(exp) or len(set(got)) != len(got):
-        P.add(ITEMS, "item/kind rows differ from the issued set")
-    elif got != exp:
-        P.add(ITEMS, "rows are in a different order than issued")
-    when, recs, notes, n_todo = saved_at(wb, path), [], [], 0
-    for r, (i, kind) in zip(rows, got):
-        v = [cell_str(r[f"v{j}_naturalness"]).strip() for j in (1, 2)]
-        if not any(v):
-            n_todo += 1
-            continue
-        if any(x not in NAT_OPTS for x in v):
-            P.add(f"{ITEMS}!row {r['_row']} ({i}, {kind})", f"ratings {v}: both must be 1-5")
-            continue
-        recs.append({"item_id": i, "kind": kind, "rater": name, "v1_naturalness": v[0], "v2_naturalness": v[1],
-                     "saved_at": when})
-        if cell_str(r["note"]).strip():
-            notes.append({"item_id": i, "kind": kind, "note": cell_str(r["note"]).strip()})
-    if final and n_todo:
-        P.add(ITEMS, f"{n_todo} rows not rated (--final)")
-    return recs, n_todo, notes
+def quality(recs: dict, fixes: list) -> dict:
+    q = {}
+    for k in FORMS:
+        v = [r[f"{k}_verdict"] for r in recs.values() if r[f"{k}_verdict"]]
+        q[f"{k}_fine_share"] = (sum(x == "fine" for x in v) / len(v)) if v else None
+        q[f"{k}_n_verified"] = len(v)
+    c = Counter((f["form"], f["fix"]) for f in fixes)
+    q["repeated_fixes"] = [{"form": k, "fix": t, "n_rows": n,
+                            "items": [f["item_id"] for f in fixes if (f["form"], f["fix"]) == (k, t)]}
+                           for (k, t), n in c.items() if n > 1]
+    return q
 
 
 def write_csv(path: Path, cols, rows):
     path.parent.mkdir(parents=True, exist_ok=True)
-    with open(path, "w", encoding="utf-8-sig", newline="") as f:  # BOM, as the pages wrote
+    with open(path, "w", encoding="utf-8-sig", newline="") as f:
         w = csv.DictWriter(f, fieldnames=cols, lineterminator="\n", extrasaction="ignore")
         w.writeheader()
         w.writerows(rows)
 
 
+def read_csv(path) -> list:
+    with open(path, encoding="utf-8-sig", newline="") as f:
+        return list(csv.DictReader(f))
+
+
+# ---------------------------------------------------------------- agreement and anchoring (descriptive)
+
+def agreement(a_csv, b_csv) -> dict:
+    """Cohen's kappa on fine/wrong, A vs B, on B's 60 verify items (descriptive; replaces the rating kappas)."""
+    from sklearn.metrics import cohen_kappa_score
+    A = {r["item_id"]: r for r in read_csv(a_csv)}
+    B = {r["item_id"]: r for r in read_csv(b_csv) if r["condition"] == "draft"}
+    res = {"items_expected": len(expected("B", 2))}
+    for k in FORMS:
+        ids = [i for i in B if i in A and A[i][f"{k}_verdict"] and B[i][f"{k}_verdict"]]
+        a, b = [A[i][f"{k}_verdict"] for i in ids], [B[i][f"{k}_verdict"] for i in ids]
+        kap = float(cohen_kappa_score(a, b)) if ids and len(set(a) | set(b)) > 1 else None
+        res[k] = {"n": len(ids), "kappa": kap, "agree_share": (sum(x == y for x, y in zip(a, b)) / len(ids)) if ids
+                  else None, "fine_share_A": (a.count("fine") / len(a)) if a else None,
+                  "fine_share_B": (b.count("fine") / len(b)) if b else None,
+                  "table": {f"A {x} / B {y}": sum(p == x and q == y for p, q in zip(a, b)) for x in OK_OPTS
+                            for y in OK_OPTS}}
+    return res
+
+
+def k3b_module():
+    """scripts/k3b_dakshina.py (the K3b statistics), imported without its command line (it reads sys.argv[2] as the
+    language at import; with no arguments it is Kannada)."""
+    saved = sys.argv
+    sys.argv = [saved[0]]
+    try:
+        import k3b_dakshina as k3b
+    finally:
+        sys.argv = saved
+    return k3b
+
+
+def anchoring(a_csv, b_csv) -> dict:
+    """Blind 40: B's from-scratch text vs the Gemini draft and vs A's verified text. The K3b statistics (pooled rates,
+    ratio with 90% and 95% bootstrap CIs, other / B) and chrF (other against B). Descriptive, no rule (K3 descriptive
+    after the 2026-10-26 protocol change)."""
+    import pandas as pd
+    import english_share as es
+    import k_annotation as K
+    k3b = k3b_module()
+    wl = es.wordlists()["zipf>=3"]
+    blind = json.load(open(K.BLIND))["ids"]
+    exp = {e["item_id"]: e for e in expected("A")}
+    A = {r["item_id"]: r for r in read_csv(a_csv)}
+    B = {r["item_id"]: r for r in read_csv(b_csv) if r["condition"] == "blind"}
+    stats = {"natural": "natural", "kanglish": "kanglish"}
+    res = {"blind_items": len(blind), "status": "descriptive, no rule"}
+    for k in stats:
+        ids = [i for i in blind if i in B and B[i][f"{k}_text"]]
+        texts = {"B": [B[i][f"{k}_text"] for i in ids], "gemini": [exp[i][f"{k}_draft"] for i in ids]}
+        ids_a = [i for i in ids if i in A and A[i][f"{k}_text"]]
+        out = {"n_B": len(ids), "n_with_A": len(ids_a)}
+        H = pd.DataFrame([k3b.counts(t, wl) for t in texts["B"]])
+        for other, T, idx in (("gemini", texts["gemini"], ids), ("A_verified", [A[i][f"{k}_text"] for i in ids_a],
+                                                                  ids_a)):
+            if not idx:
+                out[other] = None
+                continue
+            G = pd.DataFrame([k3b.counts(t, wl) for t in T])
+            Hs = H.iloc[[ids.index(i) for i in idx]].reset_index(drop=True)
+            o = {}
+            for name, num, den in (("vowel_doubling", "vowel_doubling", "letters"),
+                                   ("h_digraph", "h_digraph", "letters"), ("english_word_share", "english", "words")):
+                r = k3b.ratio_ci(G, Hs, num, den)
+                fin = lambda x: x if x == x else None  # noqa: E731  (NaN, e.g. B's rate is 0, -> null)
+                o[name] = {"rate_other": fin(r["gemini_rate"]), "rate_B": fin(r["human_rate"]),
+                           "ratio_other_to_B": fin(r["ratio"]), "ci90": [fin(x) for x in r["ci90"]],
+                           "ci95": [fin(x) for x in r["ci95"]]}
+            o["chrf_other_vs_B"] = K.chrf_stats(pd.Series(T), pd.Series([B[i][f"{k}_text"] for i in idx]))
+            out[other] = o
+        res[k] = out
+    return res
+
+
+# ---------------------------------------------------------------- command line
+
 def main(argv) -> int:
     final = "--final" in argv
-    out = key_path = None
+    out = None
     if "--out" in argv:
         out = Path(argv[argv.index("--out") + 1])
         argv = argv[:argv.index("--out")] + argv[argv.index("--out") + 2:]
-    if "--key" in argv:  # rater key (default data/annotation/k3_rater_key_v1.json)
-        key_path = Path(argv[argv.index("--key") + 1])
-        argv = argv[:argv.index("--key")] + argv[argv.index("--key") + 2:]
     args = [a for a in argv if a != "--final"]
-    role, files = args[0], [Path(a) for a in args[1:]]
-    P, F = Problems(), []
-    res = REPO / "annotation" / "results"
-    report = {"role": role, "files": [f.name for f in files]}
-    if role in ("A", "B"):
-        recs, todo, examples = {}, 0, []
-        parts = [(files[0], BLIND_SHEET if role == "B" else DRAFT_SHEET, expected(role, 1), f"{role}"
-                  if role == "A" else "B part 1")]
-        if role == "B" and len(files) > 1:
-            parts.append((files[1], DRAFT_SHEET, expected("B", 2), "B part 2"))
-        for path, spec, exp, label in parts:
-            r, n, ex = read_annotator(path, spec, exp, final, P, F, label)
-            recs.update(r)
-            todo += n
-            examples += ex
-        names = {r["annotator"] for r in recs.values()}
-        if len(names) > 1:
-            P.add("READ_ME", f"different names in the files: {sorted(names)}")
-        order = [e["item_id"] for e in expected("A")]
-        rows = [recs[i] for i in order if i in recs]
-        out = out or res / f"annotator_{role}.csv"
-        report.update({"answered": len(rows), "not_yet_answered": todo, "autocorrect_flags": len(F),
-                       "flag_rules": {k: sum(f["rule"].startswith(k) for f in F) for k in ("R1", "R2", "R3")},
-                       "flags_new_not_in_draft": {k: sum(f["rule"].startswith(k) and not f["also_in_draft"] for f in F)
-                                                  for k in ("R1", "R2", "R3")},
-                       "flags_also_in_draft": sum(f["also_in_draft"] for f in F)})
-        if examples:
-            report["worked_examples_check"] = [f"{e['example']}/{e['kind']}: {e['check'] or '(blank)'}"
-                                               for e in examples]
-        if not P:
-            write_csv(out, PAGE_COLS, rows)
-            if F:
-                write_csv(out.with_name(out.stem + "_flags.csv"), ["file", "row", "item_id", "field", "rule", "match",
-                                                                   "also_in_draft", "text"], F)
-            if examples:
-                write_csv(out.with_name(out.stem + "_examples_check.csv"), ["example", "item_id", "kind", "check",
-                                                                            "comment"], examples)
-    elif role == "C":
-        import k_annotation as K
-        key = json.load(open(key_path or K.RATER_KEY, encoding="utf-8"))
-        rows, todo, notes = read_rater(files[0], key, final, P)
-        out = out or res / "rater_C_k3.csv"
-        report.update({"rated": len(rows), "not_yet_rated": todo, "notes": len(notes)})
-        if not P:
-            write_csv(out, RATER_COLS, rows)
-            if notes:
-                write_csv(out.with_name(out.stem + "_notes.csv"), ["item_id", "kind", "note"], notes)
-    else:
+    if not args:
         print(__doc__)
         return 2
-    report["errors"] = list(P)
-    report["written"] = None if P else str(out)
+    role, files = args[0], [Path(a) for a in args[1:]]
+    res = REPO / "annotation" / "results"
+    if role in ("agree", "anchor"):
+        r = (agreement if role == "agree" else anchoring)(files[0], files[1])
+        out = out or res / ("agreement.json" if role == "agree" else "anchoring.json")
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(json.dumps(r, indent=1, ensure_ascii=False), encoding="utf-8")
+        print(json.dumps(r, indent=1, ensure_ascii=False))
+        return 0
+    if role not in ("A", "B"):
+        print(__doc__)
+        return 2
+    P = Problems()
+    if role == "A":
+        parts = [read_verify(files[0], expected("A"), P, "A", "A")]
+    else:
+        parts = [read_blind(files[0], expected("B", 1), P, "B part 1", "B")]
+        if len(files) > 1:
+            parts.append(read_verify(files[1], expected("B", 2), P, "B part 2", "B"))
+    recs = {i: r for p in parts for i, r in p["recs"].items()}
+    invalid, empty = [x for p in parts for x in p["invalid"]], [x for p in parts for x in p["empty"]]
+    flags, fixes = [x for p in parts for x in p["flags"]], [x for p in parts for x in p["fixes"]]
+    order = [e["item_id"] for e in expected("A")]
+    rows = [recs[i] for i in order if i in recs]
+    out = out or res / f"annotator_{role}.csv"
+    q = quality({i: r for i, r in recs.items() if r["condition"] == "draft"}, fixes)
+    new_flags = [f for f in flags if not f["also_in_draft"]]
+    report = {"role": role, "files": [f.name for f in files], "structural_errors": list(P),
+              "items_with_answers": len(rows), "empty_cells": len(empty), "invalid": len(invalid),
+              "fine_share": {k: q[f"{k}_fine_share"] for k in FORMS},
+              "n_verified": {k: q[f"{k}_n_verified"] for k in FORMS},
+              "repeated_fixes": len(q["repeated_fixes"]), "autocorrect_flags_not_in_draft": len(new_flags),
+              "autocorrect_flag_rules": {k: sum(f["rule"].startswith(k) for f in new_flags) for k in ("R1", "R2", "R3")}}
+    if final and empty:
+        P.add(role, f"{len(empty)} cells not answered (--final)")
+    report["written"] = None
+    if not P:
+        write_csv(out, CSV_COLS, rows)
+        stem = out.with_name(out.stem)
+        write_csv(Path(str(stem) + "_invalid.csv"), ["file", "row", "item_id", "form", "ok", "fix", "problem"], invalid)
+        write_csv(Path(str(stem) + "_flags.csv"), ["file", "row", "item_id", "field", "rule", "match", "also_in_draft",
+                                                    "text"], flags)
+        Path(str(stem) + "_quality.json").write_text(json.dumps({**q, "empty_cells": empty}, indent=1,
+                                                                ensure_ascii=False), encoding="utf-8")
+        report["written"] = str(out)
+    report["structural_errors"] = list(P)
     print(json.dumps(report, indent=1, ensure_ascii=False))
-    new = [f for f in F if not f["also_in_draft"]]  # patterns the Gemini draft did not already have
-    for f in new[:40]:
+    for x in invalid[:30]:
+        print(f"  invalid {x['file']} row {x['row']} {x['item_id']} {x['form']}: {x['problem']}")
+    for f in new_flags[:30]:
         print(f"  flag {f['file']} row {f['row']} {f['item_id']} {f['field']}: {f['rule']} [{f['match']}]")
-    if len(new) > 40:
-        print(f"  ... {len(new) - 40} more")
-    if F:
-        print(f"  ({len(F) - len(new)} further flags match the draft and are listed in the _flags.csv file only)")
-    return 1 if P else 0
+    for rf in q["repeated_fixes"][:10]:
+        print(f"  repeated fix ({rf['form']}, {rf['n_rows']} rows): {rf['fix'][:60]!r}")
+    return 1 if (P or invalid) else 0
 
 
 if __name__ == "__main__":
