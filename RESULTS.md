@@ -3119,3 +3119,9 @@ after the id-type fix of 14:50 IST). All checks pass:
 Time: 184 s for 80 prompts including the model load, 26 s for the 10 forward passes; extrapolation (Qwen3.5 speed, load
 included, so an overestimate): scoring 500 items × 4 forms × 5 models about 6.4 h, K2b vectors 300 items × 4 models about
 0.9 h. **Stopped at the pilot gate; the full run waits for Aarnav's OK.**
+
+## 2026-10-27 00:05 IST — K1/K2 full run started (Aarnav's OK after the pilot gate)
+Chain `scripts/k12_full_chain.sh` (detached): five E0b models scored on both tasks, then K2b vectors for the four M4 models,
+then `k_k12.py analyse` (K1; K2a and K2b with v2 English share primary and v1 sensitivity). One model load at a time, GPU
+guard before every load; the H1-LF priority rule applies only once the H1-LF drafts are complete and never interrupts a model
+(Aarnav, 2026-10-26). No rule or threshold changed.
