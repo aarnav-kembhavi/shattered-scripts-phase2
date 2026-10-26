@@ -1,0 +1,103 @@
+{
+  "provenance": {
+    "config": {
+      "registered": "RESULTS.md 2026-10-16 (K1-K3); data label and implementation 2026-10-26 03:15 IST",
+      "status": "pilot; no accuracy or test computed"
+    },
+    "git_commit": "d1e95f1267a49a58f54babf5c7f001b761962fcb",
+    "timestamp_utc": "2026-10-26T09:21:55+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/k_k12.py",
+      "pilot"
+    ]
+  },
+  "model": "qwen3.5-2b",
+  "gpu_mb_before_load": 142,
+  "items": {
+    "sentiment": [
+      "indicsentiment-test-714",
+      "indicsentiment-test-61",
+      "indicsentiment-test-96",
+      "indicsentiment-test-792",
+      "indicsentiment-test-984",
+      "indicsentiment-test-878",
+      "indicsentiment-test-952",
+      "indicsentiment-test-724",
+      "indicsentiment-test-381",
+      "indicsentiment-test-407"
+    ],
+    "sib": [
+      "flores-0",
+      "flores-65",
+      "flores-559",
+      "flores-810",
+      "flores-1035",
+      "flores-1211",
+      "flores-1441",
+      "flores-1522",
+      "flores-1676",
+      "flores-1811"
+    ]
+  },
+  "label_and_native_check_all_items": {
+    "sentiment": {
+      "in_store": 199,
+      "of": 200,
+      "label_mismatch": 0,
+      "native_mismatch": 0
+    },
+    "sib": {
+      "in_store": 300,
+      "of": 300,
+      "label_mismatch": 0,
+      "native_mismatch": 0
+    }
+  },
+  "prompts_scored": 80,
+  "prompts_expected": 80,
+  "content_free_max_abs_delta_vs_stored": 0.0,
+  "k2b_vectors_shape": [
+    10,
+    25,
+    2048
+  ],
+  "k2b_layers_from_m4b": {
+    "qwen2.5-1.5b": 15,
+    "qwen3.5-2b": 15,
+    "sarvam-1": 23,
+    "gemma4-e2b": 7
+  },
+  "k2b_all_300_in_m4b_test_half": true,
+  "m4b_test_half_size": 1005,
+  "english_share_range_pilot": [
+    0.0,
+    0.5714285714285714
+  ],
+  "fertility_k_kan_ver": [
+    {
+      "model": "qwen3.5-2b",
+      "task": "sentiment",
+      "form": "k_kan_ver",
+      "n_texts": 10,
+      "tokens_per_word": 2.257142857142857
+    },
+    {
+      "model": "qwen3.5-2b",
+      "task": "sib",
+      "form": "k_kan_ver",
+      "n_texts": 10,
+      "tokens_per_word": 2.3915343915343916
+    }
+  ],
+  "seconds": {
+    "score_20_items_4_forms_incl_load": 184.19457411766052,
+    "forward_10_items_incl_load": 26.308379888534546
+  },
+  "estimate_hours_full": {
+    "score_500_items_4_forms_5_models_at_pilot_speed": 6.39564493464099,
+    "forward_300_items_4_models_at_pilot_speed": 0.8769459962844849
+  },
+  "all_passed": true
+}

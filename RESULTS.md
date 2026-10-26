@@ -3106,3 +3106,16 @@ No K2 statistic, coefficient or accuracy has been computed.
 The pilot crashed while writing the scores file (`ArrowTypeError`: sentiment ids are strings, SIB ids are ints; same
 cause as the NC1 crash of 2026-10-22). Fix: SIB ids are written as strings and converted back in the analysis
 (`k_k12.for_scoring`). No score, accuracy or statistic had been computed; no design change.
+
+## 2026-10-26 15:40 IST — K1/K2 pilot gate (registered 2026-10-16; implementation notes 2026-10-26; no accuracy or statistic computed)
+`scripts/k_k12.py pilot` → `results/k12/pilot.json` (Qwen3.5-2B, 10 sentiment + 10 SIB items, GPU guard 142 MB; relaunch
+after the id-type fix of 14:50 IST). All checks pass:
+- items map to the stored E0b / E0c items: 199 of 200 sentiment items (indicsentiment-test-295 is annotated but not in
+  E0b) and 300 of 300 SIB items, 0 label mismatches, 0 native-text mismatches;
+- 80 of 80 prompts scored (20 items × 4 forms); recomputed content-free log-probs equal the stored ones (max |Δ| 0.0);
+- K2b vectors computed (10 × 25 layers × 2048); layers from M4b: Qwen2.5 15, Qwen3.5 15, Sarvam-1 23, Gemma 4 7; all 300
+  SIB items are in M4b's test half (1,005);
+- English share (v2, Kanglish verified) ranges 0.00 to 0.57 on the pilot items.
+Time: 184 s for 80 prompts including the model load, 26 s for the 10 forward passes; extrapolation (Qwen3.5 speed, load
+included, so an overestimate): scoring 500 items × 4 forms × 5 models about 6.4 h, K2b vectors 300 items × 4 models about
+0.9 h. **Stopped at the pilot gate; the full run waits for Aarnav's OK.**
