@@ -1,0 +1,15 @@
+{
+ "_about": "Claude Code's marking (2026-10-26) of the token types in the 50 kanglish_verified texts sampled with default_rng(0) (results/codemix_check/sample_tokens.json). Gold labels: E English word; K Kannada (incl. Kannada written with an English-looking spelling); N proper name, name-derived adjective, acronym name or unit (neither language); H English stem + Kannada suffix written as one word. Types not listed take the gold label implied by the codemix v1 tag after review: en -> E, kn -> K, u -> K. Marked with the item contexts in view.",
+ "overrides": {
+  "amsterdam": "N", "angola": "N", "claudia": "N", "germany": "N", "iceland": "N", "luxembourg": "N", "machu": "N",
+  "stearns": "N", "frank": "N", "bis": "N", "austrian": "N", "russian": "N", "african": "N", "mediterranean": "N",
+  "kami": "K",
+  "ad": "E", "air": "E", "and": "E", "bed": "E", "but": "E", "dark": "E", "gel": "E", "help": "E", "led": "E",
+  "lens": "E", "limited": "E", "on": "E", "post": "E", "sharp": "E", "skin": "E", "so": "E", "start": "E",
+  "anne": "N", "richard": "N", "park": "N", "sans": "N", "pakistani": "N",
+  "eggless": "E", "moisturize": "E", "purifiers": "E", "tuners": "E", "occasionaly": "E",
+  "veermen": "N", "mbit": "N", "italiya": "N", "hungaryya": "N", "africavannu": "N", "kolkattada": "N",
+  "groupnalli": "H", "lensesgalige": "H", "lensesgalu": "H", "manufacturercellu": "H", "pitchnalli": "H",
+  "productginta": "H", "productionalli": "H", "skinannu": "H", "jetsgalannu": "H"
+ }
+}

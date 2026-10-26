@@ -1,0 +1,180 @@
+{
+  "provenance": {
+    "config": {
+      "gold": "gold_sample0.json"
+    },
+    "git_commit": "07ba540f5d484beeb92d283e5be387b748d48300-dirty",
+    "timestamp_utc": "2026-10-26T06:36:27+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/codemix_check.py",
+      "0",
+      "v2"
+    ]
+  },
+  "seed": 0,
+  "tagger": "v2",
+  "texts": 50,
+  "alphabetic_tokens": 883,
+  "tokens_tagged_en": 238,
+  "main (H not English)": {
+    "tp": 221,
+    "fp": 17,
+    "fn": 27,
+    "precision": 0.9285714285714286,
+    "recall": 0.8911290322580645
+  },
+  "sensitivity (H English)": {
+    "tp": 221,
+    "fp": 17,
+    "fn": 36,
+    "precision": 0.9285714285714286,
+    "recall": 0.8599221789883269
+  },
+  "errors": {
+    "false_positive": [
+      [
+        "ana",
+        "K"
+      ],
+      [
+        "andre",
+        "K"
+      ],
+      [
+        "angola",
+        "N"
+      ],
+      [
+        "bis",
+        "N"
+      ],
+      [
+        "ee",
+        "K"
+      ],
+      [
+        "kami",
+        "K"
+      ],
+      [
+        "luxembourg",
+        "N"
+      ],
+      [
+        "pakistani",
+        "N"
+      ],
+      [
+        "russian",
+        "N"
+      ],
+      [
+        "stearns",
+        "N"
+      ]
+    ],
+    "missed_english": [
+      [
+        "carbon",
+        "u"
+      ],
+      [
+        "commerce",
+        "u"
+      ],
+      [
+        "committee",
+        "u"
+      ],
+      [
+        "eggless",
+        "kn"
+      ],
+      [
+        "energy",
+        "u"
+      ],
+      [
+        "giant",
+        "u"
+      ],
+      [
+        "house",
+        "u"
+      ],
+      [
+        "investigations",
+        "u"
+      ],
+      [
+        "lens",
+        "kn"
+      ],
+      [
+        "museum",
+        "u"
+      ],
+      [
+        "occasionaly",
+        "kn"
+      ],
+      [
+        "oversight",
+        "u"
+      ],
+      [
+        "parenthood",
+        "u"
+      ],
+      [
+        "planned",
+        "u"
+      ],
+      [
+        "purifiers",
+        "kn"
+      ],
+      [
+        "slalom",
+        "u"
+      ],
+      [
+        "split",
+        "u"
+      ],
+      [
+        "street",
+        "u"
+      ],
+      [
+        "subcommittee",
+        "u"
+      ],
+      [
+        "tuners",
+        "kn"
+      ],
+      [
+        "war",
+        "u"
+      ],
+      [
+        "world",
+        "u"
+      ]
+    ],
+    "hybrid_H": [
+      "groupnalli",
+      "jetsgalannu",
+      "lensesgalige",
+      "lensesgalu",
+      "manufacturercellu",
+      "pitchnalli",
+      "productginta",
+      "productionalli",
+      "skinannu"
+    ]
+  }
+}

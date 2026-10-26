@@ -1,0 +1,200 @@
+{
+  "provenance": {
+    "config": {
+      "gold": "gold_sample0.json"
+    },
+    "git_commit": "07ba540f5d484beeb92d283e5be387b748d48300-dirty",
+    "timestamp_utc": "2026-10-26T06:36:23+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/codemix_check.py",
+      "0",
+      "v1"
+    ]
+  },
+  "seed": 0,
+  "tagger": "v1",
+  "texts": 50,
+  "alphabetic_tokens": 883,
+  "tokens_tagged_en": 236,
+  "main (H not English)": {
+    "tp": 219,
+    "fp": 17,
+    "fn": 29,
+    "precision": 0.9279661016949152,
+    "recall": 0.8830645161290323
+  },
+  "sensitivity (H English)": {
+    "tp": 219,
+    "fp": 17,
+    "fn": 38,
+    "precision": 0.9279661016949152,
+    "recall": 0.8521400778210116
+  },
+  "errors": {
+    "false_positive": [
+      [
+        "african",
+        "N"
+      ],
+      [
+        "amsterdam",
+        "N"
+      ],
+      [
+        "angola",
+        "N"
+      ],
+      [
+        "austrian",
+        "N"
+      ],
+      [
+        "bis",
+        "N"
+      ],
+      [
+        "claudia",
+        "N"
+      ],
+      [
+        "frank",
+        "N"
+      ],
+      [
+        "germany",
+        "N"
+      ],
+      [
+        "iceland",
+        "N"
+      ],
+      [
+        "kami",
+        "K"
+      ],
+      [
+        "luxembourg",
+        "N"
+      ],
+      [
+        "machu",
+        "N"
+      ],
+      [
+        "mediterranean",
+        "N"
+      ],
+      [
+        "russian",
+        "N"
+      ],
+      [
+        "stearns",
+        "N"
+      ]
+    ],
+    "missed_english": [
+      [
+        "ad",
+        "u"
+      ],
+      [
+        "air",
+        "u"
+      ],
+      [
+        "and",
+        "u"
+      ],
+      [
+        "bed",
+        "u"
+      ],
+      [
+        "but",
+        "u"
+      ],
+      [
+        "dark",
+        "u"
+      ],
+      [
+        "eggless",
+        "kn"
+      ],
+      [
+        "gel",
+        "u"
+      ],
+      [
+        "help",
+        "u"
+      ],
+      [
+        "led",
+        "u"
+      ],
+      [
+        "lens",
+        "u"
+      ],
+      [
+        "limited",
+        "u"
+      ],
+      [
+        "moisturize",
+        "kn"
+      ],
+      [
+        "occasionaly",
+        "kn"
+      ],
+      [
+        "on",
+        "u"
+      ],
+      [
+        "post",
+        "u"
+      ],
+      [
+        "purifiers",
+        "kn"
+      ],
+      [
+        "sharp",
+        "u"
+      ],
+      [
+        "skin",
+        "u"
+      ],
+      [
+        "so",
+        "u"
+      ],
+      [
+        "start",
+        "u"
+      ],
+      [
+        "tuners",
+        "kn"
+      ]
+    ],
+    "hybrid_H": [
+      "groupnalli",
+      "jetsgalannu",
+      "lensesgalige",
+      "lensesgalu",
+      "manufacturercellu",
+      "pitchnalli",
+      "productginta",
+      "productionalli",
+      "skinannu"
+    ]
+  }
+}

@@ -1,0 +1,174 @@
+warning: in the working copy of 'RESULTS.md', LF will be replaced by CRLF the next time Git touches it
+{
+ "seed": 1,
+ "tagger": "v2",
+ "texts": 50,
+ "alphabetic_tokens": 1004,
+ "tokens_tagged_en": 275,
+ "main (H not English)": {
+  "tp": 254,
+  "fp": 21,
+  "fn": 16,
+  "precision": 0.9236363636363636,
+  "recall": 0.9407407407407408
+ },
+ "sensitivity (H English)": {
+  "tp": 254,
+  "fp": 21,
+  "fn": 32,
+  "precision": 0.9236363636363636,
+  "recall": 0.8881118881118881
+ },
+ "errors": {
+  "false_positive": [
+   [
+    "aa",
+    "K"
+   ],
+   [
+    "america",
+    "N"
+   ],
+   [
+    "andre",
+    "K"
+   ],
+   [
+    "anna",
+    "K"
+   ],
+   [
+    "asia",
+    "N"
+   ],
+   [
+    "ee",
+    "K"
+   ],
+   [
+    "europe",
+    "N"
+   ],
+   [
+    "germany",
+    "N"
+   ],
+   [
+    "iraq",
+    "N"
+   ],
+   [
+    "koo",
+    "K"
+   ],
+   [
+    "minions",
+    "N"
+   ],
+   [
+    "murray",
+    "N"
+   ],
+   [
+    "nim",
+    "K"
+   ],
+   [
+    "tokyo",
+    "N"
+   ],
+   [
+    "vela",
+    "K"
+   ],
+   [
+    "xian",
+    "N"
+   ]
+  ],
+  "missed_english": [
+   [
+    "brakes",
+    "u"
+   ],
+   [
+    "brother",
+    "u"
+   ],
+   [
+    "carrom",
+    "kn"
+   ],
+   [
+    "cationic",
+    "u"
+   ],
+   [
+    "evaporator",
+    "kn"
+   ],
+   [
+    "giant",
+    "u"
+   ],
+   [
+    "ions",
+    "u"
+   ],
+   [
+    "janisary",
+    "kn"
+   ],
+   [
+    "orchestra",
+    "u"
+   ],
+   [
+    "silver",
+    "u"
+   ],
+   [
+    "slalom",
+    "u"
+   ],
+   [
+    "state",
+    "u"
+   ],
+   [
+    "symphony",
+    "u"
+   ],
+   [
+    "tennis",
+    "kn"
+   ],
+   [
+    "twin",
+    "u"
+   ],
+   [
+    "villainy",
+    "u"
+   ]
+  ],
+  "hybrid_H": [
+   "breaknalli",
+   "cholesterolge",
+   "effectsnalli",
+   "groupnalli",
+   "heightnalli",
+   "hotelgala",
+   "matchgalu",
+   "poundsginta",
+   "servgalannu",
+   "setannu",
+   "setnalli",
+   "speedalli",
+   "submarinegalu",
+   "surfaceginta",
+   "teamgalu",
+   "weekendalli"
+  ]
+ }
+}

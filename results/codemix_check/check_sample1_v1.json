@@ -1,0 +1,283 @@
+{
+  "provenance": {
+    "config": {
+      "gold": "gold_sample1.json"
+    },
+    "git_commit": "07ba540f5d484beeb92d283e5be387b748d48300-dirty",
+    "timestamp_utc": "2026-10-26T06:36:29+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/codemix_check.py",
+      "1",
+      "v1"
+    ]
+  },
+  "seed": 1,
+  "tagger": "v1",
+  "texts": 50,
+  "alphabetic_tokens": 1004,
+  "tokens_tagged_en": 259,
+  "main (H not English)": {
+    "tp": 233,
+    "fp": 26,
+    "fn": 37,
+    "precision": 0.8996138996138996,
+    "recall": 0.8629629629629629
+  },
+  "sensitivity (H English)": {
+    "tp": 233,
+    "fp": 26,
+    "fn": 53,
+    "precision": 0.8996138996138996,
+    "recall": 0.8146853146853147
+  },
+  "errors": {
+    "false_positive": [
+      [
+        "aa",
+        "K"
+      ],
+      [
+        "america",
+        "N"
+      ],
+      [
+        "asia",
+        "N"
+      ],
+      [
+        "austrian",
+        "N"
+      ],
+      [
+        "claudia",
+        "N"
+      ],
+      [
+        "ebola",
+        "N"
+      ],
+      [
+        "europe",
+        "N"
+      ],
+      [
+        "fallujah",
+        "N"
+      ],
+      [
+        "galapagos",
+        "N"
+      ],
+      [
+        "germany",
+        "N"
+      ],
+      [
+        "greek",
+        "N"
+      ],
+      [
+        "gru",
+        "N"
+      ],
+      [
+        "indian",
+        "N"
+      ],
+      [
+        "iraq",
+        "N"
+      ],
+      [
+        "istanbul",
+        "N"
+      ],
+      [
+        "koo",
+        "K"
+      ],
+      [
+        "minions",
+        "N"
+      ],
+      [
+        "murray",
+        "N"
+      ],
+      [
+        "nigeria",
+        "N"
+      ],
+      [
+        "nim",
+        "K"
+      ],
+      [
+        "olympics",
+        "N"
+      ],
+      [
+        "pythagoras",
+        "N"
+      ],
+      [
+        "shetland",
+        "N"
+      ],
+      [
+        "vela",
+        "K"
+      ],
+      [
+        "xian",
+        "N"
+      ]
+    ],
+    "missed_english": [
+      [
+        "ad",
+        "u"
+      ],
+      [
+        "and",
+        "u"
+      ],
+      [
+        "anti",
+        "u"
+      ],
+      [
+        "bad",
+        "u"
+      ],
+      [
+        "band",
+        "u"
+      ],
+      [
+        "carrom",
+        "kn"
+      ],
+      [
+        "cationic",
+        "kn"
+      ],
+      [
+        "end",
+        "u"
+      ],
+      [
+        "evaporator",
+        "kn"
+      ],
+      [
+        "halo",
+        "u"
+      ],
+      [
+        "hole",
+        "u"
+      ],
+      [
+        "innings",
+        "u"
+      ],
+      [
+        "is",
+        "u"
+      ],
+      [
+        "it",
+        "u"
+      ],
+      [
+        "janisary",
+        "kn"
+      ],
+      [
+        "level",
+        "u"
+      ],
+      [
+        "on",
+        "u"
+      ],
+      [
+        "order",
+        "u"
+      ],
+      [
+        "post",
+        "u"
+      ],
+      [
+        "radar",
+        "u"
+      ],
+      [
+        "rate",
+        "u"
+      ],
+      [
+        "red",
+        "u"
+      ],
+      [
+        "skin",
+        "u"
+      ],
+      [
+        "so",
+        "u"
+      ],
+      [
+        "star",
+        "u"
+      ],
+      [
+        "stars",
+        "u"
+      ],
+      [
+        "start",
+        "u"
+      ],
+      [
+        "target",
+        "u"
+      ],
+      [
+        "tennis",
+        "u"
+      ],
+      [
+        "tie",
+        "u"
+      ],
+      [
+        "visa",
+        "u"
+      ]
+    ],
+    "hybrid_H": [
+      "breaknalli",
+      "cholesterolge",
+      "effectsnalli",
+      "groupnalli",
+      "heightnalli",
+      "hotelgala",
+      "matchgalu",
+      "poundsginta",
+      "servgalannu",
+      "setannu",
+      "setnalli",
+      "speedalli",
+      "submarinegalu",
+      "surfaceginta",
+      "teamgalu",
+      "weekendalli"
+    ]
+  }
+}

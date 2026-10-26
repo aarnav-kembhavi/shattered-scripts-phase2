@@ -1,0 +1,20 @@
+{
+ "_about": "Claude Code's marking (2026-10-26) of the token types in the 50 kanglish_verified texts sampled with default_rng(1), done from the codemix v1 view and the item contexts BEFORE any v2 tag of this sample was seen. Labels as gold_sample0.json (E English; K Kannada; N name/brand/unit/single letter used as a symbol; H English stem + Kannada suffix). Types not listed take the label implied by their v1 tag: en -> E, kn -> K, u -> K.",
+ "overrides": {
+  "america": "N", "asia": "N", "claudia": "N", "europe": "N", "fallujah": "N", "galapagos": "N", "germany": "N",
+  "iraq": "N", "istanbul": "N", "murray": "N", "nigeria": "N", "pythagoras": "N", "shetland": "N", "xian": "N",
+  "ebola": "N", "olympics": "N", "minions": "N", "gru": "N", "austrian": "N", "greek": "N", "indian": "N",
+  "aa": "K", "koo": "K", "nim": "K", "vela": "K",
+  "ad": "E", "and": "E", "anti": "E", "bad": "E", "band": "E", "end": "E", "hole": "E", "innings": "E", "is": "E",
+  "it": "E", "level": "E", "on": "E", "order": "E", "post": "E", "radar": "E", "rate": "E", "red": "E", "skin": "E",
+  "so": "E", "star": "E", "stars": "E", "start": "E", "target": "E", "tennis": "E", "tie": "E", "visa": "E",
+  "halo": "E",
+  "china": "N", "tokyo": "N", "muslim": "N", "u": "N", "v": "N",
+  "carrom": "E", "cationic": "E", "evaporator": "E", "janisary": "E",
+  "godrej": "N", "fatih": "N", "irkutsk": "N", "erkos": "N", "gorses": "N", "agnps": "N", "zmapp": "N",
+  "swiggy": "N", "votiervina": "N", "noosa": "N", "hungaryya": "N",
+  "breaknalli": "H", "cholesterolge": "H", "effectsnalli": "H", "groupnalli": "H", "heightnalli": "H",
+  "hotelgala": "H", "matchgalu": "H", "poundsginta": "H", "servgalannu": "H", "setannu": "H", "setnalli": "H",
+  "speedalli": "H", "submarinegalu": "H", "surfaceginta": "H", "teamgalu": "H", "weekendalli": "H"
+ }
+}

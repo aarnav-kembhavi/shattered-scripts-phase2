@@ -2967,3 +2967,105 @@ score exists.
   recomputed as a control and must reproduce the stored vectors / log-probs (|Δ| < 1e-3). Sentiment is scored in full
   (18 changed items). Chain `scripts/vver_chain.sh`, queued after EP-R. The K1/K2 pilot is held until Aarnav approves
   the implementation details.
+
+---
+## 2026-10-26 12:05 IST — English-share tagger for K2: validity check of codemix v1 FAILED; pre-data fix v2 (no K2 result exists)
+- **Definition in K2 (registered 2026-10-16, `shattered.translit.codemix`, "v1"):** neither the English-loan measure v1
+  (wordfreq Zipf ≥ 3, > 3 characters) nor v2 (also in the parallel English sentence). A lower-cased alphabetic token
+  is English if it is in the wordfreq top-50k English list and not in the romanized-Kannada lexicon (to_lossy of the
+  top-50k Kannada Wikipedia words); in both lists it is language-independent; otherwise Kannada.
+- **Check (Aarnav's design):** 50 kanglish_verified texts, `default_rng(0)`, 883 alphabetic tokens; every token type
+  marked by Claude Code (`results/codemix_check/gold_sample0.json`: E English, K Kannada, N name/unit, H English stem +
+  Kannada suffix; N and H count as not English). `scripts/codemix_check.py 0 v1` →
+  `results/codemix_check/check_sample0_v1.json`.
+- **Result: precision 0.928 (219/236), recall 0.883 (219/248): below 0.9, so stopped.**
+  - False positives (17): names and name-derived adjectives tagged English (amsterdam, angola ×2, claudia, germany,
+    iceland, luxembourg, machu, stearns, frank, BIS, austrian, russian, african, mediterranean) and one Kannada word
+    (kami, "less", ×2).
+  - Missed English (29): 24 common English words that are also in the Kannada lexicon and so become
+    language-independent (and, on, so, but, air ×3, start ×2, help, post, skin, lens ×3, gel, LED, ad ×2, dark, bed,
+    sharp, limited); 5 English words outside the top-50k list (eggless, moisturize, purifiers ×2, tuners,
+    occasionaly).
+  - Not counted as English in either definition: 9 English-stem + Kannada-suffix tokens (productginta, groupnalli,
+    lensesgalu, skinannu, …); with them counted as English, recall is 0.852.
+- **Fix, v2 (`codemix.tag_v2` / `code_mixing_v2`; v1 kept unchanged):** (1) single letters language-independent;
+  (2) a token that occurs in the item's parallel English sentence only in Title case and not sentence-initially is a
+  name (language-independent; all-caps acronyms not affected); (3) a token in both lists goes to the language where
+  it ranks higher (English: position in the wordfreq top-50k list; Kannada: best rank of a Kannada Wikipedia word whose
+  lossy romanization contains it); (4) a token in neither list is English if its wordfreq English Zipf ≥ 2.5, else
+  Kannada; (5) English stem + Kannada suffix stays Kannada (the share is a lower bound for such loans).
+- **v2 was designed after seeing sample 0's errors**, so its rerun on sample 0 is optimistic. A fresh sample
+  (`default_rng(1)`, 50 texts) is marked by hand from the v1 view (before any v2 tag of it is seen) and is the deciding
+  check: v2 is used for K2 only if precision and recall are both ≥ 0.9 on it. K2 uses v2 for the English share in
+  K2a and K2b if it passes; v1 results are reported alongside.
+
+---
+## 2026-10-26 12:10 IST — English-share tagger v2: checks (stopped; decision needed from Aarnav)
+`scripts/codemix_check.py <seed> <v1|v2>`; `results/codemix_check/check_sample{0,1}_{v1,v2}.json`; gold markings
+`gold_sample0.json` (marked from v1, before v2 existed) and `gold_sample1.json` (fresh sample, `default_rng(1)`, 1,004
+tokens, marked from the v1 view before any v2 tag of it was seen).
+
+| tagger | sample 0 (883 tokens; v2 designed from its errors) | sample 1 (1,004 tokens; fresh) |
+|---|---|---|
+| v1 (registered) | P 0.928, R 0.883 | P 0.900, R 0.863 |
+| v2 | P 0.929, R 0.891 | **P 0.924, R 0.941** |
+| v2 without the name rule (informative only; tuned on both samples) | P 0.892, R 0.968 | P 0.880, R 0.981 |
+
+(R with English-stem + Kannada-suffix tokens counted as English: v1 0.852 / 0.815; v2 0.860 / 0.888.)
+- v2 passes the criterion stated before the check (fresh sample ≥ 0.9 on both) but **fails recall on the rerun of
+  sample 0** (0.891). Causes: (a) the name rule also removes ordinary English words inside multi-word names in the
+  English sentence (World War, Planned Parenthood, Senate subcommittee, Anne Frank Museum, State Symphony Orchestra);
+  (b) the rank rule sends Kannada "ee" ("this") to English, because the lossy romanization writes ಈ as "i", so "ee" is
+  rare in the Kannada lexicon; similarly andre, ana, anna. Without the name rule recall is high but precision falls
+  below 0.9 (names counted as English).
+- **Stopped:** neither variant clears 0.9 on both samples. No K2 result exists; the K1/K2 pilot is not queued.
+
+## 2026-10-26 12:10 IST — Qwen2.5 in K1/K2: kept as registered
+- K1–K3 registration (written 2026-10-16): "**Scoring:** the E0b setup unchanged, on five models"; the E0b setup
+  (2026-10-14): "models Qwen2.5-1.5B-Instruct, Qwen3.5-2B, Sarvam-1, Gemma 4 E2B (Qwen3-1.7B also run as an extra)".
+- The general rule appears first in the ladder registration (written 2026-10-22): "Qwen2.5-1.5B is reported in every
+  table but **never counted**", later repeated per experiment (NC1, H-Hindi). Earlier, M4c (2026-10-16) excluded
+  Qwen2.5 only from the second part of its own prediction.
+- The rule postdates K1/K2, so under Aarnav's instruction Qwen2.5 stays counted in K1 and K2a as registered (five
+  models; K2b's four M4 models include it).
+
+---
+## 2026-10-26 12:20 IST — EP-R results (exploratory, registered 2026-10-26 02:40 IST; no verdict; registered E-P1/E-P2 outcomes unchanged)
+Chain `scripts/ep_robust_chain.sh`, 2026-10-26 03:09 → 10:17 IST, one model load at a time, GPU guard before each.
+Files `results/ep_robust/{raw/, table.csv, gaps.csv, summary.json}`.
+- **Integrity:** 1,004 of 1,004 SIB items eligible in every model × experiment; stored rows reused exactly (pilot);
+  no-patch |Δ| = 0.0 everywhere; integrity |Δ| = 0.0 except E-P1 Gemma 4 (0.52; registered caveat, per-layer
+  embeddings follow (c)'s ids).
+- **Gaps (M_src − M_dst) outside the selected set:** most unselected items have a gap near 0 or negative. E-P1 all
+  items, gap < 0 / 0–0.5 / ≥ 0.5: Qwen3 511 / 34 / 459; Qwen3.5 396 / 240 / 368; Sarvam-1 198 / 143 / 663; Gemma 4
+  435 / 43 / 526. E-P2: Qwen3 278 / 15 / 711; Qwen3.5 223 / 107 / 674; Sarvam-1 233 / 110 / 661; Gemma 4 217 / 17 /
+  770 (`gaps.csv`, also by control / other). Handling as registered: all items stay in the ratio of sums; the per-item
+  median uses gap ≥ 0.5 only.
+- **E-P1: the ratio of sums is unstable on "all" and "excluded"** where the summed gap is near 0 (e.g. Qwen3 all items,
+  mean gap −0.23: R(L*) = −0.48 [−8.06, 8.56]; Qwen3.5 and Gemma 4 excluded likewise), because the (a)/(c) margin
+  difference averages to about zero on unselected items. On items with gap ≥ 0.5 (registered sensitivity) R(L*),
+  selected / all / excluded: Qwen3 0.413 / 0.404 / 0.399; Qwen3.5 0.373 / 0.350 / 0.329; Sarvam-1 0.486 / 0.445 / 0.415;
+  Gemma 4 0.422 / 0.402 / 0.382. Per-item median R(L*) (gap ≥ 0.5), selected / all: 0.442 / 0.377, 0.283 / 0.286,
+  0.500 / 0.444, 0.405 / 0.383.
+- **E-P2: R does not shrink outside the selected set in 3 of 4 models.** Ratio of sums R(L*_word) [95% CI], selected /
+  all / excluded: Qwen3 0.375 [0.321, 0.430] / 0.422 [0.374, 0.471] / 0.468 [0.390, 0.547]; Qwen3.5 0.557 [0.516,
+  0.598] / 0.588 [0.554, 0.624] / 0.616 [0.561, 0.675]; Gemma 4 0.552 [0.505, 0.597] / 0.602 [0.565, 0.639] / 0.656
+  [0.598, 0.717]; Sarvam-1 0.510 [0.460, 0.561] / 0.440 [0.401, 0.482] / 0.412 [0.361, 0.464].
+- Bands (early / middle / late, all three sets) in `table.csv`. Descriptively: for E-P2 the selection did not inflate
+  word-level recovery (except Sarvam-1, about −0.1 on all items); for E-P1, on items with a real (a)/(c) gap, recovery
+  at L* is 0.02–0.07 lower on all items than on the selected set.
+
+## 2026-10-26 12:20 IST — V-VER results (exploratory, registered 2026-10-26 03:15 IST; no verdict)
+Chain `scripts/vver_chain.sh`, 10:17 → 10:58 IST. `results/v_ver/{differences.csv, summary.json}`. Verified texts
+replace the natural drafts only for the annotated items (sentiment: 198 human verified, 18 changed; M4c: 80 human
+verified, 3 changed in the retrieval test half and 3 in SIB-257); every other item keeps its Gemini draft.
+- **Controls:** the unchanged items recomputed with each splice reproduce the stored vectors and log-probs exactly
+  (max |Δ| 0.0 in every model).
+- **Retrieval (248; 3 texts changed):** verified − original: Qwen3.5 +0.004 [0.000, 0.012] (1 hit gained), Sarvam-1
+  0.000, Gemma 4 +0.004 [0.000, 0.012]; McNemar p = 1.0; same train-half layers.
+- **SIB-257 (3 texts changed):** 0.000 in all four models (1 prediction changed in Qwen3, none elsewhere).
+- **Sentiment (198; 18 texts changed):** Qwen3 +0.020 [+0.005, +0.040] (4 items gained, 0 lost; McNemar p = 0.125),
+  Qwen3.5 −0.005 [−0.020, +0.010], Sarvam-1 0.000 [−0.015, +0.015], Gemma 4 +0.005 [−0.015, +0.025].
+- Descriptively: replacing the Gemini drafts with the human-verified texts on the annotated subset moves no result
+  beyond 2 points; the only CI excluding 0 is Qwen3 sentiment (+2.0 points, 4 discordant items, McNemar not
+  significant).
