@@ -57,6 +57,12 @@ def k_items() -> dict:
     return out
 
 
+def for_scoring(items: dict) -> dict:
+    """SIB ids are ints (FLORES indices) and sentiment ids are strings; one scores file needs one id type, so SIB ids
+    are written as strings and converted back in the analysis."""
+    return {t: [{**it, "id": str(it["id"])} if t == "sib" else it for it in v] for t, v in items.items()}
+
+
 def check_labels(items) -> dict:
     """Labels and native texts must equal the stored E0b / E0c items where those exist."""
     a, c = lad.e0b_items(), lad.e0c_items()
@@ -93,11 +99,12 @@ def do_pilot() -> int:
     items = k_items()
     rng = np.random.default_rng(SEED)
     pick = {t: [items[t][k] for k in sorted(rng.choice(len(items[t]), 10, replace=False))] for t in items}
+    pick_scoring = for_scoring(pick)
     used = guard()
     pdir = OUT / "pilot_scores"
     shutil.rmtree(pdir, ignore_errors=True)
     t0 = time.time()
-    score(PILOT_MODEL, pick, pdir)  # loads, scores 20 items x 4 forms, unloads (no accuracy computed)
+    score(PILOT_MODEL, pick_scoring, pdir)  # loads, scores 20 items x 4 forms, unloads (no accuracy computed)
     t_score = time.time() - t0
     meta = json.load(open(pdir / f"{PILOT_MODEL}__k_kan_ver.json"))
     cf_new = json.load(open(pdir / f"cf_{PILOT_MODEL}.json"))
@@ -146,7 +153,7 @@ def do_score(m: str) -> None:
         print(f"{m}: scores exist", flush=True)
         return
     guard()
-    score(m, k_items(), SCORES)
+    score(m, for_scoring(k_items()), SCORES)
 
 
 def do_forward(m: str) -> None:
@@ -188,7 +195,10 @@ def do_analyse() -> int:
         en = pd.concat([pd.read_parquet(src / f"{m}__english.parquet") for m in ACC_MODELS], ignore_index=True)
         ks = pd.concat([pd.read_parquet(SCORES / f"{m}__{f}.parquet") for m in ACC_MODELS for f in FORMS],
                        ignore_index=True)
-        D, _ = e0b.apply_calibration(pd.concat([en, ks[ks.task == task]], ignore_index=True), cf)
+        kt = ks[ks.task == task].copy()
+        if task == "sib":
+            kt["id"] = kt["id"].astype(int)
+        D, _ = e0b.apply_calibration(pd.concat([en, kt], ignore_index=True), cf)
         D = D[D.task == task]
         ids = {it["id"] for it in items[task]}
         for m in ACC_MODELS:

@@ -3087,7 +3087,7 @@ No K2 statistic, coefficient or accuracy has been computed.
   for Aarnav's OK on the pilot.
 
 ---
-## 2026-10-26 15:05 IST — Wording for EP-R and V-VER (Aarnav); §6 updated
+## 2026-10-26 14:45 IST — Wording for EP-R and V-VER (Aarnav); §6 updated
 - **EP-R main estimates** (`results/ep_robust/main_estimates.csv`, `scripts/ep_robust.py main`; ratio of sums at the
   registered L*, 95% bootstrap CI over items): **E-P2 = all 1,004 items**: Qwen3 0.422 [0.374, 0.471], Qwen3.5 0.588
   [0.554, 0.624], Sarvam-1 0.440 [0.401, 0.482], Gemma 4 0.602 [0.565, 0.639] (selected items as run: 0.375, 0.557,
@@ -3101,3 +3101,8 @@ No K2 statistic, coefficient or accuracy has been computed.
   significant (McNemar p = 0.125).
 - §6 (`paper/sections/assembly.tex`) carries these numbers with claims A22 and A23 in `check_numbers.py`; section check
   23 claims, 0 mismatches, no untraced numbers.
+
+## 2026-10-26 14:50 IST — K1/K2 pilot: first attempt failed on an id-type error (no computation; fixed, relaunched)
+The pilot crashed while writing the scores file (`ArrowTypeError`: sentiment ids are strings, SIB ids are ints; same
+cause as the NC1 crash of 2026-10-22). Fix: SIB ids are written as strings and converted back in the analysis
+(`k_k12.for_scoring`). No score, accuracy or statistic had been computed; no design change.
