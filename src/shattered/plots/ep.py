@@ -22,13 +22,15 @@ ROWS = [("sib", "primary", "SIB, primary items"), ("sib", "control", "SIB, contr
         ("sentiment", "primary", "Sentiment, primary (descriptive)")]
 
 
-def curves_figure(exp: int, base=None, name: str | None = None) -> list:
+def curves_figure(exp: int, base=None, name: str | None = None, rows=None, figsize=None, compact: bool = False) -> list:
+    """rows: subset of ROWS (default all three); compact: one short row, for the paper body."""
     style.apply()
+    rows = rows or ROWS
     base = base or REPO / "results" / f"ep{exp}"
     C = pd.read_csv(base / "curves.csv")
     P = json.load(open(base / "predictions.json"))["per_model"]
-    fig, axes = plt.subplots(len(ROWS), len(MODEL_ORDER), figsize=(12, 8.2), sharey="row", squeeze=False)
-    for r, (task, kind, title) in enumerate(ROWS):
+    fig, axes = plt.subplots(len(rows), len(MODEL_ORDER), figsize=figsize or (12, 8.2), sharey="row", squeeze=False)
+    for r, (task, kind, title) in enumerate(rows):
         for c, m in enumerate(MODEL_ORDER):
             ax = axes[r][c]
             for k, (s, lab) in enumerate(SCHEMES[exp]):
@@ -51,10 +53,11 @@ def curves_figure(exp: int, base=None, name: str | None = None) -> list:
             if c == 0:
                 ax.set_ylabel(f"{title}\nrecovery R")
     h, lab = next((ax.get_legend_handles_labels() for ax in axes.flat if ax.get_legend_handles_labels()[0]), ([], []))
-    fig.legend(h, lab, loc="upper center", bbox_to_anchor=(0.5, 0.955), fontsize=8, ncol=len(h))
+    fig.legend(h, lab, loc="upper center", bbox_to_anchor=(0.5, 0.97 if compact else 0.955), fontsize=8, ncol=len(h))
     fig.supxlabel("patch point (0 = embedding output; last = final residual stream before the final norm)", fontsize=9)
-    fig.suptitle(("E-P1: NC1 (a) canonical into (c) non-canonical" if exp == 1 else
-                  "E-P2: native into lossy") + "; ratio-of-means recovery, bootstrap 95% CI; dotted vertical: L*",
-                 fontsize=10, y=0.995)
-    fig.tight_layout(rect=(0, 0, 1, 0.935))
+    if not compact:
+        fig.suptitle(("E-P1: NC1 (a) canonical into (c) non-canonical" if exp == 1 else
+                      "E-P2: native into lossy") + "; ratio-of-means recovery, bootstrap 95% CI; dotted vertical: L*",
+                     fontsize=10, y=0.995)
+    fig.tight_layout(rect=(0, 0, 1, 0.84 if compact else 0.935))
     return style.save(fig, name or f"ep{exp}_recovery_curves")
