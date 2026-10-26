@@ -3155,3 +3155,22 @@ guard before every load; the H1-LF priority rule applies only once the H1-LF dra
 - **Human subjects:** if no IRB exists, the paper states that no IRB review was obtained, that annotators were volunteers who gave
   informed consent, and that no personal data were collected; the pool details are to be provided by the lead author (the
   Broader Impact Statement carries this text and is to be confirmed against them before submission).
+
+---
+## 2026-10-27 02:55 IST — K1 and K2 results (registered 2026-10-16; data label "human verified Gemini romanization", annotated subset only)
+Run `scripts/k_k12.py` via `scripts/k12_full_chain.sh` (2026-10-27 00:05 to 02:16 IST, one model load at a time); outputs
+`results/k12/{k1.csv, k2a.csv, k2b.csv, cells.csv, verdict.json}`. All ten model × task cells are informative (stored English
+accuracy 0.78 to 0.985; chance + 5 points). Qwen2.5 is counted, as registered (its native and romanized forms sit near floor).
+- **K1 (Kanglish verified vs natural verified; exact McNemar, Holm over 10 cells): inconclusive.** Kanglish is above natural in 9 of
+  10 cells and below in one (Sarvam-1 sentiment, −0.045 [−0.085, −0.005], Holm p 0.147); significantly above after Holm in 5:
+  Qwen2.5 sentiment (+0.130) and SIB (+0.137), Qwen3 SIB (+0.177), Qwen3.5 SIB (+0.150), Gemma 4 SIB (+0.093). Rule: supported needs
+  Kanglish above natural in every informative cell; refuted needs it at or below in at least half or natural significantly above in any
+  cell; neither holds. The secondary comparison (the Gemini drafts) gives the same signs.
+- **K2a (English-word share, accuracy; logistic, one-sided, Holm over 10 counted cells): supported.** Coefficient positive in 10 of 10
+  cells, Holm-significant in 7 (not Sarvam-1 in either task, not Gemma 4 sentiment).
+- **K2b (English-word share, rank of the true English sentence among 1,005; OLS, one-sided, Holm over 4 models): supported.** Positive
+  and Holm-significant in all four. The registered caveat applies: English words in the input overlap lexically with the English
+  target, so a positive K2b is weak evidence about meaning.
+- **Tagger:** v2 (with the "ee" correction) is primary, v1 (registered) alongside; K2a and K2b verdicts do not differ between them.
+  v1 recall was below 0.9 on the hand-marked sample (`results/codemix_check/`).
+- Per the 2026-10-26 wording rule these results concern the annotated subset only (200 sentiment and 300 FLORES items).
