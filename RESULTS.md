@@ -3125,3 +3125,19 @@ Chain `scripts/k12_full_chain.sh` (detached): five E0b models scored on both tas
 then `k_k12.py analyse` (K1; K2a and K2b with v2 English share primary and v1 sensitivity). One model load at a time, GPU
 guard before every load; the H1-LF priority rule applies only once the H1-LF drafts are complete and never interrupts a model
 (Aarnav, 2026-10-26). No rule or threshold changed.
+
+---
+## 2026-10-27 01:50 IST — Target change: TMLR (Aarnav)
+- **Venue.** The primary venue is now **TMLR** (OpenReview), submitted as soon as the gating results are in (target 2026-11-07
+  to 2026-11-10). ACL/ARR (January 2027) is dropped for now; the ACL-format draft stays in git history.
+- **Format.** `paper/` moves to the official TMLR LaTeX template in anonymous submission mode; main text up to 12 pages (hard
+  cap, to keep the default review period), appendix unlimited. Figures cut for the ACL page limit are restored where they
+  help (alignment curves, the full patching figure).
+- **Gating results, in this order:** K1/K2 (running), H1-LF option 1 (waits for the SIB-1,004 Hindi drafts: 558 of 1,004
+  done, Kannada complete), K3b-hi. **Experiments freeze once these three are in; nothing else new is started.**
+- **Annotation scope in the paper.** K3 (blind human against Gemini, which needs Annotator B) and the A vs B agreement are
+  **dropped from the paper**. Kept: the verification result (V-VER) and K3b. Annotator B's blind sample may be mentioned in
+  one line as future work. The registered K3 and agreement analyses stay registered and unrun; they are not reported.
+- **Pending placeholders** in the paper are used only for the three gating results.
+- **Supplementary:** an anonymized code and data package (names, paths, institution and git history removed) with a README that
+  reproduces every table from the included result files.
