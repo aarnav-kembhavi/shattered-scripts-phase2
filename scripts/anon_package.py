@@ -29,7 +29,8 @@ PKG = BUILD / "anon_package"
 ZIP = BUILD / "anon_code_and_data.zip"
 TRACE = BUILD / "anon_trace.json"
 PY = ROOT / ".venv" / "Scripts" / "python.exe"
-SECTIONS = ["setup", "controlled", "accuracy", "assembly", "familiarity", "appendix", "related"]
+SECTIONS = ["intro", "related", "setup", "controlled", "accuracy", "assembly", "familiarity", "limitations", "conclusion",
+            "broader_impact", "abstract", "appendix"]
 
 CODE_DIRS = ["src", "scripts", "configs", "tests", "paper/scripts", "paper/sections", "paper/tables", "paper/figures"]
 CODE_FILES = ["pyproject.toml", "requirements.in", "requirements.txt", "DATA_CARD.md", "RESULTS.md",
@@ -40,7 +41,11 @@ CODE_FILES = ["pyproject.toml", "requirements.in", "requirements.txt", "DATA_CAR
               "data/annotation/verified_A_v1.jsonl", "data/annotation/drafts_v1.jsonl", "data/annotation/drafts_regen_v1.jsonl",
               "data/annotation/drafts_replace_v1.jsonl", "data/annotation/replacement_draws_v1.jsonl",
               "data/annotation/blind_v1.json", "data/annotation/source_noise_v1.json",
-              "data/annotation/natural_spotcheck20_v1.json", "data/annotation/natural_romanization_e0_check_v1.csv"]
+              "data/annotation/natural_spotcheck20_v1.json", "data/annotation/natural_romanization_e0_check_v1.csv",
+              "annotation/results/annotator_A.csv"]  # raw verification: Gemini draft, fine or wrong, fix (no annotator names)
+# Gemini outputs and the verified texts (included for reviewers at the lead author's request, 2026-10-27; public release upon acceptance)
+EXTRA_GLOBS = ["data/processed/natural_*.jsonl", "results/k3b/drafts.jsonl", "results/k3b/sample.json",
+               "results/k3b_hi/drafts.jsonl", "results/k3b_hi/sample.json", "results/k_verified/build.json"]
 SKIP_DIRS = {"__pycache__", ".pytest_cache", ".venv", ".git", "build", "cache", "logs", "tmlr_template_ref"}
 SKIP_NAMES = {"anon_package.py", "hidden.vbs", "detach.ps1", "detach_test.sh", "chain_watch.sh", "xlshot.ps1", "k_xlsx_selftest.py",
               "k_package.py", "k_xlsx.py"}  # local chain and packaging helpers for the annotation hand-out, not needed to reproduce
@@ -125,6 +130,10 @@ def collect(traced: list) -> list:
     for f in CODE_FILES:
         if (ROOT / f).is_file():
             files.add(ROOT / f)
+    for g in EXTRA_GLOBS:
+        for p in ROOT.glob(g):
+            if p.is_file() and want(p):
+                files.add(p)
     for t in traced:
         p = Path(t)
         rel = p.relative_to(ROOT).as_posix()
@@ -206,7 +215,7 @@ The result files the paper reads are included under `results/`. Python 3.12; the
 pip install -r requirements.txt            # or: uv pip install -r requirements.txt
 python paper/scripts/make_tables.py        # paper/tables/*.tex from results/ (0 MISSING cells expected)
 python paper/scripts/make_figures.py       # paper/figures/*.pdf
-for s in setup controlled accuracy assembly familiarity appendix related; do
+for s in intro related setup controlled accuracy assembly familiarity limitations conclusion broader_impact abstract appendix; do
   python paper/scripts/check_numbers.py --section sections/$s.tex   # every number in the section text vs the result files
 done
 ```
@@ -244,7 +253,12 @@ Scripts by paper section (usage lines are read from each script's docstring):
 
 {index}
 
-## 4. Annotation data
+## 4. Gemini drafts, verification and annotation data
+
+Included for reviewers (public release upon acceptance): all Gemini romanizations used in the experiments
+(`data/processed/natural_*.jsonl`, with `_verified_` variants where native-speaker verified text replaces a draft), the Gemini
+Kanglish and natural drafts shown to annotators (`data/annotation/drafts_*.jsonl`), the Dakshina comparison drafts
+(`results/k3b/drafts.jsonl`), and the raw verification (`annotation/results/annotator_A.csv`).
 
 `data/annotation/` has the items, the Gemini drafts shown to annotators, the verification by a pool of native Kannada speakers
 (`verified_A_v1.jsonl`: fine or wrong with a fix per draft; natural romanization uses the draft for one item whose fix dropped

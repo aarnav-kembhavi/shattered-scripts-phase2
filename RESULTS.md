@@ -3141,3 +3141,17 @@ guard before every load; the H1-LF priority rule applies only once the H1-LF dra
 - **Pending placeholders** in the paper are used only for the three gating results.
 - **Supplementary:** an anonymized code and data package (names, paths, institution and git history removed) with a README that
   reproduces every table from the included result files.
+
+---
+## 2026-10-27 03:00 IST — Writing decisions for the TMLR draft (Aarnav)
+- **Related work** states the RomanLens point head-on: if concepts are encoded similarly across scripts, the native versus romanized
+  gap in reading points to the familiarity of the input form (exposure in training) rather than to a script-specific latent space;
+  the scope note (we do not test the output-script setting) is kept.
+- **Length:** the TMLR action-editor guidelines give a longer review period for submissions over 12 pages excluding the appendix;
+  the paper stays at or under 12 pages of main text.
+- **Supplementary package** includes the Gemini drafts and the verification data (anonymized) for reviewers; the public release
+  remains upon acceptance.
+- **Appendix statement:** "An AI coding assistant was used for code and drafting; the authors verified all content and results."
+- **Human subjects:** if no IRB exists, the paper states that no IRB review was obtained, that annotators were volunteers who gave
+  informed consent, and that no personal data were collected; the pool details are to be provided by the lead author (the
+  Broader Impact Statement carries this text and is to be confirmed against them before submission).
