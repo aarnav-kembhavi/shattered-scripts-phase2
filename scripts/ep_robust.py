@@ -8,6 +8,7 @@ results/ep{1,2}/raw/ (the pilot shows they reproduce); only the other SIB items 
 Usage: python scripts/ep_robust.py pilot             (GPU, Qwen3.5-2B, 20 items per experiment; no R computed)
        python scripts/ep_robust.py run <1|2> <model> (GPU: one model, one process per model load; resumable)
        python scripts/ep_robust.py analyse           (CPU)
+       python scripts/ep_robust.py main              (CPU: main estimates for the paper -> main_estimates.csv)
 Outputs: results/ep_robust/{pilot.json, raw/ep<1|2>_<model>.json, table.csv, gaps.csv, summary.json}
 """
 import json
@@ -266,7 +267,42 @@ def do_analyse() -> int:
     return 0
 
 
+def do_main() -> int:
+    """Main estimates for the paper (Aarnav, 2026-10-26): E-P2 = all items; E-P1 = items with gap >= GAP_MIN only (the
+    all-items E-P1 ratio of sums is never reported), with the share of items meeting that condition; R at the registered
+    L* per model, ratio of sums with a 95% bootstrap CI over items, per-item median (gap >= GAP_MIN)."""
+    rows = []
+    for exp in (1, 2):
+        s = SCHEME[exp]
+        P = json.load(open(E.OUT[exp] / "predictions.json"))["per_model"]
+        for m in E.MODELS:
+            S = stored(exp, m)
+            new = json.load(open(RAW / f"ep{exp}_{m}.json"))
+            D = pd.DataFrame([{"id": i, "m_src": r["m_src"], "m_dst": r["m_dst"], "curve": r[s]} for i, r in S.items()]
+                             + [{"id": r["id"], "m_src": r["m_src"], "m_dst": r["m_dst"], "curve": r[s]}
+                                for r in new["rows"]]).set_index("id")
+            sel = set(E.item_lists(exp)[(m, "sib")]["primary"])
+            L = P[m]["L_star"]
+            gap = (D.m_src - D.m_dst).to_numpy(float)
+            X = np.stack(D.curve.to_numpy()).astype(float)[:, L] - D.m_dst.to_numpy(float)
+            big = gap >= GAP_MIN
+            in_sel = D.index.isin(sel)
+            for name, k in (("all items", np.ones(len(D), bool)), ("gap >= 0.5", big), ("selected (as run)", in_sel)):
+                r = ratio_sums(X[k], gap[k], boot_w(int(k.sum())))
+                med = median_item(X[k], gap[k])
+                rows.append({"experiment": f"E-P{exp}", "model": m, "L_star": L, "set": name, "n": int(k.sum()),
+                             "share_of_1004": float(k.sum() / len(D)), "R": r["R"], "lo": r["lo"], "hi": r["hi"],
+                             "median_item_R": med["median"], "median_n": med["n"],
+                             "n_gap_ge_0.5": int(big.sum()), "share_gap_ge_0.5": float(big.mean()),
+                             "n_gap_lt_0.5": int((~big).sum()), "n_gap_negative": int((gap < 0).sum())})
+    T = pd.DataFrame(rows)
+    T.to_csv(OUT / "main_estimates.csv", index=False)
+    pd.set_option("display.width", 250)
+    print(T.round(3).to_string(index=False))
+    return 0
+
+
 if __name__ == "__main__":
     step = sys.argv[1]
     sys.exit({"pilot": do_pilot, "run": lambda: do_run(int(sys.argv[2]), sys.argv[3]),
-              "analyse": do_analyse}[step]() or 0)
+              "analyse": do_analyse, "main": do_main}[step]() or 0)

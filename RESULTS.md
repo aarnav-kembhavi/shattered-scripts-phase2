@@ -3085,3 +3085,19 @@ No K2 statistic, coefficient or accuracy has been computed.
   near chance).
 - **K1/K2 pilot queued** on the free GPU (Qwen3.5-2B, 20 items, no accuracy or test), detached; the full run waits
   for Aarnav's OK on the pilot.
+
+---
+## 2026-10-26 15:05 IST — Wording for EP-R and V-VER (Aarnav); §6 updated
+- **EP-R main estimates** (`results/ep_robust/main_estimates.csv`, `scripts/ep_robust.py main`; ratio of sums at the
+  registered L*, 95% bootstrap CI over items): **E-P2 = all 1,004 items**: Qwen3 0.422 [0.374, 0.471], Qwen3.5 0.588
+  [0.554, 0.624], Sarvam-1 0.440 [0.401, 0.482], Gemma 4 0.602 [0.565, 0.639] (selected items as run: 0.375, 0.557,
+  0.510, 0.552). **E-P1 = items with gap (M_a − M_c) ≥ 0.5 only**: Qwen3 0.404 [0.339, 0.471], Qwen3.5 0.350 [0.306,
+  0.396], Sarvam-1 0.445 [0.422, 0.469], Gemma 4 0.402 [0.363, 0.441]; share of the 1,004 items meeting that
+  condition 45.7%, 36.7%, 66.0%, 52.4% (gap < 0.5: 545, 636, 341, 478 items; negative: 511, 396, 198, 435). **The
+  all-items E-P1 ratio of sums is never reported** (it is unstable where the summed gap is near 0).
+- **Sentence for the paper:** the unusual-segmentation deficit is concentrated in a subset of items (37 to 66% of items
+  have a gap of at least 0.5 logits).
+- **V-VER:** record as "verification changed no result". The Qwen3 sentiment +0.020 [+0.005, +0.040] is not
+  significant (McNemar p = 0.125).
+- §6 (`paper/sections/assembly.tex`) carries these numbers with claims A22 and A23 in `check_numbers.py`; section check
+  23 claims, 0 mismatches, no untraced numbers.
