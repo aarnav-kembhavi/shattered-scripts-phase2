@@ -3069,3 +3069,19 @@ verified, 3 changed in the retrieval test half and 3 in SIB-257); every other it
 - Descriptively: replacing the Gemini drafts with the human-verified texts on the annotated subset moves no result
   beyond 2 points; the only CI excluding 0 is Qwen3 sentiment (+2.0 points, 4 discordant items, McNemar not
   significant).
+
+---
+## 2026-10-26 14:45 IST — K2 English share: option A (Aarnav); lexicon correction "ee"; Qwen2.5 note (before any K2 data)
+No K2 statistic, coefficient or accuracy has been computed.
+- **Tagger:** K2a and K2b use codemix **v2** (defined 2026-10-26 12:05) for the English share; the registered v1
+  tagger is run alongside as a sensitivity check. If the K2a or K2b verdict differs between v1 and v2, both are
+  reported and the difference is flagged (`verdict.json` fields `K2a_differs_v1_v2`, `K2b_differs_v1_v2`).
+- **One pre-data fix to v2: lexicon correction.** "ee" is tagged Kannada (the lossy romanization writes ಈ as "i", so
+  the Kannada lexicon lacks "ee", "this"); `KN_FORCE = {"ee"}` in `codemix.tag_v2`. No other change to v2. Check
+  after the correction (informative; the sample-0 gold marking is unchanged): sample 0 precision 0.953, recall 0.891;
+  fresh sample 1 precision 0.937, recall 0.941.
+- **Qwen2.5 in K1 and K2a:** counted as registered; its cells are reported with a note that native and romanized forms
+  sit near floor for this model (native-script M4 retrieval 0.178; SIB-200 native 0.336; sentiment ITRANS and natural
+  near chance).
+- **K1/K2 pilot queued** on the free GPU (Qwen3.5-2B, 20 items, no accuracy or test), detached; the full run waits
+  for Aarnav's OK on the pilot.

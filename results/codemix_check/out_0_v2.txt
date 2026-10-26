@@ -1,22 +1,21 @@
-warning: in the working copy of 'RESULTS.md', LF will be replaced by CRLF the next time Git touches it
 {
  "seed": 0,
  "tagger": "v2",
  "texts": 50,
  "alphabetic_tokens": 883,
- "tokens_tagged_en": 238,
+ "tokens_tagged_en": 232,
  "main (H not English)": {
   "tp": 221,
-  "fp": 17,
+  "fp": 11,
   "fn": 27,
-  "precision": 0.9285714285714286,
+  "precision": 0.9525862068965517,
   "recall": 0.8911290322580645
  },
  "sensitivity (H English)": {
   "tp": 221,
-  "fp": 17,
+  "fp": 11,
   "fn": 36,
-  "precision": 0.9285714285714286,
+  "precision": 0.9525862068965517,
   "recall": 0.8599221789883269
  },
  "errors": {
@@ -36,10 +35,6 @@ warning: in the working copy of 'RESULTS.md', LF will be replaced by CRLF the ne
    [
     "bis",
     "N"
-   ],
-   [
-    "ee",
-    "K"
    ],
    [
     "kami",

@@ -3,8 +3,8 @@
     "config": {
       "gold": "gold_sample1.json"
     },
-    "git_commit": "07ba540f5d484beeb92d283e5be387b748d48300-dirty",
-    "timestamp_utc": "2026-10-26T06:36:34+00:00",
+    "git_commit": "46bd82a80ef6bf72fdc3187817de2e5a8dd24a87-dirty",
+    "timestamp_utc": "2026-10-26T09:11:11+00:00",
     "python": "3.12.13",
     "platform": "Windows-11-10.0.26300-SP0",
     "argv": [
@@ -17,19 +17,19 @@
   "tagger": "v2",
   "texts": 50,
   "alphabetic_tokens": 1004,
-  "tokens_tagged_en": 275,
+  "tokens_tagged_en": 271,
   "main (H not English)": {
     "tp": 254,
-    "fp": 21,
+    "fp": 17,
     "fn": 16,
-    "precision": 0.9236363636363636,
+    "precision": 0.9372693726937269,
     "recall": 0.9407407407407408
   },
   "sensitivity (H English)": {
     "tp": 254,
-    "fp": 21,
+    "fp": 17,
     "fn": 32,
-    "precision": 0.9236363636363636,
+    "precision": 0.9372693726937269,
     "recall": 0.8881118881118881
   },
   "errors": {
@@ -53,10 +53,6 @@
       [
         "asia",
         "N"
-      ],
-      [
-        "ee",
-        "K"
       ],
       [
         "europe",

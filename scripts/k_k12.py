@@ -48,11 +48,11 @@ def k_items() -> dict:
                  "k_nat_draft": {"text": v["natural_draft"]}, "k_kan_draft": {"text": v["kanglish_draft"]},
                  "native": {"text": it["native"]}}
         if it["source"] == "sentiment":
-            out["sentiment"].append({"id": it["id"], "label": int(it["label"]), "forms": forms})
+            out["sentiment"].append({"id": it["id"], "label": int(it["label"]), "forms": forms, "english": it["english"]})
         else:
             fid = int(it["id"].split("-")[1])
             out["sib"].append({"id": fid, "label": sib_label[fid], "forms": forms,
-                               "item_id": it["id"]})
+                               "item_id": it["id"], "english": it["english"]})
     assert (len(out["sentiment"]), len(out["sib"])) == (200, 300)
     return out
 
@@ -89,7 +89,7 @@ def vectors(model, tok, texts, ids) -> np.ndarray:
 def do_pilot() -> int:
     import torch
     from shattered.interp.load import load
-    from shattered.translit.codemix import code_mixing
+    from shattered.translit.codemix import code_mixing_v2
     items = k_items()
     rng = np.random.default_rng(SEED)
     pick = {t: [items[t][k] for k in sorted(rng.choice(len(items[t]), 10, replace=False))] for t in items}
@@ -111,7 +111,8 @@ def do_pilot() -> int:
     t_fwd = time.time() - t1
     del model
     torch.cuda.empty_cache()
-    share = [code_mixing(it["forms"]["k_kan_ver"]["text"])["english_share"] for t in pick for it in pick[t]]
+    share = [code_mixing_v2(it["forms"]["k_kan_ver"]["text"], it["english"])["english_share"]
+             for t in pick for it in pick[t]]
     m4b = pd.read_csv(REPO / "results/m4b_mapping/summary.csv")
     layers = {m: int(m4b[(m4b.model == m) & (m4b.form == "native")].best_layer_unmapped.item()) for m in M4_MODELS}
     te = np.load(REPO / "results/m4b_mapping/items.npz")["test_idx"]
@@ -173,10 +174,13 @@ def do_analyse() -> int:
     from transformers import AutoTokenizer
     import e0b_familiarity as e0b
     from shattered.interp.load import MODELS as HF
-    from shattered.translit.codemix import code_mixing
+    from shattered.translit.codemix import code_mixing, code_mixing_v2
     items = k_items()
     text = {(t, it["id"]): it["forms"]["k_kan_ver"]["text"] for t in items for it in items[t]}
-    share = {k: code_mixing(v)["english_share"] for k, v in text.items()}
+    eng = {(t, it["id"]): it["english"] for t in items for it in items[t]}
+    # English share: v2 (primary; Aarnav 2026-10-26, option A) and v1 (the registered tagger; sensitivity)
+    SHARE = {"v2": {k: code_mixing_v2(v, eng[k])["english_share"] for k, v in text.items()},
+             "v1": {k: code_mixing(v)["english_share"] for k, v in text.items()}}
     # calibration: stored content-free files; raw fallback from the full stored English rows (E0b / E0c)
     C, cells = [], []
     for task, src in (("sentiment", lad.E0B_DIR), ("sib", lad.E0C_DIR)):
@@ -210,20 +214,21 @@ def do_analyse() -> int:
         tok = AutoTokenizer.from_pretrained(HF[r.model])
         ids = list(p.index)
         y = p.correct.astype(float).to_numpy()
-        sh = np.array([share[(r.task, i)] for i in ids])
         lt = np.log([len(tok(text[(r.task, i)], add_special_tokens=False)["input_ids"]) for i in ids])
         const = float(np.bincount(p.pred_cal.astype(int)).max() / len(p))
         z = lambda x: (x - x.mean()) / x.std()  # noqa: E731
-        X = sm.add_constant(np.column_stack([z(sh), z(lt)]))
-        try:
-            f = sm.Logit(y, X).fit(disp=0)
-            coef, pv = float(f.params[1]), float(f.pvalues[1])
-        except Exception as ex:  # noqa: BLE001 - perfect separation etc.: reported, not counted
-            coef, pv = float("nan"), float("nan")
-            print(f"K2a {r.model} {r.task}: fit failed ({ex})", flush=True)
-        k2a.append({"model": r.model, "task": r.task, "n": len(y), "coef_english_share": coef,
-                    "p_one_sided": (pv / 2 if coef > 0 else 1 - pv / 2) if pv == pv else float("nan"),
-                    "constant_label_rate": const, "counted": bool(r.informative and const <= 0.90)})
+        for tagger in ("v2", "v1"):
+            sh = np.array([SHARE[tagger][(r.task, i)] for i in ids])
+            X = sm.add_constant(np.column_stack([z(sh), z(lt)]))
+            try:
+                f = sm.Logit(y, X).fit(disp=0)
+                coef, pv = float(f.params[1]), float(f.pvalues[1])
+            except Exception as ex:  # noqa: BLE001 - perfect separation etc.: reported, not counted
+                coef, pv = float("nan"), float("nan")
+                print(f"K2a {r.model} {r.task} {tagger}: fit failed ({ex})", flush=True)
+            k2a.append({"tagger": tagger, "model": r.model, "task": r.task, "n": len(y), "coef_english_share": coef,
+                        "p_one_sided": (pv / 2 if coef > 0 else 1 - pv / 2) if pv == pv else float("nan"),
+                        "constant_label_rate": const, "counted": bool(r.informative and const <= 0.90)})
     K1, K2a = pd.DataFrame(k1), pd.DataFrame(k2a)
     prim = (K1.comparison == "primary") & K1.informative
     K1["p_holm"] = np.nan
@@ -234,10 +239,6 @@ def do_analyse() -> int:
     k1v = ("supported" if n_inf and (g["diff"] > 0).all() and sig >= n_inf / 2 else
            "refuted" if n_inf and ((g["diff"] <= 0).sum() >= n_inf / 2 or ((g.p_holm < 0.05) & (g["diff"] < 0)).any())
            else "inconclusive")
-    cnt = K2a.counted & K2a.p_one_sided.notna()
-    K2a["p_holm"] = np.nan
-    K2a.loc[cnt, "p_holm"] = multipletests(K2a.loc[cnt, "p_one_sided"], method="holm")[1]
-
     def rule(df, coef_col):
         n = len(df)
         if not n:
@@ -247,7 +248,12 @@ def do_analyse() -> int:
         if (df[coef_col] <= 0).sum() >= n / 2:
             return "refuted"
         return "inconclusive"
-    k2av = rule(K2a[cnt], "coef_english_share")
+    K2a["p_holm"] = np.nan
+    k2av, k2a_counted = {}, {}
+    for tagger in ("v2", "v1"):
+        cnt = (K2a.tagger == tagger) & K2a.counted & K2a.p_one_sided.notna()
+        K2a.loc[cnt, "p_holm"] = multipletests(K2a.loc[cnt, "p_one_sided"], method="holm")[1]
+        k2av[tagger], k2a_counted[tagger] = rule(K2a[cnt], "coef_english_share"), int(cnt.sum())
     # K2b
     m4b = pd.read_csv(REPO / "results/m4b_mapping/summary.csv")
     te = np.load(REPO / "results/m4b_mapping/items.npz")["test_idx"]
@@ -264,20 +270,27 @@ def do_analyse() -> int:
         sims = X @ E.T
         rank = np.array([1 + int((sims[k] > sims[k, pos[int(i)]]).sum()) for k, i in enumerate(z_["index"])])
         tok = AutoTokenizer.from_pretrained(HF[m])
-        sh = np.array([share[("sib", it["id"])] for it in sib])
         lt = np.log([len(tok(it["forms"]["k_kan_ver"]["text"], add_special_tokens=False)["input_ids"]) for it in sib])
         zz = lambda x: (x - x.mean()) / x.std()  # noqa: E731
-        f = sm.OLS(-np.log(rank), sm.add_constant(np.column_stack([zz(sh), zz(lt)]))).fit()
-        coef, pv = float(f.params[1]), float(f.pvalues[1])
-        k2b.append({"model": m, "layer": L, "n": len(rank), "median_rank": float(np.median(rank)),
-                    "coef_english_share": coef, "p_one_sided": pv / 2 if coef > 0 else 1 - pv / 2})
+        for tagger in ("v2", "v1"):
+            sh = np.array([SHARE[tagger][("sib", it["id"])] for it in sib])
+            f = sm.OLS(-np.log(rank), sm.add_constant(np.column_stack([zz(sh), zz(lt)]))).fit()
+            coef, pv = float(f.params[1]), float(f.pvalues[1])
+            k2b.append({"tagger": tagger, "model": m, "layer": L, "n": len(rank), "median_rank": float(np.median(rank)),
+                        "coef_english_share": coef, "p_one_sided": pv / 2 if coef > 0 else 1 - pv / 2})
     K2b = pd.DataFrame(k2b)
-    K2b["p_holm"] = multipletests(K2b.p_one_sided, method="holm")[1]
-    k2bv = rule(K2b, "coef_english_share")
+    K2b["p_holm"] = np.nan
+    k2bv = {}
+    for tagger in ("v2", "v1"):
+        k = K2b.tagger == tagger
+        K2b.loc[k, "p_holm"] = multipletests(K2b.loc[k, "p_one_sided"], method="holm")[1]
+        k2bv[tagger] = rule(K2b[k], "coef_english_share")
     for name, df in (("k1", K1), ("k2a", K2a), ("k2b", K2b), ("cells", cells)):
         df.to_csv(OUT / f"{name}.csv", index=False)
-    v = {"K1": k1v, "K1_n_informative": n_inf, "K1_n_significant_positive": sig, "K2a": k2av,
-         "K2a_n_counted": int(cnt.sum()), "K2b": k2bv}
+    v = {"K1": k1v, "K1_n_informative": n_inf, "K1_n_significant_positive": sig,
+         "K2a": k2av, "K2a_n_counted": k2a_counted, "K2b": k2bv,
+         "K2a_differs_v1_v2": k2av["v1"] != k2av["v2"], "K2b_differs_v1_v2": k2bv["v1"] != k2bv["v2"],
+         "primary_tagger": "v2 (codemix_v2 with KN_FORCE 'ee'); v1 = registered tagger, sensitivity"}
     write_json(OUT / "verdict.json", v, {"registered": REGISTERED, "data": "human verified Gemini romanization"})
     pd.set_option("display.width", 250)
     print(cells.to_string(index=False)); print(K1.round(4).to_string(index=False))

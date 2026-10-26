@@ -54,6 +54,7 @@ def code_mixing(text: str) -> dict:
 # ---------------------------------------------------------------- v2 (pre-data fix, RESULTS.md 2026-10-26; v1 above
 # failed the Kanglish validity check: recall 0.883 < 0.9). v1 is kept unchanged for the record.
 EN_ZIPF_OOV = 2.5  # a token in neither lexicon is English if its wordfreq English Zipf is at least this
+KN_FORCE = frozenset({"ee"})  # lexicon correction (2026-10-26): ಈ is romanized "i" by to_lossy, so "ee" ("this") is missing
 
 
 @lru_cache(1)
@@ -101,7 +102,9 @@ def tag_v2(text: str, english: str = "") -> list[tuple[str, str]]:
             out.append((t, "u"))
             continue
         w = t.lower()
-        if w in names:
+        if w in KN_FORCE:
+            g = "kn"
+        elif w in names:
             g = "u"
         elif w in en_r and w in kn_r:
             g = "en" if en_r[w] < kn_r[w] else "kn"
