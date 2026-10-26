@@ -3071,7 +3071,7 @@ verified, 3 changed in the retrieval test half and 3 in SIB-257); every other it
   significant).
 
 ---
-## 2026-10-26 14:45 IST — K2 English share: option A (Aarnav); lexicon correction "ee"; Qwen2.5 note (before any K2 data)
+## 2026-10-26 14:40 IST — K2 English share: option A (Aarnav); lexicon correction "ee"; Qwen2.5 note (before any K2 data)
 No K2 statistic, coefficient or accuracy has been computed.
 - **Tagger:** K2a and K2b use codemix **v2** (defined 2026-10-26 12:05) for the English share; the registered v1
   tagger is run alongside as a sensitivity check. If the K2a or K2b verdict differs between v1 and v2, both are
