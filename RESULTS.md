@@ -3174,3 +3174,10 @@ accuracy 0.78 to 0.985; chance + 5 points). Qwen2.5 is counted, as registered (i
 - **Tagger:** v2 (with the "ee" correction) is primary, v1 (registered) alongside; K2a and K2b verdicts do not differ between them.
   v1 recall was below 0.9 on the hand-marked sample (`results/codemix_check/`).
 - Per the 2026-10-26 wording rule these results concern the annotated subset only (200 sentiment and 300 FLORES items).
+
+## 2026-10-28 03:25 IST — Chain incident: network outage during the H1-LF drafts; K3b-hi chain relaunched
+The SIB-1,004 Hindi drafts hit `getaddrinfo failed` (no network) on 2026-10-27 after 15:18 IST and the H1-LF chain was marked
+FAILED; it restarted at 02:46 IST and completed the drafts at 03:14 IST (Kannada 1,004 and Hindi 1,004 done; 9 and 10 still
+defective after retries, excluded as registered), then started GPU scoring (qwen3-1.7b first). The K3b-hi chain, which stops
+when it sees the H1-LF chain FAILED, ended at 02:46 IST without starting; relaunched at 03:25 IST (API only, no GPU). No design
+change.
