@@ -3175,9 +3175,51 @@ accuracy 0.78 to 0.985; chance + 5 points). Qwen2.5 is counted, as registered (i
   v1 recall was below 0.9 on the hand-marked sample (`results/codemix_check/`).
 - Per the 2026-10-26 wording rule these results concern the annotated subset only (200 sentiment and 300 FLORES items).
 
-## 2026-10-28 03:25 IST — Chain incident: network outage during the H1-LF drafts; K3b-hi chain relaunched
+## 2026-10-28 03:17 IST — Chain incident: network outage during the H1-LF drafts; K3b-hi chain relaunched
 The SIB-1,004 Hindi drafts hit `getaddrinfo failed` (no network) on 2026-10-27 after 15:18 IST and the H1-LF chain was marked
 FAILED; it restarted at 02:46 IST and completed the drafts at 03:14 IST (Kannada 1,004 and Hindi 1,004 done; 9 and 10 still
 defective after retries, excluded as registered), then started GPU scoring (qwen3-1.7b first). The K3b-hi chain, which stops
-when it sees the H1-LF chain FAILED, ended at 02:46 IST without starting; relaunched at 03:25 IST (API only, no GPU). No design
+when it sees the H1-LF chain FAILED, ended at 02:46 IST without starting; relaunched at 03:17 IST (API only, no GPU). No design
 change.
+
+---
+## 2026-10-28 03:40 IST — K2b lexical-overlap control (exploratory; registered before running; CPU only, stored vectors)
+**Why:** the K2b registration (2026-10-16) states that English words in the Kanglish input overlap lexically with the English
+target, so K2b can rise for lexical reasons alone. No control was run in the 2026-10-27 analysis. This one is exploratory,
+added after the K2b result was seen; it carries no verdict and does not change the registered K2b outcome ("supported").
+- **Data and models:** exactly K2b: the 300 FLORES items, the stored `results/k12/vectors/*__k_kan_ver300.npz`, the four M4 models,
+  the layer M4b chose for native text, the rank of the true English sentence among the 1,005 candidates; no model is loaded
+  (tokenizers only; the GPU queue is untouched).
+- **Overlap measure:** `overlap_share` = (number of words that the v2 tagger marks English and whose lowercase form is also a
+  word of the parallel English sentence) / (English plus Kannada tagged words), the same denominator as the English share.
+  By construction overlap_share <= english_share. The correlation between them is reported.
+- **Models fitted (OLS, outcome minus log rank, as K2b; v2 tagger primary, v1 as sensitivity):** (a) z(share) + z(log tokens)
+  (reproduces K2b); (b) z(share) + z(log tokens) + z(overlap_share). Reported per model: the share coefficient in (a) and (b)
+  with 95% CIs (OLS) and the overlap coefficient in (b); plus the overlap-only model (z(overlap_share) + z(log tokens)).
+- **Reading, fixed now:** if the share coefficient in (b) keeps its sign and its CI excludes zero, the share effect is not only
+  lexical overlap; if it loses significance, the K2b result is reported as consistent with lexical overlap. Either way the
+  paper states both numbers. No threshold on the size of the drop.
+
+---
+## 2026-10-28 03:50 IST — K2b overlap control results (exploratory, no verdict; registered 03:40 IST; `scripts/k2b_overlap.py`, CPU)
+Without the overlap predictor the K2b coefficients are reproduced exactly (v2 tagger: Qwen2.5 0.967, Qwen3.5 1.200, Sarvam-1 0.831,
+Gemma 4 1.547). With z(overlap_share) added, the English-share coefficient is 0.671 [0.281, 1.061], 0.733 [0.321, 1.146],
+0.744 [0.243, 1.245], 1.298 [0.878, 1.718]: positive with every 95% CI above zero in all four models, smaller than without in
+each. The overlap coefficient in the same fit has a CI including zero in three of four models (only Qwen3.5: 0.558 [0.138, 0.978]).
+The two predictors correlate 0.875 (v2; 0.80 for v1), so the fit cannot separate them sharply. v1 gives the same pattern
+(`results/k12/k2b_overlap.csv`). The registered K2b outcome ("supported") is unchanged; the paper text, abstract and introduction
+carry the lexical-overlap caveat and this control.
+
+## 2026-10-28 03:50 IST — Network-outage robustness for the chains (Aarnav, 2026-10-28)
+**Incident:** a network outage (`getaddrinfo failed`) failed the H1-LF drafts step and the chain wrote FAILED; the K3b-hi chain saw that
+marker and stopped, although the scheduler restarted H1-LF itself on logon and it finished. **Rule now:** a network failure is
+retried with backoff; it never writes FAILED and never stops a downstream chain.
+- `src/shattered/llm/client.py`: network errors (ConnectError, timeouts, resets, `getaddrinfo failed`, anywhere in the exception chain)
+  are classified RetryableError, so the existing in-process backoff (6 retries, up to 120 s) covers short outages.
+- `scripts/chainlib.sh`: `run_net` re-runs a step whose new log lines carry a network signature or when the Gemini endpoint does not
+  answer, with exponential backoff (60 s doubling, cap 30 min, at most 48 retries, status WAITING "network outage ... retry n in s");
+  quota (exit 3) and other failures pass through unchanged. `upstream_dead`: an upstream FAILED or DEAD stops a downstream chain only after
+  30 minutes without recovery (also used by `wait_h1lf`). Tested on fake steps (network x2 then success; bug; quota; retry cap; grace timer).
+- `scripts/k3bhi_chain.sh` now uses both; relaunched 03:45 IST (API only, resumes from the cache; 154 of 900 drafts were already
+  done). `scripts/h1lf_chain.sh` is mid-GPU-scoring and is not edited while it runs; its remaining steps need no network. It is patched
+  after it finishes. Chains that already finished keep their old scripts.

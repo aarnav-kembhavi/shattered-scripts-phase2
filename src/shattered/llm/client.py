@@ -33,6 +33,23 @@ def _messages(prompt, system: str | None) -> list[dict]:
     return ([{"role": "system", "content": system}] if system else []) + msgs
 
 
+_NET_NAMES = {"ConnectError", "ConnectTimeout", "ReadTimeout", "ReadError", "WriteError", "PoolTimeout", "RemoteProtocolError",
+              "ConnectionError", "ConnectionResetError", "ConnectionAbortedError", "TimeoutError", "ServerDisconnectedError"}
+_NET_TEXT = ("getaddrinfo failed", "name resolution", "Network is unreachable", "Connection reset", "Connection aborted",
+             "timed out")
+
+
+def _is_network_error(e: BaseException) -> bool:
+    """A network outage (DNS, connect, timeout, reset) anywhere in the exception chain: retried, never a result."""
+    seen = set()
+    while e is not None and id(e) not in seen:
+        seen.add(id(e))
+        if type(e).__name__ in _NET_NAMES or any(t in str(e) for t in _NET_TEXT):
+            return True
+        e = e.__cause__ or e.__context__
+    return False
+
+
 def _classify_error(e: Exception):
     """Turn provider exceptions into RetryableError / DailyQuotaExceeded, or re-raise."""
     status = getattr(e, "status_code", None) or getattr(e, "code", None) or getattr(e, "status", None)
@@ -45,6 +62,8 @@ def _classify_error(e: Exception):
         m = re.search(r"retry.{0,20}?(\d+(?:\.\d+)?)\s*s", msg, re.I)
         raise RetryableError(msg, float(m.group(1)) if m else None) from e
     if isinstance(status, int) and status >= 500:
+        raise RetryableError(msg) from e
+    if _is_network_error(e):
         raise RetryableError(msg) from e
     raise e
 
