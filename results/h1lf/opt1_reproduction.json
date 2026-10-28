@@ -1,0 +1,56 @@
+{
+  "provenance": {
+    "config": {
+      "rule": "pred_cal agreement >= 0.98 on identical-text overlap"
+    },
+    "git_commit": "126a4882ac1a54c8952472a61cd85e970461447c-dirty",
+    "timestamp_utc": "2026-10-28T00:07:42+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/h1lf.py",
+      "score",
+      "check"
+    ]
+  },
+  "kannada/qwen3-1.7b": {
+    "n_identical_text": 257,
+    "n_overlap": 257,
+    "agreement": 1.0
+  },
+  "kannada/qwen3.5-2b": {
+    "n_identical_text": 257,
+    "n_overlap": 257,
+    "agreement": 1.0
+  },
+  "kannada/sarvam-1": {
+    "n_identical_text": 257,
+    "n_overlap": 257,
+    "agreement": 1.0
+  },
+  "kannada/gemma4-e2b": {
+    "n_identical_text": 257,
+    "n_overlap": 257,
+    "agreement": 1.0
+  },
+  "hindi/qwen3-1.7b": {
+    "n_identical_text": 256,
+    "n_overlap": 493,
+    "agreement": 1.0
+  },
+  "hindi/qwen3.5-2b": {
+    "n_identical_text": 256,
+    "n_overlap": 493,
+    "agreement": 1.0
+  },
+  "hindi/sarvam-1": {
+    "n_identical_text": 256,
+    "n_overlap": 493,
+    "agreement": 1.0
+  },
+  "hindi/gemma4-e2b": {
+    "n_identical_text": 256,
+    "n_overlap": 493,
+    "agreement": 1.0
+  }
+}

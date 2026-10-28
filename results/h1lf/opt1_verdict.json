@@ -1,0 +1,24 @@
+{
+  "provenance": {
+    "config": {
+      "registered": "RESULTS.md 2026-10-23 15:44 IST (H1-LF option 1, follow-up registered post H1)"
+    },
+    "git_commit": "126a4882ac1a54c8952472a61cd85e970461447c-dirty",
+    "timestamp_utc": "2026-10-28T00:08:04+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/h1lf.py",
+      "analyse1"
+    ]
+  },
+  "loan_definition": "v2",
+  "n_items_loan_free": 296,
+  "n_items_loan_free_v1": 110,
+  "n_items_loan_free_v2": 296,
+  "n_items_clean_both": 985,
+  "n_positive": 3,
+  "needed": 3,
+  "verdict": "loan-free effect",
+  "all_clean_descriptive_n_positive": 3
+}

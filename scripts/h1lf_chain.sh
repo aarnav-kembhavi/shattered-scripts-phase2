@@ -12,11 +12,11 @@ STATUS=results/CHAIN_STATUS_H1LF.md; TITLE="H1-LF option 1 chain status"; LOG=re
 while :; do
   s=$(state_of results/CHAIN_STATUS_HDRAFTS.md)
   [ "$s" = DONE ] && break
-  case "$s" in FAILED|DEAD) fail "Hindi drafts + K3b chain is $s; H1-LF drafts not started" ;; esac
+  upstream_dead "$s" && fail "Hindi drafts + K3b chain has been $s for over $((GRACE / 60)) min; H1-LF drafts not started"
   st WAITING "queued behind the Hindi drafts + K3b chain (state: ${s:-none})"; sleep "$HB"
 done
 for i in $(seq 0 8); do
-  run_hb "SIB-1004 natural drafts (after $i quota resets)" $PY -u scripts/h1lf.py draft; code=$?
+  run_net "SIB-1004 natural drafts (after $i quota resets)" $PY -u scripts/h1lf.py draft; code=$?
   [ $code = 0 ] && break
   [ $code = 3 ] || fail "SIB-1004 drafts exited $code"
   [ "$i" = 8 ] && fail "SIB-1004 drafts incomplete after 8 quota resets"

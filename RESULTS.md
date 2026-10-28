@@ -3223,3 +3223,20 @@ retried with backoff; it never writes FAILED and never stops a downstream chain.
 - `scripts/k3bhi_chain.sh` now uses both; relaunched 03:45 IST (API only, resumes from the cache; 154 of 900 drafts were already
   done). `scripts/h1lf_chain.sh` is mid-GPU-scoring and is not edited while it runs; its remaining steps need no network. It is patched
   after it finishes. Chains that already finished keep their old scripts.
+
+## 2026-10-28 05:45 IST — H1-LF option 1: scoring finished (all 8 model x language loads); check script bug fixed
+The chain stopped at `score check` with a `KeyError: 'qwen2.5-1.5b'` in `scored()` (a crash, not a failed check): it concatenated English
+rows of every H1 model but the option-1 score directories hold calibration for the four counted models only. Fix, no design change:
+`scored()` keeps English rows only for models with calibration in that directory (identical for the H1 directories, which hold all
+models). The check (row counts, no NaN, pred_cal agreement >= 0.98 on identical-text overlap) is re-run unchanged.
+
+---
+## 2026-10-28 06:05 IST — H1-LF option 1 results (registered 2026-10-23 15:44 IST; v2 loan definition primary because its validity check passed)
+Score check (re-run after the 05:45 bug fix, unchanged rule): pred_cal agreement 1.000 on all identical-text overlap items (Kannada 257;
+Hindi 256 per model). `scripts/h1lf.py analyse1`; `results/h1lf/opt1.csv`, `opt1_verdict.json`.
+- **Verdict: loan-free effect** (3 of 4 counted models positive, Holm p < 0.05; rule needs 3). Loan-free subset n = 296 of 985 items clean in both languages.
+- Difference of gaps (Kannada minus Hindi; native minus natural): Qwen3 +0.196, Qwen3.5 +0.199, Gemma 4 +0.233 (Holm p < 0.001 each);
+  Sarvam-1 -0.047 (Holm p 0.165, not positive). On all 985 clean items (descriptive): +0.168, +0.149, +0.170, Sarvam-1 -0.019 (p 0.256).
+  The loan-free differences are not smaller than the all-items ones. The registered v1 loan-free subset (n = 110) gives the same signs (3 of 4 positive).
+- The H1-LF chain script was patched with run_net and the upstream grace period after finishing; its status was set to DONE by hand
+  with the reason recorded in its status file.

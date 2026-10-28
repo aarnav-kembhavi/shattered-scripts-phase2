@@ -64,6 +64,7 @@ def scored(dirs: dict, forms: list[str]) -> pd.DataFrame:
                          if (d / f"{m}__{f}.parquet").exists()])
         src = src[src.task == t]
         cf = {m: json.load(open(d / f"cf_{m}.json")) for m in hh.MODELS if (d / f"cf_{m}.json").exists()}
+        eng = eng[eng.model.isin(cf)]  # only models with calibration in this score dir (option 1 scores the 4 counted models)
         D, fb = e0b.apply_calibration(pd.concat([eng, src], ignore_index=True), cf)
         use_raw = {(r.model, r.task) for r in fb.itertuples() if r.use_raw}
         D = D[D.form != "english"].copy()

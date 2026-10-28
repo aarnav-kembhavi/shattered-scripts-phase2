@@ -1,0 +1,29 @@
+{
+  "provenance": {
+    "config": {
+      "prompts": {
+        "kannada": "natural_romanization_v1",
+        "hindi": "natural_romanization_hi_v1"
+      },
+      "model": "gemini-3.5-flash-lite"
+    },
+    "git_commit": "488d268db4df13f6794955816aa8315bcf976797",
+    "timestamp_utc": "2026-10-27T21:44:47+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/h1lf.py",
+      "draft"
+    ]
+  },
+  "kannada": {
+    "n_done": 1004,
+    "n_defective": 9,
+    "complete": true
+  },
+  "hindi": {
+    "n_done": 1004,
+    "n_defective": 10,
+    "complete": true
+  }
+}
