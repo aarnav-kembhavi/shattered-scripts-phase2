@@ -3266,3 +3266,9 @@ dummies, HC3): adjusted loan-free gap (Kannada gap minus Hindi gap) Qwen3 0.194 
 [0.150, 0.296] (Holm p < 0.001), Sarvam-1 -0.044 [-0.109, 0.022] (p 0.19); the loan-free indicator is not significant in any model
 (p 0.44, 0.42, 0.37, 0.09). The loan-free gap survives. Wording change (Aarnav): "differences of the gaps" replaced by "the Kannada gap
 exceeds the Hindi gap by ...".
+
+## 2026-10-29 01:30 IST — K2b wording (Aarnav): the lexical-overlap caveat is replaced by the controlled result
+Abstract, introduction and §7 now say: English share predicts retrieval after controlling for overlap with the English target in all four
+models (coefficients fall by 11 to 39%: 30.6, 38.9, 10.5, 16.1; the 10.5 rounds to 11), every 95% CI above zero; the predictors correlate at
+r = 0.88 so their contributions cannot be fully separated. Overlap's own coefficient is not interpreted (its sentence and claim are removed;
+the value stays in the appendix table). The control is exploratory; the registered K2b outcome ("supported") is unchanged.
