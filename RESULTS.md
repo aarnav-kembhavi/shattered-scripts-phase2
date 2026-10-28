@@ -3240,3 +3240,29 @@ Hindi 256 per model). `scripts/h1lf.py analyse1`; `results/h1lf/opt1.csv`, `opt1
   The loan-free differences are not smaller than the all-items ones. The registered v1 loan-free subset (n = 110) gives the same signs (3 of 4 positive).
 - The H1-LF chain script was patched with run_net and the upstream grace period after finishing; its status was set to DONE by hand
   with the reason recorded in its status file.
+
+---
+## 2026-10-28 06:20 IST — H1-LF selection check (exploratory; registered before running; CPU; Aarnav 2026-10-28)
+**Why:** the loan-free subset (296 of 985 items clean in both languages, v2 definition) is a selected set; it may differ from all clean
+items in length, content or topic. The registered H1-LF verdict is not changed by this analysis; it carries no verdict.
+- **Items:** the 296 loan-free and the 985 clean items of `results/h1lf/opt1_verdict.json` (same construction as `h1lf.py analyse1`).
+- **Descriptives, loan-free versus the other 689 items:** English word count of the parallel sentence; Kannada native word count; Qwen3
+  token count of the Kannada native text; share of items whose English sentence contains a digit; share containing a name (the
+  `names_in` rule of the v2 English-word tagger); SIB topic distribution (the item's label). Mann-Whitney (lengths), Fisher exact (shares)
+  and chi-square (topics) p values, reported descriptively; no threshold.
+- **Refit (done whether or not the subsets differ):** per counted model, item-level d_i = (native − natural, Kannada) − (native − natural,
+  Hindi), regressed on a loan-free indicator, z-scored English words, z-scored Kannada Qwen3 tokens, the digit and name indicators and topic
+  dummies, over all 985 items, heteroscedasticity-robust (HC3) standard errors. Reported: the adjusted gap for loan-free items (intercept
+  plus indicator, covariates at their 985-item means) with a 95% CI and p, the indicator coefficient (loan-free minus other items,
+  adjusted), and the unadjusted loan-free mean as a check against opt1.csv.
+- **Reading, fixed now:** "the loan-free gap survives" if the adjusted loan-free gap is positive with a 95% CI above zero; Holm over the
+  four models is reported alongside the raw p. No claim about a causal role of the covariates.
+
+## 2026-10-28 06:50 IST — H1-LF selection check results (exploratory, no verdict; registered 06:20 IST; `scripts/h1lf_selection.py`)
+Loan-free items (n = 296) against the other 689 clean items: English words 20.1 vs 21.6 (p 0.001), Kannada words 14.7 vs 16.5, Qwen3
+Kannada tokens 176 vs 193 (both p < 0.001), digit 10% vs 25%, name 30% vs 59% (both p < 0.001); topics differ (chi-square p 0.0001;
+sports 7.8% vs 12.2% and entertainment 4.4% vs 9.3% of the group lower in loan-free). Refit over all 985 (lengths, digits, names, topic
+dummies, HC3): adjusted loan-free gap (Kannada gap minus Hindi gap) Qwen3 0.194 [0.114, 0.273], Qwen3.5 0.177 [0.095, 0.260], Gemma 4 0.223
+[0.150, 0.296] (Holm p < 0.001), Sarvam-1 -0.044 [-0.109, 0.022] (p 0.19); the loan-free indicator is not significant in any model
+(p 0.44, 0.42, 0.37, 0.09). The loan-free gap survives. Wording change (Aarnav): "differences of the gaps" replaced by "the Kannada gap
+exceeds the Hindi gap by ...".

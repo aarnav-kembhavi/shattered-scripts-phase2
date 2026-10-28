@@ -1,0 +1,31 @@
+{
+  "provenance": {
+    "config": {
+      "registered": "RESULTS.md 2026-10-28 06:20 IST (exploratory)"
+    },
+    "git_commit": "ca5c2e9120aa27bbc204e63ba285464ae5abdd96-dirty",
+    "timestamp_utc": "2026-10-28T04:44:51+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/h1lf_selection.py"
+    ]
+  },
+  "n_all": 985,
+  "n_loan_free": 296,
+  "topic_chi2_p": 0.00014856860268295854,
+  "covariates": [
+    "const",
+    "loan_free",
+    "en_words",
+    "kn_tokens",
+    "has_digit",
+    "has_name",
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ]
+}
