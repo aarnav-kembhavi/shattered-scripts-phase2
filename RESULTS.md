@@ -3300,3 +3300,8 @@ Same data, layer, outcome (minus log rank) and v2 tagger as the 2026-10-28 overl
   appendix table of per-bin coefficients.
 - Units stated in §7: coefficients are per SD of English share (0.18 = 18 percentage points of words); outcome = minus ln(rank of the true
   English sentence among 1,005 candidates); a coefficient of 1 = rank improves by a factor of e (2.7).
+
+## 2026-10-29 03:30 IST — §7 trimmed for K3b-hi (Aarnav): overlap-robustness detail moved to the appendix
+VIF and per-bin detail now sit in the appendix (paragraph plus tables k2b_strata, k2b_strata_bins; claims F28 and F29 are checked in the
+appendix section); §7 keeps the units sentence and one sentence: the effect holds within overlap bins in all four models (appendix).
+The 86-item exact-zero-overlap fit is not run (Aarnav). Main text 11.64 pages.
