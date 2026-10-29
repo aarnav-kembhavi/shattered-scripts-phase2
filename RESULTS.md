@@ -3289,5 +3289,5 @@ Same data, layer, outcome (minus log rank) and v2 tagger as the 2026-10-28 overl
 - **Stratified:** only 4 bins formed (sizes 120, 62, 62, 56; many items have overlap 0, so the quintile edges tie and `duplicates="drop"`
   applied as registered). English-share coefficient within bins (bin fixed effects, HC3): Qwen2.5 0.953 [0.585, 1.322], Qwen3.5 0.924
   [0.529, 1.318], Sarvam-1 0.788 [0.385, 1.190], Gemma 4 1.276 [0.888, 1.663]: positive with every CI above zero, so it holds in all four
-  models (per-bin coefficients in `k2b_strata_bins.csv`: positive in 16 of 16 bins, with CIs including zero in 4 of 16 small bins of 56 to 62 items).
+  models (per-bin coefficients in `k2b_strata_bins.csv`: positive in 16 of 16 bins, with CIs including zero in 5 of 16 small bins of 56 to 62 items).
   The abstract is unchanged (no contradiction). One sentence added to §7; appendix table `k2b_strata`.
