@@ -1,0 +1,32 @@
+{
+  "provenance": {
+    "config": {
+      "registered": "RESULTS.md 2026-10-23 (K3b)"
+    },
+    "git_commit": "439a6e8a9cd778eed9bdf3a2a3e01ef8971f7303-dirty",
+    "timestamp_utc": "2026-10-29T19:38:37+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/k3b_dakshina.py",
+      "analyse"
+    ]
+  },
+  "gemini_vs_human": {
+    "n": 493,
+    "mean": 79.95071072404382,
+    "ci": [
+      79.13502092740141,
+      80.75582344890901
+    ]
+  },
+  "gemini_vs_gemini_resample": {
+    "n": 184,
+    "mean": 91.85008395951654,
+    "ci": [
+      90.58650255827698,
+      93.07466096224904
+    ]
+  },
+  "status": "descriptive only"
+}

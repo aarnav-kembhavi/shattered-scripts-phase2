@@ -118,7 +118,9 @@ json.dump(sorted(seen), open(out, "w"))
 def want(p: Path) -> bool:
     rel = p.relative_to(ROOT).as_posix()
     png_dup = rel.startswith("paper/figures/") and p.suffix == ".png"  # the paper uses the PDFs; PNGs only add noise to the scan
-    return not (set(p.parts) & SKIP_DIRS) and p.name not in SKIP_NAMES and not rel.startswith("results/CHAIN_STATUS") and not png_dup
+    big_vectors = rel.startswith("results/k12/vectors/")  # regenerable GPU vectors (README of the repo explains how); never in the package
+    return (not (set(p.parts) & SKIP_DIRS) and p.name not in SKIP_NAMES and not rel.startswith("results/CHAIN_STATUS") and not png_dup
+            and not big_vectors and "shattered-scripts-archive" not in p.as_posix())
 
 
 def collect(traced: list) -> list:

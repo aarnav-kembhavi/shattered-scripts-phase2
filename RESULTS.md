@@ -3305,3 +3305,15 @@ Same data, layer, outcome (minus log rank) and v2 tagger as the 2026-10-28 overl
 VIF and per-bin detail now sit in the appendix (paragraph plus tables k2b_strata, k2b_strata_bins; claims F28 and F29 are checked in the
 appendix section); §7 keeps the units sentence and one sentence: the effect holds within overlap bins in all four models (appendix).
 The 86-item exact-zero-overlap fit is not run (Aarnav). Main text 11.64 pages.
+
+---
+## 2026-10-30 — Repo cleanup (Aarnav's decisions of 2026-10-30; plan in docs/CLEANUP_PLAN.md; archive manifest in ../shattered-scripts-archive/MANIFEST.md)
+- First step: unregistered the 11 finished scheduled tasks (all chain statuses DONE); `ShatteredScripts_k3bhi` and `ShatteredScripts_watch` remain.
+- Moved out of the repo (146 items, 7,184 MB): E5 `last.pt` (18), mid-training snapshots (54) and pilot checkpoints; M14 pilot and smoke activations;
+  `results/m14_smoke`; logs and status files of finished chains; E9 search intermediates; 10 unused figure sets; the empty `paper/references.bib`;
+  the Kaggle notebook; 4 one-off scripts. Kept: the 18 `final.safetensors` (the only E5 files any script loads), all gate-pilot results, all
+  scripts that imported or produced a reported result (8 of the 12 archive candidates stayed, reasons in the README table and the manifest).
+- Committed the previously untracked evidence: SIB-1004 drafts, `results/h_hindi/scores`, `results/nc1/scores`, `results/k3b`, `results/k3b_hi`.
+  Untracked the four K2b vector files (kept on disk, in `.gitignore`; README gives the regeneration command).
+- Verified: paper builds, 0 LaTeX errors; `check_numbers` 0 mismatches on all 12 sections; 14 analysis scripts re-run from the cleaned repo reproduce
+  the committed outputs (identical apart from provenance fields); anonymized package rebuilt, 0 identifying hits, no vectors, no archive paths.

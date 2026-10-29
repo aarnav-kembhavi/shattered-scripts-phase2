@@ -1,0 +1,18 @@
+{
+ "content_free_logprobs": {
+  "sentiment": [
+   -11.390227317810059,
+   -13.233977317810059
+  ]
+ },
+ "fertility": [
+  {
+   "model": "gemma4-e2b",
+   "task": "sentiment",
+   "form": "natural",
+   "n_texts": 199,
+   "tokens_per_word": 1.5162677636499626
+  }
+ ],
+ "seconds": 1295.8050136566162
+}

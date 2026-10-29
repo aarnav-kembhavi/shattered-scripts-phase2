@@ -1,0 +1,18 @@
+{
+ "content_free_logprobs": {
+  "sentiment": [
+   -8.01157283782959,
+   -9.63657283782959
+  ]
+ },
+ "fertility": [
+  {
+   "model": "sarvam-1",
+   "task": "sentiment",
+   "form": "natural",
+   "n_texts": 199,
+   "tokens_per_word": 2.3272251308900525
+  }
+ ],
+ "seconds": 39.74878239631653
+}

@@ -22,3 +22,8 @@ data/processed/e05/*.npy
 results/e05_pretrain/grid.lock
 docs/papers/*.pdf
 build/
+# generated or regenerable (cleanup 2026-10-30)
+results/k12/vectors/
+results/*.log
+results/CHAIN_STATUS*.md
+.pytest_cache/

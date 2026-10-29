@@ -1,0 +1,64 @@
+{
+  "provenance": {
+    "config": {
+      "registered": "RESULTS.md 2026-10-23 (K3b)",
+      "model": "gemini-3.5-flash-lite",
+      "prompt": "natural_romanization_v1"
+    },
+    "git_commit": "439a6e8a9cd778eed9bdf3a2a3e01ef8971f7303-dirty",
+    "timestamp_utc": "2026-10-29T19:38:37+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/k3b_dakshina.py",
+      "analyse"
+    ]
+  },
+  "K3b": "refuted",
+  "statistics": {
+    "vowel_doubling": {
+      "gemini_rate": 0.01626761826917326,
+      "human_rate": 0.045342854948936494,
+      "ratio": 0.358769166332673,
+      "ci90": [
+        0.32414029872728917,
+        0.39481366675250124
+      ],
+      "ci95": [
+        0.31827503247469824,
+        0.40161500348221796
+      ],
+      "verdict": "differs (Gemini lower)"
+    },
+    "h_digraph": {
+      "gemini_rate": 0.017782739578557045,
+      "human_rate": 0.01696997619596099,
+      "ratio": 1.0478941969753321,
+      "ci90": [
+        0.9834651630457045,
+        1.1151838743372948
+      ],
+      "ci95": [
+        0.9713704942340576,
+        1.1287855684470784
+      ],
+      "verdict": "matches"
+    },
+    "english_word_share": {
+      "gemini_rate": 0.060409556313993175,
+      "human_rate": 0.06750982737993505,
+      "ratio": 0.8948261113751242,
+      "ci90": [
+        0.823589997261118,
+        0.9675963977440726
+      ],
+      "ci95": [
+        0.8102824367013685,
+        0.981258846870941
+      ],
+      "verdict": "matches"
+    }
+  },
+  "n": 493,
+  "n_primary_defective_excluded": 7
+}

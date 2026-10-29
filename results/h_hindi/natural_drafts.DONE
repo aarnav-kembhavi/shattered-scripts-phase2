@@ -1,0 +1,21 @@
+{
+  "provenance": {
+    "config": {
+      "prompt": "natural_romanization_hi_v1",
+      "model": "gemini-3.5-flash-lite"
+    },
+    "git_commit": "7b4e869de00e422b1e17f26c6eec9b44b3cc70c7-dirty",
+    "timestamp_utc": "2026-10-23T07:34:03+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/h_hindi.py",
+      "draft"
+    ]
+  },
+  "n_done": 696,
+  "n_target": 696,
+  "n_defective_after_retries": 4,
+  "stopped": null,
+  "complete": true
+}
