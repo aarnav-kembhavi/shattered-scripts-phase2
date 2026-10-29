@@ -1,0 +1,22 @@
+{
+  "provenance": {
+    "config": {
+      "registered": "RESULTS.md 2026-10-29 02:00 IST (exploratory, no verdict)"
+    },
+    "git_commit": "4b459081c6cfa05ec09123165f0f6f8a65778d39-dirty",
+    "timestamp_utc": "2026-10-29T09:39:04+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/k2b_strata.py"
+    ]
+  },
+  "n_bins": 4,
+  "bin_sizes": [
+    120,
+    62,
+    62,
+    56
+  ],
+  "tagger": "v2"
+}

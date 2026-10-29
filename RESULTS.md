@@ -3272,3 +3272,22 @@ Abstract, introduction and §7 now say: English share predicts retrieval after c
 models (coefficients fall by 11 to 39%: 30.6, 38.9, 10.5, 16.1; the 10.5 rounds to 11), every 95% CI above zero; the predictors correlate at
 r = 0.88 so their contributions cannot be fully separated. Overlap's own coefficient is not interpreted (its sentence and claim are removed;
 the value stays in the appendix table). The control is exploratory; the registered K2b outcome ("supported") is unchanged.
+
+---
+## 2026-10-29 02:00 IST — K2b overlap control, robustness (exploratory; registered before running; CPU, stored vectors; Aarnav)
+Same data, layer, outcome (minus log rank) and v2 tagger as the 2026-10-28 overlap control (`scripts/k2b_overlap.py`).
+1. **VIF** of z(English share), z(overlap share) and z(log tokens) in the three-predictor fit, per model.
+2. **Stratified check:** the 300 items are binned into overlap-share quintiles (`pandas.qcut`; many items have overlap 0, so if the
+   quintile edges are not unique, equal-valued items stay together and fewer bins result: `duplicates="drop"`, and the realized bins
+   and their sizes are reported). Per model, OLS of -log rank on z(English share) and z(log tokens) with bin fixed effects (dummies),
+   HC3 standard errors; the English-share coefficient with its 95% CI is reported. Per-bin coefficients are also stored.
+- **Reading, fixed now:** "holds within bins" if the pooled coefficient is positive with a 95% CI above zero in all four models; otherwise
+  the paper says in which models it does not. The abstract is changed only if the result contradicts it. Exploratory, no verdict.
+
+## 2026-10-29 02:20 IST — K2b overlap control, robustness results (exploratory, no verdict; `scripts/k2b_strata.py`)
+- **VIF** (three-predictor fit): English share 4.28 in every model, overlap 4.44 to 4.47, log tokens 1.20 to 1.24.
+- **Stratified:** only 4 bins formed (sizes 120, 62, 62, 56; many items have overlap 0, so the quintile edges tie and `duplicates="drop"`
+  applied as registered). English-share coefficient within bins (bin fixed effects, HC3): Qwen2.5 0.953 [0.585, 1.322], Qwen3.5 0.924
+  [0.529, 1.318], Sarvam-1 0.788 [0.385, 1.190], Gemma 4 1.276 [0.888, 1.663]: positive with every CI above zero, so it holds in all four
+  models (per-bin coefficients in `k2b_strata_bins.csv`: positive in 16 of 16 bins, with CIs including zero in 4 of 16 small bins of 56 to 62 items).
+  The abstract is unchanged (no contradiction). One sentence added to §7; appendix table `k2b_strata`.
