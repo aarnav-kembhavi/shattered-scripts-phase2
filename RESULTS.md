@@ -3291,3 +3291,12 @@ Same data, layer, outcome (minus log rank) and v2 tagger as the 2026-10-28 overl
   [0.529, 1.318], Sarvam-1 0.788 [0.385, 1.190], Gemma 4 1.276 [0.888, 1.663]: positive with every CI above zero, so it holds in all four
   models (per-bin coefficients in `k2b_strata_bins.csv`: positive in 16 of 16 bins, with CIs including zero in 5 of 16 small bins of 56 to 62 items).
   The abstract is unchanged (no contradiction). One sentence added to §7; appendix table `k2b_strata`.
+
+## 2026-10-29 03:05 IST — K2b §7 edits (Aarnav; exploratory, from existing results; `scripts/k2b_units.py` writes a descriptive units file only)
+- **The 120-item bin is not the zero-overlap bin:** 86 items have overlap exactly 0; bin 0 holds those plus 34 items with overlap up to 0.087
+  (qcut with ties kept together). So no sentence about "English words never appearing in the English reference" is made. A fit on the 86
+  exact-zero items would be a new analysis; not run (the 2026-10-29 instruction says no new runs).
+- Added to §7: per-bin coefficients positive in 16 of 16, CIs including zero in 5 of 16 (bins of 62 and 56 items; none in the 120-item bin);
+  appendix table of per-bin coefficients.
+- Units stated in §7: coefficients are per SD of English share (0.18 = 18 percentage points of words); outcome = minus ln(rank of the true
+  English sentence among 1,005 candidates); a coefficient of 1 = rank improves by a factor of e (2.7).

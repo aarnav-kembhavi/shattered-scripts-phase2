@@ -1,0 +1,21 @@
+{
+  "provenance": {
+    "config": {
+      "derived_from": "results/k12/vectors, tagger v2; descriptive"
+    },
+    "git_commit": "fcc0c9d5724a4314c3f294597c08fefc854bf396",
+    "timestamp_utc": "2026-10-29T18:01:48+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/k2b_units.py"
+    ]
+  },
+  "n_items": 300,
+  "english_share_mean": 0.2157726334375379,
+  "english_share_sd": 0.18207543477483318,
+  "n_candidates": 1005,
+  "n_zero_overlap": 86,
+  "outcome": "minus the natural log of the rank of the true English sentence among the candidates (higher is better)",
+  "coefficient_unit": "per one standard deviation of the v2 English-word share (population SD, as the z-score)"
+}
