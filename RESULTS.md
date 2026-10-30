@@ -3317,3 +3317,17 @@ The 86-item exact-zero-overlap fit is not run (Aarnav). Main text 11.64 pages.
   Untracked the four K2b vector files (kept on disk, in `.gitignore`; README gives the regeneration command).
 - Verified: paper builds, 0 LaTeX errors; `check_numbers` 0 mismatches on all 12 sections; 14 analysis scripts re-run from the cleaned repo reproduce
   the committed outputs (identical apart from provenance fields); anonymized package rebuilt, 0 identifying hits, no vectors, no archive paths.
+
+---
+## 2026-10-30 — K3b-hi result; EXPERIMENT FREEZE (Aarnav, 2026-10-30)
+- **K3b-hi (registered 2026-10-23 12:05 IST; `results/k3b_hi/verdict.json`): inconclusive.** 499 sentences (1 excluded as defective). Vowel-doubling ratio
+  0.876, 90% CI [0.765, 0.996]: the interval extends below the registered equivalence band [0.80, 1.25], so equivalence is not established (and the CI is not
+  outside the band, so "differs" is not reached). h-digraph 0.999 [0.985, 1.014] matches; English-word share 1.120 [1.053, 1.193] matches. K3b-hi holds only if
+  all three match, so it does not hold. Descriptive, not a registered contrast: the depression of vowel doubling is much weaker for Hindi (0.88) than for Kannada (0.36).
+  The paper reports this as inconclusive (abstract half sentence, introduction, section 7, appendix table), and does not call the Hindi drafts "natural" or
+  "equivalent to human romanization".
+- **All three gating results are now in** (K1/K2 2026-10-27, H1-LF option 1 2026-10-28, K3b-hi 2026-10-30). **Freeze: no new experiments.** Remaining work is
+  wording, checks and submission logistics. Only the claim-scoping pass was done after the freeze (changes listed in `paper/SCOPING_CHANGES.md`).
+- **Scoping pass (abstract, introduction, section 7, conclusion; plus one limitations paragraph):** general claims now say small open models (about two billion
+  parameters or fewer) or name the setting; familiarity is stated as confounded with pretraining exposure and with the script, so no sentence implies that the script
+  itself causes the gap; each "inconclusive by rule" verdict (K1, K3b-hi) carries its one-line reason.
