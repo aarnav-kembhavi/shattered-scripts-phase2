@@ -1,0 +1,55 @@
+{
+  "provenance": {
+    "config": {
+      "model": "gemini-3.5-flash-lite",
+      "temperature": 0.0,
+      "prompt": "Translate the following English instruction into Kannada (Kannada script). Keep the English words {words} exactly as written in English, do not translate or transliterate them. Output only the Kannada sentence, with no quotation marks and no explanation.\n\nInstruction: {instr}",
+      "registered": "RESULTS.md 2026-11-01 (X1, T3)"
+    },
+    "git_commit": "3e2a64ba55738badd9e24b6a1b39ec282d837e6a",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "timestamp_utc": "2026-11-01T20:20:36+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x1_t3_draft.py"
+    ]
+  },
+  "templates": {
+    "sentiment": {
+      "t2_instruction": "Would you say this review is negative or positive?",
+      "kannada_draft": "ಈ ವಿಮರ್ಶೆಯು negative ಅಥವಾ positive ಎಂದು ನೀವು ಹೇಳುತ್ತೀರಾ?",
+      "contains_kannada_script": true,
+      "label_words_missing_from_draft": [],
+      "cached": false,
+      "finish_reason": "FinishReason.STOP",
+      "status": "written",
+      "sha256_prefix": "d033e17f70369f67",
+      "file": "e0_sentiment_v3.txt"
+    },
+    "xnli": {
+      "t2_instruction": "If the premise is true, is the hypothesis true? Choose no, maybe, or yes.",
+      "kannada_draft": "ದತ್ತಾಂಶವು ಸತ್ಯವಾಗಿದ್ದರೆ, ಪರಿಕಲ್ಪನೆಯು ಸತ್ಯವೇ? no, maybe, ಅಥವಾ yes ಆಯ್ಕೆಮಾಡಿ.",
+      "contains_kannada_script": true,
+      "label_words_missing_from_draft": [],
+      "cached": false,
+      "finish_reason": "FinishReason.STOP",
+      "status": "written",
+      "sha256_prefix": "71fd1dbbc2d6395c",
+      "file": "e0_xnli_v3.txt"
+    },
+    "sib": {
+      "t2_instruction": "What is the main topic of this text: geography, entertainment, health, sports, politics, travel or science?",
+      "kannada_draft": "ಈ ಪಠ್ಯದ ಮುಖ್ಯ ವಿಷಯವೇನು: geography, entertainment, health, sports, politics, travel ಅಥವಾ science?",
+      "contains_kannada_script": true,
+      "label_words_missing_from_draft": [],
+      "cached": false,
+      "finish_reason": "FinishReason.STOP",
+      "status": "written",
+      "sha256_prefix": "d0ac3dcb7c832384",
+      "file": "e0_sib_v3.txt"
+    }
+  },
+  "verified_by_native_speaker": false,
+  "label": "instruction not verified (until a native-speaker annotator verifies it; see RESULTS.md)"
+}
