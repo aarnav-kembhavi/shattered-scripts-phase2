@@ -21,10 +21,20 @@ def git_commit() -> str:
         return "unknown"
 
 
+def registration_commit() -> str | None:
+    """Commit of the Phase 2 pre-registration (git tag `phase2-registration`, set when it was committed), or None."""
+    try:
+        return subprocess.check_output(["git", "rev-parse", "--verify", "-q", "phase2-registration^{commit}"], cwd=REPO,
+                                       text=True, stderr=subprocess.DEVNULL).strip() or None
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        return None
+
+
 def provenance(config: dict) -> dict:
     return {
         "config": config,
         "git_commit": git_commit(),
+        "phase2_registration_commit": registration_commit(),
         "timestamp_utc": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
         "python": sys.version.split()[0],
         "platform": platform.platform(),
