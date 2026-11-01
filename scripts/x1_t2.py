@@ -71,7 +71,8 @@ def score_forms(model, tok, name: str, items: dict, forms: list[str], score_dir)
     from shattered.eval.loglik import VERBALIZERS, choice_logprobs
     score_dir.mkdir(parents=True, exist_ok=True)
     todo = [f for f in forms if not (score_dir / f"{name}__{f}.parquet").exists()]
-    cf = e0b.content_free(name, items, score_dir, model, tok)
+    cf = e0b.content_free(name, items, score_dir, model, tok)["N/A"]  # as e0b.score_model: per-task N/A log-probs (the primary
+    # avg3 calibration is applied from cf_<model>.json at analysis time)
     secs = {}
     for f in todo:
         t1, rows, fert = time.time(), [], []
