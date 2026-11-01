@@ -1,0 +1,27 @@
+{
+  "provenance": {
+    "config": {
+      "model": "gemma4-e2b",
+      "items_per_task": 20,
+      "template": "v2",
+      "note": "timing only; no accuracy computed"
+    },
+    "git_commit": "57310bf65711d88ecfeefd9a2dbb843dc9e842f1",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "timestamp_utc": "2026-11-01T20:14:50+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x1_t2.py",
+      "pilot"
+    ]
+  },
+  "load_s": 35.065152168273926,
+  "xnli_per_prompt_s": 0.3514061331748962,
+  "sentiment_per_prompt_s": 0.21005535125732422,
+  "sib_per_prompt_s": 0.7135170936584473,
+  "xnli_nc_per_prompt_s": 0.32007627487182616,
+  "sentiment_nc_per_prompt_s": 0.22184460163116454,
+  "sib_nc_per_prompt_s": 0.7423599243164063,
+  "nc_pieces_identical_t1_t2_checked_items": 30
+}
