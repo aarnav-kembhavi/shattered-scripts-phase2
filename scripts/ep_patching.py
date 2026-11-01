@@ -17,7 +17,7 @@ Usage: python scripts/ep_patching.py items          (CPU: item lists vs the regi
                                                      resumable; exit 1 on a failed integrity check)
        python scripts/ep_patching.py analyse <1|2>  (CPU: R curves, held-out peak, registered predictions, figures)
 Pilots compute no recovery value. Outputs: results/ep{1,2}/{items.json, pilot.json, raw/<model>.json, curves.csv,
-predictions.json}; figures paper/figures/ep{1,2}_*.{pdf,png}
+predictions.json}; figures paper2/figures/ep{1,2}_*.{pdf,png}
 """
 import json
 import sys

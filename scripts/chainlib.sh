@@ -90,8 +90,17 @@ wait_ram() {  # wait_ram <GB> : before any model load (RAM is the binding constr
 
 gpu_used_mb() { nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits | head -1 | tr -d '\r '; }
 
+DISK_MIN_GB=${DISK_MIN_GB:-25}
+disk_guard() {  # Aarnav, 2026-11-01: refuse to start a GPU job if the free disk under the repo is below 25 GB (activation caches are large)
+  local f; f=$(df -BG . | awk 'NR==2{gsub("G","",$4); print $4}')
+  if [ -z "$f" ] || [ "$f" -lt "$DISK_MIN_GB" ]; then
+    fail "disk guard: ${f:-?} GB free < $DISK_MIN_GB GB; refusing to start a GPU job (free space, then relaunch)"
+  fi
+}
+
 wait_gpu() {  # before every model load (rule of 2026-10-23): total GPU memory in use must be <= 500 MB (under WDDM
   # nvidia-smi has no per-process memory, so anything above the desktop baseline is another process); retry every 5 min
+  disk_guard
   local u; u=$(gpu_used_mb)
   while [ -z "$u" ] || [ "$u" -gt 500 ]; do
     local apps; apps=$(nvidia-smi --query-compute-apps=pid,process_name --format=csv,noheader | tr '\r\n' '  ')

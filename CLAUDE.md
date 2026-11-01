@@ -117,7 +117,7 @@ Treat E5 as the most important experiment in the project.
 - Every accuracy has a 95% bootstrap CI (10,000 resamples, item level). Report n for every number.
 - Paired comparisons between forms: McNemar, Holm correction across comparisons.
 - Training experiments: 3 seeds, mean ± sd, show individual seeds.
-- Figure functions live in `src/shattered/plots/`, read only from `results/`, save PDF+PNG to `paper/figures/`.
+- Figure functions live in `src/shattered/plots/`, read only from `results/`, save PDF+PNG to `paper2/figures/`.
   Colorblind-safe palette; never rely on color alone.
 - After each experiment append to `RESULTS.md`: date, experiment id, config, commit hash, headline numbers, prediction,
   outcome (confirmed / refuted / inconclusive), surprises, next step.
@@ -140,3 +140,10 @@ Treat E5 as the most important experiment in the project.
   `scripts/chainlib.sh` (heartbeat every 2 min, quota resets computed from the clock, never hard-coded dates);
   `scripts/chain_watch.sh` (also detached) marks any status older than 20 min DEAD.
 - Shells: PowerShell is primary; Git Bash also available.
+
+## Phase 2 (2026-11-01)
+
+- `paper2/` (hand-merged, one `main.tex`) replaces `paper/` (archived in `../shattered-scripts-archive/paper_v1/`). **Do not edit `paper2/` text or `\input` new tables into it** until Aarnav says so. Phase 2 tables and figures go to `paper2/tables/phase2/` and `paper2/figures/phase2/`.
+- `paper2/scripts/check_numbers.py --section <name>` cuts each section out of `main.tex`; claim sets are in `section_claims*.py` and `section_claims_p2.py`.
+- Phase 2 is registered in `RESULTS.md` ("PHASE 2 PRE-REGISTRATION"); results go under `results/phase2/<experiment>/` and record the registration commit hash.
+- Disk guard: no GPU job starts with under 25 GB free disk (`disk_guard` in `scripts/chainlib.sh`, `require_free_disk` in `shattered.gpuguard`).

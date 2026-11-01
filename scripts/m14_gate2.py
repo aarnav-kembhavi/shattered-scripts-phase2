@@ -11,7 +11,7 @@ Patchscopes identification rate, retrieval accuracy@1 vs English).
 
 Usage: python scripts/m14_gate2.py
 Outputs (results/m14_full/gate2/): per_form.csv, paired.csv, erasure.csv, m4.csv, patchscopes_prereg.csv,
-         patchscopes_spearman.csv, verdicts.json; figure paper/figures/F_m14_layer_curves_draft.{pdf,png}
+         patchscopes_spearman.csv, verdicts.json; figure paper2/figures/F_m14_layer_curves_draft.{pdf,png}
 """
 import json
 

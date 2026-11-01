@@ -10,6 +10,7 @@ import subprocess
 import time
 
 LIMIT_MB = 500
+MIN_FREE_DISK_GB = 25  # Aarnav, 2026-11-01: refuse to start a GPU job below this much free disk
 RETRY_S = 300
 
 
@@ -30,8 +31,18 @@ def gpu_apps() -> str:
         return "?"
 
 
+def require_free_disk(min_gb: float = MIN_FREE_DISK_GB, path: str = ".") -> float:
+    """Exits (does not wait) if the free disk under `path` is below min_gb."""
+    import shutil
+    free = shutil.disk_usage(path).free / 1e9
+    if free < min_gb:
+        raise SystemExit(f"disk guard: {free:.1f} GB free < {min_gb} GB; refusing to start a GPU job")
+    return free
+
+
 def wait_gpu_free(limit_mb: int = LIMIT_MB, retry_s: int = RETRY_S) -> int:
     """Blocks until GPU memory in use <= limit_mb, logging every wait; returns the memory in use at the check."""
+    require_free_disk()
     import torch
     assert not torch.cuda.is_initialized(), "wait_gpu_free must run before this process initializes CUDA"
     while True:

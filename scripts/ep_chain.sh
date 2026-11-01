@@ -14,4 +14,4 @@ for e in 1 2; do
   done
   run_hb "E-P$e analysis and figure" $PY -u scripts/ep_patching.py analyse $e || fail "E-P$e analyse exited $?"
 done
-st DONE "E-P1 and E-P2 finished at $(date '+%F %T %Z'); results/ep1/, results/ep2/, paper/figures/ep*_recovery_curves.*"
+st DONE "E-P1 and E-P2 finished at $(date '+%F %T %Z'); results/ep1/, results/ep2/, paper2/figures/ep*_recovery_curves.*"

@@ -19,7 +19,7 @@ SURFACE = "#fcfcfb"
 INK = "#1f1f1e"
 INK_MUTED = "#6b6a63"
 GRID = "#e4e3dc"
-FIG_DIR = REPO / "paper" / "figures"
+FIG_DIR = REPO / "paper2" / "figures"
 
 
 def apply() -> None:

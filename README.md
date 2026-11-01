@@ -13,7 +13,7 @@ parameters or fewer (Qwen2.5-1.5B, Qwen3-1.7B, Qwen3.5-2B, Sarvam-1, Gemma 4 E2B
 
 | Folder | Holds |
 |---|---|
-| `paper/` | `main.tex` (TMLR style), `sections/`, generated `tables/` and `figures/`, `refs.bib`, and `paper/scripts/` (`make_tables.py`, `make_figures.py`, `check_numbers.py` with the claim files `section_claims*.py`, `pages.py`, `build_paper.sh`) |
+| `paper2/` | `main.tex` (TMLR style, one merged file; the sections are cut out by `check_numbers.py`), generated `tables/` and `figures/`, `refs.bib`, and `paper2/scripts/` (`make_tables.py`, `make_figures.py`, `check_numbers.py` with the claim files `section_claims*.py`, `pages.py`, `build_paper.sh`) |
 | `src/shattered/` | the library: data loaders, tokenizer tools, transliteration, LLM client with cache, pretraining, interpretability, stats, plots |
 | `scripts/` | experiment entry points and chain launchers (flat on purpose: scripts import each other and the chains call them by path; table below) |
 | `results/<experiment>/` | outputs of one experiment each: CSV and JSON with the config and commit that produced them. `results/CHAIN_STATUS_K3BHI.md` and the logs of running chains stay here |
@@ -41,12 +41,12 @@ Interpretability runs in bf16 only, one model load at a time, with a GPU guard f
 ## Rebuild the paper
 
 ```bash
-bash paper/scripts/build_paper.sh                       # pdflatex + bibtex into paper/build/, prints LaTeX errors, undefined citations, pages
-python paper/scripts/make_tables.py                     # paper/tables/*.tex from results/ (a cell with no result file is marked MISSING)
-python paper/scripts/make_figures.py                    # paper/figures/*.pdf from results/
-python paper/scripts/pages.py                           # main-text pages (TMLR asks for at most 12 before the appendix)
+bash paper2/scripts/build_paper.sh                       # pdflatex + bibtex into paper2/build/, prints LaTeX errors, undefined citations, pages
+python paper2/scripts/make_tables.py                     # paper2/tables/*.tex from results/ (a cell with no result file is marked MISSING)
+python paper2/scripts/make_figures.py                    # paper2/figures/*.pdf from results/
+python paper2/scripts/pages.py                           # main-text pages (TMLR asks for at most 12 before the appendix)
 for s in intro related setup controlled accuracy assembly familiarity limitations conclusion broader_impact abstract appendix; do
-  python paper/scripts/check_numbers.py --section sections/$s.tex     # every number in the text against its result file
+  python paper2/scripts/check_numbers.py --section $s     # every number in the text against its result file
 done
 python scripts/anon_package.py                          # anonymized supplementary zip in build/ with an identifying-string scan
 ```

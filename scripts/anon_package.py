@@ -3,7 +3,7 @@
 What it does
   1. Runs the paper's table, figure and number-check scripts under a file-open spy and records every file they read, so the
      package contains exactly the result files needed to rebuild every table and figure (no GPU needed).
-  2. Copies the code (src/, scripts/, configs/, tests/, paper/ sources, tables, figures and scripts), the data files the
+  2. Copies the code (src/, scripts/, configs/, tests/, paper2/ sources, tables, figures and scripts), the data files the
      annotation pipeline needs, DATA_CARD.md, DATASHEET.md, the registration log RESULTS.md, and the traced result files
      into build/anon_package/, with git history, caches, logs, chain status files, annotator workbooks and messages left out.
   3. Scrubs text files: the lead author's name, user name, institution, e-mail address, absolute paths and other project
@@ -32,10 +32,10 @@ PY = ROOT / ".venv" / "Scripts" / "python.exe"
 SECTIONS = ["intro", "related", "setup", "controlled", "accuracy", "assembly", "familiarity", "limitations", "conclusion",
             "broader_impact", "abstract", "appendix"]
 
-CODE_DIRS = ["src", "scripts", "configs", "tests", "paper/scripts", "paper/sections", "paper/tables", "paper/figures"]
+CODE_DIRS = ["src", "scripts", "configs", "tests", "paper2/scripts", "paper2/tables", "paper2/figures"]
 CODE_FILES = ["pyproject.toml", "requirements.in", "requirements.txt", "DATA_CARD.md", "RESULTS.md",
-              "paper/main.tex", "paper/refs.bib", "paper/tmlr.sty", "paper/tmlr.bst", "paper/fancyhdr.sty",
-              "paper/refs_original.bib", "paper/BIB_REPORT.md", "annotation/merge_xlsx.py", "annotation/autocorrect_en_excel16.tsv",
+              "paper2/main.tex", "paper2/refs.bib", "paper2/tmlr.sty", "paper2/tmlr.bst", "paper2/fancyhdr.sty",
+              "paper2/refs_original.bib", "paper2/BIB_REPORT.md", "annotation/merge_xlsx.py", "annotation/autocorrect_en_excel16.tsv",
               "annotation/examples_v1.json", "annotation/instructions/annotator_A.md", "annotation/instructions/annotator_B.md",
               "data/annotation/DATASHEET.md", "data/annotation/items_v2.jsonl", "data/annotation/items_v1.jsonl",
               "data/annotation/verified_A_v1.jsonl", "data/annotation/drafts_v1.jsonl", "data/annotation/drafts_regen_v1.jsonl",
@@ -108,8 +108,8 @@ for t in targets:
     sys.path.pop(0)
 json.dump(sorted(seen), open(out, "w"))
 ''', encoding="utf-8")
-    targets = [["paper/scripts/make_tables.py"], ["paper/scripts/make_figures.py"]] + \
-              [["paper/scripts/check_numbers.py", "--section", f"sections/{s}.tex"] for s in SECTIONS]
+    targets = [["paper2/scripts/make_tables.py"], ["paper2/scripts/make_figures.py"]] + \
+              [["paper2/scripts/check_numbers.py", "--section", s] for s in SECTIONS]
     env = {**os.environ, "PYTHONIOENCODING": "utf-8"}
     subprocess.run([str(PY), str(runner), str(ROOT), str(TRACE), json.dumps(targets)], cwd=ROOT, env=env, check=True)
     return json.loads(TRACE.read_text(encoding="utf-8"))
@@ -117,7 +117,7 @@ json.dump(sorted(seen), open(out, "w"))
 
 def want(p: Path) -> bool:
     rel = p.relative_to(ROOT).as_posix()
-    png_dup = rel.startswith("paper/figures/") and p.suffix == ".png"  # the paper uses the PDFs; PNGs only add noise to the scan
+    png_dup = rel.startswith("paper2/figures/") and p.suffix == ".png"  # the paper uses the PDFs; PNGs only add noise to the scan
     big_vectors = rel.startswith("results/k12/vectors/")  # regenerable GPU vectors (README of the repo explains how); never in the package
     return (not (set(p.parts) & SKIP_DIRS) and p.name not in SKIP_NAMES and not rel.startswith("results/CHAIN_STATUS") and not png_dup
             and not big_vectors and "shattered-scripts-archive" not in p.as_posix())
@@ -215,14 +215,14 @@ The result files the paper reads are included under `results/`. Python 3.12; the
 
 ```
 pip install -r requirements.txt            # or: uv pip install -r requirements.txt
-python paper/scripts/make_tables.py        # paper/tables/*.tex from results/ (0 MISSING cells expected)
-python paper/scripts/make_figures.py       # paper/figures/*.pdf
+python paper2/scripts/make_tables.py        # paper2/tables/*.tex from results/ (0 MISSING cells expected)
+python paper2/scripts/make_figures.py       # paper2/figures/*.pdf
 for s in intro related setup controlled accuracy assembly familiarity limitations conclusion broader_impact abstract appendix; do
-  python paper/scripts/check_numbers.py --section sections/$s.tex   # every number in the section text vs the result files
+  python paper2/scripts/check_numbers.py --section $s   # every number in the section text vs the result files
 done
 ```
 `check_numbers.py` prints, per section, the number of claims, the claims that do not match the stored value, and the numbers in
-the text that no claim traces; the expected output is no mismatches and no untraced numbers. The generated `paper/NUMBERS_*.md`
+the text that no claim traces; the expected output is no mismatches and no untraced numbers. The generated `paper2/NUMBERS_*.md`
 list every claim with the file it is read from. To compile the paper: `cd paper && pdflatex main && bibtex main && pdflatex main`
 (needs `tmlr.sty`, `tmlr.bst`, `fancyhdr.sty`, included).
 
@@ -240,7 +240,7 @@ list every claim with the file it is read from. To compile the paper: `cd paper 
 | Verification, vowel doubling (appendix) | `verification_appendix` | `results/v_ver/differences.csv`, `results/v_dbl/differences.csv` |
 | Figures (alignment, patching, tiny GPTs) | `make_figures.py` | `results/m14_full`, `results/ep2/`, `results/e05_pretrain/` |
 
-Other numbers in the text are traced to files by the claims in `paper/scripts/section_claims.py`, `section_claims7.py` and
+Other numbers in the text are traced to files by the claims in `paper2/scripts/section_claims.py`, `section_claims7.py` and
 `check_numbers.py`.
 
 ## 3. Recompute the results (GPU)
