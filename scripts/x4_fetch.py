@@ -147,11 +147,16 @@ def types_of(texts):
 def collision(types, lang: str) -> dict:
     from shattered.translit import to_lossy
     by = collections.defaultdict(set)
+    unmapped = 0  # word types containing a character the ITRANS scheme cannot spell (rare letters): excluded and counted
     for w in types:
-        by[to_lossy(w, lang)].add(w)
+        try:
+            by[to_lossy(w, lang)].add(w)
+        except KeyError:
+            unmapped += 1
+    types = [w for s in by.values() for w in s]
     n = len(types)
     in_group = sum(len(s) for s in by.values() if len(s) > 1)
-    return {"native_types": n, "lossy_types": len(by), "merged_frac": 1 - len(by) / n,  # the Phase 1 definition (10.4% for Kannada)
+    return {"types_unmapped_excluded": unmapped, "native_types": n, "lossy_types": len(by), "merged_frac": 1 - len(by) / n,  # the Phase 1 definition (10.4% for Kannada)
             "share_of_types_in_a_collision_group": in_group / n, "max_group": max(len(s) for s in by.values())}
 
 

@@ -1,0 +1,35 @@
+{
+  "provenance": {
+    "config": {
+      "dataset": "wikimedia/wikipedia@b04c8d1ceb2f5cd4588862100d08de323dccfbaa",
+      "dump": "20231101",
+      "license": "CC-BY-SA-3.0 / GFDL (Wikipedia)"
+    },
+    "git_commit": "3e2a64ba55738badd9e24b6a1b39ec282d837e6a",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "timestamp_utc": "2026-11-01T20:20:38+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x4_fetch.py",
+      "wiki",
+      "dak",
+      "coll"
+    ]
+  },
+  "bn": {
+    "n_articles": 143069,
+    "n_chars": 355057092,
+    "seconds": 17
+  },
+  "te": {
+    "n_articles": 87854,
+    "n_chars": 273738946,
+    "seconds": 13
+  },
+  "hi": {
+    "n_articles": 163093,
+    "n_chars": 253282305,
+    "seconds": 14
+  }
+}

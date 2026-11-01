@@ -1,0 +1,62 @@
+{
+  "provenance": {
+    "config": {
+      "dataset": "Davlan/sib200@38977a667f6fc264d5c26ec57a01e16db040b358",
+      "license": "CC-BY-SA-4.0 (SIB-200 card)"
+    },
+    "git_commit": "3e2a64ba55738badd9e24b6a1b39ec282d837e6a",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "timestamp_utc": "2026-11-01T20:19:46+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x4_fetch.py",
+      "sib",
+      "sent"
+    ]
+  },
+  "ben_Beng": {
+    "n": 1004,
+    "unique_ids": 1004,
+    "ids_equal_kn": true,
+    "labels_equal_kn": true,
+    "labels_equal_en": true,
+    "splits": {
+      "train": 701,
+      "test": 204,
+      "dev": 99
+    },
+    "categories": {
+      "science/technology": 252,
+      "travel": 198,
+      "politics": 146,
+      "sports": 122,
+      "health": 110,
+      "entertainment": 93,
+      "geography": 83
+    },
+    "n_empty_text": 0
+  },
+  "tel_Telu": {
+    "n": 1004,
+    "unique_ids": 1004,
+    "ids_equal_kn": true,
+    "labels_equal_kn": true,
+    "labels_equal_en": true,
+    "splits": {
+      "train": 701,
+      "test": 204,
+      "dev": 99
+    },
+    "categories": {
+      "science/technology": 252,
+      "travel": 198,
+      "politics": 146,
+      "sports": 122,
+      "health": 110,
+      "entertainment": 93,
+      "geography": 83
+    },
+    "n_empty_text": 0
+  }
+}

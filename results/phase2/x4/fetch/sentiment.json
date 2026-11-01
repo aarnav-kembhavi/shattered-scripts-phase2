@@ -1,0 +1,43 @@
+{
+  "provenance": {
+    "config": {
+      "dataset": "ai4bharat/IndicSentiment@dc8f3f66886531c6897fedffca1e938a68fc5013"
+    },
+    "git_commit": "3e2a64ba55738badd9e24b6a1b39ec282d837e6a",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "timestamp_utc": "2026-11-01T20:19:47+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x4_fetch.py",
+      "sib",
+      "sent"
+    ]
+  },
+  "bn": {
+    "available": true,
+    "n": 1000,
+    "sha256": "af4144965f16e8398682a6b6bae6fea138c6e07aec41bb6ac153eac4a30692ef",
+    "labels": {
+      "Negative": 492,
+      "Positive": 506,
+      "null": 2
+    },
+    "n_kn": 1000,
+    "english_reviews_equal_kn": 1000,
+    "labels_equal_kn": 1000
+  },
+  "te": {
+    "available": true,
+    "n": 1000,
+    "sha256": "5054768bd2bb91ca6e8988d3aff28585bdd1a49925c38c5cc2cf2fecc70fdf71",
+    "labels": {
+      "Negative": 492,
+      "Positive": 506,
+      "null": 2
+    },
+    "n_kn": 1000,
+    "english_reviews_equal_kn": 1000,
+    "labels_equal_kn": 1000
+  }
+}

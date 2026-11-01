@@ -1,0 +1,47 @@
+{
+  "provenance": {
+    "config": {
+      "url": "https://storage.googleapis.com/gresearch/dakshina/dakshina_dataset_v1.0.tar",
+      "license": "CC BY-SA 4.0"
+    },
+    "git_commit": "73d23d5ae90fbf72aeb231a0c3fa309a32dc21b8",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "timestamp_utc": "2026-11-01T20:22:17+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x4_fetch.py",
+      "wiki",
+      "dak",
+      "coll"
+    ]
+  },
+  "bytes": 2008340480,
+  "md5_b64": "pWCGix1nAmAsTqToN5T6Jg==",
+  "published_md5_b64": "pWCGix1nAmAsTqToN5T6Jg==",
+  "x_goog_hash_header": "crc32c=b5rh1Q==",
+  "md5_matches_published": true,
+  "kept_files": [
+    "dakshina_dataset_v1.0/bn/romanized/bn.romanized.rejoined.tsv",
+    "dakshina_dataset_v1.0/bn/romanized/bn.romanized.rejoined.dev.native.txt",
+    "dakshina_dataset_v1.0/bn/romanized/bn.romanized.split.tsv",
+    "dakshina_dataset_v1.0/bn/romanized/bn.romanized.rejoined.dev.roman.txt",
+    "dakshina_dataset_v1.0/bn/romanized/bn.romanized.rejoined.aligned.tsv",
+    "dakshina_dataset_v1.0/bn/romanized/bn.romanized.split.validation.native.txt",
+    "dakshina_dataset_v1.0/bn/romanized/bn.romanized.split.validation.edits.txt",
+    "dakshina_dataset_v1.0/bn/romanized/bn.romanized.rejoined.aligned.cased_nopunct.tsv",
+    "dakshina_dataset_v1.0/bn/romanized/bn.romanized.rejoined.test.roman.txt",
+    "dakshina_dataset_v1.0/bn/romanized/bn.romanized.rejoined.test.native.txt",
+    "dakshina_dataset_v1.0/te/romanized/te.romanized.rejoined.tsv",
+    "dakshina_dataset_v1.0/te/romanized/te.romanized.rejoined.aligned.cased_nopunct.tsv",
+    "dakshina_dataset_v1.0/te/romanized/te.romanized.rejoined.dev.roman.txt",
+    "dakshina_dataset_v1.0/te/romanized/te.romanized.rejoined.dev.native.txt",
+    "dakshina_dataset_v1.0/te/romanized/te.romanized.split.validation.native.txt",
+    "dakshina_dataset_v1.0/te/romanized/te.romanized.rejoined.test.native.txt",
+    "dakshina_dataset_v1.0/te/romanized/te.romanized.split.validation.edits.txt",
+    "dakshina_dataset_v1.0/te/romanized/te.romanized.rejoined.aligned.tsv",
+    "dakshina_dataset_v1.0/te/romanized/te.romanized.split.tsv",
+    "dakshina_dataset_v1.0/te/romanized/te.romanized.rejoined.test.roman.txt"
+  ],
+  "seconds": 98
+}

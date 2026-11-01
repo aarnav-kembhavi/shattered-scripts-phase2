@@ -1,0 +1,57 @@
+{
+  "provenance": {
+    "config": {
+      "definition": "merged_frac = 1 - (distinct lossy word types / distinct native word types), whitespace words of NFC-normalized Wikipedia 20231101 articles, as scripts/e02_translit.py; share_of_types_in_a_collision_group = types that share their lossy form with at least one other type (the registered wording 'merge with another type')",
+      "phase1_kannada_value": 0.10382542681169316
+    },
+    "git_commit": "73d23d5ae90fbf72aeb231a0c3fa309a32dc21b8-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "timestamp_utc": "2026-11-01T20:29:48+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x4_fetch.py",
+      "coll"
+    ]
+  },
+  "kan_Knda": {
+    "n_articles": 31437,
+    "types_unmapped_excluded": 0,
+    "native_types": 2334929,
+    "lossy_types": 2092504,
+    "merged_frac": 0.10382542681169316,
+    "share_of_types_in_a_collision_group": 0.17519419220027677,
+    "max_group": 35,
+    "seconds": 86
+  },
+  "hin_Deva": {
+    "n_articles": 163093,
+    "types_unmapped_excluded": 13,
+    "native_types": 1832349,
+    "lossy_types": 1607861,
+    "merged_frac": 0.12251377876157876,
+    "share_of_types_in_a_collision_group": 0.20106922862402304,
+    "max_group": 51,
+    "seconds": 69
+  },
+  "ben_Beng": {
+    "n_articles": 143069,
+    "types_unmapped_excluded": 0,
+    "native_types": 2544592,
+    "lossy_types": 2293943,
+    "merged_frac": 0.0985026283191962,
+    "share_of_types_in_a_collision_group": 0.1642671988279457,
+    "max_group": 33,
+    "seconds": 104
+  },
+  "tel_Telu": {
+    "n_articles": 87854,
+    "types_unmapped_excluded": 0,
+    "native_types": 2162774,
+    "lossy_types": 1940786,
+    "merged_frac": 0.10264040533130137,
+    "share_of_types_in_a_collision_group": 0.1736052865440402,
+    "max_group": 21,
+    "seconds": 66
+  }
+}
