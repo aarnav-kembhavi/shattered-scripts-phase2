@@ -143,7 +143,7 @@ Treat E5 as the most important experiment in the project.
 
 ## Phase 2 (2026-11-01)
 
-- `paper2/` (hand-merged, one `main.tex`) replaces `paper/` (archived in `../shattered-scripts-archive/paper_v1/`). **Do not edit `paper2/` text or `\input` new tables into it** until Aarnav says so. Phase 2 tables and figures go to `paper2/tables/phase2/` and `paper2/figures/phase2/`.
+- `paper2/` (hand-merged, one `main.tex`) replaces `paper/` (archived in `../shattered-scripts-archive/paper_v1/`). **Prose edits to `paper2/main.tex` are allowed from 2026-11-02 (Aarnav's change of instruction, listed in `paper2/EDITS_2026-11-02.md`); keep their voice and structure, change only what the instruction requires.** New Phase 2 results are not integrated into the paper until Aarnav says so. Phase 2 tables and figures go to `paper2/tables/phase2/` and `paper2/figures/phase2/`.
 - `paper2/scripts/check_numbers.py --section <name>` cuts each section out of `main.tex`; claim sets are in `section_claims*.py` and `section_claims_p2.py`.
 - Phase 2 is registered in `RESULTS.md` ("PHASE 2 PRE-REGISTRATION"); results go under `results/phase2/<experiment>/` and record the registration commit hash.
 - Disk guard: no GPU job starts with under 25 GB free disk (`disk_guard` in `scripts/chainlib.sh`, `require_free_disk` in `shattered.gpuguard`).

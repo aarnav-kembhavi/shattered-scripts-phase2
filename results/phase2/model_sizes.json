@@ -1,0 +1,87 @@
+{
+ "provenance": {
+  "config": {
+   "source": "safetensors headers of the local HF snapshots"
+  },
+  "git_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44-dirty",
+  "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+  "timestamp_utc": "2026-11-01T20:06:29+00:00",
+  "python": "3.12.13",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "argv": [
+   "scripts/model_sizes.py"
+  ]
+ },
+ "models": {
+  "Qwen2.5-1.5B": {
+   "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+   "files": 1,
+   "total": 1543714304,
+   "vision_tower": 0,
+   "audio_tower": 0,
+   "per_layer_embedding_table": 0,
+   "effective_text": 1543714304,
+   "total_b": 1.544,
+   "vision_tower_b": 0.0,
+   "audio_tower_b": 0.0,
+   "per_layer_embedding_table_b": 0.0,
+   "effective_text_b": 1.544
+  },
+  "Qwen3-1.7B": {
+   "repo": "Qwen/Qwen3-1.7B",
+   "files": 2,
+   "total": 2031739904,
+   "vision_tower": 0,
+   "audio_tower": 0,
+   "per_layer_embedding_table": 0,
+   "effective_text": 2031739904,
+   "total_b": 2.032,
+   "vision_tower_b": 0.0,
+   "audio_tower_b": 0.0,
+   "per_layer_embedding_table_b": 0.0,
+   "effective_text_b": 2.032
+  },
+  "Qwen3.5-2B": {
+   "repo": "Qwen/Qwen3.5-2B",
+   "files": 1,
+   "total": 2274069824,
+   "vision_tower": 331416576,
+   "audio_tower": 0,
+   "per_layer_embedding_table": 0,
+   "effective_text": 1942653248,
+   "total_b": 2.274,
+   "vision_tower_b": 0.331,
+   "audio_tower_b": 0.0,
+   "per_layer_embedding_table_b": 0.0,
+   "effective_text_b": 1.943
+  },
+  "Sarvam-1": {
+   "repo": "sarvamai/sarvam-1",
+   "files": 2,
+   "total": 2525087744,
+   "vision_tower": 0,
+   "audio_tower": 0,
+   "per_layer_embedding_table": 0,
+   "effective_text": 2525087744,
+   "total_b": 2.525,
+   "vision_tower_b": 0.0,
+   "audio_tower_b": 0.0,
+   "per_layer_embedding_table_b": 0.0,
+   "effective_text_b": 2.525
+  },
+  "Gemma 4 E2B": {
+   "repo": "google/gemma-4-E2B-it",
+   "files": 1,
+   "total": 5123178979,
+   "vision_tower": 168544704,
+   "audio_tower": 307184384,
+   "per_layer_embedding_table": 2348810240,
+   "effective_text": 2298639651,
+   "total_b": 5.123,
+   "vision_tower_b": 0.169,
+   "audio_tower_b": 0.307,
+   "per_layer_embedding_table_b": 2.349,
+   "effective_text_b": 2.299
+  }
+ }
+}
