@@ -3771,3 +3771,9 @@ with a list of what moved to the appendix. Phase 2 results enter the paper only 
   workbooks, private keys, importers (`scripts/import_x8.py`, `import_x15.py`, `import_t3.py`, one command each over `annotation/returned/`, which is gitignored because returned files carry author fields) and analyses
   (`scripts/analyze_x8.py`, `analyze_x15.py`, tested on synthetic data only, outputs not kept) are kept. The three items and the reason are in `results/phase2/REGISTERED_OUTCOMES.md` (no Phase 2 outcomes table existed before; this is its start).
   The Kaggle and laptop queues continue as before.
+
+- **2026-11-03 00:47 IST, STATUS NOTE: the tier prioritisation is WITHDRAWN and superseded (Aarnav).** The tier message (tiers 1 to 3 over the experiments) was a misunderstanding of a question about which annotation is necessary; it never became a registration entry and
+  no queue, script or registered rule was changed because of it (checked against git and the queue driver: the instruction pair, Llama-3.1-8B and the X9b Qwen3.5-2B arm were never removed; X11 and X6 were never cut). Every experiment stays as registered in
+  Amendment 2 and in the earlier ordering: laptop X7 control, X9a, X10, X11, X6, X4 Bengali and Telugu; Kaggle X9b (Sarvam-1 primary and Qwen3.5-2B secondary arm), X12 (contrast 1 primary, instruction pair secondary), X13 (Qwen3-8B, Llama-3.1-8B, the largest
+  Sarvam that fits); X14 (Groq, under its caps). The Kaggle order is unchanged: A1-P pair, X9b pilot, scoring, Llama-2 A1-P and contrast 1, instruction pair, Llama-3.1-8B, X9b full; with the 18 h X9b Sarvam reserve and the cut order if quota is short
+  (Llama-3.1-8B first, then the instruction pair, then the X9b Qwen3.5 arm). **Only the annotation part stands** (previous status note): X15 and T3 not run (annotators unavailable), X8 parked and run as registered if the files are sent.
