@@ -3750,3 +3750,12 @@ with a list of what moved to the appendix. Phase 2 results enter the paper only 
   caller's variable still pointed at the model while `free()` ran. Fix (no rule change, thresholds unchanged): each precision now runs in its own subprocess (`scripts/kaggle_precision.py`,
   worker mode), so memory is released by process exit. The error results carry `pass: null`; the queue driver records no verdict for them and keeps the models queued. Both models are re-queued
   against the same reference. (This also means the earlier "float32 out of memory" for Ambari-7B-base was not evidence about float32 fitting; see A1-P-D1.)
+
+- **2026-11-02 23:32 IST, HF ACCESS GRANTED (Llama-2-7b-hf, Llama-3.1-8B); X12 contrast roles; Kaggle queue order (decided by Aarnav).** Both repos download with the `.env` token (config, tokenizer, safetensors shards reachable).
+  Tokenizers (`results/phase2/x12/tokenizers.json`): Llama-2-7b-hf vocabulary 32,000, native 20.83 and ITRANS 4.69 tokens per word, token-identical to Ambari-7B-Instruct-v0.2 on the first 200 FLORES+
+  sentences (so v0.2 is Llama-2's tokenizer); Llama-3.1-8B vocabulary 128,256, native 14.90, ITRANS 4.29. **X12 contrast 1 (Llama-2-7B vs Ambari-7B-base) now runs as registered and is the
+  primary X12 test; the instruction-pair contrast (v0.1 vs v0.2) stays registered as a secondary contrast; the stand-in clause ("this contrast stands in for contrast 1 if Llama-2-7b-hf is still
+  gated") no longer applies.** Queue after the job in flight: (a) X9b Kaggle pilot; (b) score whichever of Qwen3-8B and Ambari-7B-base passed A1-P; (c) A1-P for Llama-2-7B, then X12 contrast 1 scoring if both
+  endpoints passed; (d) A1-P for Ambari-Instruct v0.1 and v0.2, then the secondary contrast if both pass; (e) A1-P for Llama-3.1-8B, then X13 scoring if it passes; (f) X9b full, Sarvam-1 arm. The 18 h X9b Sarvam
+  reserve is kept: a step that would push X9b Sarvam into a later week is moved behind it. Cut order if quota is short: Llama-3.1-8B first, then the instruction pair, then the X9b Qwen3.5 arm. The Llama
+  retry loop in the queue driver is retired (access exists).
