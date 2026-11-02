@@ -31,7 +31,7 @@ WEEK_H, SESSION_H = 30.0, 12.0
 PKG_DATASET = "shattered-pkg"
 CODE_DIRS = ["src", "scripts", "configs"]
 PINS = ["transformers==5.19.0", "accelerate==1.15.0", "safetensors==0.8.0", "tokenizers==0.23.2", "huggingface_hub==1.33.0",
-        "sentencepiece==0.2.2", "statsmodels==0.15.0", "pyarrow==25.0.1", "protobuf==7.36.2", "tiktoken==0.14.0", "bitsandbytes>=0.46.1"]  # local versions (bitsandbytes: A1-P 8-bit reference only)
+        "sentencepiece==0.2.2", "statsmodels==0.15.0", "pyarrow==25.0.1", "protobuf==7.36.2", "tiktoken==0.14.0", "bitsandbytes>=0.46.1", "peft==0.21.2"]  # local versions (bitsandbytes: A1-P 8-bit reference only)
 
 
 def env() -> dict:
@@ -160,6 +160,11 @@ def run(a) -> None:
         raise SystemExit(f"weekly quota: {used:.1f} h used in the last 7 days, this push may use {a.timeout_h} h, limit {WEEK_H} h")
     if job not in ("kaggle_gate", "kaggle_retrieval_gate") and not (KDIR / "kaggle_gate" / "gate_passed.json").exists():
         raise SystemExit("reproducibility gate has not passed: no remote result counts (results/kaggle/kaggle_gate/gate_passed.json)")
+    if job == "kaggle_mdl":
+        a.include = list(a.include) + ["results/m14_full/words.json"]
+    if job == "kaggle_x9b":  # the exclusion report, the removed-id list and the 300 Phase 1 probe words are results files, not code
+        a.include = list(a.include) + ["results/phase2/x9b/streams_report.json", "results/phase2/x9b/removed_ids.json", "results/phase2/x9b/pilot_done.json"]
+        a.include = [i for i in a.include if (REPO / i).exists()]
     d = package(commit, a.include)
     upload_dataset(d, commit)
     user = env()["KAGGLE_USERNAME"]
