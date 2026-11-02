@@ -1,0 +1,1 @@
+[{"model": "gemma4-e2b", "id": 0, "cond": "a", "max_abs_dlogprob": 0.0}, {"model": "gemma4-e2b", "id": 0, "cond": "c", "max_abs_dlogprob": 0.0}, {"model": "gemma4-e2b", "id": 1, "cond": "a", "max_abs_dlogprob": 0.0}, {"model": "gemma4-e2b", "id": 1, "cond": "c", "max_abs_dlogprob": 0.0}]

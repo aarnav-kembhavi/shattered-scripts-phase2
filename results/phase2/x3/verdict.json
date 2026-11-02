@@ -1,0 +1,250 @@
+{
+  "provenance": {
+    "config": {
+      "registered": "RESULTS.md 2026-11-01 (X3)",
+      "counted_retrieval": [
+        "qwen3.5-2b",
+        "sarvam-1",
+        "gemma4-e2b"
+      ],
+      "counted_accuracy": [
+        "qwen3-1.7b",
+        "qwen3.5-2b",
+        "sarvam-1",
+        "gemma4-e2b"
+      ],
+      "m4c_split_seed": 0
+    },
+    "git_commit": "6564b97f653ba0406f26a4adc0038efcf17c2548",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "timestamp_utc": "2026-11-02T10:29:57+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x3_analyse.py"
+    ]
+  },
+  "D1|retrieval|m": {
+    "verdict": "effect, positive",
+    "status": "registered",
+    "n_significant_positive": 2,
+    "n_significant_negative": 0,
+    "needed": 2,
+    "models_above_floor": [
+      "qwen3.5-2b",
+      "sarvam-1",
+      "gemma4-e2b"
+    ]
+  },
+  "D2|retrieval|m": {
+    "verdict": "no effect detected",
+    "status": "registered",
+    "n_significant_positive": 0,
+    "n_significant_negative": 0,
+    "needed": 2,
+    "models_above_floor": [
+      "qwen3.5-2b",
+      "sarvam-1",
+      "gemma4-e2b"
+    ]
+  },
+  "D3|retrieval|m": {
+    "verdict": "no effect detected",
+    "status": "registered",
+    "n_significant_positive": 0,
+    "n_significant_negative": 1,
+    "needed": 2,
+    "models_above_floor": [
+      "qwen3.5-2b",
+      "sarvam-1",
+      "gemma4-e2b"
+    ]
+  },
+  "D1|sentiment|m": {
+    "verdict": "no effect detected",
+    "status": "registered",
+    "n_significant_positive": 2,
+    "n_significant_negative": 0,
+    "needed": 3,
+    "models_above_floor": [
+      "qwen3-1.7b",
+      "qwen3.5-2b",
+      "sarvam-1",
+      "gemma4-e2b"
+    ]
+  },
+  "D2|sentiment|m": {
+    "verdict": "no effect detected",
+    "status": "registered",
+    "n_significant_positive": 1,
+    "n_significant_negative": 0,
+    "needed": 3,
+    "models_above_floor": [
+      "qwen3-1.7b",
+      "qwen3.5-2b",
+      "sarvam-1",
+      "gemma4-e2b"
+    ]
+  },
+  "D3|sentiment|m": {
+    "verdict": "no effect detected",
+    "status": "registered",
+    "n_significant_positive": 0,
+    "n_significant_negative": 0,
+    "needed": 3,
+    "models_above_floor": [
+      "qwen3-1.7b",
+      "qwen3.5-2b",
+      "sarvam-1",
+      "gemma4-e2b"
+    ]
+  },
+  "D1|sib|m": {
+    "verdict": "effect, positive",
+    "status": "registered",
+    "n_significant_positive": 3,
+    "n_significant_negative": 0,
+    "needed": 3,
+    "models_above_floor": [
+      "qwen3-1.7b",
+      "qwen3.5-2b",
+      "sarvam-1",
+      "gemma4-e2b"
+    ]
+  },
+  "D2|sib|m": {
+    "verdict": "no effect detected",
+    "status": "registered",
+    "n_significant_positive": 2,
+    "n_significant_negative": 0,
+    "needed": 3,
+    "models_above_floor": [
+      "qwen3-1.7b",
+      "qwen3.5-2b",
+      "sarvam-1",
+      "gemma4-e2b"
+    ]
+  },
+  "D3|sib|m": {
+    "verdict": "no effect detected",
+    "status": "registered",
+    "n_significant_positive": 0,
+    "n_significant_negative": 2,
+    "needed": 3,
+    "models_above_floor": [
+      "qwen3-1.7b",
+      "qwen3.5-2b",
+      "sarvam-1",
+      "gemma4-e2b"
+    ]
+  },
+  "D1|retrieval|r": {
+    "verdict": "no effect detected",
+    "status": "exploratory (s_ref split), no verdict",
+    "n_significant_positive": 1,
+    "n_significant_negative": 0,
+    "needed": 2,
+    "models_above_floor": [
+      "qwen3.5-2b",
+      "sarvam-1",
+      "gemma4-e2b"
+    ]
+  },
+  "D2|retrieval|r": {
+    "verdict": "no effect detected",
+    "status": "exploratory (s_ref split), no verdict",
+    "n_significant_positive": 0,
+    "n_significant_negative": 0,
+    "needed": 2,
+    "models_above_floor": [
+      "qwen3.5-2b",
+      "sarvam-1",
+      "gemma4-e2b"
+    ]
+  },
+  "D3|retrieval|r": {
+    "verdict": "no effect detected",
+    "status": "exploratory (s_ref split), no verdict",
+    "n_significant_positive": 0,
+    "n_significant_negative": 0,
+    "needed": 2,
+    "models_above_floor": [
+      "qwen3.5-2b",
+      "sarvam-1",
+      "gemma4-e2b"
+    ]
+  },
+  "D1|sentiment|r": {
+    "verdict": "uninformative (fewer than 3 models above the floor)",
+    "status": "exploratory (s_ref split), no verdict",
+    "n_significant_positive": 0,
+    "n_significant_negative": 0,
+    "needed": 3,
+    "models_above_floor": [
+      "qwen3.5-2b",
+      "sarvam-1"
+    ]
+  },
+  "D2|sentiment|r": {
+    "verdict": "uninformative (fewer than 3 models above the floor)",
+    "status": "exploratory (s_ref split), no verdict",
+    "n_significant_positive": 0,
+    "n_significant_negative": 0,
+    "needed": 3,
+    "models_above_floor": [
+      "qwen3.5-2b",
+      "sarvam-1"
+    ]
+  },
+  "D3|sentiment|r": {
+    "verdict": "uninformative (fewer than 3 models above the floor)",
+    "status": "exploratory (s_ref split), no verdict",
+    "n_significant_positive": 0,
+    "n_significant_negative": 0,
+    "needed": 3,
+    "models_above_floor": [
+      "qwen3.5-2b",
+      "sarvam-1"
+    ]
+  },
+  "D1|sib|r": {
+    "verdict": "uninformative (fewer than 3 models above the floor)",
+    "status": "exploratory (s_ref split), no verdict",
+    "n_significant_positive": 2,
+    "n_significant_negative": 0,
+    "needed": 3,
+    "models_above_floor": [
+      "qwen3.5-2b",
+      "sarvam-1"
+    ]
+  },
+  "D2|sib|r": {
+    "verdict": "uninformative (fewer than 3 models above the floor)",
+    "status": "exploratory (s_ref split), no verdict",
+    "n_significant_positive": 0,
+    "n_significant_negative": 0,
+    "needed": 3,
+    "models_above_floor": [
+      "qwen3.5-2b",
+      "sarvam-1"
+    ]
+  },
+  "D3|sib|r": {
+    "verdict": "uninformative (fewer than 3 models above the floor)",
+    "status": "exploratory (s_ref split), no verdict",
+    "n_significant_positive": 0,
+    "n_significant_negative": 1,
+    "needed": 3,
+    "models_above_floor": [
+      "qwen3.5-2b",
+      "sarvam-1"
+    ]
+  },
+  "interpretation|retrieval": "unresolved",
+  "interpretation|sentiment": "unresolved",
+  "interpretation|sib": "unresolved",
+  "recompute_control": {
+    "max_abs_dlogprob": 0.0,
+    "all_below_1e-3": true
+  }
+}

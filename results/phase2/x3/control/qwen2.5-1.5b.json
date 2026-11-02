@@ -1,0 +1,1 @@
+[{"model": "qwen2.5-1.5b", "id": 0, "cond": "a", "max_abs_dlogprob": 0.0}, {"model": "qwen2.5-1.5b", "id": 0, "cond": "c", "max_abs_dlogprob": 0.0}, {"model": "qwen2.5-1.5b", "id": 1, "cond": "a", "max_abs_dlogprob": 0.0}, {"model": "qwen2.5-1.5b", "id": 1, "cond": "c", "max_abs_dlogprob": 0.0}]
