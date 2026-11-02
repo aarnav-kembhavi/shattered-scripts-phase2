@@ -30,11 +30,21 @@ def registration_commit() -> str | None:
         return None
 
 
+def amendment2_commit() -> str | None:
+    """Commit of Phase 2 Amendment 2 (git tag `phase2-amendment-2`), or None; recorded in every X9 to X15 result."""
+    try:
+        return subprocess.check_output(["git", "rev-parse", "--verify", "-q", "phase2-amendment-2^{commit}"], cwd=REPO,
+                                       text=True, stderr=subprocess.DEVNULL).strip() or None
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        return None
+
+
 def provenance(config: dict) -> dict:
     return {
         "config": config,
         "git_commit": git_commit(),
         "phase2_registration_commit": registration_commit(),
+        "phase2_amendment2_commit": amendment2_commit(),
         "timestamp_utc": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
         "python": sys.version.split()[0],
         "platform": platform.platform(),

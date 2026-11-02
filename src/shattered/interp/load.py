@@ -21,6 +21,13 @@ MODELS = {
     "gemma4-e2b": "google/gemma-4-E2B-it",
     "sarvam-1": "sarvamai/sarvam-1",
     "qwen3-0.6b": "Qwen/Qwen3-0.6B",  # tests only
+    # Phase 2 Kaggle models (X12, X13; loaded with device="auto" over 2 x T4)
+    "qwen3-8b": "Qwen/Qwen3-8B",
+    "ambari-7b-base": "Cognitive-Lab/Ambari-7B-base-v0.1",
+    "ambari-7b-instruct-v0.1": "Cognitive-Lab/Ambari-7B-Instruct-v0.1",
+    "ambari-7b-instruct-v0.2": "Cognitive-Lab/Ambari-7B-Instruct-v0.2",
+    "llama-2-7b": "meta-llama/Llama-2-7b-hf",
+    "llama-3.1-8b": "meta-llama/Llama-3.1-8B",
 }
 
 
@@ -103,7 +110,8 @@ def _load_gemma4_text(repo: str, device: str, dtype, token):
     return model
 
 
-def load(name: str, device: str | None = None, dtype=torch.bfloat16):
+def load(name: str, device: str | None = None, dtype=torch.bfloat16, quant: str | None = None):
+    """device "auto" shards over all visible GPUs (Phase 2 Kaggle 7-9B models); quant "8bit" or "4bit" uses bitsandbytes (never for retrieval)."""
     from transformers import AutoModelForCausalLM, AutoTokenizer
     repo = MODELS[name]
     device = device or ("cuda" if torch.cuda.is_available() else "cpu")
@@ -112,8 +120,15 @@ def load(name: str, device: str | None = None, dtype=torch.bfloat16):
     if name.startswith("gemma4"):
         model = _load_gemma4_text(repo, device, dtype, token)
     else:
-        model, info = AutoModelForCausalLM.from_pretrained(repo, dtype=dtype, device_map={"": device}, token=token,
-                                                           output_loading_info=True)
+        kw = {}
+        if quant:
+            from transformers import BitsAndBytesConfig
+            kw["quantization_config"] = (BitsAndBytesConfig(load_in_8bit=True) if quant == "8bit" else
+                                         BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type="nf4", bnb_4bit_compute_dtype=dtype))
+        if device == "auto":
+            kw["max_memory"] = {i: "14GiB" for i in range(torch.cuda.device_count())}
+        model, info = AutoModelForCausalLM.from_pretrained(repo, dtype=dtype, device_map="auto" if device == "auto" else {"": device},
+                                                           token=token, output_loading_info=True, **kw)
         _check_loaded(name, info)
     model.eval()
     return model, tok

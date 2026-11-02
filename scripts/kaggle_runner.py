@@ -31,7 +31,7 @@ WEEK_H, SESSION_H = 30.0, 12.0
 PKG_DATASET = "shattered-pkg"
 CODE_DIRS = ["src", "scripts", "configs"]
 PINS = ["transformers==5.19.0", "accelerate==1.15.0", "safetensors==0.8.0", "tokenizers==0.23.2", "huggingface_hub==1.33.0",
-        "sentencepiece==0.2.2", "statsmodels==0.15.0", "pyarrow==25.0.1", "protobuf==7.36.2", "tiktoken==0.14.0"]  # local versions
+        "sentencepiece==0.2.2", "statsmodels==0.15.0", "pyarrow==25.0.1", "protobuf==7.36.2", "tiktoken==0.14.0", "bitsandbytes>=0.46.1"]  # local versions (bitsandbytes: A1-P 8-bit reference only)
 
 
 def env() -> dict:
@@ -156,7 +156,7 @@ def run(a) -> None:
     assert a.timeout_h <= SESSION_H - 0.5, "a session may not exceed 12 h"
     if used + a.timeout_h > WEEK_H:
         raise SystemExit(f"weekly quota: {used:.1f} h used in the last 7 days, this push may use {a.timeout_h} h, limit {WEEK_H} h")
-    if job != "kaggle_gate" and not (KDIR / "kaggle_gate" / "gate_passed.json").exists():
+    if job not in ("kaggle_gate", "kaggle_retrieval_gate") and not (KDIR / "kaggle_gate" / "gate_passed.json").exists():
         raise SystemExit("reproducibility gate has not passed: no remote result counts (results/kaggle/kaggle_gate/gate_passed.json)")
     d = package(commit, a.include)
     upload_dataset(d, commit)
@@ -169,7 +169,7 @@ def run(a) -> None:
                                   .replace("__PINS__", repr(PINS)).replace("__BUDGET__", str(budget)), encoding="utf-8")
     slug = f"shattered-{job.replace('_', '-')}"
     meta = {"id": f"{user}/{slug}", "title": slug, "code_file": "kernel.py", "language": "python", "kernel_type": "script",
-            "is_private": True, "enable_gpu": True, "enable_internet": True, "dataset_sources": [f"{user}/{PKG_DATASET}"],
+            "is_private": True, "enable_gpu": True, "enable_internet": True, "dataset_sources": [f"{user}/{PKG_DATASET}", *[f"{user}/{x}" for x in a.private_data]],
             "kernel_sources": [a.resume_from] if a.resume_from else [], "competition_sources": []}
     (kd / "kernel-metadata.json").write_text(json.dumps(meta, indent=1))
     t_push = datetime.now(timezone.utc)
@@ -222,6 +222,7 @@ def main() -> None:
     r.add_argument("--no-wait", action="store_true")
     r.add_argument("--allow-dirty", action="store_true")
     r.add_argument("--resume-from")
+    r.add_argument("--private-data", nargs="*", default=[], help="extra PRIVATE datasets of this account (for example shattered-flores-private)")
     f = sub.add_parser("fetch")
     f.add_argument("job")
     sub.add_parser("quota")
