@@ -28,6 +28,8 @@ Literal gloss of the Kannada: *Would you say that this review is negative or pos
 
 ## 2. XNLI (premise and hypothesis; answer no, maybe or yes)
 
+**NEEDS REWRITE (Aarnav, 2026-11-02): the line below is the likely problem (ದತ್ತಾಂಶ means "data" and ಪರಿಕಲ್ಪನೆ means "concept", which are not "premise" and "hypothesis"). The XNLI line must be rewritten before T3 is scored; do not score XNLI under T3 until a verified line is returned.**
+
 ```
 Premise: {premise}
 Hypothesis: {hypothesis}
