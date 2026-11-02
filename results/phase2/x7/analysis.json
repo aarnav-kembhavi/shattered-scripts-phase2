@@ -1,0 +1,133 @@
+{
+  "provenance": {
+    "config": {
+      "registration": "RESULTS.md X7 (Phase 2 pre-registration)",
+      "bpb": "val_bpb_full"
+    },
+    "git_commit": "f116475aed9a25f2907691b44a252ab5381ad337-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-02T23:15:48+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x7_analyse.py"
+    ]
+  },
+  "n_runs": 18,
+  "spearman_tokens_per_word_vs_bpb": -0.3714285714285715,
+  "spearman_p": 0.4684781341107872,
+  "per_vocab": [
+    {
+      "vocab": 256,
+      "bpb_mean": 0.601669,
+      "bpb_sd_ddof1": 0.00321,
+      "bpb_sd_ddof0": 0.002621,
+      "n_seeds": 3,
+      "embedding_params": 157850,
+      "non_embedding_params": 14162304,
+      "total_params": 14320154,
+      "embedding_share": 0.011023,
+      "tokens_per_word": 5.013752,
+      "phase1_bpb_mean": 0.59695,
+      "phase1_embedding_params": 98688.0
+    },
+    {
+      "vocab": 384,
+      "bpb_mean": 0.58064,
+      "bpb_sd_ddof1": 0.001656,
+      "bpb_sd_ddof0": 0.001353,
+      "n_seeds": 3,
+      "embedding_params": 147584,
+      "non_embedding_params": 14162304,
+      "total_params": 14309888,
+      "embedding_share": 0.010313,
+      "tokens_per_word": 2.535281,
+      "phase1_bpb_mean": 0.569564,
+      "phase1_embedding_params": 147840.0
+    },
+    {
+      "vocab": 512,
+      "bpb_mean": 0.579868,
+      "bpb_sd_ddof1": 0.002907,
+      "bpb_sd_ddof0": 0.002374,
+      "n_seeds": 3,
+      "embedding_params": 140910,
+      "non_embedding_params": 14162304,
+      "total_params": 14303214,
+      "embedding_share": 0.009852,
+      "tokens_per_word": 2.079883,
+      "phase1_bpb_mean": 0.560638,
+      "phase1_embedding_params": 196992.0
+    },
+    {
+      "vocab": 768,
+      "bpb_mean": 0.582687,
+      "bpb_sd_ddof1": 0.00056,
+      "bpb_sd_ddof0": 0.000457,
+      "n_seeds": 3,
+      "embedding_params": 130645,
+      "non_embedding_params": 14162304,
+      "total_params": 14292949,
+      "embedding_share": 0.009141,
+      "tokens_per_word": 1.735121,
+      "phase1_bpb_mean": 0.551291,
+      "phase1_embedding_params": 295296.0
+    },
+    {
+      "vocab": 1024,
+      "bpb_mean": 0.587005,
+      "bpb_sd_ddof1": 0.001226,
+      "bpb_sd_ddof0": 0.001001,
+      "n_seeds": 3,
+      "embedding_params": 125510,
+      "non_embedding_params": 14162304,
+      "total_params": 14287814,
+      "embedding_share": 0.008784,
+      "tokens_per_word": 1.583769,
+      "phase1_bpb_mean": 0.546011,
+      "phase1_embedding_params": 393600.0
+    },
+    {
+      "vocab": 4096,
+      "bpb_mean": 0.652979,
+      "bpb_sd_ddof1": 0.002645,
+      "bpb_sd_ddof0": 0.00216,
+      "n_seeds": 3,
+      "embedding_params": 107030,
+      "non_embedding_params": 14162304,
+      "total_params": 14269334,
+      "embedding_share": 0.007501,
+      "tokens_per_word": 1.265243,
+      "phase1_bpb_mean": 0.528462,
+      "phase1_embedding_params": 1573248.0
+    }
+  ],
+  "decision": {
+    "ddof1": {
+      "larger_sd": 0.00320988189781573,
+      "diff_256_minus_4096": -0.051309914322210326,
+      "diff_over_sd": -15.984985104008297,
+      "exceeds_3sd": false
+    },
+    "ddof0": {
+      "larger_sd": 0.002620857594748344,
+      "diff_256_minus_4096": -0.051309914322210326,
+      "diff_over_sd": -19.577528525405107,
+      "exceeds_3sd": false
+    }
+  },
+  "verdict": "does not survive",
+  "verdict_if_ddof0": "does not survive",
+  "prediction": "the bits-per-byte ordering by fragmentation survives equalized embedding capacity",
+  "phase1_embedding_params_range": [
+    98688.0,
+    1573248.0
+  ],
+  "control_embedding_params_range": [
+    107030.0,
+    157850.0
+  ],
+  "total_wall_hours": 12.098382669024998,
+  "mdl_probes_on_control_models": "not run yet (descriptive, separate step)"
+}
