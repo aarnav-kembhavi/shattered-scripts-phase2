@@ -29,6 +29,21 @@
    "hardware": null,
    "torch": null,
    "bf16_supported": null
+  },
+  {
+   "job": "kaggle_retrieval_gate",
+   "kernel": "aarnavkembhavi1/shattered-kaggle-retrieval-gate",
+   "commit": "8291279ba1ddee8b0ba922a7dbe51ade2039fa44",
+   "dirty": false,
+   "args": [],
+   "start_utc": "2026-11-02T13:34:12.085707+00:00",
+   "hours": 0.3708362345563041,
+   "status": "aarnavkembhavi1/shattered-kaggle-retrieval-gate has status \"KernelWorkerStatus.COMPLETE\"",
+   "accelerator": "NvidiaTeslaT4 (T4 x2)",
+   "output_dir": "results\\kaggle\\kaggle_retrieval_gate\\2026-11-02T133412",
+   "hardware": null,
+   "torch": null,
+   "bf16_supported": null
   }
  ]
 }

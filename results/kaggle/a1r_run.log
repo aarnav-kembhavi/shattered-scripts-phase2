@@ -1,0 +1,29 @@
+Starting upload for file repo.zip
+Upload successful: repo.zip (351KB)
+Dataset version is being created. Please check progress at https://www.kaggle.com/datasets/aarnavkembhavi1/shattered-pkg
+
+  0%|          | 0.00/351k [00:00<?, ?B/s]
+ 27%|##7       | 96.0k/351k [00:00<00:00, 963kB/s]
+100%|##########| 351k/351k [00:01<00:00, 182kB/s] 
+
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/aarnavkembhavi1/shattered-kaggle-retrieval-gate
+
+[19:04:18] kembhavi1/shattered-kaggle-retrieval-gate has status "KernelWorkerStatus.QUEUED"
+[19:06:20] embhavi1/shattered-kaggle-retrieval-gate has status "KernelWorkerStatus.RUNNING"
+[19:08:21] embhavi1/shattered-kaggle-retrieval-gate has status "KernelWorkerStatus.RUNNING"
+[19:10:23] embhavi1/shattered-kaggle-retrieval-gate has status "KernelWorkerStatus.RUNNING"
+[19:12:26] embhavi1/shattered-kaggle-retrieval-gate has status "KernelWorkerStatus.RUNNING"
+[19:14:28] embhavi1/shattered-kaggle-retrieval-gate has status "KernelWorkerStatus.RUNNING"
+[19:16:30] embhavi1/shattered-kaggle-retrieval-gate has status "KernelWorkerStatus.RUNNING"
+[19:18:33] embhavi1/shattered-kaggle-retrieval-gate has status "KernelWorkerStatus.RUNNING"
+[19:20:35] embhavi1/shattered-kaggle-retrieval-gate has status "KernelWorkerStatus.RUNNING"
+[19:22:37] embhavi1/shattered-kaggle-retrieval-gate has status "KernelWorkerStatus.RUNNING"
+{
+ "job": "kaggle_retrieval_gate",
+ "commit": "8291279ba1ddee8b0ba922a7dbe51ade2039fa44",
+ "status": "aarnavkembhavi1/shattered-kaggle-retrieval-gate has status \"KernelWorkerStatus.COMPLETE\"",
+ "hours": 0.3708362345563041,
+ "hardware": null,
+ "output_dir": "results\\kaggle\\kaggle_retrieval_gate\\2026-11-02T133412"
+}
+weekly hours used (last 7 days): 0.58 of 30.0

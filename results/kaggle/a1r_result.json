@@ -1,0 +1,55 @@
+{
+ "rule": {
+  "tolerance_acc_at_1": 0.03,
+  "dtype": "float16"
+ },
+ "models": {
+  "sarvam-1": {
+   "native": {
+    "kaggle_layer": 24,
+    "laptop_layer": 23,
+    "acc_kaggle": 0.9442786069651742,
+    "acc_laptop": 0.9442786069651742,
+    "abs_diff": 0.0,
+    "kaggle_acc_at_laptop_layer": 0.9412935323383085,
+    "max_abs_curve_diff_all_layers": 0.00497512437810943,
+    "pass": true
+   },
+   "itrans": {
+    "kaggle_layer": 21,
+    "laptop_layer": 21,
+    "acc_kaggle": 0.5104477611940299,
+    "acc_laptop": 0.5144278606965174,
+    "abs_diff": 0.003980099502487455,
+    "kaggle_acc_at_laptop_layer": 0.5104477611940299,
+    "max_abs_curve_diff_all_layers": 0.006965174129353213,
+    "pass": true
+   },
+   "pass": true
+  },
+  "gemma4-e2b": {
+   "native": {
+    "kaggle_layer": 7,
+    "laptop_layer": 7,
+    "acc_kaggle": 0.9960199004975124,
+    "acc_laptop": 0.9950248756218906,
+    "abs_diff": 0.0009950248756218638,
+    "kaggle_acc_at_laptop_layer": 0.9960199004975124,
+    "max_abs_curve_diff_all_layers": 0.006965174129353269,
+    "pass": true
+   },
+   "itrans": {
+    "kaggle_layer": 7,
+    "laptop_layer": 7,
+    "acc_kaggle": 0.2656716417910448,
+    "acc_laptop": 0.2686567164179104,
+    "abs_diff": 0.0029850746268655914,
+    "kaggle_acc_at_laptop_layer": 0.2656716417910448,
+    "max_abs_curve_diff_all_layers": 0.004975124378109458,
+    "pass": true
+   },
+   "pass": true
+  }
+ },
+ "gate_passed": true
+}
