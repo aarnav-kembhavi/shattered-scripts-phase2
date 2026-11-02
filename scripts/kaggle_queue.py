@@ -53,9 +53,14 @@ def push(job: str, args: list[str], hours: float, include: list[str] | None = No
     if include:
         cmd += ["--include", *include]
     cmd += ["--", *args]
+    lr = K / job / "last_run.json"
+    before = lr.stat().st_mtime if lr.exists() else None
     r = subprocess.run(cmd, cwd=REPO, capture_output=True, text=True, encoding="utf-8")
     (K / f"{job}_queue_run.log").write_text((r.stdout or "") + (r.stderr or ""), encoding="utf-8")
-    last = json.loads((K / job / "last_run.json").read_text())
+    if r.returncode != 0 or not lr.exists() or lr.stat().st_mtime == before:
+        # the runner refused (e.g. dirty tree) or never pushed: never fall back to the previous run's last_run.json
+        return None
+    last = json.loads(lr.read_text())
     return {"rc": r.returncode, "dir": REPO / last["output_dir"], "status": last["status"], "hours": last["hours"], "commit": last["commit"]}
 
 
@@ -74,7 +79,7 @@ def ingest_precision(s: dict) -> None:
     """Take up every fetched precision result not yet in the state (also those of a push whose driver was stopped)."""
     for f in sorted((K / "kaggle_precision").glob("*/out/precision_*.json")):
         d = json.loads(f.read_text())
-        if True:  # sorted by run time: the latest result of a model wins (a re-run replaces an earlier one; both files stay on disk)
+        if d.get("reference") == "float32_offload":  # A1-P-D1 (2026-11-03): results against the withdrawn 8-bit reference are not used; sorted by run time: the latest result of a model wins (a re-run replaces an earlier one; both files stay on disk)
             s["precision"][d["model"]] = {"pass": d.get("pass"), "reference": d.get("reference"), "hidden_abs_max_fp16": d.get("hidden_abs_max_fp16"),
                                           "file": str(f.relative_to(REPO)), "error": d.get("error")}
             log(s, f"A1-P {d['model']}: pass={d.get('pass')} reference={d.get('reference')} error={d.get('error')}")
@@ -85,7 +90,10 @@ def precision(s: dict, models: list[str]) -> None:
     models = [m for m in models if m not in s["precision"] and accessible(m)]
     if not models:
         return
-    r = push("kaggle_precision", ["--models", *models], 1.0 + 0.6 * len(models))
+    r = push("kaggle_precision", ["--models", *models], 2.0 + 1.5 * len(models))
+    if r is None:
+        log(s, f"A1-P {models}: runner did not push (see results/kaggle/kaggle_precision_queue_run.log); nothing recorded")
+        return
     for m in models:
         f = r["dir"] / "out" / f"precision_{m}.json"
         if f.exists():
@@ -103,6 +111,9 @@ def score(s: dict, model: str, hours: float) -> None:
     retrieval = bool(s["a1r"] and s["a1r"]["gate_passed"])
     args = ["--models", model] + ([] if retrieval else ["--no-retrieval"])
     r = push("x_score", args, hours, include=["results/e09_romanize/best_schemes.json"])
+    if r is None:
+        log(s, f"score {model}: runner did not push; nothing recorded")
+        return
     done = (r["dir"] / "out" / model / "done.json").exists()
     s["scored"][model] = {"done": done, "retrieval_requested": retrieval, "dir": str((r["dir"] / "out" / model).relative_to(REPO)), "hours": r["hours"],
                           "commit": r["commit"], "status": r["status"]}

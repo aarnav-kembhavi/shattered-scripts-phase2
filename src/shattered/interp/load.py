@@ -110,8 +110,9 @@ def _load_gemma4_text(repo: str, device: str, dtype, token):
     return model
 
 
-def load(name: str, device: str | None = None, dtype=torch.bfloat16, quant: str | None = None):
-    """device "auto" shards over all visible GPUs (Phase 2 Kaggle 7-9B models); quant "8bit" or "4bit" uses bitsandbytes (never for retrieval)."""
+def load(name: str, device: str | None = None, dtype=torch.bfloat16, quant: str | None = None, offload: bool = False):
+    """device "auto" shards over all visible GPUs (Phase 2 Kaggle 7-9B models); quant "8bit" or "4bit" uses bitsandbytes (never for retrieval).
+    offload=True (A1-P-D1, float32 reference): 12 GiB per GPU, the rest of the weights stay in system RAM (up to 22 GiB)."""
     from transformers import AutoModelForCausalLM, AutoTokenizer
     repo = MODELS[name]
     device = device or ("cuda" if torch.cuda.is_available() else "cpu")
@@ -127,6 +128,8 @@ def load(name: str, device: str | None = None, dtype=torch.bfloat16, quant: str 
                                          BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type="nf4", bnb_4bit_compute_dtype=dtype))
         if device == "auto":
             kw["max_memory"] = {i: "14.5GiB" for i in range(torch.cuda.device_count())}
+            if offload:
+                kw["max_memory"] = {i: "12GiB" for i in range(torch.cuda.device_count())} | {"cpu": "22GiB"}
         model, info = AutoModelForCausalLM.from_pretrained(repo, dtype=dtype, device_map="auto" if device == "auto" else {"": device},
                                                            token=token, output_loading_info=True, **kw)
         _check_loaded(name, info)

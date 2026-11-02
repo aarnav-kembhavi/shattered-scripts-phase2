@@ -1,6 +1,6 @@
 """A1-P per-model precision check (Amendment 2): for each model without a laptop baseline, score the gate's 100 SIB-200 items x 3 forms
-(native, ITRANS, lossy) in float16 and in a reference precision: float32 if it fits 2 x T4 (weights x 4 bytes <= 24 GiB), else 8-bit
-(bitsandbytes LLM.int8, stated in the output). The model counts only if, per form, raw-label agreement float16 vs reference >= 0.98 and
+(native, ITRANS, lossy) in float16 and in the reference precision: float32 with CPU offload (A1-P-D1, 2026-11-03; the earlier 8-bit LLM.int8
+reference is withdrawn as an invalid ground truth). The model counts only if, per form, raw-label agreement float16 vs reference >= 0.98 and
 |accuracy difference| <= 0.01, no non-finite value, and reported: max |hidden state| in float16 (limit 65504), mean/max |d logprob| fp16 vs
 reference. Models are sharded over both GPUs (device_map auto). One result file per model (resumable).
 Usage: python scripts/kaggle_precision.py --out DIR --models qwen3-8b ambari-7b-base
@@ -40,10 +40,12 @@ def score(model, tok, its, hidden=False) -> dict:
     return out
 
 
-def free(model) -> None:
+def free(model):
+    """Returns None; callers assign it back (`model = free(model)`) so no reference to the weights survives."""
     del model
     gc.collect()
     torch.cuda.empty_cache()
+    return None
 
 
 def main() -> None:
@@ -64,30 +66,20 @@ def main() -> None:
         r = {"model": m, "repo": MODELS[m], "rule": RULE}
         try:
             info = HfApi().model_info(MODELS[m])
-            n_par = (info.safetensors.total if info.safetensors else None)
-            r["parameters"] = n_par
-            # float32 is the reference whenever it fits 2 x T4 (registered); only a model whose float32 weights exceed about 28 GiB is not tried (Qwen3-8B: 30.5 GiB);
-            # an unknown size is tried, and an out-of-memory error falls back to 8-bit, recorded as "float32 did not fit".
-            ref_kind = "float32" if (n_par is None or n_par * 4 / 2**30 <= 28) else "8bit"
+            r["parameters"] = info.safetensors.total if info.safetensors else None
+            # A1-P-D1 (2026-11-03): the reference is always float32 with CPU offload (12 GiB per GPU, rest in system RAM); no 8-bit, no other fallback.
+            ref_kind = "float32_offload"
             model, tok = load(m, "auto", dtype=torch.float16)
             h = score(model, tok, its, hidden=True)
-            free(model)
-            try:
-                if ref_kind == "float32":
-                    model, tok = load(m, "auto", dtype=torch.float32)
-                else:
-                    model, tok = load(m, "auto", dtype=torch.float16, quant="8bit")
-            except Exception as e:  # noqa: BLE001 - recorded
-                if ref_kind != "float32":
-                    raise
-                r["float32_failed"] = repr(e)[:300]
-                gc.collect()
-                torch.cuda.empty_cache()
-                ref_kind = "8bit"
-                model, tok = load(m, "auto", dtype=torch.float16, quant="8bit")
+            model = free(model)  # drop the caller's reference too, or the fp16 weights stay on GPU 0 while float32 loads
+            t1 = time.time()
+            model, tok = load(m, "auto", dtype=torch.float32, offload=True)
+            r["ref_load_seconds"] = time.time() - t1
             r["reference"] = ref_kind
+            t1 = time.time()
             ref = score(model, tok, its)
-            free(model)
+            r["ref_score_seconds"] = time.time() - t1
+            model = free(model)
             r.update({"hidden_abs_max_fp16": h["hidden_abs_max"], "nonfinite_fp16": h["nonfinite"], "nonfinite_ref": ref["nonfinite"], "forms": {}})
             for f in FORMS:
                 x, y = h["lp"][f], ref["lp"][f]

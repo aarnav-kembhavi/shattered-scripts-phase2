@@ -66,9 +66,15 @@ SCRUB = [
     (r"aarnav", "lead-author"),
     (r"kembh", "user"),
     (r"RVCE", "[institution]"),
+    (r"Prof\.? Manonmani S?", "[supervisor]"),  # added 2026-11-03 (lead author)
+    (r"manonmanis", "[supervisor]"),
+    (r"Manonmani", "[supervisor]"),
+    (r"Ashwin Bhat", "[co-author]"),
+    (r"Aakarsh Prabhu", "[co-author]"),
+    # bare "Bhat", "Prabhu" and "Prabhu, Aakarsh" are NOT scrubbed (other authors' bib entries); they are listed by the check below
     (r"\bISM\b", "another project"),
 ]
-IDENT = [r"aarnav", r"kembh", r"rvce", r"gmail", r"king21", r"C:[\\/]", r"[\\/]Users[\\/]", r"PROJECTS", r"\bISM\b"]
+IDENT = [r"manonmani", r"ashwin", r"aakarsh", r"aarnav", r"kembh", r"rvce", r"gmail", r"king21", r"C:[\\/]", r"[\\/]Users[\\/]", r"PROJECTS", r"\bISM\b"]
 
 
 def run_trace() -> list:
@@ -147,7 +153,7 @@ def collect(traced: list) -> list:
 
 def scrub(text: str) -> str:
     for pat, rep in SCRUB:
-        text = re.sub(pat, rep, text, flags=re.I if pat.lower() in ("aarnav", "kembh", "rvce") else 0)
+        text = re.sub(pat, rep, text, flags=re.I if pat.lower() in ("aarnav", "kembh", "rvce", "manonmanis", "manonmani") else 0)
     return text
 
 
