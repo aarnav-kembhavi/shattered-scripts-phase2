@@ -27,3 +27,5 @@ results/k12/vectors/
 results/*.log
 results/CHAIN_STATUS*.md
 .pytest_cache/
+.kaggle/
+kaggle.json
