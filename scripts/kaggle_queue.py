@@ -179,9 +179,9 @@ def x9b_pilot(s: dict) -> bool:
         return True
     if s.get("x9b_pilot_failures", 0) >= 2 or not (REPO / "scripts" / "kaggle_x9b.py").exists():
         return False
-    if not projection(s, "kaggle_x9b pilot", 1.0, is_x9b=True):
+    if not projection(s, "kaggle_x9b pilot", 2.2, is_x9b=True):  # measured: about 11 min per model and condition at micro-batch 16 (50 micro-steps), 6 combinations plus loads and the smoke
         return False
-    r = push("kaggle_x9b", ["--mode", "pilot"], 1.0)
+    r = push("kaggle_x9b", ["--mode", "pilot"], 2.2)
     if r is None:
         log(s, "X9b pilot: runner did not push; nothing recorded")
         return False

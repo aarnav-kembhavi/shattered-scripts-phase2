@@ -255,6 +255,7 @@ def run_pilot(out: Path, device: str, quant: bool, steps: int, models: list[str]
             r["conditions"][cond], first_ids[cond] = pilot_one(pool, name, cond, device, quant, steps)
             res["exclusion_rescan_overlap"][f"{name}:{cond}"] = scan_consumed(pool, cond, first_ids[cond], sets)
             print(name, cond, {k: v for k, v in r["conditions"][cond].items() if k != "tokenizer_sha256"}, flush=True)
+            (out / f"pilot_{name}_{cond}.json").write_text(json.dumps({"model": name, "condition": cond, **r["conditions"][cond]}, indent=1))  # a timeout loses at most one combination
         slow = min(c["tokens_per_s"] for c in r["conditions"].values())
         r["slowest_tokens_per_s"] = slow
         r["B"] = int(math.floor(0.9 * slow * SECONDS_3H / TOK_PER_STEP) * TOK_PER_STEP)
