@@ -147,6 +147,8 @@ print("job finished", rc, flush=True)
 
 def run(a) -> None:
     job = a.job
+    if (KDIR / "HOLD").exists():  # operator hold (2026-11-02): no new push while this file exists; the in-flight job is unaffected
+        raise SystemExit("queue on hold (results/kaggle/HOLD exists): " + (KDIR / "HOLD").read_text()[:200])
     commit = git("rev-parse", "HEAD")
     dirty = git("status", "--porcelain", "--", *CODE_DIRS, "pyproject.toml")
     if dirty and not a.allow_dirty:
