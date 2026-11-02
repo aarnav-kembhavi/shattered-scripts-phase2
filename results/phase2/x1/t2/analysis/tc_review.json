@@ -1,0 +1,180 @@
+{
+  "provenance": {
+    "config": {
+      "note": "native - form accuracy gaps; natural rows use the native accuracy on the full item set; McNemar p as in tc_cells.csv"
+    },
+    "git_commit": "a5c27cef8ab26b4f2ac6cd0d48f2b1be6216de3c",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "timestamp_utc": "2026-11-02T09:25:16+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x1_tc_review.py"
+    ]
+  },
+  "shift_counts": [
+    {
+      "model": "gemma4-e2b",
+      "task": "sentiment",
+      "cells": 9,
+      "sig_raw": 1,
+      "sig_holm": 0
+    },
+    {
+      "model": "gemma4-e2b",
+      "task": "sib",
+      "cells": 9,
+      "sig_raw": 3,
+      "sig_holm": 1
+    },
+    {
+      "model": "gemma4-e2b",
+      "task": "xnli",
+      "cells": 9,
+      "sig_raw": 0,
+      "sig_holm": 0
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "task": "sentiment",
+      "cells": 9,
+      "sig_raw": 2,
+      "sig_holm": 1
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "task": "sib",
+      "cells": 9,
+      "sig_raw": 8,
+      "sig_holm": 7
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "task": "xnli",
+      "cells": 9,
+      "sig_raw": 0,
+      "sig_holm": 0
+    },
+    {
+      "model": "qwen3-1.7b",
+      "task": "sentiment",
+      "cells": 9,
+      "sig_raw": 0,
+      "sig_holm": 0
+    },
+    {
+      "model": "qwen3-1.7b",
+      "task": "sib",
+      "cells": 9,
+      "sig_raw": 9,
+      "sig_holm": 2
+    },
+    {
+      "model": "qwen3-1.7b",
+      "task": "xnli",
+      "cells": 9,
+      "sig_raw": 0,
+      "sig_holm": 0
+    },
+    {
+      "model": "qwen3.5-2b",
+      "task": "sentiment",
+      "cells": 9,
+      "sig_raw": 1,
+      "sig_holm": 1
+    },
+    {
+      "model": "qwen3.5-2b",
+      "task": "sib",
+      "cells": 9,
+      "sig_raw": 6,
+      "sig_holm": 3
+    },
+    {
+      "model": "qwen3.5-2b",
+      "task": "xnli",
+      "cells": 9,
+      "sig_raw": 0,
+      "sig_holm": 0
+    },
+    {
+      "model": "sarvam-1",
+      "task": "sentiment",
+      "cells": 9,
+      "sig_raw": 8,
+      "sig_holm": 7
+    },
+    {
+      "model": "sarvam-1",
+      "task": "sib",
+      "cells": 9,
+      "sig_raw": 0,
+      "sig_holm": 0
+    },
+    {
+      "model": "sarvam-1",
+      "task": "xnli",
+      "cells": 9,
+      "sig_raw": 0,
+      "sig_holm": 0
+    }
+  ],
+  "n_cells": 135,
+  "sig_raw": 38,
+  "sig_holm": 22,
+  "gap_sign_differs": [
+    {
+      "model": "qwen3.5-2b",
+      "task": "xnli",
+      "form": "itrans",
+      "gap_t1": 0.0,
+      "gap_t2": 0.010000000000000009,
+      "n_form": 200,
+      "sign_t1": 0.0,
+      "sign_t2": 1.0,
+      "sign_differs": true
+    },
+    {
+      "model": "qwen3.5-2b",
+      "task": "xnli",
+      "form": "lower",
+      "gap_t1": -0.004999999999999949,
+      "gap_t2": 0.024999999999999967,
+      "n_form": 200,
+      "sign_t1": -1.0,
+      "sign_t2": 1.0,
+      "sign_differs": true
+    },
+    {
+      "model": "qwen3.5-2b",
+      "task": "xnli",
+      "form": "natural",
+      "gap_t1": -0.0019689119170983593,
+      "gap_t2": 0.028212435233160693,
+      "n_form": 193,
+      "sign_t1": -1.0,
+      "sign_t2": 1.0,
+      "sign_differs": true
+    }
+  ],
+  "gap_correlation": {
+    "sentiment": {
+      "n_cells": 20,
+      "pearson": 0.4191645148992591,
+      "spearman": 0.4110780855767825,
+      "sign_differs": 0
+    },
+    "sib": {
+      "n_cells": 15,
+      "pearson": 0.9778489265962949,
+      "spearman": 0.9097412033042814,
+      "sign_differs": 0
+    },
+    "xnli": {
+      "n_cells": 20,
+      "pearson": 0.8360790089002753,
+      "spearman": 0.8707124629097636,
+      "sign_differs": 3
+    }
+  }
+}

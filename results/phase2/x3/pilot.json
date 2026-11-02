@@ -1,0 +1,51 @@
+{
+  "provenance": {
+    "config": {
+      "status": "pilot: timing and decode check only; no accuracy or retrieval computed"
+    },
+    "git_commit": "a5c27cef8ab26b4f2ac6cd0d48f2b1be6216de3c",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "timestamp_utc": "2026-11-02T09:30:38+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x3.py",
+      "pilot"
+    ]
+  },
+  "model": "gemma4-e2b",
+  "sib_seconds_per_item": 0.6708281993865967,
+  "sib_decode_identical": "20/20",
+  "m4c_seconds_per_sentence": 0.09060568809509277,
+  "eligible_items_m": {
+    "m4c": {
+      "gemma4-e2b": 451,
+      "qwen2.5-1.5b": 423,
+      "qwen3-1.7b": 423,
+      "qwen3.5-2b": 437,
+      "sarvam-1": 400
+    },
+    "sentiment": {
+      "gemma4-e2b": 175,
+      "qwen2.5-1.5b": 170,
+      "qwen3-1.7b": 170,
+      "qwen3.5-2b": 171,
+      "sarvam-1": 163
+    },
+    "sib": {
+      "gemma4-e2b": 894,
+      "qwen2.5-1.5b": 854,
+      "qwen3-1.7b": 854,
+      "qwen3.5-2b": 890,
+      "sarvam-1": 840
+    },
+    "xnli": {
+      "gemma4-e2b": 178,
+      "qwen2.5-1.5b": 167,
+      "qwen3-1.7b": 167,
+      "qwen3.5-2b": 169,
+      "sarvam-1": 161
+    }
+  },
+  "estimate_hours_total_m_and_r": 2.2446656916141507
+}
