@@ -239,10 +239,11 @@ def build() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     PRIV.mkdir(parents=True, exist_ok=True)
     x8 = build_x8()
-    keys = build_x15()
+    keys = build_x15() if "--with-x15" in sys.argv else None  # X15 is skipped (not run: annotators unavailable, 2026-11-03): no X15 files are built unless asked
     if "--with-t3" in sys.argv:  # T3_verification.xlsx has been sent and returned: never overwritten unless asked
         build_t3()
-    (PRIV / "x15_keys.json").write_text(json.dumps(keys, ensure_ascii=False, indent=1), encoding="utf-8")
+    if keys is not None:
+        (PRIV / "x15_keys.json").write_text(json.dumps(keys, ensure_ascii=False, indent=1), encoding="utf-8")
     (PRIV / "x8_keys.json").write_text(json.dumps({k: v for k, v in x8.items() if k != "gemini_text_by_index"}, ensure_ascii=False, indent=1), encoding="utf-8")
     (PRIV / "x8_gemini_text_for_leak_check.json").write_text(json.dumps(x8["gemini_text_by_index"], ensure_ascii=False), encoding="utf-8")
     (PRIV / "README.txt").write_text("Private keys for the annotation workbooks (X15 gold labels and form mapping, shuffle seeds, X8 order). Never send, never commit, never in the anonymised package.\n")
