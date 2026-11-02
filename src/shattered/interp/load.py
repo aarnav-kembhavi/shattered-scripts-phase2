@@ -31,6 +31,9 @@ MODELS = {
 }
 
 
+PICKLE_ONLY = {"ambari-7b-instruct-v0.2"}
+
+
 class CPULookup(torch.nn.Module):
     """Runs an embedding module on CPU and returns its output on `device` (kept out of .to(); not a submodule)."""
 
@@ -114,6 +117,12 @@ def load(name: str, device: str | None = None, dtype=torch.bfloat16, quant: str 
     """device "auto" shards over all visible GPUs (Phase 2 Kaggle 7-9B models); quant "8bit" or "4bit" uses bitsandbytes (never for retrieval).
     offload=True (A1-P-D1, float32 reference): 12 GiB per GPU, the rest of the weights stay in system RAM (up to 22 GiB)."""
     from transformers import AutoModelForCausalLM, AutoTokenizer
+    if name in PICKLE_ONLY:
+        # pickle .bin weights (no safetensors): Kaggle only, and torch.load is forced to weights_only=True (decided 2026-11-02)
+        if not os.path.isdir("/kaggle/working"):
+            raise RuntimeError(f"{name} ships pickle weights only; it is loaded on Kaggle only, never on the laptop")
+        import functools
+        torch.load = functools.partial(torch.load, weights_only=True)
     repo = MODELS[name]
     device = device or ("cuda" if torch.cuda.is_available() else "cpu")
     token = os.environ.get("HF_TOKEN")

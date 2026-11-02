@@ -3722,3 +3722,16 @@ with a list of what moved to the appendix. Phase 2 results enter the paper only 
   fp16 weights stayed on GPU 0; the "float32 out of memory (12.8 GiB)" for Ambari-7B-base above was probably caused by this, not by float32 not fitting (fixed: `model = free(model)`);
   (2) `kaggle_queue.py` read the previous `last_run.json` when the runner refused a dirty tree and recorded the old 8-bit Ambari result as new at 22:58 (fixed: `push()` returns None on refusal;
   the state was reset; nothing was pushed to Kaggle by that pass).
+
+- **2026-11-02 23:35 IST, X12 CLARIFICATION (registered by Aarnav before any X12 result exists; no verdict rule is changed).** Ambari-7B-Instruct-v0.2 uses the 32,000-token Llama-2
+  tokenizer (`results/phase2/x12/tokenizers.json`: native 20.83, ITRANS 4.69 tokens per word), so it cannot be built on Ambari-7B-base (49,600; native 2.74, ITRANS 4.55). **Contrast 2 is renamed
+  "instruction-pair exposure contrast":** Ambari-7B-Instruct-v0.1 (extended tokenizer plus 500M Kannada tokens) vs v0.2 (Llama-2 plus the same instruction tuning); it differs in **both** tokenizer
+  and Kannada continued pretraining. **Primary statistic: the same DiD as contrast 1** (native gain minus ITRANS gain, on SIB-200 and on retrieval, 97.5% paired-bootstrap intervals, same
+  verdict words). The MDL assembly comparison (300 Phase 1 probe words, fp16) is **descriptive only**, with this confound stated. **If Llama-2-7b-hf is still gated when X12 would run, this contrast
+  stands in for contrast 1, and the paper says so.** Access: Ambari-7B-Instruct-v0.1 is now granted (downloads with the `.env` token); Llama-2-7b-hf and Llama-3.1-8B are still gated and are retried between jobs.
+- **2026-11-02 23:35 IST, weights-loading rule (decided by Aarnav).** Ambari-7B-Instruct-v0.2 ships only pickle `.bin` weights. It is loaded **only on Kaggle**, with `weights_only=True` forced on
+  `torch.load`; `shattered.interp.load.load` refuses it anywhere else (never on the laptop).
+- **2026-11-02 23:35 IST, Kaggle queue order (decided by Aarnav).** (a) the A1-P job in flight (Qwen3-8B, Ambari-7B-base, float32-offload reference); (b) score whichever of the two passes: X13 Qwen3-8B,
+  then X12 Ambari-base; (c) A1-P for Ambari-Instruct v0.1 and v0.2; (d) X9b full, Sarvam-1 primary arm (6 runs, about 18 GPU hours), as soon as its laptop memory pilot is done. Before each push the remaining
+  weekly quota is projected; the X9b Sarvam arm is reserved this week or next, X9b goes first if X12 instruct work would push it into a later week, and the Qwen3.5-2B arm is cut first if quota is short (as registered).
+  To apply this order the queue driver was changed and a `results/kaggle/HOLD` file stops new pushes while the in-flight job continues (an implementation change; no rule).
