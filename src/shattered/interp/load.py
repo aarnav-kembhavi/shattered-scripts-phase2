@@ -126,7 +126,7 @@ def load(name: str, device: str | None = None, dtype=torch.bfloat16, quant: str 
             kw["quantization_config"] = (BitsAndBytesConfig(load_in_8bit=True) if quant == "8bit" else
                                          BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type="nf4", bnb_4bit_compute_dtype=dtype))
         if device == "auto":
-            kw["max_memory"] = {i: "14GiB" for i in range(torch.cuda.device_count())}
+            kw["max_memory"] = {i: "14.5GiB" for i in range(torch.cuda.device_count())}
         model, info = AutoModelForCausalLM.from_pretrained(repo, dtype=dtype, device_map="auto" if device == "auto" else {"": device},
                                                            token=token, output_loading_info=True, **kw)
         _check_loaded(name, info)

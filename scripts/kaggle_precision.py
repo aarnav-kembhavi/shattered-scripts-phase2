@@ -66,12 +66,26 @@ def main() -> None:
             info = HfApi().model_info(MODELS[m])
             n_par = (info.safetensors.total if info.safetensors else None)
             r["parameters"] = n_par
-            ref_kind = "float32" if (n_par and n_par * 4 / 2**30 <= 24) else "8bit"
-            r["reference"] = ref_kind
+            # float32 is the reference whenever it fits 2 x T4 (registered); only a model whose float32 weights exceed about 28 GiB is not tried (Qwen3-8B: 30.5 GiB);
+            # an unknown size is tried, and an out-of-memory error falls back to 8-bit, recorded as "float32 did not fit".
+            ref_kind = "float32" if (n_par is None or n_par * 4 / 2**30 <= 28) else "8bit"
             model, tok = load(m, "auto", dtype=torch.float16)
             h = score(model, tok, its, hidden=True)
             free(model)
-            model, tok = load(m, "auto", dtype=torch.float32) if ref_kind == "float32" else load(m, "auto", dtype=torch.float16, quant="8bit")
+            try:
+                if ref_kind == "float32":
+                    model, tok = load(m, "auto", dtype=torch.float32)
+                else:
+                    model, tok = load(m, "auto", dtype=torch.float16, quant="8bit")
+            except Exception as e:  # noqa: BLE001 - recorded
+                if ref_kind != "float32":
+                    raise
+                r["float32_failed"] = repr(e)[:300]
+                gc.collect()
+                torch.cuda.empty_cache()
+                ref_kind = "8bit"
+                model, tok = load(m, "auto", dtype=torch.float16, quant="8bit")
+            r["reference"] = ref_kind
             ref = score(model, tok, its)
             free(model)
             r.update({"hidden_abs_max_fp16": h["hidden_abs_max"], "nonfinite_fp16": h["nonfinite"], "nonfinite_ref": ref["nonfinite"], "forms": {}})
