@@ -74,7 +74,11 @@ SCRUB = [
     # bare "Bhat", "Prabhu" and "Prabhu, Aakarsh" are NOT scrubbed (other authors' bib entries); they are listed by the check below
     (r"\bISM\b", "another project"),
 ]
-IDENT = [r"manonmani", r"ashwin", r"aakarsh", r"aarnav", r"kembh", r"rvce", r"gmail", r"king21", r"C:[\\/]", r"[\\/]Users[\\/]", r"PROJECTS", r"\bISM\b"]
+IDENT = [r"aarnav", r"kembh", r"rvce", r"gmail", r"king21", r"C:[\\/]", r"[\\/]Users[\\/]", r"PROJECTS", r"\bISM\b"]
+# Names are matched on word boundaries only (2026-11-03): "aakarshane", "pratibhate", "prabhutva" etc. are Kannada/Hindi romanization words, not names.
+NAMES = [r"\bmanonmani(?:s)?\b", r"\bashwin\b", r"\baakarsh\b", r"\bbhat\b", r"\bprabhu\b"]
+# Hits the lead author has decided to keep (2026-11-03): the bib entry of a cited paper keeps its real author names.
+ACCEPTED = [("paper2/refs.bib", "Prabhu, Aakarsh")]
 
 
 def run_trace() -> list:
@@ -282,8 +286,8 @@ identifiers are included.
 
 
 def verify() -> dict:
-    pats = [re.compile(p, re.I if p.islower() else 0) for p in IDENT]
-    hits, n = [], 0
+    pats = [re.compile(p, re.I if p.islower() else 0) for p in IDENT] + [re.compile(p, re.I) for p in NAMES]
+    hits, accepted, n = [], [], 0
     for p in PKG.rglob("*"):
         rel = p.relative_to(PKG).as_posix()
         for pat in pats:
@@ -295,10 +299,12 @@ def verify() -> dict:
         data = p.read_bytes()
         text = data.decode("latin-1")
         for pat in pats:
-            m = pat.search(text)
-            if m:
-                hits.append((rel, text[max(0, m.start() - 30):m.end() + 30].replace("\n", " "), pat.pattern))
-    return {"files_scanned": n, "hits": hits}
+            for m in pat.finditer(text):
+                row = (rel, text[max(0, m.start() - 60):m.end() + 60].replace("\n", " "), pat.pattern)
+                (accepted if any(rel == a and k in row[1] for a, k in ACCEPTED) else hits).append(row)
+                if pat.pattern in IDENT:
+                    break  # identity patterns: the first hit per file is enough; names: every hit is listed
+    return {"files_scanned": n, "hits": hits, "accepted": accepted}
 
 
 def main():
@@ -311,12 +317,14 @@ def main():
         for p in sorted(PKG.rglob("*")):
             if p.is_file():
                 z.write(p, Path("shattered-scripts-anon") / p.relative_to(PKG))
-    rep = {**stats, "zip_bytes": ZIP.stat().st_size, "traced_reads": len(traced), "identifying_hits": len(ver["hits"]),
+    rep = {**stats, "zip_bytes": ZIP.stat().st_size, "traced_reads": len(traced), "identifying_hits": len(ver["hits"]), "accepted_hits": len(ver["accepted"]),
            "files_scanned": ver["files_scanned"], "hit_details": ver["hits"][:50]}
     (BUILD / "anon_package_report.json").write_text(json.dumps(rep, indent=1, ensure_ascii=False), encoding="utf-8")
     print(json.dumps({k: v for k, v in rep.items() if k != "hit_details"}, indent=1))
     for h in ver["hits"][:30]:
         print("HIT", h)
+    for h in ver["accepted"]:
+        print("ACCEPTED (lead author, 2026-11-03)", h)
     return 1 if ver["hits"] else 0
 
 
