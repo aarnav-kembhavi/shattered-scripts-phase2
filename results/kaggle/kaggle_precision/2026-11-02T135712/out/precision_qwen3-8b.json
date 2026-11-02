@@ -1,0 +1,45 @@
+{
+ "model": "qwen3-8b",
+ "repo": "Qwen/Qwen3-8B",
+ "rule": {
+  "agree_min": 0.98,
+  "acc_diff_max": 0.01,
+  "hidden_max": 65504.0
+ },
+ "parameters": 8190735360,
+ "reference": "8bit",
+ "hidden_abs_max_fp16": 11864.0,
+ "nonfinite_fp16": 0,
+ "nonfinite_ref": 0,
+ "forms": {
+  "native": {
+   "raw_agreement": 0.93,
+   "acc_fp16": 0.68,
+   "acc_ref": 0.72,
+   "mean_abs_dlogprob": 0.6168538867459367,
+   "max_abs_dlogprob": 10.949350833892822,
+   "acc_diff": -0.039999999999999925,
+   "pass": false
+  },
+  "itrans": {
+   "raw_agreement": 0.92,
+   "acc_fp16": 0.32,
+   "acc_ref": 0.28,
+   "mean_abs_dlogprob": 0.8877854194119572,
+   "max_abs_dlogprob": 5.151677131652832,
+   "acc_diff": 0.03999999999999998,
+   "pass": false
+  },
+  "lossy": {
+   "raw_agreement": 0.93,
+   "acc_fp16": 0.43,
+   "acc_ref": 0.4,
+   "mean_abs_dlogprob": 0.7919788641136671,
+   "max_abs_dlogprob": 6.525888085365295,
+   "acc_diff": 0.02999999999999997,
+   "pass": false
+  }
+ },
+ "pass": false,
+ "seconds": 1112.8560316562653
+}

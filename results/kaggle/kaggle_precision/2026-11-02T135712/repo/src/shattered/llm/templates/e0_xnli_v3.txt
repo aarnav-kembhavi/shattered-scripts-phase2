@@ -1,0 +1,4 @@
+Premise: {premise}
+Hypothesis: {hypothesis}
+Question: ದತ್ತಾಂಶವು ಸತ್ಯವಾಗಿದ್ದರೆ, ಪರಿಕಲ್ಪನೆಯು ಸತ್ಯವೇ? no, maybe, ಅಥವಾ yes ಆಯ್ಕೆಮಾಡಿ.
+Answer:
