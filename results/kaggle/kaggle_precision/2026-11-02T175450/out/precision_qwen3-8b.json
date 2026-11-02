@@ -1,0 +1,49 @@
+{
+ "model": "qwen3-8b",
+ "repo": "Qwen/Qwen3-8B",
+ "rule": {
+  "agree_min": 0.98,
+  "acc_diff_max": 0.01,
+  "hidden_max": 65504.0
+ },
+ "reference": "float32_offload",
+ "parameters": 8190735360,
+ "hidden_abs_max_fp16": 11864.0,
+ "nonfinite_fp16": 0,
+ "nonfinite_ref": 0,
+ "fp16_load_seconds": 137.03530263900757,
+ "fp16_score_seconds": 311.63468170166016,
+ "ref_load_seconds": 47.98540663719177,
+ "ref_score_seconds": 6461.636216640472,
+ "forms": {
+  "native": {
+   "raw_agreement": 1.0,
+   "acc_fp16": 0.68,
+   "acc_ref": 0.68,
+   "mean_abs_dlogprob": 0.012725379428427134,
+   "max_abs_dlogprob": 0.07771587371826172,
+   "acc_diff": 0.0,
+   "pass": true
+  },
+  "itrans": {
+   "raw_agreement": 1.0,
+   "acc_fp16": 0.32,
+   "acc_ref": 0.32,
+   "mean_abs_dlogprob": 0.01249250376863139,
+   "max_abs_dlogprob": 0.07660722732543945,
+   "acc_diff": 0.0,
+   "pass": true
+  },
+  "lossy": {
+   "raw_agreement": 1.0,
+   "acc_fp16": 0.43,
+   "acc_ref": 0.43,
+   "mean_abs_dlogprob": 0.011836384156984943,
+   "max_abs_dlogprob": 0.06956291198730469,
+   "acc_diff": 0.0,
+   "pass": true
+  }
+ },
+ "pass": true,
+ "seconds": 6975.62580704689
+}

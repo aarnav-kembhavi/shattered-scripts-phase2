@@ -81,6 +81,58 @@
    "hardware": null,
    "torch": null,
    "bf16_supported": null
+  },
+  {
+   "job": "kaggle_precision",
+   "kernel": "aarnavkembhavi1/shattered-kaggle-precision",
+   "commit": "803b5e7d49aec51f6ff4e737229789cc8e0c5f4f",
+   "dirty": false,
+   "args": [
+    "--models",
+    "qwen3-8b",
+    "ambari-7b-base"
+   ],
+   "start_utc": "2026-11-02T17:30:11.444903+00:00",
+   "hours": 0.35400103045834436,
+   "status": "aarnavkembhavi1/shattered-kaggle-precision has status \"KernelWorkerStatus.COMPLETE\"",
+   "accelerator": "NvidiaTeslaT4 (T4 x2)",
+   "output_dir": "results\\kaggle\\kaggle_precision\\2026-11-02T173011",
+   "hardware": null,
+   "torch": null,
+   "bf16_supported": null
+  },
+  {
+   "job": "kaggle_precision",
+   "kernel": "aarnavkembhavi1/shattered-kaggle-precision",
+   "commit": "9d50e929810ac207aa1770949025eab1d3b25598",
+   "dirty": false,
+   "args": [
+    "--models",
+    "qwen3-8b",
+    "ambari-7b-base"
+   ],
+   "start_utc": "2026-11-02T17:54:50.433466+00:00",
+   "hours": 2.982456547551685,
+   "status": "aarnavkembhavi1/shattered-kaggle-precision has status \"KernelWorkerStatus.COMPLETE\"",
+   "accelerator": "NvidiaTeslaT4 (T4 x2)",
+   "output_dir": "results\\kaggle\\kaggle_precision\\2026-11-02T175450",
+   "hardware": null,
+   "torch": null,
+   "bf16_supported": null
+  },
+  {
+   "job": "kaggle_x9b",
+   "kernel": "aarnavkembhavi1/shattered-kaggle-x9b",
+   "commit": "c78f50a43a75b796113ef1b0ba33833f3b5e5b3c",
+   "dirty": false,
+   "args": [
+    "--mode",
+    "pilot"
+   ],
+   "start_utc": "2026-11-02T20:54:05.555786+00:00",
+   "hours": 1.0,
+   "status": "pushed",
+   "accelerator": "NvidiaTeslaT4 (T4 x2)"
   }
  ]
 }

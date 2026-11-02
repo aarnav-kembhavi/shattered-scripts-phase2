@@ -1,0 +1,43 @@
+{
+ "log": [
+  "2026-11-02 22:58:03 A1-R read: gate_passed=True",
+  "2026-11-02 22:58:13 A1-P qwen3-8b: no result file (kernel status aarnavkembhavi1/shattered-kaggle-precision has status \"KernelWorkerStatus.COMPLETE\")",
+  "2026-11-02 22:58:13 A1-P ambari-7b-base: pass=False reference=8bit error=None",
+  "2026-11-02 22:58:14 A1-P ambari-7b-instruct-v0.2: no result file (kernel status aarnavkembhavi1/shattered-kaggle-precision has status \"KernelWorkerStatus.COMPLETE\")",
+  "2026-11-02 22:58:15 A1-P qwen3-8b: no result file (kernel status aarnavkembhavi1/shattered-kaggle-precision has status \"KernelWorkerStatus.COMPLETE\")",
+  "2026-11-02 22:58:15 queue pass finished",
+  "2026-11-02 23:05 state reset: the 22:58 pass recorded a stale 8-bit result because the runner refused a dirty tree and push() read the old last_run.json; push() now returns None on refusal. A1-P-D1: 8-bit results withdrawn.",
+  "2026-11-02 23:21:32 A1-P qwen3-8b: pass=False reference=None error=OutOfMemoryError('CUDA out of memory. Tried to allocate 9.49 GiB. GPU 0 has a total capacity of 14.56 GiB of which 6.68 GiB is free. Process 7 has 104.00 MiB memory in use. Including non-PyTorch memory, this process has 7.78 GiB memory in use. Of the allocated memory 7.64 GiB is allocated by PyTorch, and 13.58 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-u",
+  "2026-11-02 23:21:32 A1-P ambari-7b-base: pass=False reference=None error=OutOfMemoryError('CUDA out of memory. Tried to allocate 9.33 GiB. GPU 0 has a total capacity of 14.56 GiB of which 6.68 GiB is free. Process 7 has 104.00 MiB memory in use. Including non-PyTorch memory, this process has 7.78 GiB memory in use. Of the allocated memory 6.42 GiB is allocated by PyTorch, and 1.23 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-us",
+  "2026-11-02 23:21:33 A1-P ['ambari-7b-instruct-v0.1']: runner did not push (see results/kaggle/kaggle_precision_queue_run.log); nothing recorded",
+  "2026-11-02 23:21:34 A1-P ['ambari-7b-instruct-v0.2']: runner did not push (see results/kaggle/kaggle_precision_queue_run.log); nothing recorded",
+  "2026-11-02 23:21:35 queue pass finished",
+  "state reset: the 22:59 A1-P run (commit 803b5e7) ended in CUDA OOM for both models (harness: fp16 weights still resident); no verdict. A1-P now runs each precision in its own subprocess.",
+  "2026-11-02 23:24:34 quota projection before A1-P ['qwen3-8b', 'ambari-7b-base']: 2.02 h used in the last 7 days, this push up to 5.0 h, headroom 23.0 h, X9b Sarvam reserve 18 h (X9b ready: False)",
+  "2026-11-03 02:23:51 A1-P qwen3-8b: pass=True reference=float32_offload error=None",
+  "2026-11-03 02:23:51 A1-P ambari-7b-base: pass=True reference=float32_offload error=None",
+  "2026-11-03 02:23:51 quota projection before kaggle_x9b pilot: 5.00 h used in the last 7 days, this push up to 1.0 h, headroom 24.0 h, X9b Sarvam reserve 18 h (X9b ready: False)"
+ ],
+ "precision": {
+  "qwen3-8b": {
+   "pass": true,
+   "reference": "float32_offload",
+   "hidden_abs_max_fp16": 11864.0,
+   "file": "results\\kaggle\\kaggle_precision\\2026-11-02T175450\\out\\precision_qwen3-8b.json",
+   "commit": "9d50e929810ac207aa1770949025eab1d3b25598",
+   "error": null
+  },
+  "ambari-7b-base": {
+   "pass": true,
+   "reference": "float32_offload",
+   "hidden_abs_max_fp16": 1730.0,
+   "file": "results\\kaggle\\kaggle_precision\\2026-11-02T175450\\out\\precision_ambari-7b-base.json",
+   "commit": "9d50e929810ac207aa1770949025eab1d3b25598",
+   "error": null
+  }
+ },
+ "scored": {},
+ "a1r": {
+  "gate_passed": true
+ }
+}

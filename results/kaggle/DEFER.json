@@ -1,0 +1,23 @@
+[
+ {
+  "job": "kaggle_precision",
+  "model": "ambari-7b-instruct-v0.1"
+ },
+ {
+  "job": "kaggle_precision",
+  "model": "ambari-7b-instruct-v0.2"
+ },
+ {
+  "job": "kaggle_precision",
+  "model": "llama-3.1-8b"
+ },
+ {
+  "job": "x_score",
+  "model": "llama-2-7b",
+  "requires_pass": "ambari-7b-base"
+ },
+ {
+  "job": "x_score",
+  "model": "llama-3.1-8b"
+ }
+]
