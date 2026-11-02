@@ -1,0 +1,25 @@
+{
+  "provenance": {
+    "config": {
+      "experiment": "X9b removed article ids (the Kaggle job reproduces the seeded order from these and checks the sha256)"
+    },
+    "git_commit": "fc8ed7160ba8706fb6f1fc52e468b2136533648c-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-02T18:11:19+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x9b_streams.py",
+      "--workers",
+      "5"
+    ]
+  },
+  "kn": [],
+  "en": [
+    "4764461",
+    "4866465"
+  ],
+  "kn_native_scan": [],
+  "kn_itrans_scan": []
+}

@@ -1,0 +1,67 @@
+{
+  "provenance": {
+    "config": {
+      "experiment": "X9b exclusion scan (CPU)",
+      "registration": "phase2-amendment-2"
+    },
+    "git_commit": "fc8ed7160ba8706fb6f1fc52e468b2136533648c-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-02T18:11:19+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x9b_streams.py",
+      "--workers",
+      "5"
+    ]
+  },
+  "eval_sentences": {
+    "flores_kn": 2009,
+    "flores_en": 2009,
+    "sib_kn": 1004,
+    "sib_en": 1004,
+    "flores_kn_itrans": 2009,
+    "sib_kn_itrans": 1004
+  },
+  "wikipedia_revision": "b04c8d1ceb2f5cd4588862100d08de323dccfbaa",
+  "sib_revision": "38977a667f6fc264d5c26ec57a01e16db040b358",
+  "prefix_chars": 20,
+  "seed": 9,
+  "limit": null,
+  "streams": {
+    "native_kannada": {
+      "pool_articles": 31437,
+      "removed_native_scan": 0,
+      "removed_by_set": {},
+      "retained_articles": 31437,
+      "retained_words": 17402199,
+      "final_overlap": 0,
+      "order_sha256": "9213b0927c3342c80aa87c45f88513b10b7adecff1f95b4b0142cd1c316e908d"
+    },
+    "itrans_kannada": {
+      "pool_articles": 31437,
+      "removed_itrans_scan": 0,
+      "removed_by_set": {},
+      "removed_union_with_native": 0,
+      "retained_articles": 31437,
+      "retained_words": 17402199,
+      "final_overlap": 0,
+      "order_sha256": "9213b0927c3342c80aa87c45f88513b10b7adecff1f95b4b0142cd1c316e908d"
+    },
+    "english": {
+      "pool_articles": 156289,
+      "removed": 2,
+      "removed_by_set": {
+        "flores_en": 2,
+        "sib_en": 2
+      },
+      "retained_articles": 156287,
+      "retained_words": 111266992,
+      "final_overlap": 0,
+      "order_sha256": "38a275915fe7cf5646c68f7f7692a2268715faa95df5cb08a8b4675843fb8e0f"
+    }
+  },
+  "all_overlap_zero": true,
+  "seconds": 831.7496926784515
+}
