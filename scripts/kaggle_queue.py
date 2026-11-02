@@ -60,20 +60,28 @@ def push(job: str, args: list[str], hours: float, include: list[str] | None = No
 
 
 def read_a1r(s: dict) -> None:
-    if s["a1r"] is not None:
-        return
-    p = K / "kaggle_retrieval_gate" / "last_run.json"
-    if not p.exists():
-        return
-    d = REPO / json.loads(p.read_text())["output_dir"] / "out" / "gate_retrieval.json"
-    if not d.exists():
-        return
-    g = json.loads(d.read_text())
-    s["a1r"] = {"gate_passed": g["gate_passed"], "dir": str(d.parent.relative_to(REPO))}
-    log(s, f"A1-R read: gate_passed={g['gate_passed']}")
+    """The A1-R verdict is `results/kaggle/a1r_result.json` (Kaggle output compared with the laptop summary locally; the in-kernel flag is not used,
+    the laptop summary is not in the Kaggle package)."""
+    p = K / "a1r_result.json"
+    if p.exists():
+        g = json.loads(p.read_text())
+        if s["a1r"] != {"gate_passed": g["gate_passed"]}:
+            s["a1r"] = {"gate_passed": g["gate_passed"]}
+            log(s, f"A1-R read: gate_passed={g['gate_passed']}")
+
+
+def ingest_precision(s: dict) -> None:
+    """Take up every fetched precision result not yet in the state (also those of a push whose driver was stopped)."""
+    for f in sorted((K / "kaggle_precision").glob("*/out/precision_*.json")):
+        d = json.loads(f.read_text())
+        if d["model"] not in s["precision"] and "error" not in d or (d["model"] not in s["precision"] and d.get("error") and "parameters" in d):
+            s["precision"][d["model"]] = {"pass": d.get("pass"), "reference": d.get("reference"), "hidden_abs_max_fp16": d.get("hidden_abs_max_fp16"),
+                                          "file": str(f.relative_to(REPO)), "error": d.get("error")}
+            log(s, f"A1-P {d['model']}: pass={d.get('pass')} reference={d.get('reference')} error={d.get('error')}")
 
 
 def precision(s: dict, models: list[str]) -> None:
+    ingest_precision(s)
     models = [m for m in models if m not in s["precision"] and accessible(m)]
     if not models:
         return
