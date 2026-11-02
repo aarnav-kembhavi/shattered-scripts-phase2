@@ -27,6 +27,7 @@ from m4c_natural_flores import SEED  # noqa: E402
 
 OUT = x3.OUT
 CONTRASTS = {"D1": ("nc_a", "nc_c"), "D2": ("nc_a", "x3_{c}"), "D3": ("nc_c", "x3_{c}")}
+PER_ITEM: list = []  # per-item correctness / hits for the exploratory regression (scripts/x3_regress.py)
 NEED = {"retrieval": 2, "sentiment": 3, "sib": 3}
 COUNTED = {"retrieval": lad.COUNT_RETRIEVAL, "sentiment": lad.COUNT_ACC, "sib": lad.COUNT_ACC}
 
@@ -50,6 +51,9 @@ def accuracy_contrasts() -> tuple[pd.DataFrame, pd.DataFrame]:
                     elig = g[g.form == f"x3_{cond}"].id.unique()
                     piv, lab = piv.loc[elig], lab.loc[elig]
                     corr = piv.eq(lab, axis=0)
+                    PER_ITEM.append(pd.DataFrame({"measure": measure, "model": m, "cond": cond, "id": [str(i) for i in corr.index],
+                                                  "nc_a": corr["nc_a"].to_numpy(), "nc_c": corr["nc_c"].to_numpy(),
+                                                  "x3": corr[f"x3_{cond}"].to_numpy()}))
                     acc.append({"model": m, "task": t, "cond": cond, "n_eligible": len(elig),
                                 **{f: corr[f].mean() for f in ("nc_a", "nc_c", f"x3_{cond}")}})
                     for L, (a, b) in CONTRASTS.items():
@@ -87,6 +91,8 @@ def retrieval_contrasts() -> tuple[pd.DataFrame, pd.DataFrame]:
                 hits[name] = fits[lu]["unmapped"]
                 res.append({"model": m, "cond": cond, "form": name, "n_eligible": int(el.sum()), "n_train": len(tr), "n_test": len(te),
                             "unmapped_test": hits[name].mean(), "unmapped_test_ci": boot(hits[name]), "unmapped_layer": lu})
+            PER_ITEM.append(pd.DataFrame({"measure": "retrieval", "model": m, "cond": cond, "id": [str(i) for i in idx[te]],
+                                          "nc_a": hits["nc_a"], "nc_c": hits["nc_c"], "x3": hits[f"x3_{cond}"]}))
             for L, (a, b) in CONTRASTS.items():
                 a, b = a.format(c=cond), b.format(c=cond)
                 con.append({"measure": "retrieval", "model": m, "contrast": L, "cond": cond, "a": a, "b": b, **lad.paired(hits[a], hits[b])})
@@ -147,6 +153,7 @@ def main() -> None:
     D1 = D1.merge(P1, on=["measure", "model"], how="left")
     ctl = [x for m in x3.MODELS for x in json.load(open(OUT / "control" / f"{m}.json"))]
     C = pd.DataFrame(ctl)
+    pd.concat(PER_ITEM, ignore_index=True).to_csv(OUT / "per_item.csv", index=False)
     K.to_csv(OUT / "contrasts.csv", index=False)
     acc.to_csv(OUT / "accuracy.csv", index=False)
     ret.to_csv(OUT / "retrieval.csv", index=False)

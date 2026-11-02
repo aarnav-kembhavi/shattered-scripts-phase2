@@ -1,0 +1,19 @@
+{
+  "provenance": {
+    "config": {
+      "status": "exploratory, no verdict",
+      "defined": "RESULTS.md C2 2026-11-02",
+      "bootstrap": 10000,
+      "seed": 0
+    },
+    "git_commit": "050df80e80a1461c178dc06da57079439f0a4379-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "timestamp_utc": "2026-11-02T11:12:16+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x3_regress.py"
+    ]
+  },
+  "rows": 18
+}
