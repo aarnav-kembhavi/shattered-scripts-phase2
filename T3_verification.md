@@ -68,3 +68,6 @@ check. Returned by: ______________   Date: ____________   Overall: [ ] all three
 *Files (frozen 2026-11-02, before any T3 scoring): `src/shattered/llm/templates/e0_{sentiment,xnli,sib}_v3.txt`,
 sha256 prefixes d033e17f70369f67, 71fd1dbbc2d6395c, d0ac3dcb7c832384; record in `results/phase2/x1/t3_templates.json`.
 If a line is changed, the changed file becomes the T3 template and the change is logged as a dated deviation.*
+
+---
+**Returned (2026-11-03 01:12 IST, from Aarnav's message; the workbook itself was not yet in annotation/returned/ when this was written, import pending).** T3-1 and T3-3: Correct. T3-2 (XNLI): Needs change; the native speaker's line is now the T3 template: `Question: Premise ಸತ್ಯವಾಗಿದ್ದರೆ, Hypothesis ಸಹ ಸತ್ಯವೇ? no, maybe, ಅಥವಾ yes ಆಯ್ಕೆಮಾಡಿ.` (`e0_xnli_v3.txt`, sha256 prefix 6b8a23ef487ab848; before: 71fd1dbbc2d6395c). Every T3 result is labelled "instruction verified by a native speaker, exploratory".

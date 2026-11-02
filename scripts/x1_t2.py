@@ -13,6 +13,7 @@ Usage: python scripts/x1_t2.py pilot    (GPU, Gemma 4 E2B; 20 items per task; ti
 Outputs: results/phase2/x1/t2/{scores_e0b,scores_e0c,scores_nc}/ ; analysis files under results/phase2/x1/t2/.
 """
 import json
+import os
 import string
 import sys
 import time
@@ -29,8 +30,10 @@ import l_ladder as lad  # noqa: E402
 import nc1  # noqa: E402
 from shattered.eval import loglik  # noqa: E402
 
-VERSION = "v2"
-ROOT = REPO / "results" / "phase2" / "x1" / "t2"
+VERSION = os.environ.get("X1_TEMPLATE", "v2")  # "v3" = T3 (Kannada instruction, native-speaker verified, exploratory): same code path, outputs under results/phase2/x1/t3
+assert VERSION in ("v2", "v3")
+ROOT = REPO / "results" / "phase2" / "x1" / ("t2" if VERSION == "v2" else "t3")
+T3_LABEL = "instruction verified by a native speaker, exploratory"
 D_B, D_C, D_NC = ROOT / "scores_e0b", ROOT / "scores_e0c", ROOT / "scores_nc"
 MODELS = lad.ACC_MODELS  # qwen2.5-1.5b, qwen3.5-2b, sarvam-1, gemma4-e2b, qwen3-1.7b
 FORMS_B = ["english", "native", "itrans", "lower", "lossy", "natural"]
@@ -192,6 +195,11 @@ def do_pilot() -> None:
 
 
 def do_score(models: list[str] | None = None) -> None:
+    if VERSION == "v3":
+        t = json.loads((REPO / "results" / "phase2" / "x1" / "t3_templates.json").read_text(encoding="utf-8"))
+        assert t.get("verified_by_native_speaker") is True, "T3 instruction is not verified"
+        ROOT.mkdir(parents=True, exist_ok=True)
+        (ROOT / "LABEL.txt").write_text(T3_LABEL + chr(10), encoding="utf-8")  # every T3 result carries this label
     import torch
 
     from shattered.interp.load import load
