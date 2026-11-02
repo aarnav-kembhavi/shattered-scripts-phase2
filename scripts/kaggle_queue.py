@@ -113,7 +113,8 @@ def precision(s: dict, models: list[str]) -> None:
 
 
 def x9b_ready() -> bool:
-    return (REPO / "results" / "phase2" / "x9b" / "pilot_done.json").exists() and (REPO / "scripts" / "kaggle_x9b.py").exists()
+    p = REPO / "results" / "phase2" / "x9b" / "pilot_done.json"
+    return p.exists() and json.loads(p.read_text(encoding="utf-8")).get("eval_smoke_ok") is True and (REPO / "scripts" / "kaggle_x9b.py").exists()
 
 
 def x9b_pending(s: dict) -> bool:

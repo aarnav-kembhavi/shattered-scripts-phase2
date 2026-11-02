@@ -156,6 +156,7 @@ def free_gpu() -> None:
 
 
 def find_micro_batch(model, seqs: torch.Tensor, device: str, scaler) -> int:
+    model.train()  # gradient checkpointing is applied only in train mode: the search must run in the mode of the timed loop (fix of 2026-11-03)
     for mb in ((16, 8, 4, 2, 1) if device == "cuda" else (2,)):
         try:
             if device == "cuda":
@@ -267,8 +268,15 @@ def run_pilot(out: Path, device: str, quant: bool, steps: int, models: list[str]
     res["all_overlap_zero"] = all(v == 0 for v in res["exclusion_rescan_overlap"].values()) and all(v == 0 for v in res["streams_report"].values())
     # end-to-end smoke of the evaluation path on the first model: base (20 items) and a stand-in adapter is not available without a trained one, so the base
     # path is exercised here and the merge path is exercised in the first full run's first checkpoint evaluation
+    res["eval_smoke_ok"] = None
+    res["seconds"] = time.time() - t0
+    (out / "pilot_done.json").write_text(json.dumps(res, indent=1))  # the timings are written first: an evaluation fault must not lose them
     t1 = time.time()
-    eval_model(models[0], None, f"{models[0]}__base_smoke", out, device, 20, retrieval=False)
+    try:
+        eval_model(models[0], None, f"{models[0]}__base_smoke", out, device, 20, retrieval=False)
+        res["eval_smoke_ok"] = True
+    except Exception as e:  # noqa: BLE001 - recorded, the driver refuses the full runs until it is fixed
+        res["eval_smoke_ok"], res["eval_smoke_error"] = False, repr(e)[:400]
     res["eval_smoke_seconds"] = time.time() - t1
     res["seconds"] = time.time() - t0
     (out / "pilot_done.json").write_text(json.dumps(res, indent=1))
