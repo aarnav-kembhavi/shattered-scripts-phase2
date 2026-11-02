@@ -3765,3 +3765,9 @@ with a list of what moved to the appendix. Phase 2 results enter the paper only 
   marked "needs rewrite", the words ದತ್ತಾಂಶ and ಪರಿಕಲ್ಪನೆ flagged). Private keys (X15 gold labels, form per group, row-to-item maps, shuffle seeds, X8 order) are in `annotation/private/` (gitignored, excluded from the
   anonymised package); the tracked `results/phase2/x15/selection.json` now holds ids only (gold labels and the form mapping were removed from it). Hygiene check (`scripts/export_xlsx.py check`, report in
   `annotation/xlsx/HYGIENE_REPORT.json`): all 11 files pass. Importers: `scripts/import_x8.py`, `scripts/import_x15.py` (registered formats; tested on synthetic returned files, outputs deleted).
+
+- **2026-11-03 00:04 IST, STATUS NOTE (decided by Aarnav; no registered rule is changed).** Annotators are not available. **X1 T3 is marked "not run (instruction not verified)"; X15 is marked "not run (annotators unavailable)"; X8 is parked and marked "not run"**
+  (if the X8 files are sent later, it runs as registered). All three are removed from every queue (the laptop queue's "X1 T3" and the annotator-dependent items, and every pending annotation send); no chain or driver step referenced them. The
+  workbooks, private keys, importers (`scripts/import_x8.py`, `import_x15.py`, `import_t3.py`, one command each over `annotation/returned/`, which is gitignored because returned files carry author fields) and analyses
+  (`scripts/analyze_x8.py`, `analyze_x15.py`, tested on synthetic data only, outputs not kept) are kept. The three items and the reason are in `results/phase2/REGISTERED_OUTCOMES.md` (no Phase 2 outcomes table existed before; this is its start).
+  The Kaggle and laptop queues continue as before.

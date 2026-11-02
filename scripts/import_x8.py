@@ -1,11 +1,15 @@
 """Import returned X8 workbooks (X8_P.xlsx, X8_Q.xlsx) into the registered X8 format and validate them.
 
-Checks per file: sheet and header layout, the role letter and file id in the Instructions sheet, 100 rows, the id and Kannada-sentence columns equal to the registered
-selection (a mismatch means a locked cell was edited), duplicate ids, missing, blank or non-text Romanization cells. Reported (warnings, never blockers), to catch AutoCorrect damage:
-the share of cells starting with an uppercase letter and the share containing characters outside the expected romanization set (ASCII letters, digits, space and ASCII punctuation;
-anything else, such as curly quotes, ellipsis, dashes, emoji or Kannada script, is listed). Blockers stop the write unless --partial is given (then only the valid answered rows are written).
+One command: `python scripts/import_x8.py` reads every X8 workbook in annotation/returned/ (identified by the `File id` line of its Instructions sheet, not by its name; or pass paths),
+checks them one by one and as a pair, and writes results/phase2/x8/VALIDATION.md. Options: --partial, --folder DIR, --out DIR (tests).
+
+Per file: sheet and header layout, the role letter and file id, 100 rows, the id and Kannada-sentence columns equal to the registered selection (a mismatch means a locked cell was
+edited, a row moved or deleted), duplicate ids, missing, blank or non-text Romanization cells. Reported as warnings (never blockers), to catch AutoCorrect damage: the share of cells
+starting with an uppercase letter and the share containing characters outside the expected romanization set (ASCII letters, digits, space and ASCII punctuation; curly quotes,
+ellipsis, dashes, emoji, Kannada script are listed). As a pair (scripts/import_common.py): P and Q each exactly once, two different files, two different persons (author-field hash),
+answers not copies of each other, no file matching a private key. Blockers stop the write unless --partial is given (then only the valid answered rows are written).
 Writes results/phase2/x8/x8_annotator_<role>.json in the format of the HTML page export ({"annotator", "n", "answers": [{"index", "romanization"}]}) and
-results/phase2/x8/import_report_<role>.json. Usage: python scripts/import_x8.py returned/X8_P.xlsx [returned/X8_Q.xlsx] [--partial]
+results/phase2/x8/import_report_<role>.json.
 """
 import argparse
 import json
@@ -15,9 +19,11 @@ from pathlib import Path
 
 from openpyxl import load_workbook
 
-from shattered.runlog import REPO, results_dir, write_json
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import import_common as C  # noqa: E402
 
-sys.path.insert(0, str(REPO / "scripts"))
+from shattered.runlog import REPO, results_dir, write_json  # noqa: E402
+
 EXPECTED = re.compile(r"^[A-Za-z0-9 .,?!'\"\-:;()/&%+_#*\[\]<>=@$~^|\\{}`]*$")
 
 
@@ -27,7 +33,7 @@ def expected_items() -> list[dict]:
     return items
 
 
-def import_one(path: Path, partial: bool) -> dict:
+def import_one(path: Path, partial: bool, outdir: Path | None = None, write: bool = True) -> dict:
     rep = {"file": path.name, "blockers": [], "warnings": []}
     B = rep["blockers"]
     wb = load_workbook(path)
@@ -77,10 +83,9 @@ def import_one(path: Path, partial: bool) -> dict:
     upper = [a["index"] for a in answers if a["romanization"][:1].isupper()]
     odd = {}
     for a in answers:
-        if not EXPECTED.match(a["romanization"]):
-            for ch in set(a["romanization"]):
-                if not EXPECTED.match(ch):
-                    odd.setdefault(ch, []).append(a["index"])
+        for ch in set(a["romanization"]):
+            if not EXPECTED.match(ch):
+                odd.setdefault(ch, []).append(a["index"])
     odd_rows = sorted({i for v in odd.values() for i in v})
     rep.update({"n_answers": len(answers), "share_uppercase_first_letter": (len(upper) / len(texts)) if texts else None, "uppercase_first_rows": upper[:20],
                 "share_with_unexpected_characters": (len(odd_rows) / len(texts)) if texts else None, "unexpected_characters": {repr(k): len(v) for k, v in odd.items()},
@@ -90,26 +95,55 @@ def import_one(path: Path, partial: bool) -> dict:
         rep["warnings"].append("more than half of the cells start with an uppercase letter: AutoCorrect (capitalise first letter) was probably on")
     if texts and rep["share_with_unexpected_characters"] > 0.05:
         rep["warnings"].append("more than 5% of the cells contain characters outside the expected set: AutoCorrect (smart quotes, ellipsis, dashes) was probably on")
-    if not B or partial:
-        out = results_dir("phase2/x8")
+    out = outdir or results_dir("phase2/x8")
+    if (not B or partial) and write:
         (out / f"x8_annotator_{role}.json").write_text(json.dumps({"annotator": role, "n": len(answers), "answers": answers}, ensure_ascii=False, indent=1), encoding="utf-8")
-        rep["written"] = str((out / f"x8_annotator_{role}.json").relative_to(REPO))
+        rep["written"] = (out / f"x8_annotator_{role}.json").name
     rep["ok"] = not B
-    write_json(results_dir("phase2/x8") / f"import_report_{role}.json", rep, {"source": path.name})
+    if write:
+        write_json(out / f"import_report_{role}.json", rep, {"source": path.name})
+    rep["answers"] = answers  # for the pair check only; not in the saved report
     return rep
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("files", nargs="+")
+    ap.add_argument("files", nargs="*")
     ap.add_argument("--partial", action="store_true", help="write the valid answered rows even if there are blockers")
+    ap.add_argument("--folder", default=str(C.RETURNED))
+    ap.add_argument("--out", default=None)
     a = ap.parse_args()
-    bad = 0
-    for f in a.files:
-        r = import_one(Path(f), a.partial)
-        print(json.dumps({k: v for k, v in r.items() if k not in ("uppercase_first_rows",)}, ensure_ascii=False, indent=1))
-        bad += 0 if r.get("ok") else 1
-    return 1 if bad else 0
+    outdir = Path(a.out) if a.out else None
+    if outdir:
+        outdir.mkdir(parents=True, exist_ok=True)
+    paths = [Path(f) for f in a.files] or C.returned_files("X8_", Path(a.folder))
+    if not paths:
+        print(f"no X8 workbook in {a.folder}")
+        return 2
+    ids = {p: C.file_id(p) for p in paths}
+    cross = C.cross_checks(paths, ids, "X8")
+    reports = [import_one(p, a.partial, outdir, write=False) for p in paths]  # first pass: nothing is written until the pair checks are done
+    roles = [r.get("role") for r in reports]
+    if len(paths) >= 2 and sorted(x for x in roles if x) != ["P", "Q"]:
+        cross.append(f"expected one P and one Q file, found roles {roles}")
+    ans = {r["role"]: {x["index"]: x["romanization"].strip().lower() for x in r.get("answers", [])} for r in reports if r.get("role")}
+    if "P" in ans and "Q" in ans:
+        common = set(ans["P"]) & set(ans["Q"])
+        same = sum(ans["P"][i] == ans["Q"][i] for i in common)
+        if common and same / len(common) > 0.5:
+            cross.append(f"P and Q give identical text in {same} of {len(common)} sentences (copied?)")
+    if not cross:
+        reports = [import_one(p, a.partial, outdir, write=True) for p in paths]
+    else:
+        print("cross-file blockers: no result file is written")
+    out = outdir or results_dir("phase2/x8")
+    C.write_md(out / "VALIDATION.md", "X8 import validation", [{k: v for k, v in r.items() if k != "answers"} for r in reports], cross,
+               ["", f"Orphan .xlsx files in the folder (no File id): {C.orphans(Path(a.folder))}"])
+    for r in reports:
+        print(json.dumps({k: v for k, v in r.items() if k not in ("uppercase_first_rows", "answers")}, ensure_ascii=False, indent=1))
+    for c in cross:
+        print("BLOCKER (cross-file):", c)
+    return 1 if (cross or any(not r.get("ok") for r in reports)) else 0
 
 
 if __name__ == "__main__":

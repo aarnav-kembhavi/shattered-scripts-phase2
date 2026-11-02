@@ -1,11 +1,15 @@
 """Import returned X15 workbooks (X15_G1_a.xlsx ... X15_G4_b.xlsx) into the registered X15 format and validate them.
 
-Checks per file: sheet and header layout, the file id in the Instructions sheet, 100 rows, the Item and Text columns equal to what was sent (read from the private key
-annotation/private/x15_keys.json; a mismatch means a locked cell was edited or rows were moved), duplicate item numbers, missing or blank Topic cells, Topic values not in
-the list of seven labels (free text, a different spelling, a number), extra content outside the table. Blockers stop the write unless --partial is given.
-Writes results/phase2/x15/x15_g<G>_seat<S>.csv with the columns of the HTML page export (item_id, form, choice, ms, group, seat): item_id = the SIB-200 id, form from the private
-key (so no form name was ever in the file the annotator saw), ms empty (not measured in a workbook), group = G (1..4; G4 is the registered g = 0, the Latin-square rule
-(i + G) mod 4 is the same), seat = A or B. Plus results/phase2/x15/import_report_g<G>_<seat>.json. Usage: python scripts/import_x15.py returned/X15_G1_a.xlsx ... [--partial]
+One command: `python scripts/import_x15.py` reads every X15 workbook in annotation/returned/ (identified by the `File id` line of its Instructions sheet; or pass paths) and writes
+results/phase2/x15/VALIDATION.md. Options: --partial, --folder DIR, --out DIR (tests).
+
+Per file: sheet and header layout, the file id, 100 rows, the Item and Text columns equal to what was sent (read from the private key annotation/private/x15_keys.json; a mismatch means
+a locked cell was edited or rows were moved), duplicate item numbers, missing or blank Topic cells, Topic values not in the list of seven labels (free text, another spelling, a number),
+content outside the table. Across files (scripts/import_common.py): no file id twice, no person (author-field hash) behind two files, no byte-identical files, no file matching a private
+key (a file whose answers equal the gold labels on every row counts as the key). Blockers stop the write unless --partial is given.
+Writes results/phase2/x15/x15_g<G>_seat<S>.csv with the columns of the HTML page export (item_id, form, choice, ms, group, seat): item_id = the SIB-200 id, form from the private key
+(so no form name was ever in the file the annotator saw), ms empty (not measured in a workbook), group = G (1..4; G4 is the registered g = 0, the Latin-square rule (i + G) mod 4 is the
+same), seat = A or B; plus results/phase2/x15/import_report_g<G>_<seat>.json.
 """
 import argparse
 import csv
@@ -16,13 +20,16 @@ from pathlib import Path
 
 from openpyxl import load_workbook
 
-from shattered.runlog import REPO, results_dir, write_json
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import import_common as C  # noqa: E402
+
+from shattered.runlog import REPO, results_dir, write_json  # noqa: E402
 
 CATS = ["science/technology", "travel", "politics", "sports", "health", "entertainment", "geography"]
 KEYS = REPO / "annotation" / "private" / "x15_keys.json"
 
 
-def import_one(path: Path, keys: dict, partial: bool) -> dict:
+def import_one(path: Path, keys: dict, partial: bool, outdir: Path | None = None, write: bool = True) -> dict:
     rep = {"file": path.name, "blockers": [], "warnings": []}
     B = rep["blockers"]
     wb = load_workbook(path)
@@ -68,36 +75,65 @@ def import_one(path: Path, keys: dict, partial: bool) -> dict:
     if bad_label:
         B.append(f"{len(bad_label)} Topic values not in the list of seven: {bad_label[:10]}")
     rep["n_answers"] = len(out)
+    if len(out) == len(rows):  # a returned file that equals the key
+        gold = {r["sib_id"]: r["gold"] for r in rows}
+        agree = sum(gold[o["item_id"]] == o["choice"] for o in out) / len(out)
+        rep["agreement_with_private_key"] = agree
+        if agree == 1.0:
+            B.append("every answer equals the private gold label: this file matches the private key")
+        elif agree >= 0.97:
+            rep["warnings"].append(f"{agree:.0%} of the answers equal the gold labels (unusually high)")
     if out:
         c = {lab: sum(x["choice"] == lab for x in out) for lab in CATS}
         rep["choice_counts"] = c
         if max(c.values()) > 0.6 * len(out):
             rep["warnings"].append("more than 60% of the answers are one label (straight-lining?)")
-    if not B or partial:
-        d = results_dir("phase2/x15")
+    d = outdir or results_dir("phase2/x15")
+    if (not B or partial) and write:
         p = d / f"x15_g{g}_seat{seat}.csv"
         with open(p, "w", newline="", encoding="utf-8") as f:
             w = csv.DictWriter(f, fieldnames=["item_id", "form", "choice", "ms", "group", "seat"])
             w.writeheader()
             w.writerows(out)
-        rep["written"] = str(p.relative_to(REPO))
+        rep["written"] = p.name
     rep["ok"] = not B
-    write_json(results_dir("phase2/x15") / f"import_report_g{g}_{seat.lower()}.json", rep, {"source": path.name})
+    if write:
+        write_json(d / f"import_report_g{g}_{seat.lower()}.json", rep, {"source": path.name})
     return rep
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("files", nargs="+")
+    ap.add_argument("files", nargs="*")
     ap.add_argument("--partial", action="store_true")
+    ap.add_argument("--folder", default=str(C.RETURNED))
+    ap.add_argument("--out", default=None)
     a = ap.parse_args()
+    outdir = Path(a.out) if a.out else None
+    if outdir:
+        outdir.mkdir(parents=True, exist_ok=True)
     keys = json.loads(KEYS.read_text(encoding="utf-8"))
-    bad = 0
-    for f in a.files:
-        r = import_one(Path(f), keys, a.partial)
+    paths = [Path(f) for f in a.files] or C.returned_files("X15_", Path(a.folder))
+    if not paths:
+        print(f"no X15 workbook in {a.folder}")
+        return 2
+    ids = {p: C.file_id(p) for p in paths}
+    cross = C.cross_checks(paths, ids, "X15")
+    reports = [import_one(p, keys, a.partial, outdir, write=False) for p in paths]  # first pass: nothing is written until the cross-file checks are done
+    if not cross:
+        reports = [import_one(p, keys, a.partial, outdir, write=True) for p in paths]
+    else:
+        print("cross-file blockers: no result file is written")
+    missing = sorted(set(keys["files"]) - {r.get("file_id") for r in reports})
+    out = outdir or results_dir("phase2/x15")
+    C.write_md(out / "VALIDATION.md", "X15 import validation", reports, cross,
+               ["", f"Files still missing (of eight): {missing}", f"Orphan .xlsx files in the folder (no File id): {C.orphans(Path(a.folder))}"])
+    for r in reports:
         print(json.dumps(r, ensure_ascii=False, indent=1))
-        bad += 0 if r.get("ok") else 1
-    return 1 if bad else 0
+    for c in cross:
+        print("BLOCKER (cross-file):", c)
+    print("still missing:", missing)
+    return 1 if (cross or any(not r.get("ok") for r in reports)) else 0
 
 
 if __name__ == "__main__":

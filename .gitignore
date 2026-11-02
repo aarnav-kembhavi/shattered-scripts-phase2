@@ -32,3 +32,7 @@ kaggle.json
 
 # private annotation keys (X15 gold labels, form mapping, shuffle seeds): never committed, never in the anonymised package (2026-11-02)
 annotation/private/
+
+# returned annotator workbooks carry the annotators' author fields (names): never committed (2026-11-03)
+annotation/returned/*
+!annotation/returned/.gitkeep
