@@ -3759,3 +3759,9 @@ with a list of what moved to the appendix. Phase 2 results enter the paper only 
   endpoints passed; (d) A1-P for Ambari-Instruct v0.1 and v0.2, then the secondary contrast if both pass; (e) A1-P for Llama-3.1-8B, then X13 scoring if it passes; (f) X9b full, Sarvam-1 arm. The 18 h X9b Sarvam
   reserve is kept: a step that would push X9b Sarvam into a later week is moved behind it. Cut order if quota is short: Llama-3.1-8B first, then the instruction pair, then the X9b Qwen3.5 arm. The Llama
   retry loop in the queue driver is retired (access exists).
+
+- **2026-11-02 23:48 IST, annotation tasks exported to Excel (nothing sent).** `annotation/xlsx/`: X8_P and X8_Q (identical 100 sentences in the registered default_rng(8) order; no Gemini text, no English), eight X15 files (G1..G4, seats a and b; group G sees item i in
+  form (i + G) mod 4, so G4 is the registered g = 0; rows shuffled with seed 15000 + G; dropdown of the seven labels; every column except Topic locked, no password), T3_verification.xlsx (XNLI line
+  marked "needs rewrite", the words ದತ್ತಾಂಶ and ಪರಿಕಲ್ಪನೆ flagged). Private keys (X15 gold labels, form per group, row-to-item maps, shuffle seeds, X8 order) are in `annotation/private/` (gitignored, excluded from the
+  anonymised package); the tracked `results/phase2/x15/selection.json` now holds ids only (gold labels and the form mapping were removed from it). Hygiene check (`scripts/export_xlsx.py check`, report in
+  `annotation/xlsx/HYGIENE_REPORT.json`): all 11 files pass. Importers: `scripts/import_x8.py`, `scripts/import_x15.py` (registered formats; tested on synthetic returned files, outputs deleted).

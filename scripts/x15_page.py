@@ -92,8 +92,8 @@ def main() -> None:
     a = ap.parse_args()
     items = select()
     OUT.mkdir(parents=True, exist_ok=True)
-    sel = {"n": len(items), "seed": 15, "ids": [it["id"] for it in items], "categories": [CATS[it["label"]] for it in items],
-           "form_by_group": {str(g): [FORMS[(i + g) % 4] for i in range(len(items))] for g in range(4)}}
+    # the tracked selection file holds ids only: gold labels and the form-by-group mapping are private (annotation/private/x15_keys.json, written by scripts/export_xlsx.py)
+    sel = {"n": len(items), "seed": 15, "ids": [it["id"] for it in items]}
     for g in range(4):
         order = np.random.default_rng(150 + g).permutation(len(items))
         rows = [{"id": items[j]["id"], "form": FORMS[(j + g) % 4], "text": text_of(items[j], FORMS[(j + g) % 4])} for j in order]
@@ -112,7 +112,7 @@ def main() -> None:
         (OUT / f"annotate_x15_g{g}.html").write_text(page, encoding="utf-8")
     if not a.preview:
         write_json(results_dir("phase2/x15") / "selection.json", sel, {"seed": 15, "status": "drafted, not collected; pages contain no labels"})
-    cnt = {c: sel["categories"].count(c) for c in CATS}
+    cnt = {c: sum(1 for it in items if CATS[it["label"]] == c) for c in CATS}
     print("selected", len(items), cnt)
 
 

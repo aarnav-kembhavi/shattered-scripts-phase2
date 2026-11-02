@@ -46,7 +46,7 @@ CODE_FILES = ["pyproject.toml", "requirements.in", "requirements.txt", "DATA_CAR
 # Gemini outputs and the verified texts (included for reviewers at the lead author's request, 2026-10-27; public release upon acceptance)
 EXTRA_GLOBS = ["data/processed/natural_*.jsonl", "results/k3b/drafts.jsonl", "results/k3b/sample.json",
                "results/k3b_hi/drafts.jsonl", "results/k3b_hi/sample.json", "results/k_verified/build.json"]
-SKIP_DIRS = {"__pycache__", ".pytest_cache", ".venv", ".git", "build", "cache", "logs", "tmlr_template_ref"}
+SKIP_DIRS = {"private", "__pycache__", ".pytest_cache", ".venv", ".git", "build", "cache", "logs", "tmlr_template_ref"}
 SKIP_NAMES = {"anon_package.py", "hidden.vbs", "detach.ps1", "detach_test.sh", "chain_watch.sh", "xlshot.ps1", "k_xlsx_selftest.py",
               "k_package.py", "k_xlsx.py"}  # local chain and packaging helpers for the annotation hand-out, not needed to reproduce
 TEXT_EXT = {".py", ".md", ".json", ".jsonl", ".csv", ".tsv", ".tex", ".bib", ".bst", ".sty", ".yaml", ".yml", ".toml", ".txt",

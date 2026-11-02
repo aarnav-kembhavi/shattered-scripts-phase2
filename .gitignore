@@ -29,3 +29,6 @@ results/CHAIN_STATUS*.md
 .pytest_cache/
 .kaggle/
 kaggle.json
+
+# private annotation keys (X15 gold labels, form mapping, shuffle seeds): never committed, never in the anonymised package (2026-11-02)
+annotation/private/
