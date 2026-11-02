@@ -147,6 +147,12 @@ print("job finished", rc, flush=True)
 
 def run(a) -> None:
     job = a.job
+    dp = KDIR / "DEFER.json"  # operator deferrals (2026-11-02): [{"job", "model", "requires_pass"?}]; the old driver in memory must not run steps out of the new order
+    if dp.exists():
+        st = json.loads((KDIR / "queue_state.json").read_text()) if (KDIR / "queue_state.json").exists() else {}
+        for d in json.loads(dp.read_text()):
+            if d["job"] == job and d["model"] in a.job_args and not (d.get("requires_pass") and st.get("precision", {}).get(d["requires_pass"], {}).get("pass")):
+                raise SystemExit(f"deferred by the operator: {d}")
     if (KDIR / "HOLD").exists():  # operator hold (2026-11-02): no new push while this file exists; the in-flight job is unaffected
         raise SystemExit("queue on hold (results/kaggle/HOLD exists): " + (KDIR / "HOLD").read_text()[:200])
     commit = git("rev-parse", "HEAD")

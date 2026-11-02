@@ -276,7 +276,7 @@ def run_pilot(out: Path, device: str, quant: bool, steps: int, models: list[str]
 
 
 # ---------------------------------------------------------------------------------------------------------------- full
-def run_full(out: Path, device: str, quant: bool, runs: list[str], steps_override: int | None) -> None:
+def run_full(out: Path, device: str, quant: bool, runs: list[str], steps_override: int | None, rehearsal: bool = False) -> None:
     pd_ = json.loads((REPORT / "pilot_done.json").read_text(encoding="utf-8"))
     if not pd_.get("all_overlap_zero"):
         raise RuntimeError("pilot_done.json: overlap is not 0; no full run starts")
@@ -285,7 +285,7 @@ def run_full(out: Path, device: str, quant: bool, runs: list[str], steps_overrid
     for spec in runs:
         name, cond, seed = spec.split(":")
         seed = int(seed)
-        tag = f"{name}+{cond}+s{seed}"
+        tag = f"{name}+{cond}+s{seed}" + ("__rehearsal" if rehearsal else "")
         rdir = out / tag
         rdir.mkdir(parents=True, exist_ok=True)
         if (rdir / "done.json").exists():
@@ -341,7 +341,7 @@ def run_full(out: Path, device: str, quant: bool, runs: list[str], steps_overrid
         train_s = time.time() - t0
         del model, opt, sch
         free_gpu()
-        eval_model(name, rdir / "adapter", tag, out, device, None, retrieval=True)
+        eval_model(name, rdir / "adapter", tag, out, device, 100 if rehearsal else None, retrieval=True)
         (rdir / "done.json").write_text(json.dumps({"tag": tag, "model": name, "condition": cond, "seed": seed, "B": B, "optimizer_steps": total, "micro_batch": mb,
                                                     "articles": st["articles"], "words": st["words"], "tokens": st["tokens"], "overlap_articles": overlap,
                                                     "tokenizer_sha256_before": sha0, "tokenizer_sha256_after": sha1, "tokenizer_unchanged": sha0 == sha1,
@@ -356,6 +356,7 @@ def main() -> None:
     ap.add_argument("--runs", nargs="*", default=[])
     ap.add_argument("--base-eval", nargs="*", default=[], help="models whose untrained base is evaluated (full mode, once per model)")
     ap.add_argument("--smoke-model", default="qwen3-0.6b")
+    ap.add_argument("--rehearsal", action="store_true", help="full path on 20 optimizer steps and 100 SIB items (checks train, checkpoint, merge, eval); discarded")
     a = ap.parse_args()
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
@@ -372,7 +373,7 @@ def main() -> None:
         for m in a.base_eval:
             if not (out / f"{m}__base" / "retrieval.json").exists():
                 eval_model(m, None, f"{m}__base", out, "cuda", None, retrieval=True)
-        run_full(out, "cuda", True, a.runs, None)
+        run_full(out, "cuda", True, a.runs, 20 if a.rehearsal else None, a.rehearsal)
 
 
 if __name__ == "__main__":
