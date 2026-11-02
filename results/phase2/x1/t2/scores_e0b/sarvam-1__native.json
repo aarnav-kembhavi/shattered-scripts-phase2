@@ -1,0 +1,31 @@
+{
+ "content_free_logprobs": {
+  "xnli": [
+   -1.413894534111023,
+   -5.1638946533203125,
+   -2.9138946533203125
+  ],
+  "sentiment": [
+   -7.742254257202148,
+   -8.992254257202148
+  ]
+ },
+ "fertility": [
+  {
+   "model": "sarvam-1",
+   "task": "xnli",
+   "form": "native",
+   "n_texts": 400,
+   "tokens_per_word": 2.1452013923421185
+  },
+  {
+   "model": "sarvam-1",
+   "task": "sentiment",
+   "form": "native",
+   "n_texts": 200,
+   "tokens_per_word": 2.2708089097303636
+  }
+ ],
+ "seconds": 57.94815969467163,
+ "template": "v2"
+}

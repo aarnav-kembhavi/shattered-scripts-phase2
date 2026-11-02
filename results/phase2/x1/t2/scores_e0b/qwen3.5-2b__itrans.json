@@ -1,0 +1,31 @@
+{
+ "content_free_logprobs": {
+  "xnli": [
+   -2.5272064208984375,
+   -3.7772064208984375,
+   -2.1522064208984375
+  ],
+  "sentiment": [
+   -3.832791566848755,
+   -3.645291566848755
+  ]
+ },
+ "fertility": [
+  {
+   "model": "qwen3.5-2b",
+   "task": "xnli",
+   "form": "itrans",
+   "n_texts": 400,
+   "tokens_per_word": 4.1282943809050225
+  },
+  {
+   "model": "qwen3.5-2b",
+   "task": "sentiment",
+   "form": "itrans",
+   "n_texts": 200,
+   "tokens_per_word": 4.087631887456038
+  }
+ ],
+ "seconds": 79.68896842002869,
+ "template": "v2"
+}

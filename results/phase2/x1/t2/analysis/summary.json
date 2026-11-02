@@ -1,0 +1,324 @@
+{
+  "provenance": {
+    "config": {
+      "registered": "RESULTS.md 2026-11-01 (X1)",
+      "template": "e0_*_v2",
+      "counted_accuracy": [
+        "qwen3-1.7b",
+        "qwen3.5-2b",
+        "sarvam-1",
+        "gemma4-e2b"
+      ],
+      "all_models": [
+        "qwen2.5-1.5b",
+        "qwen3.5-2b",
+        "sarvam-1",
+        "gemma4-e2b",
+        "qwen3-1.7b"
+      ]
+    },
+    "git_commit": "5f056d702978faaa1044bf6af99cfcba2923fd0d",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "timestamp_utc": "2026-11-02T07:15:33+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x1_analyse.py"
+    ]
+  },
+  "T-a": {
+    "primary_P_a_exact_wording_all_informative_models": {
+      "verdict": "refuted",
+      "n_positive_significant": 9,
+      "n_tests": 10,
+      "informative_models": [
+        "qwen2.5-1.5b",
+        "qwen3.5-2b",
+        "sarvam-1",
+        "gemma4-e2b",
+        "qwen3-1.7b"
+      ],
+      "english_acc_cal": {
+        "qwen2.5-1.5b": 0.8286852589641435,
+        "qwen3.5-2b": 0.8137450199203188,
+        "sarvam-1": 0.7719123505976095,
+        "gemma4-e2b": 0.8266932270916335,
+        "qwen3-1.7b": 0.8077689243027888
+      },
+      "misses": [
+        {
+          "model": "qwen2.5-1.5b",
+          "b": "lossy",
+          "diff": -0.03884462151394419,
+          "p_holm": 0.042968453350769216
+        }
+      ]
+    },
+    "secondary_every_counted_model": {
+      "verdict": "supported",
+      "n_positive_significant": 8,
+      "n_tests": 8,
+      "informative_models": [
+        "qwen3-1.7b",
+        "qwen3.5-2b",
+        "sarvam-1",
+        "gemma4-e2b"
+      ],
+      "english_acc_cal": {
+        "qwen3-1.7b": 0.8077689243027888,
+        "qwen3.5-2b": 0.8137450199203188,
+        "sarvam-1": 0.7719123505976095,
+        "gemma4-e2b": 0.8266932270916335
+      },
+      "misses": []
+    },
+    "phase1_same_lines": {
+      "P_a": "partly supported",
+      "n_positive_significant": 9,
+      "n_tests": 10,
+      "counted_four": "supported"
+    }
+  },
+  "T-b": [
+    {
+      "verdict_line": "P-a on SIB-200",
+      "t1": "partly supported",
+      "t2": "refuted",
+      "same": false
+    },
+    {
+      "verdict_line": "L1 sentiment",
+      "t1": "no effect detected",
+      "t2": "no effect detected",
+      "same": true
+    },
+    {
+      "verdict_line": "L2 sentiment",
+      "t1": "effect, positive",
+      "t2": "no effect detected",
+      "same": false
+    },
+    {
+      "verdict_line": "L3 sentiment",
+      "t1": "no effect detected",
+      "t2": "no effect detected",
+      "same": true
+    },
+    {
+      "verdict_line": "L1 sib",
+      "t1": "no effect detected",
+      "t2": "no effect detected",
+      "same": true
+    },
+    {
+      "verdict_line": "L2 sib",
+      "t1": "effect, positive",
+      "t2": "effect, positive",
+      "same": true
+    },
+    {
+      "verdict_line": "L3 sib",
+      "t1": "no effect detected",
+      "t2": "no effect detected",
+      "same": true
+    },
+    {
+      "verdict_line": "NC-F sentiment",
+      "t1": "no effect detected",
+      "t2": "no effect detected",
+      "same": true
+    },
+    {
+      "verdict_line": "NC-O sentiment",
+      "t1": "no effect detected",
+      "t2": "effect, positive",
+      "same": false
+    },
+    {
+      "verdict_line": "NC-F sib",
+      "t1": "no effect detected",
+      "t2": "no effect detected",
+      "same": true
+    },
+    {
+      "verdict_line": "NC-O sib",
+      "t1": "effect, positive",
+      "t2": "effect, positive",
+      "same": true
+    }
+  ],
+  "T-b_same_category": 8,
+  "T-b_total": 11,
+  "t1_pipeline_reproduces_phase1_verdicts": true,
+  "t1_reproduction_mismatches": {},
+  "t2_calibration_fallback_rows": [],
+  "t1_calibration_fallback_rows": [
+    {
+      "model": "gemma4-e2b",
+      "task": "xnli"
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "task": "sentiment"
+    }
+  ],
+  "t2_effect_verdicts": {
+    "L1|sentiment": {
+      "verdict": "no effect detected",
+      "n_significant_positive": 0,
+      "n_significant_negative": 1,
+      "n_counted": 4,
+      "ci_holm_disagreements": []
+    },
+    "L2|sentiment": {
+      "verdict": "no effect detected",
+      "n_significant_positive": 2,
+      "n_significant_negative": 0,
+      "n_counted": 4,
+      "ci_holm_disagreements": [
+        "qwen3.5-2b"
+      ]
+    },
+    "L3|sentiment": {
+      "verdict": "no effect detected",
+      "n_significant_positive": 0,
+      "n_significant_negative": 0,
+      "n_counted": 4,
+      "ci_holm_disagreements": []
+    },
+    "NC-F|sentiment": {
+      "verdict": "no effect detected",
+      "n_significant_positive": 0,
+      "n_significant_negative": 0,
+      "n_counted": 4,
+      "ci_holm_disagreements": [
+        "gemma4-e2b"
+      ]
+    },
+    "NC-O|sentiment": {
+      "verdict": "effect, positive",
+      "n_significant_positive": 3,
+      "n_significant_negative": 0,
+      "n_counted": 4,
+      "ci_holm_disagreements": []
+    },
+    "L1|sib": {
+      "verdict": "no effect detected",
+      "n_significant_positive": 0,
+      "n_significant_negative": 0,
+      "n_counted": 4,
+      "ci_holm_disagreements": [
+        "sarvam-1"
+      ]
+    },
+    "L2|sib": {
+      "verdict": "effect, positive",
+      "n_significant_positive": 4,
+      "n_significant_negative": 0,
+      "n_counted": 4,
+      "ci_holm_disagreements": []
+    },
+    "L3|sib": {
+      "verdict": "no effect detected",
+      "n_significant_positive": 1,
+      "n_significant_negative": 0,
+      "n_counted": 4,
+      "ci_holm_disagreements": [
+        "qwen3.5-2b"
+      ]
+    },
+    "NC-F|sib": {
+      "verdict": "no effect detected",
+      "n_significant_positive": 1,
+      "n_significant_negative": 0,
+      "n_counted": 4,
+      "ci_holm_disagreements": []
+    },
+    "NC-O|sib": {
+      "verdict": "effect, positive",
+      "n_significant_positive": 3,
+      "n_significant_negative": 0,
+      "n_counted": 4,
+      "ci_holm_disagreements": []
+    }
+  },
+  "t1_effect_verdicts": {
+    "L1|sentiment": {
+      "verdict": "no effect detected",
+      "n_significant_positive": 0,
+      "n_significant_negative": 2,
+      "n_counted": 4,
+      "ci_holm_disagreements": []
+    },
+    "L2|sentiment": {
+      "verdict": "effect, positive",
+      "n_significant_positive": 3,
+      "n_significant_negative": 0,
+      "n_counted": 4,
+      "ci_holm_disagreements": []
+    },
+    "L3|sentiment": {
+      "verdict": "no effect detected",
+      "n_significant_positive": 0,
+      "n_significant_negative": 0,
+      "n_counted": 4,
+      "ci_holm_disagreements": []
+    },
+    "NC-F|sentiment": {
+      "verdict": "no effect detected",
+      "n_significant_positive": 0,
+      "n_significant_negative": 0,
+      "n_counted": 4,
+      "ci_holm_disagreements": []
+    },
+    "NC-O|sentiment": {
+      "verdict": "no effect detected",
+      "n_significant_positive": 2,
+      "n_significant_negative": 0,
+      "n_counted": 4,
+      "ci_holm_disagreements": [
+        "gemma4-e2b"
+      ]
+    },
+    "L1|sib": {
+      "verdict": "no effect detected",
+      "n_significant_positive": 2,
+      "n_significant_negative": 1,
+      "n_counted": 4,
+      "ci_holm_disagreements": []
+    },
+    "L2|sib": {
+      "verdict": "effect, positive",
+      "n_significant_positive": 4,
+      "n_significant_negative": 0,
+      "n_counted": 4,
+      "ci_holm_disagreements": []
+    },
+    "L3|sib": {
+      "verdict": "no effect detected",
+      "n_significant_positive": 0,
+      "n_significant_negative": 0,
+      "n_counted": 4,
+      "ci_holm_disagreements": [
+        "qwen3-1.7b",
+        "sarvam-1"
+      ]
+    },
+    "NC-F|sib": {
+      "verdict": "no effect detected",
+      "n_significant_positive": 1,
+      "n_significant_negative": 0,
+      "n_counted": 4,
+      "ci_holm_disagreements": [
+        "gemma4-e2b"
+      ]
+    },
+    "NC-O|sib": {
+      "verdict": "effect, positive",
+      "n_significant_positive": 3,
+      "n_significant_negative": 0,
+      "n_counted": 4,
+      "ci_holm_disagreements": []
+    }
+  }
+}

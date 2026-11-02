@@ -1,0 +1,12 @@
+verdict_line,t1,t2,same
+P-a on SIB-200,partly supported,refuted,False
+L1 sentiment,no effect detected,no effect detected,True
+L2 sentiment,"effect, positive",no effect detected,False
+L3 sentiment,no effect detected,no effect detected,True
+L1 sib,no effect detected,no effect detected,True
+L2 sib,"effect, positive","effect, positive",True
+L3 sib,no effect detected,no effect detected,True
+NC-F sentiment,no effect detected,no effect detected,True
+NC-O sentiment,no effect detected,"effect, positive",False
+NC-F sib,no effect detected,no effect detected,True
+NC-O sib,"effect, positive","effect, positive",True
