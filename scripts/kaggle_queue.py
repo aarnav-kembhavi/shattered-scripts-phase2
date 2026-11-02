@@ -83,7 +83,7 @@ def ingest_precision(s: dict) -> None:
     """Take up every fetched precision result not yet in the state (also those of a push whose driver was stopped)."""
     for f in sorted((K / "kaggle_precision").glob("*/out/precision_*.json")):
         d = json.loads(f.read_text())
-        if d.get("reference") == "float32_offload":  # A1-P-D1 (2026-11-03): results against the withdrawn 8-bit reference are not used; sorted by run time: the latest result of a model wins (a re-run replaces an earlier one; both files stay on disk)
+        if d.get("reference") == "float32_offload" and d.get("pass") is not None and not d.get("error"):  # A1-P-D1 (2026-11-03): results against the withdrawn 8-bit reference are not used; sorted by run time: the latest result of a model wins (a re-run replaces an earlier one; both files stay on disk)
             s["precision"][d["model"]] = {"pass": d.get("pass"), "reference": d.get("reference"), "hidden_abs_max_fp16": d.get("hidden_abs_max_fp16"),
                                           "file": str(f.relative_to(REPO)), "error": d.get("error")}
             log(s, f"A1-P {d['model']}: pass={d.get('pass')} reference={d.get('reference')} error={d.get('error')}")
@@ -102,6 +102,9 @@ def precision(s: dict, models: list[str]) -> None:
         f = r["dir"] / "out" / f"precision_{m}.json"
         if f.exists():
             d = json.loads(f.read_text())
+            if d.get("error") or d.get("pass") is None:  # a harness error is not a verdict: nothing is recorded, the model stays queued
+                log(s, f"A1-P {m}: harness error, no verdict, stays queued: {str(d.get('error'))[:200]}")
+                continue
             s["precision"][m] = {"pass": d.get("pass"), "reference": d.get("reference"), "hidden_abs_max_fp16": d.get("hidden_abs_max_fp16"),
                                  "file": str(f.relative_to(REPO)), "commit": r["commit"], "error": d.get("error")}
             log(s, f"A1-P {m}: pass={d.get('pass')} reference={d.get('reference')} error={d.get('error')}")
@@ -145,6 +148,34 @@ def score(s: dict, model: str, hours: float) -> None:
     log(s, f"score {model}: done={done} retrieval={retrieval} hours={r['hours']:.2f}")
 
 
+def x9b_pilot(s: dict) -> bool:
+    """X9b memory/timing pilot on the Kaggle T4 (X9b-D1): right after the A1-P pair, ahead of the scoring. Waits (up to 3 h) for the job script to exist."""
+    done = REPO / "results" / "phase2" / "x9b" / "pilot_done.json"
+    if done.exists() or s.get("x9b_pilot_pushed"):
+        return True
+    waited = 0
+    while not (REPO / "scripts" / "kaggle_x9b.py").exists() and waited < 3 * 3600:
+        if waited % 600 == 0:
+            log(s, "X9b pilot script not built yet; the scoring waits behind it (operator order)")
+        time.sleep(60)
+        waited += 60
+    if not (REPO / "scripts" / "kaggle_x9b.py").exists():
+        return False
+    if not projection(s, "kaggle_x9b pilot", 1.0):
+        return False
+    r = push("kaggle_x9b", ["--mode", "pilot"], 1.0)
+    if r is None:
+        log(s, "X9b pilot: runner did not push; nothing recorded")
+        return False
+    s["x9b_pilot_pushed"] = {"dir": str(r["dir"].relative_to(REPO)), "hours": r["hours"], "commit": r["commit"], "status": r["status"]}
+    src = r["dir"] / "out" / "pilot_done.json"
+    if src.exists():
+        done.parent.mkdir(parents=True, exist_ok=True)
+        done.write_text(src.read_text(encoding="utf-8"), encoding="utf-8")
+    log(s, f"X9b pilot: pilot_done.json written={src.exists()} hours={r['hours']:.2f}")
+    return src.exists()
+
+
 def a1p(s: dict, models: list[str]) -> None:
     models = [m for m in models if m not in s["precision"] and accessible(m)]
     if models and projection(s, f"A1-P {models}", 2.0 + 1.5 * len(models)):
@@ -177,6 +208,7 @@ def main() -> None:
         return
     ingest_precision(s)
     a1p(s, ["qwen3-8b", "ambari-7b-base"])                      # (a) the pair
+    x9b_pilot(s)                                                # X9b pilot right after the A1-P pair, ahead of the scoring (Aarnav, 2026-11-02)
     score(s, "qwen3-8b", 5.0)                                   # (b) X13 Qwen3-8B, then X12 Ambari-base, whichever passed
     score(s, "ambari-7b-base", 5.0)
     a1p(s, INSTRUCT)                                            # (c) Ambari-Instruct v0.1 and v0.2, one push

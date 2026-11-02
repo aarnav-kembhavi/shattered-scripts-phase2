@@ -3744,3 +3744,9 @@ with a list of what moved to the appendix. Phase 2 results enter the paper only 
   CPU first and the registered exclusion scan must report overlap 0 for every stream or nothing runs; `scripts/kaggle_x9b.py` (pilot and full modes) writes `results/phase2/x9b/pilot_done.json`.
   Queue: the X9b pilot goes right after the A1-P job in flight, ahead of the X13 and X12 scoring (about an hour or less).
 - Timestamps rule (Aarnav): every time in RESULTS.md, the deviations table or a log entry comes from `scripts/stamp.py` (system clock) or the commit, never typed; `scripts/check_results_times.py` and the pre-commit hook fail an entry later than its commit or the clock.
+
+- **2026-11-02 23:24 IST, A1-P re-run against float32-offload (commit 803b5e7, 0.35 h of quota): NO VERDICT, harness error.** Both Qwen3-8B and Ambari-7B-base ended in CUDA out-of-memory while loading the
+  float32 reference (9.49 and 9.33 GiB requests with 7.8 GiB still held on GPU 0): the float16 weights were still resident. The first fix (`model = free(model)`) was incomplete, because the
+  caller's variable still pointed at the model while `free()` ran. Fix (no rule change, thresholds unchanged): each precision now runs in its own subprocess (`scripts/kaggle_precision.py`,
+  worker mode), so memory is released by process exit. The error results carry `pass: null`; the queue driver records no verdict for them and keeps the models queued. Both models are re-queued
+  against the same reference. (This also means the earlier "float32 out of memory" for Ambari-7B-base was not evidence about float32 fitting; see A1-P-D1.)
