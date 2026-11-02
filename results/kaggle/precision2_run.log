@@ -1,0 +1,27 @@
+Starting upload for file repo.zip
+Upload successful: repo.zip (371KB)
+Dataset version is being created. Please check progress at https://www.kaggle.com/datasets/aarnavkembhavi1/shattered-pkg
+
+  0%|          | 0.00/371k [00:00<?, ?B/s]
+  4%|4         | 16.0k/371k [00:00<00:02, 138kB/s]
+100%|##########| 371k/371k [00:01<00:00, 192kB/s] 
+
+Kernel version 2 successfully pushed.  Please check progress at https://www.kaggle.com/code/aarnavkembhavi1/shattered-kaggle-precision
+
+[20:15:38] arnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.QUEUED"
+[20:17:41] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[20:19:43] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[20:21:45] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[20:23:47] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[20:25:51] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[20:27:53] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[20:29:56] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+{
+ "job": "kaggle_precision",
+ "commit": "ec5596f3114f4f6d7b4247c9cd1382a2d9bec5f8",
+ "status": "aarnavkembhavi1/shattered-kaggle-precision has status \"KernelWorkerStatus.COMPLETE\"",
+ "hours": 0.3057391605112288,
+ "hardware": null,
+ "output_dir": "results\\kaggle\\kaggle_precision\\2026-11-02T144532"
+}
+weekly hours used (last 7 days): 1.67 of 30.0

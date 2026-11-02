@@ -1,0 +1,6 @@
+Rewrite the following Kannada text as Kanglish, the way a young person in Bengaluru would type it in a WhatsApp message: Kannada written informally in Latin script, with English words mixed in wherever a Bengaluru speaker would naturally use English.
+Keep the full meaning: do not add, drop, summarize or explain anything. Use informal spelling, no diacritics, no Kannada script, no emojis, no hashtags.
+Output only the Kanglish text.
+
+Kannada text:
+{text}
