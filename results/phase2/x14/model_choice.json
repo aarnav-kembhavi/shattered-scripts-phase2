@@ -1,0 +1,238 @@
+{
+  "provenance": {
+    "config": {
+      "rule": "up to 3 largest stated parameter counts from different families; Gemini family excluded; Gemma is not Gemini-family under the literal rule and is eligible (flagged: same lab as the natural-romanization generator)",
+      "registered": "RESULTS.md Amendment 2 X14"
+    },
+    "git_commit": "8291279ba1ddee8b0ba922a7dbe51ade2039fa44-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-02T13:41:22+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x14_models.py"
+    ]
+  },
+  "chosen": [
+    {
+      "provider": "groq",
+      "id": "openai/gpt-oss-120b",
+      "stated_params_b": 120.0,
+      "context": 131072,
+      "active": true,
+      "family": "gpt",
+      "callable": true
+    },
+    {
+      "provider": "groq",
+      "id": "qwen/qwen3.8-27b",
+      "stated_params_b": 27.0,
+      "context": 131072,
+      "active": true,
+      "family": "qwen",
+      "callable": true
+    },
+    {
+      "provider": "groq",
+      "id": "allam-2-7b",
+      "stated_params_b": 7.0,
+      "context": 4096,
+      "active": true,
+      "family": "allam",
+      "callable": true
+    }
+  ],
+  "listing": [
+    {
+      "provider": "groq",
+      "id": "openai/gpt-oss-120b",
+      "stated_params_b": 120.0,
+      "context": 131072,
+      "active": true,
+      "family": "gpt",
+      "callable": true
+    },
+    {
+      "provider": "groq",
+      "id": "qwen/qwen3.8-27b",
+      "stated_params_b": 27.0,
+      "context": 131072,
+      "active": true,
+      "family": "qwen",
+      "callable": true
+    },
+    {
+      "provider": "groq",
+      "id": "allam-2-7b",
+      "stated_params_b": 7.0,
+      "context": 4096,
+      "active": true,
+      "family": "allam",
+      "callable": true
+    },
+    {
+      "provider": "groq",
+      "id": "openai/gpt-oss-20b",
+      "stated_params_b": 20.0,
+      "context": 131072,
+      "active": true,
+      "family": "gpt",
+      "callable": true
+    },
+    {
+      "provider": "openrouter",
+      "id": "recursive/flint-v1.0:free",
+      "stated_params_b": null,
+      "context": 262144,
+      "active": true,
+      "family": "flint",
+      "callable": false
+    },
+    {
+      "provider": "openrouter",
+      "id": "xingchen-agi/xing4.0-29b-a4b:free",
+      "stated_params_b": 29.0,
+      "context": 262144,
+      "active": true,
+      "family": "xing4.0",
+      "callable": false
+    },
+    {
+      "provider": "openrouter",
+      "id": "nvidia/nemotron-3.5-super-vl:free",
+      "stated_params_b": null,
+      "context": 1000000,
+      "active": true,
+      "family": "nemotron",
+      "callable": false
+    },
+    {
+      "provider": "openrouter",
+      "id": "dots-studio/dots-3-note-preview:free",
+      "stated_params_b": null,
+      "context": 512000,
+      "active": true,
+      "family": "dots",
+      "callable": false
+    },
+    {
+      "provider": "openrouter",
+      "id": "liquid/lfm-2.5-2.6b:free",
+      "stated_params_b": 2.6,
+      "context": 65536,
+      "active": true,
+      "family": "lfm",
+      "callable": false
+    },
+    {
+      "provider": "openrouter",
+      "id": "nvidia/nemotron-3.5-lightning:free",
+      "stated_params_b": null,
+      "context": 1000000,
+      "active": true,
+      "family": "nemotron",
+      "callable": false
+    },
+    {
+      "provider": "openrouter",
+      "id": "thinkingmachines/inkling-small:free",
+      "stated_params_b": null,
+      "context": 1048576,
+      "active": true,
+      "family": "ling",
+      "callable": false
+    },
+    {
+      "provider": "openrouter",
+      "id": "thinkingmachines/inkling:free",
+      "stated_params_b": null,
+      "context": 1048576,
+      "active": true,
+      "family": "ling",
+      "callable": false
+    },
+    {
+      "provider": "openrouter",
+      "id": "cohere/north-mini-code:free",
+      "stated_params_b": null,
+      "context": 256000,
+      "active": true,
+      "family": "north",
+      "callable": false
+    },
+    {
+      "provider": "openrouter",
+      "id": "nvidia/nemotron-3.5-content-safety:free",
+      "stated_params_b": null,
+      "context": 128000,
+      "active": true,
+      "family": "nemotron",
+      "callable": false
+    },
+    {
+      "provider": "openrouter",
+      "id": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "stated_params_b": 550.0,
+      "context": 1000000,
+      "active": true,
+      "family": "nemotron",
+      "callable": false
+    },
+    {
+      "provider": "openrouter",
+      "id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "stated_params_b": 30.0,
+      "context": 256000,
+      "active": true,
+      "family": "nemotron",
+      "callable": false
+    },
+    {
+      "provider": "openrouter",
+      "id": "google/gemma-4-26b-a4b-it:free",
+      "stated_params_b": 26.0,
+      "context": 262144,
+      "active": true,
+      "family": "gemma",
+      "callable": false
+    },
+    {
+      "provider": "openrouter",
+      "id": "google/gemma-4-31b-it:free",
+      "stated_params_b": 31.0,
+      "context": 262144,
+      "active": true,
+      "family": "gemma",
+      "callable": false
+    },
+    {
+      "provider": "openrouter",
+      "id": "google/lyria-3-pro-preview",
+      "stated_params_b": null,
+      "context": 1048576,
+      "active": true,
+      "family": "lyria",
+      "callable": false
+    },
+    {
+      "provider": "openrouter",
+      "id": "google/lyria-3-clip-preview",
+      "stated_params_b": null,
+      "context": 1048576,
+      "active": true,
+      "family": "lyria",
+      "callable": false
+    },
+    {
+      "provider": "openrouter",
+      "id": "openrouter/free",
+      "stated_params_b": null,
+      "context": 200000,
+      "active": true,
+      "family": "free",
+      "callable": false
+    }
+  ],
+  "n_listed": 21
+}

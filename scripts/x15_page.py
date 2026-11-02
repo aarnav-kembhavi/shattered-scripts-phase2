@@ -51,7 +51,7 @@ def text_of(it: dict, form: str) -> str:
 PAGE = """<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Topic reading task</title><style>
 body{font-family:system-ui,sans-serif;max-width:46rem;margin:1.5rem auto;padding:0 1rem;line-height:1.5;color:#1b1b1b;background:#fff}
-.banner{background:#fff3cd;border:1px solid #e0c36a;padding:.5rem .8rem;border-radius:6px;margin-bottom:1rem}
+.banner{color:#1b1b1b;background:#fff3cd;border:1px solid #e0c36a;padding:.5rem .8rem;border-radius:6px;margin-bottom:1rem}
 .text{font-size:1.25rem;padding:1rem;border:1px solid #bbb;border-radius:8px;margin:1rem 0;background:#fafafa;white-space:pre-wrap}
 label{display:block;padding:.45rem .6rem;border:1px solid #ccc;border-radius:6px;margin:.3rem 0;cursor:pointer}
 label:hover{background:#f0f0f0} input{margin-right:.5rem}
@@ -100,7 +100,7 @@ def main() -> None:
         if a.preview and g == 0:
             demo = rows[:6]
             page = (PAGE.replace("__BANNER__", '<div class="banner"><b>PREVIEW.</b> Six of the 100 items of group 0, for layout review only. '
-                                                'Nothing is collected before the amendment is approved.</div>')
+                                                'Nothing is collected from this preview.</div>')
                     .replace("__N__", "100").replace("__ITEMS__", json.dumps(demo, ensure_ascii=False)).replace("__GROUP__", "0")
                     .replace("__CATS__", json.dumps(CATS)).replace("__PREVIEWKEY__", "_preview"))
             (OUT / "preview_g0.html").write_text(page, encoding="utf-8")

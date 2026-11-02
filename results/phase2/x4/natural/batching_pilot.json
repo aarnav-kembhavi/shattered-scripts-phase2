@@ -1,0 +1,205 @@
+{
+  "provenance": {
+    "config": {
+      "model": "gemini-3.5-flash-lite",
+      "batch_size": 10,
+      "registered": "RESULTS.md X4 batching rule"
+    },
+    "git_commit": "8291279ba1ddee8b0ba922a7dbe51ade2039fa44-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-02T13:35:24+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x4_natural.py",
+      "pilot"
+    ]
+  },
+  "exact_matches": 0,
+  "of": 30,
+  "threshold": 28,
+  "decision": "unbatched",
+  "rows": [
+    {
+      "index": 4,
+      "unbatched": "vimana nildanada agni shamakadalada ondu vanu, sphotada jagake hoguvaga urulitu endu sthaliya madhyamagalu varadi madive.",
+      "batched": "vimana niladanada agni shamakadalada ondu vanu, sphotada jagake hoguvaga urulitu endu sthaliya madhyamagalu varadi madive.",
+      "exact": false
+    },
+    {
+      "index": 8,
+      "unbatched": "11:00 nantarave, whitehall na uttara dikkina carriage na traffic annu pratibhatanakararu pratibandisidaru.",
+      "batched": "11:00 nantharave, whitehall na uttara dikkina carriage na traffic annu pratibhatanakararu pratibandisaru.",
+      "exact": false
+    },
+    {
+      "index": 12,
+      "unbatched": "avaru itteechege nadedaa brisben opennalli raavonik viruddha sotiddaru.",
+      "batched": "avaru ittuchege nadedapura brisbane open nalli raonic viruddha sotiddaru.",
+      "exact": false
+    },
+    {
+      "index": 14,
+      "unbatched": "Pandyada natara, King of Clay, \"Pramukha eventgala anthima suttige maraluva bagge nanu utsukanaagidene. Idanu gellalu nanna kailadastu prayatnisalende nanilliddene\" endu helidaru.",
+      "batched": "pandyada nantara, king of clay, \"pramukha event gala antim suttige maraluva bagge nanu utsukanagidene. idanu gellu nanna kayladastu prayatisalende nanillidene\" endu helidaru.",
+      "exact": false
+    },
+    {
+      "index": 18,
+      "unbatched": "prapanchadadyanta pratibhatenagalu nadedavu, haluvu criminal mokaddamenagalu adavu, mattu iceland haagu pakistani sarcaragala nayakaru rajinameyanu saha kottaru.",
+      "batched": "prapanchadadanta pratibhatanegalu nadedavu, halavu criminal mokaddamelu adavu, mattu iceland hagu pakistani sarkaragala nayakaru rajinamayannu saha kottaru.",
+      "exact": false
+    },
+    {
+      "index": 24,
+      "unbatched": "Atlanta thrashers viruddha Washington sadhisida 5-3 antarada geluvinalli avaru vaiyaktikavagi 2 golugalannu barisiddallade 2 assistgalannu saha madiddaru.",
+      "batched": "atlanta thrashers viruddha washington sadisida 5-3 antarada geluvinalli avaru vyaktikavagi 2 golugalannu barisiddallade 2 assist galannu saha madiddaru.",
+      "exact": false
+    },
+    {
+      "index": 25,
+      "unbatched": "ee raatriya ovechkin ra medolu sahaayavaagiddu rookie niklas baxtram avara pandyavanu gelluvanta gol ninda;",
+      "batched": "ee ratriya ovechkin ro modalu sahayavagistu rookie nicklas backstrom avara pandyavannu gelluvanta goal ninda;",
+      "exact": false
+    },
+    {
+      "index": 27,
+      "unbatched": "2008ra 400 srimantha americannara pattiyalli batton 190 ne sthanadallidru, ivara andaju asthi maulya $ 2.3 shatakoti.",
+      "batched": "2008ra 400 srimanta americanara pattiyalli baton 190 ne sthanadallidaru, ivara andaju asti moulya $ 2.3 shatakoti.",
+      "exact": false
+    },
+    {
+      "index": 34,
+      "unbatched": "Guriyannu modala jet talupida kshanavada belagge 8:46 kke nikaravagi nagaradadyanta neeravate avarisitu.",
+      "batched": "guriyannu modala jet talupida kshanavada belagge 8:46 kke nikaravagi nagaradadanta neeravate avarisitu.",
+      "exact": false
+    },
+    {
+      "index": 43,
+      "unbatched": "prastuta fred, gantege sumaru105 mailigalastu (165 kimi/gam) vegadalli beesuttiddu vayuvya dikkina kadege hoguttide.",
+      "batched": "prasthuta fred, gantige sumaru 105 mailigalastu (165 kimi/gam) vegadalli beesuttittu vayuvya dikkina kadege hoguttide.",
+      "exact": false
+    },
+    {
+      "index": 46,
+      "unbatched": "250 varshagala natara, ginnes ondu jagatika vyavaharavagi beledide, adu prati varsha 10 biliyan eurogalashtu (US$ 14.7 biliyan) vahivatu nadesuttade.",
+      "batched": "250 varshagala natra, ginnes ondu jagatika vyavaharavagi beledide, adu prati varsha 10 biliyan eurogalashtu (US$ 14.7 biliyan) vahivatu nadesuttade.",
+      "exact": false
+    },
+    {
+      "index": 48,
+      "unbatched": "Shri rid nyujilandna A 1 jipi black beauty karannu prati gantegge 160 ki.mi vegadalli setuveya mele elu bari odisiddare.",
+      "batched": "sri reed newzealandna a 1 gp black beauty karanu prati ganteyge 160 ki.mee vegadalli setuveya mele elu bari odisiddare.",
+      "exact": false
+    },
+    {
+      "index": 49,
+      "unbatched": "tamma vega aleyuva radar gun galannu balasikondu new zealand police rige mr. reed eshtu vegavagi hoguttiddane endu thiliyuvudu kashtavagittu ekadare, aa black beautyya ettara kadime ittu, matte ondu bari matra vega aleyalu police rige sadhyavagiddu - mr. reed tanna vegavannu 160kimi/ga.ge ilisidaga.",
+      "batched": "tamma vega aleyuva radar gun galanu balasikondu newzealand polisarige mi. reed eshtu vegavagi hoguttiddane endu tiliyuvudu kashtavagittu ekendare, aa black beautyya ettara kadime ittu, matte ondu bari matra vega aleyalu polisarige sadhyavagiddu - mi. reed tanna veganu 160kimi/gam.ge ilisidaga.",
+      "exact": false
+    },
+    {
+      "index": 51,
+      "unbatched": "ee varshada aprilnalli, court commissioner rinda vicharaneyannu hondillada 24 ghantegaliginta hechu kaladinda olakke tagedukondavarannu bidugade madalu soubhyada viruddha judge glinnrinda tatkalika tade adeshavannu nidalpatitu.",
+      "batched": "ee varshada aprilnalli, court commissionerinda vicharaneyannu hondillada 24 gantegaliginta hechu kaladinda olakke tgedukondavaranu bidugada madalu saulbhayada viruddha judge glynnrinda tatkalika tade adeshayannu needalpatitu.",
+      "exact": false
+    },
+    {
+      "index": 62,
+      "unbatched": "Bhoomiya mele brazil atyanta dodda roman catholic church agide mattu deshadaalli samana linga vivahanada kaanunige roman catholic church virodhisutale bandide.",
+      "batched": "bhoomiya mele brazil atyanta dodda roman catholic church agide aur deshadalli samana linga vivahanada kanuninige roman catholic church virodhisuttale bandide.",
+      "exact": false
+    },
+    {
+      "index": 67,
+      "unbatched": "yavaga badigedararu tamagada anubhava helatodagidaro aga allidda kutumbagalige OHAya carolin wilson avarellara bhadrata thevapinigalanu kaddu uru bittu hogiddalendu takshana arthavayitu.",
+      "batched": "yavaga badiyedararu tamagada anubhava helatodagidaro aga allidda kutumbagalige OHAya caroline wilson avarella bhadrata thevanigalanu kaddu uru bittu hogiddalendu takshana arthavayitu.",
+      "exact": false
+    },
+    {
+      "index": 68,
+      "unbatched": "vasati hagaranadalli silukkikollabahudada, oaklandnalli itara sarvajanika vasati astitigala bagge oha police-ru tanikai nadesuttiru karana, lockwood gardan-nalli iruva badigetararu horahakuva paristhitiyannu edurisabahudada innu 40 koo hechchina kutumbagaliveyendu eegalu nambuttare.",
+      "batched": "vasati hagaradalli silukikollabahudada, oaklandnalli itara sarvajanika vasati astitigala bagge OHA police tanike nadesuttiru karana, lockwood gardandalli iruva badiyedararu horahaku parishtitiyanu edurisabahudada innu 40 kku hechina kutumbagaliveyendu eegalu nambuttare.",
+      "exact": false
+    },
+    {
+      "index": 69,
+      "unbatched": "9,000 janaru palgolkebidd maayi ravara yuddha smaraka kreedanganadalli na pradarshanavannu band raddugolisitu mattu abhimanigalige kshamayachisitu.",
+      "batched": "9,000 janaru palgollabekidda mayi ravara yuddha smaraka kridanganadalli pradarsanavanu band raddugolisitu aur abhimanigalige kshamayachisitu.",
+      "exact": false
+    },
+    {
+      "index": 75,
+      "unbatched": "jeevana prarambhavaadaga taanu nambutteene endu helalu roberts spashtavaagi niraakarisidaru, idu garbhapaatada neetiyannu pariginisuvaaga ondu pramukha vishayavaagide. sambhavaneeya prakaranagala vivaragala bagge pratikriyisuvadu anaiteka endu avaru helidaru.",
+      "batched": "jeevana prarambhavadaga tanu nambuttene endu helalu roberts spashtavagi nirakarisidaru, idu garbhapatada neetiyanu pariginisuwaga ondu pramukha vishayavagide. sambhavaneeya prakaranagala vivaragala bagge pratiyrisuvudu anaitika endu avaru helidaru.",
+      "exact": false
+    },
+    {
+      "index": 77,
+      "unbatched": "Ro tirmana avalambisida khasagitanada suchita hakkannu tanu opputtene enbadannu avanu khatripadisida.",
+      "batched": "ro teermana avalambisida khasagitanada suchita hakkannu tanu opputtene enbadannu avanu khatripadisida.",
+      "exact": false
+    },
+    {
+      "index": 78,
+      "unbatched": "marucaidor eradane sthanada nusaninginta aru heccu pointgalinda agrasthana talupida.",
+      "batched": "maruchaidor eradane sthanada nusaniginta aru heccu pointgalinda agrasthana talupida.",
+      "exact": false
+    },
+    {
+      "index": 79,
+      "unbatched": "ubhaya thandagalu pramukha semifinallyalli mukhamukhiyadavu noosa jayashaligalannu11 pointgalinda jayagalisithu.",
+      "batched": "ubhaya tandagalu pramukha semifinalnalli mukhamukhiadavu nusa jayashaligalannu11 pointgalinda jayagalisitu.",
+      "exact": false
+    },
+    {
+      "index": 82,
+      "unbatched": "ee bechagina raktada, mai thumba pukkagalannu hodda akshi velosiraptornanthe ugurugalannu olagonda eradu kaalugalalli nadedu bandudaagi nambalaagide.",
+      "batched": "i beccagina raktada, mai tumb pukkagalannu hodda a pakshi velociraptornante ugurugalannu olgonda eradu kalugalalli nade badudagi nambalagide.",
+      "exact": false
+    },
+    {
+      "index": 84,
+      "unbatched": "himapaatada jotege, teevra havaamaana paristhitigalu kooda rakshana kaaryagalige addiyaaguttive.",
+      "batched": "himapatada jotege, tivra havamana paristhitigalu kuda rakshana karyagalige addiyaguttive.",
+      "exact": false
+    },
+    {
+      "index": 86,
+      "unbatched": "pitman avaraprakara pack ice na pramaana mattu dappa ee 15 varshagalalle seelergalige atyanta kashtadaayakavaadagide.",
+      "batched": "pitman avaru prakara pack ice na pramana mattu dappa i 15 varshagallame seelergalige atyanta kashtadayakatavadgide.",
+      "exact": false
+    },
+    {
+      "index": 89,
+      "unbatched": "aadagyu, thanike vibhagavu minniyapolis staar-tribyunge neediruva mahitiya prakara, atha red lek budakattu adhyaksharada floyd jordener 16 varshada maga louis jordan.",
+      "batched": "adagyu, tanike vibhagavu minniapolis star-tribunegu neediruva mahitiyara prakara, ata red lake budakattu adhyaksharada floyd jordandara 16 varshada maga louis jordan.",
+      "exact": false
+    },
+    {
+      "index": 94,
+      "unbatched": "vimanavu irkutsurge horatittu mattu antarika padegalu nirvahisuttiddavu.",
+      "batched": "vimanavu irkutsgu horatittu mattu antarika padegalu nirvahistiddavu.",
+      "exact": false
+    },
+    {
+      "index": 108,
+      "unbatched": "aakashakke saguttiruva shooting star reethiyanteye bahutekavagi capsule kaanisuttittu.",
+      "batched": "akashake saguttuva shooting star riyanteyeyu bahutekavagi capsule kanisittu.",
+      "exact": false
+    },
+    {
+      "index": 111,
+      "unbatched": "idu uttara kalyiforniyada pashchima karavaliya mele sancharisuttade mattu kalyiforniyadinda madhya oregan moolaka nevada mattu idaho moolaka utahge akashavannu belagisuttade\" endu stardastna yojana vyavastapkarada tom duksabari helidaru.",
+      "batched": "\"idu uttara californiyada pashcima karavaliya mele sancharisuttade mattu californiyadinda madhya oregon mulaka nevada mattu idaho mulaka utahge akashavannu belagisuttade\" endu stardust na yojana vyavasthapakarada tom duksbury helidaru.",
+      "exact": false
+    },
+    {
+      "index": 114,
+      "unbatched": "ebeya itihasadalle idu dodda swadhinavagide.",
+      "batched": "ebay na itihasadalle idu dodda swadhinavagide.",
+      "exact": false
+    }
+  ]
+}

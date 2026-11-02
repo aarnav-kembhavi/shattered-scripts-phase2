@@ -1,0 +1,39 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Typing Kannada in English letters</title><style>
+body{font-family:system-ui,sans-serif;max-width:46rem;margin:1.5rem auto;padding:0 1rem;line-height:1.5;color:#1b1b1b;background:#fff}
+.banner{color:#1b1b1b;background:#fff3cd;border:1px solid #e0c36a;padding:.5rem .8rem;border-radius:6px;margin-bottom:1rem}
+.kn{font-size:1.4rem;padding:1rem;border:1px solid #bbb;border-radius:8px;margin:1rem 0;background:#fafafa}
+textarea{width:100%;font-size:1.1rem;padding:.6rem;border:1px solid #888;border-radius:6px;box-sizing:border-box;min-height:5rem}
+button{font-size:1rem;padding:.55rem 1rem;border-radius:6px;border:1px solid #444;background:#222;color:#fff;cursor:pointer;margin-right:.4rem}
+button:disabled{opacity:.4} .bar{height:6px;background:#ddd;border-radius:3px;margin:.5rem 0} .bar div{height:6px;background:#2a6;border-radius:3px}
+select,input{font-size:1rem;padding:.3rem}
+@media (prefers-color-scheme:dark){body{background:#151515;color:#eee}.kn{background:#1e1e1e;border-color:#555}textarea,select,input{background:#222;color:#eee}}
+</style></head><body>
+<h1>Typing Kannada in English letters</h1>
+<div class="banner"><b>PREVIEW.</b> Five of the 100 sentences, for layout review only. Nothing is collected before it is sent out.</div>
+<div id="start"><p>You will see 100 Kannada sentences, one at a time. For each, type it the way <b>you</b> would type it in a WhatsApp message to a friend, using English
+letters only (no Kannada script, no accents). Keep every word and the word order; do not translate or shorten. There is no single right spelling: write it your way.
+Please do not use a translator, an AI tool or a dictionary, and do not discuss the sentences with anyone. Turn off autocorrect and automatic capital letters on your keyboard.</p>
+<p>You are annotator: <select id="who"><option value="">choose</option><option>P</option><option>Q</option></select></p><button id="go">Start</button></div>
+<div id="task" hidden><div class="bar"><div id="prog"></div></div><div id="count"></div><div class="kn" id="kn"></div>
+<textarea id="ans" spellcheck="false" autocapitalize="off" autocorrect="off" placeholder="Type the sentence in English letters"></textarea>
+<p><button id="back">Back</button><button id="next" disabled>Next</button><button id="save">Save a backup file (JSON)</button></p></div>
+<div id="end" hidden><h2>Finished</h2><p>Thank you. Download your answers and send the file as instructed.</p><button id="dl">Download answers (JSON)</button></div>
+<script>
+const ITEMS=[{"index": 128, "native": "ಕಲಾತ್ಮಕ ಕಾರ್ಯಕ್ರಮವು ಬುಚಾರೆಸ್ಟ್ ಸಿಟಿ ಹಾಲ್‌ನ ಅಭಿಯಾನದ ಒಂದು ಭಾಗವಾಗಿದ್ದು, ರೊಮೇನಿಯನ್ ರಾಜಧಾನಿಯ ಚಿತ್ರವನ್ನು ಸೃಜನಶೀಲ ಮತ್ತು ವರ್ಣರಂಜಿತ ಮಹಾನಗರವಾಗಿ ಮರುಪ್ರಾರಂಭಿಸಲು ಎದುರು ನೋಡುತ್ತದೆ."}, {"index": 1906, "native": "ರಿಮೋಟ್ ಸ್ಥಳಗಳಲ್ಲಿ, ಸೆಲ್‌ ಫೋನ್ ಕವರೇಜ್ ಇಲ್ಲದಿದ್ದಲ್ಲಿ ಸ್ಯಾಟಲೈಟ್ ಫೋನ್‌ ನಿಮ್ಮ ಏಕೈಕ ಆಯ್ಕೆಯಾಗಿರಬಹುದು."}, {"index": 231, "native": "ಸ್ಫೋಟಕವನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲು ಹೋಗಿದ್ದನೆಂದು  ಶಂಕಿಸಲಾಗಿದ್ದ ವ್ಯಕ್ತಿಯನ್ನು, ಸ್ಫೋಟದಿಂದ ಗಾಯಗೊಂಡು ಉಳಿದನಂತರ, ತಡೆದು ನಿಲ್ಲಿಸಲಾಗಿದೆ."}, {"index": 766, "native": "ಚೀನಾದ ಬೀಜಿಂಗ್ ನಗರವು 2022 ರಲ್ಲಿ ಒಲಿಂಪಿಕ್ ಚಳಿಗಾಲದ ಕ್ರೀಡಾಕೂಟದ ಆತಿಥೇಯ ನಗರವಾಗಲಿದೆ, ಇದು ಬೇಸಿಗೆ ಮತ್ತು ಚಳಿಗಾಲದ ಒಲಿಂಪಿಕ್ಸ್ ಎರಡನ್ನೂ ಆಯೋಜಿಸಿದ ಮೊದಲ ನಗರವಾಗಲಿದೆ."}, {"index": 1802, "native": "ಬೀಸುತ್ತಿರುವ ಅಥವಾ ಬೀಳುತ್ತಿರುವ ಹಿಮ ಅಥವಾ ಘನೀಕರಣ ಅಥವಾ ವಾಹನದ ಕಿಟಕಿಗಳ ಮೇಲೆ ಮಂಜುಗಟ್ಟಿದರೆ ದೃಗ್ಗೋಚರತೆ  ಕಡಿಮೆಯಾಗಬಹುದು."}], KEY="x8_blind_preview";
+let st=JSON.parse(localStorage.getItem(KEY)||"null")||{i:0,who:"",ans:{}};
+const $=id=>document.getElementById(id);
+function save(){localStorage.setItem(KEY,JSON.stringify(st));}
+function show(){ if(st.i>=ITEMS.length){$("task").hidden=true;$("end").hidden=false;return;}
+ $("start").hidden=true;$("task").hidden=false;$("count").textContent=(st.i+1)+" of "+ITEMS.length;$("prog").style.width=(100*st.i/ITEMS.length)+"%";
+ $("kn").textContent=ITEMS[st.i].native;$("ans").value=st.ans[ITEMS[st.i].index]||"";$("next").disabled=!$("ans").value.trim();$("back").disabled=st.i==0;$("ans").focus();}
+function out(){return JSON.stringify({annotator:st.who,n:Object.keys(st.ans).length,answers:ITEMS.filter(x=>st.ans[x.index]!==undefined).map(x=>({index:x.index,romanization:st.ans[x.index]}))},null,1);}
+function dl(){const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([out()],{type:"application/json"}));a.download="x8_annotator_"+st.who+".json";a.click();}
+$("ans").oninput=()=>{$("next").disabled=!$("ans").value.trim();};
+$("go").onclick=()=>{st.who=$("who").value;if(!st.who){alert("Please choose P or Q");return;}save();show();};
+$("next").onclick=()=>{st.ans[ITEMS[st.i].index]=$("ans").value.trim();st.i++;save();show();};
+$("back").onclick=()=>{if(st.i>0){st.ans[ITEMS[st.i].index]=$("ans").value.trim();st.i--;save();show();}};
+$("save").onclick=()=>{st.ans[ITEMS[st.i].index]=$("ans").value.trim();save();dl();};
+$("dl").onclick=dl;
+if(st.who&&st.i>0){$("who").value=st.who;show();}
+</script></body></html>
