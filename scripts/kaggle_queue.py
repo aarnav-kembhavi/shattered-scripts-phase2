@@ -74,7 +74,7 @@ def ingest_precision(s: dict) -> None:
     """Take up every fetched precision result not yet in the state (also those of a push whose driver was stopped)."""
     for f in sorted((K / "kaggle_precision").glob("*/out/precision_*.json")):
         d = json.loads(f.read_text())
-        if d["model"] not in s["precision"] and "error" not in d or (d["model"] not in s["precision"] and d.get("error") and "parameters" in d):
+        if d["model"] not in s["precision"]:
             s["precision"][d["model"]] = {"pass": d.get("pass"), "reference": d.get("reference"), "hidden_abs_max_fp16": d.get("hidden_abs_max_fp16"),
                                           "file": str(f.relative_to(REPO)), "error": d.get("error")}
             log(s, f"A1-P {d['model']}: pass={d.get('pass')} reference={d.get('reference')} error={d.get('error')}")
