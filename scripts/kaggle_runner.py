@@ -108,9 +108,15 @@ def upload_dataset(d: Path, commit: str) -> None:
 BOOT = '''"""Kaggle bootstrap written by scripts/kaggle_runner.py (commit __COMMIT__)."""
 import glob, json, os, subprocess, sys, time, zipfile
 t0 = time.time()
-zp = glob.glob("/kaggle/input/**/repo.zip", recursive=True)[0]
 root = "/kaggle/working/repo"
-zipfile.ZipFile(zp).extractall(root)
+zps = glob.glob("/kaggle/input/**/repo.zip", recursive=True)
+if zps:
+    zipfile.ZipFile(zps[0]).extractall(root)
+else:  # Kaggle unpacks uploaded zips: the repo is then a directory tree under /kaggle/input
+    import shutil
+    hits = glob.glob("/kaggle/input/**/pyproject.toml", recursive=True)
+    print("input listing:", os.listdir("/kaggle/input"), hits, flush=True)
+    shutil.copytree(os.path.dirname(hits[0]), root)
 subprocess.run([sys.executable, "-m", "pip", "install", "-q", "--no-deps", "-e", root], check=True)
 subprocess.run([sys.executable, "-m", "pip", "install", "-q", *__PINS__], check=True)
 try:

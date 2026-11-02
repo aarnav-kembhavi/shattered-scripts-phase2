@@ -1,0 +1,120 @@
+{
+  "provenance": {
+    "config": {
+      "note": "tokenizer files only; descriptive; no model weights loaded"
+    },
+    "git_commit": "9d408c4f326c1881dcbf8e35378f43111a976c5b",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "timestamp_utc": "2026-11-02T11:20:46+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x12_tokenizers.py"
+    ]
+  },
+  "meta-llama/Llama-2-7b-hf": {
+    "gated": "manual",
+    "license": "llama2",
+    "sha": "01c7f73d771dfac7d292323805ebc428287df4f9",
+    "safetensors_params": 6738417664,
+    "tokenizer_error": "OSError('You are trying to access a gated repo.\\nMake sure to have access to it at https://huggingface.co/meta-llama/Llama-2-7b-hf.\\n403 Client Error. (Request ID: Root=1-6ae871fe-184a6ffb747508a215413298;ec85a831-5738-4524-bf6c-5e8d1757ef07)\\n\\nCannot access gated repo for url https://huggingface.c"
+  },
+  "Cognitive-Lab/Ambari-7B-base-v0.1": {
+    "gated": false,
+    "license": "mit",
+    "sha": "447a9d99ab4d8fd021c6459525224794ce51faa7",
+    "safetensors_params": null,
+    "vocab_size": 49600,
+    "tokens_per_word_native": 2.7397399302251824,
+    "tokens_per_word_itrans": 4.545290199809705,
+    "probe_ids": [
+      32104,
+      32925
+    ],
+    "tokenizer_class": "LlamaTokenizer"
+  },
+  "Cognitive-Lab/Ambari-7B-Instruct-v0.1": {
+    "gated": "auto",
+    "license": "llama2",
+    "sha": "e167ed0d03052d72f7984244fa641f1463f6a2c8",
+    "safetensors_params": 6882594816,
+    "tokenizer_error": "OSError('You are trying to access a gated repo.\\nMake sure to have access to it at https://huggingface.co/Cognitive-Lab/Ambari-7B-Instruct-v0.1.\\n403 Client Error. (Request ID: Root=1-6ae87206-28ac46fa2bfbd1d36f618fc7;d124df90-55ea-4707-b9cc-86178393ac0b)\\n\\nCannot access gated repo for url https://"
+  },
+  "Cognitive-Lab/Ambari-7B-Instruct-v0.2": {
+    "gated": false,
+    "license": "llama2",
+    "sha": "dad00def6780843178fd0e13fb268788e4286a8b",
+    "safetensors_params": null,
+    "vocab_size": 32000,
+    "tokens_per_word_native": 20.82756105296543,
+    "tokens_per_word_itrans": 4.687377101173485,
+    "probe_ids": [
+      29871,
+      227,
+      181,
+      152,
+      227,
+      181,
+      171,
+      31623,
+      227,
+      181,
+      171,
+      227,
+      181,
+      164,
+      29871,
+      227,
+      181,
+      176,
+      227,
+      181,
+      193,
+      227,
+      181,
+      186,
+      227,
+      182,
+      137
+    ],
+    "tokenizer_class": "LlamaTokenizer"
+  },
+  "Qwen/Qwen3-8B": {
+    "gated": false,
+    "license": "apache-2.0",
+    "sha": "b968826d9c46dd6066d109eabc6255188de91218",
+    "safetensors_params": 8190735360,
+    "vocab_size": 151669,
+    "tokens_per_word_native": 11.836378052648271,
+    "tokens_per_word_itrans": 4.33929590865842,
+    "probe_ids": [
+      147268,
+      146664,
+      55890,
+      235,
+      146664,
+      147633,
+      89434,
+      255,
+      33556,
+      122,
+      33556,
+      115,
+      55890,
+      228
+    ],
+    "tokenizer_class": "Qwen2Tokenizer"
+  },
+  "meta-llama/Llama-3.1-8B": {
+    "gated": "manual",
+    "license": "llama3.1",
+    "sha": "d04e592bb4f6aa9cfee91e2e20afa771667e1d4b",
+    "safetensors_params": 8030261248,
+    "tokenizer_error": "OSError('You are trying to access a gated repo.\\nMake sure to have access to it at https://huggingface.co/meta-llama/Llama-3.1-8B.\\n403 Client Error. (Request ID: Root=1-6ae8720e-6e0c2a71210beb65623abe44;7d4902ed-c3db-4a47-b866-a27fed7877e5)\\n\\nCannot access gated repo for url https://huggingface.co"
+  },
+  "_identical_to_llama2_on_first_200_sentences": {
+    "Cognitive-Lab/Ambari-7B-base-v0.1": null,
+    "Cognitive-Lab/Ambari-7B-Instruct-v0.1": null,
+    "Cognitive-Lab/Ambari-7B-Instruct-v0.2": null
+  }
+}
