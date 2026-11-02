@@ -1,4 +1,4 @@
-"""Kaggle queue driver (Amendment 2, approved 2026-11-02; order set by Aarnav 2026-11-02 23:30): A1-P pair (Qwen3-8B, Ambari-7B-base) -> score the ones that pass (X13 Qwen3-8B,
+"""Kaggle queue driver (Amendment 2, approved 2026-11-02; order set by Aarnav 2026-11-02 23:16): A1-P pair (Qwen3-8B, Ambari-7B-base) -> score the ones that pass (X13 Qwen3-8B,
 then X12 Ambari-base) -> A1-P Ambari-Instruct v0.1 and v0.2 (one push) -> X9b Sarvam-1 arm when its laptop pilot is done -> gated models retried between jobs. Weekly quota is projected before each push.
 (earlier text:) A1-R retrieval gate (read from its fetched output) -> A1-P precision checks -> X12 scoring ->
 X13 scoring, one Kaggle job at a time, deciding each step from the registered rules, retrying Hugging Face access between jobs. Idempotent and resumable:
