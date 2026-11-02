@@ -10,6 +10,7 @@ or written, only "the same hash occurs in files A and B"):
 import hashlib
 import json
 import re
+import sys
 import zipfile
 from pathlib import Path
 
@@ -106,3 +107,71 @@ def write_md(path: Path, title: str, reports: list[dict], cross: list[str], extr
     for e in extra or []:
         L.append(e)
     path.write_text("\n".join(L) + "\n", encoding="utf-8")
+
+
+# ---- comparison with the original (replaces the locked-cell check; the workbooks are unprotected since 2026-11-03)
+_EXPECTED = {}
+
+
+def _expected_dir() -> Path:
+    """The original workbooks rebuilt in a temporary folder by scripts/export_xlsx.py (deterministic: registered selection and seeds), so the comparison does not depend on the
+    state of the files in annotation/xlsx/ (people open and save them)."""
+    if "dir" not in _EXPECTED:
+        import tempfile
+
+        sys.path.insert(0, str(REPO / "scripts"))
+        import export_xlsx as E
+        tmp = Path(tempfile.mkdtemp(prefix="expected_xlsx_"))
+        old = E.OUT
+        E.OUT = tmp
+        try:
+            E.build_x8()
+            E.build_x15()
+            E.build_t3()
+        finally:
+            E.OUT = old
+        _EXPECTED["dir"] = tmp
+    return _EXPECTED["dir"]
+
+
+def _answer_cell(kind: str, sheet: str, row: int, col: int) -> bool:
+    if sheet != "Task":
+        return False
+    if kind == "T3":
+        return 2 <= row <= 4 and col in (4, 5)
+    return 2 <= row <= 101 and col == 3
+
+
+def diff_non_answer(path: Path, fid: str) -> list[str]:
+    """Coordinates of every cell outside the answer cells whose value differs from the original (value in the original or in the returned file, either side), on every sheet."""
+    kind = fid.split("_")[0]
+    orig = load_workbook(_expected_dir() / f"{fid}.xlsx")
+    ret = load_workbook(path)
+    out = []
+    if orig.sheetnames != ret.sheetnames:
+        return [f"sheets {ret.sheetnames} instead of {orig.sheetnames}"]
+    for name in orig.sheetnames:
+        a, b = orig[name], ret[name]
+        coords = {(c.row, c.column) for ws in (a, b) for row in ws.iter_rows() for c in row if c.value not in (None, "")}
+        for r, c in sorted(coords):
+            if _answer_cell(kind, name, r, c):
+                continue
+            va, vb = a.cell(row=r, column=c).value, b.cell(row=r, column=c).value
+            if (va if va is not None else "") != (vb if vb is not None else ""):
+                out.append(f"{name}!{a.cell(row=r, column=c).coordinate}")
+    return out
+
+
+def person_overlap_across_kinds(folder: Path = RETURNED) -> list[str]:
+    """Blockers: the same person (author-field hash) behind an X8 file and an X15 file (the X15 annotators must not come from the X8 groups)."""
+    x8 = {p: person_hash(p) for p in returned_files("X8_", folder)}
+    x15 = {p: person_hash(p) for p in returned_files("X15_", folder)}
+    out = []
+    for p8, h8 in x8.items():
+        for p15, h15 in x15.items():
+            if h8 and h8 == h15:
+                out.append(f"the same person (hash {h8}) is behind {p8.name} (X8) and {p15.name} (X15)")
+    unknown = [p.name for p, h in {**x8, **x15}.items() if not h]
+    if unknown:
+        out.append(f"WARNING (not a blocker): {len(unknown)} returned files have blank author fields, so the same-person checks cannot cover them: {unknown[:8]}")
+    return out

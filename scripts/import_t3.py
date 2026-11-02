@@ -3,7 +3,7 @@
 One command: `python scripts/import_t3.py` reads the T3 workbook in annotation/returned/ (identified by the `File id: T3_verification` line; or pass a path) and writes
 results/phase2/x1/t3_verification_returned.json and results/phase2/x1/VALIDATION_T3.md. Options: --folder DIR, --out DIR (tests).
 
-Checks: sheets and header; the three instruction ids with the Kannada instruction and gloss unchanged (edited cells); every Verdict is Correct or Needs change (blank or other
+Checks: sheets and header; every cell outside the Verdict and Corrected columns equal to the original (scripts/import_common.py: diff_non_answer); the three instruction ids; every Verdict is Correct or Needs change (blank or other
 text is a blocker); "Needs change" without a corrected Kannada text is a blocker; "Correct" with a corrected text is a warning (the corrected text is kept but marked unused); row T3-2
 (the XNLI line, marked "needs rewrite") returned as Correct is a warning; a corrected text containing no Kannada script is a warning. The file is not matched against the private keys
 (there are none for T3) but the byte-identical and key-name checks of scripts/import_common.py apply.
@@ -38,6 +38,9 @@ def import_one(path: Path, outdir: Path | None) -> dict:
     if wb.sheetnames != ["Instructions", "Task"]:
         B.append(f"sheets are {wb.sheetnames}")
         return rep
+    d = C.diff_non_answer(path, "T3_verification")
+    if d:
+        B.append(f"{len(d)} cells outside the Verdict and Corrected columns differ from the original: {d[:10]}")
     t = wb["Task"]
     if [t.cell(row=1, column=c).value for c in range(1, 6)] != ["Instruction id", "Kannada instruction", "English gloss", "Verdict", "Corrected Kannada text"]:
         B.append("header row changed")

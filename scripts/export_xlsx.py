@@ -4,10 +4,10 @@
   python scripts/export_xlsx.py check     -> reopen every file and assert the hygiene rules (see `check_file`), write annotation/xlsx/HYGIENE_REPORT.json
 
 X8: Instructions + Task (id, Kannada sentence, Romanization blank); the 100 sentences and their order are the registered selection (`results/phase2/x8/selection.json`,
-default_rng(8)); identical in both files; no Gemini text, no English, no other annotator's text. Locked: id and sentence columns.
+default_rng(8)); identical in both files; no Gemini text, no English, no other annotator's text. Unprotected (2026-11-03): the importers compare every non-answer cell with the original.
 X15: eight files; group G (1..4) sees item i (position in the registered seeded item order, default_rng(15)) in form FORMS[(i + G) % 4]; the rows are shuffled with a fixed
 seed per group (15000 + G; both seats of a group see the same order); Task sheet: Item (the row number in the displayed order), Text, Topic (dropdown of the seven labels
-in English, strict data validation). Every column except Topic is locked (sheet protection, no password). No gold labels, no form names, no model output in the files.
+in English, strict data validation). Unprotected (2026-11-03): the importers compare every non-answer cell with the original. No gold labels, no form names, no model output in the files.
 Keys (private): item -> gold label, item -> form per group, row -> item per file, the shuffle seeds.
 T3: instruction id, Kannada instruction, English gloss, Verdict (dropdown), Corrected Kannada text; the XNLI line is marked "needs rewrite" with the two words flagged.
 Hygiene (every file): Kannada-capable font on every cell, all cells text-formatted, no formulas, creator and last-modified-by blank, no hidden sheets, columns or rows.
@@ -68,12 +68,13 @@ def lines(text: str, width: float) -> int:
     return max(1, sum(math.ceil(max(1, len(p)) / max(1.0, width * f)) for p in str(text).split("\n")))
 
 
-def instructions_sheet(ws, paras: list[tuple[str, str]], width: int = 105) -> None:
+def instructions_sheet(ws, paras: list[tuple[str, str]], width: int = 105, protect_sheet: bool = True) -> None:
     ws.column_dimensions["A"].width = width
     for r, (kind, text) in enumerate(paras, 1):
         put(ws, r, 1, text, bold=(kind == "h"), size=14 if kind == "h" else 12)
         ws.row_dimensions[r].height = 24 * lines(text, width) + (6 if kind == "h" else 4)
-    ws.protection.sheet = True  # nobody needs to edit the instructions (no password)
+    if protect_sheet:
+        ws.protection.sheet = True  # (T3 only) no password
 
 
 def protect(ws) -> None:
@@ -122,10 +123,10 @@ def build_x8() -> dict:
                   "Do not ask or compare with anyone. There is no right answer; we want your own natural way of typing. Use English words where you would normally use them."),
             ("p", "Switch off AutoCorrect before you start, otherwise Excel will capitalise and change your words: File > Options > Proofing > AutoCorrect Options, then untick "
                   "\"Capitalize first letter of sentences\", \"Capitalize first letter of table cells\" and \"Replace text as you type\". Type in lowercase if that is how you type in a message."),
-            ("p", "Fill every row; columns A and B are locked. Save the file under the same name and send it back. Expected time: about 1.5 hours (between 1 and 2); you may work in several sittings."),
+            ("p", "Fill every row. Please do not change columns A and B. Save the file under the same name and send it back. Expected time: about 1.5 hours (between 1 and 2); you may work in several sittings."),
             ("p", f"Role letter: {role}"),
             ("p", f"File id: X8_{role}"),
-        ])
+        ], protect_sheet=False)
         ws2 = wb.create_sheet("Task")
         for c, (h, w) in enumerate((("id", 8), ("Kannada sentence", 70), ("Romanization", 70)), 1):
             put(ws2, 1, c, h, bold=True, fill=HEAD_FILL)
@@ -136,8 +137,8 @@ def build_x8() -> dict:
             put(ws2, r, 3, None, fill=ANS_FILL, locked=False)
             ws2.row_dimensions[r].height = 24 * max(lines(it["native"], 70), 2) + 6
         ws2.freeze_panes = "A2"
-        protect(ws2)
-        finish(wb, OUT / f"X8_{role}.xlsx")
+        finish(wb, OUT / f"X8_{role}.xlsx")  # unprotected: every non-answer cell is compared with the original on import
+
     return {"x8_order": [i["index"] for i in items], "x8_selection_seed": 8, "x8_shuffle_seed": None,
             "x8_note": "order = the registered default_rng(8) draw, identical in both files; no further shuffle", "gemini_text_by_index": {str(k): v for k, v in gemini.items()}}
 
@@ -155,7 +156,7 @@ def build_x15() -> dict:
         ("p", "The seven topics are: science/technology, travel, politics, sports, health, entertainment, geography. Choose the best one even if you are not sure. Answer every row."),
         ("p", "Do not look anything up: no translator, no dictionary, no search engine, no AI assistant, and do not discuss the texts with anyone. Some texts are harder to read than "
               "others; that is expected. This measures how readable the writing is, not a test of you."),
-        ("p", "Only column C can be edited; the rest is locked. Save the file under the same name and send it back. Expected time: about 30 to 45 minutes."),
+        ("p", "Please change only column C and do not edit anything else. Save the file under the same name and send it back. Expected time: about 30 to 45 minutes."),
     ]
     for g in range(1, 5):
         order = np.random.default_rng(15000 + g).permutation(n)
@@ -165,7 +166,7 @@ def build_x15() -> dict:
             wb = new_wb()
             ws = wb.active
             ws.title = "Instructions"
-            instructions_sheet(ws, paras + [("p", f"File id: {fid}")])
+            instructions_sheet(ws, paras + [("p", f"File id: {fid}")], protect_sheet=False)
             ws2 = wb.create_sheet("Task")
             for c, (h, w) in enumerate((("Item", 8), ("Text", 90), ("Topic", 26)), 1):
                 put(ws2, 1, c, h, bold=True, fill=HEAD_FILL)
@@ -184,8 +185,8 @@ def build_x15() -> dict:
             dv.add(f"C2:C{n + 1}")
             ws2.add_data_validation(dv)
             ws2.freeze_panes = "A2"
-            protect(ws2)
-            finish(wb, OUT / f"{fid}.xlsx")
+            finish(wb, OUT / f"{fid}.xlsx")  # unprotected: every non-answer cell is compared with the original on import
+
             keys["files"][fid] = {"group": g, "seat": seat, "rows": rows}
     return keys
 
@@ -239,7 +240,8 @@ def build() -> None:
     PRIV.mkdir(parents=True, exist_ok=True)
     x8 = build_x8()
     keys = build_x15()
-    build_t3()
+    if "--with-t3" in sys.argv:  # T3_verification.xlsx has been sent and returned: never overwritten unless asked
+        build_t3()
     (PRIV / "x15_keys.json").write_text(json.dumps(keys, ensure_ascii=False, indent=1), encoding="utf-8")
     (PRIV / "x8_keys.json").write_text(json.dumps({k: v for k, v in x8.items() if k != "gemini_text_by_index"}, ensure_ascii=False, indent=1), encoding="utf-8")
     (PRIV / "x8_gemini_text_for_leak_check.json").write_text(json.dumps(x8["gemini_text_by_index"], ensure_ascii=False), encoding="utf-8")
@@ -320,21 +322,14 @@ def check_file(path: Path, cmap: set[int], gemini: dict | None, keys: dict | Non
             bad.append("X8 Task layout differs")
         if any(t.cell(row=r, column=3).value not in (None, "") for r in range(2, 102)):
             bad.append("X8 answer cells are not blank")
-        if not t.protection.sheet:
-            bad.append("X8 Task sheet not protected")
+        if t.protection.sheet or wb["Instructions"].protection.sheet:
+            bad.append("X8 workbook is protected (it must be unprotected)")
     if stem.startswith("X15_"):
         t = wb["Task"]
         if t.max_row != 101 or [t.cell(row=1, column=c).value for c in (1, 2, 3)] != ["Item", "Text", "Topic"]:
             bad.append("X15 Task layout differs")
-        if not t.protection.sheet or t.protection.password:
-            bad.append("X15 Task sheet not protected without password")
-        for r in range(1, 102):
-            for c in (1, 2, 3):
-                cell = t.cell(row=r, column=c)
-                want_unlocked = (c == 3 and r >= 2)
-                if bool(cell.protection.locked) == want_unlocked:
-                    bad.append(f"X15 lock state wrong at {cell.coordinate}")
-                    break
+        if t.protection.sheet or wb["Instructions"].protection.sheet:
+            bad.append("X15 workbook is protected (it must be unprotected)")
         for r in range(2, 102):
             if t.cell(row=r, column=3).value not in (None, ""):
                 bad.append("X15 Topic cells are not blank")
@@ -367,7 +362,7 @@ def check() -> int:
     gem = json.loads((PRIV / "x8_gemini_text_for_leak_check.json").read_text(encoding="utf-8"))
     keys = json.loads((PRIV / "x15_keys.json").read_text(encoding="utf-8"))
     reports = []
-    files = sorted(p for p in OUT.glob("*.xlsx") if p.name.startswith(("X8_", "X15_", "T3_")))
+    files = sorted(p for p in OUT.glob("*.xlsx") if p.name.startswith(("X8_", "X15_") + (("T3_",) if "--with-t3" in sys.argv else ())))  # the T3 sheet was sent and returned (author fields now filled)
     for p in files:
         reports.append(check_file(p, cmap, gem, keys))
         print(("OK   " if reports[-1]["ok"] else "FAIL ") + p.name, reports[-1]["problems"][:5])

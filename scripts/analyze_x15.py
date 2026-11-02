@@ -105,10 +105,17 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--in", dest="inp", default=None)
     ap.add_argument("--out", default=None)
+    ap.add_argument("--skip-deviation-check", action="store_true", help="tests on synthetic data only")
     a = ap.parse_args()
     d = Path(a.inp) if a.inp else results_dir("phase2/x15")
     out = Path(a.out) if a.out else d
     out.mkdir(parents=True, exist_ok=True)
+    n_files = len(glob.glob(str(d / "x15_g*_seat*.csv")))
+    if n_files < 8 and not a.skip_deviation_check:
+        log = (REPO / "RESULTS.md").read_text(encoding="utf-8")
+        if f"X15 DEVIATION: {n_files} of 8 files" not in log:
+            print(f"{n_files} of 8 X15 files: log the line \"X15 DEVIATION: {n_files} of 8 files\" in RESULTS.md as a deviation before analysing anything (Aarnav's rule); not run.")
+            return 3
     res, items = human(d)
     res["models_same_items"] = models_on(items)
     res.update({"n_boot": N_BOOT, "seed": SEED})

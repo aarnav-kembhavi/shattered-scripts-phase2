@@ -1,0 +1,38 @@
+{
+  "provenance": {
+    "config": {
+      "note": "returned T3 verification; no template is changed by this script"
+    },
+    "git_commit": "8a3a76f232f264ac55e7b6c2b862911db671e521-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-02T19:45:24+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/import_t3.py"
+    ]
+  },
+  "rows": [
+    {
+      "id": "T3-1",
+      "verdict": "Correct",
+      "corrected": null,
+      "corrected_used": false
+    },
+    {
+      "id": "T3-2",
+      "verdict": "Needs change",
+      "corrected": "Premise ಸತ್ಯವಾಗಿದ್ದರೆ, Hypothesis ಸಹ ಸತ್ಯವೇ? no, maybe, ಅಥವಾ yes ಆಯ್ಕೆಮಾಡಿ.",
+      "corrected_used": true
+    },
+    {
+      "id": "T3-3",
+      "verdict": "Correct",
+      "corrected": null,
+      "corrected_used": false
+    }
+  ],
+  "all_correct": false,
+  "source": "T3_verification.xlsx"
+}

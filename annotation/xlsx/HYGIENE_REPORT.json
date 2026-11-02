@@ -1,16 +1,9 @@
 {
- "files": 11,
+ "files": 10,
  "all_ok": true,
  "x8_identical_sets_and_order": true,
  "x15_latin_square_ok": true,
  "reports": [
-  {
-   "file": "T3_verification.xlsx",
-   "problems": [],
-   "cells_checked": 25,
-   "kannada_codepoints": 32,
-   "ok": true
-  },
   {
    "file": "X15_G1_a.xlsx",
    "problems": [],

@@ -1,4 +1,4 @@
-# Messages to paste (WhatsApp, English). Nothing has been sent.
+# Messages to paste (WhatsApp, English). Updated 2026-11-03 01:16 IST: X8 and X15 are back in the registered design; the workbooks are unprotected.
 
 Attach the one file named in each message. Do not send two roles' files to the same person. Time estimates are my estimates from the text lengths (X8: 100 sentences,
 1,602 Kannada words, 16 words per sentence on average; X15: 100 texts of about 16 words each); no one has done a task yet, so the first returned file tells you the real time.
@@ -9,16 +9,16 @@ Attach the one file named in each message. Do not send two roles' files to the s
 
 Hi, thank you for helping with my research. Attached is an Excel file with 100 Kannada sentences. For each sentence, please type it in English letters (romanized Kannada),
 exactly the way you would type it in a WhatsApp message to a friend, in the yellow column. Please do NOT look anything up and do not use any translator, typing tool or AI.
-Before you start, turn off Excel AutoCorrect (the first sheet explains how; otherwise it capitalises and changes your words). It takes about 1.5 hours (1 to 2); you can do it
+Please do not change columns A and B. Before you start, turn off Excel AutoCorrect (the first sheet explains how; otherwise it capitalises and changes your words). It takes about 1.5 hours (1 to 2); you can do it
 in several sittings. When done, save and send the same file back to me here. Please do not discuss it with anyone else who is doing it. Thank you!
 
 ## X8 annotator Q  (attach `X8_Q.xlsx`)
 
-Same message as P with `X8_Q.xlsx`. Must be a different person from P, and P and Q must not see each other's file.
+Same message as P with `X8_Q.xlsx`. **X8_Q goes to a different group of speakers, none of whom are in P's group, and nobody in Q's group sees X8_P.** P and Q must not see each other's file.
 
 ---
 
-## X15 annotators (eight people, one file each: `X15_G1_a`, `X15_G1_b`, `X15_G2_a`, `X15_G2_b`, `X15_G3_a`, `X15_G3_b`, `X15_G4_a`, `X15_G4_b`)
+## X15 annotators (eight different people, none of them from the X8 groups, one file each: `X15_G1_a`, `X15_G1_b`, `X15_G2_a`, `X15_G2_b`, `X15_G3_a`, `X15_G3_b`, `X15_G4_a`, `X15_G4_b`)
 
 Hi, thank you for helping with my research. Attached is an Excel file with 100 short Kannada sentences (some in Kannada script, some in English letters). For each one, please
 pick the topic that fits best from the dropdown list in the yellow column (science/technology, travel, politics, sports, health, entertainment, geography). Answer every row,
@@ -46,6 +46,8 @@ It takes about 10 to 15 minutes. Please send the file back to me here when done.
 | X8 (P, Q) | 100 sentences, 1,602 words | about 1.5 hours (1 to 2 hours) | reading plus typing about 16 words per sentence at roughly 20 words per minute including thinking |
 | X15 (8 people) | 100 texts, about 16 words each | 30 to 45 minutes | about 15 to 25 seconds per text; Kannada-script texts faster, the English-letter forms slower |
 | T3 (1 person) | 3 lines | 10 to 15 minutes | reading three lines and typing at most one or two corrections |
+
+The X8 and X15 workbooks are not protected: the importers compare every cell outside the answer column with the original, so any edit to another cell is reported and blocks the import.
 
 Returned files go to `scripts/import_x8.py` (P and Q) and `scripts/import_x15.py` (the eight), which check missing or blank cells, labels not in the list, edited locked cells
 and duplicate ids before writing the registered formats. For X8 they also print the share of cells starting with an uppercase letter and the share with characters outside the expected

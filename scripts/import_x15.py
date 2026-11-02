@@ -4,7 +4,7 @@ One command: `python scripts/import_x15.py` reads every X15 workbook in annotati
 results/phase2/x15/VALIDATION.md. Options: --partial, --folder DIR, --out DIR (tests).
 
 Per file: sheet and header layout, the file id, 100 rows, the Item and Text columns equal to what was sent (read from the private key annotation/private/x15_keys.json; a mismatch means
-a locked cell was edited or rows were moved), duplicate item numbers, missing or blank Topic cells, Topic values not in the list of seven labels (free text, another spelling, a number),
+a cell was edited or rows were moved), duplicate item numbers, missing or blank Topic cells, Topic values not in the list of seven labels (free text, another spelling, a number),
 content outside the table. Across files (scripts/import_common.py): no file id twice, no person (author-field hash) behind two files, no byte-identical files, no file matching a private
 key (a file whose answers equal the gold labels on every row counts as the key). Blockers stop the write unless --partial is given.
 Writes results/phase2/x15/x15_g<G>_seat<S>.csv with the columns of the HTML page export (item_id, form, choice, ms, group, seat): item_id = the SIB-200 id, form from the private key
@@ -44,6 +44,9 @@ def import_one(path: Path, keys: dict, partial: bool, outdir: Path | None = None
     fid, g, seat = m.group(1), int(m.group(2)), m.group(3).upper()
     rep.update({"file_id": fid, "group": g, "seat": seat})
     rows = keys["files"][fid]["rows"]
+    d = C.diff_non_answer(path, fid)
+    if d:
+        B.append(f"{len(d)} cells outside the Topic column differ from the original: {d[:10]}")
     t = wb["Task"]
     if [t.cell(row=1, column=c).value for c in (1, 2, 3)] != ["Item", "Text", "Topic"]:
         B.append("header row changed")
@@ -69,7 +72,7 @@ def import_one(path: Path, keys: dict, partial: bool, outdir: Path | None = None
             continue
         out.append({"item_id": row["sib_id"], "form": row["form"], "choice": topic, "ms": "", "group": g, "seat": seat})
     if edited:
-        B.append(f"{len(edited)} rows whose Item or Text differ from what was sent (locked cells edited or rows moved): {edited[:10]}")
+        B.append(f"{len(edited)} rows whose Item or Text differ from what was sent (cells edited or rows moved): {edited[:10]}")
     if blank:
         B.append(f"{len(blank)} missing or blank Topic cells: rows {blank[:15]}")
     if bad_label:
@@ -118,7 +121,7 @@ def main() -> int:
         print(f"no X15 workbook in {a.folder}")
         return 2
     ids = {p: C.file_id(p) for p in paths}
-    cross = C.cross_checks(paths, ids, "X15")
+    cross = C.cross_checks(paths, ids, "X15") + [x for x in C.person_overlap_across_kinds(Path(a.folder)) if not x.startswith("WARNING")]
     reports = [import_one(p, keys, a.partial, outdir, write=False) for p in paths]  # first pass: nothing is written until the cross-file checks are done
     if not cross:
         reports = [import_one(p, keys, a.partial, outdir, write=True) for p in paths]
@@ -128,11 +131,16 @@ def main() -> int:
     out = outdir or results_dir("phase2/x15")
     C.write_md(out / "VALIDATION.md", "X15 import validation", reports, cross,
                ["", f"Files still missing (of eight): {missing}", f"Orphan .xlsx files in the folder (no File id): {C.orphans(Path(a.folder))}"])
+    n_ok = sum(1 for r in reports if r.get("ok"))
+    if cross or n_ok < 8:
+        (out / "DEVIATION_NEEDED.md").write_text(f"{n_ok} of 8 valid X15 files. If fewer than eight come back, log the number in RESULTS.md as a deviation BEFORE analysing anything: a line containing exactly `X15 DEVIATION: {n_ok} of 8 files`. scripts/analyze_x15.py refuses to run until that line exists.\n", encoding="utf-8")
+    elif (out / "DEVIATION_NEEDED.md").exists():
+        (out / "DEVIATION_NEEDED.md").unlink()
     for r in reports:
         print(json.dumps(r, ensure_ascii=False, indent=1))
     for c in cross:
         print("BLOCKER (cross-file):", c)
-    print("still missing:", missing)
+    print("still missing:", missing, "| valid files:", n_ok, "of 8")
     return 1 if (cross or any(not r.get("ok") for r in reports)) else 0
 
 

@@ -3,8 +3,7 @@
 One command: `python scripts/import_x8.py` reads every X8 workbook in annotation/returned/ (identified by the `File id` line of its Instructions sheet, not by its name; or pass paths),
 checks them one by one and as a pair, and writes results/phase2/x8/VALIDATION.md. Options: --partial, --folder DIR, --out DIR (tests).
 
-Per file: sheet and header layout, the role letter and file id, 100 rows, the id and Kannada-sentence columns equal to the registered selection (a mismatch means a locked cell was
-edited, a row moved or deleted), duplicate ids, missing, blank or non-text Romanization cells. Reported as warnings (never blockers), to catch AutoCorrect damage: the share of cells
+Per file: sheet and header layout, the role letter and file id, 100 rows, every cell outside the Romanization column equal to the original (the workbooks are unprotected; a difference means an edit, a moved or a deleted row), duplicate ids, missing, blank or non-text Romanization cells. Reported as warnings (never blockers), to catch AutoCorrect damage: the share of cells
 starting with an uppercase letter and the share containing characters outside the expected romanization set (ASCII letters, digits, space and ASCII punctuation; curly quotes,
 ellipsis, dashes, emoji, Kannada script are listed). As a pair (scripts/import_common.py): P and Q each exactly once, two different files, two different persons (author-field hash),
 answers not copies of each other, no file matching a private key. Blockers stop the write unless --partial is given (then only the valid answered rows are written).
@@ -48,6 +47,9 @@ def import_one(path: Path, partial: bool, outdir: Path | None = None, write: boo
         return rep
     role = role.group(1)
     rep["role"] = role
+    d = C.diff_non_answer(path, f"X8_{role}")
+    if d:
+        B.append(f"{len(d)} cells outside the answer column differ from the original: {d[:10]}")
     t = wb["Task"]
     if [t.cell(row=1, column=c).value for c in (1, 2, 3)] != ["id", "Kannada sentence", "Romanization"]:
         B.append("header row changed")
@@ -74,7 +76,7 @@ def import_one(path: Path, partial: bool, outdir: Path | None = None, write: boo
             continue
         answers.append({"index": it["index"], "romanization": cans.strip()})
     if edited:
-        B.append(f"{len(edited)} rows whose id or Kannada sentence differ from the registered selection (locked cells edited, rows moved or deleted): {edited[:10]}")
+        B.append(f"{len(edited)} rows whose id or Kannada sentence differ from the registered selection (cells edited, rows moved or deleted): {edited[:10]}")
     if blank:
         B.append(f"{len(blank)} missing or blank Romanization cells: {blank[:10]}")
     if nontext:
@@ -121,7 +123,7 @@ def main() -> int:
         print(f"no X8 workbook in {a.folder}")
         return 2
     ids = {p: C.file_id(p) for p in paths}
-    cross = C.cross_checks(paths, ids, "X8")
+    cross = C.cross_checks(paths, ids, "X8") + [x for x in C.person_overlap_across_kinds(Path(a.folder)) if not x.startswith("WARNING")]
     reports = [import_one(p, a.partial, outdir, write=False) for p in paths]  # first pass: nothing is written until the pair checks are done
     roles = [r.get("role") for r in reports]
     if len(paths) >= 2 and sorted(x for x in roles if x) != ["P", "Q"]:
