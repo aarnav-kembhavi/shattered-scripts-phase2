@@ -3737,3 +3737,10 @@ with a list of what moved to the appendix. Phase 2 results enter the paper only 
   To apply this order the queue driver was changed and a `results/kaggle/HOLD` file stops new pushes while the in-flight job continues (an implementation change; no rule).
 - Time stamps of the three entries above were first written with wrong clock times and corrected to the commit times (the A1-P-D1 entry 22:59, the X12 clarification, weights rule and queue order 23:17).
 - Time correction (checked by scripts/check_results_times.py, which found it): the A1-R entry above was stamped 19:35 by hand but committed at 19:26; its stamp is now the commit time. From now on stamps come from `scripts/stamp.py` (system clock), and a pre-commit hook fails any entry later than the clock.
+
+- **2026-11-02 23:21 IST, DEVIATION X9b-D1 (decided by Aarnav, registered before the pilot).** The X9b memory and timing pilot runs on the **Kaggle T4**, not on the laptop, because the amendment fixes the
+  token budget B by a 50-step timing run on the machine that will train (the T4). No rule, threshold, condition, recipe or prediction changes. B = floor(0.9 x slowest measured tokens/s x 10,800 s),
+  rounded down to a multiple of the tokens per optimizer step, per model, the same for the three conditions of a model, recorded here before any full run. The three training streams are built on
+  CPU first and the registered exclusion scan must report overlap 0 for every stream or nothing runs; `scripts/kaggle_x9b.py` (pilot and full modes) writes `results/phase2/x9b/pilot_done.json`.
+  Queue: the X9b pilot goes right after the A1-P job in flight, ahead of the X13 and X12 scoring (about an hour or less).
+- Timestamps rule (Aarnav): every time in RESULTS.md, the deviations table or a log entry comes from `scripts/stamp.py` (system clock) or the commit, never typed; `scripts/check_results_times.py` and the pre-commit hook fail an entry later than its commit or the clock.
