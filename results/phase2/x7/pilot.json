@@ -1,0 +1,41 @@
+{
+  "provenance": {
+    "config": {
+      "status": "pilot at 5% of budget; no BPB value used for any decision"
+    },
+    "git_commit": "9dec97eb661689e62f7e5cb9bd0b450431ef34aa",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "timestamp_utc": "2026-11-02T11:04:38+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x7_control.py",
+      "pilot"
+    ]
+  },
+  "256": {
+    "pilot_steps": 305,
+    "wall_s": 252.22234988212585,
+    "s_per_step": 0.8269585242036913,
+    "full_steps": 6103,
+    "hours_per_run": 1.4019244092264245,
+    "params": {
+      "total": 14320154,
+      "embedding": 157850,
+      "non_embedding": 14162304
+    }
+  },
+  "4096": {
+    "pilot_steps": 308,
+    "wall_s": 86.40641474723816,
+    "s_per_step": 0.2805403076209031,
+    "full_steps": 6162,
+    "hours_per_run": 0.4801914932111125,
+    "params": {
+      "total": 14269334,
+      "embedding": 107030,
+      "non_embedding": 14162304
+    }
+  },
+  "estimated_grid_hours_18_runs": 16.939043121937832
+}
