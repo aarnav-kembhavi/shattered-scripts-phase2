@@ -122,7 +122,7 @@ def x9b_pending(s: dict) -> bool:
     return x9b_ready() and len(s.get("x9b", {}).get("batches_done", [])) < len(SARVAM_BATCHES)
 
 
-def projection(s: dict, job: str, hours: float, is_x9b: bool = False) -> bool:
+def projection(s: dict, job: str, hours: float, is_x9b: bool = False, x12c1: bool = False) -> bool:
     """Log the weekly-quota projection before a push. The X9b Sarvam arm (18 h) is reserved: a non-X9b push that would leave less than that is refused
     here (the caller then runs X9b first, or skips the step, which is the registered cut order: Llama-3.1-8B, then the instruction pair, then Qwen3.5)."""
     sys.path.insert(0, str(REPO / "scripts"))
@@ -134,6 +134,9 @@ def projection(s: dict, job: str, hours: float, is_x9b: bool = False) -> bool:
     if head < 0:
         log(s, f"{job}: over the weekly quota, not pushed")
         return False
+    if x12c1 and head >= 0:
+        log(s, f"{job}: X12 contrast 1 runs ahead of the X9b reserve on Aarnav's decision of 2026-11-04 (X9b batch 3 launches as soon as the projection allows; nothing else goes ahead of it)")
+        return True
     if not is_x9b and x9b_pending(s) and head < X9B_SARVAM_H:
         log(s, f"{job} would leave {head:.1f} h < {X9B_SARVAM_H:.0f} h for the X9b Sarvam arm: X9b first")
         return False
@@ -143,7 +146,7 @@ def projection(s: dict, job: str, hours: float, is_x9b: bool = False) -> bool:
 def score(s: dict, model: str, hours: float) -> None:
     if model in s["scored"] or not s["precision"].get(model, {}).get("pass"):
         return
-    if not projection(s, f"x_score {model}", hours):
+    if not projection(s, f"x_score {model}", hours, x12c1=(model == "llama-2-7b")):
         return
     retrieval = bool(s["a1r"] and s["a1r"]["gate_passed"])
     args = ["--models", model] + ([] if retrieval else ["--no-retrieval"])
@@ -266,7 +269,7 @@ def x9b_full(s: dict, secondary: bool = False) -> None:
 
 def a1p(s: dict, models: list[str]) -> None:
     models = [m for m in models if m not in s["precision"] and accessible(m)]
-    if models and projection(s, f"A1-P {models}", 2.0 + 1.5 * len(models)):
+    if models and projection(s, f"A1-P {models}", 2.0 + 1.5 * len(models), x12c1=(models == ["llama-2-7b"])):
         precision(s, models)
 
 
