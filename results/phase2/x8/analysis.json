@@ -4,10 +4,10 @@
       "registration": "RESULTS.md X8 / K4 / K5 / K6 (Phase 2 pre-registration)",
       "source": "x8_annotator_P.json, x8_annotator_Q.json"
     },
-    "git_commit": "48deb83a040eff947d8cd3783ddcf307fdeb61a1-dirty",
+    "git_commit": "00bf9f61a8d9e3f5e2006dd84d3752e21f2c1c86-dirty",
     "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
     "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
-    "timestamp_utc": "2026-11-03T07:26:28+00:00",
+    "timestamp_utc": "2026-11-03T08:02:08+00:00",
     "python": "3.12.13",
     "platform": "Windows-11-10.0.26300-SP0",
     "argv": [
@@ -17,6 +17,139 @@
   "n_sentences": 100,
   "n_boot": 10000,
   "seed": 0,
+  "descriptive_per_text": {
+    "gemini": {
+      "vowel_doubling_per_letter": 0.015395273650989146,
+      "h_digraph_per_letter": 0.014856439073204527,
+      "english_word_share": 0.07874519846350832
+    },
+    "P": {
+      "vowel_doubling_per_letter": 0.07416714531878231,
+      "h_digraph_per_letter": 0.011200459506031017,
+      "english_word_share": 0.010918432883750802
+    },
+    "Q": {
+      "vowel_doubling_per_letter": 0.013278071993245837,
+      "h_digraph_per_letter": 0.01112901987873206,
+      "english_word_share": 0.10522999369880277
+    }
+  },
+  "descriptive_gemini_vs_each_annotator": {
+    "gemini_vs_P": {
+      "vowel_doubling": {
+        "gemini_rate": 0.015395273650989146,
+        "other_rate": 0.07416714531878231,
+        "ratio": 0.2075753837473154,
+        "ci90": [
+          0.16544846247616235,
+          0.25259805369488353
+        ],
+        "ci95": [
+          0.1584774174586027,
+          0.2618311008937341
+        ]
+      },
+      "h_digraph": {
+        "gemini_rate": 0.014856439073204527,
+        "other_rate": 0.011200459506031017,
+        "ratio": 1.326413355202517,
+        "ci90": [
+          1.1203975326908893,
+          1.5525556155990279
+        ],
+        "ci95": [
+          1.0864973334721624,
+          1.604963919994337
+        ]
+      },
+      "english_word_share": {
+        "gemini_rate": 0.07874519846350832,
+        "other_rate": 0.010918432883750802,
+        "ratio": 7.212133765157792,
+        "ci90": [
+          5.227320501523107,
+          11.44481771399579
+        ],
+        "ci95": [
+          4.976650119976004,
+          12.8484225253872
+        ]
+      },
+      "kappa_doubled_vowel": {
+        "kappa": 0.20726358610864182,
+        "ci95": [
+          0.15578103211756503,
+          0.26590959639900075
+        ],
+        "n_sentences_equal_word_count": 90,
+        "n_sentences_other": 10
+      },
+      "cer": {
+        "mean": 0.10742861387835166,
+        "ci95": [
+          0.09867669026644556,
+          0.11616121250743464
+        ]
+      }
+    },
+    "gemini_vs_Q": {
+      "vowel_doubling": {
+        "gemini_rate": 0.015395273650989146,
+        "other_rate": 0.013278071993245837,
+        "ratio": 1.159450984963801,
+        "ci90": [
+          0.9258314451903924,
+          1.433758781170359
+        ],
+        "ci95": [
+          0.8785924165340709,
+          1.4908450862483462
+        ]
+      },
+      "h_digraph": {
+        "gemini_rate": 0.014856439073204527,
+        "other_rate": 0.01112901987873206,
+        "ratio": 1.3349278943778053,
+        "ci90": [
+          1.12288102489481,
+          1.5806204613775607
+        ],
+        "ci95": [
+          1.0919581436653454,
+          1.6350736842448863
+        ]
+      },
+      "english_word_share": {
+        "gemini_rate": 0.07874519846350832,
+        "other_rate": 0.10522999369880277,
+        "ratio": 0.748315149470585,
+        "ci90": [
+          0.6738933280713023,
+          0.8237319711813409
+        ],
+        "ci95": [
+          0.6592001094098258,
+          0.8376926937841483
+        ]
+      },
+      "kappa_doubled_vowel": {
+        "kappa": 0.4180454149641636,
+        "ci95": [
+          0.3361380451966284,
+          0.5014976179720111
+        ],
+        "n_sentences_equal_word_count": 71,
+        "n_sentences_other": 29
+      },
+      "cer": {
+        "mean": 0.06431627045345188,
+        "ci95": [
+          0.05801717421483584,
+          0.07071399502284151
+        ]
+      }
+    }
+  },
   "K4_i_kappa": {
     "kappa": 0.19807053642889777,
     "ci95": [

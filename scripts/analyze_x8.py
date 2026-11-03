@@ -138,7 +138,29 @@ def main() -> int:
     k5["vowel_doubling_rate_P"], k5["vowel_doubling_rate_Q"] = float(rp), float(rq)
     k5["vowel_doubling_ratio_P_over_Q"] = {"ratio": float(rp / rq) if rq > 0 else None, "ci95": pct(rb, [2.5, 97.5]), "status": "descriptive"}
 
-    res = {"n_sentences": n, "n_boot": N_BOOT, "seed": SEED, "K4_i_kappa": k4i, "K4_ii_cer": k4ii, "descriptive_K3b_statistics": desc, "K5": k5,
+    # ---- descriptive (added 2026-11-03 at Aarnav's request; the registered primary descriptive stays the mean of P and Q): per annotator and per Gemini rates, and Gemini against
+    # P and against Q separately for the three ratios, kappa (doubled-vowel word label, equal word counts) and CER, same bootstrap
+    per_text = {}
+    for nm, M_ in (("gemini", CG), ("P", CP), ("Q", CQ)):
+        per_text[nm] = {"vowel_doubling_per_letter": float(rate(M_, "vowel_doubling", "letters")), "h_digraph_per_letter": float(rate(M_, "h_digraph", "letters")),
+                        "english_word_share": float(rate(M_, "english", "words"))}
+    pairs_out = {}
+    for nm, MA, TB in (("gemini_vs_P", CP, P), ("gemini_vs_Q", CQ, Q)):
+        d = {}
+        for name, num, den in (("vowel_doubling", "vowel_doubling", "letters"), ("h_digraph", "h_digraph", "letters"), ("english_word_share", "english", "words")):
+            g0, h0 = rate(CG, num, den), rate(MA, num, den)
+            gb, hb = rate(CG[boot], num, den), rate(MA[boot], num, den)
+            r_ = np.where(hb > 0, gb / np.where(hb > 0, hb, 1), np.nan)
+            d[name] = {"gemini_rate": float(g0), "other_rate": float(h0), "ratio": float(g0 / h0) if h0 > 0 else None, "ci90": pct(r_, [5, 95]), "ci95": pct(r_, [2.5, 97.5])}
+        eq_ = [k for k in range(n) if len(G[k].split()) == len(TB[k].split())]
+        wg, wo = [lab(G[k]) for k in eq_], [lab(TB[k]) for k in eq_]
+        kg = kappa(np.concatenate(wg), np.concatenate(wo)) if eq_ else float("nan")
+        kb = np.array([kappa(np.concatenate([wg[i] for i in b]), np.concatenate([wo[i] for i in b])) for b in np.random.default_rng(SEED).integers(0, len(eq_), (N_BOOT, len(eq_)))]) if eq_ else np.array([])
+        cc = np.array([cer(G[k], TB[k]) if cer(G[k], TB[k]) is not None else np.nan for k in range(n)])
+        d["kappa_doubled_vowel"] = {"kappa": kg, "ci95": pct(kb, [2.5, 97.5]) if len(kb) else None, "n_sentences_equal_word_count": len(eq_), "n_sentences_other": n - len(eq_)}
+        d["cer"] = {"mean": float(np.nanmean(cc)), "ci95": pct(np.nanmean(cc[boot], axis=1), [2.5, 97.5])}
+        pairs_out[nm] = d
+    res = {"n_sentences": n, "n_boot": N_BOOT, "seed": SEED, "descriptive_per_text": per_text, "descriptive_gemini_vs_each_annotator": pairs_out, "K4_i_kappa": k4i, "K4_ii_cer": k4ii, "descriptive_K3b_statistics": desc, "K5": k5,
            "K6": "exploratory (retrieval and SIB-200 on the P, Q and Gemini texts): needs the GPU, not run here"}
     write_json(out / "analysis.json", res, {"registration": "RESULTS.md X8 / K4 / K5 / K6 (Phase 2 pre-registration)", "source": "x8_annotator_P.json, x8_annotator_Q.json"})
     print(json.dumps({"kappa": k4i, "cer": k4ii, "ratios": {k: (round(v["ratio_gemini_over_human"], 3), [round(x, 3) for x in v["ci90"]]) for k, v in desc.items()}}, indent=1))

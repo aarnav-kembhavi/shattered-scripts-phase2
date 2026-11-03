@@ -1,0 +1,22 @@
+{
+  "registered_P": {
+    "file_on_disk": "annotation/xlsx/X8_P.xlsx (copy in annotation/returned/X8_P.xlsx)",
+    "name_in_the_registration": "X8_P_v2.xlsx",
+    "sha256": "3084ca8cdb6829fdf0ad4d7c26b255e9d12f8fb85feda76830bd28d49df60b7f",
+    "saved": "2026-11-03 12:52",
+    "status": "registered X8-P, written by one native speaker working alone (operator statement)"
+  },
+  "registered_Q": {
+    "file_on_disk": "annotation/xlsx/X8_Q.xlsx",
+    "sha256": "c055c8ae0987c8c91adec1c89e01348010de9134b1344542332e312b41f144a4",
+    "saved": "2026-11-03 01:32"
+  },
+  "excluded_earlier_P": {
+    "sha256_prefix": "7da6fc184f18",
+    "status": "EXCLUDED, not used",
+    "reason": "provenance not recoverable; near identical to Q (2.1% average character difference, against 9.4% for X8_P_v2 against Q) (operator statement)",
+    "note": "this file is not on the analysis machine; only the prefix given by the operator is recorded; the file is to be kept by the operator"
+  },
+  "independence_basis": "Aarnav states that the X8-P writer and the X8-Q writer did not see each other's answers (recorded 2026-11-03 13:32 IST); the importer's same-person check was overridden for this reason (both files carry the same author field)",
+  "stamp": "2026-11-03 13:32 IST"
+}
