@@ -20,7 +20,7 @@ PRIVATE = "shattered-flores-private"
 X12 = ["ambari-7b-base", "llama-2-7b", "ambari-7b-instruct-v0.1", "ambari-7b-instruct-v0.2"]  # X12 endpoints (exempt from the counting rule, subject to A1-P)
 X13 = ["qwen3-8b", "llama-3.1-8b"]  # plus the largest Sarvam that fits (named by the screen, added to the state when chosen)
 INSTRUCT = ["ambari-7b-instruct-v0.1", "ambari-7b-instruct-v0.2"]  # X12 contrast 2 (instruction-pair exposure contrast): scored only if BOTH pass A1-P
-X9B_SARVAM_H = 18.0  # registered: Sarvam-1 primary arm, 6 runs x about 3 GPU hours; the Qwen3.5-2B arm (9 h) is cut first if quota is short
+X9B_SARVAM_H = 0.0  # reserve LIFTED by Aarnav 2026-11-04 (was 18.0, registered: Sarvam-1 primary arm); a job now only has to fit in the remaining quota hours; X9b batch 3 is pushed the moment it fits
 WANT = ["qwen3-8b", "ambari-7b-base", "llama-2-7b", "llama-3.1-8b"] + INSTRUCT
 
 
