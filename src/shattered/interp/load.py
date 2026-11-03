@@ -113,6 +113,20 @@ def _load_gemma4_text(repo: str, device: str, dtype, token):
     return model
 
 
+# Gated models are mounted from PRIVATE Kaggle datasets (a kernel pushed through the API cannot read the HF_TOKEN secret; RESULTS.md 2026-11-04)
+KAGGLE_DATASETS = {"llama-2-7b": "shattered-llama-2-7b-hf", "llama-3.1-8b": "shattered-llama-3-1-8b"}
+
+
+def model_source(name: str) -> str:
+    """The Kaggle dataset mount for a gated model when present (Kaggle only), else the Hugging Face repo id."""
+    if name in KAGGLE_DATASETS and os.path.isdir("/kaggle/working"):
+        import glob
+        hits = glob.glob(f"/kaggle/input/**/{KAGGLE_DATASETS[name]}/config.json", recursive=True)
+        if hits:
+            return os.path.dirname(hits[0])
+    return MODELS[name]
+
+
 def load(name: str, device: str | None = None, dtype=torch.bfloat16, quant: str | None = None, offload: bool = False):
     """device "auto" shards over all visible GPUs (Phase 2 Kaggle 7-9B models); quant "8bit" or "4bit" uses bitsandbytes (never for retrieval).
     offload=True (A1-P-D1, float32 reference): 12 GiB per GPU, the rest of the weights stay in system RAM (up to 22 GiB)."""
@@ -123,7 +137,7 @@ def load(name: str, device: str | None = None, dtype=torch.bfloat16, quant: str 
             raise RuntimeError(f"{name} ships pickle weights only; it is loaded on Kaggle only, never on the laptop")
         import functools
         torch.load = functools.partial(torch.load, weights_only=True)
-    repo = MODELS[name]
+    repo = model_source(name)
     device = device or ("cuda" if torch.cuda.is_available() else "cpu")
     token = os.environ.get("HF_TOKEN")
     tok = AutoTokenizer.from_pretrained(repo, token=token)

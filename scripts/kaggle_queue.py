@@ -53,7 +53,10 @@ def accessible(model: str) -> bool:
 
 
 def push(job: str, args: list[str], hours: float, include: list[str] | None = None) -> dict:
-    cmd = [PY, "scripts/kaggle_runner.py", "run", job, "--timeout-h", str(hours), "--private-data", PRIVATE]
+    sys.path.insert(0, str(REPO / "src"))
+    from shattered.interp.load import KAGGLE_DATASETS
+    extra = sorted({KAGGLE_DATASETS[m] for m in args if m in KAGGLE_DATASETS})  # gated models come from private datasets
+    cmd = [PY, "scripts/kaggle_runner.py", "run", job, "--timeout-h", str(hours), "--private-data", PRIVATE, *extra]
     if include:
         cmd += ["--include", *include]
     cmd += ["--", *args]
