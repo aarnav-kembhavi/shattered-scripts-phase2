@@ -272,8 +272,7 @@ def x9b_full(s: dict, secondary: bool = False) -> None:
 
 def a1p(s: dict, models: list[str]) -> None:
     models = [m for m in models if m not in s["precision"] and accessible(m)]
-    if (REPO / "results" / "kaggle" / "HF_SECRET_MISSING").exists():  # no HF_TOKEN secret in the kernel: gated repos 401 on Kaggle (RESULTS.md 2026-11-04); delete the file once the secret is attached
-        models = [m for m in models if m not in ("llama-2-7b", "llama-3.1-8b")]
+    models = [m for m in models if not (REPO / "results" / "kaggle" / f"DATASET_PENDING_{m}").exists()]  # gated model whose private Kaggle dataset is not uploaded yet (RESULTS.md 2026-11-04)
     if models and projection(s, f"A1-P {models}", 2.0 + 1.5 * len(models), x12c1=(models == ["llama-2-7b"])):
         precision(s, models)
 
