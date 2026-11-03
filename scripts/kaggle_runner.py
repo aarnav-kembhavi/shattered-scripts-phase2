@@ -116,6 +116,7 @@ else:  # Kaggle unpacks uploaded zips: the repo is then a directory tree under /
     import shutil
     hits = glob.glob("/kaggle/input/**/pyproject.toml", recursive=True)
     print("input listing:", os.listdir("/kaggle/input"), hits, flush=True)
+    print("datasets (depth 2):", sorted(glob.glob("/kaggle/input/*/*")) + sorted(glob.glob("/kaggle/input/*/*/*"))[:20], flush=True)
     shutil.copytree(os.path.dirname(hits[0]), root)
 subprocess.run([sys.executable, "-m", "pip", "install", "-q", "--no-deps", "-e", root], check=True)
 subprocess.run([sys.executable, "-m", "pip", "install", "-q", *__PINS__], check=True)
