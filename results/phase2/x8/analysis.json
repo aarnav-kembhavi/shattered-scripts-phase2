@@ -1,0 +1,132 @@
+{
+  "provenance": {
+    "config": {
+      "registration": "RESULTS.md X8 / K4 / K5 / K6 (Phase 2 pre-registration)",
+      "source": "x8_annotator_P.json, x8_annotator_Q.json"
+    },
+    "git_commit": "48deb83a040eff947d8cd3783ddcf307fdeb61a1-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-03T07:26:28+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/analyze_x8.py"
+    ]
+  },
+  "n_sentences": 100,
+  "n_boot": 10000,
+  "seed": 0,
+  "K4_i_kappa": {
+    "kappa": 0.19807053642889777,
+    "ci95": [
+      0.16105587822678788,
+      0.23846231018967673
+    ],
+    "n_sentences_equal_word_count": 75,
+    "n_sentences_other": 25,
+    "n_words": 1137,
+    "bootstrap_nan_share": 0.0,
+    "label": "word contains aa, ee, ii, oo or uu (lowercased)",
+    "status": "primary outcome: the agreement itself, no threshold"
+  },
+  "K4_ii_cer": {
+    "cer_mean": 0.09592943108665235,
+    "ci95": [
+      0.08755239789813977,
+      0.10462703065420798
+    ],
+    "n_sentences": 100,
+    "status": "primary outcome: the agreement itself, no threshold"
+  },
+  "descriptive_K3b_statistics": {
+    "vowel_doubling": {
+      "gemini_rate": 0.015395273650989146,
+      "human_rate_mean_of_P_Q": 0.04372260865601407,
+      "rate_P": 0.07416714531878231,
+      "rate_Q": 0.013278071993245837,
+      "ratio_gemini_over_human": 0.35211242247942853,
+      "ci90": [
+        0.2816819033849112,
+        0.42646844491604335
+      ],
+      "ci95": [
+        0.27003622607204675,
+        0.443581490710693
+      ],
+      "orientation_only_ci90_within_0.80_1.25": false,
+      "status": "descriptive, no verdict"
+    },
+    "h_digraph": {
+      "gemini_rate": 0.014856439073204527,
+      "human_rate_mean_of_P_Q": 0.011164739692381537,
+      "rate_P": 0.011200459506031017,
+      "rate_Q": 0.01112901987873206,
+      "ratio_gemini_over_human": 1.330657004331421,
+      "ci90": [
+        1.1245927414417576,
+        1.5619430595046417
+      ],
+      "ci95": [
+        1.0933283631865318,
+        1.6124359743004586
+      ],
+      "orientation_only_ci90_within_0.80_1.25": false,
+      "status": "descriptive, no verdict"
+    },
+    "english_word_share": {
+      "gemini_rate": 0.07874519846350832,
+      "human_rate_mean_of_P_Q": 0.05807421329127679,
+      "rate_P": 0.010918432883750802,
+      "rate_Q": 0.10522999369880277,
+      "ratio_gemini_over_human": 1.3559408556867438,
+      "ci90": [
+        1.224165206908417,
+        1.4922657412842564
+      ],
+      "ci95": [
+        1.196571916431089,
+        1.5192259260108123
+      ],
+      "orientation_only_ci90_within_0.80_1.25": false,
+      "status": "descriptive, no verdict"
+    }
+  },
+  "K5": {
+    "chrF_P_vs_Q": {
+      "mean": 80.54147793740317,
+      "ci95": [
+        78.95398865248936,
+        82.08573653318535
+      ],
+      "n": 100
+    },
+    "chrF_P_vs_Gemini": {
+      "mean": 77.72730446694051,
+      "ci95": [
+        76.00608268265471,
+        79.45652323234376
+      ],
+      "n": 100
+    },
+    "chrF_Q_vs_Gemini": {
+      "mean": 85.84695452611206,
+      "ci95": [
+        84.47071474139435,
+        87.19239563124087
+      ],
+      "n": 100
+    },
+    "vowel_doubling_rate_P": 0.07416714531878231,
+    "vowel_doubling_rate_Q": 0.013278071993245837,
+    "vowel_doubling_ratio_P_over_Q": {
+      "ratio": 5.585686337331877,
+      "ci95": [
+        4.839013785812079,
+        6.547121240356009
+      ],
+      "status": "descriptive"
+    }
+  },
+  "K6": "exploratory (retrieval and SIB-200 on the P, Q and Gemini texts): needs the GPU, not run here"
+}

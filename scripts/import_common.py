@@ -60,7 +60,7 @@ def private_hashes() -> dict[str, str]:
     return {sha256(p): p.name for p in PRIVATE.glob("*") if p.is_file()} if PRIVATE.exists() else {}
 
 
-def cross_checks(paths: list[Path], ids: dict[Path, str | None], kind: str) -> list[str]:
+def cross_checks(paths: list[Path], ids: dict[Path, str | None], kind: str, shared_account_ok: bool = False) -> list[str]:
     """Blockers over a set of returned files of one kind (see the module docstring)."""
     out = []
     seen_id: dict[str, Path] = {}
@@ -82,7 +82,7 @@ def cross_checks(paths: list[Path], ids: dict[Path, str | None], kind: str) -> l
             out.append(f"{p.name} is byte-identical to {seen_sha[h].name}")
         seen_sha.setdefault(h, p)
         ph = person_hash(p)
-        if ph and ph in seen_person and kind in ("X15", "X8"):
+        if ph and ph in seen_person and kind in ("X15", "X8") and not shared_account_ok:
             out.append(f"the same person (matching author fields, hash {ph}) is behind {seen_person[ph].name} and {p.name}")
         if ph:
             seen_person.setdefault(ph, p)

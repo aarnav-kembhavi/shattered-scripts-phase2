@@ -114,6 +114,7 @@ def main() -> int:
     ap.add_argument("--partial", action="store_true", help="write the valid answered rows even if there are blockers")
     ap.add_argument("--folder", default=str(C.RETURNED))
     ap.add_argument("--out", default=None)
+    ap.add_argument("--shared-account-ok", action="store_true", help="the files carry the same author fields because they were saved on one account; the operator attests that two different speakers wrote them (log it in RESULTS.md)")
     a = ap.parse_args()
     outdir = Path(a.out) if a.out else None
     if outdir:
@@ -123,7 +124,7 @@ def main() -> int:
         print(f"no X8 workbook in {a.folder}")
         return 2
     ids = {p: C.file_id(p) for p in paths}
-    cross = C.cross_checks(paths, ids, "X8") + [x for x in C.person_overlap_across_kinds(Path(a.folder)) if not x.startswith("WARNING")]
+    cross = C.cross_checks(paths, ids, "X8", a.shared_account_ok) + [x for x in C.person_overlap_across_kinds(Path(a.folder)) if not x.startswith("WARNING")]
     reports = [import_one(p, a.partial, outdir, write=False) for p in paths]  # first pass: nothing is written until the pair checks are done
     roles = [r.get("role") for r in reports]
     if len(paths) >= 2 and sorted(x for x in roles if x) != ["P", "Q"]:

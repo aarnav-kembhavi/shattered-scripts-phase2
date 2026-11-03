@@ -1,0 +1,36 @@
+{
+  "provenance": {
+    "config": {
+      "source": "X8_P.xlsx"
+    },
+    "git_commit": "48deb83a040eff947d8cd3783ddcf307fdeb61a1-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-03T07:26:22+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/import_x8.py",
+      "--shared-account-ok"
+    ]
+  },
+  "file": "X8_P.xlsx",
+  "blockers": [],
+  "warnings": [],
+  "role": "P",
+  "n_answers": 100,
+  "share_uppercase_first_letter": 0.01,
+  "uppercase_first_rows": [
+    1194
+  ],
+  "share_with_unexpected_characters": 0.02,
+  "unexpected_characters": {
+    "'õ'": 1,
+    "'Õ'": 1,
+    "'\\u200b'": 1
+  },
+  "share_cells_with_kannada_script": 0.0,
+  "mean_words": 16.02,
+  "written": "x8_annotator_P.json",
+  "ok": true
+}
