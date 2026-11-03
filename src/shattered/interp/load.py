@@ -134,7 +134,7 @@ def load(name: str, device: str | None = None, dtype=torch.bfloat16, quant: str 
         if quant:
             from transformers import BitsAndBytesConfig
             kw["quantization_config"] = (BitsAndBytesConfig(load_in_8bit=True) if quant == "8bit" else
-                                         BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type="nf4", bnb_4bit_compute_dtype=dtype))
+                                         BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type="nf4", bnb_4bit_use_double_quant=True, bnb_4bit_compute_dtype=dtype))  # X11: NF4 with double quantisation
         if device == "auto":
             kw["max_memory"] = {i: "14.5GiB" for i in range(torch.cuda.device_count())}
             if offload:
