@@ -1,0 +1,18 @@
+{
+ "commit": "a9e7bca8f552914271080deccb58e8f188d8a959",
+ "job": "kaggle_mdl",
+ "args": [
+  "--models",
+  "qwen3-8b"
+ ],
+ "gpus": "name, memory.total [MiB], driver_version\nTesla T4, 15360 MiB, 580.178.04\nTesla T4, 15360 MiB, 580.178.04\n",
+ "torch": "2.11.0+cu130",
+ "cuda": "13.0",
+ "transformers": "5.19.0",
+ "n_gpus": 2,
+ "bf16_supported": true,
+ "python": "3.13.16",
+ "start_epoch": 1793743574.550686,
+ "returncode": 0,
+ "seconds": 3384.131393432617
+}
