@@ -15,6 +15,7 @@ if [ "$MODE" = pilot ]; then
   run_hb "X10 pilot (20 sentences per model and form)" env PYTHONPATH=src $PY -u scripts/x10.py pilot || fail "x10 pilot exited $?"
   st DONE "X10 pilot finished at $(date '+%F %T %Z'); results/phase2/x10/pilot.json"
 else
+  for f in ${WAIT_FOR:-results/CHAIN_STATUS_X11.md}; do until [ "$(state_of $f)" = DONE ]; do st WAITING "X10 full waits for $f"; sleep "$HB"; done; done
   for m in qwen3-1.7b qwen3.5-2b sarvam-1 gemma4-e2b; do
     wait_ram 8; wait_gpu
     run_hb "X10 full: $m" env PYTHONPATH=src $PY -u scripts/x10.py score $m || fail "x10 score $m exited $?"

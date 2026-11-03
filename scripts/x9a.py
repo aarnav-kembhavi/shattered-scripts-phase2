@@ -41,6 +41,7 @@ from shattered.runlog import REPO, results_dir, write_json  # noqa: E402
 PROC = REPO / "data" / "processed" / "x9a"
 OUT = results_dir("phase2/x9a")
 LEVELS = [0, 1, 5, 20, 50]
+LOW = {"0p01": 0.01, "0p03": 0.03, "0p1": 0.1, "0p3": 0.3}  # X9a-low (RESULTS.md, tag phase2-x9a-low): exposure percent by level key
 EVAL_N, EVAL_CHARS, TOK_VOCAB = 500, 700, 1024
 CFG = yaml.safe_load(open(REPO / "configs" / "e05_pretrain.yaml", encoding="utf-8"))
 N_WORDS, MAX_OCC, MAX_PER_STORY = 300, 40, 2
@@ -175,7 +176,43 @@ def prep() -> None:
 
 
 def load_meta() -> dict:
-    return json.loads((PROC / "meta.json").read_text(encoding="utf-8"))
+    meta = json.loads((PROC / "meta.json").read_text(encoding="utf-8"))
+    if (PROC / "meta_low.json").exists():
+        meta.update(json.loads((PROC / "meta_low.json").read_text(encoding="utf-8")))
+    return meta
+
+
+def prep_low() -> None:
+    """X9a-low streams: same stories, order, tokenizer and token budget as X9a; only the cipher share differs (CPU)."""
+    t0 = time.time()
+    base = load_meta()
+    n_tokens = base["_x9a"]["tokens_per_run"]
+    stories = D.read_stories("train")
+    random.Random(CFG["data"]["data_seed"]).shuffle(stories)
+    train, _ = take(stories, 0, CFG["data"]["train_bytes"])
+    n_train = len(train)
+    assert n_train == base["_x9a"]["n_train_stories"], (n_train, base["_x9a"]["n_train_stories"])
+    tok_path = PROC / "tokenizer_1024.json"
+    assert sha(tok_path) == base["_x9a"]["tokenizer_sha256"]
+    tok = D.load_tokenizer(tok_path)
+    order = np.random.default_rng(9).permutation(n_train)
+    meta = {}
+    for key, pct in LOW.items():
+        path = PROC / f"train_p{key}.npy"
+        n_c = int(round(n_train * pct / 100))
+        cset = set(order[:n_c].tolist())
+        gen = ((train[i].translate(ENC), True) if i in cset else (train[i], False) for i in range(n_train))
+        arr, used, nbytes, ncipher = tokenize_until(tok, gen, n_tokens)
+        np.save(path, arr)
+        ref = base["x9a_p1"]
+        meta[f"x9a_p{key}"] = {**{k: ref[k] for k in ("vocab", "vocab_with_eos", "valid_tokens", "valid_bytes", "bytes_per_token_valid", "tokenizer", "valid_stream")},
+                               "train_tokens": len(arr), "train_bytes": nbytes, "bytes_per_token_train": nbytes / len(arr), "train_stream": str(path.relative_to(REPO)),
+                               "exposure_percent": pct, "cipher_stories_in_set": n_c, "stories_consumed": used, "cipher_stories_consumed": ncipher,
+                               "cipher_share_consumed": ncipher / used, "train_stream_sha256": sha(path)}
+        print(f"level {key}%: {used} stories, cipher {ncipher}, {len(arr)} tokens, {time.time() - t0:.0f}s", flush=True)
+    (PROC / "meta_low.json").write_text(json.dumps(meta, indent=1, ensure_ascii=False), encoding="utf-8")
+    write_json(OUT / "prep_low.json", {k: {a: b for a, b in v.items() if a in ("exposure_percent", "stories_consumed", "cipher_stories_consumed", "cipher_share_consumed", "train_tokens")} for k, v in meta.items()},
+               {"registration": "RESULTS.md X9a-low", "seconds": time.time() - t0})
 
 
 # ------------------------------------------------------------------------------------------------------------------ train
@@ -339,22 +376,77 @@ def analyse() -> None:
     print(json.dumps({k: v for k, v in res.items() if k in ("n_runs", "missing", "X9a_R", "X9a_A", "joint_reading")}, indent=1, default=str))
 
 
+def level0_stripped() -> None:
+    """Descriptive only (X9a level-0 observation): level-0 retrieval on pairs with digits and punctuation removed from both texts."""
+    meta = load_meta()
+    pairs0 = json.load(open(PROC / "eval_pairs.json", encoding="utf-8"))
+    strip = lambda t: " ".join(re.sub(r"[0-9]|[^\w\s]|_", "", t).split())  # noqa: E731
+    pairs0 = {k: [strip(t) for t in v] for k, v in pairs0.items()}
+    out = {}
+    for seed in (0, 1, 2):
+        run = f"x9a_p0_s{seed}"
+        fin = json.load(open(REPO / "results" / "e05_pretrain" / run / "final.json"))
+        from safetensors.torch import load_file
+        model = GPT(GPTConfig(**fin["model_config"]))
+        model.load_state_dict(load_file(str(REPO / "checkpoints" / "e05" / run / "final.safetensors")))
+        model = model.cuda().eval()
+        tok = D.load_tokenizer(REPO / meta["x9a_p0"]["tokenizer"])
+        pairs, fit = fit_pairs(pairs0, tok, fin["ctx_tokens"])
+        Xc = story_states(model, tok, pairs["cipher"], fin["ctx_tokens"], "cuda")
+        Xe = story_states(model, tok, pairs["english"], fin["ctx_tokens"], "cuda")
+        order = np.random.default_rng(0).permutation(len(pairs["english"]))
+        tr, te = np.sort(order[: len(order) // 2]), np.sort(order[len(order) // 2:])
+        tra, tes = KR.unmapped_curves(Xc, Xe, tr, te)
+        lu = int(tra.argmax())
+        out[str(seed)] = {"layer": lu, "acc_unmapped": float(tes[lu].mean()), "n_test": int(len(te)), "chance": 1 / len(te), "unstripped_acc": json.load(open(OUT / f"{run}.json"))["retrieval"]["acc_unmapped"]}
+        del model
+        torch.cuda.empty_cache()
+    write_json(OUT / "level0_stripped.json", {"by_seed": out, "mean": float(np.mean([v["acc_unmapped"] for v in out.values()]))}, {"registration": "RESULTS.md X9a level-0 observation (descriptive only)"})
+    print(json.dumps(out, indent=1))
+
+
+def analyse_low() -> None:
+    """X9a-low decision rule (registered before any run): six levels 0, 0.01, 0.03, 0.1, 0.3, 1 percent."""
+    keys = [("0", 0.0), ("0p01", 0.01), ("0p03", 0.03), ("0p1", 0.1), ("0p3", 0.3), ("1", 1.0)]
+    rows = {(k, s): json.load(open(OUT / f"x9a_p{k}_s{s}.json")) for k, _ in keys for s in (0, 1, 2) if (OUT / f"x9a_p{k}_s{s}.json").exists()}
+    missing = [(k, s) for k, _ in keys for s in (0, 1, 2) if (k, s) not in rows]
+    ret = {k: [rows[(k, s)]["retrieval"]["acc_unmapped"] for s in (0, 1, 2) if (k, s) in rows] for k, _ in keys}
+    det = {k: [rows[(k, s)]["assembly_cipher"]["detok_layer"] for s in (0, 1, 2) if (k, s) in rows] for k, _ in keys}
+    mean = lambda x: float(np.mean(x)) if len(x) else None  # noqa: E731
+    res = {"n_runs": len(rows), "missing": missing, "retrieval_by_level": {str(v): {"seeds": ret[k], "mean": mean(ret[k])} for k, v in keys},
+           "assembly_cipher_by_level": {str(v): {"seeds": det[k], "mean": mean([d for d in det[k] if d is not None])} for k, v in keys}}
+    if not missing:
+        m = [mean(ret[k]) for k, _ in keys]
+        rho = float(stats.spearmanr([v for _, v in keys], m).statistic)
+        gap = mean(ret["1"]) - mean(ret["0p01"])
+        res["rule"] = {"spearman_six_levels": rho, "mean_1pct_minus_mean_0p01pct": gap, "verdict": "dose-response present" if rho >= 0.8 and gap >= 0.05 else "no dose-response",
+                       "text": "present if Spearman >= 0.8 and mean(1%) - mean(0.01%) >= 0.05, else no dose-response"}
+    write_json(OUT / "analysis_low.json", res, {"registration": "RESULTS.md X9a-low (tag phase2-x9a-low)"})
+    print(json.dumps(res, indent=1, default=str))
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["prep", "pilot", "train", "eval", "analyse"])
-    ap.add_argument("args", nargs="*", type=int)
+    ap.add_argument("cmd", choices=["prep", "prep_low", "pilot", "train", "eval", "analyse", "analyse_low", "level0_stripped"])
+    ap.add_argument("args", nargs="*")
     a = ap.parse_args()
     if a.cmd == "prep":
         prep()
+    elif a.cmd == "prep_low":
+        prep_low()
+    elif a.cmd == "level0_stripped":
+        level0_stripped()
+    elif a.cmd == "analyse_low":
+        analyse_low()
     elif a.cmd == "pilot":
         pilot()
     elif a.cmd == "train":
-        level, seed = a.args
+        level, seed = a.args[0], int(a.args[1])
         r = train(level, seed)
         if r.get("status") == "done" and not (OUT / f"x9a_p{level}_s{seed}.json").exists():
             evaluate(level, seed)
     elif a.cmd == "eval":
-        evaluate(*a.args)
+        evaluate(a.args[0], int(a.args[1]))
     else:
         analyse()
 
