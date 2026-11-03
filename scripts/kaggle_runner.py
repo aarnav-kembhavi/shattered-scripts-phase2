@@ -119,6 +119,8 @@ else:  # Kaggle unpacks uploaded zips: the repo is then a directory tree under /
     shutil.copytree(os.path.dirname(hits[0]), root)
 subprocess.run([sys.executable, "-m", "pip", "install", "-q", "--no-deps", "-e", root], check=True)
 subprocess.run([sys.executable, "-m", "pip", "install", "-q", *__PINS__], check=True)
+# the Kaggle image ships torchao 0.10.0, which peft refuses (ImportError in is_torchao_available when merging a LoRA adapter into a plain fp16 base); nothing here uses torchao
+subprocess.run([sys.executable, "-m", "pip", "uninstall", "-y", "torchao"], check=False)
 try:
     from kaggle_secrets import UserSecretsClient
     os.environ["HF_TOKEN"] = UserSecretsClient().get_secret("HF_TOKEN")

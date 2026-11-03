@@ -230,7 +230,7 @@ def x9b_full(s: dict, secondary: bool = False) -> None:
         return
     x = s["x9b"]
     d = json.loads((REPO / "results" / "phase2" / "x9b" / "pilot_done.json").read_text(encoding="utf-8"))
-    if not x.get("rehearsal"):
+    if not (x.get("rehearsal") or {}).get("ok"):  # a failed rehearsal is repeated, never skipped
         if not projection(s, "x9b rehearsal", 1.5, is_x9b=True):
             return
         r = push("kaggle_x9b", ["--mode", "full", "--rehearsal", "--runs", "sarvam-1:itrans:0"], 1.5)
