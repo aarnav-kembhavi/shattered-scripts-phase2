@@ -4,10 +4,10 @@
       "registration": "RESULTS.md X8 / K4 / K5 / K6 (Phase 2 pre-registration)",
       "source": "x8_annotator_P.json, x8_annotator_Q.json"
     },
-    "git_commit": "00bf9f61a8d9e3f5e2006dd84d3752e21f2c1c86-dirty",
+    "git_commit": "4e6fd51a065381d3b86b072a482fa30f66639e8b-dirty",
     "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
     "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
-    "timestamp_utc": "2026-11-03T08:02:08+00:00",
+    "timestamp_utc": "2026-11-03T20:11:28+00:00",
     "python": "3.12.13",
     "platform": "Windows-11-10.0.26300-SP0",
     "argv": [
@@ -17,6 +17,44 @@
   "n_sentences": 100,
   "n_boot": 10000,
   "seed": 0,
+  "descriptive_diagnostic_match_and_difference": {
+    "gemini_vs_Q": {
+      "exact_matches_case_insensitive": 1,
+      "n": 100,
+      "char_difference_mean": 0.06431627045345188,
+      "char_difference_median": 0.0630911070286453,
+      "q1": 0.042272347535505427,
+      "q3": 0.07992208077260755,
+      "min": 0.0,
+      "max": 0.16030534351145037,
+      "n_below_2_percent": 6,
+      "n_zero": 1
+    },
+    "gemini_vs_P": {
+      "exact_matches_case_insensitive": 1,
+      "n": 100,
+      "char_difference_mean": 0.10742861387835166,
+      "char_difference_median": 0.10392734413352969,
+      "q1": 0.07593478646110224,
+      "q3": 0.13587662337662337,
+      "min": 0.0,
+      "max": 0.2647058823529412,
+      "n_below_2_percent": 1,
+      "n_zero": 1
+    },
+    "P_vs_Q": {
+      "exact_matches_case_insensitive": 0,
+      "n": 100,
+      "char_difference_mean": 0.09592943108665235,
+      "char_difference_median": 0.08977140643161566,
+      "q1": 0.06343376494023904,
+      "q3": 0.12373588610702013,
+      "min": 0.01818181818181818,
+      "max": 0.2619047619047619,
+      "n_below_2_percent": 2,
+      "n_zero": 0
+    }
+  },
   "descriptive_per_text": {
     "gemini": {
       "vowel_doubling_per_letter": 0.015395273650989146,

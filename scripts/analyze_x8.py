@@ -160,7 +160,16 @@ def main() -> int:
         d["kappa_doubled_vowel"] = {"kappa": kg, "ci95": pct(kb, [2.5, 97.5]) if len(kb) else None, "n_sentences_equal_word_count": len(eq_), "n_sentences_other": n - len(eq_)}
         d["cer"] = {"mean": float(np.nanmean(cc)), "ci95": pct(np.nanmean(cc[boot], axis=1), [2.5, 97.5])}
         pairs_out[nm] = d
-    res = {"n_sentences": n, "n_boot": N_BOOT, "seed": SEED, "descriptive_per_text": per_text, "descriptive_gemini_vs_each_annotator": pairs_out, "K4_i_kappa": k4i, "K4_ii_cer": k4ii, "descriptive_K3b_statistics": desc, "K5": k5,
+    # ---- descriptive diagnostic (added 2026-11-04 at Aarnav's request; no threshold, no verdict): exact matches (case-insensitive, whitespace collapsed) and the distribution of the per-sentence
+    # character difference (the registered CER definition: Levenshtein on the lowercased texts reduced to [a-z ], over the longer length) for Gemini vs Q, Gemini vs P and P vs Q
+    norm = lambda t: " ".join(t.lower().split())  # noqa: E731
+    diag = {}
+    for nm, X, Y in (("gemini_vs_Q", G, Q), ("gemini_vs_P", G, P), ("P_vs_Q", P, Q)):
+        cv = np.array([cer(x, y) if cer(x, y) is not None else np.nan for x, y in zip(X, Y)])
+        diag[nm] = {"exact_matches_case_insensitive": int(sum(norm(x) == norm(y) for x, y in zip(X, Y))), "n": n, "char_difference_mean": float(np.nanmean(cv)),
+                    "char_difference_median": float(np.nanmedian(cv)), "q1": float(np.nanpercentile(cv, 25)), "q3": float(np.nanpercentile(cv, 75)), "min": float(np.nanmin(cv)),
+                    "max": float(np.nanmax(cv)), "n_below_2_percent": int(np.sum(cv < 0.02)), "n_zero": int(np.sum(cv == 0))}
+    res = {"n_sentences": n, "n_boot": N_BOOT, "seed": SEED, "descriptive_diagnostic_match_and_difference": diag, "descriptive_per_text": per_text, "descriptive_gemini_vs_each_annotator": pairs_out, "K4_i_kappa": k4i, "K4_ii_cer": k4ii, "descriptive_K3b_statistics": desc, "K5": k5,
            "K6": "exploratory (retrieval and SIB-200 on the P, Q and Gemini texts): needs the GPU, not run here"}
     write_json(out / "analysis.json", res, {"registration": "RESULTS.md X8 / K4 / K5 / K6 (Phase 2 pre-registration)", "source": "x8_annotator_P.json, x8_annotator_Q.json"})
     print(json.dumps({"kappa": k4i, "cer": k4ii, "ratios": {k: (round(v["ratio_gemini_over_human"], 3), [round(x, 3) for x in v["ci90"]]) for k, v in desc.items()}}, indent=1))
