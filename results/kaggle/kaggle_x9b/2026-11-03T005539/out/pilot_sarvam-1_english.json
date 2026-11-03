@@ -1,0 +1,17 @@
+{
+ "model": "sarvam-1",
+ "condition": "english",
+ "micro_batch": 16,
+ "grad_accum": 2,
+ "micro_steps": 50,
+ "timed_micro_steps": 45,
+ "tokens_per_s": 516.9965830294788,
+ "seconds_timed": 713.041463136673,
+ "peak_vram_gib": 10.643898487091064,
+ "loss_first": 2.1324374675750732,
+ "loss_last": 2.099639415740967,
+ "finite_loss": true,
+ "consumed_articles": 429,
+ "consumed_words": 277151,
+ "tokenizer_sha256": "72e5ad0c2d3a65d199ffea57f14c01cb24bffb81d4600ecb68d6818613eb9baa"
+}

@@ -1,0 +1,17 @@
+{
+ "model": "qwen3.5-2b",
+ "condition": "native",
+ "micro_batch": 4,
+ "grad_accum": 8,
+ "micro_steps": 50,
+ "timed_micro_steps": 45,
+ "tokens_per_s": 586.2339601553906,
+ "seconds_timed": 157.20685982704163,
+ "peak_vram_gib": 9.696794033050537,
+ "loss_first": 1.9397025108337402,
+ "loss_last": 1.9409841299057007,
+ "finite_loss": true,
+ "consumed_articles": 153,
+ "consumed_words": 92498,
+ "tokenizer_sha256": "63c71e09abe4f3dd8136e921bae930667e07bb9aa16b81560a76a0d1be369ec1"
+}

@@ -1,0 +1,71 @@
+[{"stream_name":"stdout","time":2.989149559,"data":"input listing: ['datasets'] ['/kaggle/input/datasets/aarnavkembhavi1/shattered-pkg/pyproject.toml']\n"}
+,{"stream_name":"stderr","time":37.734169963,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":37.734254437,"data":"bigframes 2.51.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":37.734262334,"data":"cudf-cu13 26.6.0 requires pyarrow\u003c24,\u003e=19.0.0, but you have pyarrow 25.0.1 which is incompatible.\n"}
+,{"stream_name":"stdout","time":38.337818604,"data":"no HF_TOKEN secret: ConnectionError('Connection error trying to communicate with service.')\n"}
+,{"stream_name":"stderr","time":67.419619213,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stderr","time":127.423817207,"data":"\rFetching 2 files:   0%|          | 0/2 [00:00\u003c?, ?it/s]\rFetching 2 files:  50%|█████     | 1/2 [00:05\u003c00:05,  5.65s/it]\rFetching 2 files: 100%|██████████| 2/2 [00:27\u003c00:00, 15.35s/it]\rFetching 2 files: 100%|██████████| 2/2 [00:27\u003c00:00, 13.90s/it]\n"}
+,{"stream_name":"stderr","time":132.820353145,"data":"\rLoading weights:   0%|          | 0/255 [00:00\u003c?, ?it/s]\rLoading weights:   0%|          | 1/255 [00:00\u003c01:12,  3.53it/s]\rLoading weights:   1%|          | 2/255 [00:00\u003c01:06,  3.79it/s]\rLoading weights:   2%|▏         | 4/255 [00:00\u003c00:43,  5.81it/s]\rLoading weights:   4%|▎         | 9/255 [00:00\u003c00:16, 14.73it/s]\rLoading weights:   6%|▌         | 15/255 [00:01\u003c00:10, 23.08it/s]\rLoading weights:   9%|▉         | 23/255 [00:01\u003c00:06, 35.66it/s]\rLoading weights:  12%|█▏        | 31/255 [00:01\u003c00:04, 45.82it/s]\rLoading weights:  15%|█▍        | 37/255 [00:01\u003c00:04, 49.17it/s]\rLoading weights:  17%|█▋        | 43/255 [00:01\u003c00:04, 47.57it/s]\rLoading weights:  20%|█▉        | 50/255 [00:01\u003c00:03, 51.58it/s]\rLoading weights:  23%|██▎       | 58/255 [00:01\u003c00:03, 58.79it/s]\rLoading weights:  25%|██▌       | 65/255 [00:01\u003c00:03, 59.97it/s]\rLoading weights:  28%|██▊       | 72/255 [00:01\u003c00:03, 56.61it/s]\rLoading weights:  31%|███       | 78/255 [00:02\u003c00:03, 52.40it/s]\rLoading weights:  34%|███▎      | 86/255 [00:02\u003c00:02, 58.42it/s]\rLoading weights:  37%|███▋      | 94/255 [00:02\u003c00:02, 63.22it/s]\rLoading weights:  40%|███▉      | 101/255 [00:02\u003c00:02, 62.88it/s]\rLoading weights:  42%|████▏     | 108/255 [00:02\u003c00:02, 58.19it/s]\rLoading weights:  45%|████▍     | 114/255 [00:02\u003c00:02, 53.17it/s]\rLoading weights:  48%|████▊     | 122/255 [00:02\u003c00:02, 58.58it/s]\rLoading weights:  51%|█████     | 130/255 [00:02\u003c00:01, 62.86it/s]\rLoading weights:  54%|█████▎    | 137/255 [00:02\u003c00:01, 63.88it/s]\rLoading weights:  56%|█████▋    | 144/255 [00:03\u003c00:01, 58.89it/s]\rLoading weights:  59%|█████▉    | 151/255 [00:03\u003c00:01, 56.11it/s]\rLoading weights:  62%|██████▏   | 158/255 [00:03\u003c00:01, 58.76it/s]\rLoading weights:  65%|██████▌   | 166/255 [00:03\u003c00:01, 63.25it/s]\rLoading weights:  68%|██████▊   | 173/255 [00:03\u003c00:01, 63.86it/s]\rLoading weights:  71%|███████   | 180/255 [00:03\u003c00:01, 59.22it/s]\rLoading weights:  73%|███████▎  | 187/255 [00:03\u003c00:01, 56.10it/s]\rLoading weights:  76%|███████▌  | 194/255 [00:03\u003c00:01, 58.79it/s]\rLoading weights:  79%|███████▉  | 202/255 [00:04\u003c00:00, 63.46it/s]\rLoading weights:  82%|████████▏ | 209/255 [00:04\u003c00:00, 64.00it/s]\rLoading weights:  85%|████████▍ | 216/255 [00:04\u003c00:00, 59.19it/s]\rLoading weights:  87%|████████▋ | 223/255 [00:04\u003c00:00, 56.24it/s]\rLoading weights:  90%|█████████ | 230/255 [00:04\u003c00:00, 57.89it/s]\rLoading weights:  93%|█████████▎| 238/255 [00:04\u003c00:00, 62.89it/s]\rLoading weights:  96%|█████████▌| 245/255 [00:04\u003c00:00, 62.47it/s]\rLoading weights:  99%|█████████▉| 252/255 [00:04\u003c00:00, 56.63it/s]\rLoading weights: 100%|██████████| 255/255 [00:04\u003c00:00, 51.38it/s]\n"}
+,{"stream_name":"stderr","time":153.337210025,"data":"[transformers] `use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.\n"}
+,{"stream_name":"stderr","time":153.531444097,"data":"/usr/local/lib/python3.13/dist-packages/torch/_dynamo/eval_frame.py:1263: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.\n"}
+,{"stream_name":"stderr","time":153.531488869,"data":"  return fn(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":166.937284956,"data":"/kaggle/working/repo/scripts/kaggle_x9b.py:149: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.\n"}
+,{"stream_name":"stderr","time":166.937336515,"data":"Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)\n"}
+,{"stream_name":"stderr","time":166.937341882,"data":"  return float(loss) * accum\n"}
+,{"stream_name":"stdout","time":664.155448873,"data":"sarvam-1+itrans+s0__rehearsal {'step': 20, 'loss': 2.572625160217285, 'lr': 2e-05, 't': 588.7610576152802}\n"}
+,{"stream_name":"stderr","time":670.129747347,"data":"\rLoading weights:   0%|          | 0/255 [00:00\u003c?, ?it/s]\rLoading weights:   0%|          | 1/255 [00:00\u003c02:11,  1.93it/s]\rLoading weights:  11%|█         | 28/255 [00:00\u003c00:03, 59.57it/s]\rLoading weights:  17%|█▋        | 44/255 [00:00\u003c00:02, 73.76it/s]\rLoading weights:  23%|██▎       | 58/255 [00:00\u003c00:02, 79.23it/s]\rLoading weights:  27%|██▋       | 70/255 [00:01\u003c00:02, 84.72it/s]\rLoading weights:  32%|███▏      | 82/255 [00:01\u003c00:01, 87.52it/s]\rLoading weights:  37%|███▋      | 94/255 [00:01\u003c00:01, 81.16it/s]\rLoading weights:  44%|████▍     | 112/255 [00:01\u003c00:01, 96.29it/s]\rLoading weights:  51%|█████     | 130/255 [00:01\u003c00:01, 92.30it/s]\rLoading weights:  58%|█████▊    | 148/255 [00:01\u003c00:01, 94.09it/s]\rLoading weights:  65%|██████▌   | 166/255 [00:02\u003c00:00, 104.93it/s]\rLoading weights:  70%|██████▉   | 178/255 [00:02\u003c00:00, 105.66it/s]\rLoading weights:  75%|███████▍  | 190/255 [00:02\u003c00:00, 107.22it/s]\rLoading weights:  79%|███████▉  | 202/255 [00:02\u003c00:00, 97.57it/s] \rLoading weights:  86%|████████▋ | 220/255 [00:02\u003c00:00, 101.69it/s]\rLoading weights:  93%|█████████▎| 238/255 [00:02\u003c00:00, 97.70it/s] \rLoading weights: 100%|██████████| 255/255 [00:02\u003c00:00, 90.55it/s]\n"}
+,{"stream_name":"stderr","time":670.183135621,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":670.185550317,"data":"  File \"/kaggle/working/repo/scripts/kaggle_x9b.py\", line 391, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":670.185579595,"data":"    main()\n"}
+,{"stream_name":"stderr","time":670.185584325,"data":"    ~~~~^^\n"}
+,{"stream_name":"stderr","time":670.185589329,"data":"  File \"/kaggle/working/repo/scripts/kaggle_x9b.py\", line 387, in main\n"}
+,{"stream_name":"stderr","time":670.185593261,"data":"    run_full(out, \"cuda\", True, a.runs, 20 if a.rehearsal else None, a.rehearsal)\n"}
+,{"stream_name":"stderr","time":670.185596885,"data":"    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":670.185600741,"data":"  File \"/kaggle/working/repo/scripts/kaggle_x9b.py\", line 354, in run_full\n"}
+,{"stream_name":"stderr","time":670.18560467,"data":"    eval_model(name, rdir / \"adapter\", tag, out, device, 100 if rehearsal else None, retrieval=retrieval)\n"}
+,{"stream_name":"stderr","time":670.185608611,"data":"    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":670.185612173,"data":"  File \"/kaggle/working/repo/scripts/kaggle_x9b.py\", line 235, in eval_model\n"}
+,{"stream_name":"stderr","time":670.185615661,"data":"    model = PeftModel.from_pretrained(model, str(adapter)).merge_and_unload()\n"}
+,{"stream_name":"stderr","time":670.185619075,"data":"            ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":670.185624086,"data":"  File \"/usr/local/lib/python3.13/dist-packages/peft/peft_model.py\", line 593, in from_pretrained\n"}
+,{"stream_name":"stderr","time":670.185631858,"data":"    model = MODEL_TYPE_TO_PEFT_MODEL_MAPPING[config.task_type](\n"}
+,{"stream_name":"stderr","time":670.185634345,"data":"        model,\n"}
+,{"stream_name":"stderr","time":670.185636626,"data":"    ...\u003c3 lines\u003e...\n"}
+,{"stream_name":"stderr","time":670.185639001,"data":"        low_cpu_mem_usage=low_cpu_mem_usage,\n"}
+,{"stream_name":"stderr","time":670.185641346,"data":"    )\n"}
+,{"stream_name":"stderr","time":670.185643564,"data":"  File \"/usr/local/lib/python3.13/dist-packages/peft/peft_model.py\", line 2082, in __init__\n"}
+,{"stream_name":"stderr","time":670.185645964,"data":"    super().__init__(model, peft_config, adapter_name, **kwargs)\n"}
+,{"stream_name":"stderr","time":670.18564833,"data":"    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":670.185650573,"data":"  File \"/usr/local/lib/python3.13/dist-packages/peft/peft_model.py\", line 177, in __init__\n"}
+,{"stream_name":"stderr","time":670.185653015,"data":"    self.base_model = cls(model, {adapter_name: peft_config}, adapter_name)\n"}
+,{"stream_name":"stderr","time":670.185655336,"data":"                      ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":670.185657665,"data":"  File \"/usr/local/lib/python3.13/dist-packages/peft/tuners/tuners_utils.py\", line 344, in __init__\n"}
+,{"stream_name":"stderr","time":670.185660098,"data":"    self.inject_adapter(self.model, adapter_name, low_cpu_mem_usage=low_cpu_mem_usage, state_dict=state_dict)\n"}
+,{"stream_name":"stderr","time":670.185662511,"data":"    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":670.185664883,"data":"  File \"/usr/local/lib/python3.13/dist-packages/peft/tuners/tuners_utils.py\", line 978, in inject_adapter\n"}
+,{"stream_name":"stderr","time":670.185667333,"data":"    self._create_and_replace(\n"}
+,{"stream_name":"stderr","time":670.18566956,"data":"    ~~~~~~~~~~~~~~~~~~~~~~~~^\n"}
+,{"stream_name":"stderr","time":670.185672503,"data":"        peft_config, adapter_name, target, target_name, parent, current_key=key\n"}
+,{"stream_name":"stderr","time":670.18567787,"data":"        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":670.185680215,"data":"    )\n"}
+,{"stream_name":"stderr","time":670.185682368,"data":"    ^\n"}
+,{"stream_name":"stderr","time":670.185687524,"data":"  File \"/usr/local/lib/python3.13/dist-packages/peft/tuners/lora/model.py\", line 389, in _create_and_replace\n"}
+,{"stream_name":"stderr","time":670.18569007,"data":"    new_module = self._create_new_module(lora_config, adapter_name, target, device_map=device_map, **kwargs)\n"}
+,{"stream_name":"stderr","time":670.185692404,"data":"  File \"/usr/local/lib/python3.13/dist-packages/peft/tuners/lora/model.py\", line 552, in _create_new_module\n"}
+,{"stream_name":"stderr","time":670.185694894,"data":"    new_module = dispatcher(target, adapter_name, config=lora_config, **kwargs)\n"}
+,{"stream_name":"stderr","time":670.185697536,"data":"  File \"/usr/local/lib/python3.13/dist-packages/peft/tuners/lora/torchao.py\", line 160, in dispatch_torchao\n"}
+,{"stream_name":"stderr","time":670.185700056,"data":"    if not is_torchao_available():\n"}
+,{"stream_name":"stderr","time":670.185702346,"data":"           ~~~~~~~~~~~~~~~~~~~~^^\n"}
+,{"stream_name":"stderr","time":670.185704619,"data":"  File \"/usr/local/lib/python3.13/dist-packages/peft/import_utils.py\", line 162, in is_torchao_available\n"}
+,{"stream_name":"stderr","time":670.185707126,"data":"    raise ImportError(\n"}
+,{"stream_name":"stderr","time":670.18570946,"data":"    ...\u003c2 lines\u003e...\n"}
+,{"stream_name":"stderr","time":670.185711821,"data":"    )\n"}
+,{"stream_name":"stderr","time":670.185713995,"data":"ImportError: Found an incompatible version of torchao. Found version 0.10.0, but only versions above 0.16.0 are supported\n"}
+,{"stream_name":"stdout","time":674.991314936,"data":"job finished 1\n"}
+,{"stream_name":"stderr","time":677.754920487,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":677.754952307,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":678.022124975,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":678.022154681,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":678.822196211,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":679.87105891,"data":"[NbConvertApp] Writing 286432 bytes to __results__.html\n"}
+]

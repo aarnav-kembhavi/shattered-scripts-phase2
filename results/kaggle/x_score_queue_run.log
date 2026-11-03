@@ -1,0 +1,54 @@
+Starting upload for file repo.zip
+Upload successful: repo.zip (427KB)
+Dataset version is being created. Please check progress at https://www.kaggle.com/datasets/aarnavkembhavi1/shattered-pkg
+
+  0%|          | 0.00/427k [00:00<?, ?B/s]
+ 26%|██▋       | 112k/427k [00:00<00:00, 1.01MB/s]
+100%|██████████| 427k/427k [00:01<00:00, 222kB/s] 
+
+Kernel version 2 successfully pushed.  Please check progress at https://www.kaggle.com/code/aarnavkembhavi1/shattered-x-score
+
+[05:11:12] aarnavkembhavi1/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[05:13:14] aarnavkembhavi1/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[05:15:16] aarnavkembhavi1/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[05:17:18] aarnavkembhavi1/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[05:19:20] aarnavkembhavi1/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[05:21:22] aarnavkembhavi1/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[05:23:25] aarnavkembhavi1/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[05:25:27] aarnavkembhavi1/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[05:27:29] aarnavkembhavi1/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[05:29:31] aarnavkembhavi1/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[05:31:33] aarnavkembhavi1/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[05:33:35] aarnavkembhavi1/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[05:35:37] aarnavkembhavi1/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[05:37:40] aarnavkembhavi1/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[05:39:42] aarnavkembhavi1/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[05:41:45] aarnavkembhavi1/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[05:43:48] aarnavkembhavi1/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[05:45:51] aarnavkembhavi1/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[05:47:53] aarnavkembhavi1/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[05:49:55] aarnavkembhavi1/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[05:51:57] aarnavkembhavi1/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[05:54:00] aarnavkembhavi1/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[05:56:02] aarnavkembhavi1/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[05:58:05] aarnavkembhavi1/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[06:00:07] aarnavkembhavi1/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[06:02:09] aarnavkembhavi1/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[06:04:11] aarnavkembhavi1/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[06:06:13] aarnavkembhavi1/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[06:08:16] aarnavkembhavi1/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[06:10:18] aarnavkembhavi1/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[06:12:21] aarnavkembhavi1/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[06:14:23] aarnavkembhavi1/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[06:16:25] aarnavkembhavi1/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[06:18:28] aarnavkembhavi1/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[06:20:29] aarnavkembhavi1/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+{
+ "job": "x_score",
+ "commit": "786f67e41c1ebc27739876e5d269e34f47416942",
+ "status": "aarnavkembhavi1/shattered-x-score has status \"KernelWorkerStatus.COMPLETE\"",
+ "hours": 1.2289741397566265,
+ "hardware": null,
+ "output_dir": "results\\kaggle\\x_score\\2026-11-02T234104"
+}
+weekly hours used (last 7 days): 9.00 of 30.0

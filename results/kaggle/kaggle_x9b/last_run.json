@@ -1,0 +1,24 @@
+{
+ "job": "kaggle_x9b",
+ "kernel": "aarnavkembhavi1/shattered-kaggle-x9b",
+ "commit": "4e6fd51a065381d3b86b072a482fa30f66639e8b",
+ "dirty": false,
+ "args": [
+  "--mode",
+  "full",
+  "--runs",
+  "sarvam-1:english:0",
+  "sarvam-1:itrans:1",
+  "--base-eval",
+  "sarvam-1"
+ ],
+ "start_utc": "2026-11-03T08:55:20.101786+00:00",
+ "hours": 6.6003135350015425,
+ "status": "aarnavkembhavi1/shattered-kaggle-x9b has status \"KernelWorkerStatus.COMPLETE\"",
+ "accelerator": "NvidiaTeslaT4 (T4 x2)",
+ "output_dir": "results\\kaggle\\kaggle_x9b\\2026-11-03T085520",
+ "hardware": null,
+ "torch": null,
+ "bf16_supported": null,
+ "provenance": {}
+}

@@ -1,0 +1,26 @@
+{
+ "tag": "sarvam-1+itrans+s0__rehearsal",
+ "model": "sarvam-1",
+ "condition": "itrans",
+ "seed": 0,
+ "B": 327680,
+ "optimizer_steps": 20,
+ "micro_batch": 16,
+ "articles": 107,
+ "words": 59397,
+ "tokens": 327680,
+ "overlap_articles": 0,
+ "tokenizer_sha256_before": "72e5ad0c2d3a65d199ffea57f14c01cb24bffb81d4600ecb68d6818613eb9baa",
+ "tokenizer_sha256_after": "72e5ad0c2d3a65d199ffea57f14c01cb24bffb81d4600ecb68d6818613eb9baa",
+ "tokenizer_unchanged": true,
+ "train_seconds": 583.3812174797058,
+ "seconds": 982.4723660945892,
+ "loss_log": [
+  {
+   "step": 20,
+   "loss": 2.572625160217285,
+   "lr": 2e-05,
+   "t": 582.44344830513
+  }
+ ]
+}
