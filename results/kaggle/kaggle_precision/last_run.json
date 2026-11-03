@@ -1,18 +1,17 @@
 {
  "job": "kaggle_precision",
  "kernel": "aarnavkembhavi1/shattered-kaggle-precision",
- "commit": "9d50e929810ac207aa1770949025eab1d3b25598",
+ "commit": "37849aa3f8b4f8283f6a6ef5b7b455051ac599e5",
  "dirty": false,
  "args": [
   "--models",
-  "qwen3-8b",
-  "ambari-7b-base"
+  "llama-2-7b"
  ],
- "start_utc": "2026-11-02T17:54:50.433466+00:00",
- "hours": 2.982456547551685,
+ "start_utc": "2026-11-03T21:11:25.456905+00:00",
+ "hours": 0.07295618176460267,
  "status": "aarnavkembhavi1/shattered-kaggle-precision has status \"KernelWorkerStatus.COMPLETE\"",
  "accelerator": "NvidiaTeslaT4 (T4 x2)",
- "output_dir": "results\\kaggle\\kaggle_precision\\2026-11-02T175450",
+ "output_dir": "results\\kaggle\\kaggle_precision\\2026-11-03T211125",
  "hardware": null,
  "torch": null,
  "bf16_supported": null,

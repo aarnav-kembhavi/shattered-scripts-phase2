@@ -1,0 +1,22 @@
+[{"stream_name":"stdout","time":7.098429835,"data":"input listing: ['datasets'] ['/kaggle/input/datasets/aarnavkembhavi1/shattered-pkg/pyproject.toml']\n"}
+,{"stream_name":"stderr","time":53.894881277,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":53.894928949,"data":"bigframes 2.48.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":53.894941007,"data":"grpcio-tools 1.71.2 requires protobuf\u003c6.0dev,\u003e=5.26.1, but you have protobuf 7.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":53.894944691,"data":"gradio 6.26.0 requires pillow\u003c13.0,\u003e=8.0, but you have pillow 13.0.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":53.894948071,"data":"google-ai-generativelanguage 0.6.15 requires protobuf!=4.21.0,!=4.21.1,!=4.21.2,!=4.21.3,!=4.21.4,!=4.21.5,\u003c6.0.0dev,\u003e=3.20.2, but you have protobuf 7.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":53.894952605,"data":"ydf 0.15.0 requires protobuf\u003c7.0.0,\u003e=5.29.1, but you have protobuf 7.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":53.894955961,"data":"grpcio-status 1.71.2 requires protobuf\u003c6.0dev,\u003e=5.26.1, but you have protobuf 7.36.2 which is incompatible.\n"}
+,{"stream_name":"stdout","time":54.623057579,"data":"Found existing installation: torchao 0.10.0\n"}
+,{"stream_name":"stdout","time":54.699703362,"data":"Uninstalling torchao-0.10.0:\n"}
+,{"stream_name":"stdout","time":55.102912567,"data":"  Successfully uninstalled torchao-0.10.0\n"}
+,{"stream_name":"stdout","time":55.289417123,"data":"no HF_TOKEN secret: ConnectionError('Connection error trying to communicate with service.')\n"}
+,{"stream_name":"stderr","time":81.728537132,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stdout","time":102.255866612,"data":"{\"model\": \"llama-2-7b\", \"repo\": \"meta-llama/Llama-2-7b-hf\", \"reference\": \"float32_offload\", \"parameters\": 6738417664, \"error\": \"OSError('You are trying to access a gated repo.\\\\nMake sure to have access to it at https://huggingface.co/meta-llama/Llama-2-7b-hf.\\\\n401 Client Error. (Request ID: Root=1-6aea4e67-386cad5a7f7ea06d59c2e069;f04b037b-1da1-4379-926d-bf3cf772ba6d)\\\\n\\\\nCannot access gated repo for url https://huggingface.co/meta-llama/Llama-2-7b-hf/resolve/01c7f73d771dfac7d292323805ebc428287df4f9/config.json.\\\\nAccess to model meta-llama/Llama-2-7b-hf is restricted. You must have access to it and be authenticated to access it. Please log in.')\", \"pass\": null, \"note\": \"harness error: no verdict\", \"seconds\": 19.36352777481079}\n"}
+,{"stream_name":"stdout","time":102.848429849,"data":"job finished 0\n"}
+,{"stream_name":"stderr","time":105.691441544,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":105.691487622,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":105.959085291,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":105.959108064,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":106.767866422,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":107.804673651,"data":"[NbConvertApp] Writing 286888 bytes to __results__.html\n"}
+]

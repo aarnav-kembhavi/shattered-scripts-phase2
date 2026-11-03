@@ -1,2 +1,2 @@
 tracked code is modified; commit first (or --allow-dirty, recorded):
-D scripts/hidden.vbs
+?? src/shattered/llm/templates/natural_romanization_te_v1.txt
