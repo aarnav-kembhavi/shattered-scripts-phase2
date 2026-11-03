@@ -36,7 +36,7 @@ assert any(f.endswith(".safetensors") for f in files) and "config.json" in files
 shutil.rmtree(d / ".cache", ignore_errors=True)
 user = KR.env()["KAGGLE_USERNAME"]
 (d / "dataset-metadata.json").write_text(json.dumps({"title": slug, "id": f"{user}/{slug}", "licenses": [{"name": "other"}], "isPrivate": True,
-                                                    "subtitle": f"private copy of {repo} for the Shattered Scripts Kaggle jobs (gated; not for redistribution)"}))
+                                                    "subtitle": "Private copy of a gated model for own research"}))
 t1 = time.time()
 exists = slug in KR.kaggle("datasets", "list", "--mine", "-s", slug, check=False)
 print(KR.kaggle("datasets", "version" if exists else "create", "-p", str(d), *(["-m", "refresh"] if exists else []), "--dir-mode", "tar"), flush=True)
