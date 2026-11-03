@@ -1,0 +1,67 @@
+{
+  "provenance": {
+    "config": {
+      "registration": "RESULTS.md X9a",
+      "seconds": 412.304349899292
+    },
+    "git_commit": "cdef73dd89f4daf3d348941b8a144b872a880ce8-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-03T07:47:09+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x9a.py",
+      "prep"
+    ]
+  },
+  "steps": 6173,
+  "ctx_tokens": 320,
+  "tokens_per_run": 126423040,
+  "n_train_stories": 496631,
+  "round_trip_bad": 0,
+  "eval_overlap": 0,
+  "tokenizer_sha256": "0bcd40849208725e0b3d43cb3836ad147210c6e96418d3f197a625ff97324acf",
+  "tokenizer_vocab_with_eos": 1025,
+  "tokens_per_word_english_eval": 1.772812793979304,
+  "tokens_per_word_cipher_eval": 1.9775741207173854,
+  "tpw_relative_difference": 0.11550081736406505,
+  "tokenizer_stories": {
+    "english": 61923,
+    "cipher": 35320,
+    "english_bytes": 50000477,
+    "cipher_bytes": 50000650
+  },
+  "levels": {
+    "x9a_p0": {
+      "train_tokens": 126423041,
+      "stories_consumed": 435911,
+      "cipher_stories_consumed": 0,
+      "cipher_share_consumed": 0.0
+    },
+    "x9a_p1": {
+      "train_tokens": 126423041,
+      "stories_consumed": 435402,
+      "cipher_stories_consumed": 4344,
+      "cipher_share_consumed": 0.00997698678462662
+    },
+    "x9a_p5": {
+      "train_tokens": 126423041,
+      "stories_consumed": 433370,
+      "cipher_stories_consumed": 21634,
+      "cipher_share_consumed": 0.049920391351501024
+    },
+    "x9a_p20": {
+      "train_tokens": 126423041,
+      "stories_consumed": 425916,
+      "cipher_stories_consumed": 85246,
+      "cipher_share_consumed": 0.20014744691441505
+    },
+    "x9a_p50": {
+      "train_tokens": 126423041,
+      "stories_consumed": 411712,
+      "cipher_stories_consumed": 205952,
+      "cipher_share_consumed": 0.5002331727032489
+    }
+  }
+}

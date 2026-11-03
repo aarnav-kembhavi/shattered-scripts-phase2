@@ -1,0 +1,51 @@
+{
+  "provenance": {
+    "config": {
+      "registration": "RESULTS.md X9a pilot"
+    },
+    "git_commit": "cdef73dd89f4daf3d348941b8a144b872a880ce8-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-03T07:51:22+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x9a.py",
+      "pilot"
+    ]
+  },
+  "train": {
+    "status": "done",
+    "steps": 617,
+    "val_bpb_full": 0.9101846086123556,
+    "train_seconds_this_session": 96.78965711593628,
+    "wall_seconds_this_session": 105.7286376953125,
+    "seconds_per_step": 0.15687140537428895
+  },
+  "eval_seconds": 90.06357216835022,
+  "retrieval_acc": 0.864,
+  "retrieval_layer": 7,
+  "assembly_cipher_layer": 1,
+  "assembly_english_layer": 1,
+  "tokenizer_checks": {
+    "steps": 6173,
+    "ctx_tokens": 320,
+    "tokens_per_run": 126423040,
+    "n_train_stories": 496631,
+    "round_trip_bad": 0,
+    "eval_overlap": 0,
+    "tokenizer_sha256": "0bcd40849208725e0b3d43cb3836ad147210c6e96418d3f197a625ff97324acf",
+    "tokenizer_vocab_with_eos": 1025,
+    "tokens_per_word_english_eval": 1.772812793979304,
+    "tokens_per_word_cipher_eval": 1.9775741207173854,
+    "tpw_relative_difference": 0.11550081736406505,
+    "tokenizer_stories": {
+      "english": 61923,
+      "cipher": 35320,
+      "english_bytes": 50000477,
+      "cipher_bytes": 50000650
+    }
+  },
+  "full_run_hours_estimate": 0.26886015865537854,
+  "note": "timing and path check only; no accuracy is used for any decision"
+}

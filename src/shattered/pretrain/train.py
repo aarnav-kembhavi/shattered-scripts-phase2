@@ -72,7 +72,7 @@ def train_run(cfg: dict, meta: dict) -> dict:
 
     stream = np.load(REPO / m["train_stream"], mmap_mode="r")
     valid = np.load(REPO / m["valid_stream"], mmap_mode="r")
-    ctx = context_tokens(cfg["target_ctx_bytes"], m["bytes_per_token_train"])
+    ctx = cfg.get("ctx_tokens") or context_tokens(cfg["target_ctx_bytes"], m["bytes_per_token_train"])  # ctx_tokens: fixed context (X9a, equal to the Phase 1 vocabulary-1,024 runs)
     n_use = int(len(stream) * cfg.get("fraction", 1.0))
     n_seq = (n_use - 1) // ctx
     steps = n_seq // cfg["batch_seqs"]
