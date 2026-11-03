@@ -22,7 +22,7 @@ from shattered.translit.natural import MODEL, PROMPT_VERSION, TEMPLATE_DIR, defe
 
 KN_OUT = REPO / "data" / "processed" / "natural_flores_m4_500_v1.jsonl"
 LANG = {"bn": ("Bengali", "ben_Beng"), "te": ("Telugu", "tel_Telu")}
-RPD = 480  # own daily cap, below the free-tier limit (about 500 requests a day)
+RPD = 6000  # own daily cap; raised from 480 on 2026-11-04 (billing enabled on the Gemini key, Aarnav); rpm raised to 60 in make_client call below
 BATCH = 10
 OUTD = REPO / "results" / "phase2" / "x4" / "natural"
 
@@ -58,7 +58,7 @@ def parse_batch(text: str, n: int) -> list[str] | None:
 
 
 def pilot() -> None:
-    client = make_client(rpd=RPD)
+    client = make_client(rpm=60, rpd=RPD)
     kn = [json.loads(l) for l in KN_OUT.open(encoding="utf-8")]
     kn = [r for r in kn if not r["defective"] and r["attempt"] == 1][:30]
     assert len(kn) == 30
@@ -90,7 +90,7 @@ def do_romanize(lang: str) -> None:
     assert len(F) == 2009
     kn_ok = {r["index"]: not r["defective"] for r in map(json.loads, KN_OUT.open(encoding="utf-8"))}
     out = REPO / "data" / "processed" / f"natural_flores_{lang}_x4_v1.jsonl"
-    client = make_client(rpd=RPD)
+    client = make_client(rpm=60, rpd=RPD)
     done = {r["index"]: r for r in map(json.loads, out.open(encoding="utf-8"))} if out.exists() else {}
     stopped, mode = None, decision()
     todo = [int(i) for i in sample_idx() if not (int(i) in done and not done[int(i)]["defective"])]
