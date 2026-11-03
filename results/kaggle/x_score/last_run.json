@@ -1,0 +1,19 @@
+{
+ "job": "x_score",
+ "kernel": "aarnavkembhavi1/shattered-x-score",
+ "commit": "786f67e41c1ebc27739876e5d269e34f47416942",
+ "dirty": false,
+ "args": [
+  "--models",
+  "ambari-7b-base"
+ ],
+ "start_utc": "2026-11-02T23:41:04.243954+00:00",
+ "hours": 1.2289741397566265,
+ "status": "aarnavkembhavi1/shattered-x-score has status \"KernelWorkerStatus.COMPLETE\"",
+ "accelerator": "NvidiaTeslaT4 (T4 x2)",
+ "output_dir": "results\\kaggle\\x_score\\2026-11-02T234104",
+ "hardware": null,
+ "torch": null,
+ "bf16_supported": null,
+ "provenance": {}
+}
