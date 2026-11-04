@@ -409,6 +409,8 @@ def main() -> None:
         if not acct2_accepted():
             return
         x9b_full(s)
+        if x9b_ready() and not x9b_pending(s):  # the Sarvam arm is complete: the secondary Qwen3.5-2B arm (one seed, cut first if quota is short) follows on this account
+            x9b_full(s, secondary=True)
         save(s)
         log(s, "account 2 X9b pass finished; batches done: " + ", ".join(s.get("x9b", {}).get("batches_done_keys", [])))
         return
