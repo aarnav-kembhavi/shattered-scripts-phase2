@@ -25,8 +25,20 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[1]
-KDIR = REPO / "results" / "kaggle"
-BUILD = REPO / "build" / "kaggle"
+SHARED = REPO / "results" / "kaggle"  # queue state, HOLD, DEFER: shared by both accounts
+
+
+def account() -> str:
+    """Kaggle account of this call: KAGGLE_ACCOUNT=1 (default) or 2 (a teammate's account added 2026-11-04; its own 30 h per rolling 7 days, quota file, job folders and credentials)."""
+    return os.environ.get("KAGGLE_ACCOUNT", "1")
+
+
+def kdir() -> Path:
+    return SHARED if account() == "1" else SHARED / "acct2"
+
+
+def build() -> Path:
+    return REPO / "build" / ("kaggle" if account() == "1" else "kaggle_acct2")
 WEEK_H, SESSION_H = 30.0, 12.0
 PKG_DATASET = "shattered-pkg"
 CODE_DIRS = ["src", "scripts", "configs"]
@@ -40,6 +52,8 @@ def env() -> dict:
         if "=" in line and not line.lstrip().startswith("#"):
             k, v = line.split("=", 1)
             e.setdefault(k.strip(), v.strip())
+    if account() == "2":  # the teammate's account: credentials in .env as KAGGLE2_USERNAME / KAGGLE2_API_TOKEN (never printed or committed)
+        e["KAGGLE_USERNAME"], e["KAGGLE_API_TOKEN"] = e.get("KAGGLE2_USERNAME", ""), e.get("KAGGLE2_API_TOKEN", "")
     assert e.get("KAGGLE_USERNAME") and e.get("KAGGLE_API_TOKEN"), "Kaggle credentials missing in .env"
     return e
 
@@ -59,7 +73,7 @@ def git(*args) -> str:
 
 
 def quota() -> dict:
-    p = KDIR / "quota.json"
+    p = kdir() / "quota.json"
     return json.loads(p.read_text()) if p.exists() else {"sessions": []}
 
 
@@ -69,7 +83,7 @@ def used_hours(q: dict) -> float:
 
 
 def package(commit: str, includes: list[str]) -> Path:
-    d = BUILD / commit[:8]
+    d = build() / commit[:8]
     shutil.rmtree(d, ignore_errors=True)
     d.mkdir(parents=True)
     tar = d / "repo.tar"
@@ -150,14 +164,14 @@ print("job finished", rc, flush=True)
 
 def run(a) -> None:
     job = a.job
-    dp = KDIR / "DEFER.json"  # operator deferrals (2026-11-02): [{"job", "model", "requires_pass"?}]; the old driver in memory must not run steps out of the new order
+    dp = SHARED / "DEFER.json"  # operator deferrals (2026-11-02): [{"job", "model", "requires_pass"?}]; the old driver in memory must not run steps out of the new order
     if dp.exists():
-        st = json.loads((KDIR / "queue_state.json").read_text()) if (KDIR / "queue_state.json").exists() else {}
+        st = json.loads((SHARED / "queue_state.json").read_text()) if (SHARED / "queue_state.json").exists() else {}
         for d in json.loads(dp.read_text()):
             if d["job"] == job and d["model"] in a.job_args and not (d.get("requires_pass") and st.get("precision", {}).get(d["requires_pass"], {}).get("pass")):
                 raise SystemExit(f"deferred by the operator: {d}")
-    if (KDIR / "HOLD").exists():  # operator hold (2026-11-02): no new push while this file exists; the in-flight job is unaffected
-        raise SystemExit("queue on hold (results/kaggle/HOLD exists): " + (KDIR / "HOLD").read_text()[:200])
+    if (SHARED / "HOLD").exists():  # operator hold (2026-11-02): no new push while this file exists; the in-flight job is unaffected
+        raise SystemExit("queue on hold (results/kaggle/HOLD exists): " + (SHARED / "HOLD").read_text()[:200])
     commit = git("rev-parse", "HEAD")
     dirty = git("status", "--porcelain", "--", *CODE_DIRS, "pyproject.toml")
     if dirty and not a.allow_dirty:
@@ -167,7 +181,7 @@ def run(a) -> None:
     assert a.timeout_h <= SESSION_H - 0.5, "a session may not exceed 12 h"
     if used + a.timeout_h > WEEK_H:
         raise SystemExit(f"weekly quota: {used:.1f} h used in the last 7 days, this push may use {a.timeout_h} h, limit {WEEK_H} h")
-    if job not in ("kaggle_gate", "kaggle_retrieval_gate") and not (KDIR / "kaggle_gate" / "gate_passed.json").exists():
+    if job not in ("kaggle_gate", "kaggle_retrieval_gate") and not (kdir() / "kaggle_gate" / "gate_passed.json").exists():
         raise SystemExit("reproducibility gate has not passed: no remote result counts (results/kaggle/kaggle_gate/gate_passed.json)")
     if job == "kaggle_mdl":
         a.include = list(a.include) + ["results/m14_full/words.json"]
@@ -177,7 +191,7 @@ def run(a) -> None:
     d = package(commit, a.include)
     upload_dataset(d, commit)
     user = env()["KAGGLE_USERNAME"]
-    kd = BUILD / f"kernel_{job}"
+    kd = build() / f"kernel_{job}"
     shutil.rmtree(kd, ignore_errors=True)
     kd.mkdir(parents=True)
     budget = int(a.timeout_h * 3600)
@@ -193,8 +207,8 @@ def run(a) -> None:
     rec = {"job": job, "kernel": meta["id"], "commit": commit, "dirty": bool(dirty), "args": a.job_args, "start_utc": t_push.isoformat(),
            "hours": a.timeout_h, "status": "pushed", "accelerator": "NvidiaTeslaT4 (T4 x2)"}  # hours = reserved until the real runtime is known
     q["sessions"].append(rec)
-    (KDIR).mkdir(parents=True, exist_ok=True)
-    (KDIR / "quota.json").write_text(json.dumps(q, indent=1))
+    (kdir()).mkdir(parents=True, exist_ok=True)
+    (kdir() / "quota.json").write_text(json.dumps(q, indent=1))
     if a.no_wait:
         return
     fetch(job, wait=True, rec=rec)
@@ -212,7 +226,7 @@ def fetch(job: str, wait: bool = False, rec: dict | None = None) -> None:
             break
         print(f"[{time.strftime('%H:%M:%S')}] {s.strip()[-80:]}", flush=True)
         time.sleep(120)
-    od = KDIR / job / rec["start_utc"][:19].replace(":", "")
+    od = kdir() / job / rec["start_utc"][:19].replace(":", "")
     od.mkdir(parents=True, exist_ok=True)
     kaggle("kernels", "output", ref, "-p", str(od), check=False)
     prov = od / "provenance_kaggle.json"
@@ -222,8 +236,8 @@ def fetch(job: str, wait: bool = False, rec: dict | None = None) -> None:
     for x in q["sessions"]:
         if x["start_utc"] == rec["start_utc"] and x["job"] == job:
             x.update(rec)
-    (KDIR / "quota.json").write_text(json.dumps(q, indent=1))
-    (KDIR / job / "last_run.json").write_text(json.dumps({**rec, "provenance": P}, indent=1))
+    (kdir() / "quota.json").write_text(json.dumps(q, indent=1))
+    (kdir() / job / "last_run.json").write_text(json.dumps({**rec, "provenance": P}, indent=1))
     print(json.dumps({k: rec[k] for k in ("job", "commit", "status", "hours", "hardware", "output_dir")}, indent=1))
     print(f"weekly hours used (last 7 days): {used_hours(q):.2f} of {WEEK_H}")
 
