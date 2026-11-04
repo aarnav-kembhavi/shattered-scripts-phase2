@@ -1,76 +1,32 @@
 Starting upload for file repo.zip
-Upload successful: repo.zip (468KB)
+Upload successful: repo.zip (479KB)
 Dataset version is being created. Please check progress at https://www.kaggle.com/datasets/ashwin18522/shattered-pkg
 
-  0%|          | 0.00/468k [00:00<?, ?B/s]
-  3%|▎         | 16.0k/468k [00:00<00:02, 158kB/s]
-100%|██████████| 468k/468k [00:00<00:00, 2.70MB/s]
-100%|██████████| 468k/468k [00:02<00:00, 225kB/s] 
+  0%|          | 0.00/479k [00:00<?, ?B/s]
+  3%|▎         | 16.0k/479k [00:00<00:03, 132kB/s]
+ 80%|████████  | 384k/479k [00:00<00:00, 2.07MB/s]
+100%|██████████| 479k/479k [00:02<00:00, 234kB/s] 
 
-Kernel version 3 successfully pushed.  Please check progress at https://www.kaggle.com/code/ashwin18522/shattered-kaggle-precision
+Kernel push error: Maximum batch GPU session count of 2 reached.
 
-[20:10:07] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[20:12:09] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[20:14:11] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[20:16:13] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[20:18:15] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[20:20:16] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[20:22:18] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[20:24:19] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[20:26:22] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[20:28:25] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[20:30:28] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[20:32:30] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[20:34:32] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[20:36:35] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[20:38:36] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[20:40:40] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[20:42:42] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[20:44:44] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[20:46:45] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[20:48:46] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[20:50:48] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[20:52:51] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[20:54:54] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[20:56:58] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[20:59:00] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[21:01:01] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[21:03:03] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[21:05:05] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[21:07:08] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[21:09:11] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[21:11:13] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[21:13:14] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[21:15:17] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[21:17:20] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[21:19:21] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[21:21:23] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[21:23:24] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[21:25:27] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[21:27:28] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[21:29:31] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[21:31:33] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[21:33:35] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[21:35:37] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[21:37:39] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[21:39:40] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[21:41:44] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[21:43:45] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[21:45:47] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[21:47:49] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[21:49:51] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[21:51:54] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[21:53:56] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[21:55:58] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[21:58:02] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[22:00:04] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
-[22:02:06] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[21:41:17] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[21:43:18] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[21:45:20] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[21:47:22] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[21:49:24] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[21:51:27] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[21:53:29] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[21:55:31] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[21:57:34] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[21:59:36] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[22:01:38] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[22:03:40] ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
 {
  "job": "kaggle_precision",
- "commit": "4770255763a4e0d26a106e99a7f5a10ba29d963c",
+ "commit": "a182698a7abdb629b24692393922167f68033e77",
  "status": "ashwin18522/shattered-kaggle-precision has status \"KernelWorkerStatus.COMPLETE\"",
- "hours": 1.9418813955783845,
+ "hours": 0.44650582167837355,
  "hardware": null,
- "output_dir": "results\\kaggle\\acct2\\kaggle_precision\\2026-11-04T144001"
+ "output_dir": "results\\kaggle\\acct2\\kaggle_precision\\2026-11-04T161113"
 }
-weekly hours used (last 7 days): 8.44 of 30.0
+weekly hours used (last 7 days): 17.33 of 30.0
