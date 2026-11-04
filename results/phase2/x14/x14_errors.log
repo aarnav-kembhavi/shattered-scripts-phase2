@@ -4,3 +4,6 @@
 2026-11-03 14:30:51 qwen/qwen3.8-27b daily cap: Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kv19tt9kf9fry83jt9yzhgf1` service tier
 2026-11-03 14:31:18 openai/gpt-oss-120b daily cap: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kv19tt9kf9fry83jt9yzhgf1` service t
 2026-11-03 14:38:51 allam-2-7b daily cap: groq/allam-2-7b: own daily cap 900 reached
+2026-11-04 15:00:17 openai/gpt-oss-120b daily cap: groq/openai/gpt-oss-120b: own daily cap 900 reached
+2026-11-04 15:00:17 qwen/qwen3.8-27b daily cap: groq/qwen/qwen3.8-27b: own daily cap 900 reached
+2026-11-04 15:00:17 allam-2-7b daily cap: groq/allam-2-7b: own daily cap 900 reached

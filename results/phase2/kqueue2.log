@@ -1,0 +1,2 @@
+=== 2026-11-04 14:07:59 Kaggle queue pass 1: env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/kaggle_queue.py
+quota projection before A1-P ['ambari-7b-instruct-v0.1']: 0.49 h used in the last 7 days, this push up to 3.5 h, headroom 26.0 h, X9b Sarvam reserve 0 h (X9b pending: True)

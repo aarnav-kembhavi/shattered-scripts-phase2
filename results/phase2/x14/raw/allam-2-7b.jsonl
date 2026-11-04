@@ -1797,3 +1797,903 @@
 {"id": 1015, "form": "lossy", "label": 2, "response": "The Kannada text seems to be discussing the journey of a spacecraft named \"Henri", "pred": null, "finish": "length", "cached": false}
 {"id": 1799, "form": "native", "label": 1, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
 {"id": 1799, "form": "itrans", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1799, "form": "lossy", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1189, "form": "native", "label": 2, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1189, "form": "itrans", "label": 2, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1189, "form": "lossy", "label": 2, "response": "politics ", "pred": 2, "finish": "stop", "cached": false}
+{"id": 369, "form": "native", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 369, "form": "itrans", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 369, "form": "lossy", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 369, "form": "natural", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 18, "form": "native", "label": 2, "response": "politics ", "pred": 2, "finish": "stop", "cached": false}
+{"id": 18, "form": "itrans", "label": 2, "response": "The given Kannada text seems to discuss the Indian political scenario, mentioning events like the ", "pred": null, "finish": "length", "cached": false}
+{"id": 18, "form": "lossy", "label": 2, "response": "politics ", "pred": 2, "finish": "stop", "cached": false}
+{"id": 18, "form": "natural", "label": 2, "response": "entertainment ", "pred": 5, "finish": "stop", "cached": false}
+{"id": 917, "form": "native", "label": 0, "response": "The topic of the given Kannada text seems to be related to technology, specifically the translation of", "pred": null, "finish": "length", "cached": false}
+{"id": 917, "form": "itrans", "label": 0, "response": "The topic of the provided Kannada text seems to be related to translation and language, discussing a", "pred": null, "finish": "length", "cached": false}
+{"id": 917, "form": "lossy", "label": 0, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1812, "form": "native", "label": 3, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1812, "form": "itrans", "label": 3, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1812, "form": "lossy", "label": 3, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 863, "form": "native", "label": 4, "response": "The given Kannada text discusses the impact of climate change on animals and their habitats, which", "pred": null, "finish": "length", "cached": false}
+{"id": 863, "form": "itrans", "label": 4, "response": "The topic of the provided Kannada text seems to be related to the field of science and technology", "pred": null, "finish": "length", "cached": false}
+{"id": 863, "form": "lossy", "label": 4, "response": "The topic of the provided Kannada text seems to be related to art and culture. In K", "pred": null, "finish": "length", "cached": false}
+{"id": 403, "form": "native", "label": 0, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 403, "form": "itrans", "label": 0, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 403, "form": "lossy", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 845, "form": "native", "label": 5, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 845, "form": "itrans", "label": 5, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 845, "form": "lossy", "label": 5, "response": "The given Kannada text seems to be discussing various artists, their works, and the importance of", "pred": null, "finish": "length", "cached": false}
+{"id": 1800, "form": "native", "label": 1, "response": "The given Kannada text is about a road where people gather to watch a car race. Based", "pred": null, "finish": "length", "cached": false}
+{"id": 1800, "form": "itrans", "label": 1, "response": "The topic of the provided Kannada text seems to be related to a specific location or route in", "pred": null, "finish": "length", "cached": false}
+{"id": 1800, "form": "lossy", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1800, "form": "natural", "label": 1, "response": "The given Kannada text seems to be describing a geographical location and its surroundings, mentioning", "pred": null, "finish": "length", "cached": false}
+{"id": 365, "form": "native", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 365, "form": "itrans", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 365, "form": "lossy", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 298, "form": "native", "label": 2, "response": "politics ", "pred": 2, "finish": "stop", "cached": false}
+{"id": 298, "form": "itrans", "label": 2, "response": "The topic of the provided Kannada text seems to be related to historical figures and events. Upon", "pred": null, "finish": "length", "cached": false}
+{"id": 298, "form": "lossy", "label": 2, "response": "politics ", "pred": 2, "finish": "stop", "cached": false}
+{"id": 1632, "form": "native", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1632, "form": "itrans", "label": 0, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 1632, "form": "lossy", "label": 0, "response": "The topic of the provided Kannada text seems to be related to ancient history and archaeology,", "pred": null, "finish": "length", "cached": false}
+{"id": 1993, "form": "native", "label": 1, "response": "The given Kannada text is about \"Hiking and Cycling Tour\", which falls under the", "pred": null, "finish": "length", "cached": false}
+{"id": 1993, "form": "itrans", "label": 1, "response": "The provided Kannada text seems to be a mix of words and does not form a coherent sentence", "pred": null, "finish": "length", "cached": false}
+{"id": 1993, "form": "lossy", "label": 1, "response": "The given Kannada text seems to be about hiking and trekking, which fall under", "pred": null, "finish": "length", "cached": false}
+{"id": 1936, "form": "native", "label": 2, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1936, "form": "itrans", "label": 2, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1936, "form": "lossy", "label": 2, "response": "politics ", "pred": 2, "finish": "stop", "cached": false}
+{"id": 1936, "form": "natural", "label": 2, "response": "The given Kannada text seems to discuss historical events and a region named Transnistria.", "pred": null, "finish": "length", "cached": false}
+{"id": 1065, "form": "native", "label": 2, "response": "The given Kannada text is about an event in Singapore attended by U.S. Assistant Secretary", "pred": null, "finish": "length", "cached": false}
+{"id": 1065, "form": "itrans", "label": 2, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1065, "form": "lossy", "label": 2, "response": "The given Kannada text seems to be discussing the visit of former US President George W. Bush", "pred": null, "finish": "length", "cached": false}
+{"id": 986, "form": "native", "label": 6, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 986, "form": "itrans", "label": 6, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 986, "form": "lossy", "label": 6, "response": "The given Kannada text seems to discuss the marine life and coral reefs found in", "pred": null, "finish": "length", "cached": false}
+{"id": 1894, "form": "native", "label": 1, "response": "The given Kannada text seems to be discussing the physical appearance and features of a person, specifically", "pred": null, "finish": "length", "cached": false}
+{"id": 1894, "form": "itrans", "label": 1, "response": "The topic of the provided Kannada text seems to be related to sports. The text mentions \"", "pred": null, "finish": "length", "cached": false}
+{"id": 1894, "form": "lossy", "label": 1, "response": "The given Kannada text seems to be discussing the importance of research and scientists in developing agriculture,", "pred": null, "finish": "length", "cached": false}
+{"id": 585, "form": "native", "label": 0, "response": "The given Kannada text is about the first complete astronomers and their development over time. Therefore", "pred": null, "finish": "length", "cached": false}
+{"id": 585, "form": "itrans", "label": 0, "response": "The topic of the provided Kannada text seems to be related to the launch of a new satellite", "pred": null, "finish": "length", "cached": false}
+{"id": 585, "form": "lossy", "label": 0, "response": "The topic of the provided Kannada text seems to be related to a geographical place or location.", "pred": null, "finish": "length", "cached": false}
+{"id": 856, "form": "native", "label": 1, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 856, "form": "itrans", "label": 1, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 856, "form": "lossy", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 720, "form": "native", "label": 6, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 720, "form": "itrans", "label": 6, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 720, "form": "lossy", "label": 6, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1906, "form": "native", "label": 0, "response": "The given Kannada text is about a soccer (football) match and mentions a player'", "pred": null, "finish": "length", "cached": false}
+{"id": 1906, "form": "itrans", "label": 0, "response": "The topic of the provided Kannada text seems to be related to technology. The text mentions \"", "pred": null, "finish": "length", "cached": false}
+{"id": 1906, "form": "lossy", "label": 0, "response": "The provided Kannada text seems to be a mix of random words without a clear context or topic", "pred": null, "finish": "length", "cached": false}
+{"id": 1906, "form": "natural", "label": 0, "response": "The Kannada text discusses the use of satellite phones in remote areas where cell phone coverage is poor", "pred": null, "finish": "length", "cached": false}
+{"id": 1598, "form": "native", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1598, "form": "itrans", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1598, "form": "lossy", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 880, "form": "native", "label": 1, "response": "The given Kannada text discusses the importance of hygiene and sanitation, which falls under", "pred": null, "finish": "length", "cached": false}
+{"id": 880, "form": "itrans", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 880, "form": "lossy", "label": 1, "response": "The given Kannada text seems to discuss the importance of education for girls and the development of a", "pred": null, "finish": "length", "cached": false}
+{"id": 880, "form": "natural", "label": 1, "response": "The topic of the provided Kannada text cannot be accurately determined as it does not seem to fall", "pred": null, "finish": "length", "cached": false}
+{"id": 1217, "form": "native", "label": 2, "response": "The given Kannada text discusses \"International Relations\" and \"Foreign Airlines\", which falls", "pred": null, "finish": "length", "cached": false}
+{"id": 1217, "form": "itrans", "label": 2, "response": "The topic of the provided Kannada text seems to be related to a specific place or location mentioned", "pred": null, "finish": "length", "cached": false}
+{"id": 1217, "form": "lossy", "label": 2, "response": "The given Kannada text seems to discuss the topic of \"antararashtriya", "pred": null, "finish": "length", "cached": false}
+{"id": 1338, "form": "native", "label": 0, "response": "The given Kannada text seems to discuss the properties and changes in the size of a cloud.", "pred": null, "finish": "length", "cached": false}
+{"id": 1338, "form": "itrans", "label": 0, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 1338, "form": "lossy", "label": 0, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1338, "form": "natural", "label": 0, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1604, "form": "native", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1604, "form": "itrans", "label": 1, "response": "The given Kannada text seems to be discussing local events and places, mentioning names of streets", "pred": null, "finish": "length", "cached": false}
+{"id": 1604, "form": "lossy", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1604, "form": "natural", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 909, "form": "native", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 909, "form": "itrans", "label": 0, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 909, "form": "lossy", "label": 0, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 909, "form": "natural", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 136, "form": "native", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 136, "form": "itrans", "label": 0, "response": "The provided Kannada text seems to be a random string of letters and symbols, making it difficult", "pred": null, "finish": "length", "cached": false}
+{"id": 136, "form": "lossy", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 302, "form": "native", "label": 2, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 302, "form": "itrans", "label": 2, "response": "The topic of the provided Kannada text seems to be related to a historical event or figure.", "pred": null, "finish": "length", "cached": false}
+{"id": 302, "form": "lossy", "label": 2, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 349, "form": "native", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 349, "form": "itrans", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 349, "form": "lossy", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1224, "form": "native", "label": 3, "response": "The given Kannada text is about a soccer match and refers to players, teams, and locations", "pred": null, "finish": "length", "cached": false}
+{"id": 1224, "form": "itrans", "label": 3, "response": "The topic of the provided Kannada text seems to be related to a specific location or place.", "pred": null, "finish": "length", "cached": false}
+{"id": 1224, "form": "lossy", "label": 3, "response": "The given Kannada text seems to be a random string of letters and does not form a coherent", "pred": null, "finish": "length", "cached": false}
+{"id": 1774, "form": "native", "label": 5, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1774, "form": "itrans", "label": 5, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1774, "form": "lossy", "label": 5, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1982, "form": "native", "label": 5, "response": "The given Kannada text is about the history of Japanese architecture in Hanamaki, Japan.", "pred": null, "finish": "length", "cached": false}
+{"id": 1982, "form": "itrans", "label": 5, "response": "The topic of the provided Kannada text can be classified as \"geography\". This conclusion is", "pred": null, "finish": "length", "cached": false}
+{"id": 1982, "form": "lossy", "label": 5, "response": "The given Kannada text seems to discuss the beauty of cherry blossoms in Japan and", "pred": null, "finish": "length", "cached": false}
+{"id": 532, "form": "native", "label": 3, "response": "The given Kannada text seems to be about a person who is known for organizing events like car", "pred": null, "finish": "length", "cached": false}
+{"id": 532, "form": "itrans", "label": 3, "response": "The given Kannada text seems to be discussing the full moon and new moon days, which are", "pred": null, "finish": "length", "cached": false}
+{"id": 532, "form": "lossy", "label": 3, "response": "The provided Kannada text seems to be a mix of words and phrases, making it difficult to", "pred": null, "finish": "length", "cached": false}
+{"id": 1764, "form": "native", "label": 1, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 1764, "form": "itrans", "label": 1, "response": "The topic of the provided Kannada text seems to be related to a specific event or celebration.", "pred": null, "finish": "length", "cached": false}
+{"id": 1764, "form": "lossy", "label": 1, "response": "The given Kannada text seems to discuss various aspects related to nature, animals, and conservation.", "pred": null, "finish": "length", "cached": false}
+{"id": 1764, "form": "natural", "label": 1, "response": "The given Kannada text seems to be discussing cleanliness, campaigns, and initiatives related to", "pred": null, "finish": "length", "cached": false}
+{"id": 600, "form": "native", "label": 0, "response": "The given Kannada text discusses the relationship between the origin and evolution of life forms, which falls", "pred": null, "finish": "length", "cached": false}
+{"id": 600, "form": "itrans", "label": 0, "response": "The topic of the provided Kannada text seems to be related to geographical locations or landmarks.", "pred": null, "finish": "length", "cached": false}
+{"id": 600, "form": "lossy", "label": 0, "response": "The given Kannada text seems to be a mix of words and phrases, making it difficult to", "pred": null, "finish": "length", "cached": false}
+{"id": 392, "form": "native", "label": 2, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 392, "form": "itrans", "label": 2, "response": "The given Kannada text discusses the historical battle of Plassey (phrAns no", "pred": null, "finish": "length", "cached": false}
+{"id": 392, "form": "lossy", "label": 2, "response": "The given Kannada text seems to be discussing historical battles and the British Empire, which falls under", "pred": null, "finish": "length", "cached": false}
+{"id": 392, "form": "natural", "label": 2, "response": "The given Kannada text seems to be discussing historical events involving European countries like France and Germany.", "pred": null, "finish": "length", "cached": false}
+{"id": 704, "form": "native", "label": 1, "response": "The given Kannada text seems to be discussing the impact of urbanization on wildlife and the responsibility", "pred": null, "finish": "length", "cached": false}
+{"id": 704, "form": "itrans", "label": 1, "response": "The given Kannada text seems to be discussing the geographical locations and rivers in Karnataka", "pred": null, "finish": "length", "cached": false}
+{"id": 704, "form": "lossy", "label": 1, "response": "The given Kannada text seems to be discussing the importance of maintaining a healthy lifestyle and taking care", "pred": null, "finish": "length", "cached": false}
+{"id": 1798, "form": "native", "label": 5, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1798, "form": "itrans", "label": 5, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 1798, "form": "lossy", "label": 5, "response": "The given Kannada text seems to discuss alcohol-related topics and the effects of excessive drinking.", "pred": null, "finish": "length", "cached": false}
+{"id": 1798, "form": "natural", "label": 5, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 1186, "form": "native", "label": 5, "response": "The given Kannada text is about a story related to a football player and his life, including", "pred": null, "finish": "length", "cached": false}
+{"id": 1186, "form": "itrans", "label": 5, "response": "The given Kannada text seems to be a story or narrative, which falls under the category of", "pred": null, "finish": "length", "cached": false}
+{"id": 1186, "form": "lossy", "label": 5, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1853, "form": "native", "label": 3, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 1853, "form": "itrans", "label": 3, "response": "The topic of the provided Kannada text seems to be related to a specific location or area.", "pred": null, "finish": "length", "cached": false}
+{"id": 1853, "form": "lossy", "label": 3, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1209, "form": "native", "label": 5, "response": "The topic of the given Kannada text can be classified as \"sports\" as it mentions", "pred": null, "finish": "length", "cached": false}
+{"id": 1209, "form": "itrans", "label": 5, "response": "The topic of the provided Kannada text seems to be related to the \"SiMpsons", "pred": null, "finish": "length", "cached": false}
+{"id": 1209, "form": "lossy", "label": 5, "response": "The provided Kannada text seems to be a jumbled version of the word \"simpsons", "pred": null, "finish": "length", "cached": false}
+{"id": 1763, "form": "native", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1763, "form": "itrans", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1763, "form": "lossy", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1763, "form": "natural", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1479, "form": "native", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1479, "form": "itrans", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1479, "form": "lossy", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1479, "form": "natural", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1692, "form": "native", "label": 6, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 1692, "form": "itrans", "label": 6, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 1692, "form": "lossy", "label": 6, "response": "The topic of the provided Kannada text seems to be related to geographical locations and their connections to", "pred": null, "finish": "length", "cached": false}
+{"id": 1142, "form": "native", "label": 2, "response": "politics ", "pred": 2, "finish": "stop", "cached": false}
+{"id": 1142, "form": "itrans", "label": 2, "response": "The given Kannada text seems to discuss the topic of a specific geographical location, in this case", "pred": null, "finish": "length", "cached": false}
+{"id": 1142, "form": "lossy", "label": 2, "response": "politics ", "pred": 2, "finish": "stop", "cached": false}
+{"id": 195, "form": "native", "label": 3, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 195, "form": "itrans", "label": 3, "response": "The given Kannada text appears to be discussing the KaDePaksha festival in 2", "pred": null, "finish": "length", "cached": false}
+{"id": 195, "form": "lossy", "label": 3, "response": "The given Kannada text appears to be discussing the Kadepaksha festival in 2", "pred": null, "finish": "length", "cached": false}
+{"id": 1902, "form": "native", "label": 6, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 1902, "form": "itrans", "label": 6, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 1902, "form": "lossy", "label": 6, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 1902, "form": "natural", "label": 6, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 555, "form": "native", "label": 3, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 555, "form": "itrans", "label": 3, "response": "The topic of the provided Kannada text cannot be accurately determined as it seems to be in a", "pred": null, "finish": "length", "cached": false}
+{"id": 555, "form": "lossy", "label": 3, "response": "The given Kannada text seems to discuss sports, specifically cricket matches and players. Therefore, the", "pred": null, "finish": "length", "cached": false}
+{"id": 1161, "form": "native", "label": 2, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1161, "form": "itrans", "label": 2, "response": "The given Kannada text seems to discuss the geographical locations of different places in India, specifically mention", "pred": null, "finish": "length", "cached": false}
+{"id": 1161, "form": "lossy", "label": 2, "response": "The given Kannada text seems to discuss the Indian general elections, which falls under the category of", "pred": null, "finish": "length", "cached": false}
+{"id": 1023, "form": "native", "label": 2, "response": "politics ", "pred": 2, "finish": "stop", "cached": false}
+{"id": 1023, "form": "itrans", "label": 2, "response": "The given Kannada text seems to be discussing a topic related to the Indian Air Force (IS", "pred": null, "finish": "length", "cached": false}
+{"id": 1023, "form": "lossy", "label": 2, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1803, "form": "native", "label": 1, "response": "The given Kannada text is discussing the ease with which ice can be melted in various countries", "pred": null, "finish": "length", "cached": false}
+{"id": 1803, "form": "itrans", "label": 1, "response": "The topic of the provided Kannada text seems to be related to a specific location or area within", "pred": null, "finish": "length", "cached": false}
+{"id": 1803, "form": "lossy", "label": 1, "response": "The given Kannada text seems to be discussing weather conditions and vehicles used for transportation over a period", "pred": null, "finish": "length", "cached": false}
+{"id": 735, "form": "native", "label": 1, "response": "The topic of the given Kannada text seems to be related to sports, specifically a sports event", "pred": null, "finish": "length", "cached": false}
+{"id": 735, "form": "itrans", "label": 1, "response": "The topic of the provided Kannada text seems to be related to science and technology. The text", "pred": null, "finish": "length", "cached": false}
+{"id": 735, "form": "lossy", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 735, "form": "natural", "label": 1, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1350, "form": "native", "label": 0, "response": "The given Kannada text seems to be a conversation between two people, one of whom is asking", "pred": null, "finish": "length", "cached": false}
+{"id": 1350, "form": "itrans", "label": 0, "response": "The topic of the provided Kannada text seems to be related to sports. The text mentions \"", "pred": null, "finish": "length", "cached": false}
+{"id": 1350, "form": "lossy", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 25, "form": "native", "label": 3, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 25, "form": "itrans", "label": 3, "response": "The given Kannada text seems to be related to sports, specifically mentioning \"ovechkin", "pred": null, "finish": "length", "cached": false}
+{"id": 25, "form": "lossy", "label": 3, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 25, "form": "natural", "label": 3, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 538, "form": "native", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 538, "form": "itrans", "label": 1, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 538, "form": "lossy", "label": 1, "response": "The topic of the given Kannada text can be classified as \"health\". The text discusses the", "pred": null, "finish": "length", "cached": false}
+{"id": 538, "form": "natural", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1771, "form": "native", "label": 6, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 1771, "form": "itrans", "label": 6, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 1771, "form": "lossy", "label": 6, "response": "The given Kannada text seems to be discussing the geography of a place called \"uttara", "pred": null, "finish": "length", "cached": false}
+{"id": 886, "form": "native", "label": 6, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 886, "form": "itrans", "label": 6, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 886, "form": "lossy", "label": 6, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 886, "form": "natural", "label": 6, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 197, "form": "native", "label": 4, "response": "The given Kannada text seems to be discussing the situation and condition of an authority figure or a", "pred": null, "finish": "length", "cached": false}
+{"id": 197, "form": "itrans", "label": 4, "response": "The topic of the provided Kannada text seems to be related to history or literature, as it", "pred": null, "finish": "length", "cached": false}
+{"id": 197, "form": "lossy", "label": 4, "response": "The provided Kannada text seems to be a poem or a literary piece, without a clear connection", "pred": null, "finish": "length", "cached": false}
+{"id": 829, "form": "native", "label": 1, "response": "The given Kannada text is about \"Immigration Center\" which deals with administrative processes and", "pred": null, "finish": "length", "cached": false}
+{"id": 829, "form": "itrans", "label": 1, "response": "The topic of the provided Kannada text seems to be related to ancient Indian history and culture.", "pred": null, "finish": "length", "cached": false}
+{"id": 829, "form": "lossy", "label": 1, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 829, "form": "natural", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1903, "form": "native", "label": 6, "response": "The given Kannada text is about the \"Balilinga Seashell Land\" which", "pred": null, "finish": "length", "cached": false}
+{"id": 1903, "form": "itrans", "label": 6, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 1903, "form": "lossy", "label": 6, "response": "The provided Kannada text seems to be a geographical description mentioning \"Bellingshausen", "pred": null, "finish": "length", "cached": false}
+{"id": 1223, "form": "native", "label": 5, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 1223, "form": "itrans", "label": 5, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1223, "form": "lossy", "label": 5, "response": "entertainment ", "pred": 5, "finish": "stop", "cached": false}
+{"id": 940, "form": "native", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 940, "form": "itrans", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 940, "form": "lossy", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 940, "form": "natural", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 512, "form": "native", "label": 4, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 512, "form": "itrans", "label": 4, "response": "The topic of the provided Kannada text seems to be related to weather conditions and forecasts. Therefore", "pred": null, "finish": "length", "cached": false}
+{"id": 512, "form": "lossy", "label": 4, "response": "The provided Kannada text seems to be a conversation or an excerpt discussing various topics related to", "pred": null, "finish": "length", "cached": false}
+{"id": 512, "form": "natural", "label": 4, "response": "The provided Kannada text seems to be discussing various aspects related to family, social ties, and", "pred": null, "finish": "length", "cached": false}
+{"id": 1431, "form": "native", "label": 0, "response": "The given Kannada text discusses \"Another common species (APS species) in this area", "pred": null, "finish": "length", "cached": false}
+{"id": 1431, "form": "itrans", "label": 0, "response": "The provided Kannada text seems to be a scientific or technical discussion, specifically about unique forms of", "pred": null, "finish": "length", "cached": false}
+{"id": 1431, "form": "lossy", "label": 0, "response": "The provided Kannada text seems to discuss various forms of existence or entities, which can be related", "pred": null, "finish": "length", "cached": false}
+{"id": 939, "form": "native", "label": 1, "response": "The given Kannada text seems to discuss topics related to the calendar and daily activities, suggesting an", "pred": null, "finish": "length", "cached": false}
+{"id": 939, "form": "itrans", "label": 1, "response": "The topic of the provided Kannada text seems to be related to sports. The text appears to", "pred": null, "finish": "length", "cached": false}
+{"id": 939, "form": "lossy", "label": 1, "response": "The topic of the provided Kannada text cannot be accurately determined as it does not seem to fall", "pred": null, "finish": "length", "cached": false}
+{"id": 460, "form": "native", "label": 5, "response": "The given Kannada text is about a cultural event showcasing traditional dance forms from various regions", "pred": null, "finish": "length", "cached": false}
+{"id": 460, "form": "itrans", "label": 5, "response": "The given Kannada text seems to discuss the importance of various cinemas (theaters)", "pred": null, "finish": "length", "cached": false}
+{"id": 460, "form": "lossy", "label": 5, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1713, "form": "native", "label": 1, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 1713, "form": "itrans", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1713, "form": "lossy", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1713, "form": "natural", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1606, "form": "native", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1606, "form": "itrans", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1606, "form": "lossy", "label": 0, "response": "The Kannada text seems to discuss the development of Indian civilization over a period of 10", "pred": null, "finish": "length", "cached": false}
+{"id": 1606, "form": "natural", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1796, "form": "native", "label": 5, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 1796, "form": "itrans", "label": 5, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1796, "form": "lossy", "label": 5, "response": "The provided Kannada text seems to discuss various aspects of nature, seasons, and animals/plants", "pred": null, "finish": "length", "cached": false}
+{"id": 1796, "form": "natural", "label": 5, "response": "The provided Kannada text seems to discuss various aspects related to travel, history, and geography", "pred": null, "finish": "length", "cached": false}
+{"id": 1794, "form": "native", "label": 1, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 1794, "form": "itrans", "label": 1, "response": "The topic of the provided Kannada text seems to be related to history or culture, as it", "pred": null, "finish": "length", "cached": false}
+{"id": 1794, "form": "lossy", "label": 1, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 821, "form": "native", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 821, "form": "itrans", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 821, "form": "lossy", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 821, "form": "natural", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1607, "form": "native", "label": 1, "response": "politics ", "pred": 2, "finish": "stop", "cached": false}
+{"id": 1607, "form": "itrans", "label": 1, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 1607, "form": "lossy", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 930, "form": "native", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 930, "form": "itrans", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 930, "form": "lossy", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1722, "form": "native", "label": 1, "response": "The given Kannada text is about the Berlesa Forest National Park in France, which is", "pred": null, "finish": "length", "cached": false}
+{"id": 1722, "form": "itrans", "label": 1, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1722, "form": "lossy", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1882, "form": "native", "label": 2, "response": "The given Kannada text discusses the external affairs ministry taking initiatives for the development of embassies", "pred": null, "finish": "length", "cached": false}
+{"id": 1882, "form": "itrans", "label": 2, "response": "The given Kannada text seems to be discussing historical monuments and their importance, which falls under", "pred": null, "finish": "length", "cached": false}
+{"id": 1882, "form": "lossy", "label": 2, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1882, "form": "natural", "label": 2, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1623, "form": "native", "label": 6, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 1623, "form": "itrans", "label": 6, "response": "The given Kannada text seems to be describing a geographical location and mentions \"Agiddu\",", "pred": null, "finish": "length", "cached": false}
+{"id": 1623, "form": "lossy", "label": 6, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 944, "form": "native", "label": 1, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 944, "form": "itrans", "label": 1, "response": "The given Kannada text seems to be a poem or a literary piece, discussing the beauty of", "pred": null, "finish": "length", "cached": false}
+{"id": 944, "form": "lossy", "label": 1, "response": "The topic of the provided Kannada text cannot be accurately determined as it seems to be a mix", "pred": null, "finish": "length", "cached": false}
+{"id": 944, "form": "natural", "label": 1, "response": "The topic of the provided Kannada text cannot be accurately determined as it seems to be in a", "pred": null, "finish": "length", "cached": false}
+{"id": 873, "form": "native", "label": 5, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 873, "form": "itrans", "label": 5, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 873, "form": "lossy", "label": 5, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 1236, "form": "native", "label": 3, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 1236, "form": "itrans", "label": 3, "response": "The given Kannada text seems to be about a person named Giancarlo Fisic", "pred": null, "finish": "length", "cached": false}
+{"id": 1236, "form": "lossy", "label": 3, "response": "The provided Kannada text seems to be about a person named Giancarlo Fisic", "pred": null, "finish": "length", "cached": false}
+{"id": 1022, "form": "native", "label": 2, "response": "The given Kannada text is about a sports event, specifically a tennis tournament. Therefore, the", "pred": null, "finish": "length", "cached": false}
+{"id": 1022, "form": "itrans", "label": 2, "response": "The given Kannada text seems to be about an event involving US President Donald Trump and Indian Prime", "pred": null, "finish": "length", "cached": false}
+{"id": 1022, "form": "lossy", "label": 2, "response": "The provided Kannada text seems to be a mix of random words and does not form a coherent", "pred": null, "finish": "length", "cached": false}
+{"id": 139, "form": "native", "label": 6, "response": "The given Kannada text is about a speedboat race in a river with a distance of ", "pred": null, "finish": "length", "cached": false}
+{"id": 139, "form": "itrans", "label": 6, "response": "The given Kannada text is discussing the geography of a place called \"mAlDIv", "pred": null, "finish": "length", "cached": false}
+{"id": 139, "form": "lossy", "label": 6, "response": "The Kannada text seems to be discussing the Maldives, its geography, and the", "pred": null, "finish": "length", "cached": false}
+{"id": 139, "form": "natural", "label": 6, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 946, "form": "native", "label": 6, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 946, "form": "itrans", "label": 6, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 946, "form": "lossy", "label": 6, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 91, "form": "native", "label": 2, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 91, "form": "itrans", "label": 2, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 91, "form": "lossy", "label": 2, "response": "politics ", "pred": 2, "finish": "stop", "cached": false}
+{"id": 566, "form": "native", "label": 4, "response": "The given Kannada text is discussing the impact of vision or sight on the visual economy and how", "pred": null, "finish": "length", "cached": false}
+{"id": 566, "form": "itrans", "label": 4, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 566, "form": "lossy", "label": 4, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 749, "form": "native", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 749, "form": "itrans", "label": 1, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 749, "form": "lossy", "label": 1, "response": "The given Kannada text seems to be discussing celestial bodies and the universe, which falls", "pred": null, "finish": "length", "cached": false}
+{"id": 1597, "form": "native", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1597, "form": "itrans", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1597, "form": "lossy", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1597, "form": "natural", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1270, "form": "native", "label": 3, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 1270, "form": "itrans", "label": 3, "response": "The given Kannada text seems to be a quote or reference related to a historical figure or event", "pred": null, "finish": "length", "cached": false}
+{"id": 1270, "form": "lossy", "label": 3, "response": "The given Kannada text seems to be discussing the history and achievements of a sports team, specifically", "pred": null, "finish": "length", "cached": false}
+{"id": 454, "form": "native", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 454, "form": "itrans", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 454, "form": "lossy", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1749, "form": "native", "label": 3, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 1749, "form": "itrans", "label": 3, "response": "The provided Kannada text seems to be a poem or a piece of literature, and does not", "pred": null, "finish": "length", "cached": false}
+{"id": 1749, "form": "lossy", "label": 3, "response": "The given Kannada text seems to be discussing sports, specifically cricket teams and players. Therefore,", "pred": null, "finish": "length", "cached": false}
+{"id": 1749, "form": "natural", "label": 3, "response": "The given Kannada text seems to be discussing historical events and personalities related to literature and poetry", "pred": null, "finish": "length", "cached": false}
+{"id": 1296, "form": "native", "label": 2, "response": "politics ", "pred": 2, "finish": "stop", "cached": false}
+{"id": 1296, "form": "itrans", "label": 2, "response": "The given Kannada text seems to discuss historical figures and events, specifically mentioning kings, king", "pred": null, "finish": "length", "cached": false}
+{"id": 1296, "form": "lossy", "label": 2, "response": "politics ", "pred": 2, "finish": "stop", "cached": false}
+{"id": 1921, "form": "native", "label": 1, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 1921, "form": "itrans", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1921, "form": "lossy", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 383, "form": "native", "label": 2, "response": "politics ", "pred": 2, "finish": "stop", "cached": false}
+{"id": 383, "form": "itrans", "label": 2, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 383, "form": "lossy", "label": 2, "response": "The given Kannada text seems to be discussing the life and achievements of a person named \"N", "pred": null, "finish": "length", "cached": false}
+{"id": 1323, "form": "native", "label": 3, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1323, "form": "itrans", "label": 3, "response": "The given Kannada text seems to discuss the OlaMpik event in India, mention", "pred": null, "finish": "length", "cached": false}
+{"id": 1323, "form": "lossy", "label": 3, "response": "The given Kannada text seems to discuss the achievements of Indian athletes in various sports events, their", "pred": null, "finish": "length", "cached": false}
+{"id": 818, "form": "native", "label": 1, "response": "The given Kannada text discusses various topics related to travel, adventure, and exploration. Therefore,", "pred": null, "finish": "length", "cached": false}
+{"id": 818, "form": "itrans", "label": 1, "response": "The topic of the provided Kannada text seems to be related to travel. The text mentions \"", "pred": null, "finish": "length", "cached": false}
+{"id": 818, "form": "lossy", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1235, "form": "native", "label": 5, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1235, "form": "itrans", "label": 5, "response": "The topic of the provided Kannada text seems to be related to technology. Although it is difficult", "pred": null, "finish": "length", "cached": false}
+{"id": 1235, "form": "lossy", "label": 5, "response": "The given Kannada text seems to be discussing medical equipment and facilities, which falls under the category", "pred": null, "finish": "length", "cached": false}
+{"id": 1235, "form": "natural", "label": 5, "response": "The given Kannada text seems to be discussing medical practices, equipment, and professionals. Therefore,", "pred": null, "finish": "length", "cached": false}
+{"id": 1008, "form": "native", "label": 4, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1008, "form": "itrans", "label": 4, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1008, "form": "lossy", "label": 4, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1352, "form": "native", "label": 0, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 1352, "form": "itrans", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1352, "form": "lossy", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1183, "form": "native", "label": 4, "response": "The given Kannada text is about the H5N1 bird flu pandemic and its impact on", "pred": null, "finish": "length", "cached": false}
+{"id": 1183, "form": "itrans", "label": 4, "response": "The given Kannada text seems to be a mix of words and symbols, making it difficult to", "pred": null, "finish": "length", "cached": false}
+{"id": 1183, "form": "lossy", "label": 4, "response": "The given Kannada text seems to be discussing avian influenza, also known as bird flu.", "pred": null, "finish": "length", "cached": false}
+{"id": 1088, "form": "native", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1088, "form": "itrans", "label": 0, "response": "The topic of the provided Kannada text seems to be related to a discussion or description of various", "pred": null, "finish": "length", "cached": false}
+{"id": 1088, "form": "lossy", "label": 0, "response": "The given Kannada text seems to discuss various types of medicines and the knowledge required to identify them", "pred": null, "finish": "length", "cached": false}
+{"id": 1826, "form": "native", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1826, "form": "itrans", "label": 1, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 1826, "form": "lossy", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1556, "form": "native", "label": 0, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1556, "form": "itrans", "label": 0, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1556, "form": "lossy", "label": 0, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1556, "form": "natural", "label": 0, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 1233, "form": "native", "label": 5, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1233, "form": "itrans", "label": 5, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 1233, "form": "lossy", "label": 5, "response": "The given Kannada text seems to be discussing the collaboration between a company called \"Gurav", "pred": null, "finish": "length", "cached": false}
+{"id": 1893, "form": "native", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1893, "form": "itrans", "label": 1, "response": "The topic of the provided Kannada text seems to be related to politics. To arrive at this", "pred": null, "finish": "length", "cached": false}
+{"id": 1893, "form": "lossy", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 932, "form": "native", "label": 1, "response": "The given Kannada text is about students, their careers, and the business world. Based on", "pred": null, "finish": "length", "cached": false}
+{"id": 932, "form": "itrans", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 932, "form": "lossy", "label": 1, "response": "The topic of the provided Kannada text seems to be related to education, specifically discussing various aspects", "pred": null, "finish": "length", "cached": false}
+{"id": 923, "form": "native", "label": 0, "response": "technology ", "pred": null, "finish": "stop", "cached": false}
+{"id": 923, "form": "itrans", "label": 0, "response": "The topic of the provided Kannada text seems to be related to the evolution of telephone devices and", "pred": null, "finish": "length", "cached": false}
+{"id": 923, "form": "lossy", "label": 0, "response": "The given Kannada text seems to be discussing the importance of trees and their role in our environment", "pred": null, "finish": "length", "cached": false}
+{"id": 923, "form": "natural", "label": 0, "response": "The given Kannada text seems to be discussing toll-free telephone numbers and the convenience they provide", "pred": null, "finish": "length", "cached": false}
+{"id": 228, "form": "native", "label": 6, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 228, "form": "itrans", "label": 6, "response": "The given Kannada text seems to discuss the geography and history of a place called \"ka", "pred": null, "finish": "length", "cached": false}
+{"id": 228, "form": "lossy", "label": 6, "response": "The topic of the provided Kannada text seems to be related to science and technology. The text", "pred": null, "finish": "length", "cached": false}
+{"id": 1801, "form": "native", "label": 1, "response": "The given Kannada text seems to be about weather conditions and temperature, which falls under the category", "pred": null, "finish": "length", "cached": false}
+{"id": 1801, "form": "itrans", "label": 1, "response": "The topic of the provided Kannada text seems to be related to geographical locations mentioned in the text", "pred": null, "finish": "length", "cached": false}
+{"id": 1801, "form": "lossy", "label": 1, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 1801, "form": "natural", "label": 1, "response": "The provided Kannada text seems to be a random string of letters and does not form a coherent", "pred": null, "finish": "length", "cached": false}
+{"id": 1086, "form": "native", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1086, "form": "itrans", "label": 0, "response": "The topic of the provided Kannada text seems to be related to historical figures and their connections.", "pred": null, "finish": "length", "cached": false}
+{"id": 1086, "form": "lossy", "label": 0, "response": "The topic of the provided Kannada text seems to be related to ancient history and mythology.", "pred": null, "finish": "length", "cached": false}
+{"id": 1086, "form": "natural", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1459, "form": "native", "label": 6, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1459, "form": "itrans", "label": 6, "response": "The topic of the provided Kannada text seems to be related to a specific person named Shub", "pred": null, "finish": "length", "cached": false}
+{"id": 1459, "form": "lossy", "label": 6, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1036, "form": "native", "label": 1, "response": "The given Kannada text discusses the challenges faced by a community due to scarcity of resources in", "pred": null, "finish": "length", "cached": false}
+{"id": 1036, "form": "itrans", "label": 1, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 1036, "form": "lossy", "label": 1, "response": "The Kannada text seems to be discussing the importance of rivers and their role in the ecosystem,", "pred": null, "finish": "length", "cached": false}
+{"id": 636, "form": "native", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 636, "form": "itrans", "label": 0, "response": "The given Kannada text seems to discuss a historical event related to medicine and doctors. Therefore,", "pred": null, "finish": "length", "cached": false}
+{"id": 636, "form": "lossy", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1051, "form": "native", "label": 2, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1051, "form": "itrans", "label": 2, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1051, "form": "lossy", "label": 2, "response": "politics ", "pred": 2, "finish": "stop", "cached": false}
+{"id": 1239, "form": "native", "label": 5, "response": "The given Kannada text appears to be discussing a person's actions and their consequences, which", "pred": null, "finish": "length", "cached": false}
+{"id": 1239, "form": "itrans", "label": 5, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1239, "form": "lossy", "label": 5, "response": "The given Kannada text seems to be discussing airplanes and their movements, which falls under the", "pred": null, "finish": "length", "cached": false}
+{"id": 891, "form": "native", "label": 6, "response": "The given Kannada text is about the Sundarbans, which is a mangrove", "pred": null, "finish": "length", "cached": false}
+{"id": 891, "form": "itrans", "label": 6, "response": "The topic of the provided Kannada text can be classified as \"travel\". The text mentions", "pred": null, "finish": "length", "cached": false}
+{"id": 891, "form": "lossy", "label": 6, "response": "The provided Kannada text seems to be a description of geographical locations and distances. Upon translation,", "pred": null, "finish": "length", "cached": false}
+{"id": 1857, "form": "native", "label": 1, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 1857, "form": "itrans", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1857, "form": "lossy", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 610, "form": "native", "label": 0, "response": "The given Kannada text is about editing movies and videos using computers, which falls under the category", "pred": null, "finish": "length", "cached": false}
+{"id": 610, "form": "itrans", "label": 0, "response": "The topic of the provided Kannada text seems to be related to a specific event or celebration involving", "pred": null, "finish": "length", "cached": false}
+{"id": 610, "form": "lossy", "label": 0, "response": "The given Kannada text seems to be discussing the importance of reading books and learning from various gen", "pred": null, "finish": "length", "cached": false}
+{"id": 610, "form": "natural", "label": 0, "response": "The Kannada text seems to be discussing computers and their importance in daily life, particularly for writers", "pred": null, "finish": "length", "cached": false}
+{"id": 393, "form": "native", "label": 2, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 393, "form": "itrans", "label": 2, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 393, "form": "lossy", "label": 2, "response": "The given Kannada text seems to be discussing historical events and military strategies involving various empires", "pred": null, "finish": "length", "cached": false}
+{"id": 1895, "form": "native", "label": 5, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1895, "form": "itrans", "label": 5, "response": "The topic of the provided Kannada text seems to be related to a pyramid and its associated", "pred": null, "finish": "length", "cached": false}
+{"id": 1895, "form": "lossy", "label": 5, "response": "The topic of the provided Kannada text seems to be related to pyramids and their exhibitions", "pred": null, "finish": "length", "cached": false}
+{"id": 1895, "form": "natural", "label": 5, "response": "The given Kannada text seems to be discussing pyramids and their exhibitions, which falls under", "pred": null, "finish": "length", "cached": false}
+{"id": 1596, "form": "native", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1596, "form": "itrans", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1596, "form": "lossy", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 508, "form": "native", "label": 4, "response": "The given Kannada text appears to be discussing a topic related to health and mental disorders. Therefore", "pred": null, "finish": "length", "cached": false}
+{"id": 508, "form": "itrans", "label": 4, "response": "The given Kannada text appears to discuss topics related to health and psychology, specifically mentioning terms", "pred": null, "finish": "length", "cached": false}
+{"id": 508, "form": "lossy", "label": 4, "response": "The given Kannada text seems to discuss \"Deficit Disorder\" which is related to psychology", "pred": null, "finish": "length", "cached": false}
+{"id": 1365, "form": "native", "label": 0, "response": "The given Kannada text is discussing the architecture and design of a house, specifically mentioning the", "pred": null, "finish": "length", "cached": false}
+{"id": 1365, "form": "itrans", "label": 0, "response": "entertainment ", "pred": 5, "finish": "stop", "cached": false}
+{"id": 1365, "form": "lossy", "label": 0, "response": "The given Kannada text seems to be a description of an event or a place, but without", "pred": null, "finish": "length", "cached": false}
+{"id": 1365, "form": "natural", "label": 0, "response": "The given Kannada text seems to be about animals and their sounds, specifically mentioning lions", "pred": null, "finish": "length", "cached": false}
+{"id": 480, "form": "native", "label": 5, "response": "The given Kannada text seems to be about the sound and vibrations during a concert or the", "pred": null, "finish": "length", "cached": false}
+{"id": 480, "form": "itrans", "label": 5, "response": "The topic of the provided Kannada text can be classified as \"travel\". This conclusion is", "pred": null, "finish": "length", "cached": false}
+{"id": 480, "form": "lossy", "label": 5, "response": "The topic of the provided Kannada text seems to be related to agriculture and farming practices. In", "pred": null, "finish": "length", "cached": false}
+{"id": 665, "form": "native", "label": 1, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 665, "form": "itrans", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 665, "form": "lossy", "label": 1, "response": "The given Kannada text seems to discuss a specific event or topic related to space travel and international", "pred": null, "finish": "length", "cached": false}
+{"id": 458, "form": "native", "label": 0, "response": "The given Kannada text is about the \"Jumla Lens\" project, which seems", "pred": null, "finish": "length", "cached": false}
+{"id": 458, "form": "itrans", "label": 0, "response": "The given Kannada text seems to discuss about lenses, light and experiments related to them, which", "pred": null, "finish": "length", "cached": false}
+{"id": 458, "form": "lossy", "label": 0, "response": "The given Kannada text seems to be discussing the functioning of lenses and how they help in capturing", "pred": null, "finish": "length", "cached": false}
+{"id": 219, "form": "native", "label": 3, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 219, "form": "itrans", "label": 3, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 219, "form": "lossy", "label": 3, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 730, "form": "native", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 730, "form": "itrans", "label": 1, "response": "The topic of the provided Kannada text cannot be accurately classified into a specific category mentioned. As", "pred": null, "finish": "length", "cached": false}
+{"id": 730, "form": "lossy", "label": 1, "response": "The given Kannada text seems to be discussing the importance of nature and its connection to human life", "pred": null, "finish": "length", "cached": false}
+{"id": 730, "form": "natural", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1027, "form": "native", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1027, "form": "itrans", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1027, "form": "lossy", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1027, "form": "natural", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1379, "form": "native", "label": 0, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1379, "form": "itrans", "label": 0, "response": "health ", "pred": 4, "finish": "stop", "cached": false}
+{"id": 1379, "form": "lossy", "label": 0, "response": "The given Kannada text seems to be discussing various historical landmarks and their architectural aspects.", "pred": null, "finish": "length", "cached": false}
+{"id": 553, "form": "native", "label": 3, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 553, "form": "itrans", "label": 3, "response": "The topic of the provided Kannada text cannot be accurately determined as it seems to be a mix", "pred": null, "finish": "length", "cached": false}
+{"id": 553, "form": "lossy", "label": 3, "response": "The given Kannada text appears to be discussing various aspects of life and time, mentioning terms", "pred": null, "finish": "length", "cached": false}
+{"id": 825, "form": "native", "label": 1, "response": "The given Kannada text discusses various aspects of life, experiences in life, and methods to cope", "pred": null, "finish": "length", "cached": false}
+{"id": 825, "form": "itrans", "label": 1, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 825, "form": "lossy", "label": 1, "response": "The topic of the provided Kannada text seems to be related to various aspects of life and living", "pred": null, "finish": "length", "cached": false}
+{"id": 1048, "form": "native", "label": 2, "response": "politics ", "pred": 2, "finish": "stop", "cached": false}
+{"id": 1048, "form": "itrans", "label": 2, "response": "The topic of the provided Kannada text seems to be related to history and events. Upon analyzing", "pred": null, "finish": "length", "cached": false}
+{"id": 1048, "form": "lossy", "label": 2, "response": "The topic of the provided Kannada text seems to be related to sports. The text discusses a", "pred": null, "finish": "length", "cached": false}
+{"id": 1048, "form": "natural", "label": 2, "response": "The topic of the provided Kannada text seems to be related to historical events and conflicts. Upon", "pred": null, "finish": "length", "cached": false}
+{"id": 905, "form": "native", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 905, "form": "itrans", "label": 0, "response": "The topic of the provided Kannada text can be classified as \"technology\" as it discusses", "pred": null, "finish": "length", "cached": false}
+{"id": 905, "form": "lossy", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1789, "form": "native", "label": 1, "response": "The given Kannada text seems to be discussing a travel event or activity, such as a trail", "pred": null, "finish": "length", "cached": false}
+{"id": 1789, "form": "itrans", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1789, "form": "lossy", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 289, "form": "native", "label": 6, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 289, "form": "itrans", "label": 6, "response": "The given Kannada text seems to discuss historical places and their significance. Therefore, the topic can", "pred": null, "finish": "length", "cached": false}
+{"id": 289, "form": "lossy", "label": 6, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 196, "form": "native", "label": 4, "response": "The given Kannada text is about the Venezuelan oil tanker Santa Maria that grounded on", "pred": null, "finish": "length", "cached": false}
+{"id": 196, "form": "itrans", "label": 4, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 196, "form": "lossy", "label": 4, "response": "The provided Kannada text seems to be a random string of letters and does not form a coherent", "pred": null, "finish": "length", "cached": false}
+{"id": 196, "form": "natural", "label": 4, "response": "The given Kannada text seems to be discussing the \"Ariasge virus\" which is", "pred": null, "finish": "length", "cached": false}
+{"id": 1164, "form": "native", "label": 0, "response": "technology ", "pred": null, "finish": "stop", "cached": false}
+{"id": 1164, "form": "itrans", "label": 0, "response": "technology ", "pred": null, "finish": "stop", "cached": false}
+{"id": 1164, "form": "lossy", "label": 0, "response": "technology ", "pred": null, "finish": "stop", "cached": false}
+{"id": 780, "form": "native", "label": 0, "response": "The given Kannada text appears to be discussing the dimensions of a specific shape or structure, which", "pred": null, "finish": "length", "cached": false}
+{"id": 780, "form": "itrans", "label": 0, "response": "The given Kannada text appears to be a mathematical formula or equation, specifically referring to a set", "pred": null, "finish": "length", "cached": false}
+{"id": 780, "form": "lossy", "label": 0, "response": "The provided Kannada text seems to be a sequence of numbers and symbols, which makes it difficult", "pred": null, "finish": "length", "cached": false}
+{"id": 911, "form": "native", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 911, "form": "itrans", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 911, "form": "lossy", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1504, "form": "native", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1504, "form": "itrans", "label": 0, "response": "The topic of the provided Kannada text seems to be related to health and human anatomy.", "pred": null, "finish": "length", "cached": false}
+{"id": 1504, "form": "lossy", "label": 0, "response": "The given Kannada text seems to discuss various aspects of life, nature, and human relationships.", "pred": null, "finish": "length", "cached": false}
+{"id": 754, "form": "native", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 754, "form": "itrans", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 754, "form": "lossy", "label": 1, "response": "The given Kannada text seems to be discussing historical events and the timeline of various world wars", "pred": null, "finish": "length", "cached": false}
+{"id": 754, "form": "natural", "label": 1, "response": "The given Kannada text seems to be discussing historical events and the timeline of world wars,", "pred": null, "finish": "length", "cached": false}
+{"id": 656, "form": "native", "label": 1, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 656, "form": "itrans", "label": 1, "response": "The given Kannada text seems to discuss the changing seasons and their impact on agriculture, mentioning", "pred": null, "finish": "length", "cached": false}
+{"id": 656, "form": "lossy", "label": 1, "response": "The provided Kannada text seems to be a poem or a piece of literature, rather than discussing", "pred": null, "finish": "length", "cached": false}
+{"id": 301, "form": "native", "label": 2, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 301, "form": "itrans", "label": 2, "response": "politics ", "pred": 2, "finish": "stop", "cached": false}
+{"id": 301, "form": "lossy", "label": 2, "response": "politics ", "pred": 2, "finish": "stop", "cached": false}
+{"id": 1020, "form": "native", "label": 5, "response": "entertainment ", "pred": 5, "finish": "stop", "cached": false}
+{"id": 1020, "form": "itrans", "label": 5, "response": "entertainment ", "pred": 5, "finish": "stop", "cached": false}
+{"id": 1020, "form": "lossy", "label": 5, "response": "entertainment ", "pred": 5, "finish": "stop", "cached": false}
+{"id": 1020, "form": "natural", "label": 5, "response": "entertainment ", "pred": 5, "finish": "stop", "cached": false}
+{"id": 398, "form": "native", "label": 2, "response": "The given Kannada text appears to discuss the military power and strategies of European countries, specifically France", "pred": null, "finish": "length", "cached": false}
+{"id": 398, "form": "itrans", "label": 2, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 398, "form": "lossy", "label": 2, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 398, "form": "natural", "label": 2, "response": "The given Kannada text seems to be discussing Italian naval history and their influence in the African region", "pred": null, "finish": "length", "cached": false}
+{"id": 1588, "form": "native", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1588, "form": "itrans", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1588, "form": "lossy", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 995, "form": "native", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 995, "form": "itrans", "label": 1, "response": "The given Kannada text seems to be discussing various aircraft and locations related to the United States of", "pred": null, "finish": "length", "cached": false}
+{"id": 995, "form": "lossy", "label": 1, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 995, "form": "natural", "label": 1, "response": "The Kannada text is discussing airlines operating between Canada, America, and India, along with their", "pred": null, "finish": "length", "cached": false}
+{"id": 1064, "form": "native", "label": 3, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 1064, "form": "itrans", "label": 3, "response": "The given Kannada text discusses the geography of India, specifically the number of districts in different", "pred": null, "finish": "length", "cached": false}
+{"id": 1064, "form": "lossy", "label": 3, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 1064, "form": "natural", "label": 3, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 1583, "form": "native", "label": 4, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1583, "form": "itrans", "label": 4, "response": "The topic of the provided Kannada text seems to be related to a historical event or person.", "pred": null, "finish": "length", "cached": false}
+{"id": 1583, "form": "lossy", "label": 4, "response": "The topic of the provided Kannada text seems to be related to the changes in weather conditions and", "pred": null, "finish": "length", "cached": false}
+{"id": 1654, "form": "native", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1654, "form": "itrans", "label": 0, "response": "The given Kannada text seems to discuss about the achievements and discoveries in the field of science", "pred": null, "finish": "length", "cached": false}
+{"id": 1654, "form": "lossy", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 997, "form": "native", "label": 4, "response": "The given Kannada text appears to be about a person sharing their experience with a dietary supplement and", "pred": null, "finish": "length", "cached": false}
+{"id": 997, "form": "itrans", "label": 4, "response": "The provided Kannada text seems to be a conversation or statement, but without clear meaning or context", "pred": null, "finish": "length", "cached": false}
+{"id": 997, "form": "lossy", "label": 4, "response": "The topic of the provided Kannada text cannot be accurately classified into the given categories. However,", "pred": null, "finish": "length", "cached": false}
+{"id": 997, "form": "natural", "label": 4, "response": "health ", "pred": 4, "finish": "stop", "cached": false}
+{"id": 811, "form": "native", "label": 3, "response": "The given Kannada text discusses \"Hiking\" and \"Hiking trails\" in the H", "pred": null, "finish": "length", "cached": false}
+{"id": 811, "form": "itrans", "label": 3, "response": "The given Kannada text discusses the beauty and importance of nature, specifically mentioning elements like mountains", "pred": null, "finish": "length", "cached": false}
+{"id": 811, "form": "lossy", "label": 3, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 378, "form": "native", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 378, "form": "itrans", "label": 0, "response": "The given Kannada text seems to discuss celestial bodies, the Telescope, and the", "pred": null, "finish": "length", "cached": false}
+{"id": 378, "form": "lossy", "label": 0, "response": "The Kannada text seems to discuss celestial bodies, the Italian astronomer Galileo", "pred": null, "finish": "length", "cached": false}
+{"id": 1129, "form": "native", "label": 4, "response": "The given Kannada text is about cows being transported to a slaughterhouse and their fate. Based", "pred": null, "finish": "length", "cached": false}
+{"id": 1129, "form": "itrans", "label": 4, "response": "The topic of the provided Kannada text can be classified as \"geography\". This conclusion is", "pred": null, "finish": "length", "cached": false}
+{"id": 1129, "form": "lossy", "label": 4, "response": "The given Kannada text seems to discuss the number of tigers in different regions, which", "pred": null, "finish": "length", "cached": false}
+{"id": 1281, "form": "native", "label": 4, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 1281, "form": "itrans", "label": 4, "response": "The topic of the provided Kannada text seems to be related to geography. The text appears", "pred": null, "finish": "length", "cached": false}
+{"id": 1281, "form": "lossy", "label": 4, "response": "The provided Kannada text seems to be a random string of letters and does not form a coherent", "pred": null, "finish": "length", "cached": false}
+{"id": 529, "form": "native", "label": 3, "response": "The given Kannada text is about a cricket match and the history of cricket in India. Therefore", "pred": null, "finish": "length", "cached": false}
+{"id": 529, "form": "itrans", "label": 3, "response": "The provided Kannada text seems to be in a language different from my capabilities for understanding native languages", "pred": null, "finish": "length", "cached": false}
+{"id": 529, "form": "lossy", "label": 3, "response": "The provided Kannada text seems to be in a language different from my training data. However,", "pred": null, "finish": "length", "cached": false}
+{"id": 1313, "form": "native", "label": 4, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1313, "form": "itrans", "label": 4, "response": "The topic of the provided Kannada text seems to be related to sports. The text mentions \"", "pred": null, "finish": "length", "cached": false}
+{"id": 1313, "form": "lossy", "label": 4, "response": "The topic of the provided Kannada text seems to be related to sports. The text mentions \"", "pred": null, "finish": "length", "cached": false}
+{"id": 1313, "form": "natural", "label": 4, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1360, "form": "native", "label": 0, "response": "The given Kannada text is discussing topics related to health, diseases, and remedies. Therefore,", "pred": null, "finish": "length", "cached": false}
+{"id": 1360, "form": "itrans", "label": 0, "response": "The topic of the provided Kannada text seems to be related to a geographical location or place.", "pred": null, "finish": "length", "cached": false}
+{"id": 1360, "form": "lossy", "label": 0, "response": "The provided Kannada text seems to discuss the relationship between different types of rocks, their formation,", "pred": null, "finish": "length", "cached": false}
+{"id": 1647, "form": "native", "label": 6, "response": "The given Kannada text is about the Chandra Manne statue and its placement near the hill", "pred": null, "finish": "length", "cached": false}
+{"id": 1647, "form": "itrans", "label": 6, "response": "The topic of the provided Kannada text seems to be related to astronomy and constellations", "pred": null, "finish": "length", "cached": false}
+{"id": 1647, "form": "lossy", "label": 6, "response": "The given Kannada text seems to be discussing astronomy and horoscopes, which falls under", "pred": null, "finish": "length", "cached": false}
+{"id": 305, "form": "native", "label": 3, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 305, "form": "itrans", "label": 3, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 305, "form": "lossy", "label": 3, "response": "The given Kannada text is about Hitoshi Saito, a Judoka from Japan", "pred": null, "finish": "length", "cached": false}
+{"id": 457, "form": "native", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 457, "form": "itrans", "label": 0, "response": "The given Kannada text seems to be a quote or reference related to a specific person or event", "pred": null, "finish": "length", "cached": false}
+{"id": 457, "form": "lossy", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 457, "form": "natural", "label": 0, "response": "The given Kannada text seems to be discussing \"zoom lenses\" and their quality, mention", "pred": null, "finish": "length", "cached": false}
+{"id": 996, "form": "native", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 996, "form": "itrans", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 996, "form": "lossy", "label": 1, "response": "The provided Kannada text seems to be a random string of letters and does not form a coherent", "pred": null, "finish": "length", "cached": false}
+{"id": 556, "form": "native", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 556, "form": "itrans", "label": 0, "response": "The given Kannada text seems to be discussing about the importance of geographical locations or landmarks.", "pred": null, "finish": "length", "cached": false}
+{"id": 556, "form": "lossy", "label": 0, "response": "The given Kannada text seems to be a random string of letters and does not form a coherent", "pred": null, "finish": "length", "cached": false}
+{"id": 1016, "form": "native", "label": 2, "response": "The topic of the given Kannada text appears to be related to politics and international relations, specifically", "pred": null, "finish": "length", "cached": false}
+{"id": 1016, "form": "itrans", "label": 2, "response": "The topic of the provided Kannada text seems to be related to the history of space exploration and", "pred": null, "finish": "length", "cached": false}
+{"id": 1016, "form": "lossy", "label": 2, "response": "The given Kannada text seems to discuss various global events and relations between nations, mentioning organizations", "pred": null, "finish": "length", "cached": false}
+{"id": 1567, "form": "native", "label": 2, "response": "The given Kannada text is about John Nixon, a geographer and politician. Therefore, the", "pred": null, "finish": "length", "cached": false}
+{"id": 1567, "form": "itrans", "label": 2, "response": "The given Kannada text seems to be discussing an event titled \"DAkyumeMT^na", "pred": null, "finish": "length", "cached": false}
+{"id": 1567, "form": "lossy", "label": 2, "response": "The given Kannada text seems to discuss the 8th National Rural Health Mission (NR", "pred": null, "finish": "length", "cached": false}
+{"id": 1412, "form": "native", "label": 2, "response": "politics ", "pred": 2, "finish": "stop", "cached": false}
+{"id": 1412, "form": "itrans", "label": 2, "response": "politics ", "pred": 2, "finish": "stop", "cached": false}
+{"id": 1412, "form": "lossy", "label": 2, "response": "politics ", "pred": 2, "finish": "stop", "cached": false}
+{"id": 847, "form": "native", "label": 5, "response": "health ", "pred": 4, "finish": "stop", "cached": false}
+{"id": 847, "form": "itrans", "label": 5, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 847, "form": "lossy", "label": 5, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1035, "form": "native", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1035, "form": "itrans", "label": 0, "response": "The given Kannada text appears to discuss the Rasa Samputa Samhita, a", "pred": null, "finish": "length", "cached": false}
+{"id": 1035, "form": "lossy", "label": 0, "response": "The given Kannada text seems to be a mix of words and phrases, making it difficult to", "pred": null, "finish": "length", "cached": false}
+{"id": 1639, "form": "native", "label": 0, "response": "The given Kannada text is discussing the concept of time and how a single second contains a variety", "pred": null, "finish": "length", "cached": false}
+{"id": 1639, "form": "itrans", "label": 0, "response": "The topic of the provided Kannada text cannot be accurately determined as it seems to be in a", "pred": null, "finish": "length", "cached": false}
+{"id": 1639, "form": "lossy", "label": 0, "response": "The topic of the provided Kannada text seems to be related to a historical figure and their significant", "pred": null, "finish": "length", "cached": false}
+{"id": 1639, "form": "natural", "label": 0, "response": "The topic of the provided Kannada text cannot be accurately determined as it seems to be a mix", "pred": null, "finish": "length", "cached": false}
+{"id": 638, "form": "native", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 638, "form": "itrans", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 638, "form": "lossy", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 870, "form": "native", "label": 1, "response": "The given Kannada text seems to be about cooking techniques and equipment, such as a mixer", "pred": null, "finish": "length", "cached": false}
+{"id": 870, "form": "itrans", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 870, "form": "lossy", "label": 1, "response": "The topic of the provided Kannada text seems to be related to a specific location or event.", "pred": null, "finish": "length", "cached": false}
+{"id": 666, "form": "native", "label": 1, "response": "The given Kannada text discusses the \"Denis Wilson World Cup\", a soccer event.", "pred": null, "finish": "length", "cached": false}
+{"id": 666, "form": "itrans", "label": 1, "response": "entertainment ", "pred": 5, "finish": "stop", "cached": false}
+{"id": 666, "form": "lossy", "label": 1, "response": "The given Kannada text seems to be a quote discussing the vastness of the world and the", "pred": null, "finish": "length", "cached": false}
+{"id": 433, "form": "native", "label": 2, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 433, "form": "itrans", "label": 2, "response": "The topic of the given Kannada text seems to be related to history and geographical locations. The", "pred": null, "finish": "length", "cached": false}
+{"id": 433, "form": "lossy", "label": 2, "response": "The given Kannada text seems to be discussing historical events and a person named Belji. Based", "pred": null, "finish": "length", "cached": false}
+{"id": 1318, "form": "native", "label": 3, "response": "Sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 1318, "form": "itrans", "label": 3, "response": "The topic of the provided Kannada text seems to be related to a person named \"Das", "pred": null, "finish": "length", "cached": false}
+{"id": 1318, "form": "lossy", "label": 3, "response": "The provided Kannada text seems to contain phrases and terms related to space exploration and astronauts,", "pred": null, "finish": "length", "cached": false}
+{"id": 1318, "form": "natural", "label": 3, "response": "The provided Kannada text seems to be a quote or conversation about astronauts and space exploration.", "pred": null, "finish": "length", "cached": false}
+{"id": 269, "form": "native", "label": 3, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 269, "form": "itrans", "label": 3, "response": "The provided Kannada text seems to be discussing the Indian calendar and the lunar month, which", "pred": null, "finish": "length", "cached": false}
+{"id": 269, "form": "lossy", "label": 3, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 64, "form": "native", "label": 2, "response": "politics ", "pred": 2, "finish": "stop", "cached": false}
+{"id": 64, "form": "itrans", "label": 2, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 64, "form": "lossy", "label": 2, "response": "The topic of the provided Kannada text seems to be related to history and politics. In this", "pred": null, "finish": "length", "cached": false}
+{"id": 1909, "form": "native", "label": 0, "response": "The given Kannada text is about checking the physical distance covered during a workout, which falls", "pred": null, "finish": "length", "cached": false}
+{"id": 1909, "form": "itrans", "label": 0, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1909, "form": "lossy", "label": 0, "response": "The given Kannada text seems to be about a religious ceremony or ritual, specifically mentioning a", "pred": null, "finish": "length", "cached": false}
+{"id": 69, "form": "native", "label": 5, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 69, "form": "itrans", "label": 5, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 69, "form": "lossy", "label": 5, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 69, "form": "natural", "label": 5, "response": "The topic of the provided Kannada text seems to be related to history or events. Upon analyzing", "pred": null, "finish": "length", "cached": false}
+{"id": 111, "form": "native", "label": 0, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 111, "form": "itrans", "label": 0, "response": "The topic of the provided Kannada text seems to be related to an event or festival. Upon", "pred": null, "finish": "length", "cached": false}
+{"id": 111, "form": "lossy", "label": 0, "response": "The given Kannada text seems to discuss various geographical locations and seems to be related to a travel", "pred": null, "finish": "length", "cached": false}
+{"id": 111, "form": "natural", "label": 0, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 578, "form": "native", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 578, "form": "itrans", "label": 0, "response": "The topic of the provided Kannada text can be classified as \"health\" as it discusses J", "pred": null, "finish": "length", "cached": false}
+{"id": 578, "form": "lossy", "label": 0, "response": "The topic of the provided Kannada text seems to be related to \"health\". Although it is", "pred": null, "finish": "length", "cached": false}
+{"id": 160, "form": "native", "label": 3, "response": "The given Kannada text is about a car racing event and various types of cars. Therefore,", "pred": null, "finish": "length", "cached": false}
+{"id": 160, "form": "itrans", "label": 3, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 160, "form": "lossy", "label": 3, "response": "The given Kannada text seems to be discussing car racing championships and drivers, which falls under the", "pred": null, "finish": "length", "cached": false}
+{"id": 1575, "form": "native", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1575, "form": "itrans", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1575, "form": "lossy", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 958, "form": "native", "label": 1, "response": "The given Kannada text is discussing the various coastal regions and cities in South India, mentioning", "pred": null, "finish": "length", "cached": false}
+{"id": 958, "form": "itrans", "label": 1, "response": "The provided Kannada text seems to be a description or reference to a geographical location, specifically mention", "pred": null, "finish": "length", "cached": false}
+{"id": 958, "form": "lossy", "label": 1, "response": "The provided Kannada text seems to be a description of geographical locations and mentions places like \"Y", "pred": null, "finish": "length", "cached": false}
+{"id": 229, "form": "native", "label": 6, "response": "The given Kannada text discusses the celestial body, the moon, and its lack of", "pred": null, "finish": "length", "cached": false}
+{"id": 229, "form": "itrans", "label": 6, "response": "The given Kannada text seems to be a verse from a religious or spiritual context, discussing the", "pred": null, "finish": "length", "cached": false}
+{"id": 229, "form": "lossy", "label": 6, "response": "The given Kannada text seems to be discussing the structure and arrangement of certain plants, which falls", "pred": null, "finish": "length", "cached": false}
+{"id": 906, "form": "native", "label": 0, "response": "technology ", "pred": null, "finish": "stop", "cached": false}
+{"id": 906, "form": "itrans", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 906, "form": "lossy", "label": 0, "response": "The given Kannada text seems to be discussing the internet and its impact on communication, which falls", "pred": null, "finish": "length", "cached": false}
+{"id": 1849, "form": "native", "label": 3, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 1849, "form": "itrans", "label": 3, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 1849, "form": "lossy", "label": 3, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 1601, "form": "native", "label": 1, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1601, "form": "itrans", "label": 1, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 1601, "form": "lossy", "label": 1, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 456, "form": "native", "label": 0, "response": "entertainment ", "pred": 5, "finish": "stop", "cached": false}
+{"id": 456, "form": "itrans", "label": 0, "response": "The given Kannada text seems to be discussing the advancements in camera lenses and their features.", "pred": null, "finish": "length", "cached": false}
+{"id": 456, "form": "lossy", "label": 0, "response": "The given Kannada text seems to be discussing the advancements in camera lenses and their applications in", "pred": null, "finish": "length", "cached": false}
+{"id": 1034, "form": "native", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1034, "form": "itrans", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1034, "form": "lossy", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1034, "form": "natural", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 752, "form": "native", "label": 1, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 752, "form": "itrans", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 752, "form": "lossy", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1256, "form": "native", "label": 4, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1256, "form": "itrans", "label": 4, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1256, "form": "lossy", "label": 4, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1319, "form": "native", "label": 2, "response": "The given Kannada text is discussing the 2010 Indian general election in Australia,", "pred": null, "finish": "length", "cached": false}
+{"id": 1319, "form": "itrans", "label": 2, "response": "The given Kannada text seems to discuss the Indian cricket team's performance in the 2", "pred": null, "finish": "length", "cached": false}
+{"id": 1319, "form": "lossy", "label": 2, "response": "politics ", "pred": 2, "finish": "stop", "cached": false}
+{"id": 1319, "form": "natural", "label": 2, "response": "politics ", "pred": 2, "finish": "stop", "cached": false}
+{"id": 853, "form": "native", "label": 1, "response": "The given Kannada text is about the MetroRail system in Bengaluru and the upcoming", "pred": null, "finish": "length", "cached": false}
+{"id": 853, "form": "itrans", "label": 1, "response": "The topic of the Kannada text seems to be related to the MetroRail and MetroPlus", "pred": null, "finish": "length", "cached": false}
+{"id": 853, "form": "lossy", "label": 1, "response": "The Kannada text discusses the MetroRail system in Mysore, MetroPlus service,", "pred": null, "finish": "length", "cached": false}
+{"id": 1400, "form": "native", "label": 2, "response": "The given Kannada text appears to discuss the Declaration of Independence of the United States, which is", "pred": null, "finish": "length", "cached": false}
+{"id": 1400, "form": "itrans", "label": 2, "response": "The given Kannada text appears to be discussing historical events and locations. Upon analyzing the text,", "pred": null, "finish": "length", "cached": false}
+{"id": 1400, "form": "lossy", "label": 2, "response": "The given Kannada text seems to discuss the concept of independence and its origin on July 4", "pred": null, "finish": "length", "cached": false}
+{"id": 855, "form": "native", "label": 1, "response": "The given Kannada text is discussing various modes of transportation such as road buses, metro systems", "pred": null, "finish": "length", "cached": false}
+{"id": 855, "form": "itrans", "label": 1, "response": "The topic of the given Kannada text can be classified as \"travel\". This conclusion is", "pred": null, "finish": "length", "cached": false}
+{"id": 855, "form": "lossy", "label": 1, "response": "The given Kannada text seems to be discussing the metro system and its development in various cities", "pred": null, "finish": "length", "cached": false}
+{"id": 855, "form": "natural", "label": 1, "response": "The given Kannada text seems to be discussing metro trains and a trip to Cape Town,", "pred": null, "finish": "length", "cached": false}
+{"id": 1337, "form": "native", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1337, "form": "itrans", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1337, "form": "lossy", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1033, "form": "native", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1033, "form": "itrans", "label": 0, "response": "The topic of the provided Kannada text seems to be related to astronomy and astrology", "pred": null, "finish": "length", "cached": false}
+{"id": 1033, "form": "lossy", "label": 0, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 675, "form": "native", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 675, "form": "itrans", "label": 1, "response": "The provided Kannada text seems to be a mathematical or game-related topic, but it is", "pred": null, "finish": "length", "cached": false}
+{"id": 675, "form": "lossy", "label": 1, "response": "The given Kannada text seems to discuss vehicles, particularly four-wheel drive cars, and", "pred": null, "finish": "length", "cached": false}
+{"id": 1094, "form": "native", "label": 4, "response": "health ", "pred": 4, "finish": "stop", "cached": false}
+{"id": 1094, "form": "itrans", "label": 4, "response": "The given Kannada text seems to be discussing a topic related to a disease called \"XDR", "pred": null, "finish": "length", "cached": false}
+{"id": 1094, "form": "lossy", "label": 4, "response": "The given Kannada text is discussing \"Extensively Drug-Resistant Tuberculosis\" (", "pred": null, "finish": "length", "cached": false}
+{"id": 1089, "form": "native", "label": 0, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 1089, "form": "itrans", "label": 0, "response": "The topic of the provided Kannada text seems to be related to astronomy and weather phenomena.", "pred": null, "finish": "length", "cached": false}
+{"id": 1089, "form": "lossy", "label": 0, "response": "The given Kannada text seems to discuss astronomy and the alignment of planets, which falls under", "pred": null, "finish": "length", "cached": false}
+{"id": 1089, "form": "natural", "label": 0, "response": "The given Kannada text seems to discuss astrology and its connections to various events and phenomena", "pred": null, "finish": "length", "cached": false}
+{"id": 878, "form": "native", "label": 4, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 878, "form": "itrans", "label": 4, "response": "The topic of the given Kannada text can be classified as \"sports\". The text seems", "pred": null, "finish": "length", "cached": false}
+{"id": 878, "form": "lossy", "label": 4, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1875, "form": "native", "label": 1, "response": "The given Kannada text discusses the consequences of countries getting involved in wars or conflicts. Therefore,", "pred": null, "finish": "length", "cached": false}
+{"id": 1875, "form": "itrans", "label": 1, "response": "The topic of the provided Kannada text can be classified as \"sports\". This conclusion is", "pred": null, "finish": "length", "cached": false}
+{"id": 1875, "form": "lossy", "label": 1, "response": "The topic of the provided Kannada text seems to be related to family planning and government initiatives.", "pred": null, "finish": "length", "cached": false}
+{"id": 1769, "form": "native", "label": 2, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 1769, "form": "itrans", "label": 2, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 1769, "form": "lossy", "label": 2, "response": "The topic of the given Kannada text can be classified as \"politics\". The text seems", "pred": null, "finish": "length", "cached": false}
+{"id": 1222, "form": "native", "label": 5, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 1222, "form": "itrans", "label": 5, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1222, "form": "lossy", "label": 5, "response": "The provided Kannada text seems to be a mix of words and does not form a coherent sentence", "pred": null, "finish": "length", "cached": false}
+{"id": 1638, "form": "native", "label": 0, "response": "The given Kannada text discusses the earth's surface and how every living being on Earth depends", "pred": null, "finish": "length", "cached": false}
+{"id": 1638, "form": "itrans", "label": 0, "response": "The given Kannada text seems to be a poem or a piece of literature, and does not", "pred": null, "finish": "length", "cached": false}
+{"id": 1638, "form": "lossy", "label": 0, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1638, "form": "natural", "label": 0, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 854, "form": "native", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 854, "form": "itrans", "label": 1, "response": "The topic of the given Kannada text seems to be related to the Bangalore Metro,", "pred": null, "finish": "length", "cached": false}
+{"id": 854, "form": "lossy", "label": 1, "response": "The topic of the given Kannada text seems to be related to the functioning of a metro", "pred": null, "finish": "length", "cached": false}
+{"id": 325, "form": "native", "label": 6, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 325, "form": "itrans", "label": 6, "response": "The topic of the provided Kannada text seems to be related to historical figures and their contributions.", "pred": null, "finish": "length", "cached": false}
+{"id": 325, "form": "lossy", "label": 6, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 664, "form": "native", "label": 1, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 664, "form": "itrans", "label": 1, "response": "The given Kannada text seems to be discussing the Dandi March, which is a significant", "pred": null, "finish": "length", "cached": false}
+{"id": 664, "form": "lossy", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1234, "form": "native", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1234, "form": "itrans", "label": 0, "response": "The given Kannada text seems to be discussing the number of visitors and the revenue generated from a", "pred": null, "finish": "length", "cached": false}
+{"id": 1234, "form": "lossy", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1234, "form": "natural", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 247, "form": "native", "label": 2, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 247, "form": "itrans", "label": 2, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 247, "form": "lossy", "label": 2, "response": "The given Kannada text seems to be discussing a news event involving a Pakistani embassy and Indian authorities", "pred": null, "finish": "length", "cached": false}
+{"id": 247, "form": "natural", "label": 2, "response": "politics ", "pred": 2, "finish": "stop", "cached": false}
+{"id": 994, "form": "native", "label": 1, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 994, "form": "itrans", "label": 1, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 994, "form": "lossy", "label": 1, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 260, "form": "native", "label": 1, "response": "The given Kannada text is about the traffic situation in a city, specifically mentioning \"B", "pred": null, "finish": "length", "cached": false}
+{"id": 260, "form": "itrans", "label": 1, "response": "The topic of the provided Kannada text seems to be related to a geographical location or place.", "pred": null, "finish": "length", "cached": false}
+{"id": 260, "form": "lossy", "label": 1, "response": "The provided Kannada text seems to be discussing the change of municipal administration and the development projects in", "pred": null, "finish": "length", "cached": false}
+{"id": 713, "form": "native", "label": 1, "response": "The given Kannada text seems to be discussing the importance of maintaining one's body and living", "pred": null, "finish": "length", "cached": false}
+{"id": 713, "form": "itrans", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 713, "form": "lossy", "label": 1, "response": "The given Kannada text seems to be a collection of random words or phrases without a clear context", "pred": null, "finish": "length", "cached": false}
+{"id": 300, "form": "native", "label": 2, "response": "The given Kannada text discusses the election of the new chief minister of Karnataka,", "pred": null, "finish": "length", "cached": false}
+{"id": 300, "form": "itrans", "label": 2, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 300, "form": "lossy", "label": 2, "response": "The given Kannada text seems to be discussing car rallies and events that took place between ", "pred": null, "finish": "length", "cached": false}
+{"id": 774, "form": "native", "label": 5, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 774, "form": "itrans", "label": 5, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 774, "form": "lossy", "label": 5, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1792, "form": "native", "label": 5, "response": "The given Kannada text is about the Nehru Planetarium, which is a place of", "pred": null, "finish": "length", "cached": false}
+{"id": 1792, "form": "itrans", "label": 5, "response": "The given Kannada text seems to discuss a cultural event or festival. Therefore, the topic can", "pred": null, "finish": "length", "cached": false}
+{"id": 1792, "form": "lossy", "label": 5, "response": "The topic of the provided Kannada text seems to be related to a cultural event or celebration involving", "pred": null, "finish": "length", "cached": false}
+{"id": 1166, "form": "native", "label": 5, "response": "The given Kannada text seems to be about a show featuring a school with a unique and beautiful", "pred": null, "finish": "length", "cached": false}
+{"id": 1166, "form": "itrans", "label": 5, "response": "The topic of the provided Kannada text seems to be related to a المسرحية (play) titled", "pred": null, "finish": "length", "cached": false}
+{"id": 1166, "form": "lossy", "label": 5, "response": "The given Kannada text seems to be a quote or dialogue from a play or مسرحية (n", "pred": null, "finish": "length", "cached": false}
+{"id": 1228, "form": "native", "label": 5, "response": "The given Kannada text is about Shri Shyam, a popular singer and devot", "pred": null, "finish": "length", "cached": false}
+{"id": 1228, "form": "itrans", "label": 5, "response": "The given Kannada text seems to be a poem or a song, and upon researching its", "pred": null, "finish": "length", "cached": false}
+{"id": 1228, "form": "lossy", "label": 5, "response": "The topic of the provided Kannada text seems to be related to a person praising a famous", "pred": null, "finish": "length", "cached": false}
+{"id": 1198, "form": "native", "label": 3, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 1198, "form": "itrans", "label": 3, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 1198, "form": "lossy", "label": 3, "response": "The provided Kannada text seems to be discussing the names and positions of individuals in a biographical", "pred": null, "finish": "length", "cached": false}
+{"id": 1880, "form": "native", "label": 1, "response": "The given Kannada text is about a foreigner named Vapas who is skilled in treating", "pred": null, "finish": "length", "cached": false}
+{"id": 1880, "form": "itrans", "label": 1, "response": "The topic of the provided Kannada text seems to be related to a medical procedure or treatment.", "pred": null, "finish": "length", "cached": false}
+{"id": 1880, "form": "lossy", "label": 1, "response": "health ", "pred": 4, "finish": "stop", "cached": false}
+{"id": 65, "form": "native", "label": 2, "response": "politics ", "pred": 2, "finish": "stop", "cached": false}
+{"id": 65, "form": "itrans", "label": 2, "response": "politics ", "pred": 2, "finish": "stop", "cached": false}
+{"id": 65, "form": "lossy", "label": 2, "response": "politics ", "pred": 2, "finish": "stop", "cached": false}
+{"id": 360, "form": "native", "label": 0, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 360, "form": "itrans", "label": 0, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 360, "form": "lossy", "label": 0, "response": "entertainment ", "pred": 5, "finish": "stop", "cached": false}
+{"id": 1891, "form": "native", "label": 1, "response": "The given Kannada text discusses the importance of preserving one's cultural heritage and adapting to", "pred": null, "finish": "length", "cached": false}
+{"id": 1891, "form": "itrans", "label": 1, "response": "The topic of the given Kannada text seems to be related to a historical event or figure in", "pred": null, "finish": "length", "cached": false}
+{"id": 1891, "form": "lossy", "label": 1, "response": "The topic of the provided Kannada text seems to be related to the history and development of Sans", "pred": null, "finish": "length", "cached": false}
+{"id": 1891, "form": "natural", "label": 1, "response": "The topic of the given Kannada text can be classified as \"geography\". The text seems", "pred": null, "finish": "length", "cached": false}
+{"id": 1321, "form": "native", "label": 2, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 1321, "form": "itrans", "label": 2, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 1321, "form": "lossy", "label": 2, "response": "The given Kannada text talks about the history of the royal family of Mysore, specifically", "pred": null, "finish": "length", "cached": false}
+{"id": 999, "form": "native", "label": 4, "response": "health ", "pred": 4, "finish": "stop", "cached": false}
+{"id": 999, "form": "itrans", "label": 4, "response": "The topic of the provided Kannada text seems to be related to a specific event or festival.", "pred": null, "finish": "length", "cached": false}
+{"id": 999, "form": "lossy", "label": 4, "response": "The topic of the provided Kannada text seems to be related to sports. The text discusses various", "pred": null, "finish": "length", "cached": false}
+{"id": 719, "form": "native", "label": 6, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 719, "form": "itrans", "label": 6, "response": "The provided Kannada text seems to discuss the Dominican Republic's geography, which falls", "pred": null, "finish": "length", "cached": false}
+{"id": 719, "form": "lossy", "label": 6, "response": "The given Kannada text seems to be discussing the Dominican Republic's geography in relation", "pred": null, "finish": "length", "cached": false}
+{"id": 719, "form": "natural", "label": 6, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 872, "form": "native", "label": 1, "response": "The given Kannada text seems to be discussing personal time management and self-improvement,", "pred": null, "finish": "length", "cached": false}
+{"id": 872, "form": "itrans", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 872, "form": "lossy", "label": 1, "response": "The topic of the provided Kannada text seems to be related to managing time and schedules,", "pred": null, "finish": "length", "cached": false}
+{"id": 872, "form": "natural", "label": 1, "response": "The topic of the provided Kannada text seems to be related to time management and achieving goals,", "pred": null, "finish": "length", "cached": false}
+{"id": 548, "form": "native", "label": 3, "response": "The given Kannada text discusses the historical evolution of the city of Mysore, its mon", "pred": null, "finish": "length", "cached": false}
+{"id": 548, "form": "itrans", "label": 3, "response": "The topic of the provided Kannada text can be classified as \"geography\". This conclusion is", "pred": null, "finish": "length", "cached": false}
+{"id": 548, "form": "lossy", "label": 3, "response": "The given Kannada text seems to discuss changes in the environment and the role of the government in", "pred": null, "finish": "length", "cached": false}
+{"id": 309, "form": "native", "label": 5, "response": "The given Kannada text is about the \"100 Greatest Indians\" event, which", "pred": null, "finish": "length", "cached": false}
+{"id": 309, "form": "itrans", "label": 5, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 309, "form": "lossy", "label": 5, "response": "The given Kannada text seems to be discussing the celebration of a yearly festival at Damp", "pred": null, "finish": "length", "cached": false}
+{"id": 226, "form": "native", "label": 0, "response": "The given Kannada text is about the evolution and existence of Brahmaanda (the universe),", "pred": null, "finish": "length", "cached": false}
+{"id": 226, "form": "itrans", "label": 0, "response": "The provided Kannada text seems to be a description or an event related to a person named \"", "pred": null, "finish": "length", "cached": false}
+{"id": 226, "form": "lossy", "label": 0, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 1699, "form": "native", "label": 6, "response": "The given Kannada text is about the geographical locations and boundaries of a region in the northern part", "pred": null, "finish": "length", "cached": false}
+{"id": 1699, "form": "itrans", "label": 6, "response": "The given Kannada text seems to be discussing geographical locations and names of places, such as U", "pred": null, "finish": "length", "cached": false}
+{"id": 1699, "form": "lossy", "label": 6, "response": "The given Kannada text seems to be discussing geographical locations and connections between Uttaradall", "pred": null, "finish": "length", "cached": false}
+{"id": 1699, "form": "natural", "label": 6, "response": "The given Kannada text seems to be discussing geographical locations and borders, mentioning places like U", "pred": null, "finish": "length", "cached": false}
+{"id": 1204, "form": "native", "label": 4, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1204, "form": "itrans", "label": 4, "response": "The topic of the provided Kannada text seems to be related to a geographical location and organizations,", "pred": null, "finish": "length", "cached": false}
+{"id": 1204, "form": "lossy", "label": 4, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 9, "form": "native", "label": 2, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 9, "form": "itrans", "label": 2, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 9, "form": "lossy", "label": 2, "response": "The given Kannada text seems to discuss police procedures, investigations, and the hierarchy in the police", "pred": null, "finish": "length", "cached": false}
+{"id": 126, "form": "native", "label": 5, "response": "The topic of the given Kannada text seems to be about the life and achievements of a ren", "pred": null, "finish": "length", "cached": false}
+{"id": 126, "form": "itrans", "label": 5, "response": "politics ", "pred": 2, "finish": "stop", "cached": false}
+{"id": 126, "form": "lossy", "label": 5, "response": "The given Kannada text seems to be discussing political events and elections, mentioning names like Al", "pred": null, "finish": "length", "cached": false}
+{"id": 1840, "form": "native", "label": 1, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1840, "form": "itrans", "label": 1, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1840, "form": "lossy", "label": 1, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1840, "form": "natural", "label": 1, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 740, "form": "native", "label": 6, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 740, "form": "itrans", "label": 6, "response": "The provided Kannada text seems to be a geographical description mentioning \"15 islands, ", "pred": null, "finish": "length", "cached": false}
+{"id": 740, "form": "lossy", "label": 6, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 295, "form": "native", "label": 4, "response": "The given Kannada text appears to be discussing the topic of \"Helicopters\", \"", "pred": null, "finish": "length", "cached": false}
+{"id": 295, "form": "itrans", "label": 4, "response": "The given Kannada text appears to be a description of a helicopter and its parts. Given the", "pred": null, "finish": "length", "cached": false}
+{"id": 295, "form": "lossy", "label": 4, "response": "The given Kannada text appears to be a mix of words and phrases, making it difficult to", "pred": null, "finish": "length", "cached": false}
+{"id": 1851, "form": "native", "label": 3, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1851, "form": "itrans", "label": 3, "response": "The topic of the given Kannada text seems to be related to skiing and its equipment.", "pred": null, "finish": "length", "cached": false}
+{"id": 1851, "form": "lossy", "label": 3, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1851, "form": "natural", "label": 3, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 220, "form": "native", "label": 3, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 220, "form": "itrans", "label": 3, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 220, "form": "lossy", "label": 3, "response": "The given Kannada text seems to be discussing the 2012 British Spardig", "pred": null, "finish": "length", "cached": false}
+{"id": 220, "form": "natural", "label": 3, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 340, "form": "native", "label": 4, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 340, "form": "itrans", "label": 4, "response": "The given Kannada text appears to be a quote, but without proper translation, it is challenging", "pred": null, "finish": "length", "cached": false}
+{"id": 340, "form": "lossy", "label": 4, "response": "The given Kannada text translates to \"Let's go to the temple on the hill", "pred": null, "finish": "length", "cached": false}
+{"id": 1158, "form": "native", "label": 6, "response": "The given Kannada text is about the Earth's crust and the Indian Institute of Science'", "pred": null, "finish": "length", "cached": false}
+{"id": 1158, "form": "itrans", "label": 6, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 1158, "form": "lossy", "label": 6, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1624, "form": "native", "label": 6, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 1624, "form": "itrans", "label": 6, "response": "The given Kannada text seems to be discussing the geography of various locations, specifically mentioning", "pred": null, "finish": "length", "cached": false}
+{"id": 1624, "form": "lossy", "label": 6, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1519, "form": "native", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1519, "form": "itrans", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1519, "form": "lossy", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1519, "form": "natural", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1919, "form": "native", "label": 1, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 1919, "form": "itrans", "label": 1, "response": "The topic of the provided Kannada text seems to be related to a historical event or place.", "pred": null, "finish": "length", "cached": false}
+{"id": 1919, "form": "lossy", "label": 1, "response": "The provided Kannada text seems to be a mix of numbers and words, making it difficult to", "pred": null, "finish": "length", "cached": false}
+{"id": 1919, "form": "natural", "label": 1, "response": "The given Kannada text seems to be discussing a scientific experiment involving high-pressure crystals and", "pred": null, "finish": "length", "cached": false}
+{"id": 1329, "form": "native", "label": 2, "response": "The topic of the given Kannada text can be classified as \"travel\" as it discusses", "pred": null, "finish": "length", "cached": false}
+{"id": 1329, "form": "itrans", "label": 2, "response": "The provided Kannada text seems to be a mix of numbers and words, making it difficult to", "pred": null, "finish": "length", "cached": false}
+{"id": 1329, "form": "lossy", "label": 2, "response": "The topic of the provided Kannada text cannot be accurately determined as it seems to be a mix", "pred": null, "finish": "length", "cached": false}
+{"id": 522, "form": "native", "label": 4, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 522, "form": "itrans", "label": 4, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 522, "form": "lossy", "label": 4, "response": "The topic of the provided Kannada text cannot be accurately determined as it seems to be in a", "pred": null, "finish": "length", "cached": false}
+{"id": 6, "form": "native", "label": 3, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 6, "form": "itrans", "label": 3, "response": "The given Kannada text seems to be discussing historical figures and their contributions, specifically mentioning kings", "pred": null, "finish": "length", "cached": false}
+{"id": 6, "form": "lossy", "label": 3, "response": "The given Kannada text seems to be discussing a product called \"Ketalanina Rajad", "pred": null, "finish": "length", "cached": false}
+{"id": 1748, "form": "native", "label": 3, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 1748, "form": "itrans", "label": 3, "response": "The provided Kannada text seems to be a date mentioned in a traditional format, which reads:", "pred": null, "finish": "length", "cached": false}
+{"id": 1748, "form": "lossy", "label": 3, "response": "The given Kannada text seems to be about sports, specifically mentioning a sports complex and a", "pred": null, "finish": "length", "cached": false}
+{"id": 835, "form": "native", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 835, "form": "itrans", "label": 1, "response": "The topic of the given Kannada text can be classified as \"geography\". This conclusion is", "pred": null, "finish": "length", "cached": false}
+{"id": 835, "form": "lossy", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 810, "form": "native", "label": 3, "response": "The topic of the given Kannada text seems to be related to technology and its impact on society", "pred": null, "finish": "length", "cached": false}
+{"id": 810, "form": "itrans", "label": 3, "response": "The topic of the provided Kannada text seems to be related to ancient Indian history, mythology", "pred": null, "finish": "length", "cached": false}
+{"id": 810, "form": "lossy", "label": 3, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 181, "form": "native", "label": 2, "response": "politics ", "pred": 2, "finish": "stop", "cached": false}
+{"id": 181, "form": "itrans", "label": 2, "response": "The topic of the provided Kannada text seems to be related to animals and their habitats.", "pred": null, "finish": "length", "cached": false}
+{"id": 181, "form": "lossy", "label": 2, "response": "The given Kannada text seems to be discussing the government's role in protecting endangered species", "pred": null, "finish": "length", "cached": false}
+{"id": 290, "form": "native", "label": 6, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 290, "form": "itrans", "label": 6, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 290, "form": "lossy", "label": 6, "response": "The given Kannada text seems to be discussing the number of polling stations in a district named He", "pred": null, "finish": "length", "cached": false}
+{"id": 1344, "form": "native", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1344, "form": "itrans", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1344, "form": "lossy", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1518, "form": "native", "label": 0, "response": "entertainment ", "pred": 5, "finish": "stop", "cached": false}
+{"id": 1518, "form": "itrans", "label": 0, "response": "The topic of the provided Kannada text seems to be related to technology. Although it is written", "pred": null, "finish": "length", "cached": false}
+{"id": 1518, "form": "lossy", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1480, "form": "native", "label": 0, "response": "The given Kannada text discusses the development of road infrastructure, which falls under the category of ge", "pred": null, "finish": "length", "cached": false}
+{"id": 1480, "form": "itrans", "label": 0, "response": "The topic of the provided Kannada text seems to be related to food and nutrition. In K", "pred": null, "finish": "length", "cached": false}
+{"id": 1480, "form": "lossy", "label": 0, "response": "The given Kannada text seems to be discussing the weather conditions and their changes over time, which", "pred": null, "finish": "length", "cached": false}
+{"id": 204, "form": "native", "label": 1, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 204, "form": "itrans", "label": 1, "response": "The topic of the provided Kannada text cannot be accurately determined as it seems to be a mix", "pred": null, "finish": "length", "cached": false}
+{"id": 204, "form": "lossy", "label": 1, "response": "The provided Kannada text seems to be discussing scientific or technical topics, specifically mentioning \"ott", "pred": null, "finish": "length", "cached": false}
+{"id": 1605, "form": "native", "label": 1, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1605, "form": "itrans", "label": 1, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 1605, "form": "lossy", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 733, "form": "native", "label": 3, "response": "The given Kannada text is about a sports event in Chilika, India, where various", "pred": null, "finish": "length", "cached": false}
+{"id": 733, "form": "itrans", "label": 3, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 733, "form": "lossy", "label": 3, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 733, "form": "natural", "label": 3, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 879, "form": "native", "label": 4, "response": "The given Kannada text discusses various diseases and health-related issues, making the topic fall under", "pred": null, "finish": "length", "cached": false}
+{"id": 879, "form": "itrans", "label": 4, "response": "health ", "pred": 4, "finish": "stop", "cached": false}
+{"id": 879, "form": "lossy", "label": 4, "response": "The given Kannada text discusses various aspects of Indian culture, traditions, and the importance of preserving", "pred": null, "finish": "length", "cached": false}
+{"id": 879, "form": "natural", "label": 4, "response": "The given Kannada text discusses various diseases and health-related issues, which falls under the category", "pred": null, "finish": "length", "cached": false}
+{"id": 823, "form": "native", "label": 1, "response": "The given Kannada text is about organizing events for a company, specifically mentioning \"", "pred": null, "finish": "length", "cached": false}
+{"id": 823, "form": "itrans", "label": 1, "response": "The topic of the provided Kannada text cannot be accurately determined as it does not seem to fall", "pred": null, "finish": "length", "cached": false}
+{"id": 823, "form": "lossy", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1824, "form": "native", "label": 1, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 1824, "form": "itrans", "label": 1, "response": "The given Kannada text discusses the geography of various places, including rivers, lakes,", "pred": null, "finish": "length", "cached": false}
+{"id": 1824, "form": "lossy", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 599, "form": "native", "label": 0, "response": "health ", "pred": 4, "finish": "stop", "cached": false}
+{"id": 599, "form": "itrans", "label": 0, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 599, "form": "lossy", "label": 0, "response": "The Kannada text seems to be discussing astronauts and space exploration. Given the context, the", "pred": null, "finish": "length", "cached": false}
+{"id": 1981, "form": "native", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1981, "form": "itrans", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1981, "form": "lossy", "label": 0, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1149, "form": "native", "label": 3, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 1149, "form": "itrans", "label": 3, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 1149, "form": "lossy", "label": 3, "response": "sports ", "pred": 3, "finish": "stop", "cached": false}
+{"id": 373, "form": "native", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 373, "form": "itrans", "label": 0, "response": "The given Kannada text seems to be discussing the history and importance of a place called \"ay", "pred": null, "finish": "length", "cached": false}
+{"id": 373, "form": "lossy", "label": 0, "response": "entertainment ", "pred": 5, "finish": "stop", "cached": false}
+{"id": 1207, "form": "native", "label": 4, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1207, "form": "itrans", "label": 4, "response": "The given Kannada text is about the Ebola virus and its impact on various geographical locations.", "pred": null, "finish": "length", "cached": false}
+{"id": 1207, "form": "lossy", "label": 4, "response": "The given Kannada text is discussing the Ebola virus and its effects on the body. This", "pred": null, "finish": "length", "cached": false}
+{"id": 963, "form": "native", "label": 2, "response": "The given Kannada text discusses the historical relations between Armenia and Azerbaijan, which falls under the", "pred": null, "finish": "length", "cached": false}
+{"id": 963, "form": "itrans", "label": 2, "response": "The topic of the provided Kannada text seems to be related to a geographical location or area.", "pred": null, "finish": "length", "cached": false}
+{"id": 963, "form": "lossy", "label": 2, "response": "politics ", "pred": 2, "finish": "stop", "cached": false}
+{"id": 963, "form": "natural", "label": 2, "response": "The given Kannada text seems to discuss the political relationship between three countries: Pradeshada (", "pred": null, "finish": "length", "cached": false}
+{"id": 358, "form": "native", "label": 0, "response": "The given Kannada text seems to be about a person named \"Photan\" who is", "pred": null, "finish": "length", "cached": false}
+{"id": 358, "form": "itrans", "label": 0, "response": "The topic of the provided Kannada text can be classified as \"travel\". The text seems", "pred": null, "finish": "length", "cached": false}
+{"id": 358, "form": "lossy", "label": 0, "response": "The topic of the provided Kannada text cannot be accurately classified into the given categories. However,", "pred": null, "finish": "length", "cached": false}
+{"id": 358, "form": "natural", "label": 0, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 1469, "form": "native", "label": 2, "response": "politics ", "pred": 2, "finish": "stop", "cached": false}
+{"id": 1469, "form": "itrans", "label": 2, "response": "The given Kannada text appears to be a poem or a piece of literature, discussing the relationship", "pred": null, "finish": "length", "cached": false}
+{"id": 1469, "form": "lossy", "label": 2, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 1469, "form": "natural", "label": 2, "response": "The given Kannada text seems to be a passage from a historical or mythological context, discussing", "pred": null, "finish": "length", "cached": false}
+{"id": 272, "form": "native", "label": 4, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 272, "form": "itrans", "label": 4, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 272, "form": "lossy", "label": 4, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 662, "form": "native", "label": 1, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 662, "form": "itrans", "label": 1, "response": "The given Kannada text seems to be about a hotel named \"Halavaru Hotel\"", "pred": null, "finish": "length", "cached": false}
+{"id": 662, "form": "lossy", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 93, "form": "native", "label": 2, "response": "The given Kannada text is about the Indian Premier League (IPL), which is a cricket", "pred": null, "finish": "length", "cached": false}
+{"id": 93, "form": "itrans", "label": 2, "response": "The topic of the provided Kannada text seems to be related to geography, as it mentions", "pred": null, "finish": "length", "cached": false}
+{"id": 93, "form": "lossy", "label": 2, "response": "The topic of the provided Kannada text seems to be related to the comparison between different types of", "pred": null, "finish": "length", "cached": false}
+{"id": 677, "form": "native", "label": 1, "response": "science/technology ", "pred": 0, "finish": "stop", "cached": false}
+{"id": 677, "form": "itrans", "label": 1, "response": "The topic of the provided Kannada text seems to be related to military history and weapons. Therefore", "pred": null, "finish": "length", "cached": false}
+{"id": 677, "form": "lossy", "label": 1, "response": "travel ", "pred": 1, "finish": "stop", "cached": false}
+{"id": 677, "form": "natural", "label": 1, "response": "The topic of the provided Kannada text seems to be related to the history and evolution of laws", "pred": null, "finish": "length", "cached": false}
+{"id": 1414, "form": "native", "label": 2, "response": "politics ", "pred": 2, "finish": "stop", "cached": false}
+{"id": 1414, "form": "itrans", "label": 2, "response": "geography ", "pred": 6, "finish": "stop", "cached": false}
+{"id": 1414, "form": "lossy", "label": 2, "response": "The given Kannada text seems to discuss the organization and functioning of different regions within a country,", "pred": null, "finish": "length", "cached": false}

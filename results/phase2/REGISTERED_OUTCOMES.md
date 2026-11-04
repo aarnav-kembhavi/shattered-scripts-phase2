@@ -1,6 +1,6 @@
 # Phase 2 registered outcomes: status ledger
 
-Last updated 2026-11-04 12:07 IST (system clock). Rows for other experiments are added when each reports its registered verdict word; no registered rule is changed.
+Last updated 2026-11-04 16:09 IST (system clock). Rows for other experiments are added when each reports its registered verdict word; no registered rule is changed.
 
 | Experiment | Registered outcome words | Status | Result or reason |
 |---|---|---|---|
@@ -15,3 +15,4 @@ Last updated 2026-11-04 12:07 IST (system clock). Rows for other experiments are
 | X15 (human intelligibility baseline) | supported / refuted / inconclusive | **not run (annotators unavailable)** | skipped by decision; no X15 files are built |
 | X12 contrast 1 (Llama-2-7B vs Ambari-7B-base) | supported / partly / refuted / inconclusive | **complete: supported (both measures)** | SIB DiD +0.423 [0.380, 0.466]; retrieval DiD +0.624 [0.584, 0.664] (97.5% intervals); native gain confounds exposure with the tokenizer extension; X9b is the causal test; nothing against a prediction |
 | X11 Arm A (4-bit control, Qwen3.5-2B) | supported / partly / refuted | **complete: partly supported** | every form within 3 points; gap change -0.026, 95% CI [-0.054, +0.003] just outside the +-5 point bound; English -0.020 (only significant form change); exploratory control |
+| X10 (Kannada to English generation, chrF) | supported / partly / refuted | **complete: X10-P supported (4 of 4)** | native beats ITRANS by +15.0 to +32.9 chrF (Holm-significant) in all four models; caveat: Qwen3.5-2B returns an empty first line for 62-88% of inputs; nothing against a prediction |

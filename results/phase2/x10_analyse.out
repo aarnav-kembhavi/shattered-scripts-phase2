@@ -1,0 +1,107 @@
+{
+ "X10_P": "supported",
+ "native_beats_itrans": [
+  "qwen3-1.7b",
+  "qwen3.5-2b",
+  "sarvam-1",
+  "gemma4-e2b"
+ ],
+ "contrasts": [
+  [
+   "qwen3-1.7b",
+   "native - itrans",
+   26.45,
+   0.0032
+  ],
+  [
+   "qwen3-1.7b",
+   "native - lower",
+   25.81,
+   0.0032
+  ],
+  [
+   "qwen3-1.7b",
+   "native - lossy",
+   24.1,
+   0.0032
+  ],
+  [
+   "qwen3-1.7b",
+   "native - natural",
+   21.8,
+   0.0032
+  ],
+  [
+   "qwen3.5-2b",
+   "native - itrans",
+   15.03,
+   0.0032
+  ],
+  [
+   "qwen3.5-2b",
+   "native - lower",
+   14.89,
+   0.0032
+  ],
+  [
+   "qwen3.5-2b",
+   "native - lossy",
+   14.89,
+   0.0032
+  ],
+  [
+   "qwen3.5-2b",
+   "native - natural",
+   15.31,
+   0.0032
+  ],
+  [
+   "sarvam-1",
+   "native - itrans",
+   21.01,
+   0.0032
+  ],
+  [
+   "sarvam-1",
+   "native - lower",
+   22.35,
+   0.0032
+  ],
+  [
+   "sarvam-1",
+   "native - lossy",
+   11.12,
+   0.0032
+  ],
+  [
+   "sarvam-1",
+   "native - natural",
+   9.68,
+   0.0032
+  ],
+  [
+   "gemma4-e2b",
+   "native - itrans",
+   32.94,
+   0.0032
+  ],
+  [
+   "gemma4-e2b",
+   "native - lower",
+   33.9,
+   0.0032
+  ],
+  [
+   "gemma4-e2b",
+   "native - lossy",
+   28.94,
+   0.0032
+  ],
+  [
+   "gemma4-e2b",
+   "native - natural",
+   25.19,
+   0.0032
+  ]
+ ]
+}

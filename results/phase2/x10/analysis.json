@@ -1,0 +1,341 @@
+{
+  "provenance": {
+    "config": {
+      "registration": "RESULTS.md X10",
+      "family": "Holm over 4 contrasts x 4 models = 16"
+    },
+    "git_commit": "a9461152b19fe7e505e31ec42b5ea1e6ee87d948-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-04T10:39:27+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x10.py",
+      "analyse"
+    ]
+  },
+  "contrasts": [
+    {
+      "model": "qwen3-1.7b",
+      "contrast": "native - itrans",
+      "n": 1012,
+      "diff": 26.44827439335156,
+      "ci95": [
+        25.629326137797776,
+        27.25200599075477
+      ],
+      "p": 0.00019998000199980003,
+      "p_holm": 0.0031996800319968005,
+      "significant_positive": true
+    },
+    {
+      "model": "qwen3-1.7b",
+      "contrast": "native - lower",
+      "n": 1012,
+      "diff": 25.80510643671627,
+      "ci95": [
+        24.96249548080026,
+        26.647807384271786
+      ],
+      "p": 0.00019998000199980003,
+      "p_holm": 0.0031996800319968005,
+      "significant_positive": true
+    },
+    {
+      "model": "qwen3-1.7b",
+      "contrast": "native - lossy",
+      "n": 1012,
+      "diff": 24.096581630985153,
+      "ci95": [
+        23.2863699721278,
+        24.92023944637181
+      ],
+      "p": 0.00019998000199980003,
+      "p_holm": 0.0031996800319968005,
+      "significant_positive": true
+    },
+    {
+      "model": "qwen3-1.7b",
+      "contrast": "native - natural",
+      "n": 267,
+      "diff": 21.80251964932438,
+      "ci95": [
+        20.14227889792387,
+        23.43062819553147
+      ],
+      "p": 0.00019998000199980003,
+      "p_holm": 0.0031996800319968005,
+      "significant_positive": true
+    },
+    {
+      "model": "qwen3.5-2b",
+      "contrast": "native - itrans",
+      "n": 1012,
+      "diff": 15.03107920523715,
+      "ci95": [
+        13.601704607345603,
+        16.481224176909706
+      ],
+      "p": 0.00019998000199980003,
+      "p_holm": 0.0031996800319968005,
+      "significant_positive": true
+    },
+    {
+      "model": "qwen3.5-2b",
+      "contrast": "native - lower",
+      "n": 1012,
+      "diff": 14.89478458511976,
+      "ci95": [
+        13.464165628849717,
+        16.342061426354196
+      ],
+      "p": 0.00019998000199980003,
+      "p_holm": 0.0031996800319968005,
+      "significant_positive": true
+    },
+    {
+      "model": "qwen3.5-2b",
+      "contrast": "native - lossy",
+      "n": 1012,
+      "diff": 14.89420072130378,
+      "ci95": [
+        13.481858903142667,
+        16.33624975687795
+      ],
+      "p": 0.00019998000199980003,
+      "p_holm": 0.0031996800319968005,
+      "significant_positive": true
+    },
+    {
+      "model": "qwen3.5-2b",
+      "contrast": "native - natural",
+      "n": 267,
+      "diff": 15.30637885850178,
+      "ci95": [
+        12.348948940420728,
+        18.326440048143834
+      ],
+      "p": 0.00019998000199980003,
+      "p_holm": 0.0031996800319968005,
+      "significant_positive": true
+    },
+    {
+      "model": "sarvam-1",
+      "contrast": "native - itrans",
+      "n": 1012,
+      "diff": 21.011808535450207,
+      "ci95": [
+        20.110761253070862,
+        21.913998922038722
+      ],
+      "p": 0.00019998000199980003,
+      "p_holm": 0.0031996800319968005,
+      "significant_positive": true
+    },
+    {
+      "model": "sarvam-1",
+      "contrast": "native - lower",
+      "n": 1012,
+      "diff": 22.34751620316676,
+      "ci95": [
+        21.46344802480997,
+        23.251620738822794
+      ],
+      "p": 0.00019998000199980003,
+      "p_holm": 0.0031996800319968005,
+      "significant_positive": true
+    },
+    {
+      "model": "sarvam-1",
+      "contrast": "native - lossy",
+      "n": 1012,
+      "diff": 11.124578563366136,
+      "ci95": [
+        10.325166443701416,
+        11.926503584491817
+      ],
+      "p": 0.00019998000199980003,
+      "p_holm": 0.0031996800319968005,
+      "significant_positive": true
+    },
+    {
+      "model": "sarvam-1",
+      "contrast": "native - natural",
+      "n": 267,
+      "diff": 9.680314575921786,
+      "ci95": [
+        8.156872125651507,
+        11.216160923398865
+      ],
+      "p": 0.00019998000199980003,
+      "p_holm": 0.0031996800319968005,
+      "significant_positive": true
+    },
+    {
+      "model": "gemma4-e2b",
+      "contrast": "native - itrans",
+      "n": 1012,
+      "diff": 32.93908463815114,
+      "ci95": [
+        32.10402380831005,
+        33.77503218694888
+      ],
+      "p": 0.00019998000199980003,
+      "p_holm": 0.0031996800319968005,
+      "significant_positive": true
+    },
+    {
+      "model": "gemma4-e2b",
+      "contrast": "native - lower",
+      "n": 1012,
+      "diff": 33.90147422323989,
+      "ci95": [
+        33.013747983176806,
+        34.77724792764156
+      ],
+      "p": 0.00019998000199980003,
+      "p_holm": 0.0031996800319968005,
+      "significant_positive": true
+    },
+    {
+      "model": "gemma4-e2b",
+      "contrast": "native - lossy",
+      "n": 1012,
+      "diff": 28.938491628943254,
+      "ci95": [
+        28.097516979756357,
+        29.79563716487
+      ],
+      "p": 0.00019998000199980003,
+      "p_holm": 0.0031996800319968005,
+      "significant_positive": true
+    },
+    {
+      "model": "gemma4-e2b",
+      "contrast": "native - natural",
+      "n": 267,
+      "diff": 25.189588927284326,
+      "ci95": [
+        23.651950039172352,
+        26.72236152624106
+      ],
+      "p": 0.00019998000199980003,
+      "p_holm": 0.0031996800319968005,
+      "significant_positive": true
+    }
+  ],
+  "corpus": {
+    "qwen3-1.7b__native": {
+      "corpus_chrf": 39.32528311233748,
+      "empty_share": 0.0,
+      "n": 1012
+    },
+    "qwen3-1.7b__itrans": {
+      "corpus_chrf": 13.145973529897883,
+      "empty_share": 0.0,
+      "n": 1012
+    },
+    "qwen3-1.7b__lower": {
+      "corpus_chrf": 13.886892815175592,
+      "empty_share": 0.0,
+      "n": 1012
+    },
+    "qwen3-1.7b__lossy": {
+      "corpus_chrf": 15.285610436709815,
+      "empty_share": 0.0,
+      "n": 1012
+    },
+    "qwen3-1.7b__natural": {
+      "corpus_chrf": 17.788452520437605,
+      "empty_share": 0.0,
+      "n": 267
+    },
+    "qwen3.5-2b__native": {
+      "corpus_chrf": 19.982483176908186,
+      "empty_share": 0.6175889328063241,
+      "n": 1012
+    },
+    "qwen3.5-2b__itrans": {
+      "corpus_chrf": 2.484816524679512,
+      "empty_share": 0.8646245059288538,
+      "n": 1012
+    },
+    "qwen3.5-2b__lower": {
+      "corpus_chrf": 2.654168905126047,
+      "empty_share": 0.8448616600790514,
+      "n": 1012
+    },
+    "qwen3.5-2b__lossy": {
+      "corpus_chrf": 2.6694584801858117,
+      "empty_share": 0.8794466403162056,
+      "n": 1012
+    },
+    "qwen3.5-2b__natural": {
+      "corpus_chrf": 4.218964107508173,
+      "empty_share": 0.8426966292134831,
+      "n": 267
+    },
+    "sarvam-1__native": {
+      "corpus_chrf": 50.48300334976595,
+      "empty_share": 0.0,
+      "n": 1012
+    },
+    "sarvam-1__itrans": {
+      "corpus_chrf": 30.260968661162085,
+      "empty_share": 0.0,
+      "n": 1012
+    },
+    "sarvam-1__lower": {
+      "corpus_chrf": 28.824786177989136,
+      "empty_share": 0.0,
+      "n": 1012
+    },
+    "sarvam-1__lossy": {
+      "corpus_chrf": 39.85444843507945,
+      "empty_share": 0.0,
+      "n": 1012
+    },
+    "sarvam-1__natural": {
+      "corpus_chrf": 41.418717244729734,
+      "empty_share": 0.0,
+      "n": 267
+    },
+    "gemma4-e2b__native": {
+      "corpus_chrf": 54.858657077298,
+      "empty_share": 0.0,
+      "n": 1012
+    },
+    "gemma4-e2b__itrans": {
+      "corpus_chrf": 21.829928099629083,
+      "empty_share": 0.018774703557312252,
+      "n": 1012
+    },
+    "gemma4-e2b__lower": {
+      "corpus_chrf": 20.808773999825185,
+      "empty_share": 0.023715415019762844,
+      "n": 1012
+    },
+    "gemma4-e2b__lossy": {
+      "corpus_chrf": 26.339865205519036,
+      "empty_share": 0.024703557312252964,
+      "n": 1012
+    },
+    "gemma4-e2b__natural": {
+      "corpus_chrf": 30.23313028144836,
+      "empty_share": 0.0149812734082397,
+      "n": 267
+    }
+  },
+  "X10_P": {
+    "models_native_beats_itrans_holm_significant": [
+      "qwen3-1.7b",
+      "qwen3.5-2b",
+      "sarvam-1",
+      "gemma4-e2b"
+    ],
+    "n_models": 4,
+    "verdict": "supported",
+    "rule": "supported: >= 3 of 4; partly supported: exactly 2; refuted: <= 1"
+  }
+}
