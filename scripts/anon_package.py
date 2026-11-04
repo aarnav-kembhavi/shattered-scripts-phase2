@@ -71,10 +71,12 @@ SCRUB = [
     (r"Manonmani", "[supervisor]"),
     (r"Ashwin Bhat", "[co-author]"),
     (r"Aakarsh Prabhu", "[co-author]"),
+    (r"ashwin18522", "[second-account]"),  # added 2026-11-04: the teammate Kaggle account used for some compute
+    (r"KAGGLE2_[A-Z_]+", "[credential name]"),
     # bare "Bhat", "Prabhu" and "Prabhu, Aakarsh" are NOT scrubbed (other authors' bib entries); they are listed by the check below
     (r"\bISM\b", "another project"),
 ]
-IDENT = [r"aarnav", r"kembh", r"rvce", r"gmail", r"king21", r"C:[\\/]", r"[\\/]Users[\\/]", r"PROJECTS", r"\bISM\b"]
+IDENT = [r"ashwin18522", r"aarnav", r"kembh", r"rvce", r"gmail", r"king21", r"C:[\\/]", r"[\\/]Users[\\/]", r"PROJECTS", r"\bISM\b"]
 # Names are matched on word boundaries only (2026-11-03): "aakarshane", "pratibhate", "prabhutva" etc. are Kannada/Hindi romanization words, not names.
 NAMES = [r"\bmanonmani(?:s)?\b", r"\bashwin\b", r"\baakarsh\b", r"\bbhat\b", r"\bprabhu\b"]
 # Hits the lead author has decided to keep (2026-11-03): the bib entry of a cited paper keeps its real author names.
