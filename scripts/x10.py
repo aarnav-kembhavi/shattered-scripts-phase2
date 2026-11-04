@@ -71,7 +71,7 @@ def run_model(name: str, n: int | None, batch: int = 16) -> dict:
     for f in FORMS:
         path = OUT / (f"{name}__{f}.json" if n is None else f"pilot_{name}__{f}.json")
         if path.exists():
-            res["forms"][f] = json.load(open(path))["summary"]
+            res["forms"][f] = json.load(open(path, encoding="utf-8"))["summary"]
             continue
         ids = sorted(data["natural"]) if f == "natural" else list(range(1012))
         if n:
@@ -123,7 +123,7 @@ def analyse() -> None:
     from sacrebleu.metrics import CHRF
     for m in MODELS:
         for f in FORMS:
-            d = json.load(open(OUT / f"{m}__{f}.json"))
+            d = json.load(open(OUT / f"{m}__{f}.json", encoding="utf-8"))
             r = [refs[i] for i in d["ids"]]
             S[(m, f)] = dict(zip(d["ids"], chrf_scores(d["outputs"], r)))
             corpus[f"{m}__{f}"] = {"corpus_chrf": CHRF(char_order=6, word_order=0, beta=2).corpus_score(d["outputs"], [r]).score, "empty_share": d["summary"]["empty_share"], "n": d["summary"]["n"]}
