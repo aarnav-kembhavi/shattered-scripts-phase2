@@ -14,8 +14,16 @@ import time
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[1]
-K = REPO / "results" / "kaggle"
+ACCT = os.environ.get("KAGGLE_ACCOUNT", "1")  # 1 = Aarnav's account (X9b and, until account 2 is accepted, everything); 2 = a teammate's account (self-contained jobs), own state file
+os.environ["KAGGLE_ACCOUNT"] = ACCT
+SHARED = REPO / "results" / "kaggle"
+K = SHARED if ACCT == "1" else SHARED / "acct2"
 STATE = K / "queue_state.json"
+ACCT2_JOBS = ["ambari-7b-instruct-v0.1", "ambari-7b-instruct-v0.2", "llama-3.1-8b"]  # moved to account 2 on 2026-11-04 (self-contained: they mount private model datasets); X9b stays on account 1
+
+
+def acct2_accepted() -> bool:
+    return (SHARED / "acct2" / "ACCEPTED").exists()  # written after the smoke test and the A1-R reproduction on account 2 passed
 PY = str(REPO / ".venv" / "Scripts" / "python.exe")
 PRIVATE = "shattered-flores-private"
 X12 = ["ambari-7b-base", "llama-2-7b", "ambari-7b-instruct-v0.1", "ambari-7b-instruct-v0.2"]  # X12 endpoints (exempt from the counting rule, subject to A1-P)
@@ -26,7 +34,12 @@ WANT = ["qwen3-8b", "ambari-7b-base", "llama-2-7b", "llama-3.1-8b"] + INSTRUCT
 
 
 def state() -> dict:
-    return json.loads(STATE.read_text()) if STATE.exists() else {"log": [], "precision": {}, "scored": {}, "a1r": None}
+    if STATE.exists():
+        return json.loads(STATE.read_text())
+    if ACCT == "2":  # start from the results account 1 already has (A1-P passes, scored models, MDL), so nothing is repeated
+        m = json.loads((SHARED / "queue_state.json").read_text())
+        return {"log": [], "precision": m["precision"], "scored": m["scored"], "mdl": m.get("mdl", {}), "a1r": m["a1r"]}
+    return {"log": [], "precision": {}, "scored": {}, "a1r": None}
 
 
 def save(s: dict) -> None:
@@ -119,7 +132,7 @@ def push(job: str, args: list[str], hours: float, include: list[str] | None = No
 def read_a1r(s: dict) -> None:
     """The A1-R verdict is `results/kaggle/a1r_result.json` (Kaggle output compared with the laptop summary locally; the in-kernel flag is not used,
     the laptop summary is not in the Kaggle package)."""
-    p = K / "a1r_result.json"
+    p = SHARED / "a1r_result.json"
     if p.exists():
         g = json.loads(p.read_text())
         if s["a1r"] != {"gate_passed": g["gate_passed"]}:
@@ -185,7 +198,7 @@ def projection(s: dict, job: str, hours: float, is_x9b: bool = False, x12c1: boo
     if x12c1 and head >= 0:
         log(s, f"{job}: X12 contrast 1 runs ahead of the X9b reserve on Aarnav's decision of 2026-11-04 (X9b batch 3 launches as soon as the projection allows; nothing else goes ahead of it)")
         return True
-    if not is_x9b and x9b_pending(s):  # Aarnav 2026-11-04: X9b batch 3 launches the moment it fits and nothing queues ahead of it
+    if ACCT == "1" and not is_x9b and x9b_pending(s):  # Aarnav 2026-11-04: X9b batch 3 launches the moment it fits and nothing queues ahead of it
         log(s, f"{job}: X9b Sarvam batches are still pending; nothing goes ahead of them")
         return False
     return True
@@ -330,6 +343,10 @@ def open_models(s: dict) -> list[str]:
     """Still to do: A1-P not yet run, or passed but not scored (instruct pair only if both pass; Llama-2 only if Ambari-base also passed)."""
     out = []
     for m in WANT:
+        if ACCT == "2" and m not in ACCT2_JOBS:
+            continue
+        if ACCT == "1" and acct2_accepted() and m in ACCT2_JOBS:
+            continue
         p = s["precision"].get(m, {}).get("pass")
         if m in INSTRUCT:
             both = [s["precision"].get(x, {}).get("pass") for x in INSTRUCT]
@@ -341,7 +358,7 @@ def open_models(s: dict) -> list[str]:
             continue
         elif p is None or (p and m not in s["scored"]):
             out.append(m)
-    if x9b_pending(s) or (not x9b_ready() and s.get("x9b_pilot_failures", 0) < 2):
+    if ACCT == "1" and (x9b_pending(s) or (not x9b_ready() and s.get("x9b_pilot_failures", 0) < 2)):
         out.append("x9b")
     return out
 
@@ -355,6 +372,28 @@ def main() -> None:
         log(s, "A1-R result not available yet; run it first (scripts/kaggle_runner.py run kaggle_retrieval_gate)")
         return
     ingest_precision(s)
+    if ACCT == "2":  # the teammate's account: the self-contained jobs (instruction pair, Llama-3.1-8B); Kaggle quota is per account
+        if not acct2_accepted():
+            log(s, "account 2 not accepted yet (smoke test and A1-R reproduction pending): nothing pushed")
+            return
+        a1p(s, ["ambari-7b-instruct-v0.1"])
+        if passed(s, *INSTRUCT):
+            for m in INSTRUCT:
+                score(s, m, 2.4)
+            mdl(s, INSTRUCT, 3.0)
+        a1p(s, ["llama-3.1-8b"])
+        score(s, "llama-3.1-8b", 2.4)
+        save(s)
+        log(s, "account 2 queue pass finished; open: " + ", ".join(open_models(s)))
+        return
+    if acct2_accepted():  # account 1 keeps X9b only (its checkpoints and datasets live here); X9b batch 3 is first when the quota frees
+        x9b_pilot(s)
+        x9b_full(s)
+        if x9b_ready() and not x9b_pending(s):
+            x9b_full(s, secondary=True)
+        save(s)
+        log(s, "queue pass finished (account 1: X9b only); open: " + ", ".join(open_models(s)))
+        return
     a1p(s, ["qwen3-8b", "ambari-7b-base"])                      # in flight / first: the A1-P pair
     x9b_pilot(s)                                                # (a) X9b pilot
     score(s, "qwen3-8b", 5.0)                                   # (b) whichever of the pair passed: X13 Qwen3-8B, then X12 Ambari-base
