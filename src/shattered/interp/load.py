@@ -19,6 +19,8 @@ MODELS = {
     "qwen2.5-1.5b": "Qwen/Qwen2.5-1.5B-Instruct",
     "qwen3.5-2b": "Qwen/Qwen3.5-2B",
     "gemma4-e2b": "google/gemma-4-E2B-it",
+    "llama-3.2-1b": "NousResearch/Llama-3.2-1B",  # X6 (deviation X6-D1: mirror of the gated meta-llama/Llama-3.2-1B)
+    "oro-1.7b": "ashtok897/oroZ-1.7B-Indic-v1",  # X6
     "sarvam-1": "sarvamai/sarvam-1",
     "qwen3-0.6b": "Qwen/Qwen3-0.6B",  # tests only
     # Phase 2 Kaggle models (X12, X13; loaded with device="auto" over 2 x T4)
