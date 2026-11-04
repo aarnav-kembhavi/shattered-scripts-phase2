@@ -45,6 +45,9 @@ def main() -> int:
     ap.add_argument("--model", default="qwen3-8b")
     a = ap.parse_args()
     st = json.load(open(REPO / "results" / "kaggle" / "queue_state.json"))
+    a2 = REPO / "results" / "kaggle" / "acct2" / "queue_state.json"  # models run on the second Kaggle account
+    if a2.exists():
+        st["mdl"] = {**json.load(open(a2)).get("mdl", {}), **st.get("mdl", {})}
     base = REPO / st["mdl"][a.model]["dir"]
     out = {"model": a.model, "this_model": summarize(load_forms(base)), "phase1_models": {}}
     for m in G.MODELS:

@@ -1,0 +1,111 @@
+{
+  "provenance": {
+    "config": {
+      "registration": "RESULTS.md Amendment 2, X13 (MDL run; reading = Phase 1 H3 text as in R4)"
+    },
+    "git_commit": "53bc40513889156346c6426a31df3d7d647d181d-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-04T23:52:31+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x13_mdl_analyse.py",
+      "--model",
+      "llama-3.1-8b"
+    ]
+  },
+  "model": "llama-3.1-8b",
+  "this_model": {
+    "n_layers": 32,
+    "mdl_detok_native": 4,
+    "mdl_detok_itrans": 2,
+    "itrans_minus_native": -2,
+    "ci95": [
+      -2.0,
+      -2.0
+    ],
+    "frac_depth_diff": -0.0625,
+    "tokens_per_word_native": 10.823333333333334,
+    "tokens_per_word_itrans": 3.233888888888889,
+    "tpw_difference_at_least_1": true,
+    "expected_sign_from_tpw": -1,
+    "ci_sign": -1,
+    "H3_pattern_met": true,
+    "n_words_occurrences": 9000
+  },
+  "phase1_models": {
+    "qwen2.5-1.5b": {
+      "n_layers": 28,
+      "mdl_detok_native": 4,
+      "mdl_detok_itrans": 1,
+      "itrans_minus_native": -3,
+      "ci95": [
+        -4.0,
+        -3.0
+      ],
+      "frac_depth_diff": -0.10714285714285714,
+      "tokens_per_word_native": 8.554,
+      "tokens_per_word_itrans": 3.243777777777778,
+      "tpw_difference_at_least_1": true,
+      "expected_sign_from_tpw": -1,
+      "ci_sign": -1,
+      "H3_pattern_met": true,
+      "n_words_occurrences": 9000
+    },
+    "qwen3.5-2b": {
+      "n_layers": 24,
+      "mdl_detok_native": 2,
+      "mdl_detok_itrans": 2,
+      "itrans_minus_native": 0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "frac_depth_diff": 0.0,
+      "tokens_per_word_native": 3.9,
+      "tokens_per_word_itrans": 3.1213333333333333,
+      "tpw_difference_at_least_1": false,
+      "expected_sign_from_tpw": -1,
+      "ci_sign": 0,
+      "H3_pattern_met": false,
+      "n_words_occurrences": 9000
+    },
+    "sarvam-1": {
+      "n_layers": 28,
+      "mdl_detok_native": 0,
+      "mdl_detok_itrans": 6,
+      "itrans_minus_native": 6,
+      "ci95": [
+        5.0,
+        7.0
+      ],
+      "frac_depth_diff": 0.21428571428571427,
+      "tokens_per_word_native": 1.1613333333333333,
+      "tokens_per_word_itrans": 3.94,
+      "tpw_difference_at_least_1": true,
+      "expected_sign_from_tpw": 1,
+      "ci_sign": 1,
+      "H3_pattern_met": true,
+      "n_words_occurrences": 9000
+    },
+    "gemma4-e2b": {
+      "n_layers": 35,
+      "mdl_detok_native": 1,
+      "mdl_detok_itrans": 3,
+      "itrans_minus_native": 2,
+      "ci95": [
+        1.0,
+        2.0
+      ],
+      "frac_depth_diff": 0.05714285714285714,
+      "tokens_per_word_native": 2.0535555555555556,
+      "tokens_per_word_itrans": 2.931,
+      "tpw_difference_at_least_1": false,
+      "expected_sign_from_tpw": 1,
+      "ci_sign": 1,
+      "H3_pattern_met": false,
+      "n_words_occurrences": 9000
+    }
+  }
+}

@@ -1,0 +1,58 @@
+=== 2026-11-05 05:09:55 X4 MDL scoring bn: env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x4_mdl.py score bn
+Traceback (most recent call last):
+  File "C:\PROJECTS\PROMPT\shattered-scripts\.venv\Lib\site-packages\huggingface_hub\utils\_http.py", line 836, in hf_raise_for_status
+    response.raise_for_status()
+  File "C:\PROJECTS\PROMPT\shattered-scripts\.venv\Lib\site-packages\httpx\_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '404 Not Found' for url 'https://huggingface.co/datasets/wikimedia/wikipedia/resolve/b04c8d1ceb2f5cd4588862100d08de323dccfbaa/20231101.bn/train-00000-of-00001.parquet'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\PROJECTS\PROMPT\shattered-scripts\scripts\x4_mdl.py", line 125, in <module>
+    score(sys.argv[2])
+  File "C:\PROJECTS\PROMPT\shattered-scripts\scripts\x4_mdl.py", line 79, in score
+    W = build(lang)
+        ^^^^^^^^^^^
+  File "C:\PROJECTS\PROMPT\shattered-scripts\scripts\x4_mdl.py", line 34, in build
+    arts = wikipedia(lang)
+           ^^^^^^^^^^^^^^^
+  File "C:\PROJECTS\PROMPT\shattered-scripts\src\shattered\data\corpora.py", line 36, in wikipedia
+    p = _download(WIKI_REPO, f"{dump}.{lang}/train-{shard}.parquet", WIKI_REV, f"wikipedia_{lang}")
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\PROJECTS\PROMPT\shattered-scripts\src\shattered\data\corpora.py", line 23, in _download
+    return Path(hf_hub_download(repo, filename, repo_type="dataset", revision=revision,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\PROJECTS\PROMPT\shattered-scripts\.venv\Lib\site-packages\huggingface_hub\utils\_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\PROJECTS\PROMPT\shattered-scripts\.venv\Lib\site-packages\huggingface_hub\utils\_http.py", line 266, in _inner
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\PROJECTS\PROMPT\shattered-scripts\.venv\Lib\site-packages\huggingface_hub\file_download.py", line 1026, in hf_hub_download
+    return _hf_hub_download_to_local_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\PROJECTS\PROMPT\shattered-scripts\.venv\Lib\site-packages\huggingface_hub\file_download.py", line 1366, in _hf_hub_download_to_local_dir
+    (url_to_download, etag, commit_hash, expected_size, xet_file_data, head_call_error) = _get_metadata_or_catch_error(
+                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\PROJECTS\PROMPT\shattered-scripts\.venv\Lib\site-packages\huggingface_hub\file_download.py", line 1762, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\PROJECTS\PROMPT\shattered-scripts\.venv\Lib\site-packages\huggingface_hub\utils\_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\PROJECTS\PROMPT\shattered-scripts\.venv\Lib\site-packages\huggingface_hub\file_download.py", line 1669, in get_hf_file_metadata
+    response = _httpx_follow_hub_redirects_with_backoff(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\PROJECTS\PROMPT\shattered-scripts\.venv\Lib\site-packages\huggingface_hub\utils\_http.py", line 761, in _httpx_follow_hub_redirects_with_backoff
+    hf_raise_for_status(response)
+  File "C:\PROJECTS\PROMPT\shattered-scripts\.venv\Lib\site-packages\huggingface_hub\utils\_http.py", line 856, in hf_raise_for_status
+    raise _format(RemoteEntryNotFoundError, message, response, repo_type=repo_type, repo_id=repo_id) from e
+huggingface_hub.errors.RemoteEntryNotFoundError: 404 Client Error. (Request ID: Root=1-6aebc250-0d87ad017ebed58b6a519e7d;fb4cddae-05a6-4de7-85ad-26f0f87f1c92)
+
+Entry Not Found for url: https://huggingface.co/datasets/wikimedia/wikipedia/resolve/b04c8d1ceb2f5cd4588862100d08de323dccfbaa/20231101.bn/train-00000-of-00001.parquet.
+=== 2026-11-05 05:11:59 X4 MDL scoring bn: env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x4_mdl.py score bn
+bn words 300 contexts 4260
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<01:17,  4.01it/s]Loading weights:   3%|▎         | 10/311 [00:00<00:08, 34.38it/s]Loading weights:   7%|▋         | 23/311 [00:00<00:04, 61.38it/s]Loading weights:  11%|█         | 33/311 [00:00<00:03, 71.38it/s]Loading weights:  14%|█▍        | 45/311 [00:00<00:03, 81.65it/s]Loading weights:  17%|█▋        | 54/311 [00:00<00:03, 77.01it/s]Loading weights:  21%|██        | 65/311 [00:00<00:02, 85.81it/s]Loading weights:  24%|██▍       | 76/311 [00:01<00:02, 86.85it/s]Loading weights:  28%|██▊       | 86/311 [00:01<00:02, 77.96it/s]Loading weights:  32%|███▏      | 99/311 [00:01<00:02, 88.03it/s]Loading weights:  35%|███▌      | 110/311 [00:01<00:02, 88.74it/s]Loading weights:  39%|███▊      | 120/311 [00:01<00:02, 88.02it/s]Loading weights:  42%|████▏     | 131/311 [00:01<00:02, 87.40it/s]Loading weights:  47%|████▋     | 145/311 [00:01<00:01, 97.00it/s]Loading weights:  50%|████▉     | 155/311 [00:01<00:01, 94.07it/s]Loading weights:  53%|█████▎    | 165/311 [00:02<00:01, 92.74it/s]Loading weights:  56%|█████▋    | 175/311 [00:02<00:01, 92.10it/s]Loading weights:  60%|██████    | 187/311 [00:02<00:01, 96.83it/s]Loading weights:  63%|██████▎   | 197/311 [00:02<00:01, 94.98it/s]Loading weights:  67%|██████▋   | 209/311 [00:02<00:01, 97.61it/s]Loading weights:  71%|███████   | 220/311 [00:02<00:00, 97.14it/s]Loading weights:  75%|███████▍  | 232/311 [00:02<00:00, 100.07it/s]Loading weights:  78%|███████▊  | 243/311 [00:02<00:00, 98.78it/s] Loading weights:  81%|████████▏ | 253/311 [00:02<00:00, 94.76it/s]Loading weights:  85%|████████▌ | 265/311 [00:03<00:00, 94.21it/s]Loading weights:  88%|████████▊ | 275/311 [00:03<00:00, 86.86it/s]Loading weights:  91%|█████████▏| 284/311 [00:03<00:00, 73.47it/s]Loading weights:  95%|█████████▍| 294/311 [00:03<00:00, 78.58it/s]Loading weights: 100%|██████████| 311/311 [00:03<00:00, 87.95it/s]
+bn qwen3-1.7b native detok layer 3 tokens/word 6.46 335s

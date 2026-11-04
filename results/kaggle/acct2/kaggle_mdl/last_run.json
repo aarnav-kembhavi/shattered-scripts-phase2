@@ -1,18 +1,17 @@
 {
  "job": "kaggle_mdl",
  "kernel": "ashwin18522/shattered-kaggle-mdl",
- "commit": "1fbe72df43b53939061a39977d8e012adcd66237",
+ "commit": "5c0388b26694f01949f88562409e8358e82bc307",
  "dirty": false,
  "args": [
   "--models",
-  "ambari-7b-instruct-v0.1",
-  "ambari-7b-instruct-v0.2"
+  "llama-3.1-8b"
  ],
- "start_utc": "2026-11-04T19:30:14.707265+00:00",
- "hours": 1.50456043071217,
+ "start_utc": "2026-11-04T22:54:15.791708+00:00",
+ "hours": 0.9598079515165753,
  "status": "ashwin18522/shattered-kaggle-mdl has status \"KernelWorkerStatus.COMPLETE\"",
  "accelerator": "NvidiaTeslaT4 (T4 x2)",
- "output_dir": "results\\kaggle\\acct2\\kaggle_mdl\\2026-11-04T193014",
+ "output_dir": "results\\kaggle\\acct2\\kaggle_mdl\\2026-11-04T225415",
  "hardware": null,
  "torch": null,
  "bf16_supported": null,
