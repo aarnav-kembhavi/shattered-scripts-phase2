@@ -1,6 +1,6 @@
 # Phase 2 registered outcomes: status ledger
 
-Last updated 2026-11-05 02:38 IST (system clock). Rows for other experiments are added when each reports its registered verdict word; no registered rule is changed.
+Last updated 2026-11-05 03:10 IST (system clock). Rows for other experiments are added when each reports its registered verdict word; no registered rule is changed.
 
 | Experiment | Registered outcome words | Status | Result or reason |
 |---|---|---|---|
@@ -19,3 +19,4 @@ Last updated 2026-11-05 02:38 IST (system clock). Rows for other experiments are
 | X9a-low (exposure 0.01 to 0.3 percent; exploratory, added after the X9a-R ceiling) | dose-response present / no dose-response | **complete: dose-response present** | Spearman 1.00 over six levels, mean(1%) minus mean(0.01%) = +0.951; retrieval 0.028 / 0.043 / 0.068 / 0.109 / 0.355 / 0.993; assembly layer flat (1.33) from 0.03%; level-0 retrieval on stripped text 0.009 (chance 0.004); X9a-R verdict unchanged |
 | X4 Bengali and Telugu, part 1 (counting rule and R1 on SIB-200) | supported / refuted per rule | **R1 supported in both languages (4 of 4 counted models, both contrasts)** | ITRANS-ladder, retrieval, MDL and K3b parts not built yet; nothing against a prediction |
 | X12 contrast 2 (Ambari-Instruct v0.1 vs v0.2, MDL layer, descriptive) | H3-style sign rule | **complete: pattern met** | native layer 4 (v0.1) vs 8 (v0.2), difference +4 [3, 5], matches the tokens-per-word sign; ITRANS control 0 [0, 1]; the two models are not a clean base-model-fixed pair (registered caveat) |
+| X9b primary (Sarvam-1, QLoRA continued pretraining at fixed tokenizer) | supported / partly / refuted per measure | **complete: supported on SIB-200 and on retrieval (D_N and D_E intervals above 0)** | SIB D_N +0.225 [0.177, 0.273], D_E +0.196 [0.150, 0.244]; retrieval D_N +0.337 [0.296, 0.378], D_E +0.391 [0.344, 0.435]; ITRANS training closed most of the gap; controls widened it; English-trained run flagged for -5 points on English; Qwen3.5-2B arm not run |
