@@ -1,0 +1,97 @@
+{
+  "provenance": {
+    "config": {
+      "note": "descriptive; stream length n_tokens + 1 = 126423041"
+    },
+    "git_commit": "7c964e8f305f9a77b917a4f7890545c239d3895b-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-04T15:13:16+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x9a_cipher_tokens.py"
+    ]
+  },
+  "0": {
+    "exposure_percent": 0.0,
+    "cipher_tokens_untruncated": 0,
+    "cipher_stories_consumed": 0,
+    "stories_consumed": 435911,
+    "stream_tokens": 126423041,
+    "cipher_token_share_of_stream": 0.0,
+    "last_story_is_cipher_so_count_may_exceed_by_less_than_one_story": false
+  },
+  "0p01": {
+    "exposure_percent": 0.01,
+    "cipher_tokens_untruncated": 14637,
+    "cipher_stories_consumed": 43,
+    "stories_consumed": 435908,
+    "stream_tokens": 126423041,
+    "cipher_token_share_of_stream": 0.00011577794588883525,
+    "last_story_is_cipher_so_count_may_exceed_by_less_than_one_story": false
+  },
+  "0p03": {
+    "exposure_percent": 0.03,
+    "cipher_tokens_untruncated": 42245,
+    "cipher_stories_consumed": 129,
+    "stories_consumed": 435898,
+    "stream_tokens": 126423041,
+    "cipher_token_share_of_stream": 0.0003341558600856627,
+    "last_story_is_cipher_so_count_may_exceed_by_less_than_one_story": false
+  },
+  "0p1": {
+    "exposure_percent": 0.1,
+    "cipher_tokens_untruncated": 137613,
+    "cipher_stories_consumed": 428,
+    "stories_consumed": 435864,
+    "stream_tokens": 126423041,
+    "cipher_token_share_of_stream": 0.001088512022108375,
+    "last_story_is_cipher_so_count_may_exceed_by_less_than_one_story": false
+  },
+  "0p3": {
+    "exposure_percent": 0.3,
+    "cipher_tokens_untruncated": 424425,
+    "cipher_stories_consumed": 1305,
+    "stories_consumed": 435758,
+    "stream_tokens": 126423041,
+    "cipher_token_share_of_stream": 0.0033571807531508437,
+    "last_story_is_cipher_so_count_may_exceed_by_less_than_one_story": false
+  },
+  "1": {
+    "exposure_percent": 1.0,
+    "cipher_tokens_untruncated": 1405615,
+    "cipher_stories_consumed": 4344,
+    "stories_consumed": 435402,
+    "stream_tokens": 126423041,
+    "cipher_token_share_of_stream": 0.01111834511242298,
+    "last_story_is_cipher_so_count_may_exceed_by_less_than_one_story": false
+  },
+  "5": {
+    "exposure_percent": 5.0,
+    "cipher_tokens_untruncated": 7011185,
+    "cipher_stories_consumed": 21634,
+    "stories_consumed": 433370,
+    "stream_tokens": 126423041,
+    "cipher_token_share_of_stream": 0.05545812649768486,
+    "last_story_is_cipher_so_count_may_exceed_by_less_than_one_story": false
+  },
+  "20": {
+    "exposure_percent": 20.0,
+    "cipher_tokens_untruncated": 27640583,
+    "cipher_stories_consumed": 85246,
+    "stories_consumed": 425916,
+    "stream_tokens": 126423041,
+    "cipher_token_share_of_stream": 0.21863564411490466,
+    "last_story_is_cipher_so_count_may_exceed_by_less_than_one_story": false
+  },
+  "50": {
+    "exposure_percent": 50.0,
+    "cipher_tokens_untruncated": 66714543,
+    "cipher_stories_consumed": 205952,
+    "stories_consumed": 411712,
+    "stream_tokens": 126423041,
+    "cipher_token_share_of_stream": 0.5277087346759837,
+    "last_story_is_cipher_so_count_may_exceed_by_less_than_one_story": false
+  }
+}

@@ -1,0 +1,16 @@
+model,task,english_raw_t1,english_avg3_t1,use_raw_t1,template_t1,english_raw_t3,english_avg3_t3,use_raw_t3,template_t3
+gemma4-e2b,sentiment,0.985,0.985,False,t1,0.98,0.98,False,t3
+gemma4-e2b,xnli,0.735,0.63,True,t1,0.645,0.64,False,t3
+qwen2.5-1.5b,sentiment,0.985,0.88,True,t1,0.51,0.49,False,t3
+qwen2.5-1.5b,xnli,0.795,0.825,False,t1,0.62,0.565,True,t3
+qwen3-1.7b,sentiment,0.985,0.985,False,t1,0.955,0.775,True,t3
+qwen3-1.7b,xnli,0.615,0.575,False,t1,0.335,0.365,False,t3
+qwen3.5-2b,sentiment,0.975,0.98,False,t1,0.73,0.815,False,t3
+qwen3.5-2b,xnli,0.43,0.49,False,t1,0.33,0.405,False,t3
+sarvam-1,sentiment,0.975,0.98,False,t1,0.77,0.955,False,t3
+sarvam-1,xnli,0.53,0.55,False,t1,0.55,0.475,True,t3
+gemma4-e2b,sib,0.8007968127490039,0.7938247011952191,False,t1,0.8107569721115537,0.8057768924302788,False,t3
+qwen2.5-1.5b,sib,0.7141434262948207,0.796812749003984,False,t1,0.7410358565737052,0.8247011952191236,False,t3
+qwen3-1.7b,sib,0.7848605577689243,0.7818725099601593,False,t1,0.750996015936255,0.7938247011952191,False,t3
+qwen3.5-2b,sib,0.7280876494023905,0.8037848605577689,False,t1,0.7798804780876494,0.7250996015936255,True,t3
+sarvam-1,sib,0.5737051792828686,0.7679282868525896,False,t1,0.5597609561752988,0.7460159362549801,False,t3
