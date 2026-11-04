@@ -1,0 +1,2140 @@
+{
+  "provenance": {
+    "config": {
+      "registration": "RESULTS.md X6 (screen first)",
+      "search_terms": [
+        "kannada",
+        "indic",
+        "indian languages",
+        "multilingual indic",
+        "sarvam",
+        "airavata",
+        "navarasa",
+        "gajendra",
+        "krutrim",
+        "llama-3.2-1b",
+        "gemma-2b-it indic"
+      ]
+    },
+    "git_commit": "3c30aeecc58b6b5b63d2e21c9c2e54f6647f969c-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-04T15:25:20+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x6_screen.py",
+      "stage1"
+    ]
+  },
+  "current_models": {
+    "qwen3-1.7b": {
+      "repo": "Qwen/Qwen3-1.7B",
+      "native": 11.836378052648271,
+      "itrans": 4.33929590865842,
+      "itrans_over_native": 0.36660673470864225
+    },
+    "qwen3.5-2b": {
+      "repo": "Qwen/Qwen3.5-2B",
+      "native": 5.328544243577546,
+      "itrans": 4.195147478591817,
+      "itrans_over_native": 0.7872971090834419
+    },
+    "sarvam-1": {
+      "repo": "sarvamai/sarvam-1",
+      "native": 2.390675547098002,
+      "itrans": 5.331303520456708,
+      "itrans_over_native": 2.230040595399188
+    },
+    "gemma4-e2b": {
+      "repo": "google/gemma-4-E2B",
+      "native": 3.2533460196638124,
+      "itrans": 4.029019980970504,
+      "itrans_over_native": 1.2384234436233887
+    }
+  },
+  "candidates": {
+    "Qwen/Qwen3-1.7B": {
+      "source": "current model",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": 2031739904,
+      "downloads": 4308255,
+      "tokenizer": "Qwen2Tokenizer",
+      "vocab_size": 151669,
+      "tpw": {
+        "native": 11.836378052648271,
+        "itrans": 4.33929590865842,
+        "itrans_over_native": 0.36660673470864225
+      }
+    },
+    "Qwen/Qwen3.5-2B": {
+      "source": "current model",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": 2274069824,
+      "downloads": 3388358,
+      "tokenizer": "Qwen3_5Tokenizer",
+      "vocab_size": 248077,
+      "tpw": {
+        "native": 5.328544243577546,
+        "itrans": 4.195147478591817,
+        "itrans_over_native": 0.7872971090834419
+      }
+    },
+    "sarvamai/sarvam-1": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": null,
+      "params": 2525087744,
+      "downloads": 6073,
+      "tokenizer": "LlamaTokenizer",
+      "vocab_size": 68096,
+      "tpw": {
+        "native": 2.390675547098002,
+        "itrans": 5.331303520456708,
+        "itrans_over_native": 2.230040595399188
+      },
+      "differs_20pct_from_every_current": false,
+      "fits_8gb_bf16_by_params": true
+    },
+    "google/gemma-4-E2B": {
+      "source": "current model",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": 5123178051,
+      "downloads": 127781,
+      "tokenizer": "GemmaTokenizer",
+      "vocab_size": 262144,
+      "tpw": {
+        "native": 3.2533460196638124,
+        "itrans": 4.029019980970504,
+        "itrans_over_native": 1.2384234436233887
+      }
+    },
+    "meta-llama/Llama-3.2-1B": {
+      "source": "named in the registration (base chosen: no instruction tuning, as the other accuracy models)",
+      "gated": "manual",
+      "license": "llama3.2",
+      "params": 1235814400,
+      "downloads": 485509,
+      "tokenizer_error": "OSError('You are trying to access a gated repo.\\nMake sure to have access to it at https://huggingface.co/meta-llama/Llama-3.2-1B.\\n403 Client Error. "
+    },
+    "dheeyantra/dhee-nxtgen-qwen3-kannada-v2": {
+      "source": "search: kannada",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": 1720574976,
+      "downloads": 77,
+      "tokenizer": "Qwen2Tokenizer",
+      "vocab_size": 151669,
+      "tpw": {
+        "native": 11.836378052648271,
+        "itrans": 4.33929590865842,
+        "itrans_over_native": 0.36660673470864225
+      },
+      "differs_20pct_from_every_current": false,
+      "fits_8gb_bf16_by_params": true
+    },
+    "prasadvittaldev/orpheus-kannada-male-qlora-v1": {
+      "source": "search: kannada",
+      "gated": false,
+      "license": null,
+      "params": 3300867072,
+      "downloads": 72,
+      "skipped": "3.3B parameters > 3.3B"
+    },
+    "nsloni/KannadaLM-10M": {
+      "source": "search: kannada",
+      "gated": false,
+      "license": null,
+      "params": 7321088,
+      "downloads": 47,
+      "tokenizer": "TokenizersBackend",
+      "vocab_size": 16000,
+      "tpw": {
+        "native": 1.8138915318744053,
+        "itrans": 8.201141769743101,
+        "itrans_over_native": 4.521296684851028
+      },
+      "differs_20pct_from_every_current": true,
+      "fits_8gb_bf16_by_params": true
+    },
+    "thanushtph/kannada-codet5": {
+      "source": "search: kannada",
+      "gated": false,
+      "license": null,
+      "params": 60492288,
+      "downloads": 35,
+      "tokenizer": "RobertaTokenizer",
+      "vocab_size": 32100,
+      "tpw": {
+        "native": 23.16466856961624,
+        "itrans": 5.032318426895021,
+        "itrans_over_native": 0.21724111492342363
+      },
+      "differs_20pct_from_every_current": true,
+      "fits_8gb_bf16_by_params": true
+    },
+    "abhi334/gemma-eng-to-kannada": {
+      "source": "search: kannada",
+      "gated": false,
+      "license": null,
+      "params": null,
+      "downloads": 22,
+      "tokenizer": "GemmaTokenizer",
+      "vocab_size": 256000,
+      "tpw": {
+        "native": 5.5644465588328575,
+        "itrans": 3.937266095781795,
+        "itrans_over_native": 0.7075755071332083
+      },
+      "differs_20pct_from_every_current": false,
+      "fits_8gb_bf16_by_params": false
+    },
+    "adithyal1998Bhat/indic_parler_Kannada-tts": {
+      "source": "search: kannada",
+      "gated": false,
+      "license": null,
+      "params": 937803241,
+      "downloads": 21,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "jayavibhav/Llama-2-Kannada": {
+      "source": "search: kannada",
+      "gated": false,
+      "license": null,
+      "params": 6738415616,
+      "downloads": 20,
+      "skipped": "6.7B parameters > 3.3B"
+    },
+    "gnumanth/gemma-kannada": {
+      "source": "search: kannada",
+      "gated": false,
+      "license": null,
+      "params": 8537680896,
+      "downloads": 18,
+      "skipped": "8.5B parameters > 3.3B"
+    },
+    "AsphyXIA/baarat-kannada-instruct-0.1": {
+      "source": "search: kannada",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": 6867668992,
+      "downloads": 15,
+      "skipped": "6.9B parameters > 3.3B"
+    },
+    "Lingarajuyadav/gemma3_270m_kannada_merged": {
+      "source": "search: kannada",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": 268098176,
+      "downloads": 15,
+      "tokenizer": "GemmaTokenizer",
+      "vocab_size": 262145,
+      "tpw": {
+        "native": 3.2533460196638124,
+        "itrans": 4.029019980970504,
+        "itrans_over_native": 1.2384234436233887
+      },
+      "differs_20pct_from_every_current": false,
+      "fits_8gb_bf16_by_params": true
+    },
+    "AsphyXIA/baarat-kannada-pretrained": {
+      "source": "search: kannada",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": 6867668992,
+      "downloads": 14,
+      "skipped": "6.9B parameters > 3.3B"
+    },
+    "deepakkarkala/gemma3-1b-sft-kannada-general-float16": {
+      "source": "search: kannada",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": 999885952,
+      "downloads": 14,
+      "tokenizer": "GemmaTokenizer",
+      "vocab_size": 262145,
+      "tpw": {
+        "native": 3.2533460196638124,
+        "itrans": 4.029019980970504,
+        "itrans_over_native": 1.2384234436233887
+      },
+      "differs_20pct_from_every_current": false,
+      "fits_8gb_bf16_by_params": true
+    },
+    "jayavibhav/gemma-Instruct-Finetune-Kannada-v1": {
+      "source": "search: kannada",
+      "gated": false,
+      "license": null,
+      "params": 2506172416,
+      "downloads": 13,
+      "tokenizer": "GemmaTokenizer",
+      "vocab_size": 256000,
+      "tpw": {
+        "native": 5.5644465588328575,
+        "itrans": 3.937266095781795,
+        "itrans_over_native": 0.7075755071332083
+      },
+      "differs_20pct_from_every_current": false,
+      "fits_8gb_bf16_by_params": true
+    },
+    "pavan-naik/gpt2-kannada-base-v1": {
+      "source": "search: kannada",
+      "gated": false,
+      "license": null,
+      "params": 124439808,
+      "downloads": 13,
+      "tokenizer": "GPT2Tokenizer",
+      "vocab_size": 50257,
+      "tpw": {
+        "native": 22.744624167459563,
+        "itrans": 4.500570884871551,
+        "itrans_over_native": 0.19787404934615094
+      },
+      "differs_20pct_from_every_current": true,
+      "fits_8gb_bf16_by_params": true
+    },
+    "Mithun501/KannadaGPT-0.6B": {
+      "source": "search: kannada",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": null,
+      "downloads": 13,
+      "tokenizer": "Qwen2Tokenizer",
+      "vocab_size": 151669,
+      "tpw": {
+        "native": 11.836378052648271,
+        "itrans": 4.33929590865842,
+        "itrans_over_native": 0.36660673470864225
+      },
+      "differs_20pct_from_every_current": false,
+      "fits_8gb_bf16_by_params": false
+    },
+    "AsphyXIA/baarat-MOE-Kannada-v0.1": {
+      "source": "search: kannada",
+      "gated": false,
+      "license": null,
+      "params": 19853758464,
+      "downloads": 12,
+      "skipped": "19.9B parameters > 3.3B"
+    },
+    "jayavibhav/gemma-it-Kannada-v01": {
+      "source": "search: kannada",
+      "gated": false,
+      "license": null,
+      "params": 2506172416,
+      "downloads": 12,
+      "tokenizer": "GemmaTokenizer",
+      "vocab_size": 256000,
+      "tpw": {
+        "native": 5.5644465588328575,
+        "itrans": 3.937266095781795,
+        "itrans_over_native": 0.7075755071332083
+      },
+      "differs_20pct_from_every_current": false,
+      "fits_8gb_bf16_by_params": true
+    },
+    "jayavibhav/gemma-2b-it-kannada-Eng": {
+      "source": "search: kannada",
+      "gated": false,
+      "license": null,
+      "params": 2506172416,
+      "downloads": 12,
+      "tokenizer": "GemmaTokenizer",
+      "vocab_size": 256000,
+      "tpw": {
+        "native": 5.5644465588328575,
+        "itrans": 3.937266095781795,
+        "itrans_over_native": 0.7075755071332083
+      },
+      "differs_20pct_from_every_current": false,
+      "fits_8gb_bf16_by_params": true
+    },
+    "manjunathshiva/kannada_llama3_8b": {
+      "source": "search: kannada",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": 8030261248,
+      "downloads": 12,
+      "skipped": "8.0B parameters > 3.3B"
+    },
+    "Manasa-2004/dialoGPT-kannada-hindi": {
+      "source": "search: kannada",
+      "gated": false,
+      "license": "mit",
+      "params": 354823168,
+      "downloads": 12,
+      "tokenizer": "GPT2Tokenizer",
+      "vocab_size": 50257,
+      "tpw": {
+        "native": 22.744624167459563,
+        "itrans": 4.500570884871551,
+        "itrans_over_native": 0.19787404934615094
+      },
+      "differs_20pct_from_every_current": true,
+      "fits_8gb_bf16_by_params": true
+    },
+    "jayavibhav/gemma-it-Kannada-Translation": {
+      "source": "search: kannada",
+      "gated": false,
+      "license": null,
+      "params": 2506172416,
+      "downloads": 11,
+      "tokenizer": "GemmaTokenizer",
+      "vocab_size": 256000,
+      "tpw": {
+        "native": 5.5644465588328575,
+        "itrans": 3.937266095781795,
+        "itrans_over_native": 0.7075755071332083
+      },
+      "differs_20pct_from_every_current": false,
+      "fits_8gb_bf16_by_params": true
+    },
+    "charanhu/llama-3-2-3b-instruct-kannada": {
+      "source": "search: kannada",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": null,
+      "downloads": 11,
+      "tokenizer": "TokenizersBackend",
+      "vocab_size": 128256,
+      "tpw": {
+        "native": 14.895623215984777,
+        "itrans": 4.291373295274342,
+        "itrans_over_native": 0.28809625707162
+      },
+      "differs_20pct_from_every_current": true,
+      "fits_8gb_bf16_by_params": false
+    },
+    "AbhiDS16/kannada-gpt2-32m": {
+      "source": "search: kannada",
+      "gated": false,
+      "license": "mit",
+      "params": 31626240,
+      "downloads": 11,
+      "tokenizer": "TokenizersBackend",
+      "vocab_size": 12000,
+      "tpw": {
+        "native": 2.014430700919759,
+        "itrans": 6.710244211861719,
+        "itrans_over_native": 3.331087144768952
+      },
+      "differs_20pct_from_every_current": true,
+      "fits_8gb_bf16_by_params": true
+    },
+    "projectbaraat/kannada-QA-0.1": {
+      "source": "search: kannada",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": 6867668992,
+      "downloads": 10,
+      "skipped": "6.9B parameters > 3.3B"
+    },
+    "projectbaraat/kannada-math-0.1": {
+      "source": "search: kannada",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": 6867668992,
+      "downloads": 10,
+      "skipped": "6.9B parameters > 3.3B"
+    },
+    "FoundryAILabs/bharat-kannada-7b-lora": {
+      "source": "search: kannada",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": null,
+      "downloads": 10,
+      "tokenizer": "TokenizersBackend",
+      "vocab_size": 32768,
+      "tpw": {
+        "native": 11.649444973041549,
+        "itrans": 4.685061845861084,
+        "itrans_over_native": 0.4021703915253452
+      },
+      "differs_20pct_from_every_current": false,
+      "fits_8gb_bf16_by_params": false
+    },
+    "vaibhav-mugulavalli-2004/gemma-3-4b-kannada-CPT-LoRA": {
+      "source": "search: kannada",
+      "gated": false,
+      "license": null,
+      "params": null,
+      "downloads": 10,
+      "tokenizer": "GemmaTokenizer",
+      "vocab_size": 262145,
+      "tpw": {
+        "native": 3.2533460196638124,
+        "itrans": 4.029019980970504,
+        "itrans_over_native": 1.2384234436233887
+      },
+      "differs_20pct_from_every_current": false,
+      "fits_8gb_bf16_by_params": false
+    },
+    "pulipakav-1/dravidian-gpt2-kannada": {
+      "source": "search: kannada",
+      "gated": "manual",
+      "license": "mit",
+      "params": 110418432,
+      "downloads": 10,
+      "tokenizer_error": "OSError('You are trying to access a gated repo.\\nMake sure to have access to it at https://huggingface.co/pulipakav-1/dravidian-gpt2-kannada.\\n403 Cli"
+    },
+    "Prashantmdgl9/kannada_llama_v1": {
+      "source": "search: kannada",
+      "gated": false,
+      "license": null,
+      "params": 6881120256,
+      "downloads": 9,
+      "skipped": "6.9B parameters > 3.3B"
+    },
+    "Darshan03/Kannada_FT-v1": {
+      "source": "search: kannada",
+      "gated": false,
+      "license": null,
+      "params": null,
+      "downloads": 9,
+      "tokenizer": "Qwen2Tokenizer",
+      "vocab_size": 151665,
+      "tpw": {
+        "native": 11.836378052648271,
+        "itrans": 4.33929590865842,
+        "itrans_over_native": 0.36660673470864225
+      },
+      "differs_20pct_from_every_current": false,
+      "fits_8gb_bf16_by_params": false
+    },
+    "deepakkarkala/gemma3-1b-sft-kannada-physics-float16": {
+      "source": "search: kannada",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": 999885952,
+      "downloads": 8,
+      "tokenizer": "GemmaTokenizer",
+      "vocab_size": 262145,
+      "tpw": {
+        "native": 3.2533460196638124,
+        "itrans": 4.029019980970504,
+        "itrans_over_native": 1.2384234436233887
+      },
+      "differs_20pct_from_every_current": false,
+      "fits_8gb_bf16_by_params": true
+    },
+    "prasadvittaldev/orpheus-kannada-female-qlora-v1": {
+      "source": "search: kannada",
+      "gated": false,
+      "license": null,
+      "params": 3300867072,
+      "downloads": 8,
+      "skipped": "3.3B parameters > 3.3B"
+    },
+    "Aditya1947/Kannada_Finetuned_LLama": {
+      "source": "search: kannada",
+      "gated": false,
+      "license": null,
+      "params": null,
+      "downloads": 7,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "MeghanaKap/kannada_lora_adapters": {
+      "source": "search: kannada",
+      "gated": false,
+      "license": null,
+      "params": null,
+      "downloads": 7,
+      "tokenizer": "Qwen2Tokenizer",
+      "vocab_size": 165158,
+      "tpw": {
+        "native": 11.836378052648271,
+        "itrans": 4.33929590865842,
+        "itrans_over_native": 0.36660673470864225
+      },
+      "differs_20pct_from_every_current": false,
+      "fits_8gb_bf16_by_params": false
+    },
+    "vaibhav-mugulavalli-2004/gemma-3-4B-it-kannada-CPT-LoRA": {
+      "source": "search: kannada",
+      "gated": false,
+      "license": null,
+      "params": null,
+      "downloads": 6,
+      "tokenizer": "GemmaTokenizer",
+      "vocab_size": 262145,
+      "tpw": {
+        "native": 3.2533460196638124,
+        "itrans": 4.029019980970504,
+        "itrans_over_native": 1.2384234436233887
+      },
+      "differs_20pct_from_every_current": false,
+      "fits_8gb_bf16_by_params": false
+    },
+    "MT03/gemma_only_finetune_kannada": {
+      "source": "search: kannada",
+      "gated": false,
+      "license": null,
+      "params": null,
+      "downloads": 2,
+      "tokenizer": "GemmaTokenizer",
+      "vocab_size": 256000,
+      "tpw": {
+        "native": 5.5644465588328575,
+        "itrans": 3.937266095781795,
+        "itrans_over_native": 0.7075755071332083
+      },
+      "differs_20pct_from_every_current": false,
+      "fits_8gb_bf16_by_params": false
+    },
+    "projectbaraat/kannada-pretrained-0.1": {
+      "source": "search: kannada",
+      "gated": "auto",
+      "license": "apache-2.0",
+      "params": 6867668992,
+      "downloads": 0,
+      "skipped": "6.9B parameters > 3.3B"
+    },
+    "projectbaraat/kannada-translation-0.1": {
+      "source": "search: kannada",
+      "gated": "auto",
+      "license": "apache-2.0",
+      "params": 6867668992,
+      "downloads": 0,
+      "skipped": "6.9B parameters > 3.3B"
+    },
+    "projectbaraat/kannada-instruct-0.1": {
+      "source": "search: kannada",
+      "gated": "auto",
+      "license": "apache-2.0",
+      "params": 6867668992,
+      "downloads": 0,
+      "skipped": "6.9B parameters > 3.3B"
+    },
+    "imanjunathn/Llama-3.2-1B-Kannada-Tokenizer": {
+      "source": "search: kannada",
+      "gated": "auto",
+      "license": "mit",
+      "params": null,
+      "downloads": 0,
+      "tokenizer_error": "OSError('You are trying to access a gated repo.\\nMake sure to have access to it at https://huggingface.co/imanjunathn/Llama-3.2-1B-Kannada-Tokenizer.\\"
+    },
+    "ai4bharat/IndicGPT": {
+      "source": "search: indic",
+      "gated": false,
+      "license": "mit",
+      "params": null,
+      "downloads": 379,
+      "tokenizer": "AlbertTokenizer",
+      "vocab_size": 64015,
+      "tpw": {
+        "native": 2.191849032667301,
+        "itrans": 5.311734855692991,
+        "itrans_over_native": 2.4234036087919084
+      },
+      "differs_20pct_from_every_current": false,
+      "fits_8gb_bf16_by_params": false
+    },
+    "Telugu-LLM-Labs/Indic-gemma-7b-finetuned-sft-Navarasa-2.0": {
+      "source": "search: indic",
+      "gated": false,
+      "license": "other",
+      "params": 8537680896,
+      "downloads": 371,
+      "skipped": "8.5B parameters > 3.3B"
+    },
+    "l3cube-pune/IndicGuard": {
+      "source": "search: indic",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": null,
+      "downloads": 250,
+      "tokenizer": "GemmaTokenizer",
+      "vocab_size": 262145,
+      "tpw": {
+        "native": 3.2533460196638124,
+        "itrans": 4.029019980970504,
+        "itrans_over_native": 1.2384234436233887
+      },
+      "differs_20pct_from_every_current": false,
+      "fits_8gb_bf16_by_params": false
+    },
+    "Telugu-LLM-Labs/Indic-gemma-2b-finetuned-sft-Navarasa-2.0-gguf": {
+      "source": "search: indic",
+      "gated": false,
+      "license": "other",
+      "params": null,
+      "downloads": 213,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "Telugu-LLM-Labs/Indic-gemma-2b-finetuned-sft-Navarasa-2.0": {
+      "source": "search: indic",
+      "gated": false,
+      "license": "other",
+      "params": 2506172416,
+      "downloads": 189,
+      "tokenizer": "GemmaTokenizer",
+      "vocab_size": 256000,
+      "tpw": {
+        "native": 5.5644465588328575,
+        "itrans": 3.937266095781795,
+        "itrans_over_native": 0.7075755071332083
+      },
+      "differs_20pct_from_every_current": false,
+      "fits_8gb_bf16_by_params": true
+    },
+    "Telugu-LLM-Labs/Indic-gemma-7b-finetuned-sft-Navarasa-2.0-gguf": {
+      "source": "search: indic",
+      "gated": false,
+      "license": "other",
+      "params": null,
+      "downloads": 130,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "tensorblock/Indic-gemma-7b-finetuned-sft-Navarasa-2.0-GGUF": {
+      "source": "search: indic",
+      "gated": false,
+      "license": "other",
+      "params": null,
+      "downloads": 128,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "ashtok897/oroZ-1.7B-Indic-v1": {
+      "source": "search: indic",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": 2032264192,
+      "downloads": 122,
+      "tokenizer": "Qwen2Tokenizer",
+      "vocab_size": 152012,
+      "tpw": {
+        "native": 4.160260069774818,
+        "itrans": 4.211195686647637,
+        "itrans_over_native": 1.0122433732551668
+      },
+      "differs_20pct_from_every_current": true,
+      "fits_8gb_bf16_by_params": true
+    },
+    "sulabhkatiyar/en-indic-translate-4b-GGUF": {
+      "source": "search: indic",
+      "gated": false,
+      "license": "gemma",
+      "params": null,
+      "downloads": 109,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "guldasta/indic-gpt2-Hindi_Gen": {
+      "source": "search: indic",
+      "gated": false,
+      "license": null,
+      "params": 458670080,
+      "downloads": 103,
+      "tokenizer": "MBartTokenizer",
+      "vocab_size": 250054,
+      "tpw": {
+        "native": 2.600919758959721,
+        "itrans": 4.051252775134793,
+        "itrans_over_native": 1.5576231297328278
+      },
+      "differs_20pct_from_every_current": true,
+      "fits_8gb_bf16_by_params": true
+    },
+    "sanchitahuja205/xelm-gemma-4b-indic-window-10-16-freeze": {
+      "source": "search: indic",
+      "gated": false,
+      "license": "gemma",
+      "params": 3880263168,
+      "downloads": 97,
+      "skipped": "3.9B parameters > 3.3B"
+    },
+    "Atharva31/indicslm-from-scratch": {
+      "source": "search: indic",
+      "gated": false,
+      "license": null,
+      "params": null,
+      "downloads": 94,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "sanchitahuja205/xelm-gemma-4b-indic-window-10-16-l2sp": {
+      "source": "search: indic",
+      "gated": false,
+      "license": "gemma",
+      "params": 3880263168,
+      "downloads": 89,
+      "skipped": "3.9B parameters > 3.3B"
+    },
+    "sanchitahuja205/xelm-gemma-4b-indic-early-window-freeze": {
+      "source": "search: indic",
+      "gated": false,
+      "license": "gemma",
+      "params": 3880263168,
+      "downloads": 72,
+      "skipped": "3.9B parameters > 3.3B"
+    },
+    "dheeyantra/dhee-nxtgen-qwen3-indic": {
+      "source": "search: indic",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": 4022468096,
+      "downloads": 71,
+      "skipped": "4.0B parameters > 3.3B"
+    },
+    "sanchitahuja205/xelm-gemma-4b-indic-early-window-l2sp": {
+      "source": "search: indic",
+      "gated": false,
+      "license": "gemma",
+      "params": 3880263168,
+      "downloads": 64,
+      "skipped": "3.9B parameters > 3.3B"
+    },
+    "adithyal1998Bhat/indic_parler_telugu-tts": {
+      "source": "search: indic",
+      "gated": false,
+      "license": null,
+      "params": 937803241,
+      "downloads": 59,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "tensorblock/Indic-gemma-2b-finetuned-sft-Navarasa-2.0-GGUF": {
+      "source": "search: indic",
+      "gated": false,
+      "license": "other",
+      "params": null,
+      "downloads": 58,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "sulabhkatiyar/en-indic-translate-2b-GGUF": {
+      "source": "search: indic",
+      "gated": false,
+      "license": "gemma",
+      "params": null,
+      "downloads": 55,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "shinigamiRaj/IndicVedas": {
+      "source": "search: indic",
+      "gated": false,
+      "license": "other",
+      "params": 14770033664,
+      "downloads": 48,
+      "skipped": "14.8B parameters > 3.3B"
+    },
+    "Rucha-Ambaliya/mt5-small-indic-gec": {
+      "source": "search: indic",
+      "gated": false,
+      "license": "mit",
+      "params": 300176768,
+      "downloads": 45,
+      "tokenizer": "T5Tokenizer",
+      "vocab_size": 250100,
+      "tpw": {
+        "native": 3.003615604186489,
+        "itrans": 4.072407231208373,
+        "itrans_over_native": 1.3558350228079066
+      },
+      "differs_20pct_from_every_current": false,
+      "fits_8gb_bf16_by_params": true
+    },
+    "prash616/Indica-1.7B-GGUF": {
+      "source": "search: indic",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": null,
+      "downloads": 45,
+      "tokenizer": "Qwen2Tokenizer",
+      "vocab_size": 1,
+      "tokenizer_error": "ZeroDivisionError('float division by zero')"
+    },
+    "featherless-ai-quants/Telugu-LLM-Labs-Indic-gemma-2b-finetuned-sft-Navarasa-2.0-GGUF": {
+      "source": "search: indic",
+      "gated": false,
+      "license": null,
+      "params": null,
+      "downloads": 41,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "hariharasudhan/en-indic-translate-26b": {
+      "source": "search: indic",
+      "gated": false,
+      "license": "gemma",
+      "params": 25805933872,
+      "downloads": 37,
+      "skipped": "25.8B parameters > 3.3B"
+    },
+    "sam2ai/DeepSeek-R1-Distill-Qwen-7B-Multilingual-indic": {
+      "source": "search: indic",
+      "gated": false,
+      "license": "other",
+      "params": 7615616512,
+      "downloads": 36,
+      "skipped": "7.6B parameters > 3.3B"
+    },
+    "AdvRahul/Axion-Pro-Indic-24B": {
+      "source": "search: indic",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": null,
+      "downloads": 36,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "sivakgp/fine-tuned-indic-parler-on-hindi-audio-book-voice": {
+      "source": "search: indic",
+      "gated": false,
+      "license": null,
+      "params": 937803241,
+      "downloads": 33,
+      "tokenizer": "LlamaTokenizer",
+      "vocab_size": 90714,
+      "tpw": {
+        "native": 2.8252140818268314,
+        "itrans": 4.687377101173485,
+        "itrans_over_native": 1.659122801109128
+      },
+      "differs_20pct_from_every_current": true,
+      "fits_8gb_bf16_by_params": true
+    },
+    "SandLogicTechnologies/IndicPhi-mini": {
+      "source": "search: indic",
+      "gated": false,
+      "license": "mit",
+      "params": 7647632704,
+      "downloads": 30,
+      "skipped": "7.6B parameters > 3.3B"
+    },
+    "aiplanet/buddhi-indic": {
+      "source": "search: indic",
+      "gated": false,
+      "license": null,
+      "params": 9241705984,
+      "downloads": 28,
+      "skipped": "9.2B parameters > 3.3B"
+    },
+    "aashay96/indic-gpt": {
+      "source": "search: indic",
+      "gated": false,
+      "license": "mit",
+      "params": null,
+      "downloads": 27,
+      "tokenizer": "TokenizersBackend",
+      "vocab_size": 60000,
+      "tpw": {
+        "native": 6.116365366317792,
+        "itrans": 4.506818902632413,
+        "itrans_over_native": 0.7368459260872496
+      },
+      "differs_20pct_from_every_current": false,
+      "fits_8gb_bf16_by_params": false
+    },
+    "IndicRAGware/mistral-hindi-qlora-RAG-7b": {
+      "source": "search: indic",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": null,
+      "downloads": 24,
+      "tokenizer": "LlamaTokenizer",
+      "vocab_size": 32000,
+      "tpw": {
+        "native": 11.649444973041549,
+        "itrans": 4.685061845861084,
+        "itrans_over_native": 0.4021703915253452
+      },
+      "differs_20pct_from_every_current": false,
+      "fits_8gb_bf16_by_params": false
+    },
+    "sivakgp/fine_tuned_indic-parler-own-voice-1h": {
+      "source": "search: indic",
+      "gated": false,
+      "license": null,
+      "params": 937803241,
+      "downloads": 23,
+      "tokenizer": "LlamaTokenizer",
+      "vocab_size": 90714,
+      "tpw": {
+        "native": 2.8252140818268314,
+        "itrans": 4.687377101173485,
+        "itrans_over_native": 1.659122801109128
+      },
+      "differs_20pct_from_every_current": true,
+      "fits_8gb_bf16_by_params": true
+    },
+    "bawsi99/indicators-grpo-qwen7b": {
+      "source": "search: indic",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": null,
+      "downloads": 23,
+      "tokenizer": "Qwen2Tokenizer",
+      "vocab_size": 151665,
+      "tpw": {
+        "native": 11.836378052648271,
+        "itrans": 4.33929590865842,
+        "itrans_over_native": 0.36660673470864225
+      },
+      "differs_20pct_from_every_current": false,
+      "fits_8gb_bf16_by_params": false
+    },
+    "autopilot-ai/Indic-sentence-completion": {
+      "source": "search: indic",
+      "gated": false,
+      "license": null,
+      "params": 3002557440,
+      "downloads": 22,
+      "tokenizer": "TokenizersBackend",
+      "vocab_size": 250680,
+      "tpw": {
+        "native": 2.2309863621947352,
+        "itrans": 4.106565176022835,
+        "itrans_over_native": 1.8406948807983736
+      },
+      "differs_20pct_from_every_current": false,
+      "fits_8gb_bf16_by_params": true
+    },
+    "IndicRAGware/mistral-hindi-RAG-7b": {
+      "source": "search: indic",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": 7241732096,
+      "downloads": 22,
+      "skipped": "7.2B parameters > 3.3B"
+    },
+    "CoRover/BharatGPT-3B-Indic": {
+      "source": "search: indic",
+      "gated": "manual",
+      "license": "other",
+      "params": 3212749824,
+      "downloads": 22,
+      "tokenizer_error": "OSError('You are trying to access a gated repo.\\nMake sure to have access to it at https://huggingface.co/CoRover/BharatGPT-3B-Indic.\\n403 Client Erro"
+    },
+    "shyamsn97/pretrained-mario-gpt-420ctx-BERT-all-indices": {
+      "source": "search: indic",
+      "gated": false,
+      "license": null,
+      "params": null,
+      "downloads": 21,
+      "tokenizer": "GPT2Tokenizer",
+      "vocab_size": 50257,
+      "tpw": {
+        "native": 22.744624167459563,
+        "itrans": 4.500570884871551,
+        "itrans_over_native": 0.19787404934615094
+      },
+      "differs_20pct_from_every_current": true,
+      "fits_8gb_bf16_by_params": false
+    },
+    "sivakgp/fine_tuned_indic-parler-own-voice-1h01": {
+      "source": "search: indic",
+      "gated": false,
+      "license": null,
+      "params": 937803241,
+      "downloads": 21,
+      "tokenizer": "LlamaTokenizer",
+      "vocab_size": 90714,
+      "tpw": {
+        "native": 2.8252140818268314,
+        "itrans": 4.687377101173485,
+        "itrans_over_native": 1.659122801109128
+      },
+      "differs_20pct_from_every_current": true,
+      "fits_8gb_bf16_by_params": true
+    },
+    "ucla-cmllab/tinyllama-sft-vicuna-processed-indicator-0.6": {
+      "source": "search: indic",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": 1100056576,
+      "downloads": 20,
+      "tokenizer": "LlamaTokenizer",
+      "vocab_size": 32002,
+      "tpw": {
+        "native": 20.82756105296543,
+        "itrans": 4.687377101173485,
+        "itrans_over_native": 0.2250564571268462
+      },
+      "differs_20pct_from_every_current": true,
+      "fits_8gb_bf16_by_params": true
+    },
+    "PrashantKhairnar/gemma-7b-Indic-Multilingual": {
+      "source": "search: multilingual indic",
+      "gated": false,
+      "license": "gemma",
+      "params": 8537680896,
+      "downloads": 16,
+      "skipped": "8.5B parameters > 3.3B"
+    },
+    "MISHANM/meta-Llama-3.1-8B-Instruct_reasoning-multilingual-R1-indic-train": {
+      "source": "search: multilingual indic",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": 8030261248,
+      "downloads": 12,
+      "skipped": "8.0B parameters > 3.3B"
+    },
+    "sarvamai/sarvam-105b": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": 106031767424,
+      "downloads": 6256,
+      "skipped": "106.0B parameters > 3.3B"
+    },
+    "sarvamai/sarvam-30b": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": 32152650368,
+      "downloads": 4749,
+      "skipped": "32.2B parameters > 3.3B"
+    },
+    "sarvamai/sarvam-m": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": 23572403200,
+      "downloads": 4388,
+      "skipped": "23.6B parameters > 3.3B"
+    },
+    "Aaravomega/sarvam-30b-GGUF-IQ2_M-IQ1_M": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": null,
+      "downloads": 2662,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "sarvamai/sarvam-30b-fp8": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": 32152650368,
+      "downloads": 2625,
+      "skipped": "32.2B parameters > 3.3B"
+    },
+    "Aaravomega/sarvam-105b-GGUF-IQ2_M-IQ1_M": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": null,
+      "downloads": 2195,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "DevQuasar/sarvamai.sarvam-30b-GGUF": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": null,
+      "params": null,
+      "downloads": 1896,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "sarvamai/OpenHathi-7B-Hi-v0.1-Base": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": "llama2",
+      "params": 6870011904,
+      "downloads": 1576,
+      "skipped": "6.9B parameters > 3.3B"
+    },
+    "bartowski/sarvam-1-GGUF": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": null,
+      "params": null,
+      "downloads": 1400,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "sarvamai/sarvam-1-v0.5": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": "other",
+      "params": 2508834816,
+      "downloads": 1317,
+      "tokenizer": "LlamaTokenizer",
+      "vocab_size": 64128,
+      "tpw": {
+        "native": 2.390675547098002,
+        "itrans": 5.331303520456708,
+        "itrans_over_native": 2.230040595399188
+      },
+      "differs_20pct_from_every_current": false,
+      "fits_8gb_bf16_by_params": true
+    },
+    "bartowski/sarvamai_sarvam-m-GGUF": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": null,
+      "downloads": 1238,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "sarvamai/sarvam-30b-gguf": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": null,
+      "downloads": 806,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "sarvamai/sarvam-105b-fp8": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": 106031767424,
+      "downloads": 433,
+      "skipped": "106.0B parameters > 3.3B"
+    },
+    "vennyvirtuoso/sarvam-1-hindi-marathi": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": 2525087744,
+      "downloads": 414,
+      "tokenizer": "LlamaTokenizer",
+      "vocab_size": 68096,
+      "tpw": {
+        "native": 2.390675547098002,
+        "itrans": 5.331303520456708,
+        "itrans_over_native": 2.230040595399188
+      },
+      "differs_20pct_from_every_current": false,
+      "fits_8gb_bf16_by_params": true
+    },
+    "sarvamai/sarvam-105b-gguf": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": null,
+      "downloads": 212,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "lmstudio-community/sarvam-m-GGUF": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": null,
+      "downloads": 207,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "kingjones777/Sarvam-30B-ROCmFP4-GGUF": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": null,
+      "downloads": 164,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "Aaravomega/sarvam-105b-GGUF-Q8_0": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": null,
+      "downloads": 163,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "QuantTrio/sarvam-105b-AWQ": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": null,
+      "params": 18759662906,
+      "downloads": 162,
+      "skipped": "18.8B parameters > 3.3B"
+    },
+    "DevQuasar/sarvamai.sarvam-m-GGUF": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": null,
+      "params": null,
+      "downloads": 135,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "Reinforce-ai/sarvam-30b-Spiral": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": null,
+      "downloads": 125,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "QuantTrio/sarvam-30b-AWQ": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": null,
+      "params": 6815594732,
+      "downloads": 121,
+      "skipped": "6.8B parameters > 3.3B"
+    },
+    "mtrajan/sarvam-30b-GGUF": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": null,
+      "downloads": 114,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "RedHatAI/sarvam-105b-FP8-dynamic": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": 106065631104,
+      "downloads": 113,
+      "skipped": "106.1B parameters > 3.3B"
+    },
+    "aoxo/sarvam-30b-uncensored": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": 32152650368,
+      "downloads": 110,
+      "skipped": "32.2B parameters > 3.3B"
+    },
+    "DevQuasar-3/sarvamai.sarvam-1-GGUF": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": null,
+      "params": null,
+      "downloads": 109,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "eagiv/sarvam-legal-lora": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": null,
+      "params": 23664808960,
+      "downloads": 106,
+      "skipped": "23.7B parameters > 3.3B"
+    },
+    "Aaravomega/sarvam-30b-GGUF-IQ2_S-surgical": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": null,
+      "downloads": 103,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "limegreenpeper1/sarvam-105B-GGUF": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": null,
+      "downloads": 97,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "ganmoor-ai-labs/krishi-sathi-sarvam-2b-multilingual": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": "other",
+      "params": null,
+      "downloads": 90,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "ThatCultivator/sarvam-30b-Uncensored-gguf": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": null,
+      "downloads": 84,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "abhinand/sarvam-30b-bf16": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": 32152650368,
+      "downloads": 82,
+      "skipped": "32.2B parameters > 3.3B"
+    },
+    "mmangkad/sarvam-105b-bf16": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": 106031767424,
+      "downloads": 77,
+      "skipped": "106.0B parameters > 3.3B"
+    },
+    "MaziyarPanahi/sarvam-1-GGUF": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": null,
+      "params": null,
+      "downloads": 76,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "sahilchachra/sarvam-30b-MXFP4": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": 32152650368,
+      "downloads": 75,
+      "skipped": "32.2B parameters > 3.3B"
+    },
+    "pierrelamy/sarvam-105b-mlx-q6": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": 106031767424,
+      "downloads": 69,
+      "skipped": "106.0B parameters > 3.3B"
+    },
+    "ganmoor-ai-labs/krishi-sathi-sarvam-2b": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": "other",
+      "params": null,
+      "downloads": 67,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "RedHatAI/sarvam-30b-FP8-dynamic": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": 32167102592,
+      "downloads": 66,
+      "skipped": "32.2B parameters > 3.3B"
+    },
+    "aoxo/sarvam-105b-uncensored": {
+      "source": "search: sarvam",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": 55732545631,
+      "downloads": 63,
+      "skipped": "55.7B parameters > 3.3B"
+    },
+    "Airavat-ai/erawan-1": {
+      "source": "search: airavata",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": 1720574976,
+      "downloads": 339,
+      "tokenizer": "Qwen2Tokenizer",
+      "vocab_size": 151669,
+      "tpw": {
+        "native": 11.836378052648271,
+        "itrans": 4.33929590865842,
+        "itrans_over_native": 0.36660673470864225
+      },
+      "differs_20pct_from_every_current": false,
+      "fits_8gb_bf16_by_params": true
+    },
+    "ai4bharat/Airavata": {
+      "source": "search: airavata",
+      "gated": "auto",
+      "license": "llama2",
+      "params": 6870020096,
+      "downloads": 111,
+      "skipped": "6.9B parameters > 3.3B"
+    },
+    "sam749/Airavata-GGUF": {
+      "source": "search: airavata",
+      "gated": false,
+      "license": "llama2",
+      "params": null,
+      "downloads": 55,
+      "tokenizer": "LlamaTokenizer",
+      "vocab_size": 48065,
+      "tpw": {
+        "native": 20.82756105296543,
+        "itrans": 4.687377101173485,
+        "itrans_over_native": 0.2250564571268462
+      },
+      "differs_20pct_from_every_current": true,
+      "fits_8gb_bf16_by_params": false
+    },
+    "arihantbarjatya/Airavata-airoboros-slerp": {
+      "source": "search: airavata",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": 6738415616,
+      "downloads": 13,
+      "skipped": "6.7B parameters > 3.3B"
+    },
+    "maitreyaz/Airavata-8bit": {
+      "source": "search: airavata",
+      "gated": false,
+      "license": null,
+      "params": 6871379968,
+      "downloads": 12,
+      "skipped": "6.9B parameters > 3.3B"
+    },
+    "Nayanjit/Airavata-finetuned-summarization": {
+      "source": "search: airavata",
+      "gated": false,
+      "license": null,
+      "params": null,
+      "downloads": 8,
+      "tokenizer": "LlamaTokenizer",
+      "vocab_size": 48065,
+      "tpw": {
+        "native": 20.82756105296543,
+        "itrans": 4.687377101173485,
+        "itrans_over_native": 0.2250564571268462
+      },
+      "differs_20pct_from_every_current": true,
+      "fits_8gb_bf16_by_params": false
+    },
+    "NeuroBridge/Airavata-GGUF": {
+      "source": "search: airavata",
+      "gated": "auto",
+      "license": null,
+      "params": 6870020096,
+      "downloads": 0,
+      "skipped": "6.9B parameters > 3.3B"
+    },
+    "ar08/Indic-gemma-7b-finetuned-sft-Navarasa-2.0-IQ3_M-GGUF": {
+      "source": "search: navarasa",
+      "gated": false,
+      "license": "other",
+      "params": null,
+      "downloads": 17,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "NeevrajKB/Navarasa-2.0-Gemma-2b-ONNX-OPTIMIZED": {
+      "source": "search: navarasa",
+      "gated": false,
+      "license": "gemma",
+      "params": null,
+      "downloads": 14,
+      "tokenizer": "GemmaTokenizer",
+      "vocab_size": 256000,
+      "tpw": {
+        "native": 5.5644465588328575,
+        "itrans": 3.937266095781795,
+        "itrans_over_native": 0.7075755071332083
+      },
+      "differs_20pct_from_every_current": false,
+      "fits_8gb_bf16_by_params": false
+    },
+    "Nandu2905/Indic-gemma-2b-finetuned-sft-Navarasa-3.0-gptq-4bit": {
+      "source": "search: navarasa",
+      "gated": false,
+      "license": null,
+      "params": 2506882048,
+      "downloads": 11,
+      "tokenizer": "GemmaTokenizer",
+      "vocab_size": 256000,
+      "tpw": {
+        "native": 5.5644465588328575,
+        "itrans": 3.937266095781795,
+        "itrans_over_native": 0.7075755071332083
+      },
+      "differs_20pct_from_every_current": false,
+      "fits_8gb_bf16_by_params": true
+    },
+    "Nandu2905/Indic-gemma-2b-finetuned-sft-Navarasa-2.0-gptq-4bit": {
+      "source": "search: navarasa",
+      "gated": false,
+      "license": null,
+      "params": 2506882048,
+      "downloads": 8,
+      "tokenizer": "GemmaTokenizer",
+      "vocab_size": 256000,
+      "tpw": {
+        "native": 5.5644465588328575,
+        "itrans": 3.937266095781795,
+        "itrans_over_native": 0.7075755071332083
+      },
+      "differs_20pct_from_every_current": false,
+      "fits_8gb_bf16_by_params": true
+    },
+    "mlgawd/navarasa-2b-2.0-cyberdost": {
+      "source": "search: navarasa",
+      "gated": false,
+      "license": null,
+      "params": 2506172416,
+      "downloads": 8,
+      "tokenizer": "GemmaTokenizer",
+      "vocab_size": 256000,
+      "tpw": {
+        "native": 5.5644465588328575,
+        "itrans": 3.937266095781795,
+        "itrans_over_native": 0.7075755071332083
+      },
+      "differs_20pct_from_every_current": false,
+      "fits_8gb_bf16_by_params": true
+    },
+    "Telugu-LLM-Labs/Indic-gemma-2b-finetuned-sft-Navarasa": {
+      "source": "search: navarasa",
+      "gated": false,
+      "license": "other",
+      "params": null,
+      "downloads": 0,
+      "tokenizer": "GemmaTokenizer",
+      "vocab_size": 256000,
+      "tpw": {
+        "native": 5.5644465588328575,
+        "itrans": 3.937266095781795,
+        "itrans_over_native": 0.7075755071332083
+      },
+      "differs_20pct_from_every_current": false,
+      "fits_8gb_bf16_by_params": false
+    },
+    "Telugu-LLM-Labs/Indic-gemma-7b-finetuned-sft-Navarasa": {
+      "source": "search: navarasa",
+      "gated": false,
+      "license": "other",
+      "params": null,
+      "downloads": 0,
+      "tokenizer": "GemmaTokenizer",
+      "vocab_size": 256000,
+      "tpw": {
+        "native": 5.5644465588328575,
+        "itrans": 3.937266095781795,
+        "itrans_over_native": 0.7075755071332083
+      },
+      "differs_20pct_from_every_current": false,
+      "fits_8gb_bf16_by_params": false
+    },
+    "dumbequation/Phi-4-telugu-navarasa": {
+      "source": "search: navarasa",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": null,
+      "downloads": 0,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "BhabhaAI/Gajendra-v0.1": {
+      "source": "search: gajendra",
+      "gated": false,
+      "license": "llama2",
+      "params": 6870028288,
+      "downloads": 32,
+      "skipped": "6.9B parameters > 3.3B"
+    },
+    "maitreyaz/Gajendra-8bit-Quantised": {
+      "source": "search: gajendra",
+      "gated": false,
+      "license": null,
+      "params": 6871388160,
+      "downloads": 7,
+      "skipped": "6.9B parameters > 3.3B"
+    },
+    "bartowski/krutrim-ai-labs_Krutrim-2-instruct-GGUF": {
+      "source": "search: krutrim",
+      "gated": false,
+      "license": "other",
+      "params": null,
+      "downloads": 1305,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "ritwikm/Finetuned_krutrim_short_l6": {
+      "source": "search: krutrim",
+      "gated": false,
+      "license": null,
+      "params": null,
+      "downloads": 13,
+      "tokenizer": "TokenizersBackend",
+      "vocab_size": 131072,
+      "tpw": {
+        "native": 3.8267047256581033,
+        "itrans": 4.246685696162385,
+        "itrans_over_native": 1.1097500331521017
+      },
+      "differs_20pct_from_every_current": false,
+      "fits_8gb_bf16_by_params": false
+    },
+    "krutrim-ai-labs/Krutrim-Translate": {
+      "source": "search: krutrim",
+      "gated": "auto",
+      "license": "other",
+      "params": null,
+      "downloads": 0,
+      "tokenizer_error": "OSError('You are trying to access a gated repo.\\nMake sure to have access to it at https://huggingface.co/krutrim-ai-labs/Krutrim-Translate.\\n403 Clie"
+    },
+    "meta-llama/Llama-3.2-1B-Instruct": {
+      "source": "search: llama-3.2-1b",
+      "gated": "manual",
+      "license": "llama3.2",
+      "params": 1235814400,
+      "downloads": 1768094,
+      "tokenizer_error": "OSError('You are trying to access a gated repo.\\nMake sure to have access to it at https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct.\\n403 Clien"
+    },
+    "unsloth/Llama-3.2-1B-Instruct": {
+      "source": "search: llama-3.2-1b",
+      "gated": false,
+      "license": "llama3.2",
+      "params": 1235814400,
+      "downloads": 1253777,
+      "tokenizer": "TokenizersBackend",
+      "vocab_size": 128256,
+      "tpw": {
+        "native": 14.895623215984777,
+        "itrans": 4.291373295274342,
+        "itrans_over_native": 0.28809625707162
+      },
+      "differs_20pct_from_every_current": true,
+      "fits_8gb_bf16_by_params": true
+    },
+    "bartowski/Llama-3.2-1B-Instruct-GGUF": {
+      "source": "search: llama-3.2-1b",
+      "gated": false,
+      "license": "llama3.2",
+      "params": null,
+      "downloads": 159498,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "unsloth/Llama-3.2-1B": {
+      "source": "search: llama-3.2-1b",
+      "gated": false,
+      "license": "llama3.2",
+      "params": 1235814400,
+      "downloads": 95350,
+      "tokenizer": "TokenizersBackend",
+      "vocab_size": 128256,
+      "tpw": {
+        "native": 14.895623215984777,
+        "itrans": 4.291373295274342,
+        "itrans_over_native": 0.28809625707162
+      },
+      "differs_20pct_from_every_current": true,
+      "fits_8gb_bf16_by_params": true
+    },
+    "unsloth/Llama-3.2-1B-Instruct-GGUF": {
+      "source": "search: llama-3.2-1b",
+      "gated": false,
+      "license": "llama3.2",
+      "params": null,
+      "downloads": 46839,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "NousResearch/Llama-3.2-1B": {
+      "source": "search: llama-3.2-1b",
+      "gated": false,
+      "license": "llama3.2",
+      "params": 1235814400,
+      "downloads": 43407,
+      "tokenizer": "TokenizersBackend",
+      "vocab_size": 128256,
+      "tpw": {
+        "native": 14.895623215984777,
+        "itrans": 4.291373295274342,
+        "itrans_over_native": 0.28809625707162
+      },
+      "differs_20pct_from_every_current": true,
+      "fits_8gb_bf16_by_params": true
+    },
+    "hugging-quants/Llama-3.2-1B-Instruct-Q4_K_M-GGUF": {
+      "source": "search: llama-3.2-1b",
+      "gated": false,
+      "license": null,
+      "params": null,
+      "downloads": 40117,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "MaziyarPanahi/Llama-3.2-1B-Instruct-GGUF": {
+      "source": "search: llama-3.2-1b",
+      "gated": false,
+      "license": null,
+      "params": null,
+      "downloads": 33974,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "mlx-community/Llama-3.2-1B-Instruct-4bit": {
+      "source": "search: llama-3.2-1b",
+      "gated": false,
+      "license": "llama3.2",
+      "params": 1235814400,
+      "downloads": 32032,
+      "tokenizer": "TokenizersBackend",
+      "vocab_size": 128256,
+      "tpw": {
+        "native": 14.895623215984777,
+        "itrans": 4.291373295274342,
+        "itrans_over_native": 0.28809625707162
+      },
+      "differs_20pct_from_every_current": true,
+      "fits_8gb_bf16_by_params": true
+    },
+    "mobilint/Llama-3.2-1B-Instruct": {
+      "source": "search: llama-3.2-1b",
+      "gated": false,
+      "license": "other",
+      "params": 262668288,
+      "downloads": 28543,
+      "tokenizer_error": "AttributeError(\"'PreTrainedConfig' object has no attribute 'max_position_embeddings'\")"
+    },
+    "unsloth/Llama-3.2-1B-Instruct-unsloth-bnb-4bit": {
+      "source": "search: llama-3.2-1b",
+      "gated": false,
+      "license": "llama3.2",
+      "params": 1264773672,
+      "downloads": 25677,
+      "tokenizer": "TokenizersBackend",
+      "vocab_size": 128256,
+      "tpw": {
+        "native": 14.895623215984777,
+        "itrans": 4.291373295274342,
+        "itrans_over_native": 0.28809625707162
+      },
+      "differs_20pct_from_every_current": true,
+      "fits_8gb_bf16_by_params": true
+    },
+    "osllmai-community/Llama-3.2-1B": {
+      "source": "search: llama-3.2-1b",
+      "gated": false,
+      "license": "llama3.2",
+      "params": 1235814400,
+      "downloads": 17101,
+      "tokenizer": "TokenizersBackend",
+      "vocab_size": 128256,
+      "tpw": {
+        "native": 14.895623215984777,
+        "itrans": 4.291373295274342,
+        "itrans_over_native": 0.28809625707162
+      },
+      "differs_20pct_from_every_current": true,
+      "fits_8gb_bf16_by_params": true
+    },
+    "unsloth/Llama-3.2-1B-Instruct-bnb-4bit": {
+      "source": "search: llama-3.2-1b",
+      "gated": false,
+      "license": "llama3.2",
+      "params": 1266351458,
+      "downloads": 12014,
+      "tokenizer": "TokenizersBackend",
+      "vocab_size": 128256,
+      "tpw": {
+        "native": 14.895623215984777,
+        "itrans": 4.291373295274342,
+        "itrans_over_native": 0.28809625707162
+      },
+      "differs_20pct_from_every_current": true,
+      "fits_8gb_bf16_by_params": true
+    },
+    "RedHatAI/Llama-3.2-1B-Instruct-FP8": {
+      "source": "search: llama-3.2-1b",
+      "gated": false,
+      "license": "llama3.2",
+      "params": 1498482688,
+      "downloads": 11269,
+      "tokenizer": "TokenizersBackend",
+      "vocab_size": 128256,
+      "tpw": {
+        "native": 14.895623215984777,
+        "itrans": 4.291373295274342,
+        "itrans_over_native": 0.28809625707162
+      },
+      "differs_20pct_from_every_current": true,
+      "fits_8gb_bf16_by_params": true
+    },
+    "RedHatAI/Llama-3.2-1B-Instruct-FP8-dynamic": {
+      "source": "search: llama-3.2-1b",
+      "gated": false,
+      "license": "llama3.2",
+      "params": 1498859520,
+      "downloads": 10072,
+      "tokenizer": "TokenizersBackend",
+      "vocab_size": 128256,
+      "tpw": {
+        "native": 14.895623215984777,
+        "itrans": 4.291373295274342,
+        "itrans_over_native": 0.28809625707162
+      },
+      "differs_20pct_from_every_current": true,
+      "fits_8gb_bf16_by_params": true
+    },
+    "lmstudio-community/Llama-3.2-1B-Instruct-GGUF": {
+      "source": "search: llama-3.2-1b",
+      "gated": false,
+      "license": "llama3.2",
+      "params": null,
+      "downloads": 8442,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "unsloth/Llama-3.2-1B-unsloth-bnb-4bit": {
+      "source": "search: llama-3.2-1b",
+      "gated": false,
+      "license": "llama3.2",
+      "params": 1264773664,
+      "downloads": 7970,
+      "tokenizer": "TokenizersBackend",
+      "vocab_size": 128256,
+      "tpw": {
+        "native": 14.895623215984777,
+        "itrans": 4.291373295274342,
+        "itrans_over_native": 0.28809625707162
+      },
+      "differs_20pct_from_every_current": true,
+      "fits_8gb_bf16_by_params": true
+    },
+    "hugging-quants/Llama-3.2-1B-Instruct-Q8_0-GGUF": {
+      "source": "search: llama-3.2-1b",
+      "gated": false,
+      "license": null,
+      "params": null,
+      "downloads": 7783,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "bartowski/Dolphin3.0-Llama3.2-1B-GGUF": {
+      "source": "search: llama-3.2-1b",
+      "gated": false,
+      "license": "llama3.2",
+      "params": null,
+      "downloads": 6182,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "DavidAU/Llama-3.2-1B-Instruct-NEO-SI-FI-GGUF": {
+      "source": "search: llama-3.2-1b",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": null,
+      "downloads": 5854,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "getonit/transcription-cleanup-llama3.2-1b": {
+      "source": "search: llama-3.2-1b",
+      "gated": false,
+      "license": null,
+      "params": 1235814400,
+      "downloads": 4514,
+      "tokenizer": "TokenizersBackend",
+      "vocab_size": 128256,
+      "tpw": {
+        "native": 14.895623215984777,
+        "itrans": 4.291373295274342,
+        "itrans_over_native": 0.28809625707162
+      },
+      "differs_20pct_from_every_current": true,
+      "fits_8gb_bf16_by_params": true
+    },
+    "RedHatAI/Llama-3.2-1B-Instruct-quantized.w8a8": {
+      "source": "search: llama-3.2-1b",
+      "gated": false,
+      "license": "llama3.2",
+      "params": 1498482688,
+      "downloads": 4351,
+      "tokenizer": "TokenizersBackend",
+      "vocab_size": 128256,
+      "tpw": {
+        "native": 14.895623215984777,
+        "itrans": 4.291373295274342,
+        "itrans_over_native": 0.28809625707162
+      },
+      "differs_20pct_from_every_current": true,
+      "fits_8gb_bf16_by_params": true
+    },
+    "alpindale/Llama-3.2-1B": {
+      "source": "search: llama-3.2-1b",
+      "gated": false,
+      "license": "llama3.2",
+      "params": 1235814400,
+      "downloads": 3996,
+      "tokenizer": "TokenizersBackend",
+      "vocab_size": 128256,
+      "tpw": {
+        "native": 14.895623215984777,
+        "itrans": 4.291373295274342,
+        "itrans_over_native": 0.28809625707162
+      },
+      "differs_20pct_from_every_current": true,
+      "fits_8gb_bf16_by_params": true
+    },
+    "DavidAU/Llama-3.2-1B-Instruct-NEO-WEE-HORROR-GGUF": {
+      "source": "search: llama-3.2-1b",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": null,
+      "downloads": 3727,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "onnx-community/Llama-3.2-1B-Instruct-ONNX": {
+      "source": "search: llama-3.2-1b",
+      "gated": false,
+      "license": "llama3.2",
+      "params": null,
+      "downloads": 3338,
+      "tokenizer": "TokenizersBackend",
+      "vocab_size": 128256,
+      "tpw": {
+        "native": 14.895623215984777,
+        "itrans": 4.291373295274342,
+        "itrans_over_native": 0.28809625707162
+      },
+      "differs_20pct_from_every_current": true,
+      "fits_8gb_bf16_by_params": false
+    },
+    "FastFlowLM/Llama-3.2-1B-NPU2": {
+      "source": "search: llama-3.2-1b",
+      "gated": false,
+      "license": "llama3",
+      "params": null,
+      "downloads": 3044,
+      "tokenizer": "TokenizersBackend",
+      "vocab_size": 128256,
+      "tpw": {
+        "native": 14.895623215984777,
+        "itrans": 4.291373295274342,
+        "itrans_over_native": 0.28809625707162
+      },
+      "differs_20pct_from_every_current": true,
+      "fits_8gb_bf16_by_params": false
+    },
+    "Novaciano/Llama-3.2-1B-NSFW_Open_Erotic_GGUF": {
+      "source": "search: llama-3.2-1b",
+      "gated": false,
+      "license": "llama3.2",
+      "params": null,
+      "downloads": 2937,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "unsloth/Llama-3.2-1B-bnb-4bit": {
+      "source": "search: llama-3.2-1b",
+      "gated": false,
+      "license": "llama3.2",
+      "params": 1266351448,
+      "downloads": 2696,
+      "tokenizer": "TokenizersBackend",
+      "vocab_size": 128256,
+      "tpw": {
+        "native": 14.895623215984777,
+        "itrans": 4.291373295274342,
+        "itrans_over_native": 0.28809625707162
+      },
+      "differs_20pct_from_every_current": true,
+      "fits_8gb_bf16_by_params": true
+    },
+    "DoeyLLM/OneLLM-Doey-V1-Llama-3.2-1B-it-Q8_0-GGUF": {
+      "source": "search: llama-3.2-1b",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": null,
+      "downloads": 2669,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "DoeyLLM/OneLLM-Doey-ChatQA-V1-Llama-3.2-1B-Q8_0-GGUF": {
+      "source": "search: llama-3.2-1b",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": null,
+      "downloads": 2639,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "open-unlearning/unlearn_tofu_Llama-3.2-1B-Instruct_forget10_NPO_lr2e-05_beta0.5_alpha1_epoch10": {
+      "source": "search: llama-3.2-1b",
+      "gated": false,
+      "license": null,
+      "params": 1235814400,
+      "downloads": 2568,
+      "tokenizer": "TokenizersBackend",
+      "vocab_size": 128256,
+      "tpw": {
+        "native": 14.895623215984777,
+        "itrans": 4.291373295274342,
+        "itrans_over_native": 0.28809625707162
+      },
+      "differs_20pct_from_every_current": true,
+      "fits_8gb_bf16_by_params": true
+    },
+    "open-unlearning/unlearn_tofu_Llama-3.2-1B-Instruct_forget10_RMU_lr1e-05_layer5_scoeff100_epoch10": {
+      "source": "search: llama-3.2-1b",
+      "gated": false,
+      "license": null,
+      "params": 1235814400,
+      "downloads": 2474,
+      "tokenizer": "TokenizersBackend",
+      "vocab_size": 128256,
+      "tpw": {
+        "native": 14.895623215984777,
+        "itrans": 4.291373295274342,
+        "itrans_over_native": 0.28809625707162
+      },
+      "differs_20pct_from_every_current": true,
+      "fits_8gb_bf16_by_params": true
+    },
+    "Vikhrmodels/Vikhr-Llama-3.2-1B-instruct-GGUF": {
+      "source": "search: llama-3.2-1b",
+      "gated": false,
+      "license": "llama3.2",
+      "params": null,
+      "downloads": 2294,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "tinyopsec/llama3.2-1b-CoT-GGUF": {
+      "source": "search: llama-3.2-1b",
+      "gated": false,
+      "license": "apache-2.0",
+      "params": null,
+      "downloads": 2193,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "legraphista/Llama-3.2-1B-Instruct-IMat-GGUF": {
+      "source": "search: llama-3.2-1b",
+      "gated": false,
+      "license": "llama3.2",
+      "params": null,
+      "downloads": 2170,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "ThomasBaruzier/Llama-3.2-1B-Instruct-GGUF": {
+      "source": "search: llama-3.2-1b",
+      "gated": false,
+      "license": "llama3.2",
+      "params": null,
+      "downloads": 2102,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "tinyopsec/Vikhr-Llama-3.2-1B-Instruct-GGUF": {
+      "source": "search: llama-3.2-1b",
+      "gated": false,
+      "license": "llama3.2",
+      "params": null,
+      "downloads": 2068,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "ElectricLMA/Abliterated-Llama-3.2-1B-Instruct-Q4_K_M-GGUF": {
+      "source": "search: llama-3.2-1b",
+      "gated": false,
+      "license": "llama3.2",
+      "params": null,
+      "downloads": 2047,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "QuantFactory/Llama-3.2-1B-Instruct-GGUF": {
+      "source": "search: llama-3.2-1b",
+      "gated": false,
+      "license": "llama3.2",
+      "params": null,
+      "downloads": 2003,
+      "tokenizer_error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance t"
+    },
+    "IndicAIDias/Gemma2b_it_fine-tuned": {
+      "source": "search: gemma-2b-it indic",
+      "gated": false,
+      "license": null,
+      "params": 2506172416,
+      "downloads": 7,
+      "tokenizer": "GemmaTokenizer",
+      "vocab_size": 256000,
+      "tpw": {
+        "native": 5.5644465588328575,
+        "itrans": 3.937266095781795,
+        "itrans_over_native": 0.7075755071332083
+      },
+      "differs_20pct_from_every_current": false,
+      "fits_8gb_bf16_by_params": true
+    }
+  },
+  "rule2_and_rule1_by_params_shortlist_unordered": [
+    "nsloni/KannadaLM-10M",
+    "thanushtph/kannada-codet5",
+    "pavan-naik/gpt2-kannada-base-v1",
+    "Manasa-2004/dialoGPT-kannada-hindi",
+    "AbhiDS16/kannada-gpt2-32m",
+    "ashtok897/oroZ-1.7B-Indic-v1",
+    "guldasta/indic-gpt2-Hindi_Gen",
+    "sivakgp/fine-tuned-indic-parler-on-hindi-audio-book-voice",
+    "sivakgp/fine_tuned_indic-parler-own-voice-1h",
+    "sivakgp/fine_tuned_indic-parler-own-voice-1h01",
+    "ucla-cmllab/tinyllama-sft-vicuna-processed-indicator-0.6",
+    "unsloth/Llama-3.2-1B-Instruct",
+    "unsloth/Llama-3.2-1B",
+    "NousResearch/Llama-3.2-1B",
+    "mlx-community/Llama-3.2-1B-Instruct-4bit",
+    "unsloth/Llama-3.2-1B-Instruct-unsloth-bnb-4bit",
+    "osllmai-community/Llama-3.2-1B",
+    "unsloth/Llama-3.2-1B-Instruct-bnb-4bit",
+    "RedHatAI/Llama-3.2-1B-Instruct-FP8",
+    "RedHatAI/Llama-3.2-1B-Instruct-FP8-dynamic",
+    "unsloth/Llama-3.2-1B-unsloth-bnb-4bit",
+    "getonit/transcription-cleanup-llama3.2-1b",
+    "RedHatAI/Llama-3.2-1B-Instruct-quantized.w8a8",
+    "alpindale/Llama-3.2-1B",
+    "unsloth/Llama-3.2-1B-bnb-4bit",
+    "open-unlearning/unlearn_tofu_Llama-3.2-1B-Instruct_forget10_NPO_lr2e-05_beta0.5_alpha1_epoch10",
+    "open-unlearning/unlearn_tofu_Llama-3.2-1B-Instruct_forget10_RMU_lr1e-05_layer5_scoeff100_epoch10"
+  ],
+  "note": "stage 1 only: rule (1) by parameter count (the measured forward-pass peak memory is stage 2); rule (3) needs a SIB-200 run; the registration allows at most two models and the choice among the shortlist is the operator's; the Indic-pretrained-with-extended-tokenizer alternative of rule (2) is a model-card reading, not automated"
+}
