@@ -1,0 +1,57 @@
+=== 2026-11-04 11:02:52 X11 4-bit scoring: env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x11.py score
+W1104 11:03:03.001000 25556 Lib\site-packages\torch\utils\flop_counter.py:113] triton not found; flop counting will not work for triton kernels
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]Loading weights:   0%|          | 1/320 [00:01<06:31,  1.23s/it]Loading weights:   2%|▏         | 6/320 [00:01<00:53,  5.82it/s]Loading weights:   4%|▍         | 13/320 [00:01<00:22, 13.59it/s]Loading weights:   8%|▊         | 26/320 [00:01<00:09, 30.00it/s]Loading weights:  12%|█▏        | 37/320 [00:01<00:06, 42.89it/s]Loading weights:  14%|█▍        | 45/320 [00:01<00:05, 46.59it/s]Loading weights:  19%|█▉        | 61/320 [00:01<00:03, 66.09it/s]Loading weights:  22%|██▏       | 70/320 [00:02<00:03, 69.55it/s]Loading weights:  25%|██▌       | 80/320 [00:02<00:03, 74.29it/s]Loading weights:  29%|██▉       | 93/320 [00:02<00:02, 85.45it/s]Loading weights:  32%|███▏      | 103/320 [00:02<00:02, 78.48it/s]Loading weights:  37%|███▋      | 118/320 [00:02<00:02, 90.94it/s]Loading weights:  41%|████      | 131/320 [00:02<00:01, 98.03it/s]Loading weights:  44%|████▍     | 142/320 [00:02<00:01, 97.01it/s]Loading weights:  48%|████▊     | 153/320 [00:03<00:02, 80.03it/s]Loading weights:  53%|█████▎    | 171/320 [00:03<00:01, 98.05it/s]Loading weights:  57%|█████▋    | 182/320 [00:03<00:01, 99.56it/s]Loading weights:  60%|██████    | 193/320 [00:03<00:01, 101.71it/s]Loading weights:  64%|██████▍   | 204/320 [00:03<00:01, 87.95it/s] Loading weights:  69%|██████▉   | 220/320 [00:03<00:01, 98.39it/s]Loading weights:  72%|███████▏  | 231/320 [00:03<00:00, 98.86it/s]Loading weights:  76%|███████▌  | 242/320 [00:03<00:00, 92.72it/s]Loading weights:  79%|███████▉  | 253/320 [00:03<00:00, 94.59it/s]Loading weights:  82%|████████▏ | 263/320 [00:04<00:00, 88.41it/s]Loading weights:  87%|████████▋ | 277/320 [00:04<00:00, 99.30it/s]Loading weights:  90%|█████████ | 288/320 [00:04<00:00, 99.96it/s]Loading weights:  93%|█████████▎| 299/320 [00:04<00:00, 101.83it/s]Loading weights:  97%|█████████▋| 310/320 [00:04<00:00, 87.13it/s] Loading weights: 100%|██████████| 320/320 [00:04<00:00, 67.86it/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+english 1004 553s
+native 1004 682s
+itrans 1004 671s
+lower 1004 673s
+lossy 1004 665s
+=== 2026-11-04 11:58:55 X11 analysis: env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x11.py analyse
+{
+ "verdict": "partly supported",
+ "forms": {
+  "english": [
+   0.784,
+   0.804,
+   -0.02
+  ],
+  "native": [
+   0.668,
+   0.676,
+   -0.008
+  ],
+  "itrans": [
+   0.259,
+   0.241,
+   0.018
+  ],
+  "lower": [
+   0.299,
+   0.296,
+   0.003
+  ],
+  "lossy": [
+   0.363,
+   0.375,
+   -0.013
+  ]
+ },
+ "gap": {
+  "gap_4bit": 0.40936254980079684,
+  "gap_bf16": 0.4352589641434263,
+  "change": {
+   "diff": -0.025896414342629483,
+   "ci95": [
+    -0.053784860557768925,
+    0.00298804780876494
+   ]
+  }
+ },
+ "rule": {
+  "every_form_within_3_points": true,
+  "gap_change_ci_within_5_points": false,
+  "forms_changed_by_more_than_5_points_with_ci_excluding_0": []
+ }
+}

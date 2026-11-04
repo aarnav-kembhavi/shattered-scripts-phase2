@@ -227,3 +227,15 @@ A1-P ['llama-3.1-8b']: over the weekly quota, not pushed
 quota projection before x9b sarvam-1 ['sarvam-1:native:1', 'sarvam-1:english:1']: 29.36 h used in the last 7 days, this push up to 6.9 h, headroom -6.2 h, X9b Sarvam reserve 0 h (X9b pending: True)
 x9b sarvam-1 ['sarvam-1:native:1', 'sarvam-1:english:1']: over the weekly quota, not pushed
 queue pass finished; open: llama-3.1-8b, ambari-7b-instruct-v0.1, x9b
+=== 2026-11-04 11:13:36 Kaggle queue pass 2: env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/kaggle_queue.py
+A1-P ambari-7b-base: pass=True reference=float32_offload error=None
+A1-P qwen3-8b: pass=True reference=float32_offload error=None
+A1-P ambari-7b-instruct-v0.2: pass=True reference=float32_offload error=None
+A1-P llama-2-7b: pass=True reference=float32_offload error=None
+quota projection before A1-P ['ambari-7b-instruct-v0.1']: 29.36 h used in the last 7 days, this push up to 3.5 h, headroom -2.9 h, X9b Sarvam reserve 0 h (X9b pending: True)
+A1-P ['ambari-7b-instruct-v0.1']: over the weekly quota, not pushed
+quota projection before A1-P ['llama-3.1-8b']: 29.36 h used in the last 7 days, this push up to 3.5 h, headroom -2.9 h, X9b Sarvam reserve 0 h (X9b pending: True)
+A1-P ['llama-3.1-8b']: over the weekly quota, not pushed
+quota projection before x9b sarvam-1 ['sarvam-1:native:1', 'sarvam-1:english:1']: 29.36 h used in the last 7 days, this push up to 6.9 h, headroom -6.2 h, X9b Sarvam reserve 0 h (X9b pending: True)
+x9b sarvam-1 ['sarvam-1:native:1', 'sarvam-1:english:1']: over the weekly quota, not pushed
+queue pass finished; open: llama-3.1-8b, ambari-7b-instruct-v0.1, x9b

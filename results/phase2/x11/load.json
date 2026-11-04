@@ -1,0 +1,5 @@
+{
+ "quantization": "bitsandbytes NF4, double quantisation, bf16 compute",
+ "load_seconds": 11.988911151885986,
+ "cuda_memory_gib": 1.6081933975219727
+}

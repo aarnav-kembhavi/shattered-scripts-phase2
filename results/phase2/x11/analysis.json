@@ -1,0 +1,110 @@
+{
+  "provenance": {
+    "config": {
+      "registration": "RESULTS.md X11 Arm A",
+      "label": "label: exploratory control, 4-bit NF4 with double quantisation, bf16 compute"
+    },
+    "git_commit": "173d201e23a4ff3358c4f3c43e5b5bd8839c82dd-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-04T06:28:59+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x11.py",
+      "analyse"
+    ]
+  },
+  "n_items": 1004,
+  "raw_fallback_4bit": false,
+  "raw_fallback_bf16": false,
+  "forms": {
+    "english": {
+      "acc_4bit": 0.7838645418326693,
+      "acc_bf16": 0.8037848605577689,
+      "change": {
+        "diff": -0.0199203187250996,
+        "ci95": [
+          -0.0348605577689243,
+          -0.0049800796812749
+        ]
+      },
+      "mcnemar_p": 0.01045481832189218,
+      "only_4bit_correct": 18,
+      "only_bf16_correct": 38
+    },
+    "native": {
+      "acc_4bit": 0.6683266932270916,
+      "acc_bf16": 0.6762948207171314,
+      "change": {
+        "diff": -0.00796812749003984,
+        "ci95": [
+          -0.02390438247011952,
+          0.0069721115537848604
+        ]
+      },
+      "mcnemar_p": 0.36629400670329104,
+      "only_4bit_correct": 26,
+      "only_bf16_correct": 34
+    },
+    "itrans": {
+      "acc_4bit": 0.2589641434262948,
+      "acc_bf16": 0.2410358565737052,
+      "change": {
+        "diff": 0.017928286852589643,
+        "ci95": [
+          -0.00597609561752988,
+          0.04183266932270916
+        ]
+      },
+      "mcnemar_p": 0.16490698265644313,
+      "only_4bit_correct": 84,
+      "only_bf16_correct": 66
+    },
+    "lower": {
+      "acc_4bit": 0.29880478087649404,
+      "acc_bf16": 0.2958167330677291,
+      "change": {
+        "diff": 0.00298804780876494,
+        "ci95": [
+          -0.021912350597609563,
+          0.027888446215139442
+        ]
+      },
+      "mcnemar_p": 0.8763306838960284,
+      "only_4bit_correct": 84,
+      "only_bf16_correct": 81
+    },
+    "lossy": {
+      "acc_4bit": 0.36254980079681276,
+      "acc_bf16": 0.3754980079681275,
+      "change": {
+        "diff": -0.012948207171314742,
+        "ci95": [
+          -0.035856573705179286,
+          0.008964143426294821
+        ]
+      },
+      "mcnemar_p": 0.2906878547807372,
+      "only_4bit_correct": 58,
+      "only_bf16_correct": 71
+    }
+  },
+  "gap_native_minus_itrans": {
+    "gap_4bit": 0.40936254980079684,
+    "gap_bf16": 0.4352589641434263,
+    "change": {
+      "diff": -0.025896414342629483,
+      "ci95": [
+        -0.053784860557768925,
+        0.00298804780876494
+      ]
+    }
+  },
+  "verdict": "partly supported",
+  "rule_check": {
+    "every_form_within_3_points": true,
+    "gap_change_ci_within_5_points": false,
+    "forms_changed_by_more_than_5_points_with_ci_excluding_0": []
+  }
+}
