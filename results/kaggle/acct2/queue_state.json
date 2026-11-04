@@ -33,12 +33,8 @@
   "2026-11-05 02:30:34 A1-P ambari-7b-instruct-v0.1: pass=True reference=float32_offload error=None",
   "2026-11-05 02:30:34 A1-P ambari-7b-instruct-v0.1: pass=True reference=float32_offload error=None",
   "2026-11-05 02:30:37 quota projection before x_score llama-3.1-8b: 12.82 h used in the last 7 days, this push up to 2.4 h, headroom 14.8 h, X9b Sarvam reserve 0 h (X9b pending: True)",
-  "2026-11-05 02:39:47 A1-P llama-3.1-8b: pass=True reference=float32_offload error=None",
-  "2026-11-05 02:39:47 A1-P ambari-7b-instruct-v0.1: pass=True reference=float32_offload error=None",
-  "2026-11-05 02:39:47 A1-P ambari-7b-instruct-v0.1: pass=True reference=float32_offload error=None",
-  "2026-11-05 02:39:54 quota projection before x_score llama-3.1-8b: 15.22 h used in the last 7 days, this push up to 2.4 h, headroom 12.4 h, X9b Sarvam reserve 0 h (X9b pending: True)",
-  "2026-11-05 02:40:02 score llama-3.1-8b: runner did not push; nothing recorded",
-  "2026-11-05 02:40:02 account 2 queue pass finished; open: llama-3.1-8b"
+  "2026-11-05 04:20:25 score llama-3.1-8b: done=True retrieval=True hours=1.82",
+  "2026-11-05 04:20:25 account 2 queue pass finished; open: "
  ],
  "precision": {
   "qwen3-8b": {
@@ -123,6 +119,14 @@
    "dir": "results\\kaggle\\acct2\\x_score\\2026-11-04T174907\\out\\ambari-7b-instruct-v0.2",
    "hours": 1.6734603965944714,
    "commit": "06100d722ac7e7043c5f8f8bdaf667388cea4c91",
+   "status": "ashwin18522/shattered-x-score has status \"KernelWorkerStatus.COMPLETE\""
+  },
+  "llama-3.1-8b": {
+   "done": true,
+   "retrieval_requested": true,
+   "dir": "results\\kaggle\\acct2\\x_score\\2026-11-04T210109\\out\\llama-3.1-8b",
+   "hours": 1.8198573695951037,
+   "commit": "3c2e3a612caa15f59b8beb6c62325bcb53686aa1",
    "status": "ashwin18522/shattered-x-score has status \"KernelWorkerStatus.COMPLETE\""
   }
  },

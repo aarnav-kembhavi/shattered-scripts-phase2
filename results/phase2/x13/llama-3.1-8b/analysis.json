@@ -1,0 +1,272 @@
+{
+  "provenance": {
+    "config": {
+      "registration": "RESULTS.md Amendment 2, A0 and X13",
+      "reading": "extended verdicts use the all-but-one rule (at least n - 1 of n); Phase 1 verdicts unchanged"
+    },
+    "git_commit": "108fa59d9359df7b80c7409df4cc03bd190a9290-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-04T22:52:56+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x13_analyse.py",
+      "--model",
+      "llama-3.1-8b"
+    ]
+  },
+  "model": "llama-3.1-8b",
+  "dtype": "float16 (A1-P passed: True)",
+  "raw_fallback_used": false,
+  "english_accuracy_calibrated": 0.7848605577689243,
+  "accuracy": {
+    "english": {
+      "n": 1004,
+      "acc_cal": 0.7848605577689243,
+      "ci95": [
+        0.7589641434262948,
+        0.8107569721115537
+      ],
+      "acc_raw": 0.8087649402390438
+    },
+    "itrans": {
+      "n": 1004,
+      "acc_cal": 0.38247011952191234,
+      "ci95": [
+        0.35258964143426297,
+        0.41334661354581675
+      ],
+      "acc_raw": 0.37749003984063745
+    },
+    "lossy": {
+      "n": 1004,
+      "acc_cal": 0.4631474103585657,
+      "ci95": [
+        0.43326693227091634,
+        0.49404880478087615
+      ],
+      "acc_raw": 0.4701195219123506
+    },
+    "lower": {
+      "n": 1004,
+      "acc_cal": 0.3854581673306773,
+      "ci95": [
+        0.3555776892430279,
+        0.4163346613545817
+      ],
+      "acc_raw": 0.4033864541832669
+    },
+    "native": {
+      "n": 1004,
+      "acc_cal": 0.7121513944223108,
+      "ci95": [
+        0.6842629482071713,
+        0.7390438247011952
+      ],
+      "acc_raw": 0.7430278884462151
+    },
+    "natural257": {
+      "n": 257,
+      "acc_cal": 0.5291828793774319,
+      "ci95": [
+        0.4669260700389105,
+        0.5914396887159533
+      ],
+      "acc_raw": 0.5291828793774319
+    }
+  },
+  "counted": {
+    "native_ci_lower": 0.6842629482071713,
+    "rule": "native CI lower bound > 0.40 and A1-P passed",
+    "counted": true,
+    "informative_english_above_chance_plus_5": true
+  },
+  "P_a_this_model": [
+    {
+      "model": "llama-3.1-8b",
+      "task": "sib",
+      "a": "native",
+      "b": "itrans",
+      "acc_a": 0.7121513944223108,
+      "acc_b": 0.38247011952191234,
+      "n": 1004,
+      "diff": 0.32968127490039845,
+      "a_only": 392,
+      "b_only": 61,
+      "p": 3.059812743752219e-60
+    },
+    {
+      "model": "llama-3.1-8b",
+      "task": "sib",
+      "a": "native",
+      "b": "lossy",
+      "acc_a": 0.7121513944223108,
+      "acc_b": 0.4631474103585657,
+      "n": 1004,
+      "diff": 0.24900398406374508,
+      "a_only": 314,
+      "b_only": 64,
+      "p": 1.0181114460761287e-40
+    }
+  ],
+  "P_a_extended_tests": [
+    {
+      "model": "gemma4-e2b",
+      "a": "native",
+      "b": "itrans",
+      "diff": 0.3834661354581673,
+      "p": 2.5188719631954495e-82,
+      "p_holm_extended": 2.0150975705563596e-81,
+      "significant_extended": true
+    },
+    {
+      "model": "gemma4-e2b",
+      "a": "native",
+      "b": "lossy",
+      "diff": 0.25298804780876494,
+      "p": 2.668515711757834e-49,
+      "p_holm_extended": 1.0674062847031336e-48,
+      "significant_extended": true
+    },
+    {
+      "model": "qwen3-1.7b",
+      "a": "native",
+      "b": "itrans",
+      "diff": 0.4322709163346613,
+      "p": 1.2990189533010863e-106,
+      "p_holm_extended": 1.2990189533010864e-105,
+      "significant_extended": true
+    },
+    {
+      "model": "qwen3-1.7b",
+      "a": "native",
+      "b": "lossy",
+      "diff": 0.36553784860557764,
+      "p": 2.529451058538525e-82,
+      "p_holm_extended": 2.0150975705563596e-81,
+      "significant_extended": true
+    },
+    {
+      "model": "qwen3.5-2b",
+      "a": "native",
+      "b": "itrans",
+      "diff": 0.43525896414342624,
+      "p": 2.8113371589728562e-105,
+      "p_holm_extended": 2.5302034430755707e-104,
+      "significant_extended": true
+    },
+    {
+      "model": "qwen3.5-2b",
+      "a": "native",
+      "b": "lossy",
+      "diff": 0.30079681274900394,
+      "p": 1.1158511919563684e-59,
+      "p_holm_extended": 5.579255959781843e-59,
+      "significant_extended": true
+    },
+    {
+      "model": "sarvam-1",
+      "a": "native",
+      "b": "itrans",
+      "diff": 0.22709163346613548,
+      "p": 2.123868442850549e-34,
+      "p_holm_extended": 4.247736885701098e-34,
+      "significant_extended": true
+    },
+    {
+      "model": "sarvam-1",
+      "a": "native",
+      "b": "lossy",
+      "diff": 0.06075697211155373,
+      "p": 1.2058675268138053e-05,
+      "p_holm_extended": 1.2058675268138053e-05,
+      "significant_extended": true
+    },
+    {
+      "model": "llama-3.1-8b",
+      "a": "native",
+      "b": "itrans",
+      "diff": 0.32968127490039845,
+      "p": 3.059812743752219e-60,
+      "p_holm_extended": 1.8358876462513314e-59,
+      "significant_extended": true
+    },
+    {
+      "model": "llama-3.1-8b",
+      "a": "native",
+      "b": "lossy",
+      "diff": 0.24900398406374508,
+      "p": 1.0181114460761287e-40,
+      "p_holm_extended": 3.0543343382283862e-40,
+      "significant_extended": true
+    }
+  ],
+  "P_a_extended": {
+    "native_vs_itrans": {
+      "n_models": 5,
+      "positive_and_significant": 5,
+      "significantly_negative": 0,
+      "verdict": "supported"
+    },
+    "native_vs_lossy": {
+      "n_models": 5,
+      "positive_and_significant": 5,
+      "significantly_negative": 0,
+      "verdict": "supported"
+    }
+  },
+  "retrieval": {
+    "llama-3.1-8b": {
+      "native": 0.982089552238806,
+      "itrans": 0.17313432835820897,
+      "diff": 0.808955223880597,
+      "ci95": [
+        0.7840796019900498,
+        0.8328606965174126
+      ],
+      "n": 1005,
+      "layer_native": 17,
+      "layer_itrans": 8
+    },
+    "qwen3.5-2b": {
+      "native": 0.9781094527363184,
+      "itrans": 0.11343283582089553,
+      "diff": 0.8646766169154229,
+      "ci95": [
+        0.8427860696517413,
+        0.8855721393034826
+      ],
+      "n": 1005
+    },
+    "sarvam-1": {
+      "native": 0.9442786069651742,
+      "itrans": 0.5144278606965174,
+      "diff": 0.4298507462686567,
+      "ci95": [
+        0.3990049751243781,
+        0.4616915422885572
+      ],
+      "n": 1005
+    },
+    "gemma4-e2b": {
+      "native": 0.9950248756218906,
+      "itrans": 0.26865671641791045,
+      "diff": 0.7263681592039801,
+      "ci95": [
+        0.699502487562189,
+        0.7542288557213931
+      ],
+      "n": 1005
+    }
+  },
+  "retrieval_extended": {
+    "n_models": 4,
+    "native_minus_itrans_ci_above_0": 4,
+    "all_but_one_met": true
+  },
+  "scoring": {
+    "hours": 1.8198573695951037,
+    "dir": "results\\kaggle\\acct2\\x_score\\2026-11-04T210109\\out\\llama-3.1-8b"
+  }
+}

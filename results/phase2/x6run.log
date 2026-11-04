@@ -10,3 +10,27 @@ llama-3.2-1b/lossy: 1004 prompts in 236s
 oro-1.7b: loaded in 10s
 oro-1.7b/english: 1004 prompts in 448s
 oro-1.7b/native: 1004 prompts in 463s
+oro-1.7b/itrans: 1004 prompts in 469s
+oro-1.7b/lower: 1004 prompts in 477s
+oro-1.7b/lossy: 1004 prompts in 461s
+=== 2026-11-05 03:26:35 X6 counting analysis: env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x6_run.py analyse
+{
+ "llama-3.2-1b": {
+  "counted": false,
+  "native_ci_lower": 0.381,
+  "english": 0.633,
+  "itrans": 0.213,
+  "lossy": 0.241,
+  "lower": 0.186,
+  "native": 0.412
+ },
+ "oro-1.7b": {
+  "counted": false,
+  "native_ci_lower": 0.249,
+  "english": 0.388,
+  "itrans": 0.251,
+  "lossy": 0.252,
+  "lower": 0.25,
+  "native": 0.277
+ }
+}
