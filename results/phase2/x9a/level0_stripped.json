@@ -1,0 +1,41 @@
+{
+  "provenance": {
+    "config": {
+      "registration": "RESULTS.md X9a level-0 observation (descriptive only)"
+    },
+    "git_commit": "4770255763a4e0d26a106e99a7f5a10ba29d963c-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-04T14:49:20+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x9a.py",
+      "level0_stripped"
+    ]
+  },
+  "by_seed": {
+    "0": {
+      "layer": 0,
+      "acc_unmapped": 0.004,
+      "n_test": 250,
+      "chance": 0.004,
+      "unstripped_acc": 0.024
+    },
+    "1": {
+      "layer": 0,
+      "acc_unmapped": 0.008,
+      "n_test": 250,
+      "chance": 0.004,
+      "unstripped_acc": 0.02
+    },
+    "2": {
+      "layer": 2,
+      "acc_unmapped": 0.016,
+      "n_test": 250,
+      "chance": 0.004,
+      "unstripped_acc": 0.04
+    }
+  },
+  "mean": 0.009333333333333334
+}

@@ -1,0 +1,49 @@
+{
+ "model": "llama-3.1-8b",
+ "repo": "meta-llama/Llama-3.1-8B",
+ "rule": {
+  "agree_min": 0.98,
+  "acc_diff_max": 0.01,
+  "hidden_max": 65504.0
+ },
+ "reference": "float32_offload",
+ "parameters": 8030261248,
+ "hidden_abs_max_fp16": 303.25,
+ "nonfinite_fp16": 0,
+ "nonfinite_ref": 0,
+ "fp16_load_seconds": 2866.3848423957825,
+ "fp16_score_seconds": 358.272008895874,
+ "ref_load_seconds": 20.217421293258667,
+ "ref_score_seconds": 6381.888511657715,
+ "forms": {
+  "native": {
+   "raw_agreement": 1.0,
+   "acc_fp16": 0.71,
+   "acc_ref": 0.71,
+   "mean_abs_dlogprob": 0.006792735201971872,
+   "max_abs_dlogprob": 0.03753995895385742,
+   "acc_diff": 0.0,
+   "pass": true
+  },
+  "itrans": {
+   "raw_agreement": 0.98,
+   "acc_fp16": 0.32,
+   "acc_ref": 0.33,
+   "mean_abs_dlogprob": 0.0043800779751368936,
+   "max_abs_dlogprob": 0.02745819091796875,
+   "acc_diff": -0.010000000000000009,
+   "pass": true
+  },
+  "lossy": {
+   "raw_agreement": 0.99,
+   "acc_fp16": 0.44,
+   "acc_ref": 0.44,
+   "mean_abs_dlogprob": 0.004865692002432687,
+   "max_abs_dlogprob": 0.025144100189208984,
+   "acc_diff": 0.0,
+   "pass": true
+  }
+ },
+ "pass": true,
+ "seconds": 9639.260677576065
+}

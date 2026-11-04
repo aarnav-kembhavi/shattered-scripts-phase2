@@ -1,0 +1,46 @@
+{
+  "provenance": {
+    "config": {
+      "registration": "RESULTS.md X9a-low",
+      "seconds": 215.26616501808167
+    },
+    "git_commit": "eb2aa7a965c3dd2268c2af56b68dcae1b1053c2a-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-04T10:44:02+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x9a.py",
+      "prep_low"
+    ]
+  },
+  "x9a_p0p01": {
+    "train_tokens": 126423041,
+    "exposure_percent": 0.01,
+    "stories_consumed": 435908,
+    "cipher_stories_consumed": 43,
+    "cipher_share_consumed": 9.864466814098388e-05
+  },
+  "x9a_p0p03": {
+    "train_tokens": 126423041,
+    "exposure_percent": 0.03,
+    "stories_consumed": 435898,
+    "cipher_stories_consumed": 129,
+    "cipher_share_consumed": 0.0002959407934883849
+  },
+  "x9a_p0p1": {
+    "train_tokens": 126423041,
+    "exposure_percent": 0.1,
+    "stories_consumed": 435864,
+    "cipher_stories_consumed": 428,
+    "cipher_share_consumed": 0.0009819576748710606
+  },
+  "x9a_p0p3": {
+    "train_tokens": 126423041,
+    "exposure_percent": 0.3,
+    "stories_consumed": 435758,
+    "cipher_stories_consumed": 1305,
+    "cipher_share_consumed": 0.0029947815071668217
+  }
+}

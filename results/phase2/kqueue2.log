@@ -1,2 +1,10 @@
 === 2026-11-04 14:07:59 Kaggle queue pass 1: env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/kaggle_queue.py
 quota projection before A1-P ['ambari-7b-instruct-v0.1']: 0.49 h used in the last 7 days, this push up to 3.5 h, headroom 26.0 h, X9b Sarvam reserve 0 h (X9b pending: True)
+A1-P ambari-7b-instruct-v0.1: no result file (kernel status ashwin18522/shattered-kaggle-precision has status "KernelWorkerStatus.COMPLETE")
+quota projection before A1-P ['llama-3.1-8b']: 3.72 h used in the last 7 days, this push up to 3.5 h, headroom 22.8 h, X9b Sarvam reserve 0 h (X9b pending: True)
+A1-P llama-3.1-8b: pass=True reference=float32_offload error=None
+quota projection before x_score llama-3.1-8b: 6.50 h used in the last 7 days, this push up to 2.4 h, headroom 21.1 h, X9b Sarvam reserve 0 h (X9b pending: True)
+driver code changed on disk since this process started; re-executing with the current code (state is saved)
+A1-P llama-3.1-8b: pass=True reference=float32_offload error=None
+quota projection before A1-P ['ambari-7b-instruct-v0.1']: 6.50 h used in the last 7 days, this push up to 3.5 h, headroom 20.0 h, X9b Sarvam reserve 0 h (X9b pending: True)
+A1-P llama-3.1-8b: pass=True reference=float32_offload error=None

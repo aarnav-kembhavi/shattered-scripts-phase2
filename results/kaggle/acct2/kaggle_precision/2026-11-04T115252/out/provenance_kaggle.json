@@ -1,0 +1,18 @@
+{
+ "commit": "eb2aa7a965c3dd2268c2af56b68dcae1b1053c2a",
+ "job": "kaggle_precision",
+ "args": [
+  "--models",
+  "llama-3.1-8b"
+ ],
+ "gpus": "name, memory.total [MiB], driver_version\nTesla T4, 15360 MiB, 580.178.04\nTesla T4, 15360 MiB, 580.178.04\n",
+ "torch": "2.11.0+cu130",
+ "cuda": "13.0",
+ "transformers": "5.19.0",
+ "n_gpus": 2,
+ "bf16_supported": true,
+ "python": "3.13.16",
+ "start_epoch": 1793793325.1486247,
+ "returncode": 0,
+ "seconds": 9697.866657972336
+}
