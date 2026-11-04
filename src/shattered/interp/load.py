@@ -123,8 +123,37 @@ def model_source(name: str) -> str:
         import glob
         hits = glob.glob(f"/kaggle/input/**/{KAGGLE_DATASETS[name]}/config.json", recursive=True)
         if hits:
-            return os.path.dirname(hits[0])
+            return _local_copy(os.path.dirname(hits[0]), KAGGLE_DATASETS[name])
     return MODELS[name]
+
+
+def _local_copy(src: str, slug: str) -> str:
+    """Copy a model mounted from a private dataset to local disk with parallel reads before loading it (decided 2026-11-04 after Llama-3.1-8B took 48 minutes to load from the mount versus 11 minutes
+    for Llama-2 on account 1). Copied once per session (marker file); falls back to the mount if the disk is too small or the copy fails. SHATTERED_COPY_MODEL=0 switches it off."""
+    import shutil
+    import time
+    from concurrent.futures import ThreadPoolExecutor
+    if os.environ.get("SHATTERED_COPY_MODEL", "1") == "0":
+        return src
+    dst = f"/tmp/shattered_models/{slug}"
+    if os.path.exists(os.path.join(dst, ".done")):
+        return dst
+    try:
+        files = [f for f in os.listdir(src) if os.path.isfile(os.path.join(src, f))]
+        size = sum(os.path.getsize(os.path.join(src, f)) for f in files)
+        os.makedirs(dst, exist_ok=True)
+        if shutil.disk_usage(dst).free < size * 1.15:
+            print(f"[model_source] not enough local disk for {slug} ({size / 2**30:.1f} GiB); loading from the mount", flush=True)
+            return src
+        t0 = time.time()
+        with ThreadPoolExecutor(max_workers=8) as ex:
+            list(ex.map(lambda f: shutil.copyfile(os.path.join(src, f), os.path.join(dst, f)), files))
+        open(os.path.join(dst, ".done"), "w").write("ok")
+        print(f"[model_source] copied {slug}: {size / 2**30:.1f} GiB in {time.time() - t0:.0f}s to local disk", flush=True)
+        return dst
+    except Exception as e:  # noqa: BLE001 - fall back to the mount
+        print(f"[model_source] copy failed ({e!r}); loading from the mount", flush=True)
+        return src
 
 
 def load(name: str, device: str | None = None, dtype=torch.bfloat16, quant: str | None = None, offload: bool = False):
