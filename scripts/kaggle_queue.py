@@ -130,6 +130,12 @@ def push(job: str, args: list[str], hours: float, include: list[str] | None = No
         st = KR.kaggle("kernels", "status", slug, check=False).lower()
         if "running" in st or "queued" in st:
             why = f"kernel {slug} is still running or queued: {st.strip()[-60:]}"
+        if not why:  # Kaggle allows two GPU sessions at a time per account; a third push is rejected
+            user = KR.env()["KAGGLE_USERNAME"]
+            running = [k for k in ("kaggle-x9b", "x-score", "kaggle-precision", "kaggle-mdl", "kaggle-gate", "kaggle-retrieval-gate")
+                       if f"{user}/shattered-{k}" != slug and "running" in KR.kaggle("kernels", "status", f"{user}/shattered-{k}", check=False).lower()]
+            if len(running) >= 2:
+                why = f"two GPU kernels are already running on this account ({', '.join(running)}); a third would be rejected"
     if why:
         print(f"{job} {args}: preflight refused, nothing pushed, no quota used: {why}", flush=True)
         return None

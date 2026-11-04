@@ -91,60 +91,59 @@
     "ambari-7b-instruct-v0.1"
    ],
    "start_utc": "2026-11-04T14:40:01.573142+00:00",
-   "hours": 1.94,
-   "status": "COMPLETE (fetched by the later push; run 2026-11-04T144001, 1.94 h)",
-   "accelerator": "NvidiaTeslaT4 (T4 x2)"
-  },
-  {
-   "job": "kaggle_x9b",
-   "kernel": "ashwin18522/shattered-kaggle-x9b",
-   "commit": "e11761608ae7eab8f0cf586ba43dd3a6a8342ac0",
-   "dirty": false,
-   "args": [
-    "--mode",
-    "full",
-    "--runs",
-    "sarvam-1:native:1",
-    "sarvam-1:english:1",
-    "--base-eval",
-    "sarvam-1"
-   ],
-   "start_utc": "2026-11-04T15:05:25.637871+00:00",
-   "hours": 6.883663401191618,
-   "status": "pushed",
-   "accelerator": "NvidiaTeslaT4 (T4 x2)"
-  },
-  {
-   "job": "kaggle_precision",
-   "kernel": "ashwin18522/shattered-kaggle-precision",
-   "commit": "a182698a7abdb629b24692393922167f68033e77",
-   "dirty": false,
-   "args": [
-    "--models",
-    "ambari-7b-instruct-v0.1"
-   ],
-   "start_utc": "2026-11-04T16:11:13.707759+00:00",
-   "hours": 0.44650582167837355,
+   "hours": 1.9418813955783845,
    "status": "ashwin18522/shattered-kaggle-precision has status \"KernelWorkerStatus.COMPLETE\"",
    "accelerator": "NvidiaTeslaT4 (T4 x2)",
-   "output_dir": "results\\kaggle\\acct2\\kaggle_precision\\2026-11-04T161113",
+   "output_dir": "results\\kaggle\\acct2\\kaggle_precision\\2026-11-04T144001",
    "hardware": null,
    "torch": null,
    "bf16_supported": null
   },
   {
+   "job": "x_score",
+   "kernel": "ashwin18522/shattered-x-score",
+   "commit": "58423f16dd39b76876e06e1dcf98d40f8310923e",
+   "dirty": false,
+   "args": [
+    "--models",
+    "ambari-7b-instruct-v0.1"
+   ],
+   "start_utc": "2026-11-04T16:36:59.481177+00:00",
+   "hours": 1.1968311338954503,
+   "status": "ashwin18522/shattered-x-score has status \"KernelWorkerStatus.COMPLETE\"",
+   "accelerator": "NvidiaTeslaT4 (T4 x2)",
+   "output_dir": "results\\kaggle\\acct2\\x_score\\2026-11-04T163659",
+   "hardware": null,
+   "torch": null,
+   "bf16_supported": null
+  },
+  {
+   "job": "x_score",
+   "kernel": "ashwin18522/shattered-x-score",
+   "commit": "06100d722ac7e7043c5f8f8bdaf667388cea4c91",
+   "dirty": false,
+   "args": [
+    "--models",
+    "ambari-7b-instruct-v0.2"
+   ],
+   "start_utc": "2026-11-04T17:49:07.995457+00:00",
+   "hours": 2.4,
+   "status": "pushed",
+   "accelerator": "NvidiaTeslaT4 (T4 x2)"
+  },
+  {
    "job": "kaggle_mdl",
    "kernel": "ashwin18522/shattered-kaggle-mdl",
-   "commit": "06404f2d978b0d7cbb379dfeaffcc02717be7108",
+   "commit": "06100d722ac7e7043c5f8f8bdaf667388cea4c91",
    "dirty": false,
    "args": [
     "--models",
     "ambari-7b-instruct-v0.1",
     "ambari-7b-instruct-v0.2"
    ],
-   "start_utc": "2026-11-04T16:38:35.832723+00:00",
+   "start_utc": "2026-11-04T18:09:34.325665+00:00",
    "hours": 0.0,
-   "status": "not run: the push was cut off (runner process stopped on 2026-11-04 22:23 IST) and the kernel does not exist on Kaggle",
+   "status": "not run: Kaggle rejected the push (two GPU sessions already running on the account)",
    "accelerator": "NvidiaTeslaT4 (T4 x2)"
   }
  ]

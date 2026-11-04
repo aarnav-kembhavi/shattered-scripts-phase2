@@ -203,7 +203,10 @@ def run(a) -> None:
             "kernel_sources": [a.resume_from] if a.resume_from else [], "competition_sources": []}
     (kd / "kernel-metadata.json").write_text(json.dumps(meta, indent=1))
     t_push = datetime.now(timezone.utc)
-    print(kaggle("kernels", "push", "-p", str(kd), "--accelerator", "NvidiaTeslaT4", "-t", str(budget)), flush=True)
+    pushed = kaggle("kernels", "push", "-p", str(kd), "--accelerator", "NvidiaTeslaT4", "-t", str(budget))
+    print(pushed, flush=True)
+    if "successfully pushed" not in pushed:  # e.g. Kaggle refuses a third GPU session on the account: no kernel exists, nothing is recorded in the quota file
+        raise SystemExit("kernel push was not accepted: " + pushed[-300:])
     rec = {"job": job, "kernel": meta["id"], "commit": commit, "dirty": bool(dirty), "args": a.job_args, "start_utc": t_push.isoformat(),
            "hours": a.timeout_h, "status": "pushed", "accelerator": "NvidiaTeslaT4 (T4 x2)"}  # hours = reserved until the real runtime is known
     q["sessions"].append(rec)
