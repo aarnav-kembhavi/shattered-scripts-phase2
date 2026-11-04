@@ -185,8 +185,8 @@ def projection(s: dict, job: str, hours: float, is_x9b: bool = False, x12c1: boo
     if x12c1 and head >= 0:
         log(s, f"{job}: X12 contrast 1 runs ahead of the X9b reserve on Aarnav's decision of 2026-11-04 (X9b batch 3 launches as soon as the projection allows; nothing else goes ahead of it)")
         return True
-    if not is_x9b and x9b_pending(s) and head < X9B_SARVAM_H:
-        log(s, f"{job} would leave {head:.1f} h < {X9B_SARVAM_H:.0f} h for the X9b Sarvam arm: X9b first")
+    if not is_x9b and x9b_pending(s):  # Aarnav 2026-11-04: X9b batch 3 launches the moment it fits and nothing queues ahead of it
+        log(s, f"{job}: X9b Sarvam batches are still pending; nothing goes ahead of them")
         return False
     return True
 
@@ -366,10 +366,10 @@ def main() -> None:
     a1p(s, INSTRUCT)                                            # (d) Ambari-Instruct v0.1 and v0.2, then the secondary contrast if both pass
     if passed(s, *INSTRUCT):
         for m in INSTRUCT:
-            score(s, m, 5.0)
+            score(s, m, 2.4)
         mdl(s, INSTRUCT, 3.0)                                   # contrast 2 MDL comparison (descriptive only)
     a1p(s, ["llama-3.1-8b"])                                    # (e) Llama-3.1-8B, then X13 scoring if it passes (first to be cut)
-    score(s, "llama-3.1-8b", 5.0)
+    score(s, "llama-3.1-8b", 2.4)
     x9b_full(s)                                                 # (f) X9b full, Sarvam-1 arm; Qwen3.5-2B arm only with enough quota (cut first)
     if x9b_ready() and not x9b_pending(s):
         x9b_full(s, secondary=True)
