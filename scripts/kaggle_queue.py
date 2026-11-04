@@ -425,6 +425,7 @@ def main() -> None:
             mdl(s, INSTRUCT, 3.0)
         a1p(s, ["llama-3.1-8b"])
         score(s, "llama-3.1-8b", 2.4)
+        mdl(s, ["llama-3.1-8b"], 3.0)  # X13 MDL assembly layer for the counted model
         save(s)
         log(s, "account 2 queue pass finished; open: " + ", ".join(open_models(s)))
         return

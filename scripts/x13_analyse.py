@@ -46,6 +46,11 @@ def main() -> int:
     a = ap.parse_args()
     m = a.model
     state = json.load(open(REPO / "results" / "kaggle" / "queue_state.json"))
+    a2 = REPO / "results" / "kaggle" / "acct2" / "queue_state.json"  # models run on the second Kaggle account are recorded in its state file
+    if a2.exists():
+        o = json.load(open(a2))
+        for k in ("scored", "precision"):
+            state[k] = {**o.get(k, {}), **state[k]}
     d = REPO / state["scored"][m]["dir"]
     forms = {"english": "english", "native": "native", "itrans": "itrans", "lossy": "lossy", "lower": "lower", "natural": "natural257"}
     df = pd.concat([pd.read_parquet(d / f"sib_{f}.parquet") for f in forms], ignore_index=True)
