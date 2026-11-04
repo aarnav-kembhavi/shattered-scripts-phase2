@@ -1,0 +1,147 @@
+Qwen/Qwen3-1.7B {'params': 2031739904, 'license': 'apache-2.0', 'vocab_size': 151669} {'native': 11.836378052648271, 'itrans': 4.33929590865842, 'itrans_over_native': 0.36660673470864225}
+Qwen/Qwen3.5-2B {'params': 2274069824, 'license': 'apache-2.0', 'vocab_size': 248077} {'native': 5.328544243577546, 'itrans': 4.195147478591817, 'itrans_over_native': 0.7872971090834419}
+sarvamai/sarvam-1 {'params': 2525087744, 'license': None, 'vocab_size': 68096} {'native': 2.390675547098002, 'itrans': 5.331303520456708, 'itrans_over_native': 2.230040595399188}
+google/gemma-4-E2B {'params': 5123178051, 'license': 'apache-2.0', 'vocab_size': 262144} {'native': 3.2533460196638124, 'itrans': 4.029019980970504, 'itrans_over_native': 1.2384234436233887}
+meta-llama/Llama-3.2-1B {'params': 1235814400, 'license': 'llama3.2', 'vocab_size': None} None
+dheeyantra/dhee-nxtgen-qwen3-kannada-v2 {'params': 1720574976, 'license': 'apache-2.0', 'vocab_size': 151669} {'native': 11.836378052648271, 'itrans': 4.33929590865842, 'itrans_over_native': 0.36660673470864225}
+nsloni/KannadaLM-10M {'params': 7321088, 'license': None, 'vocab_size': 16000} {'native': 1.8138915318744053, 'itrans': 8.201141769743101, 'itrans_over_native': 4.521296684851028}
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (721 > 512). Running this sequence through the model will result in indexing errors
+thanushtph/kannada-codet5 {'params': 60492288, 'license': None, 'vocab_size': 32100} {'native': 23.16466856961624, 'itrans': 5.032318426895021, 'itrans_over_native': 0.21724111492342363}
+abhi334/gemma-eng-to-kannada {'params': None, 'license': None, 'vocab_size': 256000} {'native': 5.5644465588328575, 'itrans': 3.937266095781795, 'itrans_over_native': 0.7075755071332083}
+[transformers] You are using a model of type `parler_tts` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+adithyal1998Bhat/indic_parler_Kannada-tts {'params': 937803241, 'license': None, 'vocab_size': None} None
+Lingarajuyadav/gemma3_270m_kannada_merged {'params': 268098176, 'license': 'apache-2.0', 'vocab_size': 262145} {'native': 3.2533460196638124, 'itrans': 4.029019980970504, 'itrans_over_native': 1.2384234436233887}
+deepakkarkala/gemma3-1b-sft-kannada-general-float16 {'params': 999885952, 'license': 'apache-2.0', 'vocab_size': 262145} {'native': 3.2533460196638124, 'itrans': 4.029019980970504, 'itrans_over_native': 1.2384234436233887}
+[transformers] We found `hidden_act="gelu"` in this Gemma config. This is a legacy value of the official releases but it is meant to target the tanh approximation. Setting `hidden_act="gelu_pytorch_tanh"` instead.
+jayavibhav/gemma-Instruct-Finetune-Kannada-v1 {'params': 2506172416, 'license': None, 'vocab_size': 256000} {'native': 5.5644465588328575, 'itrans': 3.937266095781795, 'itrans_over_native': 0.7075755071332083}
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (1035 > 1024). Running this sequence through the model will result in indexing errors
+pavan-naik/gpt2-kannada-base-v1 {'params': 124439808, 'license': None, 'vocab_size': 50257} {'native': 22.744624167459563, 'itrans': 4.500570884871551, 'itrans_over_native': 0.19787404934615094}
+Mithun501/KannadaGPT-0.6B {'params': None, 'license': 'apache-2.0', 'vocab_size': 151669} {'native': 11.836378052648271, 'itrans': 4.33929590865842, 'itrans_over_native': 0.36660673470864225}
+jayavibhav/gemma-it-Kannada-v01 {'params': 2506172416, 'license': None, 'vocab_size': 256000} {'native': 5.5644465588328575, 'itrans': 3.937266095781795, 'itrans_over_native': 0.7075755071332083}
+jayavibhav/gemma-2b-it-kannada-Eng {'params': 2506172416, 'license': None, 'vocab_size': 256000} {'native': 5.5644465588328575, 'itrans': 3.937266095781795, 'itrans_over_native': 0.7075755071332083}
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (1035 > 1024). Running this sequence through the model will result in indexing errors
+Manasa-2004/dialoGPT-kannada-hindi {'params': 354823168, 'license': 'mit', 'vocab_size': 50257} {'native': 22.744624167459563, 'itrans': 4.500570884871551, 'itrans_over_native': 0.19787404934615094}
+jayavibhav/gemma-it-Kannada-Translation {'params': 2506172416, 'license': None, 'vocab_size': 256000} {'native': 5.5644465588328575, 'itrans': 3.937266095781795, 'itrans_over_native': 0.7075755071332083}
+charanhu/llama-3-2-3b-instruct-kannada {'params': None, 'license': 'apache-2.0', 'vocab_size': 128256} {'native': 14.895623215984777, 'itrans': 4.291373295274342, 'itrans_over_native': 0.28809625707162}
+AbhiDS16/kannada-gpt2-32m {'params': 31626240, 'license': 'mit', 'vocab_size': 12000} {'native': 2.014430700919759, 'itrans': 6.710244211861719, 'itrans_over_native': 3.331087144768952}
+FoundryAILabs/bharat-kannada-7b-lora {'params': None, 'license': 'apache-2.0', 'vocab_size': 32768} {'native': 11.649444973041549, 'itrans': 4.685061845861084, 'itrans_over_native': 0.4021703915253452}
+vaibhav-mugulavalli-2004/gemma-3-4b-kannada-CPT-LoRA {'params': None, 'license': None, 'vocab_size': 262145} {'native': 3.2533460196638124, 'itrans': 4.029019980970504, 'itrans_over_native': 1.2384234436233887}
+pulipakav-1/dravidian-gpt2-kannada {'params': 110418432, 'license': 'mit', 'vocab_size': None} None
+Darshan03/Kannada_FT-v1 {'params': None, 'license': None, 'vocab_size': 151665} {'native': 11.836378052648271, 'itrans': 4.33929590865842, 'itrans_over_native': 0.36660673470864225}
+deepakkarkala/gemma3-1b-sft-kannada-physics-float16 {'params': 999885952, 'license': 'apache-2.0', 'vocab_size': 262145} {'native': 3.2533460196638124, 'itrans': 4.029019980970504, 'itrans_over_native': 1.2384234436233887}
+Aditya1947/Kannada_Finetuned_LLama {'params': None, 'license': None, 'vocab_size': None} None
+MeghanaKap/kannada_lora_adapters {'params': None, 'license': None, 'vocab_size': 165158} {'native': 11.836378052648271, 'itrans': 4.33929590865842, 'itrans_over_native': 0.36660673470864225}
+vaibhav-mugulavalli-2004/gemma-3-4B-it-kannada-CPT-LoRA {'params': None, 'license': None, 'vocab_size': 262145} {'native': 3.2533460196638124, 'itrans': 4.029019980970504, 'itrans_over_native': 1.2384234436233887}
+MT03/gemma_only_finetune_kannada {'params': None, 'license': None, 'vocab_size': 256000} {'native': 5.5644465588328575, 'itrans': 3.937266095781795, 'itrans_over_native': 0.7075755071332083}
+imanjunathn/Llama-3.2-1B-Kannada-Tokenizer {'params': None, 'license': 'mit', 'vocab_size': None} None
+ai4bharat/IndicGPT {'params': None, 'license': 'mit', 'vocab_size': 64015} {'native': 2.191849032667301, 'itrans': 5.311734855692991, 'itrans_over_native': 2.4234036087919084}
+l3cube-pune/IndicGuard {'params': None, 'license': 'apache-2.0', 'vocab_size': 262145} {'native': 3.2533460196638124, 'itrans': 4.029019980970504, 'itrans_over_native': 1.2384234436233887}
+Telugu-LLM-Labs/Indic-gemma-2b-finetuned-sft-Navarasa-2.0-gguf {'params': None, 'license': 'other', 'vocab_size': None} None
+Telugu-LLM-Labs/Indic-gemma-2b-finetuned-sft-Navarasa-2.0 {'params': 2506172416, 'license': 'other', 'vocab_size': 256000} {'native': 5.5644465588328575, 'itrans': 3.937266095781795, 'itrans_over_native': 0.7075755071332083}
+Telugu-LLM-Labs/Indic-gemma-7b-finetuned-sft-Navarasa-2.0-gguf {'params': None, 'license': 'other', 'vocab_size': None} None
+tensorblock/Indic-gemma-7b-finetuned-sft-Navarasa-2.0-GGUF {'params': None, 'license': 'other', 'vocab_size': None} None
+ashtok897/oroZ-1.7B-Indic-v1 {'params': 2032264192, 'license': 'apache-2.0', 'vocab_size': 152012} {'native': 4.160260069774818, 'itrans': 4.211195686647637, 'itrans_over_native': 1.0122433732551668}
+sulabhkatiyar/en-indic-translate-4b-GGUF {'params': None, 'license': 'gemma', 'vocab_size': None} None
+guldasta/indic-gpt2-Hindi_Gen {'params': 458670080, 'license': None, 'vocab_size': 250054} {'native': 2.600919758959721, 'itrans': 4.051252775134793, 'itrans_over_native': 1.5576231297328278}
+Atharva31/indicslm-from-scratch {'params': None, 'license': None, 'vocab_size': None} None
+[transformers] You are using a model of type `parler_tts` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+adithyal1998Bhat/indic_parler_telugu-tts {'params': 937803241, 'license': None, 'vocab_size': None} None
+tensorblock/Indic-gemma-2b-finetuned-sft-Navarasa-2.0-GGUF {'params': None, 'license': 'other', 'vocab_size': None} None
+sulabhkatiyar/en-indic-translate-2b-GGUF {'params': None, 'license': 'gemma', 'vocab_size': None} None
+Rucha-Ambaliya/mt5-small-indic-gec {'params': 300176768, 'license': 'mit', 'vocab_size': 250100} {'native': 3.003615604186489, 'itrans': 4.072407231208373, 'itrans_over_native': 1.3558350228079066}
+prash616/Indica-1.7B-GGUF {'params': None, 'license': 'apache-2.0', 'vocab_size': 1} None
+featherless-ai-quants/Telugu-LLM-Labs-Indic-gemma-2b-finetuned-sft-Navarasa-2.0-GGUF {'params': None, 'license': None, 'vocab_size': None} None
+AdvRahul/Axion-Pro-Indic-24B {'params': None, 'license': 'apache-2.0', 'vocab_size': None} None
+[transformers] You are using a model of type `parler_tts` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+sivakgp/fine-tuned-indic-parler-on-hindi-audio-book-voice {'params': 937803241, 'license': None, 'vocab_size': 90714} {'native': 2.8252140818268314, 'itrans': 4.687377101173485, 'itrans_over_native': 1.659122801109128}
+aashay96/indic-gpt {'params': None, 'license': 'mit', 'vocab_size': 60000} {'native': 6.116365366317792, 'itrans': 4.506818902632413, 'itrans_over_native': 0.7368459260872496}
+IndicRAGware/mistral-hindi-qlora-RAG-7b {'params': None, 'license': 'apache-2.0', 'vocab_size': 32000} {'native': 11.649444973041549, 'itrans': 4.685061845861084, 'itrans_over_native': 0.4021703915253452}
+[transformers] You are using a model of type `parler_tts` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+sivakgp/fine_tuned_indic-parler-own-voice-1h {'params': 937803241, 'license': None, 'vocab_size': 90714} {'native': 2.8252140818268314, 'itrans': 4.687377101173485, 'itrans_over_native': 1.659122801109128}
+bawsi99/indicators-grpo-qwen7b {'params': None, 'license': 'apache-2.0', 'vocab_size': 151665} {'native': 11.836378052648271, 'itrans': 4.33929590865842, 'itrans_over_native': 0.36660673470864225}
+autopilot-ai/Indic-sentence-completion {'params': 3002557440, 'license': None, 'vocab_size': 250680} {'native': 2.2309863621947352, 'itrans': 4.106565176022835, 'itrans_over_native': 1.8406948807983736}
+CoRover/BharatGPT-3B-Indic {'params': 3212749824, 'license': 'other', 'vocab_size': None} None
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (1035 > 1024). Running this sequence through the model will result in indexing errors
+shyamsn97/pretrained-mario-gpt-420ctx-BERT-all-indices {'params': None, 'license': None, 'vocab_size': 50257} {'native': 22.744624167459563, 'itrans': 4.500570884871551, 'itrans_over_native': 0.19787404934615094}
+[transformers] You are using a model of type `parler_tts` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+sivakgp/fine_tuned_indic-parler-own-voice-1h01 {'params': 937803241, 'license': None, 'vocab_size': 90714} {'native': 2.8252140818268314, 'itrans': 4.687377101173485, 'itrans_over_native': 1.659122801109128}
+ucla-cmllab/tinyllama-sft-vicuna-processed-indicator-0.6 {'params': 1100056576, 'license': 'apache-2.0', 'vocab_size': 32002} {'native': 20.82756105296543, 'itrans': 4.687377101173485, 'itrans_over_native': 0.2250564571268462}
+Aaravomega/sarvam-30b-GGUF-IQ2_M-IQ1_M {'params': None, 'license': 'apache-2.0', 'vocab_size': None} None
+Aaravomega/sarvam-105b-GGUF-IQ2_M-IQ1_M {'params': None, 'license': 'apache-2.0', 'vocab_size': None} None
+DevQuasar/sarvamai.sarvam-30b-GGUF {'params': None, 'license': None, 'vocab_size': None} None
+bartowski/sarvam-1-GGUF {'params': None, 'license': None, 'vocab_size': None} None
+sarvamai/sarvam-1-v0.5 {'params': 2508834816, 'license': 'other', 'vocab_size': 64128} {'native': 2.390675547098002, 'itrans': 5.331303520456708, 'itrans_over_native': 2.230040595399188}
+bartowski/sarvamai_sarvam-m-GGUF {'params': None, 'license': 'apache-2.0', 'vocab_size': None} None
+sarvamai/sarvam-30b-gguf {'params': None, 'license': 'apache-2.0', 'vocab_size': None} None
+vennyvirtuoso/sarvam-1-hindi-marathi {'params': 2525087744, 'license': 'apache-2.0', 'vocab_size': 68096} {'native': 2.390675547098002, 'itrans': 5.331303520456708, 'itrans_over_native': 2.230040595399188}
+sarvamai/sarvam-105b-gguf {'params': None, 'license': 'apache-2.0', 'vocab_size': None} None
+lmstudio-community/sarvam-m-GGUF {'params': None, 'license': 'apache-2.0', 'vocab_size': None} None
+kingjones777/Sarvam-30B-ROCmFP4-GGUF {'params': None, 'license': 'apache-2.0', 'vocab_size': None} None
+Aaravomega/sarvam-105b-GGUF-Q8_0 {'params': None, 'license': 'apache-2.0', 'vocab_size': None} None
+DevQuasar/sarvamai.sarvam-m-GGUF {'params': None, 'license': None, 'vocab_size': None} None
+Reinforce-ai/sarvam-30b-Spiral {'params': None, 'license': 'apache-2.0', 'vocab_size': None} None
+mtrajan/sarvam-30b-GGUF {'params': None, 'license': 'apache-2.0', 'vocab_size': None} None
+DevQuasar-3/sarvamai.sarvam-1-GGUF {'params': None, 'license': None, 'vocab_size': None} None
+Aaravomega/sarvam-30b-GGUF-IQ2_S-surgical {'params': None, 'license': 'apache-2.0', 'vocab_size': None} None
+limegreenpeper1/sarvam-105B-GGUF {'params': None, 'license': 'apache-2.0', 'vocab_size': None} None
+ganmoor-ai-labs/krishi-sathi-sarvam-2b-multilingual {'params': None, 'license': 'other', 'vocab_size': None} None
+ThatCultivator/sarvam-30b-Uncensored-gguf {'params': None, 'license': 'apache-2.0', 'vocab_size': None} None
+MaziyarPanahi/sarvam-1-GGUF {'params': None, 'license': None, 'vocab_size': None} None
+ganmoor-ai-labs/krishi-sathi-sarvam-2b {'params': None, 'license': 'other', 'vocab_size': None} None
+Airavat-ai/erawan-1 {'params': 1720574976, 'license': 'apache-2.0', 'vocab_size': 151669} {'native': 11.836378052648271, 'itrans': 4.33929590865842, 'itrans_over_native': 0.36660673470864225}
+sam749/Airavata-GGUF {'params': None, 'license': 'llama2', 'vocab_size': 48065} {'native': 20.82756105296543, 'itrans': 4.687377101173485, 'itrans_over_native': 0.2250564571268462}
+Nayanjit/Airavata-finetuned-summarization {'params': None, 'license': None, 'vocab_size': 48065} {'native': 20.82756105296543, 'itrans': 4.687377101173485, 'itrans_over_native': 0.2250564571268462}
+ar08/Indic-gemma-7b-finetuned-sft-Navarasa-2.0-IQ3_M-GGUF {'params': None, 'license': 'other', 'vocab_size': None} None
+NeevrajKB/Navarasa-2.0-Gemma-2b-ONNX-OPTIMIZED {'params': None, 'license': 'gemma', 'vocab_size': 256000} {'native': 5.5644465588328575, 'itrans': 3.937266095781795, 'itrans_over_native': 0.7075755071332083}
+Nandu2905/Indic-gemma-2b-finetuned-sft-Navarasa-3.0-gptq-4bit {'params': 2506882048, 'license': None, 'vocab_size': 256000} {'native': 5.5644465588328575, 'itrans': 3.937266095781795, 'itrans_over_native': 0.7075755071332083}
+Nandu2905/Indic-gemma-2b-finetuned-sft-Navarasa-2.0-gptq-4bit {'params': 2506882048, 'license': None, 'vocab_size': 256000} {'native': 5.5644465588328575, 'itrans': 3.937266095781795, 'itrans_over_native': 0.7075755071332083}
+mlgawd/navarasa-2b-2.0-cyberdost {'params': 2506172416, 'license': None, 'vocab_size': 256000} {'native': 5.5644465588328575, 'itrans': 3.937266095781795, 'itrans_over_native': 0.7075755071332083}
+Telugu-LLM-Labs/Indic-gemma-2b-finetuned-sft-Navarasa {'params': None, 'license': 'other', 'vocab_size': 256000} {'native': 5.5644465588328575, 'itrans': 3.937266095781795, 'itrans_over_native': 0.7075755071332083}
+Telugu-LLM-Labs/Indic-gemma-7b-finetuned-sft-Navarasa {'params': None, 'license': 'other', 'vocab_size': 256000} {'native': 5.5644465588328575, 'itrans': 3.937266095781795, 'itrans_over_native': 0.7075755071332083}
+dumbequation/Phi-4-telugu-navarasa {'params': None, 'license': 'apache-2.0', 'vocab_size': None} None
+bartowski/krutrim-ai-labs_Krutrim-2-instruct-GGUF {'params': None, 'license': 'other', 'vocab_size': None} None
+ritwikm/Finetuned_krutrim_short_l6 {'params': None, 'license': None, 'vocab_size': 131072} {'native': 3.8267047256581033, 'itrans': 4.246685696162385, 'itrans_over_native': 1.1097500331521017}
+krutrim-ai-labs/Krutrim-Translate {'params': None, 'license': 'other', 'vocab_size': None} None
+meta-llama/Llama-3.2-1B-Instruct {'params': 1235814400, 'license': 'llama3.2', 'vocab_size': None} None
+unsloth/Llama-3.2-1B-Instruct {'params': 1235814400, 'license': 'llama3.2', 'vocab_size': 128256} {'native': 14.895623215984777, 'itrans': 4.291373295274342, 'itrans_over_native': 0.28809625707162}
+bartowski/Llama-3.2-1B-Instruct-GGUF {'params': None, 'license': 'llama3.2', 'vocab_size': None} None
+unsloth/Llama-3.2-1B {'params': 1235814400, 'license': 'llama3.2', 'vocab_size': 128256} {'native': 14.895623215984777, 'itrans': 4.291373295274342, 'itrans_over_native': 0.28809625707162}
+unsloth/Llama-3.2-1B-Instruct-GGUF {'params': None, 'license': 'llama3.2', 'vocab_size': None} None
+NousResearch/Llama-3.2-1B {'params': 1235814400, 'license': 'llama3.2', 'vocab_size': 128256} {'native': 14.895623215984777, 'itrans': 4.291373295274342, 'itrans_over_native': 0.28809625707162}
+hugging-quants/Llama-3.2-1B-Instruct-Q4_K_M-GGUF {'params': None, 'license': None, 'vocab_size': None} None
+MaziyarPanahi/Llama-3.2-1B-Instruct-GGUF {'params': None, 'license': None, 'vocab_size': None} None
+mlx-community/Llama-3.2-1B-Instruct-4bit {'params': 1235814400, 'license': 'llama3.2', 'vocab_size': 128256} {'native': 14.895623215984777, 'itrans': 4.291373295274342, 'itrans_over_native': 0.28809625707162}
+[transformers] You are using a model of type `mobilint-llama` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+[transformers] PreTrainedConfig got `key=rope_scaling` in kwargs but hasn't set it as attribute. For RoPE standardization you need to set `self.rope_parameters` in model's config. 
+mobilint/Llama-3.2-1B-Instruct {'params': 262668288, 'license': 'other', 'vocab_size': None} None
+unsloth/Llama-3.2-1B-Instruct-unsloth-bnb-4bit {'params': 1264773672, 'license': 'llama3.2', 'vocab_size': 128256} {'native': 14.895623215984777, 'itrans': 4.291373295274342, 'itrans_over_native': 0.28809625707162}
+osllmai-community/Llama-3.2-1B {'params': 1235814400, 'license': 'llama3.2', 'vocab_size': 128256} {'native': 14.895623215984777, 'itrans': 4.291373295274342, 'itrans_over_native': 0.28809625707162}
+unsloth/Llama-3.2-1B-Instruct-bnb-4bit {'params': 1266351458, 'license': 'llama3.2', 'vocab_size': 128256} {'native': 14.895623215984777, 'itrans': 4.291373295274342, 'itrans_over_native': 0.28809625707162}
+RedHatAI/Llama-3.2-1B-Instruct-FP8 {'params': 1498482688, 'license': 'llama3.2', 'vocab_size': 128256} {'native': 14.895623215984777, 'itrans': 4.291373295274342, 'itrans_over_native': 0.28809625707162}
+RedHatAI/Llama-3.2-1B-Instruct-FP8-dynamic {'params': 1498859520, 'license': 'llama3.2', 'vocab_size': 128256} {'native': 14.895623215984777, 'itrans': 4.291373295274342, 'itrans_over_native': 0.28809625707162}
+lmstudio-community/Llama-3.2-1B-Instruct-GGUF {'params': None, 'license': 'llama3.2', 'vocab_size': None} None
+unsloth/Llama-3.2-1B-unsloth-bnb-4bit {'params': 1264773664, 'license': 'llama3.2', 'vocab_size': 128256} {'native': 14.895623215984777, 'itrans': 4.291373295274342, 'itrans_over_native': 0.28809625707162}
+hugging-quants/Llama-3.2-1B-Instruct-Q8_0-GGUF {'params': None, 'license': None, 'vocab_size': None} None
+bartowski/Dolphin3.0-Llama3.2-1B-GGUF {'params': None, 'license': 'llama3.2', 'vocab_size': None} None
+DavidAU/Llama-3.2-1B-Instruct-NEO-SI-FI-GGUF {'params': None, 'license': 'apache-2.0', 'vocab_size': None} None
+getonit/transcription-cleanup-llama3.2-1b {'params': 1235814400, 'license': None, 'vocab_size': 128256} {'native': 14.895623215984777, 'itrans': 4.291373295274342, 'itrans_over_native': 0.28809625707162}
+RedHatAI/Llama-3.2-1B-Instruct-quantized.w8a8 {'params': 1498482688, 'license': 'llama3.2', 'vocab_size': 128256} {'native': 14.895623215984777, 'itrans': 4.291373295274342, 'itrans_over_native': 0.28809625707162}
+alpindale/Llama-3.2-1B {'params': 1235814400, 'license': 'llama3.2', 'vocab_size': 128256} {'native': 14.895623215984777, 'itrans': 4.291373295274342, 'itrans_over_native': 0.28809625707162}
+DavidAU/Llama-3.2-1B-Instruct-NEO-WEE-HORROR-GGUF {'params': None, 'license': 'apache-2.0', 'vocab_size': None} None
+onnx-community/Llama-3.2-1B-Instruct-ONNX {'params': None, 'license': 'llama3.2', 'vocab_size': 128256} {'native': 14.895623215984777, 'itrans': 4.291373295274342, 'itrans_over_native': 0.28809625707162}
+FastFlowLM/Llama-3.2-1B-NPU2 {'params': None, 'license': 'llama3', 'vocab_size': 128256} {'native': 14.895623215984777, 'itrans': 4.291373295274342, 'itrans_over_native': 0.28809625707162}
+Novaciano/Llama-3.2-1B-NSFW_Open_Erotic_GGUF {'params': None, 'license': 'llama3.2', 'vocab_size': None} None
+unsloth/Llama-3.2-1B-bnb-4bit {'params': 1266351448, 'license': 'llama3.2', 'vocab_size': 128256} {'native': 14.895623215984777, 'itrans': 4.291373295274342, 'itrans_over_native': 0.28809625707162}
+DoeyLLM/OneLLM-Doey-V1-Llama-3.2-1B-it-Q8_0-GGUF {'params': None, 'license': 'apache-2.0', 'vocab_size': None} None
+DoeyLLM/OneLLM-Doey-ChatQA-V1-Llama-3.2-1B-Q8_0-GGUF {'params': None, 'license': 'apache-2.0', 'vocab_size': None} None
+open-unlearning/unlearn_tofu_Llama-3.2-1B-Instruct_forget10_NPO_lr2e-05_beta0.5_alpha1_epoch10 {'params': 1235814400, 'license': None, 'vocab_size': 128256} {'native': 14.895623215984777, 'itrans': 4.291373295274342, 'itrans_over_native': 0.28809625707162}
+open-unlearning/unlearn_tofu_Llama-3.2-1B-Instruct_forget10_RMU_lr1e-05_layer5_scoeff100_epoch10 {'params': 1235814400, 'license': None, 'vocab_size': 128256} {'native': 14.895623215984777, 'itrans': 4.291373295274342, 'itrans_over_native': 0.28809625707162}
+Vikhrmodels/Vikhr-Llama-3.2-1B-instruct-GGUF {'params': None, 'license': 'llama3.2', 'vocab_size': None} None
+tinyopsec/llama3.2-1b-CoT-GGUF {'params': None, 'license': 'apache-2.0', 'vocab_size': None} None
+legraphista/Llama-3.2-1B-Instruct-IMat-GGUF {'params': None, 'license': 'llama3.2', 'vocab_size': None} None
+ThomasBaruzier/Llama-3.2-1B-Instruct-GGUF {'params': None, 'license': 'llama3.2', 'vocab_size': None} None
+tinyopsec/Vikhr-Llama-3.2-1B-Instruct-GGUF {'params': None, 'license': 'llama3.2', 'vocab_size': None} None
+ElectricLMA/Abliterated-Llama-3.2-1B-Instruct-Q4_K_M-GGUF {'params': None, 'license': 'llama3.2', 'vocab_size': None} None
+QuantFactory/Llama-3.2-1B-Instruct-GGUF {'params': None, 'license': 'llama3.2', 'vocab_size': None} None
+IndicAIDias/Gemma2b_it_fine-tuned {'params': 2506172416, 'license': None, 'vocab_size': 256000} {'native': 5.5644465588328575, 'itrans': 3.937266095781795, 'itrans_over_native': 0.7075755071332083}
+shortlist (rules 1 and 2 by tokens per word): ['nsloni/KannadaLM-10M', 'thanushtph/kannada-codet5', 'pavan-naik/gpt2-kannada-base-v1', 'Manasa-2004/dialoGPT-kannada-hindi', 'AbhiDS16/kannada-gpt2-32m', 'ashtok897/oroZ-1.7B-Indic-v1', 'guldasta/indic-gpt2-Hindi_Gen', 'sivakgp/fine-tuned-indic-parler-on-hindi-audio-book-voice', 'sivakgp/fine_tuned_indic-parler-own-voice-1h', 'sivakgp/fine_tuned_indic-parler-own-voice-1h01', 'ucla-cmllab/tinyllama-sft-vicuna-processed-indicator-0.6', 'unsloth/Llama-3.2-1B-Instruct', 'unsloth/Llama-3.2-1B', 'NousResearch/Llama-3.2-1B', 'mlx-community/Llama-3.2-1B-Instruct-4bit', 'unsloth/Llama-3.2-1B-Instruct-unsloth-bnb-4bit', 'osllmai-community/Llama-3.2-1B', 'unsloth/Llama-3.2-1B-Instruct-bnb-4bit', 'RedHatAI/Llama-3.2-1B-Instruct-FP8', 'RedHatAI/Llama-3.2-1B-Instruct-FP8-dynamic', 'unsloth/Llama-3.2-1B-unsloth-bnb-4bit', 'getonit/transcription-cleanup-llama3.2-1b', 'RedHatAI/Llama-3.2-1B-Instruct-quantized.w8a8', 'alpindale/Llama-3.2-1B', 'unsloth/Llama-3.2-1B-bnb-4bit', 'open-unlearning/unlearn_tofu_Llama-3.2-1B-Instruct_forget10_NPO_lr2e-05_beta0.5_alpha1_epoch10', 'open-unlearning/unlearn_tofu_Llama-3.2-1B-Instruct_forget10_RMU_lr1e-05_layer5_scoeff100_epoch10']

@@ -8,3 +8,45 @@ driver code changed on disk since this process started; re-executing with the cu
 A1-P llama-3.1-8b: pass=True reference=float32_offload error=None
 quota projection before A1-P ['ambari-7b-instruct-v0.1']: 6.50 h used in the last 7 days, this push up to 3.5 h, headroom 20.0 h, X9b Sarvam reserve 0 h (X9b pending: True)
 A1-P llama-3.1-8b: pass=True reference=float32_offload error=None
+A1-P ambari-7b-instruct-v0.1: pass=True reference=float32_offload error=None
+quota projection before x_score ambari-7b-instruct-v0.1: 8.44 h used in the last 7 days, this push up to 2.4 h, headroom 19.2 h, X9b Sarvam reserve 0 h (X9b pending: True)
+driver code changed on disk since this process started; re-executing with the current code (state is saved)
+A1-P llama-3.1-8b: pass=True reference=float32_offload error=NonA1-P ambari-7b-instruct-v0.1: pass=True reference=float32_offload error=None
+quota projection before x_score ambari-7b-instruct-v0.1: 17.33 h used in the last 7 days, this push up to 2.4 h, headroom 10.3 h, X9b Sarvam reserve 0 h (X9b pending: True)
+driver code changed on disk since this process started; re-executing with the cuscore ambari-7b-instruct-v0.1: done=True retrieval=True hours=1.20
+quota projection before x_score ambari-7b-instruct-v0.2: 9.64 h used in the last 7 days, this push up to 2.4 h, headroom 18.0 h, X9b Sarvam reserve 0 h (X9b pending: True)
+driver code changed on disk since this process started; re-executing with the current code (state is saved)
+A1-P llama-3.1-8b: pass=True reference=float32_offload error=None
+A1-P ambari-7b-instruct-v0.1: pass=True reference=float32_offload error=None
+A1-P ambari-7b-instruct-v0.1: pass=True reference=float32_offload error=None
+quota projection before x_score ambari-7b-instruct-v0.2: 9.64 h used in the last 7 days, this push up to 2.4 h, headroom 18.0 h, X9b Sarvam reserve 0 h (X9b pending: True)
+score ambari-7b-instruct-v0.2: done=True retrieval=True hours=1.67
+quota projection before kaggle_mdl ['ambari-7b-instruct-v0.1', 'ambari-7b-instruct-v0.2']: 11.31 h used in the last 7 days, this push up to 3.0 h, headroom 15.7 h, X9b Sarvam reserve 0 h (X9b pending: True)
+driver code changed on disk since this process started; re-executing with the current code (state is saved)
+A1-P llama-3.1-8b: pass=True reference=float32_offload error=None
+A1-P ambari-7b-instruct-v0.1: pass=True reference=float32_offload error=None
+A1-P ambari-7b-instruct-v0.1: pass=True reference=float32_offload error=None
+quota projection before kaggle_mdl ['ambari-7b-instruct-v0.1', 'ambari-7b-instruct-v0.2']: 11.31 h used in the last 7 days, this push up to 3.0 h, headroom 15.7 h, X9b Sarvam reserve 0 h (X9b pending: True)
+offload error=None
+A1-P ambari-7b-instruct-v0.1: pass=True reference=float32_offload error=None
+A1-P ambari-7b-instruct-v0.1: pass=True reference=float32_offload error=None
+quota projection before x_score ambari-7b-instruct-v0.2: 12.04 h used in the last 7 days, this push up to 2.4 h, headroom 15.6 h, X9b Sarvam reserve 0 h (X9b pending: True)
+x_score ['--models', 'ambari-7b-instruct-v0.2']: preflight refused, nothing pushed, no quota used: kernel ashwin18522/shattered-x-score is still running or queued: 22/shattered-x-score has status "kernelworkerstatus.running"
+score ambari-7b-instruct-v0.2: runner did not push; nothing recorded
+quota projection before kaggle_mdl ['ambari-7b-instruct-v0.1', 'ambari-7b-instruct-v0.2']: 12.04 h used in the last 7 days, this push up to 3.0 h, headroom 15.0 h, X9b Sarvam reserve 0 h (X9b pending: True)
+kaggle_mdl: runner did not push; nothing recorded
+quota projection before x_score llama-3.1-8b: 15.04 h used in the last 7 days, this push up to 2.4 h, headroom 12.6 h, X9b Sarvam reserve 0 h (X9b pending: True)
+x_score ['--models', 'llama-3.1-8b']: preflight refused, nothing pushed, no quota used: kernel ashwin18522/shattered-x-score is still running or queued: 22/shattered-x-score has status "kernelworkerstatus.running"
+score llama-3.1-8b: runner did not push; nothing recorded
+account 2 queue pass finished; open: llama-3.1-8b, ambari-7b-instruct-v0.2
+=== 2026-11-05 01:07:42 Kaggle queue pass 1: env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/kaggle_queue.py
+A1-P llama-3.1-8b: pass=True reference=float32_offload error=None
+A1-P ambari-7b-instruct-v0.1: pass=True reference=float32_offload error=None
+A1-P ambari-7b-instruct-v0.1: pass=True reference=float32_offload error=None
+quota projection before kaggle_mdl ['ambari-7b-instruct-v0.1', 'ambari-7b-instruct-v0.2']: 14.31 h used in the last 7 days, this push up to 3.0 h, headroom 12.7 h, X9b Sarvam reserve 0 h (X9b pending: True)
+kaggle_mdl ['--models', 'ambari-7b-instruct-v0.1', 'ambari-7b-instruct-v0.2']: preflight refused, nothing pushed, no quota used: kernel ashwin18522/shattered-kaggle-mdl is still running or queued: shattered-kaggle-mdl has status "kernelworkerstatus.running"
+kaggle_mdl: runner did not push; nothing recorded
+quota projection before x_score llama-3.1-8b: 14.31 h used in the last 7 days, this push up to 2.4 h, headroom 13.3 h, X9b Sarvam reserve 0 h (X9b pending: True)
+x_score ['--models', 'llama-3.1-8b']: preflight refused, nothing pushed, no quota used: two GPU kernels are already running on this account (kaggle-x9b, kaggle-mdl); a third would be rejected
+score llama-3.1-8b: runner did not push; nothing recorded
+account 2 queue pass finished; open: llama-3.1-8b

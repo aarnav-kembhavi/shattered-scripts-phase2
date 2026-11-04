@@ -1,6 +1,6 @@
 # Phase 2 registered outcomes: status ledger
 
-Last updated 2026-11-04 20:22 IST (system clock). Rows for other experiments are added when each reports its registered verdict word; no registered rule is changed.
+Last updated 2026-11-05 02:23 IST (system clock). Rows for other experiments are added when each reports its registered verdict word; no registered rule is changed.
 
 | Experiment | Registered outcome words | Status | Result or reason |
 |---|---|---|---|
@@ -17,3 +17,4 @@ Last updated 2026-11-04 20:22 IST (system clock). Rows for other experiments are
 | X11 Arm A (4-bit control, Qwen3.5-2B) | supported / partly / refuted | **complete: partly supported** | every form within 3 points; gap change -0.026, 95% CI [-0.054, +0.003] just outside the +-5 point bound; English -0.020 (only significant form change); exploratory control |
 | X10 (Kannada to English generation, chrF) | supported / partly / refuted | **complete: X10-P supported (4 of 4)** | native beats ITRANS by +15.0 to +32.9 chrF (Holm-significant) in all four models; caveat: Qwen3.5-2B returns an empty first line for 62-88% of inputs; nothing against a prediction |
 | X9a-low (exposure 0.01 to 0.3 percent; exploratory, added after the X9a-R ceiling) | dose-response present / no dose-response | **complete: dose-response present** | Spearman 1.00 over six levels, mean(1%) minus mean(0.01%) = +0.951; retrieval 0.028 / 0.043 / 0.068 / 0.109 / 0.355 / 0.993; assembly layer flat (1.33) from 0.03%; level-0 retrieval on stripped text 0.009 (chance 0.004); X9a-R verdict unchanged |
+| X4 Bengali and Telugu, part 1 (counting rule and R1 on SIB-200) | supported / refuted per rule | **R1 supported in both languages (4 of 4 counted models, both contrasts)** | ITRANS-ladder, retrieval, MDL and K3b parts not built yet; nothing against a prediction |

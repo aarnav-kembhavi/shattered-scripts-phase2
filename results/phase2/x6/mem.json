@@ -1,0 +1,29 @@
+{
+  "provenance": {
+    "config": {
+      "registration": "RESULTS.md X6 screen, stage 2"
+    },
+    "git_commit": "a7577c65d6d77c77161b85dee0da75841de27ae6-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-04T20:51:17+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x6_screen.py",
+      "mem",
+      "NousResearch/Llama-3.2-1B",
+      "ashtok897/oroZ-1.7B-Indic-v1"
+    ]
+  },
+  "NousResearch/Llama-3.2-1B": {
+    "peak_gib": 2.4640626907348633,
+    "seconds": 199.56958103179932,
+    "fits_8gb": true
+  },
+  "ashtok897/oroZ-1.7B-Indic-v1": {
+    "peak_gib": 4.294756889343262,
+    "seconds": 321.9142117500305,
+    "fits_8gb": true
+  }
+}
