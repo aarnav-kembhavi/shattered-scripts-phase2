@@ -1,0 +1,80 @@
+{
+  "provenance": {
+    "config": {
+      "registration": "RESULTS.md Amendment 2, X12 contrast 2 (descriptive)"
+    },
+    "git_commit": "3c2e3a612caa15f59b8beb6c62325bcb53686aa1-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-04T21:08:31+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x12_contrast2.py"
+    ]
+  },
+  "models": {
+    "ambari-7b-instruct-v0.1": {
+      "native": {
+        "detok_layer": 4,
+        "tokens_per_word": 1.6562222222222223,
+        "n_layers": 32
+      },
+      "itrans": {
+        "detok_layer": 3,
+        "tokens_per_word": 3.4233333333333333,
+        "n_layers": 32
+      }
+    },
+    "ambari-7b-instruct-v0.2": {
+      "native": {
+        "detok_layer": 8,
+        "tokens_per_word": 14.506782299310652,
+        "n_layers": 32
+      },
+      "itrans": {
+        "detok_layer": 3,
+        "tokens_per_word": 3.493333333333333,
+        "n_layers": 32
+      }
+    }
+  },
+  "occurrences": {
+    "native": {
+      "ambari-7b-instruct-v0.1": 9000,
+      "ambari-7b-instruct-v0.2": 8994,
+      "words_in_both": 300
+    },
+    "itrans": {
+      "ambari-7b-instruct-v0.1": 9000,
+      "ambari-7b-instruct-v0.2": 9000,
+      "words_in_both": 300
+    }
+  },
+  "contrast": {
+    "native": {
+      "v02_minus_v01_layer": 4,
+      "ci95": [
+        3.0,
+        5.0
+      ],
+      "tokens_per_word_difference_v02_minus_v01": 12.85056007708843,
+      "sign_ci": 1,
+      "sign_expected_from_tpw": 1,
+      "H3_pattern_met": true
+    },
+    "itrans": {
+      "v02_minus_v01_layer": 0,
+      "ci95": [
+        0.0,
+        1.0
+      ],
+      "tokens_per_word_difference_v02_minus_v01": 0.06999999999999984,
+      "sign_ci": 0,
+      "sign_expected_from_tpw": 1,
+      "H3_pattern_met": false
+    }
+  },
+  "registered_form": "native",
+  "verdict_native": "pattern met (more fragmented input assembled later)"
+}

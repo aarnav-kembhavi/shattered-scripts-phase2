@@ -2,58 +2,65 @@ Starting upload for file repo.zip
 Upload successful: repo.zip (1MB)
 Dataset version is being created. Please check progress at https://www.kaggle.com/datasets/ashwin18522/shattered-pkg
 
-  0%|          | 0.00/1.01M [00:00<?, ?B/s]
-  3%|▎         | 32.0k/1.01M [00:00<00:03, 324kB/s]
- 37%|███▋      | 384k/1.01M [00:00<00:00, 2.07MB/s]
- 57%|█████▋    | 592k/1.01M [00:01<00:01, 444kB/s] 
- 85%|████████▍ | 880k/1.01M [00:01<00:00, 596kB/s]
-100%|██████████| 1.01M/1.01M [00:02<00:00, 434kB/s]
+  0%|          | 0.00/1.02M [00:00<?, ?B/s]
+  2%|▏         | 16.0k/1.02M [00:00<00:06, 156kB/s]
+ 23%|██▎       | 240k/1.02M [00:00<00:00, 1.30MB/s]
+ 40%|████      | 416k/1.02M [00:00<00:01, 498kB/s] 
+ 49%|████▉     | 512k/1.02M [00:01<00:01, 365kB/s]
+ 82%|████████▏ | 848k/1.02M [00:01<00:00, 769kB/s]
+100%|██████████| 1.02M/1.02M [00:02<00:00, 431kB/s]
 
-Kernel push error: Maximum batch GPU session count of 2 reached.
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/ashwin18522/shattered-kaggle-mdl
 
-[23:39:39]  can find in the resource's URL.
-To search for one, try 'kaggle search <query>'.
-[23:41:42]  can find in the resource's URL.
-To search for one, try 'kaggle search <query>'.
-[23:43:44]  can find in the resource's URL.
-To search for one, try 'kaggle search <query>'.
-[23:45:46]  can find in the resource's URL.
-To search for one, try 'kaggle search <query>'.
-[23:47:47]  can find in the resource's URL.
-To search for one, try 'kaggle search <query>'.
-[23:49:49]  can find in the resource's URL.
-To search for one, try 'kaggle search <query>'.
-[23:51:51]  can find in the resource's URL.
-To search for one, try 'kaggle search <query>'.
-[23:53:54]  can find in the resource's URL.
-To search for one, try 'kaggle search <query>'.
-[23:55:56]  can find in the resource's URL.
-To search for one, try 'kaggle search <query>'.
-[23:57:58]  can find in the resource's URL.
-To search for one, try 'kaggle search <query>'.
-[00:00:01]  can find in the resource's URL.
-To search for one, try 'kaggle search <query>'.
-[00:02:03]  can find in the resource's URL.
-To search for one, try 'kaggle search <query>'.
-[00:04:05]  can find in the resource's URL.
-To search for one, try 'kaggle search <query>'.
-[00:06:07]  can find in the resource's URL.
-To search for one, try 'kaggle search <query>'.
-[00:08:08]  can find in the resource's URL.
-To search for one, try 'kaggle search <query>'.
-[00:10:10]  can find in the resource's URL.
-To search for one, try 'kaggle search <query>'.
-[00:12:13]  can find in the resource's URL.
-To search for one, try 'kaggle search <query>'.
-[00:14:15]  can find in the resource's URL.
-To search for one, try 'kaggle search <query>'.
-[00:16:18]  can find in the resource's URL.
-To search for one, try 'kaggle search <query>'.
-[00:18:21]  can find in the resource's URL.
-To search for one, try 'kaggle search <query>'.
-[00:20:23]  can find in the resource's URL.
-To search for one, try 'kaggle search <query>'.
-[00:22:27]  can find in the resource's URL.
-To search for one, try 'kaggle search <query>'.
-[00:24:29]  can find in the resource's URL.
-To search for one, try 'kaggle search <query>'.
+[01:00:20] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[01:02:23] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[01:04:26] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[01:06:29] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[01:08:31] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[01:10:34] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[01:12:35] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[01:14:37] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[01:16:40] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[01:18:42] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[01:20:45] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[01:22:47] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[01:24:50] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[01:26:52] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[01:28:54] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[01:30:57] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[01:32:59] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[01:35:03] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[01:37:06] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[01:39:08] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[01:41:10] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[01:43:13] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[01:45:15] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[01:47:17] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[01:49:19] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[01:51:22] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[01:53:23] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[01:55:25] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[01:57:27] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[01:59:31] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[02:01:33] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[02:03:35] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[02:05:38] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[02:07:42] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[02:09:44] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[02:11:47] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[02:13:49] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[02:15:52] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[02:17:54] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[02:19:57] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[02:21:59] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[02:24:02] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+[02:26:04] ashwin18522/shattered-kaggle-mdl has status "KernelWorkerStatus.RUNNING"
+{
+ "job": "kaggle_mdl",
+ "commit": "1fbe72df43b53939061a39977d8e012adcd66237",
+ "status": "ashwin18522/shattered-kaggle-mdl has status \"KernelWorkerStatus.COMPLETE\"",
+ "hours": 1.50456043071217,
+ "hardware": null,
+ "output_dir": "results\\kaggle\\acct2\\kaggle_mdl\\2026-11-04T193014"
+}
+weekly hours used (last 7 days): 12.82 of 30.0

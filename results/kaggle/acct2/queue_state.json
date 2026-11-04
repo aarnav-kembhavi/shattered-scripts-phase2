@@ -20,14 +20,19 @@
   "2026-11-04 23:18:51 A1-P ambari-7b-instruct-v0.1: pass=True reference=float32_offload error=None",
   "2026-11-04 23:18:51 A1-P ambari-7b-instruct-v0.1: pass=True reference=float32_offload error=None",
   "2026-11-04 23:18:53 quota projection before x_score ambari-7b-instruct-v0.2: 9.64 h used in the last 7 days, this push up to 2.4 h, headroom 18.0 h, X9b Sarvam reserve 0 h (X9b pending: True)",
-  "2026-11-04 23:39:03 A1-P llama-3.1-8b: pass=True reference=float32_offload error=None",
-  "2026-11-04 23:39:03 A1-P ambari-7b-instruct-v0.1: pass=True reference=float32_offload error=None",
-  "2026-11-04 23:39:03 A1-P ambari-7b-instruct-v0.1: pass=True reference=float32_offload error=None",
-  "2026-11-04 23:39:09 quota projection before x_score ambari-7b-instruct-v0.2: 12.04 h used in the last 7 days, this push up to 2.4 h, headroom 15.6 h, X9b Sarvam reserve 0 h (X9b pending: True)",
-  "2026-11-04 23:39:14 score ambari-7b-instruct-v0.2: runner did not push; nothing recorded",
-  "2026-11-04 23:39:14 quota projection before kaggle_mdl ['ambari-7b-instruct-v0.1', 'ambari-7b-instruct-v0.2']: 12.04 h used in the last 7 days, this push up to 3.0 h, headroom 15.0 h, X9b Sarvam reserve 0 h (X9b pending: True)",
-  "2026-11-05 00:25:42 kaggle_mdl: runner did not push; nothing recorded",
-  "2026-11-05 00:25:42 quota projection before x_score llama-3.1-8b: 15.04 h used in the last 7 days, this push up to 2.4 h, headroom 12.6 h, X9b Sarvam reserve 0 h (X9b pending: True)"
+  "2026-11-05 00:59:35 score ambari-7b-instruct-v0.2: done=True retrieval=True hours=1.67",
+  "2026-11-05 00:59:35 quota projection before kaggle_mdl ['ambari-7b-instruct-v0.1', 'ambari-7b-instruct-v0.2']: 11.31 h used in the last 7 days, this push up to 3.0 h, headroom 15.7 h, X9b Sarvam reserve 0 h (X9b pending: True)",
+  "2026-11-05 00:59:35 A1-P llama-3.1-8b: pass=True reference=float32_offload error=None",
+  "2026-11-05 00:59:35 A1-P ambari-7b-instruct-v0.1: pass=True reference=float32_offload error=None",
+  "2026-11-05 00:59:35 A1-P ambari-7b-instruct-v0.1: pass=True reference=float32_offload error=None",
+  "2026-11-05 00:59:41 quota projection before kaggle_mdl ['ambari-7b-instruct-v0.1', 'ambari-7b-instruct-v0.2']: 11.31 h used in the last 7 days, this push up to 3.0 h, headroom 15.7 h, X9b Sarvam reserve 0 h (X9b pending: True)",
+  "2026-11-05 02:30:34 MDL ambari-7b-instruct-v0.1: done=True hours=1.50",
+  "2026-11-05 02:30:34 MDL ambari-7b-instruct-v0.2: done=True hours=1.50",
+  "2026-11-05 02:30:34 quota projection before x_score llama-3.1-8b: 12.82 h used in the last 7 days, this push up to 2.4 h, headroom 14.8 h, X9b Sarvam reserve 0 h (X9b pending: True)",
+  "2026-11-05 02:30:34 A1-P llama-3.1-8b: pass=True reference=float32_offload error=None",
+  "2026-11-05 02:30:34 A1-P ambari-7b-instruct-v0.1: pass=True reference=float32_offload error=None",
+  "2026-11-05 02:30:34 A1-P ambari-7b-instruct-v0.1: pass=True reference=float32_offload error=None",
+  "2026-11-05 02:30:37 quota projection before x_score llama-3.1-8b: 12.82 h used in the last 7 days, this push up to 2.4 h, headroom 14.8 h, X9b Sarvam reserve 0 h (X9b pending: True)"
  ],
  "precision": {
   "qwen3-8b": {
@@ -105,6 +110,14 @@
    "hours": 1.1968311338954503,
    "commit": "58423f16dd39b76876e06e1dcf98d40f8310923e",
    "status": "ashwin18522/shattered-x-score has status \"KernelWorkerStatus.COMPLETE\""
+  },
+  "ambari-7b-instruct-v0.2": {
+   "done": true,
+   "retrieval_requested": true,
+   "dir": "results\\kaggle\\acct2\\x_score\\2026-11-04T174907\\out\\ambari-7b-instruct-v0.2",
+   "hours": 1.6734603965944714,
+   "commit": "06100d722ac7e7043c5f8f8bdaf667388cea4c91",
+   "status": "ashwin18522/shattered-x-score has status \"KernelWorkerStatus.COMPLETE\""
   }
  },
  "mdl": {
@@ -113,6 +126,18 @@
    "dir": "results\\kaggle\\kaggle_mdl\\2026-11-03T220606\\out\\qwen3-8b",
    "hours": 1.0563246400488748,
    "commit": "a9e7bca8f552914271080deccb58e8f188d8a959"
+  },
+  "ambari-7b-instruct-v0.1": {
+   "done": true,
+   "dir": "results\\kaggle\\acct2\\kaggle_mdl\\2026-11-04T193014\\out\\ambari-7b-instruct-v0.1",
+   "hours": 1.50456043071217,
+   "commit": "1fbe72df43b53939061a39977d8e012adcd66237"
+  },
+  "ambari-7b-instruct-v0.2": {
+   "done": true,
+   "dir": "results\\kaggle\\acct2\\kaggle_mdl\\2026-11-04T193014\\out\\ambari-7b-instruct-v0.2",
+   "hours": 1.50456043071217,
+   "commit": "1fbe72df43b53939061a39977d8e012adcd66237"
   }
  },
  "a1r": {

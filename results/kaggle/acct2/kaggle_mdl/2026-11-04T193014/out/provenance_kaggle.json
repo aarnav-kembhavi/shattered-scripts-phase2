@@ -1,0 +1,19 @@
+{
+ "commit": "1fbe72df43b53939061a39977d8e012adcd66237",
+ "job": "kaggle_mdl",
+ "args": [
+  "--models",
+  "ambari-7b-instruct-v0.1",
+  "ambari-7b-instruct-v0.2"
+ ],
+ "gpus": "name, memory.total [MiB], driver_version\nTesla T4, 15360 MiB, 580.178.04\nTesla T4, 15360 MiB, 580.178.04\n",
+ "torch": "2.11.0+cu130",
+ "cuda": "13.0",
+ "transformers": "5.19.0",
+ "n_gpus": 2,
+ "bf16_supported": true,
+ "python": "3.13.16",
+ "start_epoch": 1793820620.8661397,
+ "returncode": 0,
+ "seconds": 5237.77734875679
+}

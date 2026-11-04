@@ -1,0 +1,18 @@
+{
+ "commit": "06100d722ac7e7043c5f8f8bdaf667388cea4c91",
+ "job": "x_score",
+ "args": [
+  "--models",
+  "ambari-7b-instruct-v0.2"
+ ],
+ "gpus": "name, memory.total [MiB], driver_version\nTesla T4, 15360 MiB, 580.178.04\nTesla T4, 15360 MiB, 580.178.04\n",
+ "torch": "2.11.0+cu130",
+ "cuda": "13.0",
+ "transformers": "5.19.0",
+ "n_gpus": 2,
+ "bf16_supported": true,
+ "python": "3.13.16",
+ "start_epoch": 1793814553.4571936,
+ "returncode": 0,
+ "seconds": 5812.269208431244
+}

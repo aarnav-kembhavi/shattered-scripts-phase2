@@ -1,0 +1,6 @@
+=== 2026-11-05 02:24:29 X6 SIB-200 scoring: env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x6_run.py score
+Loading weights:   0%|          | 0/146 [00:00<?, ?it/s]Loading weights:   7%|▋         | 10/146 [00:00<00:01, 92.60it/s]Loading weights:  16%|█▌        | 23/146 [00:00<00:01, 100.13it/s]Loading weights:  24%|██▍       | 35/146 [00:00<00:01, 91.66it/s] Loading weights:  31%|███       | 45/146 [00:00<00:01, 93.26it/s]Loading weights:  40%|███▉      | 58/146 [00:00<00:00, 95.72it/s]Loading weights:  49%|████▉     | 72/146 [00:00<00:00, 102.76it/s]Loading weights:  57%|█████▋    | 83/146 [00:00<00:00, 100.91it/s]Loading weights:  64%|██████▍   | 94/146 [00:00<00:00, 98.18it/s] Loading weights:  71%|███████   | 104/146 [00:01<00:00, 94.06it/s]Loading weights:  79%|███████▉  | 116/146 [00:01<00:00, 90.64it/s]Loading weights:  89%|████████▉ | 130/146 [00:01<00:00, 100.72it/s]Loading weights:  98%|█████████▊| 143/146 [00:01<00:00, 108.27it/s]Loading weights: 100%|██████████| 146/146 [00:01<00:00, 101.74it/s]
+llama-3.2-1b: loaded in 11s
+llama-3.2-1b/english: 1004 prompts in 184s
+llama-3.2-1b/native: 1004 prompts in 391s
+llama-3.2-1b/itrans: 1004 prompts in 241s

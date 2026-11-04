@@ -318,7 +318,21 @@
   "2026-11-04 23:31:19 A1-P llama-2-7b: pass=True reference=float32_offload error=None",
   "2026-11-04 23:31:19 quota projection before x9b sarvam-1 ['sarvam-1:native:1', 'sarvam-1:english:1']: 29.36 h used in the last 7 days, this push up to 6.9 h, headroom -6.2 h, X9b Sarvam reserve 0 h (X9b pending: True)",
   "2026-11-04 23:31:19 x9b sarvam-1 ['sarvam-1:native:1', 'sarvam-1:english:1']: over the weekly quota, not pushed",
-  "2026-11-04 23:31:19 queue pass finished (account 1: X9b only); open: x9b"
+  "2026-11-04 23:31:19 queue pass finished (account 1: X9b only); open: x9b",
+  "2026-11-05 01:03:24 A1-P ambari-7b-base: pass=True reference=float32_offload error=None",
+  "2026-11-05 01:03:24 A1-P qwen3-8b: pass=True reference=float32_offload error=None",
+  "2026-11-05 01:03:24 A1-P ambari-7b-instruct-v0.2: pass=True reference=float32_offload error=None",
+  "2026-11-05 01:03:24 A1-P llama-2-7b: pass=True reference=float32_offload error=None",
+  "2026-11-05 01:03:24 quota projection before x9b sarvam-1 ['sarvam-1:native:1', 'sarvam-1:english:1']: 29.36 h used in the last 7 days, this push up to 6.9 h, headroom -6.2 h, X9b Sarvam reserve 0 h (X9b pending: True)",
+  "2026-11-05 01:03:24 x9b sarvam-1 ['sarvam-1:native:1', 'sarvam-1:english:1']: over the weekly quota, not pushed",
+  "2026-11-05 01:03:24 queue pass finished (account 1: X9b only); open: x9b",
+  "2026-11-05 02:35:30 A1-P ambari-7b-base: pass=True reference=float32_offload error=None",
+  "2026-11-05 02:35:30 A1-P qwen3-8b: pass=True reference=float32_offload error=None",
+  "2026-11-05 02:35:30 A1-P ambari-7b-instruct-v0.2: pass=True reference=float32_offload error=None",
+  "2026-11-05 02:35:30 A1-P llama-2-7b: pass=True reference=float32_offload error=None",
+  "2026-11-05 02:35:30 quota projection before x9b sarvam-1 ['sarvam-1:native:1', 'sarvam-1:english:1']: 29.36 h used in the last 7 days, this push up to 6.9 h, headroom -6.2 h, X9b Sarvam reserve 0 h (X9b pending: True)",
+  "2026-11-05 02:35:30 x9b sarvam-1 ['sarvam-1:native:1', 'sarvam-1:english:1']: over the weekly quota, not pushed",
+  "2026-11-05 02:35:30 queue pass finished (account 1: X9b only); open: x9b"
  ],
  "precision": {
   "qwen3-8b": {
