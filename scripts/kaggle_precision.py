@@ -38,6 +38,7 @@ def score(model, tok, its, hidden=False) -> dict:
     for f in FORMS:
         a = np.stack([np.asarray(choice_logprobs(model, tok, build_prompt("sib", {"text": it[f]}), VERBALIZERS["sib"])[0], float) for it in its])
         out["nonfinite"] += int((~np.isfinite(a)).sum())
+        print(f"[score] form {f} done", flush=True)
         out["lp"][f] = a
     return out
 
@@ -50,11 +51,13 @@ def worker(kind: str, m: str, npz: Path) -> int:
     its = items(None, "")
     t0 = time.time()
     try:
+        print(f"[worker {kind} {m}] loading", flush=True)
         if kind == "fp16":
             model, tok = load(m, "auto", dtype=torch.float16)
         else:
             model, tok = load(m, "auto", dtype=torch.float32, offload=True)
         t_load = time.time() - t0
+        print(f"[worker {kind} {m}] loaded in {t_load:.0f}s; scoring", flush=True)
         t1 = time.time()
         r = score(model, tok, its, hidden=(kind == "fp16"))
         np.savez(npz, **{f"lp_{f}": v for f, v in r["lp"].items()}, nonfinite=r["nonfinite"],
