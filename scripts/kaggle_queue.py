@@ -118,7 +118,7 @@ def preflight(args: list[str], extra: list[str]) -> str | None:
 def push(job: str, args: list[str], hours: float, include: list[str] | None = None) -> dict:
     if code_hash() != _CODE_AT_START:  # the scripts changed since this process started: restart it so every launch uses the committed code (the stale-driver bug)
         print("driver code changed on disk since this process started; re-executing with the current code (state is saved)", flush=True)
-        os.execv(sys.executable, [sys.executable, "-u", *sys.argv])
+        sys.exit(subprocess.run([sys.executable, "-u", *sys.argv], cwd=REPO).returncode)  # not os.execv: on Windows execv returns to the parent at once, which left an orphan driver running next to the chain's next pass (2026-11-04)
     sys.path.insert(0, str(REPO / "src"))
     from shattered.interp.load import KAGGLE_DATASETS
     extra = sorted({KAGGLE_DATASETS[m] for m in args if m in KAGGLE_DATASETS})  # gated models come from private datasets
