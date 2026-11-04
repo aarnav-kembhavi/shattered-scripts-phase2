@@ -331,7 +331,10 @@ def x9b_full(s: dict, secondary: bool = False) -> None:
 def a1p(s: dict, models: list[str]) -> None:
     models = [m for m in models if m not in s["precision"] and accessible(m)]
     models = [m for m in models if not (REPO / "results" / "kaggle" / f"DATASET_PENDING_{m}").exists()]  # gated model whose private Kaggle dataset is not uploaded yet (RESULTS.md 2026-11-04)
-    if models and projection(s, f"A1-P {models}", 2.0 + 1.5 * len(models), x12c1=(models == ["llama-2-7b"])):
+    sys.path.insert(0, str(REPO / "src"))
+    from shattered.interp.load import KAGGLE_DATASETS
+    hours = 5.0 if any(m in KAGGLE_DATASETS for m in models) else 2.0 + 1.5 * len(models)  # weights mounted from a private dataset load slowly (Llama-3.1-8B: 48 min fp16 load on account 2; 2.78 h in total; one Ambari-Instruct-v0.1 run timed out at 3.07 h)
+    if models and projection(s, f"A1-P {models}", hours, x12c1=(models == ["llama-2-7b"])):
         precision(s, models)
 
 
