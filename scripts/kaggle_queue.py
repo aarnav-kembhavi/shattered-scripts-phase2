@@ -317,7 +317,7 @@ def main() -> None:
     mdl(s, ["qwen3-8b"], 2.5)                                   # X13 MDL after scoring
     a1p(s, ["llama-2-7b"])                                      # (c) Llama-2-7B, then contrast 1 if both endpoints passed
     if passed(s, "ambari-7b-base", "llama-2-7b"):
-        score(s, "llama-2-7b", 5.0)
+        score(s, "llama-2-7b", 2.4)  # cap lowered from 5.0 on 2026-11-04 to fit the remaining quota; measured: Qwen3-8B scoring 1.71 h, Ambari-7B-base 1.23 h
     a1p(s, INSTRUCT)                                            # (d) Ambari-Instruct v0.1 and v0.2, then the secondary contrast if both pass
     if passed(s, *INSTRUCT):
         for m in INSTRUCT:
