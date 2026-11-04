@@ -7,6 +7,7 @@ requested only if A1-R passed. Each job goes through scripts/kaggle_runner.py (q
 Usage: python scripts/kaggle_queue.py [--once]
 """
 import json
+import os
 import subprocess
 import sys
 import time
@@ -52,10 +53,54 @@ def accessible(model: str) -> bool:
         return False
 
 
+CODE_FILES = ["scripts/kaggle_queue.py", "scripts/kaggle_runner.py", "scripts/kaggle_precision.py", "scripts/x_score.py", "scripts/kaggle_mdl.py", "scripts/kaggle_x9b.py", "src/shattered/interp/load.py"]
+
+
+def code_hash() -> str:
+    import hashlib
+    return hashlib.sha256(b"".join((REPO / f).read_bytes() for f in CODE_FILES if (REPO / f).exists())).hexdigest()
+
+
+_CODE_AT_START = code_hash()
+
+
+def preflight(args: list[str], extra: list[str]) -> str | None:
+    """Cheap laptop-side checks before a push costs quota (decided 2026-11-04 after three failed launches). Returns a reason to refuse, or None.
+    (1) The datasets the job mounts (the private model datasets) exist and are ready on Kaggle. (2) Any model named in the arguments that is gated on Hugging Face
+    (anonymous request to config.json gives 401) has a private dataset. (3) The shipped scripts are the current ones (checked by the caller, which re-executes this process)."""
+    sys.path.insert(0, str(REPO / "scripts"))
+    sys.path.insert(0, str(REPO / "src"))
+    import urllib.error
+    import urllib.request
+
+    import kaggle_runner as KR
+    from shattered.interp.load import KAGGLE_DATASETS, MODELS
+    user = KR.env()["KAGGLE_USERNAME"]
+    for slug in [PRIVATE, *extra]:
+        s = KR.kaggle("datasets", "status", f"{user}/{slug}", check=False)
+        if "ready" not in s.lower():
+            return f"dataset {user}/{slug} is not ready on Kaggle: {s.strip()[:120]}"
+    for m in args:
+        if m in MODELS and m not in KAGGLE_DATASETS:
+            try:
+                urllib.request.urlopen(urllib.request.Request(f"https://huggingface.co/{MODELS[m]}/resolve/main/config.json", method="HEAD"), timeout=30)
+            except urllib.error.HTTPError as e:
+                if e.code in (401, 403):
+                    return f"{m} ({MODELS[m]}) is gated on Hugging Face and has no private Kaggle dataset"
+    return None
+
+
 def push(job: str, args: list[str], hours: float, include: list[str] | None = None) -> dict:
+    if code_hash() != _CODE_AT_START:  # the scripts changed since this process started: restart it so every launch uses the committed code (the stale-driver bug)
+        print("driver code changed on disk since this process started; re-executing with the current code (state is saved)", flush=True)
+        os.execv(sys.executable, [sys.executable, "-u", *sys.argv])
     sys.path.insert(0, str(REPO / "src"))
     from shattered.interp.load import KAGGLE_DATASETS
     extra = sorted({KAGGLE_DATASETS[m] for m in args if m in KAGGLE_DATASETS})  # gated models come from private datasets
+    why = preflight(args, extra)
+    if why:
+        print(f"{job} {args}: preflight refused, nothing pushed, no quota used: {why}", flush=True)
+        return None
     cmd = [PY, "scripts/kaggle_runner.py", "run", job, "--timeout-h", str(hours), "--private-data", PRIVATE, *extra]
     if include:
         cmd += ["--include", *include]
