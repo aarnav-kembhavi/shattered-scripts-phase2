@@ -222,8 +222,16 @@ def fetch(job: str, wait: bool = False, rec: dict | None = None) -> None:
     while True:
         s = kaggle("kernels", "status", ref, check=False)
         low = s.lower()
-        if any(k in low for k in ("complete", "error", "cancel")) or not wait:
+        if not wait:
             break
+        if "kernelworkerstatus." in low:
+            if any(k in low for k in ("complete", "error", "cancel")):
+                break
+            bad = 0
+        else:  # the status call itself failed (network blip): keep polling, give up after 30 consecutive failures
+            bad = locals().get("bad", 0) + 1
+            if bad >= 30:
+                break
         print(f"[{time.strftime('%H:%M:%S')}] {s.strip()[-80:]}", flush=True)
         time.sleep(120)
     od = kdir() / job / rec["start_utc"][:19].replace(":", "")
