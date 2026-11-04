@@ -31,7 +31,7 @@ MODELS = ["qwen3-1.7b", "qwen3.5-2b", "sarvam-1", "gemma4-e2b", "qwen2.5-1.5b"]
 
 
 def build(lang: str) -> dict:
-    arts = wikipedia(lang)
+    arts = wikipedia(lang, shard="00000-of-00002") + wikipedia(lang, shard="00001-of-00002")  # Bengali and Telugu Wikipedia have two shards; both are used (as x4_fetch.py)
     random.Random(0).shuffle(arts)
     sents = []
     for a in arts:
