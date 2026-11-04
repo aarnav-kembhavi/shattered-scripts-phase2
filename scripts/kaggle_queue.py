@@ -123,6 +123,13 @@ def push(job: str, args: list[str], hours: float, include: list[str] | None = No
     from shattered.interp.load import KAGGLE_DATASETS
     extra = sorted({KAGGLE_DATASETS[m] for m in args if m in KAGGLE_DATASETS})  # gated models come from private datasets
     why = preflight(args, extra)
+    if not why:  # never push a kernel whose previous version is still running or queued: the new version replaces it and its result is lost (2026-11-04, account 2, Ambari-Instruct-v0.1)
+        sys.path.insert(0, str(REPO / "scripts"))
+        import kaggle_runner as KR
+        slug = f"{KR.env()['KAGGLE_USERNAME']}/shattered-{job.replace('_', '-')}"
+        st = KR.kaggle("kernels", "status", slug, check=False).lower()
+        if "running" in st or "queued" in st:
+            why = f"kernel {slug} is still running or queued: {st.strip()[-60:]}"
     if why:
         print(f"{job} {args}: preflight refused, nothing pushed, no quota used: {why}", flush=True)
         return None
