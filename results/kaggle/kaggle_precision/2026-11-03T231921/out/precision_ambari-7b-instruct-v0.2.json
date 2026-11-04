@@ -1,0 +1,49 @@
+{
+ "model": "ambari-7b-instruct-v0.2",
+ "repo": "Cognitive-Lab/Ambari-7B-Instruct-v0.2",
+ "rule": {
+  "agree_min": 0.98,
+  "acc_diff_max": 0.01,
+  "hidden_max": 65504.0
+ },
+ "reference": "float32_offload",
+ "parameters": null,
+ "hidden_abs_max_fp16": 2462.0,
+ "nonfinite_fp16": 0,
+ "nonfinite_ref": 0,
+ "fp16_load_seconds": 91.91500902175903,
+ "fp16_score_seconds": 365.7656478881836,
+ "ref_load_seconds": 18.88927173614502,
+ "ref_score_seconds": 3506.3461446762085,
+ "forms": {
+  "native": {
+   "raw_agreement": 1.0,
+   "acc_fp16": 0.63,
+   "acc_ref": 0.63,
+   "mean_abs_dlogprob": 0.0042323228291102815,
+   "max_abs_dlogprob": 0.018505096435546875,
+   "acc_diff": 0.0,
+   "pass": true
+  },
+  "itrans": {
+   "raw_agreement": 0.99,
+   "acc_fp16": 0.21,
+   "acc_ref": 0.21,
+   "mean_abs_dlogprob": 0.003386760439191546,
+   "max_abs_dlogprob": 0.014104366302490234,
+   "acc_diff": 0.0,
+   "pass": true
+  },
+  "lossy": {
+   "raw_agreement": 1.0,
+   "acc_fp16": 0.34,
+   "acc_ref": 0.34,
+   "mean_abs_dlogprob": 0.0033967477934701102,
+   "max_abs_dlogprob": 0.015695571899414062,
+   "acc_diff": 0.0,
+   "pass": true
+  }
+ },
+ "pass": true,
+ "seconds": 3995.708681821823
+}

@@ -1,0 +1,4 @@
+Premise: {premise}
+Hypothesis: {hypothesis}
+Question: If the premise is true, is the hypothesis true? Choose no, maybe, or yes.
+Answer:

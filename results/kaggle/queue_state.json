@@ -196,7 +196,22 @@
   "2026-11-04 03:34:05 queue pass finished; open: llama-2-7b, llama-3.1-8b, ambari-7b-instruct-v0.1, ambari-7b-instruct-v0.2, x9b",
   "2026-11-04 03:35:52 A1-P ambari-7b-base: pass=True reference=float32_offload error=None",
   "2026-11-04 03:35:52 A1-P qwen3-8b: pass=True reference=float32_offload error=None",
-  "2026-11-04 03:35:52 quota projection before kaggle_mdl ['qwen3-8b']: 23.63 h used in the last 7 days, this push up to 2.5 h, headroom 3.9 h, X9b Sarvam reserve 0 h (X9b pending: True)"
+  "2026-11-04 03:35:52 quota projection before kaggle_mdl ['qwen3-8b']: 23.63 h used in the last 7 days, this push up to 2.5 h, headroom 3.9 h, X9b Sarvam reserve 0 h (X9b pending: True)",
+  "2026-11-04 04:39:34 MDL qwen3-8b: done=True hours=1.06",
+  "2026-11-04 04:40:20 quota projection before A1-P ['llama-2-7b']: 24.69 h used in the last 7 days, this push up to 3.5 h, headroom 1.8 h, X9b Sarvam reserve 0 h (X9b pending: True)",
+  "2026-11-04 04:40:20 A1-P ['llama-2-7b']: X12 contrast 1 runs ahead of the X9b reserve on Aarnav's decision of 2026-11-04 (X9b batch 3 launches as soon as the projection allows; nothing else goes ahead of it)",
+  "2026-11-04 04:40:20 A1-P ambari-7b-base: pass=True reference=float32_offload error=None",
+  "2026-11-04 04:40:20 A1-P qwen3-8b: pass=True reference=float32_offload error=None",
+  "2026-11-04 04:48:37 A1-P llama-2-7b: harness error, no verdict, stays queued: OSError('You are trying to access a gated repo.\\nMake sure to have access to it at https://huggingface.co/meta-llama/Llama-2-7b-hf.\\n401 Client Error. (Request ID: Root=1-6aea6a5d-62fcd251004aa8c63bd6",
+  "2026-11-04 04:48:38 quota projection before A1-P ['ambari-7b-instruct-v0.1', 'ambari-7b-instruct-v0.2']: 24.81 h used in the last 7 days, this push up to 5.0 h, headroom 0.2 h, X9b Sarvam reserve 0 h (X9b pending: True)",
+  "2026-11-04 04:48:38 A1-P ambari-7b-base: pass=True reference=float32_offload error=None",
+  "2026-11-04 04:48:38 A1-P qwen3-8b: pass=True reference=float32_offload error=None",
+  "2026-11-04 06:03:31 A1-P ambari-7b-instruct-v0.1: harness error, no verdict, stays queued: OSError('You are trying to access a gated repo.\\nMake sure to have access to it at https://huggingface.co/Cognitive-Lab/Ambari-7B-Instruct-v0.1.\\n401 Client Error. (Request ID: Root=1-6aea6c6c-0f7786d",
+  "2026-11-04 06:03:31 A1-P ambari-7b-instruct-v0.2: pass=True reference=float32_offload error=None",
+  "2026-11-04 06:03:31 quota projection before A1-P ['llama-3.1-8b']: 26.05 h used in the last 7 days, this push up to 3.5 h, headroom 0.5 h, X9b Sarvam reserve 0 h (X9b pending: True)",
+  "2026-11-04 06:03:31 A1-P ambari-7b-base: pass=True reference=float32_offload error=None",
+  "2026-11-04 06:03:31 A1-P qwen3-8b: pass=True reference=float32_offload error=None",
+  "2026-11-04 06:03:31 A1-P ambari-7b-instruct-v0.2: pass=True reference=float32_offload error=None"
  ],
  "precision": {
   "qwen3-8b": {
@@ -211,6 +226,13 @@
    "reference": "float32_offload",
    "hidden_abs_max_fp16": 1730.0,
    "file": "results\\kaggle\\kaggle_precision\\2026-11-02T175450\\out\\precision_ambari-7b-base.json",
+   "error": null
+  },
+  "ambari-7b-instruct-v0.2": {
+   "pass": true,
+   "reference": "float32_offload",
+   "hidden_abs_max_fp16": 2462.0,
+   "file": "results\\kaggle\\kaggle_precision\\2026-11-03T231921\\out\\precision_ambari-7b-instruct-v0.2.json",
    "error": null
   }
  },
@@ -242,7 +264,14 @@
   "commit": "dc2d1df5e79a98dda8f43947b851eba4056f5e22",
   "status": "aarnavkembhavi1/shattered-kaggle-x9b has status \"KernelWorkerStatus.COMPLETE\""
  },
- "mdl": {},
+ "mdl": {
+  "qwen3-8b": {
+   "done": true,
+   "dir": "results\\kaggle\\kaggle_mdl\\2026-11-03T220606\\out\\qwen3-8b",
+   "hours": 1.0563246400488748,
+   "commit": "a9e7bca8f552914271080deccb58e8f188d8a959"
+  }
+ },
  "x9b": {
   "b_recorded": true,
   "rehearsal": {

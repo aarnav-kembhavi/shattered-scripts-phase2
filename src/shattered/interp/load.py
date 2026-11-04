@@ -114,7 +114,7 @@ def _load_gemma4_text(repo: str, device: str, dtype, token):
 
 
 # Gated models are mounted from PRIVATE Kaggle datasets (a kernel pushed through the API cannot read the HF_TOKEN secret; RESULTS.md 2026-11-04)
-KAGGLE_DATASETS = {"llama-2-7b": "shattered-llama-2-7b-hf", "llama-3.1-8b": "shattered-llama-3-1-8b"}
+KAGGLE_DATASETS = {"llama-2-7b": "shattered-llama-2-7b-hf", "llama-3.1-8b": "shattered-llama-3-1-8b", "ambari-7b-instruct-v0.1": "shattered-ambari-instruct-v0-1"}
 
 
 def model_source(name: str) -> str:

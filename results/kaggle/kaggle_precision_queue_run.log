@@ -1,2 +1,51 @@
-tracked code is modified; commit first (or --allow-dirty, recorded):
-?? src/shattered/llm/templates/natural_romanization_te_v1.txt
+Starting upload for file repo.zip
+Upload successful: repo.zip (461KB)
+Dataset version is being created. Please check progress at https://www.kaggle.com/datasets/aarnavkembhavi1/shattered-pkg
+
+  0%|          | 0.00/461k [00:00<?, ?B/s]
+  3%|▎         | 16.0k/461k [00:00<00:04, 98.5kB/s]
+100%|██████████| 461k/461k [00:02<00:00, 221kB/s]  
+
+Kernel version 7 successfully pushed.  Please check progress at https://www.kaggle.com/code/aarnavkembhavi1/shattered-kaggle-precision
+
+[04:49:49] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[04:51:57] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[04:54:11] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[04:56:14] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[04:58:26] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[05:00:36] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[05:02:48] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[05:05:01] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[05:07:20] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[05:09:32] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[05:11:47] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[05:14:06] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[05:16:25] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[05:18:28] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[05:20:30] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[05:22:32] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[05:24:34] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[05:26:37] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[05:28:40] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[05:30:42] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[05:32:44] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[05:34:46] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[05:36:48] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[05:38:51] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[05:40:53] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[05:42:57] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[05:44:58] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[05:47:01] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[05:49:19] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[05:51:22] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[05:53:30] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+[05:55:38] rnavkembhavi1/shattered-kaggle-precision has status "KernelWorkerStatus.RUNNING"
+{
+ "job": "kaggle_precision",
+ "commit": "957499afacbaaa56198620622baf42a845ad920c",
+ "status": "aarnavkembhavi1/shattered-kaggle-precision has status \"KernelWorkerStatus.COMPLETE\"",
+ "hours": 1.232199977437655,
+ "hardware": null,
+ "output_dir": "results\\kaggle\\kaggle_precision\\2026-11-03T231921"
+}
+weekly hours used (last 7 days): 26.05 of 30.0

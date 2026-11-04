@@ -1,0 +1,25 @@
+[{"stream_name":"stdout","time":7.312816286,"data":"input listing: ['datasets'] ['/kaggle/input/datasets/aarnavkembhavi1/shattered-pkg/pyproject.toml']\n"}
+,{"stream_name":"stderr","time":62.786833483,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":62.786859473,"data":"bigframes 2.51.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":62.786864221,"data":"cudf-cu13 26.6.0 requires pyarrow\u003c24,\u003e=19.0.0, but you have pyarrow 25.0.1 which is incompatible.\n"}
+,{"stream_name":"stdout","time":63.409536398,"data":"Found existing installation: torchao 0.10.0\n"}
+,{"stream_name":"stdout","time":63.483391503,"data":"Uninstalling torchao-0.10.0:\n"}
+,{"stream_name":"stdout","time":63.86733439,"data":"  Successfully uninstalled torchao-0.10.0\n"}
+,{"stream_name":"stdout","time":64.115061495,"data":"no HF_TOKEN secret: ConnectionError('Connection error trying to communicate with service.')\n"}
+,{"stream_name":"stdout","time":86.836686898,"data":"300 probe words, 5471 sentences\n"}
+,{"stream_name":"stderr","time":100.651902396,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stderr","time":181.428166104,"data":"\rFetching 5 files:   0%|          | 0/5 [00:00\u003c?, ?it/s]\rFetching 5 files:  20%|██        | 1/5 [00:51\u003c03:26, 51.73s/it]\rFetching 5 files:  40%|████      | 2/5 [01:17\u003c01:48, 36.17s/it]\rFetching 5 files: 100%|██████████| 5/5 [01:17\u003c00:00, 15.40s/it]\n"}
+,{"stream_name":"stderr","time":219.550041456,"data":"\rLoading weights:   0%|          | 0/399 [00:00\u003c?, ?it/s]\rLoading weights:   0%|          | 1/399 [00:12\u003c1:21:51, 12.34s/it]\rLoading weights:  35%|███▍      | 138/399 [00:12\u003c00:16, 15.72it/s]\rLoading weights:  63%|██████▎   | 252/399 [00:23\u003c00:11, 12.29it/s]\rLoading weights:  64%|██████▍   | 257/399 [00:23\u003c00:11, 12.23it/s]\rLoading weights:  76%|███████▋  | 305/399 [00:25\u003c00:06, 14.91it/s]\rLoading weights:  83%|████████▎ | 333/399 [00:28\u003c00:04, 13.49it/s]\rLoading weights:  88%|████████▊ | 350/399 [00:31\u003c00:04, 11.14it/s]\rLoading weights:  90%|█████████ | 361/399 [00:32\u003c00:03, 10.41it/s]\rLoading weights:  92%|█████████▏| 369/399 [00:34\u003c00:03,  9.43it/s]\rLoading weights:  95%|█████████▍| 378/399 [00:35\u003c00:02,  8.93it/s]\rLoading weights:  96%|█████████▌| 382/399 [00:35\u003c00:01,  9.46it/s]\rLoading weights:  97%|█████████▋| 389/399 [00:37\u003c00:01,  8.10it/s]\rLoading weights: 100%|██████████| 399/399 [00:37\u003c00:00, 10.67it/s]\n"}
+,{"stream_name":"stdout","time":1226.636301214,"data":"qwen3-8b native forward done 1140s\n"}
+,{"stream_name":"stdout","time":1842.939808856,"data":"qwen3-8b itrans forward done 1756s\n"}
+,{"stream_name":"stdout","time":2518.837185706,"data":"qwen3-8b/native: MDL detok layer 7 [6.0, 7.0] of 36\n"}
+,{"stream_name":"stdout","time":3379.649222368,"data":"qwen3-8b/itrans: MDL detok layer 2 [2.0, 2.0] of 36\n"}
+,{"stream_name":"stdout","time":3379.649292323,"data":"done\n"}
+,{"stream_name":"stdout","time":3385.238719068,"data":"job finished 0\n"}
+,{"stream_name":"stderr","time":3388.52996631,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":3388.530000151,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":3388.863921416,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":3388.863956313,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":3389.875758575,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":3391.008925454,"data":"[NbConvertApp] Writing 286871 bytes to __results__.html\n"}
+]
