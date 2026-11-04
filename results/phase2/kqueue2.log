@@ -69,3 +69,8 @@ quota projection before x_score llama-3.1-8b: 26.67 h used in the last 7 days, t
 x_score ['--models', 'llama-3.1-8b']: preflight refused, nothing pushed, no quota used: kernel ashwin18522/shattered-x-score is still running or queued: 22/shattered-x-score has status "kernelworkerstatus.running"
 score llama-3.1-8b: runner did not push; nothing recorded
 account 2 queue pass finished; open: llama-3.1-8b
+=== 2026-11-05 04:23:30 Kaggle queue pass 1: env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/kaggle_queue.py
+A1-P llama-3.1-8b: pass=True reference=float32_offload error=None
+A1-P ambari-7b-instruct-v0.1: pass=True reference=float32_offload error=None
+A1-P ambari-7b-instruct-v0.1: pass=True reference=float32_offload error=None
+quota projection before kaggle_mdl ['llama-3.1-8b']: 14.64 h used in the last 7 days, this push up to 3.0 h, headroom 12.4 h, X9b Sarvam reserve 0 h (X9b pending: True)

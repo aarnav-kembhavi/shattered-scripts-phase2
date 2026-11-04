@@ -1,0 +1,147 @@
+{
+  "provenance": {
+    "config": {
+      "registration": "RESULTS.md X4 (R2)"
+    },
+    "git_commit": "5c0388b26694f01949f88562409e8358e82bc307-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-04T23:25:10+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x4_ret.py",
+      "analyse"
+    ]
+  },
+  "language": "bn",
+  "models": {
+    "qwen3.5-2b": {
+      "acc": {
+        "native": 0.991044776119403,
+        "itrans": 0.15024875621890546,
+        "lossy": 0.25671641791044775
+      },
+      "layer": {
+        "native": 6,
+        "itrans": 6,
+        "lossy": 6
+      },
+      "counted": true,
+      "native_minus_itrans": {
+        "diff": 0.8407960199004975,
+        "ci95": [
+          0.817910447761194,
+          0.8626865671641791
+        ],
+        "n": 1005
+      },
+      "native_minus_lossy": {
+        "diff": 0.7343283582089553,
+        "ci95": [
+          0.7074626865671642,
+          0.7611940298507462
+        ],
+        "n": 1005
+      }
+    },
+    "sarvam-1": {
+      "acc": {
+        "native": 0.9412935323383085,
+        "itrans": 0.32238805970149254,
+        "lossy": 0.6059701492537314
+      },
+      "layer": {
+        "native": 26,
+        "itrans": 17,
+        "lossy": 17
+      },
+      "counted": true,
+      "native_minus_itrans": {
+        "diff": 0.618905472636816,
+        "ci95": [
+          0.5870646766169154,
+          0.6497512437810945
+        ],
+        "n": 1005
+      },
+      "native_minus_lossy": {
+        "diff": 0.3353233830845771,
+        "ci95": [
+          0.3044776119402985,
+          0.36716417910447763
+        ],
+        "n": 1005
+      }
+    },
+    "gemma4-e2b": {
+      "acc": {
+        "native": 0.9960199004975124,
+        "itrans": 0.30149253731343284,
+        "lossy": 0.40696517412935324
+      },
+      "layer": {
+        "native": 7,
+        "itrans": 7,
+        "lossy": 8
+      },
+      "counted": true,
+      "native_minus_itrans": {
+        "diff": 0.6945273631840796,
+        "ci95": [
+          0.6666666666666666,
+          0.7233830845771144
+        ],
+        "n": 1005
+      },
+      "native_minus_lossy": {
+        "diff": 0.5890547263681593,
+        "ci95": [
+          0.5592039800995025,
+          0.6199004975124378
+        ],
+        "n": 1005
+      }
+    },
+    "qwen2.5-1.5b": {
+      "acc": {
+        "native": 0.4766169154228856,
+        "itrans": 0.06666666666666667,
+        "lossy": 0.11741293532338308
+      },
+      "layer": {
+        "native": 16,
+        "itrans": 1,
+        "lossy": 1
+      },
+      "counted": false,
+      "native_minus_itrans": {
+        "diff": 0.4099502487562189,
+        "ci95": [
+          0.37512437810945276,
+          0.44477611940298506
+        ],
+        "n": 1005
+      },
+      "native_minus_lossy": {
+        "diff": 0.3592039800995025,
+        "ci95": [
+          0.32338308457711445,
+          0.39502487562189054
+        ],
+        "n": 1005
+      }
+    }
+  },
+  "counted_models": [
+    "qwen3.5-2b",
+    "sarvam-1",
+    "gemma4-e2b"
+  ],
+  "R2": {
+    "n_counted": 3,
+    "native_minus_itrans_ci_above_0": 3,
+    "ci_below_0": 0,
+    "verdict": "supported"
+  }
+}

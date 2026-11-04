@@ -17,3 +17,18 @@ sarvam-1 te itrans layer 17 acc 0.3423 725s
 sarvam-1 te lossy layer 21 acc 0.8378 851s
 Fetching 6 files:   0%|          | 0/6 [00:00<?, ?it/s]Fetching 6 files: 100%|██████████| 6/6 [00:00<00:00, 374.93it/s]
 gemma4-e2b bn native layer 7 acc 0.996 463s
+gemma4-e2b bn itrans layer 7 acc 0.3015 694s
+gemma4-e2b bn lossy layer 8 acc 0.407 913s
+gemma4-e2b te native layer 7 acc 0.9891 1131s
+gemma4-e2b te itrans layer 7 acc 0.2876 1357s
+gemma4-e2b te lossy layer 7 acc 0.5343 1576s
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   3%|▎         | 10/338 [00:00<00:03, 82.50it/s]Loading weights:   7%|▋         | 24/338 [00:00<00:03, 104.46it/s]Loading weights:  10%|█         | 35/338 [00:00<00:03, 94.40it/s] Loading weights:  14%|█▍        | 49/338 [00:00<00:02, 101.06it/s]Loading weights:  18%|█▊        | 60/338 [00:00<00:03, 91.56it/s] Loading weights:  21%|██        | 71/338 [00:00<00:02, 89.21it/s]Loading weights:  25%|██▍       | 83/338 [00:00<00:02, 92.56it/s]Loading weights:  29%|██▊       | 97/338 [00:01<00:02, 97.68it/s]Loading weights:  32%|███▏      | 109/338 [00:01<00:02, 94.01it/s]Loading weights:  36%|███▌      | 121/338 [00:01<00:02, 91.29it/s]Loading weights:  39%|███▉      | 131/338 [00:01<00:02, 92.86it/s]Loading weights:  42%|████▏     | 143/338 [00:01<00:02, 96.16it/s]Loading weights:  45%|████▌     | 153/338 [00:01<00:02, 88.52it/s]Loading weights:  48%|████▊     | 162/338 [00:01<00:02, 67.78it/s]Loading weights:  52%|█████▏    | 176/338 [00:02<00:02, 78.44it/s]Loading weights:  56%|█████▌    | 190/338 [00:02<00:01, 86.81it/s]Loading weights:  59%|█████▉    | 200/338 [00:02<00:01, 84.82it/s]Loading weights:  64%|██████▎   | 215/338 [00:02<00:01, 93.46it/s]Loading weights:  67%|██████▋   | 227/338 [00:02<00:01, 98.43it/s]Loading weights:  70%|███████   | 238/338 [00:02<00:01, 83.28it/s]Loading weights:  75%|███████▍  | 252/338 [00:02<00:00, 88.86it/s]Loading weights:  78%|███████▊  | 264/338 [00:02<00:00, 90.19it/s]Loading weights:  82%|████████▏ | 277/338 [00:03<00:00, 87.43it/s]Loading weights:  85%|████████▍ | 286/338 [00:03<00:00, 84.87it/s]Loading weights:  88%|████████▊ | 298/338 [00:03<00:00, 89.14it/s]Loading weights:  92%|█████████▏| 311/338 [00:03<00:00, 95.75it/s]Loading weights:  95%|█████████▍| 321/338 [00:03<00:00, 88.82it/s]Loading weights:  98%|█████████▊| 331/338 [00:03<00:00, 85.46it/s]Loading weights: 100%|██████████| 338/338 [00:03<00:00, 90.84it/s]
+qwen2.5-1.5b bn native layer 16 acc 0.4766 213s
+qwen2.5-1.5b bn itrans layer 1 acc 0.0667 314s
+qwen2.5-1.5b bn lossy layer 1 acc 0.1174 407s
+qwen2.5-1.5b te native layer 17 acc 0.1811 550s
+qwen2.5-1.5b te itrans layer 1 acc 0.1124 643s
+qwen2.5-1.5b te lossy layer 1 acc 0.1871 718s
+=== 2026-11-05 04:55:08 X4 retrieval R2 analysis: env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x4_ret.py analyse
+bn {'n_counted': 3, 'native_minus_itrans_ci_above_0': 3, 'ci_below_0': 0, 'verdict': 'supported'} {'qwen3.5-2b': {'native': 0.991, 'itrans': 0.15, 'lossy': 0.257}, 'sarvam-1': {'native': 0.941, 'itrans': 0.322, 'lossy': 0.606}, 'gemma4-e2b': {'native': 0.996, 'itrans': 0.301, 'lossy': 0.407}, 'qwen2.5-1.5b': {'native': 0.477, 'itrans': 0.067, 'lossy': 0.117}}
+te {'n_counted': 3, 'native_minus_itrans_ci_above_0': 3, 'ci_below_0': 0, 'verdict': 'supported'} {'qwen3.5-2b': {'native': 0.973, 'itrans': 0.169, 'lossy': 0.312}, 'sarvam-1': {'native': 0.927, 'itrans': 0.342, 'lossy': 0.838}, 'gemma4-e2b': {'native': 0.989, 'itrans': 0.288, 'lossy': 0.534}, 'qwen2.5-1.5b': {'native': 0.181, 'itrans': 0.112, 'lossy': 0.187}}
