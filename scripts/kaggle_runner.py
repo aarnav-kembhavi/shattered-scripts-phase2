@@ -186,7 +186,7 @@ def run(a) -> None:
     if job == "kaggle_mdl":
         a.include = list(a.include) + ["results/m14_full/words.json"]
     if job == "kaggle_x9b":  # the exclusion report, the removed-id list and the 300 Phase 1 probe words are results files, not code
-        a.include = list(a.include) + ["results/phase2/x9b/streams_report.json", "results/phase2/x9b/removed_ids.json", "results/phase2/x9b/pilot_done.json", "results/e09_romanize/best_schemes.json"]
+        a.include = list(a.include) + ["results/phase2/x9b/streams_report.json", "results/phase2/x9b/removed_ids.json", "results/phase2/x9b/pilot_done.json", "results/phase2/x9b/base_reference.json", "results/e09_romanize/best_schemes.json"]
         a.include = [i for i in a.include if (REPO / i).exists()]
     d = package(commit, a.include)
     upload_dataset(d, commit)

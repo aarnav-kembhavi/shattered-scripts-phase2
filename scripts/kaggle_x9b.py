@@ -384,6 +384,16 @@ def main() -> None:
         for m in a.base_eval:
             if not (out / f"{m}__base" / "retrieval.json").exists():
                 eval_model(m, None, f"{m}__base", out, "cuda", None, retrieval=True)
+        refp = REPO / "results" / "phase2" / "x9b" / "base_reference.json"
+        if refp.exists():  # a new environment must reproduce the untrained-base numbers (the A1-R values) before any training starts (decided 2026-11-04, account 2)
+            ref = json.loads(refp.read_text(encoding="utf-8"))
+            for m in a.base_eval:
+                if m in ref:
+                    got = json.loads((out / f"{m}__base" / "retrieval.json").read_text(encoding="utf-8"))["forms"]
+                    for f in ("native", "itrans"):
+                        if abs(got[f]["acc_unmapped"] - ref[m][f]["acc_unmapped"]) > ref["tolerance_acc"]:
+                            raise RuntimeError(f"base evaluation does not reproduce the reference: {m} {f} {got[f]['acc_unmapped']:.4f} vs {ref[m][f]['acc_unmapped']:.4f}; no training started")
+                    print(f"base evaluation check passed for {m}", flush=True)
         run_full(out, "cuda", True, a.runs, 20 if a.rehearsal else None, a.rehearsal)
 
 

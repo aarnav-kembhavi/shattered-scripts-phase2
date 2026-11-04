@@ -18,8 +18,20 @@ ACCT = os.environ.get("KAGGLE_ACCOUNT", "1")  # 1 = Aarnav's account (X9b and, u
 os.environ["KAGGLE_ACCOUNT"] = ACCT
 SHARED = REPO / "results" / "kaggle"
 K = SHARED if ACCT == "1" else SHARED / "acct2"
-STATE = K / "queue_state.json"
+STATE = K / os.environ.get("QUEUE_STATE_NAME", "queue_state.json")  # a second driver on the same account (X9b batch 3) uses its own state file
 ACCT2_JOBS = ["ambari-7b-instruct-v0.1", "ambari-7b-instruct-v0.2", "llama-3.1-8b"]  # moved to account 2 on 2026-11-04 (self-contained: they mount private model datasets); X9b stays on account 1
+
+
+def merge_x9b_from_acct2(s: dict) -> None:
+    keys = set(s.setdefault("x9b", {}).setdefault("batches_done_keys", []))
+    for name in ("queue_state.json", "queue_state_x9b.json"):
+        p = SHARED / "acct2" / name
+        if p.exists():
+            keys |= set(json.loads(p.read_text()).get("x9b", {}).get("batches_done_keys", []))
+    if keys != set(s["x9b"]["batches_done_keys"]):
+        s["x9b"]["batches_done_keys"] = sorted(keys)
+        s["x9b"]["batches_done"] = [k for k in s["x9b"]["batches_done_keys"] if k.startswith("sarvam-1")]
+        log(s, f"X9b batches merged from account 2: {s['x9b']['batches_done_keys']}")
 
 
 def acct2_accepted() -> bool:
@@ -38,7 +50,7 @@ def state() -> dict:
         return json.loads(STATE.read_text())
     if ACCT == "2":  # start from the results account 1 already has (A1-P passes, scored models, MDL), so nothing is repeated
         m = json.loads((SHARED / "queue_state.json").read_text())
-        return {"log": [], "precision": m["precision"], "scored": m["scored"], "mdl": m.get("mdl", {}), "a1r": m["a1r"]}
+        return {"log": [], "precision": m["precision"], "scored": m["scored"], "mdl": m.get("mdl", {}), "a1r": m["a1r"], "x9b": m.get("x9b", {}), "x9b_pilot_failures": m.get("x9b_pilot_failures", 0)}
     return {"log": [], "precision": {}, "scored": {}, "a1r": None}
 
 
@@ -380,6 +392,13 @@ def main() -> None:
         log(s, "A1-R result not available yet; run it first (scripts/kaggle_runner.py run kaggle_retrieval_gate)")
         return
     ingest_precision(s)
+    if ACCT == "2" and os.environ.get("QUEUE_ONLY") == "x9b":  # X9b batch 3 on account 2 (it needs only the base model, the public Wikipedia pool and the seeds; batches 1 and 2 are not inputs)
+        if not acct2_accepted():
+            return
+        x9b_full(s)
+        save(s)
+        log(s, "account 2 X9b pass finished; batches done: " + ", ".join(s.get("x9b", {}).get("batches_done_keys", [])))
+        return
     if ACCT == "2":  # the teammate's account: the self-contained jobs (instruction pair, Llama-3.1-8B); Kaggle quota is per account
         if not acct2_accepted():
             log(s, "account 2 not accepted yet (smoke test and A1-R reproduction pending): nothing pushed")
@@ -394,6 +413,7 @@ def main() -> None:
         save(s)
         log(s, "account 2 queue pass finished; open: " + ", ".join(open_models(s)))
         return
+    merge_x9b_from_acct2(s)  # batch 3 may have run on account 2
     if acct2_accepted():  # account 1 keeps X9b only (its checkpoints and datasets live here); X9b batch 3 is first when the quota frees
         x9b_pilot(s)
         x9b_full(s)
