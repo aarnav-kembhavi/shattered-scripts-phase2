@@ -3,10 +3,10 @@
     "config": {
       "registration": "RESULTS.md Amendment 2, X12 contrast 1"
     },
-    "git_commit": "81fc53493f5de61024e78d8029d40a73b494be98-dirty",
+    "git_commit": "ed31e10e56f23c9cef6e246283b00be6652cd7a8-dirty",
     "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
     "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
-    "timestamp_utc": "2026-11-04T04:23:13+00:00",
+    "timestamp_utc": "2026-11-04T06:44:27+00:00",
     "python": "3.12.13",
     "platform": "Windows-11-10.0.26300-SP0",
     "argv": [
@@ -24,7 +24,45 @@
     "above_0": true,
     "below_0": false,
     "gain_native": 0.3894422310756972,
-    "gain_itrans": -0.033864541832669334
+    "gain_itrans": -0.033864541832669334,
+    "gain_by_form": {
+      "english": {
+        "gain": -0.13047808764940239,
+        "ci95": [
+          -0.15836653386454183,
+          -0.10258964143426295
+        ],
+        "acc_ambari": 0.5587649402390438,
+        "acc_llama2": 0.6892430278884463
+      },
+      "native": {
+        "gain": 0.3894422310756972,
+        "ci95": [
+          0.3555776892430279,
+          0.42330677290836655
+        ],
+        "acc_ambari": 0.5059760956175299,
+        "acc_llama2": 0.11653386454183266
+      },
+      "itrans": {
+        "gain": -0.03386454183266932,
+        "ci95": [
+          -0.05179282868525897,
+          -0.01593625498007968
+        ],
+        "acc_ambari": 0.10956175298804781,
+        "acc_llama2": 0.14342629482071714
+      },
+      "lossy": {
+        "gain": -0.08964143426294821,
+        "ci95": [
+          -0.11752988047808766,
+          -0.06274900398406374
+        ],
+        "acc_ambari": 0.19123505976095617,
+        "acc_llama2": 0.28087649402390436
+      }
+    }
   },
   "sib_accuracy_by_form": {
     "ambari-7b-base": {
@@ -60,6 +98,26 @@
         "native": 0.051741293532338306,
         "itrans": 0.07462686567164178
       }
+    },
+    "gain_by_form": {
+      "native": {
+        "gain": 0.6915422885572139,
+        "ci95": [
+          0.6616915422885572,
+          0.7213930348258707
+        ],
+        "acc_ambari": 0.7432835820895523,
+        "acc_llama2": 0.051741293532338306
+      },
+      "itrans": {
+        "gain": 0.06766169154228856,
+        "ci95": [
+          0.050746268656716415,
+          0.08557213930348259
+        ],
+        "acc_ambari": 0.14228855721393036,
+        "acc_llama2": 0.07462686567164178
+      }
     }
   },
   "calibration": {
@@ -68,6 +126,72 @@
     },
     "llama-2-7b": {
       "raw_fallback_used": false
+    }
+  },
+  "a1p": {
+    "ambari-7b-base": {
+      "pass": true,
+      "forms": {
+        "native": {
+          "raw_agreement": 1.0,
+          "acc_fp16": 0.34,
+          "acc_ref": 0.34,
+          "mean_abs_dlogprob": 0.0031082376411982944,
+          "max_abs_dlogprob": 0.014201164245605469,
+          "acc_diff": 0.0,
+          "pass": true
+        },
+        "itrans": {
+          "raw_agreement": 1.0,
+          "acc_fp16": 0.27,
+          "acc_ref": 0.27,
+          "mean_abs_dlogprob": 0.0032262577329363142,
+          "max_abs_dlogprob": 0.01457357406616211,
+          "acc_diff": 0.0,
+          "pass": true
+        },
+        "lossy": {
+          "raw_agreement": 1.0,
+          "acc_fp16": 0.34,
+          "acc_ref": 0.34,
+          "mean_abs_dlogprob": 0.0030786706720079696,
+          "max_abs_dlogprob": 0.012140274047851562,
+          "acc_diff": 0.0,
+          "pass": true
+        }
+      }
+    },
+    "llama-2-7b": {
+      "pass": true,
+      "forms": {
+        "native": {
+          "raw_agreement": 1.0,
+          "acc_fp16": 0.21,
+          "acc_ref": 0.21,
+          "mean_abs_dlogprob": 0.002907275131770543,
+          "max_abs_dlogprob": 0.015195846557617188,
+          "acc_diff": 0.0,
+          "pass": true
+        },
+        "itrans": {
+          "raw_agreement": 0.99,
+          "acc_fp16": 0.28,
+          "acc_ref": 0.28,
+          "mean_abs_dlogprob": 0.003198042256491525,
+          "max_abs_dlogprob": 0.013013839721679688,
+          "acc_diff": 0.0,
+          "pass": true
+        },
+        "lossy": {
+          "raw_agreement": 1.0,
+          "acc_fp16": 0.36,
+          "acc_ref": 0.36,
+          "mean_abs_dlogprob": 0.0027376747131347655,
+          "max_abs_dlogprob": 0.013242244720458984,
+          "acc_diff": 0.0,
+          "pass": true
+        }
+      }
     }
   },
   "prediction": "native gain exceeds ITRANS gain on SIB-200 and on retrieval (DiD > 0)",

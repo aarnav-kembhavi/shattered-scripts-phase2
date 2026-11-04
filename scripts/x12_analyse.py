@@ -40,6 +40,14 @@ def did(a_n, a_i, l_n, l_i) -> dict:
             "gain_native": float(a_n.mean() - l_n.mean()), "gain_itrans": float(a_i.mean() - l_i.mean())}
 
 
+def gain(a, l) -> dict:
+    """Ambari minus Llama-2 for one form: paired bootstrap over items, 95% interval (descriptive)."""
+    d = a.astype(float) - l.astype(float)
+    idx = np.random.default_rng(SEED).integers(0, len(d), (N_BOOT, len(d)))
+    b = d[idx].mean(1)
+    return {"gain": float(d.mean()), "ci95": [float(np.percentile(b, 2.5)), float(np.percentile(b, 97.5))], "acc_ambari": float(a.mean()), "acc_llama2": float(l.mean())}
+
+
 def main() -> int:
     st = json.load(open(REPO / "results" / "kaggle" / "queue_state.json"))
     assert st["precision"][A]["pass"] and st["precision"][L]["pass"], "A1-P must pass for both endpoints"
@@ -53,10 +61,13 @@ def main() -> int:
     rl = {f: np.load(dL / f"retrieval_test_correct_{f}.npy") for f in ("native", "itrans")}
     ret = did(ra["native"], ra["itrans"], rl["native"], rl["itrans"])
     ret["acc"] = {A: {f: float(v.mean()) for f, v in ra.items()}, L: {f: float(v.mean()) for f, v in rl.items()}}
+    sib["gain_by_form"] = {f: gain(cA.loc[ids, f].to_numpy(), cL.loc[ids, f].to_numpy()) for f in FORMS}
+    ret["gain_by_form"] = {f: gain(ra[f], rl[f]) for f in ("native", "itrans")}
+    a1p = {m: {"pass": st["precision"][m]["pass"], "forms": json.load(open(sorted((REPO / "results" / "kaggle" / "kaggle_precision").glob(f"*/out/precision_{m}.json"))[-1]))["forms"]} for m in (A, L)}
     pos = int(sib["above_0"]) + int(ret["above_0"])
     neg = int(sib["below_0"]) + int(ret["below_0"])
     verdict = "supported" if pos == 2 else "partly supported" if pos == 1 else "refuted" if neg >= 1 else "inconclusive"
-    out = {"contrast": "1: Llama-2-7B vs Ambari-7B-base-v0.1", "sib": sib, "sib_accuracy_by_form": acc, "retrieval": ret, "calibration": {A: fA, L: fL},
+    out = {"contrast": "1: Llama-2-7B vs Ambari-7B-base-v0.1", "sib": sib, "sib_accuracy_by_form": acc, "retrieval": ret, "calibration": {A: fA, L: fL}, "a1p": a1p,
            "prediction": "native gain exceeds ITRANS gain on SIB-200 and on retrieval (DiD > 0)", "verdict": verdict,
            "rule": "supported: both measures above 0 (97.5% interval); partly supported: one; refuted: neither above 0 and one below 0; inconclusive otherwise",
            "caveat": "natural experiment on released models; native gain confounds exposure with the tokenizer extension (ITRANS tokens per word 4.69 vs 4.55); X9b is the causal test"}
