@@ -1,0 +1,72 @@
+{
+  "provenance": {
+    "config": {
+      "model": "qwen3-1.7b",
+      "form": "native",
+      "instruction": "Translate this Kannada sentence into English.\nKannada: {s}\nEnglish:",
+      "max_new_tokens": 128,
+      "greedy": true
+    },
+    "git_commit": "7e1bb26f1cc9b95fc845efbb087c98fdcc8c03f2-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-03T20:32:50+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x10.py",
+      "pilot"
+    ]
+  },
+  "summary": {
+    "n": 20,
+    "seconds": 12.793123245239258,
+    "seconds_per_sentence": 0.6396561622619629,
+    "empty_share": 0.0,
+    "mean_words": 31.8
+  },
+  "ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "outputs": [
+    "\"I was diabetic before, but now I have 4 months of non-diabetic 12 months of non-diabetic 12 months of non-diabetic 12 months of non-diabetic 12 months of non-diabetic 12 months of non-diabetic 12 months of non-diabetic 12 months of non-diabetic 12 months of non-diabetic 12 months of non-diabetic 12 months of non-diabetic 12 months of non-diabetic 12 months of non-diabetic 12 months of non-diabetic 12 months of non-di",
+    "Dr. Ehuud Ur, the Dean of the School of Medicine at the University of Novo Scotia and the Director of the Clinical and Scientific Division of the Canadian Diabetes Association, has expressed concern that the research is still in its early stages.",
+    "The other experts also express doubt about whether it is possible to enhance the efficacy of the treatment of diabetes mellitus type 1, which is currently not beneficial to people with type 1 diabetes.",
+    "The Norwegian Radio announced that all efforts to contact the Nobel Prize in Literature laureate, Babaladon, had failed, and that the Nobel Committee had not been able to contact the person, as the person had not been in Norway.",
+    "Daniel said, \"I have not done anything for them. I have called them a very close collaborator and I have taken these things and I have received sincere answers from them. This is true for the current level\" he said.",
+    "This is the first time, Jamie Simina, the CEO of Ring Company, had ever been to the house of his own, and he had never heard the doorbell before, so he decided to start this company.",
+    "They said that they had made the Wi-Fi doorbell.",
+    "After the episode of Shark Tank in 2013, the sales increased, according to Simana, and the members of the event did not support the start-up funding.",
+    "In the end of 2017, the Siminaf shopping television channel QVC appeared.",
+    "The Edit Corporation, a company that provides protection, worked together with the Ring to resolve the issue.",
+    "This is a practical vaccine that can reduce the mortality rate of Ebola, but it has not yet been proven to be effective against the current outbreak.",
+    "A 2015 study published in the journal \"Nature\" found that the Zmapp, a monoclonal antibody drug, showed an initial positive result, but subsequent studies found it to be less effective than expected, and thus, the researchers concluded that it was not as beneficial as previously thought.",
+    "In the Pamphlet, the Zedmap was used as a control, that is, the scientists used it as a baseline and compared it with three other treatments.",
+    "The United States Olympic Committee supports the Olympic Games in the United States and acknowledges the complete necessity of the Olympic family for our athletes.",
+    "We agree with the USOC statement that our athletes and clubs' spirit of unity and their sports will help us to provide the best service within our organization's scope.",
+    "The US-based organization, the United States of America, supports an independent investigation into the matter, which is a lighted lamp that reveals the truth about the matter.",
+    "The USA and the USOC share a common goal - to make the sport of gymnastics and other sports as safe as possible, so that athletes can achieve their dreams in a safe, positive, and strong environment.",
+    "1960 to 1960, Brjansk, Jan F. Canada's advisor, worked and then in the administration of Lindon B. Janzans.",
+    "In 1976, they provided advice on the foreign policy of Carter and served as national security advisors from 1977 to 1981.",
+    "The NSA, as the name suggests, was responsible for the management of global business in the 1970s; the normalization of US-China relations in the 1970s; the suppression of the Iranian Revolution, which was caused by the Iranian hostage crisis in 1979; and the assistance to Carter in the investigation of the Soviet invasion of Afghanistan in 1979."
+  ]
+}

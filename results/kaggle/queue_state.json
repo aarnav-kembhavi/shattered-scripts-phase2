@@ -223,7 +223,31 @@
   "2026-11-04 06:23:10 A1-P ['llama-2-7b']: X12 contrast 1 runs ahead of the X9b reserve on Aarnav's decision of 2026-11-04 (X9b batch 3 launches as soon as the projection allows; nothing else goes ahead of it)",
   "2026-11-04 06:23:10 A1-P ambari-7b-base: pass=True reference=float32_offload error=None",
   "2026-11-04 06:23:10 A1-P qwen3-8b: pass=True reference=float32_offload error=None",
-  "2026-11-04 06:23:10 A1-P ambari-7b-instruct-v0.2: pass=True reference=float32_offload error=None"
+  "2026-11-04 06:23:10 A1-P ambari-7b-instruct-v0.2: pass=True reference=float32_offload error=None",
+  "2026-11-04 07:45:53 A1-P llama-2-7b: pass=True reference=float32_offload error=None",
+  "2026-11-04 07:45:53 quota projection before x_score llama-2-7b: 27.54 h used in the last 7 days, this push up to 5.0 h, headroom -2.5 h, X9b Sarvam reserve 0 h (X9b pending: True)",
+  "2026-11-04 07:45:53 x_score llama-2-7b: over the weekly quota, not pushed",
+  "2026-11-04 07:45:53 quota projection before A1-P ['ambari-7b-instruct-v0.1']: 27.54 h used in the last 7 days, this push up to 3.5 h, headroom -1.0 h, X9b Sarvam reserve 0 h (X9b pending: True)",
+  "2026-11-04 07:45:53 A1-P ['ambari-7b-instruct-v0.1']: over the weekly quota, not pushed",
+  "2026-11-04 07:45:54 quota projection before A1-P ['llama-3.1-8b']: 27.54 h used in the last 7 days, this push up to 3.5 h, headroom -1.0 h, X9b Sarvam reserve 0 h (X9b pending: True)",
+  "2026-11-04 07:45:54 A1-P ['llama-3.1-8b']: over the weekly quota, not pushed",
+  "2026-11-04 07:45:54 quota projection before x9b sarvam-1 ['sarvam-1:native:1', 'sarvam-1:english:1']: 27.54 h used in the last 7 days, this push up to 6.9 h, headroom -4.4 h, X9b Sarvam reserve 0 h (X9b pending: True)",
+  "2026-11-04 07:45:54 x9b sarvam-1 ['sarvam-1:native:1', 'sarvam-1:english:1']: over the weekly quota, not pushed",
+  "2026-11-04 07:45:54 queue pass finished; open: llama-2-7b, llama-3.1-8b, ambari-7b-instruct-v0.1, x9b",
+  "2026-11-04 07:52:43 A1-P ambari-7b-base: pass=True reference=float32_offload error=None",
+  "2026-11-04 07:52:43 A1-P qwen3-8b: pass=True reference=float32_offload error=None",
+  "2026-11-04 07:52:43 A1-P ambari-7b-instruct-v0.2: pass=True reference=float32_offload error=None",
+  "2026-11-04 07:52:43 A1-P llama-2-7b: pass=True reference=float32_offload error=None",
+  "2026-11-04 07:52:43 quota projection before x_score llama-2-7b: 27.54 h used in the last 7 days, this push up to 2.4 h, headroom 0.1 h, X9b Sarvam reserve 0 h (X9b pending: True)",
+  "2026-11-04 07:52:43 x_score llama-2-7b: X12 contrast 1 runs ahead of the X9b reserve on Aarnav's decision of 2026-11-04 (X9b batch 3 launches as soon as the projection allows; nothing else goes ahead of it)",
+  "2026-11-04 09:42:06 score llama-2-7b: done=True retrieval=True hours=1.81",
+  "2026-11-04 09:42:08 quota projection before A1-P ['ambari-7b-instruct-v0.1']: 29.36 h used in the last 7 days, this push up to 3.5 h, headroom -2.9 h, X9b Sarvam reserve 0 h (X9b pending: True)",
+  "2026-11-04 09:42:08 A1-P ['ambari-7b-instruct-v0.1']: over the weekly quota, not pushed",
+  "2026-11-04 09:42:08 quota projection before A1-P ['llama-3.1-8b']: 29.36 h used in the last 7 days, this push up to 3.5 h, headroom -2.9 h, X9b Sarvam reserve 0 h (X9b pending: True)",
+  "2026-11-04 09:42:08 A1-P ['llama-3.1-8b']: over the weekly quota, not pushed",
+  "2026-11-04 09:42:08 quota projection before x9b sarvam-1 ['sarvam-1:native:1', 'sarvam-1:english:1']: 29.36 h used in the last 7 days, this push up to 6.9 h, headroom -6.2 h, X9b Sarvam reserve 0 h (X9b pending: True)",
+  "2026-11-04 09:42:08 x9b sarvam-1 ['sarvam-1:native:1', 'sarvam-1:english:1']: over the weekly quota, not pushed",
+  "2026-11-04 09:42:08 queue pass finished; open: llama-3.1-8b, ambari-7b-instruct-v0.1, x9b"
  ],
  "precision": {
   "qwen3-8b": {
@@ -246,6 +270,13 @@
    "hidden_abs_max_fp16": 2462.0,
    "file": "results\\kaggle\\kaggle_precision\\2026-11-03T231921\\out\\precision_ambari-7b-instruct-v0.2.json",
    "error": null
+  },
+  "llama-2-7b": {
+   "pass": true,
+   "reference": "float32_offload",
+   "hidden_abs_max_fp16": 2424.0,
+   "file": "results\\kaggle\\kaggle_precision\\2026-11-04T005410\\out\\precision_llama-2-7b.json",
+   "error": null
   }
  },
  "scored": {
@@ -263,6 +294,14 @@
    "dir": "results\\kaggle\\x_score\\2026-11-02T234104\\out\\ambari-7b-base",
    "hours": 1.2289741397566265,
    "commit": "786f67e41c1ebc27739876e5d269e34f47416942",
+   "status": "aarnavkembhavi1/shattered-x-score has status \"KernelWorkerStatus.COMPLETE\""
+  },
+  "llama-2-7b": {
+   "done": true,
+   "retrieval_requested": true,
+   "dir": "results\\kaggle\\x_score\\2026-11-04T022311\\out\\llama-2-7b",
+   "hours": 1.8129362084468206,
+   "commit": "27fc008f7559abd141c54793e786dcd5fae80b0e",
    "status": "aarnavkembhavi1/shattered-x-score has status \"KernelWorkerStatus.COMPLETE\""
   }
  },

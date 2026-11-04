@@ -1,0 +1,49 @@
+{
+ "model": "llama-2-7b",
+ "repo": "meta-llama/Llama-2-7b-hf",
+ "rule": {
+  "agree_min": 0.98,
+  "acc_diff_max": 0.01,
+  "hidden_max": 65504.0
+ },
+ "reference": "float32_offload",
+ "parameters": 6738417664,
+ "hidden_abs_max_fp16": 2424.0,
+ "nonfinite_fp16": 0,
+ "nonfinite_ref": 0,
+ "fp16_load_seconds": 630.9959797859192,
+ "fp16_score_seconds": 376.05312633514404,
+ "ref_load_seconds": 20.713361740112305,
+ "ref_score_seconds": 3465.150200366974,
+ "forms": {
+  "native": {
+   "raw_agreement": 1.0,
+   "acc_fp16": 0.21,
+   "acc_ref": 0.21,
+   "mean_abs_dlogprob": 0.002907275131770543,
+   "max_abs_dlogprob": 0.015195846557617188,
+   "acc_diff": 0.0,
+   "pass": true
+  },
+  "itrans": {
+   "raw_agreement": 0.99,
+   "acc_fp16": 0.28,
+   "acc_ref": 0.28,
+   "mean_abs_dlogprob": 0.003198042256491525,
+   "max_abs_dlogprob": 0.013013839721679688,
+   "acc_diff": 0.0,
+   "pass": true
+  },
+  "lossy": {
+   "raw_agreement": 1.0,
+   "acc_fp16": 0.36,
+   "acc_ref": 0.36,
+   "mean_abs_dlogprob": 0.0027376747131347655,
+   "max_abs_dlogprob": 0.013242244720458984,
+   "acc_diff": 0.0,
+   "pass": true
+  }
+ },
+ "pass": true,
+ "seconds": 4508.325949192047
+}

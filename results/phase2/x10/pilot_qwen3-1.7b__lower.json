@@ -1,0 +1,72 @@
+{
+  "provenance": {
+    "config": {
+      "model": "qwen3-1.7b",
+      "form": "lower",
+      "instruction": "Translate this Kannada sentence into English.\nKannada: {s}\nEnglish:",
+      "max_new_tokens": 128,
+      "greedy": true
+    },
+    "git_commit": "7e1bb26f1cc9b95fc845efbb087c98fdcc8c03f2-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-03T20:33:14+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x10.py",
+      "pilot"
+    ]
+  },
+  "summary": {
+    "n": 20,
+    "seconds": 11.869139909744263,
+    "seconds_per_sentence": 0.5934569954872131,
+    "empty_share": 0.0,
+    "mean_words": 69.8
+  },
+  "ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "outputs": [
+    "\"The modal of the day is aagid_da aadare eega ddayaabettik allada 4 tixgalha iligalhu namma balhi ive,\" exdu avanu heilhida.",
+    "The patient is a 65-year-old male with a history of hypertension, diabetes mellitus, and hyperlipidemia. He has been on antihypertensive therapy for 5 years, and has been on antidiabetic therapy for 3 years. He has been on antihyperlipidemic therapy for 2 years. He has been on anticoagulant therapy for 1 year. He has been on antiseptic therapy for 1 year. He has been on antiviral therapy for 1 year. He has been on antiparasitic therapy for 1 year. He has been on",
+    "The man who is the son of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the",
+    "Soamavaara, Sveediss, akaaddemiya saahityakkaagi nobel samitiya qaayax kaaryadarshiyaada saaraa ddeiniyas avaru, 2016 ra saahityada nobel prashasti gelluva bagge baab ddailan avaran_nu neiravaagi saxparkisalu saadhyavaagalilla, aatanan_nu saxparkisuva ellaa prayatnagalhu vifalavaadavu exdu sveeddan^na sverijas reiddiy",
+    "The following is a list of the names of the people who have been selected for the position of the head of the committee. The names of the people who have been selected for the position of the head of the committee. The names of the people who have been selected for the position of the head of the committee. The names of the people who have been selected for the position of the head of the committee. The names of the people who have been selected for the position of the head of the committee. The names of the people who have been selected for the position of the head of the committee. The names of the people who have been",
+    "The company is a subsidiary of the company, which is the CEO, and the company is the one that has the main office, and the company is the one that has the main office, and the company is the one that has the main office, and the company is the one that has the main office, and the company is the one that has the main office, and the company is the one that has the main office, and the company is the one that has the main office, and the company is the one that has the main office, and the company is the one that has the main office, and the company is the one",
+    "The area of the land is the area of the land.",
+    "The 2013 rally shaark ttyaaxk episoadd^nalli kaannisikoxdda naxtara maaraattavu heccaagide exdu siminaaf heilhid_daare haagu alli kaaryakramada sadasyaru sttaartt ap ge hannada sahakaaravan_nu niraakarisit_tu.",
+    "2017, Konyali, Siminaaf Shaapixg Ttelivissan Caanel {QVC}yalli kaannisikoxddaru.",
+    "The first time I saw the movie, I was 10 years old. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was",
+    "The first time I saw the movie, I was 10 years old. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was",
+    "{Zmapp} exba oxdu aaxttibaaddi kaak tteil, modalu ut_teijaka falitaaxsha toaridaroo, naxtarada adhyayanagalhu adu saavan_nu taddegattttuvalli  axdukoxddad_dakkixta kaddime prayoajanakaari exdu tilhidu baxtu.",
+    "The man who is the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the",
+    "The people of the world are the ones who are the most important in the world. The people of the world are the ones who are the most important in the world. The people of the world are the ones who are the most important in the world. The people of the world are the ones who are the most important in the world. The people of the world are the ones who are the most important in the world. The people of the world are the ones who are the most important in the world. The people of the world are the ones who are the most important in the world. The people of the world are the ones who",
+    "The user has been using the same software for a long time, but the new version is not working properly. The user has been using the same software for a long time, but the new version is not working properly. The user has been using the same software for a long time, but the new version is not working properly. The user has been using the same software for a long time, but the new version is not working properly. The user has been using the same software for a long time, but the new version is not working properly. The user has been using the same software for a long time, but the new version is",
+    "The man who is the son of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the",
+    "{USA} Jimnaasttiks mat_tu {USOC} eraddoo oxdei guri hoxdive - Jimnaasttiks mat_tu itarei aattagalhan_nu saadhyavaadassttu mattttige surakssitagolhisi, athleett^galhu tamma kanasan_nu nanasu maadduvalli oxdu surakssita, sakaaraatmaka mat_tu sashakta parisara nirmaanna maadduvudu.",
+    "1960s decade, and the 1960s decade, and the 1960s decade, and the 1960s decade, and the 1960s decade, and the 1960s decade, and the 1960s decade, and the 1960s decade, and the 1960s decade, and the 1960s decade, and the 1960s decade, and the 1960s decade, and the 1960s decade,",
+    "1976, aaykeyalli, avaru kaarttar^ge videishaaxga neetiya bagge salahe needdidaru mat_tu naxtara 1977 rixda 1981 ravarege henri kis_sixjar avara raassttreeya bhadrataa salahegaararaagi (en^es^e) seive sallisidaru.",
+    "{NSA} aagi, kyaaxp ddeividd akaardds avaru 1978 ra dashakadalli vishva vyavahaaragalhan_nu raajataaxtrikavaagi nirvahisuvudu; 1970 ra dashakadalli yues-ceenaa saxbaxdhagalhan_nu sahaja roopakke taruvudu; 1979 ralli, iraan ot_teyaalhu bikkattttige kaarannavaada iraaniyan kraaxtiyan_nu hat_t"
+  ]
+}

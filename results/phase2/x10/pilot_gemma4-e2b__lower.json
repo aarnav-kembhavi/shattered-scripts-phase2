@@ -1,0 +1,72 @@
+{
+  "provenance": {
+    "config": {
+      "model": "gemma4-e2b",
+      "form": "lower",
+      "instruction": "Translate this Kannada sentence into English.\nKannada: {s}\nEnglish:",
+      "max_new_tokens": 128,
+      "greedy": true
+    },
+    "git_commit": "7e1bb26f1cc9b95fc845efbb087c98fdcc8c03f2-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-03T20:37:22+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x10.py",
+      "pilot"
+    ]
+  },
+  "summary": {
+    "n": 20,
+    "seconds": 24.001062870025635,
+    "seconds_per_sentence": 1.2000531435012818,
+    "empty_share": 0.0,
+    "mean_words": 32.6
+  },
+  "ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "outputs": [
+    "\"This is the first time I have been sad, I have never been sad before. I have seen many things in my life,\" he said.",
+    "The head of the Department of Clinical and Medical Sciences at the University, who was appointed as the Dean of the Faculty of Medical Sciences, was appointed as the Dean of the Department of Clinical and Medical Sciences.",
+    "The people who are capable of finding out the truth about the person who is being accused, even if they are not directly involved, are the witnesses. These witnesses do not need to be from the same community.",
+    "The Nobel Committee did not award the award to the author who was a representative of the literature of Sweden for the Nobel Prize in Literature in 2016, because it was not possible to correct the fact that the efforts to award the award were not successful, but rather the efforts to award the award were made by the public in Sweden.",
+    "\"Don't let them think that I won't help them in getting the job. I have told them to be careful in asking for help. I have told them to be polite in talking to them. They said, 'This is really good.'\"",
+    "The CEO, who is a great leader, has a great story in his life that he told in detail.",
+    "They are preparing the food, so they will eat.",
+    "The members of the task force were appointed to the Karnataka State Election Commission in 2013 to make the election process fair and transparent.",
+    "In 2017, they were sold on the channel {QVC}.",
+    "They are being harassed by the ex-boyfriend and his girlfriend.",
+    "The English translation of the Kannada sentence is: \"The English translation of the Kannada sentence is: The English translation of the Kannada sentence is: The English translation of the Kannada sentence is: The English translation of the Kannada sentence is: The English translation of the Kannada sentence is: The English translation of the Kannada sentence is: The English translation of the Kannada sentence is: The English translation of the Kannada sentence is: The English translation of the Kannada sentence is: The English translation of the Kannada sentence is: The English translation of the Kannada sentence is: The English translation of the Kannada sentence is: The English translation of the Kannada sentence is: The",
+    "{Zmapp} exba oxdu aaxttibaaddi kaak tteil, modalu ut_teijaka falitaaxsha toaridaroo, naxtarada adhyayanagalhu adu saavan_nu taddegattttuvalli axdukoxddad_dakkixta kaddime prayoajanakaari exdu tilhidu baxtu.",
+    "In the third trial, the case was presented in a way that was very difficult to understand, and the witnesses seemed to be trying to make the jury think that the other witnesses were guilty.",
+    "The committee has decided to protect all our creations, which are the result of the efforts of all of us, by making a resolution to protect the interests of the people.",
+    "We will do this in the name of our friends who have made the decisions in the name of our games and the winners of the games in the name of our sports in our society.",
+    "(The provided text appears to be a string of characters that does not form a coherent sentence in Kannada or any recognizable language.)",
+    "{USA} gymnasiums mein {USOC} eraddoo oxdei guri hoxdive - gymnasiums mein itarei aattagalhan_nu saadhyavaadassttu mattttige surakssitagolhisi, athleett^galhu tamma kanasan_nu nanasu maadduvalli oxdu surakssita, sakaaraatmaka mat_tu sashakta parisara nirmaanna maadduvudu.",
+    "The Brejenski, who was born in 1960, worked to help the Kannada people. He worked in the village of Anxtara Lixddan.",
+    "In 1976, they needed to get a treaty with the Cardatari regarding the issue of video, and in 1977, they signed the treaty with Henry Kissinger in 1981 regarding the issue of the treaty (in English).",
+    "{NSA} aagi, kyaaxp ddeividd akaardds avaru 1978 ra dashakadalli vishva vyavahaaragalhan_nu raajataaxtrikavaagi nirvahisuvudu; 1970 ra dashakadalli yues-ceenaa saxbaxdhagalhan_nu sahaja roopakke taruvudu; 1979 ralli, iraan ot_teyaalhu bikkattttige kaarannavaada iraaniyan kraaxtiyan_nu hat_tikkuvudu; mat_tu 1"
+  ]
+}

@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "C:\PROJECTS\PROMPT\shattered-scripts\scripts\x9a.py", line 455, in <module>
+    main()
+  File "C:\PROJECTS\PROMPT\shattered-scripts\scripts\x9a.py", line 436, in main
+    prep_low()
+  File "C:\PROJECTS\PROMPT\shattered-scripts\scripts\x9a.py", line 190, in prep_low
+    stories = D.read_stories("train")
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\PROJECTS\PROMPT\shattered-scripts\src\shattered\pretrain\data.py", line 25, in read_stories
+    text = (RAW / name).read_text(encoding="utf-8")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\Lib\pathlib.py", line 1028, in read_text
+    return f.read()
+           ^^^^^^^^
+  File "<frozen codecs>", line 322, in decode
+MemoryError

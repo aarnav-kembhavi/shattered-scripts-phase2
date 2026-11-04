@@ -1,0 +1,72 @@
+{
+  "provenance": {
+    "config": {
+      "model": "qwen3.5-2b",
+      "form": "lower",
+      "instruction": "Translate this Kannada sentence into English.\nKannada: {s}\nEnglish:",
+      "max_new_tokens": 128,
+      "greedy": true
+    },
+    "git_commit": "7e1bb26f1cc9b95fc845efbb087c98fdcc8c03f2-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-03T20:34:29+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x10.py",
+      "pilot"
+    ]
+  },
+  "summary": {
+    "n": 20,
+    "seconds": 13.853055953979492,
+    "seconds_per_sentence": 0.6926527976989746,
+    "empty_share": 0.6,
+    "mean_words": 8.7
+  },
+  "ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "outputs": [
+    "\" ee modalu ddayaabettik aagid_da aadare eega  ddayaabettik allada 4 tixgalha iligalhu namma  balhi ive,\" exdu avanu heilhida.",
+    "",
+    "",
+    "",
+    "",
+    "ee muxce, jeimee siminaaf,  rixg kaxpaniya {CEO}, avana maneya ddoar^bel avana gyaareijinalli id_da axgaddiya tanaka keilhadei  hoadaaga avanu ee  kaxpani shuru maaddida exdu vivarisid_da.",
+    "",
+    "",
+    "2017 ra koneyalli, siminaaf shaapixg ttelivissan caanel {QVC}yalli kaannisikoxddaru.",
+    "",
+    "",
+    "{Zmapp} exba oxdu aaxttibaaddi kaak tteil, modalu ut_teijaka falitaaxsha toaridaroo, naxtarada adhyayanagalhu adu saavan_nu taddegattttuvalli  axdukoxddad_dakkixta kaddime prayoajanakaari exdu tilhidu baxtu.",
+    "",
+    "",
+    "",
+    "",
+    "{USA} jimnaasttiks mat_tu {USOC} eraddoo oxdei guri hoxdive - jimnaasttiks mat_tu itarei aattagalhan_nu saadhyavaadassttu mattttige surakssitagolhisi, athleett^galhu tamma kanasan_nu nanasu maadduvalli oxdu surakssita, sakaaraatmaka mat_tu sashakta parisara nirmaanna maadduvudu.",
+    "1960ra ud_dakkoo brejenski, jaan ef kenaddiya salahekaaranaagi kelasa maaddidaru mat_tu anaxtara lixddan bi jaansan aaddalhitadalli kelasa maaddidaru .",
+    "1976 ra aaykeyalli, avaru kaarttar^ge videishaaxga neetiya bagge salahe needdidaru mat_tu naxtara 1977 rixda 1981 ravarege henri kis_sixjar avara raassttreeya bhadrataa salahegaararaagi (en^es^e) seive sallisidaru.",
+    "{NSA} aagi, kyaaxp ddeividd akaardds avaru 1978 ra dashakadalli vishva vyavahaaragalhan_nu raajataaxtrikavaagi nirvahisuvudu; 1970 ra dashakadalli yues-ceenaa saxbaxdhagalhan_nu sahaja roopakke taruvudu; 1979 ralli, iraan ot_teyaalhu bikkattttige kaarannavaada iraaniyan kraaxtiyan_nu hat_tikkuvudu;"
+  ]
+}

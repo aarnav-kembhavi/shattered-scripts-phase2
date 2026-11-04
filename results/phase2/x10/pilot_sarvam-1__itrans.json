@@ -1,0 +1,72 @@
+{
+  "provenance": {
+    "config": {
+      "model": "sarvam-1",
+      "form": "itrans",
+      "instruction": "Translate this Kannada sentence into English.\nKannada: {s}\nEnglish:",
+      "max_new_tokens": 128,
+      "greedy": true
+    },
+    "git_commit": "7e1bb26f1cc9b95fc845efbb087c98fdcc8c03f2-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-03T20:35:31+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x10.py",
+      "pilot"
+    ]
+  },
+  "summary": {
+    "n": 20,
+    "seconds": 11.768277168273926,
+    "seconds_per_sentence": 0.5884138584136963,
+    "empty_share": 0.0,
+    "mean_words": 28.8
+  },
+  "ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "outputs": [
+    "He was a man who used to be very active but now he is not so much, with four different types of diseases in our midst.",
+    "Dr. David Ehud Uru, the Dean of the School of Medicine at the Hebrew University Hadassah Medical Center and President of the Diabetes Association of Canada, has said that the study is in its early days but will be launched soon.",
+    "It is not easy to find out the cause of diabetes in other people who have been diagnosed with type 1 diabetes, as they also say that there are no benefits for those who have been diagnosed with type 1 diabetes.",
+    "Sir Alec DeeNeyes, the Nobel laureate in Literature for his work on translation, was not able to meet Babs Dylan last week to discuss how he could help win the prestigious award of the Swedish Academy. His attempts at getting him to speak about his work were unsuccessful and have been made public by Sweden's Röda Krömmelbaum radio station.",
+    "Dennis said that he had not been able to stop himself from calling his very close friend. He also mentioned how he had received the news of their reconciliation.",
+    "He was the CEO of that company, and he told me how his housekeeper had been working in his garage until she found out about the company.",
+    "They said that they had been hacked by WiFi.",
+    "In the year 2013, there was a lot of media coverage on the murder in Shark TAMK episodes. The cast members refused to cooperate with the investigation.",
+    "In the last year of 2017, Simina Phipps appeared on QVC television channel.",
+    "The company has been sued by the Indian government for violating its trade secrets.",
+    "A preventive vaccine can reduce the risk of death by slowing down the progression of the disease. However, there is no evidence that any other medicines are suitable for treating presently available diseases.",
+    "The ZMAPP vaccine was administered first, and the results were reported within 24 hours. This is to ensure that it can be used for saving lives.",
+    "In the PAM^Trayal^nli, JHEDMYAP^ NIAmTraNavAgi kelasa maDitu, Amdare Vij~nANigaLu idannu Bes^lain^ Agi baLasidaru mattu MUru itara chikitsegalaHolisidaru.",
+    "The United Nations Educational, Scientific and Cultural Organization (UNESCO) has issued a statement on the need for safe working environments for all workers in the oil and gas industry.",
+    "Our clubs and teams have a responsibility to ensure that their activities do not harm the community, but instead contribute positively towards our organization's growth. We support USOC's call for better stewardship of resources in order to maximize benefits for all stakeholders.",
+    "The IshtoM team has been working on the issue of how to improve the existing system and not just focus on the problem itself, which is why they are looking at alternative solutions such as changing the syllabus.",
+    "USA aims to promote athletics and the USOC strives for a safe environment where athletes can pursue their dreams without fear of injury or harm to others. Athletes will work towards creating a safer, more secure, and stronger environment in which they can achieve their goals.",
+    "In the early sixties, Brezhnev was a Soviet diplomat in India and Johnson worked as an advisor to Anthony Eden at the Foreign Office in London.",
+    "In the year 1976, he advised Karthar to take care of national security and served as Henry Kissinger's National Security Advisor from 1977 to 1981.",
+    "The NSA translated the Kannada sentence into English."
+  ]
+}

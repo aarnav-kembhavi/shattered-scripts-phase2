@@ -1,0 +1,103 @@
+{
+  "provenance": {
+    "config": {
+      "registration": "X7-A (exploratory)"
+    },
+    "git_commit": "7e1bb26f1cc9b95fc845efbb087c98fdcc8c03f2-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-03T20:30:24+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x7a_mdl.py"
+    ]
+  },
+  "detok_layer_by_vocab": {
+    "256": {
+      "seeds": [
+        2,
+        2,
+        2
+      ],
+      "mean": 2.0,
+      "phase1_seeds": [
+        2,
+        2,
+        2
+      ]
+    },
+    "384": {
+      "seeds": [
+        1,
+        1,
+        1
+      ],
+      "mean": 1.0,
+      "phase1_seeds": [
+        1,
+        1,
+        1
+      ]
+    },
+    "512": {
+      "seeds": [
+        1,
+        1,
+        1
+      ],
+      "mean": 1.0,
+      "phase1_seeds": [
+        1,
+        1,
+        1
+      ]
+    },
+    "768": {
+      "seeds": [
+        2,
+        2,
+        2
+      ],
+      "mean": 2.0,
+      "phase1_seeds": [
+        1,
+        1,
+        1
+      ]
+    },
+    "1024": {
+      "seeds": [
+        1,
+        1,
+        1
+      ],
+      "mean": 1.0,
+      "phase1_seeds": [
+        1,
+        1,
+        1
+      ]
+    },
+    "4096": {
+      "seeds": [
+        1,
+        1,
+        1
+      ],
+      "mean": 1.0,
+      "phase1_seeds": [
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "differences_256_minus_4096_by_seed": [
+    1,
+    1,
+    1
+  ],
+  "verdict": "supported",
+  "rule": "supported: each seed difference >= 1; refuted: no seed difference > 0; else inconclusive"
+}

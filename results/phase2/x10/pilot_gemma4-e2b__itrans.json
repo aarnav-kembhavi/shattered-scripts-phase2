@@ -1,0 +1,72 @@
+{
+  "provenance": {
+    "config": {
+      "model": "gemma4-e2b",
+      "form": "itrans",
+      "instruction": "Translate this Kannada sentence into English.\nKannada: {s}\nEnglish:",
+      "max_new_tokens": 128,
+      "greedy": true
+    },
+    "git_commit": "7e1bb26f1cc9b95fc845efbb087c98fdcc8c03f2-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-03T20:36:58+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x10.py",
+      "pilot"
+    ]
+  },
+  "summary": {
+    "n": 20,
+    "seconds": 19.89519476890564,
+    "seconds_per_sentence": 0.994759738445282,
+    "empty_share": 0.05,
+    "mean_words": 32.15
+  },
+  "ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "outputs": [
+    "\"I modalu DayAbeTik Agidda Adare Iga DayAbeTik allada 4 tiMgaLa iligaLu namma baLi ive,\" eMdu avanu hELida.",
+    "The medical student of NOVA University, Dr. Haliphyaks, was appointed as a clinical and clinical department lecturer in the Department of Clinical and Clinical Sciences. He started his work in the Department of Clinical and Clinical Sciences on an early day of the month.",
+    "The people who are not aware of the problem, the people who do not know what the problem is, they are the ones who cause the problem. If we can solve this, we will not have to make any effort for the people who are living in this situation.",
+    "The world is full of people who have won the Nobel Prize in Literature for their work in the Indian Academy of Sciences, Somavar, and the Nobel Prize in Literature in 2016, and they have not been given any recognition for the fact that they won the Nobel Prize in Literature. They have made every effort to be recognized, and the public is very happy with their work in the Indian Academy of Sciences and the Nobel Prize in Literature.",
+    "",
+    "The CEO of the company, who is a senior manager, is responsible for the company's success and has started the company with great dedication.",
+    "Who did they kill?",
+    "In the episode of Shark Team 2013, the animal was shown that the members of the group started to draw a map and drew the map of the sea.",
+    "In 2017, in the SIMINAPH magazine, there was a story about TeliviShan channel {QVC}.",
+    "The company, which is a partner of eDiTi Corporation, has been invited to the event by the organizers.",
+    "(Please provide the English translation of the Kannada sentence.)",
+    "{Zmapp} is a very important topic, which has many interesting results, and in the study of our history, it is very useful to know.",
+    "In the trial, the defendant was asked to answer questions, and the prosecution and the accused asked questions.",
+    "The committee accepted the letter of the Chief Secretary and the security report of all the departments.",
+    "(This translation is a bit complex and technical, likely related to a specific system or process.)",
+    "The people who are not in the way of the law, and who are not in the way of the law, and who are not in the way of the law, and who are not in the way of the law, and who are not in the way of the law, and who are not in the way of the law, and who are not in the way of the law, and who are not in the way of the law, and who are not in the way of the law, and who are not in the way of the law, and who are not in the way of the law, and who are not in the",
+    "{USA} gym statistics and {USOC} data are very good - they have made the gym statistics and other data available to everyone, they have made the data of the gym statistics safe in our hands, and the environment that is favorable and conducive to the creation of a good atmosphere and possibility.",
+    "The Brezhnev, Jan, and other leaders of the Soviet Union were involved in the process of creating the national language and the language of the people.",
+    "In 1976 in Aykelli, they were told about the decision to go abroad by the Minister, and in 1977, 1981, Henri Kissi was sent to the United States for the purpose of serving in the Indian brigade (in the US).",
+    "{NSA} In, during the 1978 decade, the world was led by Dr. Ramasamy; in the 1970s, China was led by Mao Zedong; in 1979, the Indian army was defeated by the Pakistani army; and in 1979, the Soviet Union was defeated by the Afghan army."
+  ]
+}

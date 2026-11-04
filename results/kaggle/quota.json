@@ -399,9 +399,31 @@
     "llama-2-7b"
    ],
    "start_utc": "2026-11-04T00:54:10.361038+00:00",
-   "hours": 3.5,
-   "status": "pushed",
-   "accelerator": "NvidiaTeslaT4 (T4 x2)"
+   "hours": 1.3552055361535813,
+   "status": "aarnavkembhavi1/shattered-kaggle-precision has status \"KernelWorkerStatus.COMPLETE\"",
+   "accelerator": "NvidiaTeslaT4 (T4 x2)",
+   "output_dir": "results\\kaggle\\kaggle_precision\\2026-11-04T005410",
+   "hardware": null,
+   "torch": null,
+   "bf16_supported": null
+  },
+  {
+   "job": "x_score",
+   "kernel": "aarnavkembhavi1/shattered-x-score",
+   "commit": "27fc008f7559abd141c54793e786dcd5fae80b0e",
+   "dirty": false,
+   "args": [
+    "--models",
+    "llama-2-7b"
+   ],
+   "start_utc": "2026-11-04T02:23:11.070809+00:00",
+   "hours": 1.8129362084468206,
+   "status": "aarnavkembhavi1/shattered-x-score has status \"KernelWorkerStatus.COMPLETE\"",
+   "accelerator": "NvidiaTeslaT4 (T4 x2)",
+   "output_dir": "results\\kaggle\\x_score\\2026-11-04T022311",
+   "hardware": null,
+   "torch": null,
+   "bf16_supported": null
   }
  ]
 }

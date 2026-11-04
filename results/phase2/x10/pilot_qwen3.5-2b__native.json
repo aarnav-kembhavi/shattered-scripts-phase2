@@ -1,0 +1,72 @@
+{
+  "provenance": {
+    "config": {
+      "model": "qwen3.5-2b",
+      "form": "native",
+      "instruction": "Translate this Kannada sentence into English.\nKannada: {s}\nEnglish:",
+      "max_new_tokens": 128,
+      "greedy": true
+    },
+    "git_commit": "7e1bb26f1cc9b95fc845efbb087c98fdcc8c03f2-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-03T20:34:01+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x10.py",
+      "pilot"
+    ]
+  },
+  "summary": {
+    "n": 20,
+    "seconds": 14.311224222183228,
+    "seconds_per_sentence": 0.7155612111091614,
+    "empty_share": 0.45,
+    "mean_words": 16.4
+  },
+  "ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "outputs": [
+    "\"Even though he was diabetic before, he is not diabetic now, and 4 months of dogs are with us,\" he said.",
+    "Dr. Ehadur, who is the Head of the Department of Medical Education and Clinical and Scientific Division of Dalhousie University, Ottawa, Canada, and the Chair of the Canadian Diabetes Association, has warned that the research is still in its early days.",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "After appearing in the Shark Tank episode in 2013, sales have increased, according to Siminaff, and the members of the show have refused to give money to start-up companies.",
+    "",
+    "",
+    "",
+    "Zmapp is an antibiotic cocktail, initially showing promising results, but subsequent studies revealed that it was less effective than expected in preventing death.",
+    "In the PAM trial, Zedmap was controlled by the Zedmap, meaning that scientists used it as a baseline and compared it with three other treatments.",
+    "The United States Olympic Committee supports the letter of the United States Olympic Committee and fully accepts the Olympic family's complete requirement for a safe environment for all athletes.",
+    "We agree with the USOC statement that our athletes and clubs' enthusiasm and their sports are not only a matter of the organization's scope but can be made to contribute to the organization's full scope by making good changes within the organization.",
+    "",
+    "USA Gymnastics and USOC have the same goal - to make gymnastics and other sports safe to the best of our ability, and to create a safe, positive, and powerful environment for athletes to realize their dreams.",
+    "1960ರ ಉದ್ದಕ್ಕೂ ಬ್ರೆಜೆನ್ಸ್ಕಿ, ಜಾನ್ ಎಫ್ ಕೆನಡಿಯ ಸಲಹೆಕಾರನಾಗಿ ಕೆಲಸ ಮಾಡಿದರು  ಮತ್ತು ಅನಂತರ ಲಿಂಡನ್ ಬಿ ಜಾನ್ಸನ್ ಆಡಳಿತದಲ್ಲಿ ಕೆಲಸ ಮಾಡಿದರು .",
+    "In 1976, they advised on the foreign policy of Carter and served as Henry Kissinger's national security advisor (NSA) from 1977 to 1981.",
+    "NSA, Camp David Accords, 1970s, US-China relations, 1979, Iran-Iraq War, 1979, Carter, Iran, 1979, Afghanistan, Soviet invasion, 1979, Carter, Afghanistan, 1979, Carter, Afghanistan, 1979, Carter, Afghanistan, 1979, Carter, Afghanistan, 1979, Carter, Afghanistan, 1979, Carter, Afghanistan, 1979, Carter, Afghanistan, 1979, Carter,"
+  ]
+}

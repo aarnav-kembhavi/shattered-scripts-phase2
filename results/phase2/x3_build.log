@@ -1,0 +1,6 @@
+reference sample: {'provenance': {'config': {'seed': 0, 'words': 100000, 'rule': 'exact or containment (>= 20 characters) match with an evaluation text removes the article'}, 'git_commit': 'a5c27cef8ab26b4f2ac6cd0d48f2b1be6216de3c', 'phase2_registration_commit': 'a57fe610c6ea8b4f9d6484843950fa745d2d8e44', 'timestamp_utc': '2026-11-02T09:24:51+00:00', 'python': '3.12.13', 'platform': 'Windows-11-10.0.26300-SP0', 'argv': ['-c']}, 'n_articles_used': 182, 'n_articles_removed_while_drawing': 0, 'n_articles_total': 31437, 'n_eval_texts': 3394, 'unmapped_words_dropped': 0}
+qwen2.5-1.5b: built in 51s; eligible m: sentiment 170/200, xnli 167/200, sib 854/1004, m4c 423/496
+qwen3.5-2b: built in 24s; eligible m: sentiment 171/200, xnli 169/200, sib 890/1004, m4c 437/496
+sarvam-1: built in 22s; eligible m: sentiment 163/200, xnli 161/200, sib 840/1004, m4c 400/496
+gemma4-e2b: built in 25s; eligible m: sentiment 175/200, xnli 178/200, sib 894/1004, m4c 451/496
+qwen3-1.7b: built in 51s; eligible m: sentiment 170/200, xnli 167/200, sib 854/1004, m4c 423/496

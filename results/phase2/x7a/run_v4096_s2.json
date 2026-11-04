@@ -1,0 +1,63 @@
+{
+  "provenance": {
+    "config": {
+      "checkpoint": "checkpoints/e05/x7_v4096_s2/final.safetensors",
+      "probe": {
+        "steps": 300,
+        "lr": 0.01,
+        "weight_decay": 0.001
+      },
+      "registration": "X7-A (exploratory)"
+    },
+    "git_commit": "7e1bb26f1cc9b95fc845efbb087c98fdcc8c03f2-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-03T20:30:24+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x7a_mdl.py"
+    ]
+  },
+  "vocab": 4096,
+  "seed": 2,
+  "emb_dim": 22,
+  "mdl": {
+    "detok_layer": 1,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "compression": [
+      15.852259062120968,
+      18.318671526895443,
+      19.076710182192247,
+      18.86533132728026,
+      17.993856088591333,
+      16.641471578551304,
+      14.898200551661759,
+      13.070755061368164,
+      8.013773529973491
+    ],
+    "n": 12000
+  },
+  "codelength_bits": [
+    6229.132636489905,
+    5390.446798555895,
+    5176.250168025719,
+    5234.248080401267,
+    5487.752252756902,
+    5933.719492284632,
+    6628.036986314859,
+    7554.714614598131,
+    12322.013333246417
+  ],
+  "uniform_bits": 98745.82428595057,
+  "erasure": {
+    "-1": null,
+    "-2": null
+  },
+  "tokens_per_word": 1.0,
+  "frac_ge3_tokens": 0.0,
+  "seconds_forward": 20.649492740631104,
+  "seconds_probes": 26.546823024749756,
+  "phase1_detok_layer_same_vocab_seed": 0
+}

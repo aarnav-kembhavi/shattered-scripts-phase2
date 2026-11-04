@@ -1,0 +1,72 @@
+{
+  "provenance": {
+    "config": {
+      "model": "qwen3-1.7b",
+      "form": "itrans",
+      "instruction": "Translate this Kannada sentence into English.\nKannada: {s}\nEnglish:",
+      "max_new_tokens": 128,
+      "greedy": true
+    },
+    "git_commit": "7e1bb26f1cc9b95fc845efbb087c98fdcc8c03f2-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-03T20:33:02+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x10.py",
+      "pilot"
+    ]
+  },
+  "summary": {
+    "n": 20,
+    "seconds": 11.721961259841919,
+    "seconds_per_sentence": 0.586098062992096,
+    "empty_share": 0.0,
+    "mean_words": 70.6
+  },
+  "ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "outputs": [
+    "\"I am not sure if I will be able to attend the meeting tomorrow.\"",
+    "The new SkaTiyAda hyAliphyAks^na DAl^hausi vishvavidyAlayada vaidyakIya prAdhyApaka mattu kenaDiyan DayAbiTis asOsiyEShan^na klinikal mattu vaij~nAnika vibhAgada adhyakSharAda DA. ehud ur avaru saMshOdhaneyu innU AraMbhika dinagaLallide eMdu mArmikavAgi echcharisiddAre.",
+    "The first time I saw the movie, I was 10 years old. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was very excited. I was",
+    "The 2016 Nobel Prize in Literature was awarded to the author of the novel \"The Kite Runner\" by Khaled Hosseini, who is a professor of English at the University of Texas at Austin, and who has been a recipient of the Nobel Peace Prize, and who has been a recipient of the Nobel Prize in Literature, and who has been a recipient of the Nobel Prize in Chemistry, and who has been a recipient of the Nobel Prize in Medicine, and who has been a recipient of the Nobel Prize in Physics, and who has been a recipient of the Nobel Prize in Economics, and who has been a recipient",
+    "\"I am the one who is the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the",
+    "I am the CEO of the company, and I am the one who has been appointed to the position of the head of the company. I have been appointed to the position of the head of the company. I have been appointed to the position of the head of the company. I have been appointed to the position of the head of the company. I have been appointed to the position of the head of the company. I have been appointed to the position of the head of the company. I have been appointed to the position of the head of the company. I have been appointed to the position of the head of the company. I have been",
+    "The universe is a vast and beautiful creation of the divine.",
+    "2013 rally shArk TyAMk episOD^nalli kANisikoMDa naMtara mArATavu hechchAgide eMdu siminAph hELiddAre hAgu alli kAryakramada sadasyaru sTArT ap ge haNada sahakAravannu nirAkarisittu.",
+    "2017, Konyali, Simin Aph, ShapiMg Telivishan ChAnel {QVC}yalli KANisikoMDaru.",
+    "The child is a child of the mother, and the mother is a mother of the child, and the child is a child of the mother, and the mother is a mother of the child, and the child is a child of the mother, and the mother is a mother of the child, and the child is a child of the mother, and the mother is a mother of the child, and the child is a child of the mother, and the mother is a mother of the child, and the child is a child of the mother, and the mother is a mother of the child, and the child is a child of the mother",
+    "The Lord of the World, the Supreme Being, the Supreme Lord, the Supreme Personality of Godhead, the Supreme Personality of the Divine, the Supreme Personality of the Absolute, the Supreme Personality of the Supreme, the Supreme Personality of the Supreme, the Supreme Personality of the Supreme, the Supreme Personality of the Supreme, the Supreme Personality of the Supreme, the Supreme Personality of the Supreme, the Supreme Personality of the Supreme, the Supreme Personality of the Supreme, the Supreme Personality of the Supreme, the Supreme Personality of the Supreme, the Supreme Personality of the Supreme, the Supreme Personality of the Supreme, the Supreme Personality of the Supreme, the Supreme",
+    "{Zmapp} eMba oMdu AMTibADi kAk TEl, modalu uttEjaka phalitAMsha tOridarU, naMtarada adhyayanagaLu adu sAvannu taDegaTTuvalli aMdukoMDaddakkiMta kaDime prayOjanakAri eMdu tiLidu baMtu.",
+    "The man who is the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the son of the",
+    "The first step in the process of the formation of the world is the creation of the universe, the formation of the universe, the formation of the universe, the formation of the universe, the formation of the universe, the formation of the universe, the formation of the universe, the formation of the universe, the formation of the universe, the formation of the universe, the formation of the universe, the formation of the universe, the formation of the universe, the formation of the universe, the formation of the universe, the formation of the universe, the formation of the universe, the formation of the universe, the formation of the universe, the",
+    "The first step in the process of the creation of the universe is the creation of the universe itself. The second step is the creation of the universe in the form of a cosmic egg. The third step is the creation of the universe in the form of a cosmic egg, and the fourth step is the creation of the universe in the form of a cosmic egg. The fifth step is the creation of the universe in the form of a cosmic egg, and the sixth step is the creation of the universe in the form of a cosmic egg. The seventh step is the creation of the universe in the form of a cosmic egg, and the eighth step",
+    "The man who is the son of the mother of the father of the son of the mother of the father of the son of the mother of the father of the son of the mother of the father of the son of the mother of the father of the son of the mother of the father of the son of the mother of the father of the son of the mother of the father of the son of the mother of the father of the son of the mother of the father of the son of the mother of the father of the son of the mother of the father of the son of the mother of the father of the son of the mother of the",
+    "{USA} JimnAsTiks mattu {USOC} eraDU oMdE guri hoMdive - JimnAsTiks mattu itarE ATagaLannu sAdhyavAdaShTu maTTige surakShitagoLisi, athlIT^gaLu tamma kanasannu nanasu mADuvalli oMdu surakShita, sakArAtmaka mattu sashakta parisara nirmANa mADuvudu.",
+    "1960s, the year of the 1960s, the year of the 1960s, the year of the 1960s, the year of the 1960s, the year of the 1960s, the year of the 1960s, the year of the 1960s, the year of the 1960s, the year of the 1960s, the year of the 1960s, the year of the 1960s,",
+    "1976, Aykeyalli, avaru kArTar^ge vidEshAMga nItiya bagge salahe nIDidaru mattu naMtara 1977 riMda 1981 ravarege henri kissiMjar avara rAShTrIya bhadratA salahegArarAgi (en^es^e) sEve sallisidaru.",
+    "{NSA} Agi, kyAMp DEviD akArDs avaru 1978 ra dashakadalli vishva vyavahAragaLannu rAjatAMtrikavAgi nirvahisuvudu; 1970 ra dashakadalli yues-chInA saMbaMdhagaLannu sahaja rUpakke taruvudu; 1979 ralli, irAn otteyALu bikkaTTige kAraNavAda irAniyan krAMtiyannu hatt"
+  ]
+}

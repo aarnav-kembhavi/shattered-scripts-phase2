@@ -1,0 +1,77 @@
+{
+  "provenance": {
+    "config": {
+      "registration": "RESULTS.md Amendment 2, X12 contrast 1"
+    },
+    "git_commit": "81fc53493f5de61024e78d8029d40a73b494be98-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-04T04:23:13+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x12_analyse.py"
+    ]
+  },
+  "contrast": "1: Llama-2-7B vs Ambari-7B-base-v0.1",
+  "sib": {
+    "did": 0.42330677290836655,
+    "ci975": [
+      0.3804780876494024,
+      0.46613545816733065
+    ],
+    "n": 1004,
+    "above_0": true,
+    "below_0": false,
+    "gain_native": 0.3894422310756972,
+    "gain_itrans": -0.033864541832669334
+  },
+  "sib_accuracy_by_form": {
+    "ambari-7b-base": {
+      "english": 0.5587649402390438,
+      "native": 0.5059760956175299,
+      "itrans": 0.10956175298804781,
+      "lossy": 0.19123505976095617
+    },
+    "llama-2-7b": {
+      "english": 0.6892430278884463,
+      "native": 0.11653386454183266,
+      "itrans": 0.14342629482071714,
+      "lossy": 0.28087649402390436
+    }
+  },
+  "retrieval": {
+    "did": 0.6238805970149254,
+    "ci975": [
+      0.5840796019900497,
+      0.663681592039801
+    ],
+    "n": 1005,
+    "above_0": true,
+    "below_0": false,
+    "gain_native": 0.691542288557214,
+    "gain_itrans": 0.06766169154228857,
+    "acc": {
+      "ambari-7b-base": {
+        "native": 0.7432835820895523,
+        "itrans": 0.14228855721393036
+      },
+      "llama-2-7b": {
+        "native": 0.051741293532338306,
+        "itrans": 0.07462686567164178
+      }
+    }
+  },
+  "calibration": {
+    "ambari-7b-base": {
+      "raw_fallback_used": false
+    },
+    "llama-2-7b": {
+      "raw_fallback_used": false
+    }
+  },
+  "prediction": "native gain exceeds ITRANS gain on SIB-200 and on retrieval (DiD > 0)",
+  "verdict": "supported",
+  "rule": "supported: both measures above 0 (97.5% interval); partly supported: one; refuted: neither above 0 and one below 0; inconclusive otherwise",
+  "caveat": "natural experiment on released models; native gain confounds exposure with the tokenizer extension (ITRANS tokens per word 4.69 vs 4.55); X9b is the causal test"
+}

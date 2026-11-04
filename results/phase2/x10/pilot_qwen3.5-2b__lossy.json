@@ -1,0 +1,72 @@
+{
+  "provenance": {
+    "config": {
+      "model": "qwen3.5-2b",
+      "form": "lossy",
+      "instruction": "Translate this Kannada sentence into English.\nKannada: {s}\nEnglish:",
+      "max_new_tokens": 128,
+      "greedy": true
+    },
+    "git_commit": "7e1bb26f1cc9b95fc845efbb087c98fdcc8c03f2-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-03T20:34:43+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x10.py",
+      "pilot"
+    ]
+  },
+  "summary": {
+    "n": 20,
+    "seconds": 14.592446565628052,
+    "seconds_per_sentence": 0.7296223282814026,
+    "empty_share": 0.7,
+    "mean_words": 6.35
+  },
+  "ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "outputs": [
+    "\"I have a dayabetik agidda adare iga  dayabetik allada 4 tingala iligalu namma bali ive,\" endu avanu helida.",
+    "",
+    "",
+    "",
+    "deniyas, \" sadyakke navenu maduttilla. nanu avara atyanta nikata sahayogige duravani kare madiddene hagu imelgalannu kalisiddene hagu avarinda snehapurna uttaragalannu padediddene. igina mattakke idu nijavagiyu saku\" endu helida.",
+    "",
+    "",
+    "",
+    "2017 ra koneyalli, siminap shaping telivishan chanel QVCyalli kanisikondaru.",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "USA jimnastiks mattu USOC eradu onde guri hondive - jimnastiks mattu itare atagalannu sadyavadashtu mattige surakshitagolisi, atlitgalu tamma kanasannu nanasu maduvalli ondu surakshita, sakaratmaka mattu sashakta parisara nirmana maduvudu.",
+    "1960ra uddakku brejenski, jan ep kenadiya salahekaranagi kelasa madidaru mattu anantara lindan bi jansan adalitadalli kelasa madidaru .",
+    "1976 ra aykeyalli, avaru kartarge videshanga nitiya bagge salahe nididaru mattu nantara 1977 rinda 1981 ravarege henri kissinjar avara rashtriya badrata salahegararagi (enese) seve sallisidaru.",
+    ""
+  ]
+}

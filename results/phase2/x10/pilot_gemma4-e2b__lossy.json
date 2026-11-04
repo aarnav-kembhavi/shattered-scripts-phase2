@@ -1,0 +1,72 @@
+{
+  "provenance": {
+    "config": {
+      "model": "gemma4-e2b",
+      "form": "lossy",
+      "instruction": "Translate this Kannada sentence into English.\nKannada: {s}\nEnglish:",
+      "max_new_tokens": 128,
+      "greedy": true
+    },
+    "git_commit": "7e1bb26f1cc9b95fc845efbb087c98fdcc8c03f2-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-03T20:37:43+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x10.py",
+      "pilot"
+    ]
+  },
+  "summary": {
+    "n": 20,
+    "seconds": 21.179511547088623,
+    "seconds_per_sentence": 1.0589755773544312,
+    "empty_share": 0.0,
+    "mean_words": 27.45
+  },
+  "ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "outputs": [
+    "\"He said, 'We have to do all four things in the world, we have to do them all.'\"",
+    "The doctor is a doctor from the university, and he is in the clinical and scientific department of the hospital. He has started working in the department of the doctor.",
+    "The people are not just doubting the good things, but also the bad things, and they are also expressing doubts. These doubts do not tell the purpose of the good people in this society.",
+    "The Nobel Committee of the Nobel Prize for Literature, which gave a recommendation to Somavara, Svidish Academy, and Sahityakagi, did not contact him regarding the Nobel praise in literature in 2016, and all attempts to contact him were rejected by the Nobel Committee in the public through the Nobel program.",
+    "Deniyas, \"I didn't want to do it for you. I was going to refuse to help you in such a difficult way, and I was going to refuse the affectionate answers from him. Now, this is your own choice.\" he said.",
+    "The CEO of Ring Company, who is a former employee, told in an interview in his magazine that he had started this company.",
+    "They said that they had prepared the wedding.",
+    "The members of the program started helping the channel by making a statement that the channel had been made due to the episode of Shark Tank aired in 2013.",
+    "In 2017, in the country, they were introduced on the channel QVCy in Siminap Shaping Television.",
+    "The company is being pressured by the people who are fighting for the edit.",
+    "The people who are preparing a medicinal product, they do not show that the medicines are prepared in a certain way, or that they are prepared in a certain way.",
+    "(Please provide the English translation of the Kannada sentence.)",
+    "In the experiment, they tried to control the gene, and the scientists found that only the genes were expressed, and the other small things were not expressed.",
+    "The Olympic Committee accepted the letter of invitation and the safe environment for all our sports.",
+    "(Please provide the English translation of the Kannada sentence.)",
+    "The English translation of the Kannada sentence is: \"They are not allowed to do anything, they are not allowed to speak, they are not allowed to eat, they are not allowed to drink, they are not allowed to go anywhere, they are not allowed to even think, they are not allowed to even look, they are not allowed to even do gymnastics.\"",
+    "The USA gymnastics and USOC are very good - they have made it possible to protect the gymnastics and other sports, and have created a safe, positive, and healthy environment for them.",
+    "The Brejenski, the people of the country, worked for the liberation of the people in the land of the people.",
+    "In 1976, they studied in Canada regarding foreign policy, and from 1977 to 1981, Henri Kissinger served as their national advisor (in essence).",
+    "In the 1970s, Kyamb Devid Akards, in the 1978 decade, managed international relations with the Soviet Union; in the 1970s, he only dealt with relations with the USSR; in 1979, he opposed the Iranian revolution because of the nuclear issue; and in 1979, he helped in managing the relations with the Soviet Union during the invasion of Afghanistan."
+  ]
+}

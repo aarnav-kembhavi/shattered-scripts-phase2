@@ -1,0 +1,72 @@
+{
+  "provenance": {
+    "config": {
+      "model": "qwen3-1.7b",
+      "form": "natural",
+      "instruction": "Translate this Kannada sentence into English.\nKannada: {s}\nEnglish:",
+      "max_new_tokens": 128,
+      "greedy": true
+    },
+    "git_commit": "7e1bb26f1cc9b95fc845efbb087c98fdcc8c03f2-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-03T20:33:37+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x10.py",
+      "pilot"
+    ]
+  },
+  "summary": {
+    "n": 20,
+    "seconds": 11.362405776977539,
+    "seconds_per_sentence": 0.568120288848877,
+    "empty_share": 0.0,
+    "mean_words": 57.8
+  },
+  "ids": [
+    0,
+    3,
+    5,
+    8,
+    10,
+    12,
+    22,
+    23,
+    30,
+    34,
+    37,
+    41,
+    45,
+    51,
+    57,
+    59,
+    62,
+    66,
+    67,
+    72
+  ],
+  "outputs": [
+    "\"The patient is diabetic and has been on insulin for four years,\" said the doctor.",
+    "Somavara, Swedish Academy of Literature and Nobel Committee for Literature, in the year 2016, awarded Nobel Prize in Literature to Bob Dylan, who has been a writer for the Swedish Academy of Literature and Nobel Committee for Literature, in the year 2016, awarded Nobel Prize in Literature to Bob Dylan, who has been a writer for the Swedish Academy of Literature and Nobel Committee for Literature, in the year 2016, awarded Nobel Prize in Literature to Bob Dylan, who has been a writer for the Swedish Academy of Literature and Nobel Committee for Literature, in the year 2016,",
+    "I have a problem, Jamie Siminoff, CEO of the Ring company, a doorbell, a garage door opener, a garage door, a problem, a problem, a problem, a problem, a problem, a problem, a problem, a problem, a problem, a problem, a problem, a problem, a problem, a problem, a problem, a problem, a problem, a problem, a problem, a problem, a problem, a problem, a problem, a problem, a problem, a problem, a problem, a problem, a problem, a problem, a problem, a problem, a problem,",
+    "2017, Koneyalli, Siminaaf, Shopping, Television, Channel, QVCyalli, Koonisikondaru.",
+    "The people of the land of the sun, the people of the land of the moon, the people of the land of the earth, the people of the land of the water, the people of the land of the air, the people of the land of the fire, the people of the land of the sky, the people of the land of the earth, the people of the land of the water, the people of the land of the air, the people of the land of the fire, the people of the land of the sky, the people of the land of the earth, the people of the land of the water, the people",
+    "The palm trailnalli, zedmap niyantranavagi kelasa maditu, andre vignanigalu idanu baseline agi balasidaru mattu muru itara chikitsegalannu idakke holisidaru.",
+    "Aa bere naamankanagalalli kelu, atyuttama sinema, nirdeshaka, sinematografi, vastra vinyasa, cinema sankalana, moola sangeeta, prodakshan dijain, dhvani sankalana, dhvani mishrana mattu moola screen play.",
+    "The audition is on 2nd June, (Di Phuls Hu Drim) Mattu Siti Oph Staars, atyuttuma moola geetegaagi naamanirdeshanagalannu sweekarisevidavu. Layansget nirmaanashaale 26 naamanirdeshanagalannu padedide - idu itara nirmaanashaaleyaringinta hechu.",
+    "The dragon is a creature of the sky, a divine being, a great one, a mighty one, a powerful one, a strong one, a noble one, a great one, a mighty one, a powerful one, a strong one, a noble one, a great one, a mighty one, a powerful one, a strong one, a noble one, a great one, a mighty one, a powerful one, a strong one, a noble one, a great one, a mighty one, a powerful one, a strong one, a noble one, a great one, a mighty one, a powerful one, a strong one",
+    "The police of Hattonbadu Mandi, which is located in the state of Kerala, are the ones who have been accused of the crime of murder.",
+    "The stars are in the sky, and the sun is shining, and the moon is shining, and the moon is shining, and the moon is shining, and the moon is shining, and the moon is shining, and the moon is shining, and the moon is shining, and the moon is shining, and the moon is shining, and the moon is shining, and the moon is shining, and the moon is shining, and the moon is shining, and the moon is shining, and the moon is shining, and the moon is shining, and the moon is shining, and the moon is shining, and the moon is shining, and",
+    "802.11n gunamattada 2.4Ghz mattu 5.0Ghz punaravartaneyalli karyanirwahisuttade.",
+    "Miller avarannu prathikriye niduvanthe kelidaga, \"keluvavariddare mic tumbha matanaduttare...nanu readyaguttidde higagi avaru enu heluttirendu nanu nijavagiyu kelisukollalilla\" endu helidaru.",
+    "The time of the war of the pathiya, the war of the people, the war of the people, the war of the people, the war of the people, the war of the people, the war of the people, the war of the people, the war of the people, the war of the people, the war of the people, the war of the people, the war of the people, the war of the people, the war of the people, the war of the people, the war of the people, the war of the people, the war of the people, the war of the people, the war of the",
+    "Katrina Chandamarutada Haavaliyindaada Hanege Parihaara Mattu Punarnirmaanakkaagi Kharchu Maaduva Vivaadadindale Charcheyu Huttikontitu; Keluvu Hanakaasina Sampradaayavaadigal \"Bush Na New Orleans Deel\" Endu Haasyaaspadavaagi Heegalediddare.",
+    "The first time I saw the movie, I was 10 years old.",
+    "It is a very large and complex system of government, with a central government in the capital, and a number of smaller governments in the other cities. The capital is the city of Rome, and the other cities are called the cities of the republic. The capital is the city of Rome, and the other cities are called the cities of the republic. The capital is the city of Rome, and the other cities are called the cities of the republic. The capital is the city of Rome, and the other cities are called the cities of the republic. The capital is the city of Rome, and the other cities are called the cities of the",
+    "The first class of the first grade of the first class of the first class of the first class of the first class of the first class of the first class of the first class of the first class of the first class of the first class of the first class of the first class of the first class of the first class of the first class of the first class of the first class of the first class of the first class of the first class of the first class of the first class of the first class of the first class of the first class of the first class of the first class of the first class of the first class of the first class of",
+    "The player who is the best in the world, the one who has taken the most wickets in the history of cricket, the one who has taken 7 wickets in a single innings, the one who has scored 36 runs in the innings, the one who has taken the most wickets in the history of cricket, the one who has taken 7 wickets in a single innings, the one who has scored 36 runs in the innings, the one who has taken the most wickets in the history of cricket, the one who has taken 7 wickets in a single innings, the one who has scored",
+    "Layton avaru pradhana mantrigala sabheyalli palgondaga, sampradayavadigala parisara masudeyalli badalavanegalannu tharabekadare adannu sampurnavagi thiddabekendu tilisalagittu."
+  ]
+}

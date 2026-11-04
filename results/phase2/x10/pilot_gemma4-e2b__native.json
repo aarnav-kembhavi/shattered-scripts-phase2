@@ -1,0 +1,72 @@
+{
+  "provenance": {
+    "config": {
+      "model": "gemma4-e2b",
+      "form": "native",
+      "instruction": "Translate this Kannada sentence into English.\nKannada: {s}\nEnglish:",
+      "max_new_tokens": 128,
+      "greedy": true
+    },
+    "git_commit": "7e1bb26f1cc9b95fc845efbb087c98fdcc8c03f2-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-03T20:36:38+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x10.py",
+      "pilot"
+    ]
+  },
+  "summary": {
+    "n": 20,
+    "seconds": 14.926702499389648,
+    "seconds_per_sentence": 0.7463351249694824,
+    "empty_share": 0.0,
+    "mean_words": 29.0
+  },
+  "ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "outputs": [
+    "\"The rats that were diabetic but are not diabetic for 4 months live near our house,\" he said.",
+    "Dr. Ehud Ur, who is a medical professor at Dalhousie University in Halifax, Nova Scotia, and the head of the clinical and scientific division of the Canadian Diabetes Association, has warned that the research is still in its early stages.",
+    "Some experts, like him, also express doubts about whether it is possible to cure diabetes, these studies have not yet provided any benefits to people with type 1 diabetes.",
+    "On Monday, Sarah Daniels, the permanent secretary of the Nobel Committee for Literature at the Swedish Academy, could not directly contact Bob Dylan about winning the Nobel Prize in Literature in 2016, and publicly announced on a radio program on Sveriges Radio that all attempts to contact him had failed.",
+    "Dennis said, \"We are not doing anything for now. I have called their very close collaborator by phone and have sent these emails and have received friendly replies from them. This is really enough for the current level.\"",
+    "He had explained that he started this company when he went to the shop in the garage until the doorbell of his house without asking, while he was the CEO of Ring Company, Jameem Sinnaff.",
+    "They said that they had made the Wi-Fi door bell.",
+    "After appearing in the Shark Tank episode in 2013, sales have increased, said Seminaf, and the members of the program refused financial assistance to the startup.",
+    "In the end of 2017, they appeared on the QVC channel of Seminarf Shopping Television Channel.",
+    "The competitor security company named EDTC also settled the lawsuit.",
+    "Although a practical vaccine can reduce the Ebola death rate, no drugs have yet clearly demonstrated that they are suitable to treat the current infection.",
+    "A Zmapp antibody cocktail, although showing an initial stimulating result, subsequent studies revealed that it was less effective in preventing death than previously thought.",
+    "In the Palm trial, Z-map worked as a control, meaning scientists used it as a baseline and compared it to three other treatments.",
+    "The USA supports the letter of the Olympic Committee of the United States and accepts the full requirement of the Olympic family to promote a safe environment for all our athletes.",
+    "We agree with the USOC statement that our athletes and clubs can provide better service by making meaningful changes within the scope of our organization instead of the politicization of their sport.",
+    "The independent investigation into what the appropriate changes are to illuminate the fact that Larry Nassar, who has gone undetected for so much time, has bravely been exposed and the US Gymnastics supports it.",
+    "The USA Gymnastics and USOC have the same goal - to make gymnastics and other sports as safe as possible, and to build a safe, positive, and empowering environment for athletes to achieve their dreams.",
+    "During the 1960s, he worked as an advisor to Brezhnev and John F. Kennedy, and later worked in the administration of Lyndon B. Johnson.",
+    "In the 1976 selection, he advised Carter on foreign policy and later served as the National Security Advisor (NSA) for Henry Kissinger from 1977 to 1981.",
+    "As NSA, Camp David Accords led them to diplomatically manage world affairs in the 1970s; to bring US-China relations to a natural form in the 1970s; to suppress the Iranian Revolution that caused the hostage crisis in 1979; and to assist Carter in managing the issues regarding the Soviet invasion of Afghanistan in 1979."
+  ]
+}

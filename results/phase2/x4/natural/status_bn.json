@@ -1,0 +1,11 @@
+{
+ "lang": "bn",
+ "mode": "unbatched",
+ "n_done": 500,
+ "n_target": 500,
+ "n_defective_after_retries": 20,
+ "primary_496_clean": 476,
+ "kn_defective_kept_if_clean": 4,
+ "stopped": null,
+ "complete": true
+}

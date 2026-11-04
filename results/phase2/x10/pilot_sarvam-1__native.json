@@ -1,0 +1,72 @@
+{
+  "provenance": {
+    "config": {
+      "model": "sarvam-1",
+      "form": "native",
+      "instruction": "Translate this Kannada sentence into English.\nKannada: {s}\nEnglish:",
+      "max_new_tokens": 128,
+      "greedy": true
+    },
+    "git_commit": "7e1bb26f1cc9b95fc845efbb087c98fdcc8c03f2-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-03T20:35:19+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x10.py",
+      "pilot"
+    ]
+  },
+  "summary": {
+    "n": 20,
+    "seconds": 11.360223531723022,
+    "seconds_per_sentence": 0.5680111765861511,
+    "empty_share": 0.0,
+    "mean_words": 26.25
+  },
+  "ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "outputs": [
+    "\"We have four months old diabetic rats that were previously diabetic but are now non-diabetic.\"",
+    "Dr. Ehud Uri, a medical professor at Dalhousie University in Nova Scotia and president of the Canadian Diabetes Association's Clinical and Scientific Division, cautioned that research is still in its early days.",
+    "There is a lot of doubt about whether it can be cured for diabetes in other experts like him also. This research has not given any benefits to people with type 1 diabetes already.",
+    "On Monday, the permanent secretary of the Swedish Academy for Literature, Sara Danius, announced that she had been unable to contact Bob Dylan directly about his candidacy for the Nobel Prize in literature, all attempts to do so were unsuccessful.",
+    "Daniels said he's not doing anything at the moment and has called his closest collaborator on the phone and sent emails to get a friendly response. Now that's really enough for now.\"",
+    "This is how Jamie Simonoff started his Ring company by not answering the doorbell at all until it rang in his garage.",
+    "He said that he made a WiFi doorbell.",
+    "The sales have increased after the appearance of Shark Tank in 2013, according to SimplyFinance and there were members of the show who refused to provide funding for a startup.",
+    "In the end of 2017, Sinclair appeared on Shopping Television Channel QVC.",
+    "The EdTech Corporation, a rival security company, resolved the lawsuit with Davey Ring.",
+    "Despite the promising results of a vaccine for Ebola, there is no evidence that any drugs are currently effective in treating the disease.",
+    "The ZMapp antibody cocktail initially showed promising results but later studies found it to be less effective than expected in preventing death.",
+    "In the palm trail, ZMAP was used as a control, meaning that scientists used it as a baseline and compared it to three other treatments.",
+    "The United States Olympic Committee supports the letter of U.S.A. and accepts the need for a safe environment for all our athletes.",
+    "We agree with the USOC's statement that our athletes and clubs can best serve their interests by focusing on meaningful changes within our organization rather than trying to impose change from outside.",
+    "US gymnastics has supported an independent investigation to shed light on what happened at the recent U.S. Olympic trials and how it can be fixed.",
+    "The United States Olympic Committee (USOC) and the United States Gymnastics Association (USGA) both have a common goal of making gymnastics as safe as possible for athletes to pursue their dreams while creating an environment that is positive, empowering, and free from harassment.",
+    "During the 1960s Brezhnev worked as a consultant to John F Kennedy and later served under Lyndon B Johnson administration.",
+    "In the 1976 election, he advised Carter on foreign policy and later served as Henry Kissinger's National Security Advisor from 1977 to 1981.",
+    "As NSA, Carter helped to manage the diplomatically handling of world affairs during the Camp David Accords in the 1970s; normalizing US-China relations in the 1970s; and thwarting the Iranian revolution that led to the hostage crisis of 1979; and also assisted Carter with overseeing the Soviet invasion of Afghanistan in 1979."
+  ]
+}

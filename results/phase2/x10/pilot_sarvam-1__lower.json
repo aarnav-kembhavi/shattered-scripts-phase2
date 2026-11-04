@@ -1,0 +1,72 @@
+{
+  "provenance": {
+    "config": {
+      "model": "sarvam-1",
+      "form": "lower",
+      "instruction": "Translate this Kannada sentence into English.\nKannada: {s}\nEnglish:",
+      "max_new_tokens": 128,
+      "greedy": true
+    },
+    "git_commit": "7e1bb26f1cc9b95fc845efbb087c98fdcc8c03f2-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-03T20:35:42+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x10.py",
+      "pilot"
+    ]
+  },
+  "summary": {
+    "n": 20,
+    "seconds": 11.599303245544434,
+    "seconds_per_sentence": 0.5799651622772217,
+    "empty_share": 0.0,
+    "mean_words": 28.4
+  },
+  "ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "outputs": [
+    "\"Earlier, there were four types of elephants in our country, but now only three are left.\" Exdu said.",
+    "The University of Hyderabad's Department of Medicine has appointed Dr. Kenaddian Ddayabi as the Vice-Chancellor, while Professor Tuhin Chatterjee was appointed as the Dean of Clinical and Scientific Division.",
+    "It is not possible to control diabetes with other treatments as they do not help people who have type 1 diabetes.",
+    "Sverige's Nobel Prize committee chairman Sara Déani was unable to announce the Swedish Academy's winner for literature in 2016, despite numerous attempts to secure Bab Dailan's endorsement ahead of the ceremony at Saxpark. He was booed and his statements were interrupted by chants of \"Save Sweden\" during the event.",
+    "I can't help them anymore. I called their extortionist and also emailed them and they are holding a grudge against me too. This is all the justice they need.\" Excuse her.",
+    "The CEO of the company has been working in his office for hours and he finally came out to explain what started the crisis.",
+    "They made a Vaifai DDoR (Data Encryption Standard) and they said it was secure.",
+    "In the year 2013, there was a spike in attacks on tourists at Shark TTAC events. The organizers of the event refused to cooperate with security personnel and media persons.",
+    "Simona Afshin appeared on QVC last year.",
+    "The company has resolved the issue of safety concerns with a promise to provide compensation.",
+    "Oxidative stress is a major risk factor for age-related diseases and has been shown to be involved in the pathogenesis of many different conditions including cancer, cardiovascular disease, diabetes, neurodegenerative disorders, and aging itself. However, oxidative stress remains poorly understood and its treatment is not well established. In this review, we discuss the current state of knowledge on oxidative stress and provide an overview of antioxidant therapies that have been proposed as potential treatments. We also highlight some of the challenges associated with developing effective antioxidant therapies and suggest areas where further research is needed.",
+    "The ZMapp drug was effective in monkeys before human trials began, but the later studies showed it did not help save lives.",
+    "In the PAT trial, the drug was administered as an add-on therapy and three other drugs were compared to it.",
+    "The United States Congress has passed legislation to protect the intellectual property of all creators in our field, including sports teams.",
+    "Our sports clubs are also interested in the success of our sport, and we should not only focus on winning at all costs but also strive to improve ourselves through meaningful changes that do not disrupt the flow of our sport.",
+    "He was able to overcome his fear of public speaking by taking small steps and gradually building up his confidence.",
+    "The USA Olympic Committee has set out to ensure that athletes can achieve their dreams safely by reducing the risks of injury in sport.",
+    "In the year 1960, Breznikov was hired as a consultant by Jan Ef Kendriya Salah Kaaranaagi kelasa madiddaru.",
+    "In the 1976 election, he advised Carter on foreign policy and served as Henry Kissinger's national security advisor from 1977 to 1981.",
+    "In the early 1970s, Iran was in crisis and had to be saved from collapse by the United States. The US government then took over as head of state and began to act like an autocrat. This is what happened when the CIA became involved in Iran."
+  ]
+}

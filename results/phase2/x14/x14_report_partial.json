@@ -1,0 +1,39 @@
+{
+  "provenance": {
+    "config": {
+      "status": "partial until all items are done; exploratory, no verdict",
+      "registered": "Amendment 2 X14"
+    },
+    "git_commit": "8291279ba1ddee8b0ba922a7dbe51ade2039fa44-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-02T13:42:25+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x14_run.py",
+      "pilot"
+    ]
+  },
+  "openai/gpt-oss-120b": {
+    "native": {
+      "n": 5,
+      "acc": 0.8,
+      "unparsed_share": 0.0
+    }
+  },
+  "qwen/qwen3.8-27b": {
+    "native": {
+      "n": 5,
+      "acc": 0.8,
+      "unparsed_share": 0.0
+    }
+  },
+  "allam-2-7b": {
+    "native": {
+      "n": 5,
+      "acc": 0.6,
+      "unparsed_share": 0.2
+    }
+  }
+}

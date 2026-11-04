@@ -1,0 +1,50 @@
+=== 2026-11-03 13:22:02 X9a level 20 seed 0: env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x9a.py train 20 0
+=== 2026-11-03 13:46:07 X9a level 1 seed 0: env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x9a.py train 1 0
+=== 2026-11-03 14:20:16 X9a level 50 seed 0: env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x9a.py train 50 0
+=== 2026-11-03 14:54:26 X9a level 5 seed 0: env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x9a.py train 5 0
+=== 2026-11-03 15:20:31 X9a level 0 seed 0: env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x9a.py train 0 0
+=== 2026-11-03 15:42:33 X9a level 20 seed 1: env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x9a.py train 20 1
+=== 2026-11-03 16:02:34 X9a level 1 seed 1: env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x9a.py train 1 1
+=== 2026-11-03 16:22:36 X9a level 50 seed 1: env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x9a.py train 50 1
+=== 2026-11-03 16:42:38 X9a level 5 seed 1: env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x9a.py train 5 1
+=== 2026-11-03 17:02:39 X9a level 0 seed 1: env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x9a.py train 0 1
+=== 2026-11-03 17:22:41 X9a level 20 seed 2: env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x9a.py train 20 2
+=== 2026-11-03 17:42:42 X9a level 1 seed 2: env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x9a.py train 1 2
+=== 2026-11-03 18:02:44 X9a level 50 seed 2: env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x9a.py train 50 2
+=== 2026-11-03 18:22:45 X9a level 5 seed 2: env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x9a.py train 5 2
+=== 2026-11-03 18:42:48 X9a level 0 seed 2: env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x9a.py train 0 2
+=== 2026-11-03 19:02:49 X9a analysis (decision rules): env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x9a.py analyse
+{
+ "n_runs": 15,
+ "missing": [],
+ "X9a_R": {
+  "means": {
+   "1": 0.9933333333333333,
+   "5": 1.0,
+   "20": 0.9986666666666667,
+   "50": 0.9986666666666667
+  },
+  "non_decreasing": false,
+  "mean50_minus_mean1": 0.005333333333333412,
+  "3x_larger_seed_sd": 0.018330302779823376,
+  "spearman_level_vs_mean": 0.316227766016838,
+  "verdict": "refuted"
+ },
+ "X9a_A": {
+  "seed_mean_detok_layer": [
+   1.3333333333333333,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "max_minus_min": 0.33333333333333326,
+  "undefined_by_level": {
+   "1": 0,
+   "5": 0,
+   "20": 0,
+   "50": 0
+  },
+  "verdict": "supported"
+ },
+ "joint_reading": "no familiarity effect in this setting (small model, letter cipher, no claim beyond that)"
+}

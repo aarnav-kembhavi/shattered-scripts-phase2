@@ -1,6 +1,6 @@
 # Phase 2 registered outcomes: status ledger
 
-Last updated 2026-11-04 01:50 IST (system clock). Rows for other experiments are added when each reports its registered verdict word; no registered rule is changed.
+Last updated 2026-11-04 09:53 IST (system clock). Rows for other experiments are added when each reports its registered verdict word; no registered rule is changed.
 
 | Experiment | Registered outcome words | Status | Result or reason |
 |---|---|---|---|
@@ -13,3 +13,4 @@ Last updated 2026-11-04 01:50 IST (system clock). Rows for other experiments are
 | X8 (blind second-annotator sample) | K4 agreement reported as the result, no threshold | **complete** | kappa 0.198, CER 0.096: low agreement is the result; registered P = X8_P_v2 (sha256 3084ca8c...), earlier P excluded |
 | X1 T3 (Kannada instruction line) | exploratory | **verified; queued after X7-A** | labelled "instruction verified by a native speaker, exploratory" |
 | X15 (human intelligibility baseline) | supported / refuted / inconclusive | **not run (annotators unavailable)** | skipped by decision; no X15 files are built |
+| X12 contrast 1 (Llama-2-7B vs Ambari-7B-base) | supported / partly / refuted / inconclusive | **complete: supported (both measures)** | SIB DiD +0.423 [0.380, 0.466]; retrieval DiD +0.624 [0.584, 0.664] (97.5% intervals); native gain confounds exposure with the tokenizer extension; X9b is the causal test; nothing against a prediction |

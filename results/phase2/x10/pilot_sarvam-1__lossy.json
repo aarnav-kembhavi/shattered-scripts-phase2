@@ -1,0 +1,72 @@
+{
+  "provenance": {
+    "config": {
+      "model": "sarvam-1",
+      "form": "lossy",
+      "instruction": "Translate this Kannada sentence into English.\nKannada: {s}\nEnglish:",
+      "max_new_tokens": 128,
+      "greedy": true
+    },
+    "git_commit": "7e1bb26f1cc9b95fc845efbb087c98fdcc8c03f2-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-03T20:35:54+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x10.py",
+      "pilot"
+    ]
+  },
+  "summary": {
+    "n": 20,
+    "seconds": 11.55885124206543,
+    "seconds_per_sentence": 0.5779425621032714,
+    "empty_share": 0.0,
+    "mean_words": 29.05
+  },
+  "ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "outputs": [
+    "I was diabetic but now I am not diabetic for four months old kids are here in front of us.\" he said.",
+    "Dr. Edu Ur, the dean of the University of Helsinki's Department of Medicine and a co-founder of the Canadian Diabetes Association's Clinical and Scientific Division, has cautioned that research is still in its infancy.",
+    "It is not clear whether the new treatment will work for people with type 1 diabetes. The studies so far have had no benefits for those with type 1 diabetes.",
+    "Sara Denys, the head of the Swedish Academy's Nobel Prize committee for literature, said she was not in touch with Bab Diallo directly to discuss his chances of winning the prize, as all attempts had failed.",
+    "Deniys said that he has not done anything so far and I have called his closest colleague on the phone and sent emails to him and received very friendly replies from him. He added that it is really true in today's state of affairs.",
+    "I was in the middle of a meeting when my boss called me to his office and told me that he had started the company by going through the garage door.",
+    "He said that he had made a windmill.",
+    "Simina has said that the sales of her product have increased after she appeared on Shark Tank in 2013 and that the show's participants refused to provide financial support for the start-up.",
+    "Simina Shapeshaping was on the TLC channel in the last of 2017.",
+    "The rival company of the Editorial Corporation also resolved a dispute with Davey.",
+    "A practical vaccine can reduce the mortality rate of Ebola, but there is no clear evidence that any drugs are suitable for treating presently known infections.",
+    "The antiviral drug ZMapp showed early promise in monkeys but later studies found it to be less effective than expected and may have caused more harm than good.",
+    "In the study of translating a text from one language to another, control was maintained in the translation process, that is, researchers used it as a baseline and compared it with three other treatments.",
+    "The United States Olympic Committee supports the IOC's letter and fully recognizes the need for an Olympic family to support all our athletes in safe environments.",
+    "We support the USOC's statement that our athletes and clubs can improve their performance by focusing on positive changes within their organization rather than trying to change everything at once.",
+    "Until now, the Lyari riots have not been investigated and it has remained in dark about how to rectify such an offence and what are the independent investigations that support the freedom of movement for people who want to do gymnastics in Yusufali.",
+    "The U.S. Olympic Committee and the United States Athletics Federation have a common goal of making sure that athletes can focus on their dreams without being distracted by other activities.",
+    "In the early sixties Brezhnev was a Soviet advisor to Canada and later worked under Léonid Breschnev in the administration of Lyndon B. Johnson.",
+    "In the 1976 election, he advised the candidate on foreign policy and later served as Henry Kissinger's national security advisor from 1977 to 1981.",
+    "The NSA Agent, Karnataka's former Chief Minister of the time, Vijay Kumar Hegde was instrumental in helping to shape India's foreign policy during the 1970s and early 1980s. He helped with negotiations for Iranian revolution, which led to the overthrowing of the Shah, and also worked on issues related to Afghanistan after Soviet invasion."
+  ]
+}

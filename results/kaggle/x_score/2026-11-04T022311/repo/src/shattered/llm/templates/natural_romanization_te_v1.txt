@@ -1,0 +1,6 @@
+Romanize the following Telugu sentence the way an ordinary Telugu speaker would type it in Latin script on a phone: informal spelling, no diacritics, no special symbols.
+Keep every word and the original word order. Do not translate, explain, add or remove anything. Keep numbers, punctuation and any English words as they are.
+Output only the romanized sentence.
+
+Telugu sentence:
+{text}

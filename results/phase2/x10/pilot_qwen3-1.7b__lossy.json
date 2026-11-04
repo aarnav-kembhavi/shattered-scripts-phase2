@@ -1,0 +1,72 @@
+{
+  "provenance": {
+    "config": {
+      "model": "qwen3-1.7b",
+      "form": "lossy",
+      "instruction": "Translate this Kannada sentence into English.\nKannada: {s}\nEnglish:",
+      "max_new_tokens": 128,
+      "greedy": true
+    },
+    "git_commit": "7e1bb26f1cc9b95fc845efbb087c98fdcc8c03f2-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-03T20:33:26+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x10.py",
+      "pilot"
+    ]
+  },
+  "summary": {
+    "n": 20,
+    "seconds": 11.648412704467773,
+    "seconds_per_sentence": 0.5824206352233887,
+    "empty_share": 0.0,
+    "mean_words": 64.05
+  },
+  "ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "outputs": [
+    "\"I am a person who is not a person, and I am not a person, and I am not a person, and I am not a person, and I am not a person, and I am not a person, and I am not a person, and I am not a person, and I am not a person, and I am not a person, and I am not a person, and I am not a person, and I am not a person, and I am not a person, and I am not a person, and I am not a person, and I am not a person, and I am not a",
+    "The new hospital in the city of Skat is the main hospital of the world, the medical college of the world, the medical college of the world, the medical college of the world, the medical college of the world, the medical college of the world, the medical college of the world, the medical college of the world, the medical college of the world, the medical college of the world, the medical college of the world, the medical college of the world, the medical college of the world, the medical college of the world, the medical college of the world, the medical college of the world, the medical college of the world",
+    "The man who is the son of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the father of the",
+    "Somavara, Svidish Akademiya Sahityakkagi Nobel Samitiya Kayam Karyadarshiyada Sara Deniyas Avaru, 2016 Ra Sahityada Nobel Prashasti Gelluva Bagge Bab Dailan Avarannu Neravagi Samparkisalu Sadyavagalilla, Atanannu Samparkisuva Ella Prayatnagalu Vipalavadavu Endu Svidanna Sverijas Rediyodalli Rediyo Karyakramavondaralli Sarvajanikavagi G",
+    "\"I am not a man of the world. I am not a man of the world. I am not a man of the world. I am not a man of the world. I am not a man of the world. I am not a man of the world. I am not a man of the world. I am not a man of the world. I am not a man of the world. I am not a man of the world. I am not a man of the world. I am not a man of the world. I am not a man of the world. I am not a man of the world. I",
+    "I am a student, I am a student, I am a student, I am a student, I am a student, I am a student, I am a student, I am a student, I am a student, I am a student, I am a student, I am a student, I am a student, I am a student, I am a student, I am a student, I am a student, I am a student, I am a student, I am a student, I am a student, I am a student, I am a student, I am a student, I am a student, I am a",
+    "The man who is in the room is a man who is in the room.",
+    "The 2013 rally shark tyank episodnalli kanisikonda nantara maratavu hechchagide endu siminap heliddare hagu alli karyakramada sadasyaru start ap ge hanada sahakaravannu nirakarisittu.",
+    "2017, Konyali, Siminap, shaping, TV, channel, QVCyalli, kanisikondaru.",
+    "The people of the world are the ones who are the most important in the world.",
+    "The people of the world are being taught by the divine, the divine is the source of all things, the divine is the source of all things, the divine is the source of all things, the divine is the source of all things, the divine is the source of all things, the divine is the source of all things, the divine is the source of all things, the divine is the source of all things, the divine is the source of all things, the divine is the source of all things, the divine is the source of all things, the divine is the source of all things, the divine is the source of all things",
+    "The Zmapp emba ondu antibadi kak tel, modalu uttejaka palitansha toridaru, nantarada adyayanagalu adu savannu tadegattuvalli andukondaddakkinta kadime prayojanakari endu tilidu bantu.",
+    "I have a lot of questions, and I am not sure about the answers.",
+    "The Olympic Committee of India has been established as a body that is responsible for the protection of the environment and the promotion of the development of the country.",
+    "The United States of America is the only country in the world where the people are not in the habit of using the English language. The United States of America is the only country in the world where the people are not in the habit of using the English language. The United States of America is the only country in the world where the people are not in the habit of using the English language. The United States of America is the only country in the world where the people are not in the habit of using the English language. The United States of America is the only country in the world where the people are not in the habit of using the English",
+    "The man who is in the house is the one who is in the house.",
+    "The USA gymnasts have been banned by the USOC for the use of performance-enhancing drugs. The gymnasts have been tested and found to be positive for the use of performance-enhancing drugs. The gymnasts have been given a warning and are now protected from further punishment. The gymnasts have been given a warning and are now protected from further punishment. The gymnasts have been given a warning and are now protected from further punishment. The gymnasts have been given a warning and are now protected from further punishment. The gymnasts have been given a warning and are now protected from further punishment. The gymnasts have been given a warning",
+    "1960s, the first time, the first time, the first time, the first time, the first time, the first time, the first time, the first time, the first time, the first time, the first time, the first time, the first time, the first time, the first time, the first time, the first time, the first time, the first time, the first time, the first time, the first time, the first time, the first time, the first time, the first time, the first time, the first time, the first time, the first time, the",
+    "1976, the year of the 1976, the year of the 1976, the year of the 1976, the year of the 1976, the year of the 1976, the year of the 1976, the year of the 1976, the year of the 1976, the year of the 1976, the year of the 1976, the year of the 1976, the year of the 1976, the year",
+    "The NSA agi, kyamp devid akards avaru 1978 ra dashakadalli vishva vyavaharagalannu rajatantrikavagi nirvahisuvudu; 1970 ra dashakadalli yues-china sambandagalannu sahaja rupakke taruvudu; 1979 ralli, iran otteyalu bikkattige karanavada iraniyan krantiyannu hattikkuvudu; mattu 1979 ralli apganistanadalli"
+  ]
+}

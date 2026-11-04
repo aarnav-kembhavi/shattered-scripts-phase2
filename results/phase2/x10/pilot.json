@@ -1,0 +1,197 @@
+{
+  "provenance": {
+    "config": {
+      "registration": "RESULTS.md X10 pilot"
+    },
+    "git_commit": "7e1bb26f1cc9b95fc845efbb087c98fdcc8c03f2-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-03T20:37:59+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x10.py",
+      "pilot"
+    ]
+  },
+  "models": {
+    "qwen3-1.7b": {
+      "model": "qwen3-1.7b",
+      "n": 20,
+      "forms": {
+        "native": {
+          "n": 20,
+          "seconds": 12.793123245239258,
+          "seconds_per_sentence": 0.6396561622619629,
+          "empty_share": 0.0,
+          "mean_words": 31.8
+        },
+        "itrans": {
+          "n": 20,
+          "seconds": 11.721961259841919,
+          "seconds_per_sentence": 0.586098062992096,
+          "empty_share": 0.0,
+          "mean_words": 70.6
+        },
+        "lower": {
+          "n": 20,
+          "seconds": 11.869139909744263,
+          "seconds_per_sentence": 0.5934569954872131,
+          "empty_share": 0.0,
+          "mean_words": 69.8
+        },
+        "lossy": {
+          "n": 20,
+          "seconds": 11.648412704467773,
+          "seconds_per_sentence": 0.5824206352233887,
+          "empty_share": 0.0,
+          "mean_words": 64.05
+        },
+        "natural": {
+          "n": 20,
+          "seconds": 11.362405776977539,
+          "seconds_per_sentence": 0.568120288848877,
+          "empty_share": 0.0,
+          "mean_words": 57.8
+        }
+      }
+    },
+    "qwen3.5-2b": {
+      "model": "qwen3.5-2b",
+      "n": 20,
+      "forms": {
+        "native": {
+          "n": 20,
+          "seconds": 14.311224222183228,
+          "seconds_per_sentence": 0.7155612111091614,
+          "empty_share": 0.45,
+          "mean_words": 16.4
+        },
+        "itrans": {
+          "n": 20,
+          "seconds": 13.974700450897217,
+          "seconds_per_sentence": 0.6987350225448609,
+          "empty_share": 0.65,
+          "mean_words": 7.5
+        },
+        "lower": {
+          "n": 20,
+          "seconds": 13.853055953979492,
+          "seconds_per_sentence": 0.6926527976989746,
+          "empty_share": 0.6,
+          "mean_words": 8.7
+        },
+        "lossy": {
+          "n": 20,
+          "seconds": 14.592446565628052,
+          "seconds_per_sentence": 0.7296223282814026,
+          "empty_share": 0.7,
+          "mean_words": 6.35
+        },
+        "natural": {
+          "n": 20,
+          "seconds": 13.456411123275757,
+          "seconds_per_sentence": 0.6728205561637879,
+          "empty_share": 0.7,
+          "mean_words": 4.55
+        }
+      }
+    },
+    "sarvam-1": {
+      "model": "sarvam-1",
+      "n": 20,
+      "forms": {
+        "native": {
+          "n": 20,
+          "seconds": 11.360223531723022,
+          "seconds_per_sentence": 0.5680111765861511,
+          "empty_share": 0.0,
+          "mean_words": 26.25
+        },
+        "itrans": {
+          "n": 20,
+          "seconds": 11.768277168273926,
+          "seconds_per_sentence": 0.5884138584136963,
+          "empty_share": 0.0,
+          "mean_words": 28.8
+        },
+        "lower": {
+          "n": 20,
+          "seconds": 11.599303245544434,
+          "seconds_per_sentence": 0.5799651622772217,
+          "empty_share": 0.0,
+          "mean_words": 28.4
+        },
+        "lossy": {
+          "n": 20,
+          "seconds": 11.55885124206543,
+          "seconds_per_sentence": 0.5779425621032714,
+          "empty_share": 0.0,
+          "mean_words": 29.05
+        },
+        "natural": {
+          "n": 20,
+          "seconds": 10.953946828842163,
+          "seconds_per_sentence": 0.5476973414421081,
+          "empty_share": 0.0,
+          "mean_words": 26.1
+        }
+      }
+    },
+    "gemma4-e2b": {
+      "model": "gemma4-e2b",
+      "n": 20,
+      "forms": {
+        "native": {
+          "n": 20,
+          "seconds": 14.926702499389648,
+          "seconds_per_sentence": 0.7463351249694824,
+          "empty_share": 0.0,
+          "mean_words": 29.0
+        },
+        "itrans": {
+          "n": 20,
+          "seconds": 19.89519476890564,
+          "seconds_per_sentence": 0.994759738445282,
+          "empty_share": 0.05,
+          "mean_words": 32.15
+        },
+        "lower": {
+          "n": 20,
+          "seconds": 24.001062870025635,
+          "seconds_per_sentence": 1.2000531435012818,
+          "empty_share": 0.0,
+          "mean_words": 32.6
+        },
+        "lossy": {
+          "n": 20,
+          "seconds": 21.179511547088623,
+          "seconds_per_sentence": 1.0589755773544312,
+          "empty_share": 0.0,
+          "mean_words": 27.45
+        },
+        "natural": {
+          "n": 20,
+          "seconds": 15.603182554244995,
+          "seconds_per_sentence": 0.7801591277122497,
+          "empty_share": 0.0,
+          "mean_words": 23.15
+        }
+      }
+    }
+  },
+  "seconds_per_sentence_mean": {
+    "qwen3-1.7b": 0.5939504289627076,
+    "qwen3.5-2b": 0.7018783831596375,
+    "sarvam-1": 0.5724060201644898,
+    "gemma4-e2b": 0.9560565423965455
+  },
+  "estimated_full_hours_per_model": {
+    "qwen3-1.7b": 0.708780845228831,
+    "qwen3.5-2b": 0.8375748705705007,
+    "sarvam-1": 0.6830711840629579,
+    "gemma4-e2b": 1.140894140593211
+  },
+  "estimated_full_hours_total": 3.3703210404555004,
+  "note": "timing and output sanity only; no chrF is used for any decision"
+}
