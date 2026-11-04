@@ -251,6 +251,8 @@ def do_score(natural: bool) -> int:
         assert DRAFTS_DONE.exists(), "natural drafts are not complete"
     for m in MODELS:
         for t, d in SCORE_DIRS.items():
+            if natural and not any(not it["natural_defective"] for it in items[t]):  # no natural drafts exist for this task (X4: natural only on the 257 SIB ids and the M4c rows)
+                continue
             d.mkdir(parents=True, exist_ok=True)
             e0b.score_model(m, {t: items[t]}, forms, d)
             for f in forms:
