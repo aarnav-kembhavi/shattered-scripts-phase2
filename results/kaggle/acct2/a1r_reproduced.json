@@ -1,0 +1,25 @@
+{
+ "check": "account 2 A1-R reproduction (kaggle_retrieval_gate on the teammate's account)",
+ "reproduces_account1_exactly": true,
+ "max_curve_diff_vs_account1": 0.0,
+ "vs_laptop": {
+  "sarvam-1 native": [
+   0.9442786069651742,
+   0.9442786069651742
+  ],
+  "sarvam-1 itrans": [
+   0.5104477611940299,
+   0.5144278606965174
+  ],
+  "gemma4-e2b native": [
+   0.9960199004975124,
+   0.9950248756218906
+  ],
+  "gemma4-e2b itrans": [
+   0.2656716417910448,
+   0.2686567164178
+  ]
+ },
+ "tolerance_acc_at_1": 0.03,
+ "gate_passed": true
+}

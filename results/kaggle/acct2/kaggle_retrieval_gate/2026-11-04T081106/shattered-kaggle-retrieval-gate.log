@@ -1,0 +1,30 @@
+[{"stream_name":"stdout","time":3.744180277,"data":"input listing: ['datasets'] ['/kaggle/input/datasets/ashwin18522/shattered-pkg/pyproject.toml']\n"}
+,{"stream_name":"stdout","time":3.744541451,"data":"datasets (depth 2): ['/kaggle/input/datasets/ashwin18522', '/kaggle/input/datasets/ashwin18522/shattered-flores-private', '/kaggle/input/datasets/ashwin18522/shattered-pkg']\n"}
+,{"stream_name":"stderr","time":37.439966517,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":37.439997335,"data":"bigframes 2.51.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":37.440003504,"data":"cudf-cu13 26.6.0 requires pyarrow\u003c24,\u003e=19.0.0, but you have pyarrow 25.0.1 which is incompatible.\n"}
+,{"stream_name":"stdout","time":38.012659832,"data":"Found existing installation: torchao 0.10.0\n"}
+,{"stream_name":"stdout","time":38.066612431,"data":"Uninstalling torchao-0.10.0:\n"}
+,{"stream_name":"stdout","time":38.362568672,"data":"  Successfully uninstalled torchao-0.10.0\n"}
+,{"stream_name":"stdout","time":38.508790678,"data":"no HF_TOKEN secret: ConnectionError('Connection error trying to communicate with service.')\n"}
+,{"stream_name":"stderr","time":69.855712299,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stderr","time":100.55526944,"data":"\rFetching 2 files:   0%|          | 0/2 [00:00\u003c?, ?it/s]\rFetching 2 files:  50%|█████     | 1/2 [00:03\u003c00:03,  3.97s/it]\rFetching 2 files: 100%|██████████| 2/2 [00:27\u003c00:00, 15.73s/it]\rFetching 2 files: 100%|██████████| 2/2 [00:27\u003c00:00, 13.97s/it]\n"}
+,{"stream_name":"stderr","time":103.812220654,"data":"\rLoading weights:   0%|          | 0/255 [00:00\u003c?, ?it/s]\rLoading weights:   0%|          | 1/255 [00:00\u003c02:07,  2.00it/s]\rLoading weights:   9%|▊         | 22/255 [00:00\u003c00:05, 44.87it/s]\rLoading weights:  13%|█▎        | 33/255 [00:00\u003c00:03, 58.54it/s]\rLoading weights:  17%|█▋        | 43/255 [00:00\u003c00:03, 67.78it/s]\rLoading weights:  23%|██▎       | 58/255 [00:00\u003c00:02, 85.39it/s]\rLoading weights:  27%|██▋       | 69/255 [00:01\u003c00:02, 77.52it/s]\rLoading weights:  33%|███▎      | 85/255 [00:01\u003c00:01, 94.43it/s]\rLoading weights:  38%|███▊      | 96/255 [00:01\u003c00:01, 89.31it/s]\rLoading weights:  44%|████▍     | 113/255 [00:01\u003c00:01, 106.33it/s]\rLoading weights:  49%|████▉     | 125/255 [00:01\u003c00:01, 103.57it/s]\rLoading weights:  55%|█████▍    | 140/255 [00:01\u003c00:01, 97.89it/s] \rLoading weights:  62%|██████▏   | 157/255 [00:01\u003c00:00, 99.97it/s]\rLoading weights:  69%|██████▊   | 175/255 [00:02\u003c00:00, 115.59it/s]\rLoading weights:  74%|███████▎  | 188/255 [00:02\u003c00:00, 111.50it/s]\rLoading weights:  78%|███████▊  | 200/255 [00:02\u003c00:00, 111.60it/s]\rLoading weights:  83%|████████▎ | 212/255 [00:02\u003c00:00, 99.50it/s] \rLoading weights:  90%|████████▉ | 229/255 [00:02\u003c00:00, 100.54it/s]\rLoading weights:  97%|█████████▋| 247/255 [00:02\u003c00:00, 104.98it/s]\rLoading weights: 100%|██████████| 255/255 [00:02\u003c00:00, 91.18it/s] \n"}
+,{"stream_name":"stdout","time":192.906821891,"data":"sarvam-1 english (2009, 29, 2048) non-finite 0 133s\n"}
+,{"stream_name":"stdout","time":281.086901307,"data":"sarvam-1 native (2009, 29, 2048) non-finite 0 222s\n"}
+,{"stream_name":"stdout","time":379.380773362,"data":"sarvam-1 itrans (2009, 29, 2048) non-finite 0 320s\n"}
+,{"stream_name":"stdout","time":387.481226663,"data":"sarvam-1 {\"native\": {\"layer_kaggle\": 24, \"acc_kaggle\": 0.9442786069651742}, \"itrans\": {\"layer_kaggle\": 21, \"acc_kaggle\": 0.5104477611940299}}\n"}
+,{"stream_name":"stderr","time":442.943595161,"data":"\rFetching 6 files:   0%|          | 0/6 [00:00\u003c?, ?it/s]\rFetching 6 files: 100%|██████████| 6/6 [00:51\u003c00:00,  8.61s/it]\rFetching 6 files: 100%|██████████| 6/6 [00:51\u003c00:00,  8.61s/it]\n"}
+,{"stream_name":"stdout","time":623.436440401,"data":"gemma4-e2b english (2009, 36, 1536) non-finite 0 236s\n"}
+,{"stream_name":"stdout","time":798.255419798,"data":"gemma4-e2b native (2009, 36, 1536) non-finite 0 411s\n"}
+,{"stream_name":"stdout","time":974.688249525,"data":"gemma4-e2b itrans (2009, 36, 1536) non-finite 0 587s\n"}
+,{"stream_name":"stdout","time":982.631663702,"data":"gemma4-e2b {\"native\": {\"layer_kaggle\": 7, \"acc_kaggle\": 0.9960199004975124}, \"itrans\": {\"layer_kaggle\": 7, \"acc_kaggle\": 0.2656716417910448}}\n"}
+,{"stream_name":"stdout","time":982.632116769,"data":"A1-R gate_passed: False\n"}
+,{"stream_name":"stdout","time":986.216170741,"data":"job finished 0\n"}
+,{"stream_name":"stderr","time":988.768301562,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":988.768326678,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":988.982919247,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":988.982943211,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":989.765019385,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":990.604655144,"data":"[NbConvertApp] Writing 287423 bytes to __results__.html\n"}
+]
