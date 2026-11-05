@@ -1,0 +1,2 @@
+bn restart 0 0.9454087557103178 0s
+bn round-trip failures 0 of 2009 {'o200k': 0.0252, 'gemma4': 0.0153, 'qwen3.5': 0.0191, 'qwen3': 0.0071}

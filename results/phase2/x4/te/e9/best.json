@@ -1,0 +1,379 @@
+{
+  "provenance": {
+    "config": {
+      "registration": "RESULTS.md X4 (lowercase lossless; E9 rerun per language)"
+    },
+    "git_commit": "feeef1f83a789b67abab282689ab3af3b34bc462-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-05T02:14:10+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x4_e9.py",
+      "search",
+      "te",
+      "--words",
+      "20000",
+      "--restarts",
+      "3",
+      "--workers",
+      "3"
+    ]
+  },
+  "best": {
+    "lang": "te",
+    "restart": 2,
+    "n_words": 20000,
+    "objective": 0.929495328402396,
+    "per_tokenizer": {
+      "o200k": 85130025.0,
+      "gemma4": 87724813.0,
+      "qwen3.5": 90800857.0,
+      "qwen3": 95783104.0
+    },
+    "history": [
+      {
+        "sweep": 0,
+        "objective": 1.065532180062786
+      },
+      {
+        "sweep": 1,
+        "objective": 0.9382615129792612
+      },
+      {
+        "sweep": 2,
+        "objective": 0.929495328402396
+      },
+      {
+        "sweep": 3,
+        "objective": 0.929495328402396
+      }
+    ],
+    "evaluations": 136,
+    "seconds": 25.940036296844482,
+    "assignment": [
+      [
+        "consonants",
+        "క",
+        "k"
+      ],
+      [
+        "consonants",
+        "ఖ",
+        "kh"
+      ],
+      [
+        "consonants",
+        "గ",
+        "g"
+      ],
+      [
+        "consonants",
+        "ఘ",
+        "gh"
+      ],
+      [
+        "consonants",
+        "ఙ",
+        "nq"
+      ],
+      [
+        "consonants",
+        "చ",
+        "c"
+      ],
+      [
+        "consonants",
+        "ఛ",
+        "cch"
+      ],
+      [
+        "consonants",
+        "జ",
+        "j"
+      ],
+      [
+        "consonants",
+        "జ఼",
+        "zz"
+      ],
+      [
+        "consonants",
+        "ఝ",
+        "jh"
+      ],
+      [
+        "consonants",
+        "ఞ",
+        "ny"
+      ],
+      [
+        "consonants",
+        "ట",
+        "tt"
+      ],
+      [
+        "consonants",
+        "ఠ",
+        "tth"
+      ],
+      [
+        "consonants",
+        "డ",
+        "dd"
+      ],
+      [
+        "consonants",
+        "ఢ",
+        "ddh"
+      ],
+      [
+        "consonants",
+        "ణ",
+        "nn"
+      ],
+      [
+        "consonants",
+        "త",
+        "t"
+      ],
+      [
+        "consonants",
+        "థ",
+        "th"
+      ],
+      [
+        "consonants",
+        "ద",
+        "d"
+      ],
+      [
+        "consonants",
+        "ధ",
+        "dh"
+      ],
+      [
+        "consonants",
+        "న",
+        "n"
+      ],
+      [
+        "consonants",
+        "ప",
+        "p"
+      ],
+      [
+        "consonants",
+        "ఫ",
+        "f"
+      ],
+      [
+        "consonants",
+        "ఫ఼",
+        "fx"
+      ],
+      [
+        "consonants",
+        "బ",
+        "b"
+      ],
+      [
+        "consonants",
+        "భ",
+        "bh"
+      ],
+      [
+        "consonants",
+        "మ",
+        "m"
+      ],
+      [
+        "consonants",
+        "య",
+        "y"
+      ],
+      [
+        "consonants",
+        "ర",
+        "r"
+      ],
+      [
+        "consonants",
+        "ఱ",
+        "rx"
+      ],
+      [
+        "consonants",
+        "ల",
+        "l"
+      ],
+      [
+        "consonants",
+        "ళ",
+        "ll"
+      ],
+      [
+        "consonants",
+        "ఴ",
+        "zhx"
+      ],
+      [
+        "consonants",
+        "వ",
+        "v"
+      ],
+      [
+        "consonants",
+        "శ",
+        "sh"
+      ],
+      [
+        "consonants",
+        "ష",
+        "ss"
+      ],
+      [
+        "consonants",
+        "స",
+        "s"
+      ],
+      [
+        "consonants",
+        "హ",
+        "h"
+      ],
+      [
+        "signs",
+        "ఁ",
+        "n~"
+      ],
+      [
+        "signs",
+        "ం",
+        "x"
+      ],
+      [
+        "signs",
+        "ః",
+        ":"
+      ],
+      [
+        "signs",
+        "ఽ",
+        ".a"
+      ],
+      [
+        "signs",
+        "‌",
+        "^"
+      ],
+      [
+        "signs",
+        "‍",
+        "~~"
+      ],
+      [
+        "vowels",
+        "ఆ",
+        "aa"
+      ],
+      [
+        "vowels",
+        "ఇ",
+        "i"
+      ],
+      [
+        "vowels",
+        "ఈ",
+        "ee"
+      ],
+      [
+        "vowels",
+        "ఉ",
+        "u"
+      ],
+      [
+        "vowels",
+        "ఊ",
+        "oo"
+      ],
+      [
+        "vowels",
+        "ఋ",
+        "rq"
+      ],
+      [
+        "vowels",
+        "ఌ",
+        "lri"
+      ],
+      [
+        "vowels",
+        "ఎ",
+        "e"
+      ],
+      [
+        "vowels",
+        "ఏ",
+        "ei"
+      ],
+      [
+        "vowels",
+        "ఐ",
+        "ai"
+      ],
+      [
+        "vowels",
+        "ఒ",
+        "o"
+      ],
+      [
+        "vowels",
+        "ఓ",
+        "ow"
+      ],
+      [
+        "vowels",
+        "ఔ",
+        "au"
+      ],
+      [
+        "vowels",
+        "ౠ",
+        "rqq"
+      ],
+      [
+        "vowels",
+        "ౡ",
+        "lrii"
+      ]
+    ]
+  },
+  "all_objectives": [
+    null,
+    0.929495328402396,
+    0.9304813136471243
+  ],
+  "n_words": 20000,
+  "restarts": 3,
+  "tokenizers": {
+    "o200k": {
+      "id": "o200k_base",
+      "kind": "tiktoken"
+    },
+    "gemma4": {
+      "id": "google/gemma-4-E2B-it",
+      "kind": "hf"
+    },
+    "qwen3.5": {
+      "id": "Qwen/Qwen3.5-9B",
+      "kind": "hf"
+    },
+    "qwen3": {
+      "id": "Qwen/Qwen3-8B",
+      "kind": "hf"
+    }
+  },
+  "target": "universal|lower"
+}

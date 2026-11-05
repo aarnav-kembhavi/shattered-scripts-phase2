@@ -1,0 +1,51 @@
+{
+  "provenance": {
+    "config": {
+      "registration": "RESULTS.md X4 (lowercase lossless)"
+    },
+    "git_commit": "02881328f20590a15d8aed4dd609660e729578ba-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-05T02:12:12+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x4_e9.py",
+      "search",
+      "bn",
+      "--words",
+      "20000",
+      "--restarts",
+      "3",
+      "--workers",
+      "3"
+    ]
+  },
+  "round_trip_failures": 0,
+  "round_trip_sentences": 2009,
+  "accepted": true,
+  "heldout_flores_savings": {
+    "o200k": {
+      "itrans_tokens_per_word": 3.183524123150907,
+      "scheme_tokens_per_word": 3.0903768752286864,
+      "saving_vs_itrans": 0.029259161959805602
+    },
+    "gemma4": {
+      "itrans_tokens_per_word": 3.2183367309602215,
+      "scheme_tokens_per_word": 3.1697768020490305,
+      "saving_vs_itrans": 0.015088517134968282
+    },
+    "qwen3.5": {
+      "itrans_tokens_per_word": 3.408629972296273,
+      "scheme_tokens_per_word": 3.3480738069102505,
+      "saving_vs_itrans": 0.017765543892471314
+    },
+    "qwen3": {
+      "itrans_tokens_per_word": 3.5191051173488055,
+      "scheme_tokens_per_word": 3.4961580680570803,
+      "saving_vs_itrans": 0.006520705840413532
+    }
+  },
+  "encoded_has_uppercase_latin": true,
+  "note": true
+}
