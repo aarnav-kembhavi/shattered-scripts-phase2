@@ -41,7 +41,7 @@ from shattered.runlog import REPO, results_dir, write_json  # noqa: E402
 PROC = REPO / "data" / "processed" / "x9a"
 OUT = results_dir("phase2/x9a")
 LEVELS = [0, 1, 5, 20, 50]
-LOW = {"0p01": 0.01, "0p03": 0.03, "0p1": 0.1, "0p3": 0.3}  # X9a-low (RESULTS.md, tag phase2-x9a-low): exposure percent by level key
+LOW = {"0p01": 0.01, "0p03": 0.03, "0p1": 0.1, "0p3": 0.3, "1p0": 1.0}  # "1p0" (added 2026-11-05 for the extra seeds) regenerates the X9a level-1 stream; its sha256 is checked against the stored X9a level-1 hash  # X9a-low (RESULTS.md, tag phase2-x9a-low): exposure percent by level key
 EVAL_N, EVAL_CHARS, TOK_VOCAB = 500, 700, 1024
 CFG = yaml.safe_load(open(REPO / "configs" / "e05_pretrain.yaml", encoding="utf-8"))
 N_WORDS, MAX_OCC, MAX_PER_STORY = 300, 40, 2
@@ -196,9 +196,11 @@ def prep_low() -> None:
     assert sha(tok_path) == base["_x9a"]["tokenizer_sha256"]
     tok = D.load_tokenizer(tok_path)
     order = np.random.default_rng(9).permutation(n_train)
-    meta = {}
+    meta = json.loads((PROC / "meta_low.json").read_text(encoding="utf-8")) if (PROC / "meta_low.json").exists() else {}
     for key, pct in LOW.items():
         path = PROC / f"train_p{key}.npy"
+        if f"x9a_p{key}" in meta and path.exists():
+            continue
         n_c = int(round(n_train * pct / 100))
         cset = set(order[:n_c].tolist())
         gen = ((train[i].translate(ENC), True) if i in cset else (train[i], False) for i in range(n_train))
@@ -209,6 +211,8 @@ def prep_low() -> None:
                                "train_tokens": len(arr), "train_bytes": nbytes, "bytes_per_token_train": nbytes / len(arr), "train_stream": str(path.relative_to(REPO)),
                                "exposure_percent": pct, "cipher_stories_in_set": n_c, "stories_consumed": used, "cipher_stories_consumed": ncipher,
                                "cipher_share_consumed": ncipher / used, "train_stream_sha256": sha(path)}
+        if key == "1p0":
+            assert meta[f"x9a_p{key}"]["train_stream_sha256"] == base["x9a_p1"]["train_stream_sha256"], "the regenerated 1 percent stream differs from the X9a level-1 stream"
         print(f"level {key}%: {used} stories, cipher {ncipher}, {len(arr)} tokens, {time.time() - t0:.0f}s", flush=True)
     (PROC / "meta_low.json").write_text(json.dumps(meta, indent=1, ensure_ascii=False), encoding="utf-8")
     write_json(OUT / "prep_low.json", {k: {a: b for a, b in v.items() if a in ("exposure_percent", "stories_consumed", "cipher_stories_consumed", "cipher_share_consumed", "train_tokens")} for k, v in meta.items()},
