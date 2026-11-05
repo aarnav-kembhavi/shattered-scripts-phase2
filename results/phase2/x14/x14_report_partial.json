@@ -4,36 +4,81 @@
       "status": "partial until all items are done; exploratory, no verdict",
       "registered": "Amendment 2 X14"
     },
-    "git_commit": "8291279ba1ddee8b0ba922a7dbe51ade2039fa44-dirty",
+    "git_commit": "753999e23228d513d47ab5fd1e5691743bbc5c69-dirty",
     "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
     "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
-    "timestamp_utc": "2026-11-02T13:42:25+00:00",
+    "timestamp_utc": "2026-11-05T08:53:04+00:00",
     "python": "3.12.13",
     "platform": "Windows-11-10.0.26300-SP0",
     "argv": [
       "scripts/x14_run.py",
-      "pilot"
+      "report"
     ]
   },
   "openai/gpt-oss-120b": {
     "native": {
-      "n": 5,
-      "acc": 0.8,
+      "n": 1004,
+      "acc": 0.8356573705179283,
+      "unparsed_share": 0.0
+    },
+    "itrans": {
+      "n": 1004,
+      "acc": 0.6245019920318725,
+      "unparsed_share": 0.0
+    },
+    "lossy": {
+      "n": 1004,
+      "acc": 0.6683266932270916,
+      "unparsed_share": 0.0
+    },
+    "natural": {
+      "n": 257,
+      "acc": 0.7003891050583657,
       "unparsed_share": 0.0
     }
   },
   "qwen/qwen3.8-27b": {
     "native": {
-      "n": 5,
-      "acc": 0.8,
+      "n": 1004,
+      "acc": 0.8356573705179283,
+      "unparsed_share": 0.00099601593625498
+    },
+    "itrans": {
+      "n": 1004,
+      "acc": 0.6583665338645418,
+      "unparsed_share": 0.0
+    },
+    "lossy": {
+      "n": 1004,
+      "acc": 0.6543824701195219,
+      "unparsed_share": 0.00099601593625498
+    },
+    "natural": {
+      "n": 257,
+      "acc": 0.6964980544747081,
       "unparsed_share": 0.0
     }
   },
   "allam-2-7b": {
     "native": {
-      "n": 5,
-      "acc": 0.6,
-      "unparsed_share": 0.2
+      "n": 1004,
+      "acc": 0.33665338645418325,
+      "unparsed_share": 0.3545816733067729
+    },
+    "itrans": {
+      "n": 1004,
+      "acc": 0.1902390438247012,
+      "unparsed_share": 0.5766932270916335
+    },
+    "lossy": {
+      "n": 1004,
+      "acc": 0.2539840637450199,
+      "unparsed_share": 0.5617529880478087
+    },
+    "natural": {
+      "n": 257,
+      "acc": 0.29571984435797666,
+      "unparsed_share": 0.556420233463035
     }
   }
 }

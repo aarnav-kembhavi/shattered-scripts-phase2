@@ -2,3 +2,71 @@
 === 2026-11-03 12:46:50 X14 hosted models: env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x14_run.py run
 === 2026-11-04 12:46:02 X14 hosted models: env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x14_run.py run
 === 2026-11-05 12:46:55 X14 hosted models: env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x14_run.py run
+{
+ "openai/gpt-oss-120b": {
+  "native": {
+   "n": 1004,
+   "acc": 0.8356573705179283,
+   "unparsed_share": 0.0
+  },
+  "itrans": {
+   "n": 1004,
+   "acc": 0.6245019920318725,
+   "unparsed_share": 0.0
+  },
+  "lossy": {
+   "n": 1004,
+   "acc": 0.6683266932270916,
+   "unparsed_share": 0.0
+  },
+  "natural": {
+   "n": 257,
+   "acc": 0.7003891050583657,
+   "unparsed_share": 0.0
+  }
+ },
+ "qwen/qwen3.8-27b": {
+  "native": {
+   "n": 1004,
+   "acc": 0.8356573705179283,
+   "unparsed_share": 0.00099601593625498
+  },
+  "itrans": {
+   "n": 1004,
+   "acc": 0.6583665338645418,
+   "unparsed_share": 0.0
+  },
+  "lossy": {
+   "n": 1004,
+   "acc": 0.6543824701195219,
+   "unparsed_share": 0.00099601593625498
+  },
+  "natural": {
+   "n": 257,
+   "acc": 0.6964980544747081,
+   "unparsed_share": 0.0
+  }
+ },
+ "allam-2-7b": {
+  "native": {
+   "n": 1004,
+   "acc": 0.33665338645418325,
+   "unparsed_share": 0.3545816733067729
+  },
+  "itrans": {
+   "n": 1004,
+   "acc": 0.1902390438247012,
+   "unparsed_share": 0.5766932270916335
+  },
+  "lossy": {
+   "n": 1004,
+   "acc": 0.2539840637450199,
+   "unparsed_share": 0.5617529880478087
+  },
+  "natural": {
+   "n": 257,
+   "acc": 0.29571984435797666,
+   "unparsed_share": 0.556420233463035
+  }
+ }
+}
