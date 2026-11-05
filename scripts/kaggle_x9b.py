@@ -344,8 +344,10 @@ def run_full(out: Path, device: str, quant: bool, runs: list[str], steps_overrid
                 log.append({"step": step, "loss": loss, "lr": sch.get_last_lr()[0], "t": time.time() - t0})
                 print(tag, log[-1], flush=True)
             if step % 100 == 0 or step == total:
+                tmp = ck.with_suffix(".tmp")  # atomic: a power loss during the write (laptop, 2026-11-05) must not leave an unreadable checkpoint
                 torch.save({"adapter": {k: v for k, v in model.state_dict().items() if "lora_" in k}, "opt": opt.state_dict(), "sch": sch.state_dict(),
-                            "scaler": scaler.state_dict() if scaler is not None else None, "step": step}, ck)
+                            "scaler": scaler.state_dict() if scaler is not None else None, "step": step}, tmp)
+                os.replace(tmp, ck)
         model.save_pretrained(str(rdir / "adapter"))
         sha1 = tok_hash(tok)
         train_s = time.time() - t0
