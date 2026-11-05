@@ -38,7 +38,7 @@ Machines: **L** = laptop (RTX 3070 8 GB, CPU), **K1** = Kaggle account 1 (Aarnav
 
 | Experiment | What is left | Machine | Plan and projected date |
 |---|---|---|---|
-| X5 (cross-language consistency, analysis only) | inputs now exist (X2 and X4 done; Kannada and Hindi from Phase 1 and the Hindi replication); the pairing script is not built | L (CPU) | build and run 5 Nov |
+| X5 (cross-language consistency, analysis only) | DONE 11:55: consistent on both measures (see RESULTS.md) | L |
 | X13 Sarvam-m: X10 (4-bit models run SIB-200 and X10) | no Kaggle X10 job exists; 24B 4-bit generation of 1,012 sentences per form is slow and its time is unmeasured; pilot first | K1 (idle) | build the job and pilot 5 to 6 Nov; if the pilot's estimate exceeds the quota, report and cut |
 | X13 activation patching on one 7 to 9B model | registered as optional (only if it fits one 12 h session); not built | K1 or K2 | decision needed: leave dropped unless time allows |
 | X11 Arm B (one 4B-class model, descriptive, no verdict) | no 4B-class model was shortlisted by X6, so it cannot be formed | none | not run |

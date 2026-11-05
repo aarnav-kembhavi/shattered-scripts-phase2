@@ -1,0 +1,210 @@
+{
+  "provenance": {
+    "config": {
+      "registration": "RESULTS.md X5 (descriptive, no p value)"
+    },
+    "git_commit": "dc7476bea4117c841b9f73bd6fd57b880c632d08-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-05T06:11:27+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x5_analyse.py"
+    ]
+  },
+  "e_documents": {
+    "kn": 0.00044731469048331726,
+    "hi": 0.004371827182154524,
+    "bn": 0.0006881983653808189,
+    "te": 0.012121209073381014
+  },
+  "n_common_flores_ids": 465,
+  "accuracy": {
+    "qwen3-1.7b": {
+      "entered": true,
+      "gap_by_language": {
+        "kn": 0.28870292887029286,
+        "hi": 0.13807531380753146,
+        "bn": 0.29288702928870286,
+        "te": 0.20083682008368203
+      },
+      "spearman_e_vs_gap": -0.6000000000000001
+    },
+    "qwen3.5-2b": {
+      "entered": true,
+      "gap_by_language": {
+        "kn": 0.2426778242677824,
+        "hi": 0.08786610878661094,
+        "bn": 0.2426778242677824,
+        "te": 0.2343096234309623
+      },
+      "spearman_e_vs_gap": -0.7378647873726218
+    },
+    "sarvam-1": {
+      "entered": true,
+      "gap_by_language": {
+        "kn": 0.01673640167364021,
+        "hi": 0.04184100418410042,
+        "bn": -0.008368200836820106,
+        "te": 0.0167364016736401
+      },
+      "spearman_e_vs_gap": 0.0
+    },
+    "gemma4-e2b": {
+      "entered": true,
+      "gap_by_language": {
+        "kn": 0.20502092050209209,
+        "hi": 0.03347280334728042,
+        "bn": 0.20083682008368198,
+        "te": 0.17991631799163177
+      },
+      "spearman_e_vs_gap": -0.7999999999999999
+    }
+  },
+  "retrieval": {
+    "qwen3.5-2b": {
+      "entered": true,
+      "gap_by_language": {
+        "kn": {
+          "native": 1.0,
+          "natural": 0.5826086956521739,
+          "gap": 0.4173913043478261,
+          "n_test": 230
+        },
+        "hi": {
+          "native": 0.991304347826087,
+          "natural": 0.9260869565217391,
+          "gap": 0.0652173913043479,
+          "n_test": 230
+        },
+        "bn": {
+          "native": 0.9956521739130435,
+          "natural": 0.508695652173913,
+          "gap": 0.4869565217391305,
+          "n_test": 230
+        },
+        "te": {
+          "native": 0.9869565217391304,
+          "natural": 0.6608695652173913,
+          "gap": 0.32608695652173914,
+          "n_test": 230
+        }
+      },
+      "spearman_e_vs_gap": -0.6000000000000001
+    },
+    "sarvam-1": {
+      "entered": true,
+      "gap_by_language": {
+        "kn": {
+          "native": 0.9869565217391304,
+          "natural": 0.9173913043478261,
+          "gap": 0.06956521739130428,
+          "n_test": 230
+        },
+        "hi": {
+          "native": 0.991304347826087,
+          "natural": 0.9347826086956522,
+          "gap": 0.05652173913043479,
+          "n_test": 230
+        },
+        "bn": {
+          "native": 0.9956521739130435,
+          "natural": 0.8913043478260869,
+          "gap": 0.10434782608695659,
+          "n_test": 230
+        },
+        "te": {
+          "native": 0.9521739130434783,
+          "natural": 0.9260869565217391,
+          "gap": 0.026086956521739202,
+          "n_test": 230
+        }
+      },
+      "spearman_e_vs_gap": -0.7999999999999999
+    },
+    "gemma4-e2b": {
+      "entered": true,
+      "gap_by_language": {
+        "kn": {
+          "native": 1.0,
+          "natural": 0.717391304347826,
+          "gap": 0.28260869565217395,
+          "n_test": 230
+        },
+        "hi": {
+          "native": 1.0,
+          "natural": 0.9782608695652174,
+          "gap": 0.021739130434782594,
+          "n_test": 230
+        },
+        "bn": {
+          "native": 1.0,
+          "natural": 0.8434782608695652,
+          "gap": 0.15652173913043477,
+          "n_test": 230
+        },
+        "te": {
+          "native": 1.0,
+          "natural": 0.8608695652173913,
+          "gap": 0.13913043478260867,
+          "n_test": 230
+        }
+      },
+      "spearman_e_vs_gap": -0.7999999999999999
+    }
+  },
+  "n_common_sib_ids": 239,
+  "accuracy_verdict": {
+    "n_models": 4,
+    "negative_in": [
+      "qwen3-1.7b",
+      "qwen3.5-2b",
+      "gemma4-e2b"
+    ],
+    "verdict": "consistent"
+  },
+  "retrieval_verdict": {
+    "n_models": 3,
+    "negative_in": [
+      "qwen3.5-2b",
+      "sarvam-1",
+      "gemma4-e2b"
+    ],
+    "verdict": "consistent"
+  },
+  "k3b_reported_next_to_the_figure": {
+    "kn": {
+      "verdict": "refuted",
+      "ratios": {
+        "vowel_doubling": 0.358769166332673,
+        "h_digraph": 1.0478941969753321,
+        "english_word_share": 0.8948261113751242
+      }
+    },
+    "hi": {
+      "verdict": "inconclusive",
+      "ratios": {
+        "vowel_doubling": 0.8758003653547612,
+        "h_digraph": 0.9993841431579763,
+        "english_word_share": 1.1201979881034356
+      }
+    },
+    "bn": {
+      "verdict": "refuted",
+      "ratios": {
+        "vowel_doubling": 0.14382700451095165,
+        "h_digraph": 1.0530082373562526,
+        "english_word_share": 1.0098800948870252
+      }
+    },
+    "te": {
+      "verdict": "refuted",
+      "ratios": {
+        "vowel_doubling": 0.32829108699777476,
+        "h_digraph": 1.1988426176926956,
+        "english_word_share": 1.0508547422931676
+      }
+    }
+  }
+}
