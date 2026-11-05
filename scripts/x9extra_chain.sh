@@ -8,6 +8,7 @@ cd "$(dirname "$0")/.."
 STATUS=results/CHAIN_STATUS_X9EXTRA.md; TITLE="Extra seeds chain status (X9a-low, X9b)"; LOG=results/phase2/x9extra.log
 . scripts/chainlib.sh
 until [ "$(state_of results/CHAIN_STATUS_X9BFIN.md)" = DONE ]; do st WAITING "extra seeds wait for the Qwen English-run completion"; sleep "$HB"; done
+[ -f data/processed/x9a/train_p1.npy ] || { wait_ram 8; run_hb "X9a level-1 stream regeneration (CPU; the file was removed with the X9a caches; sha256 checked)" env PYTHONPATH=src $PY -u scripts/x9a.py regen 1 || fail "x9a regen 1 exited $?"; }
 for s in 3 4; do
   for p in 0p1 0p3 1; do
     [ -f results/phase2/x9a/x9a_p${p}_s${s}.json ] && continue

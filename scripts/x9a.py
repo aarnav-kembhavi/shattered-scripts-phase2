@@ -175,6 +175,30 @@ def prep() -> None:
     print(json.dumps({k: summ[k] for k in ("round_trip_bad", "eval_overlap", "tokenizer_sha256", "tokens_per_word_english_eval", "tokens_per_word_cipher_eval", "tpw_relative_difference")}, indent=1))
 
 
+def regen_level(p: int) -> None:
+    """Regenerate ONE deleted level stream (added 2026-11-05: train_p1.npy was removed with the X9a caches) with the code of prep(); nothing else is written, and the sha256 must equal the stored one."""
+    steps, ctx = phase1_steps()
+    n_tokens = steps * CFG["train"]["batch_seqs"] * ctx
+    stories = D.read_stories("train")
+    random.Random(CFG["data"]["data_seed"]).shuffle(stories)
+    train, _ = take(stories, 0, CFG["data"]["train_bytes"])
+    n_train = len(train)
+    tok = D.load_tokenizer(PROC / "tokenizer_1024.json")
+    order = np.random.default_rng(9).permutation(n_train)
+    n_c = int(round(n_train * p / 100))
+    cset = set(order[:n_c].tolist())
+    gen = ((train[i].translate(ENC), True) if i in cset else (train[i], False) for i in range(n_train))
+    arr, used, nbytes, ncipher = tokenize_until(tok, gen, n_tokens)
+    path = PROC / f"train_p{p}.npy"
+    np.save(path, arr)
+    want = json.loads((PROC / "meta.json").read_text(encoding="utf-8"))[f"x9a_p{p}"]["train_stream_sha256"]
+    got = sha(path)
+    if got != want:
+        path.unlink()
+    assert got == want, f"regenerated level {p} stream differs from the stored sha256 ({got} vs {want}); removed"
+    print(f"level {p} regenerated, sha256 matches the stored value ({got[:12]}), {len(arr)} tokens", flush=True)
+
+
 def load_meta() -> dict:
     meta = json.loads((PROC / "meta.json").read_text(encoding="utf-8"))
     if (PROC / "meta_low.json").exists():
@@ -427,7 +451,7 @@ def analyse_low() -> None:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["prep", "prep_low", "pilot", "train", "eval", "analyse", "analyse_low", "level0_stripped"])
+    ap.add_argument("cmd", choices=["prep", "prep_low", "pilot", "train", "eval", "analyse", "analyse_low", "level0_stripped", "regen"])
     ap.add_argument("args", nargs="*")
     a = ap.parse_args()
     if a.cmd == "prep":
@@ -438,6 +462,8 @@ def main() -> None:
         level0_stripped()
     elif a.cmd == "analyse_low":
         analyse_low()
+    elif a.cmd == "regen":
+        regen_level(int(a.args[0]))
     elif a.cmd == "pilot":
         pilot()
     elif a.cmd == "train":
