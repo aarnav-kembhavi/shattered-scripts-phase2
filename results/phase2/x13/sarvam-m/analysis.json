@@ -1,0 +1,131 @@
+{
+  "provenance": {
+    "config": {
+      "registration": "RESULTS.md Amendment 2, X13 (Sarvam-m, 4-bit, SIB-200 only)"
+    },
+    "git_commit": "2f9c9f1ca4df69dc85f53a0a547e43e364324e79-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-05T10:08:40+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x13_sarvam_m.py"
+    ]
+  },
+  "model": "sarvam-m",
+  "quantization": "4-bit NF4 (exempt from A1-P)",
+  "forms_scored": [
+    "english",
+    "native",
+    "itrans"
+  ],
+  "forms_not_reached": [
+    "lossy",
+    "lower",
+    "natural"
+  ],
+  "reason": "the kernel's 5 h cap hit after ITRANS (about 85 min per form)",
+  "raw_fallback_used": false,
+  "accuracy": {
+    "english": {
+      "n": 1004,
+      "acc_cal": 0.8396414342629482,
+      "ci95": [
+        0.8167330677290837,
+        0.8615537848605578
+      ],
+      "acc_raw": 0.8406374501992032
+    },
+    "itrans": {
+      "n": 1004,
+      "acc_cal": 0.6822709163346613,
+      "ci95": [
+        0.6533864541832669,
+        0.7101593625498008
+      ],
+      "acc_raw": 0.6752988047808764
+    },
+    "native": {
+      "n": 1004,
+      "acc_cal": 0.8396414342629482,
+      "ci95": [
+        0.8167330677290837,
+        0.8625498007968128
+      ],
+      "acc_raw": 0.8266932270916335
+    }
+  },
+  "counted": {
+    "native_ci_lower": 0.8167330677290837,
+    "rule": "native CI lower bound > 0.40",
+    "counted": true
+  },
+  "native_minus_itrans": {
+    "diff": 0.15737051792828685,
+    "ci95": [
+      0.1294820717131474,
+      0.1852589641434263
+    ],
+    "n": 1004,
+    "native_only_correct": 196,
+    "itrans_only_correct": 38,
+    "p_exact_mcnemar": 7.645067691303307e-27
+  },
+  "extended_native_vs_itrans": {
+    "tests": [
+      {
+        "model": "gemma4-e2b",
+        "diff": 0.3834661354581673,
+        "p": 2.5188719631954495e-82,
+        "p_holm": 1.2594359815977248e-81,
+        "significant": true
+      },
+      {
+        "model": "qwen3-1.7b",
+        "diff": 0.4322709163346613,
+        "p": 1.2990189533010863e-106,
+        "p_holm": 9.093132673107604e-106,
+        "significant": true
+      },
+      {
+        "model": "qwen3.5-2b",
+        "diff": 0.43525896414342624,
+        "p": 2.8113371589728562e-105,
+        "p_holm": 1.6868022953837136e-104,
+        "significant": true
+      },
+      {
+        "model": "sarvam-1",
+        "diff": 0.22709163346613548,
+        "p": 2.123868442850549e-34,
+        "p_holm": 4.247736885701098e-34,
+        "significant": true
+      },
+      {
+        "model": "qwen3-8b",
+        "diff": 0.32171314741035856,
+        "p": 6.103209006153903e-63,
+        "p_holm": 2.441283602461561e-62,
+        "significant": true
+      },
+      {
+        "model": "llama-3.1-8b",
+        "diff": 0.32968127490039845,
+        "p": 3.059812743752219e-60,
+        "p_holm": 9.179438231256657e-60,
+        "significant": true
+      },
+      {
+        "model": "sarvam-m",
+        "diff": 0.15737051792828685,
+        "p": 7.645067691303307e-27,
+        "p_holm": 7.645067691303307e-27,
+        "significant": true
+      }
+    ],
+    "n_models": 7,
+    "positive_and_significant": 7,
+    "verdict_all_but_one": "supported"
+  }
+}

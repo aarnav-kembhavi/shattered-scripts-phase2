@@ -1,0 +1,104 @@
+{
+  "provenance": {
+    "config": {
+      "registration": "RESULTS.md X9a",
+      "checkpoint": "checkpoints/e05/x9a_p0p1_s4/final.safetensors"
+    },
+    "git_commit": "0f01dd635a7f204e76d17d6d4d480a1a8e18fc7b-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-05T09:19:37+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x9a.py",
+      "train",
+      "0p1",
+      "4"
+    ]
+  },
+  "run": "x9a_p0p1_s4",
+  "level": "0p1",
+  "seed": 4,
+  "pairs": {
+    "pairs_cut_to_fit_context": 17,
+    "mean_chars": 654.476,
+    "min_chars": 241
+  },
+  "retrieval": {
+    "layer": 0,
+    "acc_unmapped": 0.1,
+    "n_test": 250,
+    "chance": 0.004,
+    "test_acc_per_layer": [
+      0.1,
+      0.02,
+      0.044,
+      0.056,
+      0.056,
+      0.04,
+      0.028,
+      0.032,
+      0.016
+    ],
+    "train_acc_per_layer": [
+      0.088,
+      0.02,
+      0.036,
+      0.036,
+      0.028,
+      0.036,
+      0.028,
+      0.024,
+      0.036
+    ],
+    "mapped": "secondary, not computed in this version"
+  },
+  "assembly_cipher": {
+    "detok_layer": 1,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n_words": 300,
+    "n_occ": 5895,
+    "min_tokens": 3,
+    "tokens_per_word_probed": 3.4921119592875316,
+    "compression": [
+      2.342277603936379,
+      6.336239204418296,
+      6.9527045551707625,
+      6.862150911101792,
+      6.796694509098675,
+      6.646362053915084,
+      6.708635184883321,
+      6.933298140482223,
+      6.439561250460701
+    ]
+  },
+  "assembly_english": {
+    "detok_layer": 1,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n_words": 300,
+    "n_occ": 4439,
+    "min_tokens": 3,
+    "tokens_per_word_probed": 3.381842757377788,
+    "compression": [
+      2.3111608010881404,
+      7.851525205718548,
+      7.94673982848908,
+      7.656142254995841,
+      7.3049102625282885,
+      6.819704052027759,
+      6.065548956847262,
+      5.277807509094748,
+      4.495870759210773
+    ]
+  },
+  "seconds": 68.57217645645142,
+  "train": {
+    "steps": 6173,
+    "val_bpb_full": 0.5625737251042545,
+    "train_seconds_this_session": 1057.5166232585907,
+    "wall_seconds_this_session": 1113.2367177009583
+  }
+}

@@ -29,7 +29,7 @@ Machines: **L** = laptop (RTX 3070 8 GB, CPU), **K1** = Kaggle account 1 (Aarnav
 | Experiment | What is running | Machine | Projected finish (IST) |
 |---|---|---|---|
 | X9b secondary (Qwen3.5-2B, 1 seed, 3 runs) | **supported** on SIB-200 and retrieval (English run completed on the laptop after the kernel cap) | K2, L |
-| X13 Sarvam-m (23.6B, 4-bit, SIB-200 only; the largest Sarvam model that fits 2 x T4 with standard code; sarvam-30b and 105b need remote code and are excluded; no retrieval; exempt from A1-P) | Kaggle kernel pushed 10:40 (47 GB download plus 4-bit load; unmeasured, cap 5 h) | K2 | 5 Nov about 14:00 to 16:00 |
+| X13 Sarvam-m (23.6B, 4-bit, SIB-200 only) | finished 15:3x: counted; native minus ITRANS +0.157; three forms only (5 h cap) | K2 | done |
 | X4 K3b-te | finished 10:52: refuted | API, L | done |
 | X10 post hoc | finished 11:09: the empty first line is a "<think>" block; registered verdict unchanged | L | done |
 | X14 (hosted large models, exploratory, no verdict) | finished 14:23 IST (3,269 rows per model; analysis in RESULTS.md) | API (Groq), L | done |
