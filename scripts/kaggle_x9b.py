@@ -315,11 +315,14 @@ def run_full(out: Path, device: str, quant: bool, runs: list[str], steps_overrid
         mb = pd_["models"][name]["conditions"][cond]["micro_batch"] if "conditions" in pd_["models"][name] else 1
         accum = SEQ_PER_STEP // mb
         opt, sch = make_opt(model, total, device == "cuda")
-        step, ck = 0, rdir / "ckpt.pt"
+        step, ck, resumed_without_opt = 0, rdir / "ckpt.pt", False
         if ck.exists():
             c = torch.load(ck, map_location="cpu", weights_only=False)
             model.load_state_dict(c["adapter"], strict=False)
-            opt.load_state_dict(c["opt"])
+            if c.get("opt") is not None:
+                opt.load_state_dict(c["opt"])
+            else:
+                resumed_without_opt = True  # checkpoints of 2026-11-05 on the laptop carry no optimizer state (see below); the resume resets the Adam moments and is flagged in done.json
             sch.load_state_dict(c["sch"])
             if scaler is not None and c.get("scaler"):
                 scaler.load_state_dict(c["scaler"])
@@ -345,7 +348,9 @@ def run_full(out: Path, device: str, quant: bool, runs: list[str], steps_overrid
                 print(tag, log[-1], flush=True)
             if step % 100 == 0 or step == total:
                 tmp = ck.with_suffix(".tmp")  # atomic: a power loss during the write (laptop, 2026-11-05) must not leave an unreadable checkpoint
-                torch.save({"adapter": {k: v for k, v in model.state_dict().items() if "lora_" in k}, "opt": opt.state_dict(), "sch": sch.state_dict(),
+                # the optimizer state is NOT saved (laptop, 2026-11-05): torch.save of the paged 8-bit AdamW state took more than 20 minutes per checkpoint on the 8 GB card; a resume after an interruption would reset the Adam
+                # moments and the run is then flagged in done.json (uninterrupted runs are unaffected: the checkpoint is never read)
+                torch.save({"adapter": {k: v for k, v in model.state_dict().items() if "lora_" in k}, "opt": None, "sch": sch.state_dict(),
                             "scaler": scaler.state_dict() if scaler is not None else None, "step": step}, tmp)
                 os.replace(tmp, ck)
         model.save_pretrained(str(rdir / "adapter"))
@@ -356,7 +361,7 @@ def run_full(out: Path, device: str, quant: bool, runs: list[str], steps_overrid
         eval_model(name, rdir / "adapter", tag, out, device, 100 if rehearsal else None, retrieval=retrieval)
         (rdir / "done.json").write_text(json.dumps({"tag": tag, "model": name, "condition": cond, "seed": seed, "B": B, "optimizer_steps": total, "micro_batch": mb,
                                                     "articles": st["articles"], "words": st["words"], "tokens": st["tokens"], "overlap_articles": overlap,
-                                                    "tokenizer_sha256_before": sha0, "tokenizer_sha256_after": sha1, "tokenizer_unchanged": sha0 == sha1,
+                                                    "tokenizer_sha256_before": sha0, "tokenizer_sha256_after": sha1, "tokenizer_unchanged": sha0 == sha1, "resumed_without_optimizer_state": resumed_without_opt,
                                                     "train_seconds": train_s, "seconds": time.time() - t0, "loss_log": log}, indent=1))
         ck.unlink(missing_ok=True)
 
