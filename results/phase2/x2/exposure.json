@@ -1,0 +1,176 @@
+{
+  "provenance": {
+    "config": {
+      "registration": "RESULTS.md X2 (Source A); deviation X2-D1: Poisson interval instead of a bootstrap over shards"
+    },
+    "git_commit": "4a024564350b4b5e8f7f58436dc08883ee7934a4-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-05T05:05:06+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x2_exposure.py"
+    ]
+  },
+  "source": "HuggingFaceFW/fineweb-2 (script-labelled configs); counts from parquet footers",
+  "languages": {
+    "kn": {
+      "native_config": "kan_Knda",
+      "latin_config": "kan_Latn",
+      "documents_native": 2390982,
+      "documents_latin": 1070,
+      "e_documents": 0.00044731469048331726,
+      "e_documents_ci95_poisson": [
+        0.00042055667158982915,
+        0.00047421065108332915
+      ],
+      "bytes_native": 3526351166,
+      "bytes_latin": 2406737,
+      "e_bytes": 0.0006820351710594525
+    },
+    "hi": {
+      "native_config": "hin_Deva",
+      "latin_config": "hin_Latn",
+      "documents_native": 22095985,
+      "documents_latin": 97024,
+      "e_documents": 0.004371827182154524,
+      "e_documents_ci95_poisson": [
+        0.00434475217389756,
+        0.0043992759906306385
+      ],
+      "bytes_native": 34272968716,
+      "bytes_latin": 198462618,
+      "e_bytes": 0.005757307147389948
+    },
+    "te": {
+      "native_config": "tel_Telu",
+      "latin_config": "tel_Latn",
+      "documents_native": 1964395,
+      "documents_latin": 24103,
+      "e_documents": 0.012121209073381014,
+      "e_documents_ci95_poisson": [
+        0.011970719734613286,
+        0.012271547107613188
+      ],
+      "bytes_native": 3950350913,
+      "bytes_latin": 46935113,
+      "e_bytes": 0.011741744947625622
+    },
+    "bn": {
+      "native_config": "ben_Beng",
+      "latin_config": "ben_Latn",
+      "documents_native": 15185742,
+      "documents_latin": 10458,
+      "e_documents": 0.0006881983653808189,
+      "e_documents_ci95_poisson": [
+        0.0006749755941617783,
+        0.0007012931761882781
+      ],
+      "bytes_native": 23894953700,
+      "bytes_latin": 32545716,
+      "e_bytes": 0.0013601804114238996
+    },
+    "ta": {
+      "native_config": "tam_Taml",
+      "latin_config": "tam_Latn",
+      "documents_native": 5528854,
+      "documents_latin": 4828,
+      "e_documents": 0.0008724751440361047,
+      "e_documents_ci95_poisson": [
+        0.0008479254428573898,
+        0.0008970440779039811
+      ],
+      "bytes_native": 9438382231,
+      "bytes_latin": 13266958,
+      "e_bytes": 0.0014036659354052545
+    },
+    "ml": {
+      "native_config": "mal_Mlym",
+      "latin_config": "mal_Latn",
+      "documents_native": 3322526,
+      "documents_latin": 3434,
+      "e_documents": 0.00103248385428568,
+      "e_documents_ci95_poisson": [
+        0.000997656154898646,
+        0.0010665521146213989
+      ],
+      "bytes_native": 5915341648,
+      "bytes_latin": 7399476,
+      "e_bytes": 0.0012493330106926348
+    },
+    "mr": {
+      "native_config": "mar_Deva",
+      "latin_config": "mar_Latn",
+      "documents_native": 3912702,
+      "documents_latin": 1757,
+      "e_documents": 0.00044884874257208977,
+      "e_documents_ci95_poisson": [
+        0.0004282540208660332,
+        0.0004698626730148011
+      ],
+      "bytes_native": 6278522796,
+      "bytes_latin": 3264635,
+      "e_bytes": 0.0005196984195755095
+    },
+    "gu": {
+      "native_config": "guj_Gujr",
+      "latin_config": "guj_Latn",
+      "documents_native": 2127094,
+      "documents_latin": 713,
+      "e_documents": 0.00033508678183688653,
+      "e_documents_ci95_poisson": [
+        0.0003111829374582217,
+        0.0003606435098033437
+      ],
+      "bytes_native": 3338859951,
+      "bytes_latin": 1340064,
+      "e_bytes": 0.00040119274114786804
+    }
+  },
+  "registered_test": {
+    "e_hi": 0.004371827182154524,
+    "e_kn": 0.00044731469048331726,
+    "difference": 0.003924512491671207,
+    "ci95_poisson": [
+      0.003886533807229467,
+      0.003962697251453456
+    ],
+    "verdict": "supported",
+    "bytes_measure_same_sign": true
+  },
+  "ordering_by_e_documents": [
+    [
+      "te",
+      0.012121209073381014
+    ],
+    [
+      "hi",
+      0.004371827182154524
+    ],
+    [
+      "ml",
+      0.00103248385428568
+    ],
+    [
+      "ta",
+      0.0008724751440361047
+    ],
+    [
+      "bn",
+      0.0006881983653808189
+    ],
+    [
+      "mr",
+      0.00044884874257208977
+    ],
+    [
+      "kn",
+      0.00044731469048331726
+    ],
+    [
+      "gu",
+      0.00033508678183688653
+    ]
+  ]
+}

@@ -1,6 +1,6 @@
 # Phase 2 registered outcomes: status ledger
 
-Last updated 2026-11-05 10:32 IST (system clock). Rows for other experiments are added when each reports its registered verdict word; no registered rule is changed.
+Last updated 2026-11-05 10:35 IST (system clock). Rows for other experiments are added when each reports its registered verdict word; no registered rule is changed.
 
 | Experiment | Registered outcome words | Status | Result or reason |
 |---|---|---|---|
@@ -26,3 +26,5 @@ Last updated 2026-11-05 10:32 IST (system clock). Rows for other experiments are
 | X4 R3 (natural > ITRANS retrieval, M4c analog, Bengali and Telugu) | supported / refuted | **supported in both languages (3 of 3 counted models)** | n = 236 and 243 test sentences (defective drafts removed); lowercase ladder, sentiment analysis and K3b-bn/te still to do |
 | X4 ladder L1-L3 (Bengali and Telugu; lowercase form from the per-language E9 scheme) | effect rules as Phase 1 | **complete: L1 no effect; L2 positive (SIB-200 and retrieval, both languages); L3 positive on retrieval in both languages and on SIB-200 in Bengali, not detected on SIB-200 in Telugu** | matches Kannada except Bengali L3 on SIB-200; K3b-bn/te (Gemini vs Dakshina) still to run; nothing registered against |
 | X4 R4, restated (main analysis excludes Qwen2.5-1.5B; supersedes the R4 row above) | H3-style sign rule | **Bengali supported (3 of 3 qualifying); Telugu uninformative (2 qualifying)**; sensitivity including Qwen2.5-1.5B: both supported | the rule is unchanged |
+| X4 K3b-bn (Gemini vs Dakshina, Bengali) | holds / refuted / inconclusive | **refuted (against the prediction)** | vowel-doubling ratio 0.144 [0.095, 0.197] (Gemini lower); h-digraph and English share match; K3b-te running |
+| X2 (measured romanized exposure, Source A) | e_hi > e_kn: supported / refuted / inconclusive | **supported** | Hindi 0.437% vs Kannada 0.045%, difference +0.392 pp [0.389, 0.396]; deviation X2-D1 (Poisson interval, single-shard configs) |
