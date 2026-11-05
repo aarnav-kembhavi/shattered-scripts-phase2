@@ -3,10 +3,10 @@
     "config": {
       "registration": "RESULTS.md Amendment 2, X9b (primary Sarvam-1)"
     },
-    "git_commit": "ec3c0854c77dccc064988d85102cd1d1908dda6f-dirty",
+    "git_commit": "c44254cd8f1646d92e9ad19abe66b3e4e76c071f-dirty",
     "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
     "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
-    "timestamp_utc": "2026-11-04T21:38:57+00:00",
+    "timestamp_utc": "2026-11-05T05:03:09+00:00",
     "python": "3.12.13",
     "platform": "Windows-11-10.0.26300-SP0",
     "argv": [
@@ -219,5 +219,210 @@
     "english+s0": true,
     "english+s1": true
   },
-  "B": 4997120
+  "B": 4997120,
+  "per_run": {
+    "itrans+s0": {
+      "condition": "itrans",
+      "seed": 0,
+      "B_tokens": 4997120,
+      "optimizer_steps": 305,
+      "articles": 1804,
+      "words": 919137,
+      "stream_tokens": 4997120,
+      "stream_tokens_per_word": 5.436752083748124,
+      "tokenizer_sha256_before": "72e5ad0c2d3a65d199ffea57f14c01cb24bffb81d4600ecb68d6818613eb9baa",
+      "tokenizer_sha256_after": "72e5ad0c2d3a65d199ffea57f14c01cb24bffb81d4600ecb68d6818613eb9baa",
+      "tokenizer_unchanged": true,
+      "train_seconds": 9093.610614538193,
+      "sib": {
+        "english": 0.75199203187251,
+        "native": 0.7659362549800797,
+        "itrans": 0.649402390438247
+      },
+      "retrieval": {
+        "native": 0.9263681592039801,
+        "itrans": 0.8398009950248756
+      }
+    },
+    "itrans+s1": {
+      "condition": "itrans",
+      "seed": 1,
+      "B_tokens": 4997120,
+      "optimizer_steps": 305,
+      "articles": 1804,
+      "words": 919137,
+      "stream_tokens": 4997120,
+      "stream_tokens_per_word": 5.436752083748124,
+      "tokenizer_sha256_before": "72e5ad0c2d3a65d199ffea57f14c01cb24bffb81d4600ecb68d6818613eb9baa",
+      "tokenizer_sha256_after": "72e5ad0c2d3a65d199ffea57f14c01cb24bffb81d4600ecb68d6818613eb9baa",
+      "tokenizer_unchanged": true,
+      "train_seconds": 9574.205170631409,
+      "sib": {
+        "english": 0.75,
+        "native": 0.7669322709163346,
+        "itrans": 0.649402390438247
+      },
+      "retrieval": {
+        "native": 0.9283582089552239,
+        "itrans": 0.8537313432835821
+      }
+    },
+    "native+s0": {
+      "condition": "native",
+      "seed": 0,
+      "B_tokens": 4997120,
+      "optimizer_steps": 305,
+      "articles": 3361,
+      "words": 1797994,
+      "stream_tokens": 4997120,
+      "stream_tokens_per_word": 2.779275125500975,
+      "tokenizer_sha256_before": "72e5ad0c2d3a65d199ffea57f14c01cb24bffb81d4600ecb68d6818613eb9baa",
+      "tokenizer_sha256_after": "72e5ad0c2d3a65d199ffea57f14c01cb24bffb81d4600ecb68d6818613eb9baa",
+      "tokenizer_unchanged": true,
+      "train_seconds": 9036.938798189163,
+      "sib": {
+        "english": 0.7420318725099602,
+        "native": 0.7649402390438247,
+        "itrans": 0.4262948207171315
+      },
+      "retrieval": {
+        "native": 0.9273631840796019,
+        "itrans": 0.5124378109452736
+      }
+    },
+    "native+s1": {
+      "condition": "native",
+      "seed": 1,
+      "B_tokens": 4997120,
+      "optimizer_steps": 305,
+      "articles": 3361,
+      "words": 1797994,
+      "stream_tokens": 4997120,
+      "stream_tokens_per_word": 2.779275125500975,
+      "tokenizer_sha256_before": "72e5ad0c2d3a65d199ffea57f14c01cb24bffb81d4600ecb68d6818613eb9baa",
+      "tokenizer_sha256_after": "72e5ad0c2d3a65d199ffea57f14c01cb24bffb81d4600ecb68d6818613eb9baa",
+      "tokenizer_unchanged": true,
+      "train_seconds": 9319.656382799149,
+      "sib": {
+        "english": 0.7400398406374502,
+        "native": 0.7669322709163346,
+        "itrans": 0.42231075697211157
+      },
+      "retrieval": {
+        "native": 0.9134328358208955,
+        "itrans": 0.4925373134328358
+      }
+    },
+    "english+s0": {
+      "condition": "english",
+      "seed": 0,
+      "B_tokens": 4997120,
+      "optimizer_steps": 305,
+      "articles": 3796,
+      "words": 2696887,
+      "stream_tokens": 4997120,
+      "stream_tokens_per_word": 1.8529215350884185,
+      "tokenizer_sha256_before": "72e5ad0c2d3a65d199ffea57f14c01cb24bffb81d4600ecb68d6818613eb9baa",
+      "tokenizer_sha256_after": "72e5ad0c2d3a65d199ffea57f14c01cb24bffb81d4600ecb68d6818613eb9baa",
+      "tokenizer_unchanged": true,
+      "train_seconds": 9504.01462316513,
+      "sib": {
+        "english": 0.7171314741035857,
+        "native": 0.7579681274900398,
+        "itrans": 0.4452191235059761
+      },
+      "retrieval": {
+        "native": 0.9104477611940298,
+        "itrans": 0.4427860696517413
+      }
+    },
+    "english+s1": {
+      "condition": "english",
+      "seed": 1,
+      "B_tokens": 4997120,
+      "optimizer_steps": 305,
+      "articles": 3796,
+      "words": 2696887,
+      "stream_tokens": 4997120,
+      "stream_tokens_per_word": 1.8529215350884185,
+      "tokenizer_sha256_before": "72e5ad0c2d3a65d199ffea57f14c01cb24bffb81d4600ecb68d6818613eb9baa",
+      "tokenizer_sha256_after": "72e5ad0c2d3a65d199ffea57f14c01cb24bffb81d4600ecb68d6818613eb9baa",
+      "tokenizer_unchanged": true,
+      "train_seconds": 9310.572784662247,
+      "sib": {
+        "english": 0.7151394422310757,
+        "native": 0.7549800796812749,
+        "itrans": 0.44123505976095617
+      },
+      "retrieval": {
+        "native": 0.9293532338308458,
+        "itrans": 0.4537313432835821
+      }
+    }
+  },
+  "tokens_per_word_flores": {
+    "native": 2.390675547098002,
+    "itrans": 5.331303520456708,
+    "note": "tokenizer files are identical before and after training (sha256 in per_run), so tokens per word are the same before and after by construction"
+  },
+  "english_regression_vs_base": {
+    "itrans": {
+      "mean_change_points": -1.693227091633466,
+      "ci95_points": [
+        -3.386454183266932,
+        0.049800796812749
+      ],
+      "flag_more_than_5_points": false,
+      "by_seed_points": [
+        -1.593625498007968,
+        -1.7928286852589643
+      ]
+    },
+    "native": {
+      "mean_change_points": -2.689243027888446,
+      "ci95_points": [
+        -4.780876494023905,
+        -0.5976095617529881
+      ],
+      "flag_more_than_5_points": false,
+      "by_seed_points": [
+        -2.589641434262948,
+        -2.788844621513944
+      ]
+    },
+    "english": {
+      "mean_change_points": -5.179282868525896,
+      "ci95_points": [
+        -7.071713147410359,
+        -3.2856075697211335
+      ],
+      "flag_more_than_5_points": true,
+      "by_seed_points": [
+        -5.079681274900398,
+        -5.278884462151394
+      ]
+    }
+  },
+  "itrans_trained_vs_original_native": {
+    "SIB-200 accuracy": {
+      "itrans_accuracy_after_itrans_training": 0.649402390438247,
+      "original_native_accuracy_untrained": 0.7679282868525896,
+      "difference": -0.11852589641434264,
+      "ci95": [
+        -0.1508964143426295,
+        -0.08665338645418327
+      ],
+      "reaches_original_native_level": false
+    },
+    "FLORES+ retrieval": {
+      "itrans_accuracy_after_itrans_training": 0.8467661691542289,
+      "original_native_accuracy_untrained": 0.9442786069651742,
+      "difference": -0.09751243781094528,
+      "ci95": [
+        -0.11890547263681592,
+        -0.07611940298507462
+      ],
+      "reaches_original_native_level": false
+    }
+  }
 }
