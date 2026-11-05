@@ -23,7 +23,7 @@ from shattered.translit.scheme import SCRIPTS, itrans_for  # noqa: E402
 
 LANGS = {"bn": "ben_Beng", "te": "tel_Telu"}
 MODELS = ["qwen3.5-2b", "sarvam-1", "gemma4-e2b", "qwen2.5-1.5b"]
-FORMS = ["native", "itrans", "lossy"]
+FORMS = ["native", "itrans", "lossy", "lower"]
 N_BOOT = 10_000
 
 
@@ -31,7 +31,9 @@ def sentences(code: str) -> dict:
     F = flores_any(code, "dev", "flores_plus", nfc=True) + flores_any(code, "devtest", "flores_plus", nfc=True)
     assert len(F) == 2009
     it = itrans_for(SCRIPTS[code])
-    return {"native": F, "itrans": [it.encode(s) for s in F], "lossy": [to_lossy(s, code) for s in F]}
+    import x4_e9
+    low = x4_e9.lower_scheme([l for l, c in LANGS.items() if c == code][0])
+    return {"native": F, "itrans": [it.encode(s) for s in F], "lossy": [to_lossy(s, code) for s in F], "lower": [low.encode(s) for s in F]}
 
 
 def states(model, tok, texts: list[str]) -> np.ndarray:
@@ -72,8 +74,8 @@ def analyse() -> None:
         d = results_dir(f"phase2/x4/{l}/retrieval")
         out = {"language": l, "models": {}}
         for m in MODELS:
-            z = {f: np.load(d / f"{m}__{f}.npz") for f in FORMS}
-            out["models"][m] = {"acc": {f: float(z[f]["acc"]) for f in FORMS}, "layer": {f: int(z[f]["layer"]) for f in FORMS}, "counted": bool(m != "qwen2.5-1.5b" and float(z["native"]["acc"]) >= 0.50),
+            z = {f: np.load(d / f"{m}__{f}.npz") for f in FORMS if (d / f"{m}__{f}.npz").exists()}
+            out["models"][m] = {"acc": {f: float(z[f]["acc"]) for f in z}, "layer": {f: int(z[f]["layer"]) for f in z}, "counted": bool(m != "qwen2.5-1.5b" and float(z["native"]["acc"]) >= 0.50),
                                 "native_minus_itrans": boot(z["native"]["correct"].astype(float) - z["itrans"]["correct"].astype(float)),
                                 "native_minus_lossy": boot(z["native"]["correct"].astype(float) - z["lossy"]["correct"].astype(float))}
         counted = [m for m, v in out["models"].items() if v["counted"]]

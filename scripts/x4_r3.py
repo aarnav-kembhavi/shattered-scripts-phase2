@@ -33,14 +33,21 @@ def main() -> None:
     ids_d = [i for i, k in zip(ids, keep) if k and f"flores-{i}" in nat]
     out = {"language": lang, "n_ids_with_natural": len(ids_d), "models": {}}
     for m in counted:
-        hits = {f: np.asarray(X.retrieval_hits(m, lang, f, ids_d), float) for f in ("native", "natural", "itrans", "lossy")}
+        hits = {f: np.asarray(X.retrieval_hits(m, lang, f, ids_d), float) for f in ("native", "natural", "itrans", "lossy", "lower")}
         out["models"][m] = {"acc_test_half": {f: float(h.mean()) for f, h in hits.items()}, "natural_minus_itrans": boot(hits["natural"] - hits["itrans"]),
-                            "native_minus_natural": boot(hits["native"] - hits["natural"]), "natural_minus_lossy": boot(hits["natural"] - hits["lossy"])}
+                            "native_minus_natural": boot(hits["native"] - hits["natural"]), "natural_minus_lossy": boot(hits["natural"] - hits["lossy"]),
+                            "L1_lower_minus_itrans": boot(hits["lower"] - hits["itrans"]), "L2_lossy_minus_lower": boot(hits["lossy"] - hits["lower"])}
     n = len(counted)
     pos = sum(1 for v in out["models"].values() if v["natural_minus_itrans"]["ci95"][0] > 0)
     neg = sum(1 for v in out["models"].values() if v["natural_minus_itrans"]["ci95"][1] < 0)
     out["R3"] = {"n_counted": n, "natural_minus_itrans_ci_above_0": pos, "ci_below_0": neg,
                  "verdict": "uninformative (fewer than three counted models)" if n < 3 else "supported" if pos >= n - 1 and neg == 0 else "refuted" if neg > 0 or pos == 0 else "partly supported"}
+    ladder = {}
+    for name, key in (("L1", "L1_lower_minus_itrans"), ("L2", "L2_lossy_minus_lower"), ("L3", "natural_minus_lossy")):
+        p_ = sum(1 for v in out["models"].values() if v[key]["ci95"][0] > 0)
+        n_ = sum(1 for v in out["models"].values() if v[key]["ci95"][1] < 0)
+        ladder[name] = {"ci_above_0": p_, "ci_below_0": n_, "verdict": "effect, positive" if p_ >= len(counted) - 1 else "effect, negative" if n_ >= len(counted) - 1 else "no effect detected"}
+    out["retrieval_ladder_M4c"] = ladder
     write_json(REPO / "results" / "phase2" / "x4" / lang / "r3.json", out, {"registration": "RESULTS.md X4 (R3)"})
     print(lang, out["R3"], {m: ({f: round(a, 3) for f, a in v["acc_test_half"].items()}, [round(x, 3) for x in v["natural_minus_itrans"]["ci95"]]) for m, v in out["models"].items()})
 

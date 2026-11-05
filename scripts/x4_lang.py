@@ -49,7 +49,7 @@ class _Done:
 
 DRAFTS_DONE = _Done()
 RAW_HI = REPO / "data" / "raw" / "indicsentiment" / "data" / "test" / f"{ISO}.json"
-FORMS = ["native", "itrans", "lossy"]
+FORMS = ["native", "itrans", "lossy", "lower"]
 N_BOOT = 10000
 
 
@@ -62,8 +62,14 @@ def itrans_hi():
     return itrans_for(SCRIPTS[LANG])
 
 
+@lru_cache(maxsize=1)
+def lower_sch():
+    import x4_e9  # the E9 lowercase-lossless scheme found for this language (scripts/x4_e9.py)
+    return x4_e9.lower_scheme(XL)
+
+
 def forms_of(t: str) -> dict:
-    return {"native": t, "itrans": itrans_hi().encode(t), "lossy": to_lossy(t, LANG)}
+    return {"native": t, "itrans": itrans_hi().encode(t), "lossy": to_lossy(t, LANG), "lower": lower_sch().encode(t)}
 
 
 @lru_cache(maxsize=1)
