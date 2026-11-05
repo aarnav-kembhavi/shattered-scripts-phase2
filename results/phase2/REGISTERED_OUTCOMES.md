@@ -1,6 +1,6 @@
 # Phase 2 registered outcomes: status ledger
 
-Last updated 2026-11-05 11:42 IST (system clock). Rows for other experiments are added when each reports its registered verdict word; no registered rule is changed.
+Last updated 2026-11-05 13:23 IST (system clock). Rows for other experiments are added when each reports its registered verdict word; no registered rule is changed.
 
 | Experiment | Registered outcome words | Status | Result or reason |
 |---|---|---|---|
@@ -30,3 +30,4 @@ Last updated 2026-11-05 11:42 IST (system clock). Rows for other experiments are
 | X2 (measured romanized exposure, Source A) | e_hi > e_kn: supported / refuted / inconclusive | **supported** | Hindi 0.437% vs Kannada 0.045%, difference +0.392 pp [0.389, 0.396]; deviation X2-D1 (Poisson interval, single-shard configs) |
 | X4 K3b-te (Gemini vs Dakshina, Telugu) | holds / refuted / inconclusive | **refuted (against the prediction)** | vowel doubling ratio 0.328 [0.293, 0.366] (Gemini lower); h-digraph 1.199 [1.111, 1.292] (Gemini higher); English share matches |
 | X5 (cross-language consistency, descriptive) | consistent / inconsistent | **consistent on SIB-200 accuracy (negative in 3 of 4 models) and on retrieval (3 of 3)** | driven mostly by Hindi; Telugu has the highest exposure but similar gaps to Kannada and Bengali |
+| X9b secondary (Qwen3.5-2B, 1 seed) | D_N > 0 and D_E > 0 | **supported on SIB-200 and retrieval** | SIB-200 D_N +0.285 [0.241, 0.328], D_E +0.260 [0.219, 0.301]; retrieval D_N +0.583 [0.545, 0.620], D_E +0.566 [0.529, 0.603]; secondary, one seed |
