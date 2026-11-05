@@ -1,0 +1,52 @@
+{
+  "provenance": {
+    "config": {
+      "purpose": "feasibility of extra Sarvam-1 seeds on the laptop; no accuracy is used"
+    },
+    "git_commit": "3483bc86aa6d5e3c0b5b9542e9cd349614300151-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-05T07:40:26+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x9b_laptop_pilot.py"
+    ]
+  },
+  "itrans": {
+    "micro_batch": 16,
+    "grad_accum": 2,
+    "micro_steps": 50,
+    "timed_micro_steps": 45,
+    "tokens_per_s": 633.6121222738642,
+    "seconds_timed": 581.8070504665375,
+    "peak_vram_gib": 10.646339893341064,
+    "loss_first": 3.0237317085266113,
+    "loss_last": 3.393167734146118,
+    "finite_loss": true,
+    "consumed_articles": 157,
+    "consumed_words": 93223,
+    "tokenizer_sha256": "72e5ad0c2d3a65d199ffea57f14c01cb24bffb81d4600ecb68d6818613eb9baa"
+  },
+  "native": {
+    "micro_batch": 16,
+    "grad_accum": 2,
+    "micro_steps": 50,
+    "timed_micro_steps": 45,
+    "tokens_per_s": 564.4881198797456,
+    "seconds_timed": 653.0518305301666,
+    "peak_vram_gib": 10.643898487091064,
+    "loss_first": 2.5970962047576904,
+    "loss_last": 2.865891695022583,
+    "finite_loss": true,
+    "consumed_articles": 321,
+    "consumed_words": 182300,
+    "tokenizer_sha256": "72e5ad0c2d3a65d199ffea57f14c01cb24bffb81d4600ecb68d6818613eb9baa"
+  },
+  "estimate": {
+    "B_tokens_per_run": 4997120,
+    "slowest_tokens_per_s": 564.4881198797456,
+    "train_hours_per_run": 2.459022324835813,
+    "t4_slowest_tokens_per_s_registered": 515.667041361334
+  }
+}
