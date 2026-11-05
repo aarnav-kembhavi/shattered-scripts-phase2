@@ -6,3 +6,71 @@
 [transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
 native 1012 495s
 itrans 1012 472s
+lower 1012 464s
+lossy 1012 455s
+natural 267 121s
+=== 2026-11-05 11:07:07 X10 post hoc analysis: env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x10_posthoc.py analyse
+{
+ "by_form": {
+  "native": [
+   0.618,
+   20.0,
+   0.0,
+   20.6
+  ],
+  "itrans": [
+   0.865,
+   2.5,
+   0.0,
+   3.5
+  ],
+  "lower": [
+   0.845,
+   2.7,
+   0.0,
+   3.7
+  ],
+  "lossy": [
+   0.879,
+   2.7,
+   0.0,
+   3.7
+  ],
+  "natural": [
+   0.843,
+   4.2,
+   0.0,
+   5.2
+  ]
+ },
+ "contrasts": {
+  "native - itrans": [
+   14.7,
+   [
+    13.31,
+    16.11
+   ]
+  ],
+  "native - lower": [
+   14.6,
+   [
+    13.21,
+    16.01
+   ]
+  ],
+  "native - lossy": [
+   14.54,
+   [
+    13.16,
+    15.94
+   ]
+  ],
+  "native - natural": [
+   14.94,
+   [
+    12.07,
+    17.89
+   ]
+  ]
+ }
+}

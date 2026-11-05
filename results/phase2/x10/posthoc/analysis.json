@@ -1,0 +1,114 @@
+{
+  "provenance": {
+    "config": {
+      "registration": "none; added 2026-11-05"
+    },
+    "git_commit": "b9246e21da5a386b70b4d27510952442ee16392c-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-05T05:37:15+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x10_posthoc.py",
+      "analyse"
+    ]
+  },
+  "label": "POST HOC extraction (first non-empty line); the registered X10 verdict is unchanged",
+  "model": "qwen3.5-2b",
+  "by_form": {
+    "native": {
+      "n": 1012,
+      "registered_first_line": {
+        "empty_share": 0.6175889328063241,
+        "corpus_chrf": 19.982483176908186
+      },
+      "posthoc_first_nonempty_line": {
+        "empty_share": 0.0,
+        "corpus_chrf": 20.57332230695947
+      }
+    },
+    "itrans": {
+      "n": 1012,
+      "registered_first_line": {
+        "empty_share": 0.8646245059288538,
+        "corpus_chrf": 2.484816524679512
+      },
+      "posthoc_first_nonempty_line": {
+        "empty_share": 0.0,
+        "corpus_chrf": 3.5263170985134784
+      }
+    },
+    "lower": {
+      "n": 1012,
+      "registered_first_line": {
+        "empty_share": 0.8448616600790514,
+        "corpus_chrf": 2.654168905126047
+      },
+      "posthoc_first_nonempty_line": {
+        "empty_share": 0.0,
+        "corpus_chrf": 3.66472993403779
+      }
+    },
+    "lossy": {
+      "n": 1012,
+      "registered_first_line": {
+        "empty_share": 0.8794466403162056,
+        "corpus_chrf": 2.6694584801858117
+      },
+      "posthoc_first_nonempty_line": {
+        "empty_share": 0.0,
+        "corpus_chrf": 3.7290390251955103
+      }
+    },
+    "natural": {
+      "n": 267,
+      "registered_first_line": {
+        "empty_share": 0.8426966292134831,
+        "corpus_chrf": 4.218964107508173
+      },
+      "posthoc_first_nonempty_line": {
+        "empty_share": 0.0,
+        "corpus_chrf": 5.206748524510007
+      }
+    }
+  },
+  "posthoc_contrasts_unadjusted": {
+    "native - itrans": {
+      "n": 1012,
+      "diff": 14.695144969363149,
+      "ci95": [
+        13.305058326033516,
+        16.113807830444713
+      ],
+      "p": 0.00019998000199980003
+    },
+    "native - lower": {
+      "n": 1012,
+      "diff": 14.60313698275387,
+      "ci95": [
+        13.207167276492454,
+        16.013608685178074
+      ],
+      "p": 0.00019998000199980003
+    },
+    "native - lossy": {
+      "n": 1012,
+      "diff": 14.53631533759161,
+      "ci95": [
+        13.163956065692252,
+        15.938061199376362
+      ],
+      "p": 0.00019998000199980003
+    },
+    "native - natural": {
+      "n": 267,
+      "diff": 14.943352668597262,
+      "ci95": [
+        12.07152495611314,
+        17.887374615133492
+      ],
+      "p": 0.00019998000199980003
+    }
+  }
+}
