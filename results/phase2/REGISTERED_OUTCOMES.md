@@ -1,6 +1,6 @@
 # Phase 2 registered outcomes: status ledger
 
-Last updated 2026-11-05 07:22 IST (system clock). Rows for other experiments are added when each reports its registered verdict word; no registered rule is changed.
+Last updated 2026-11-05 07:27 IST (system clock). Rows for other experiments are added when each reports its registered verdict word; no registered rule is changed.
 
 | Experiment | Registered outcome words | Status | Result or reason |
 |---|---|---|---|
@@ -23,3 +23,4 @@ Last updated 2026-11-05 07:22 IST (system clock). Rows for other experiments are
 | X13 Llama-3.1-8B | extended P-a, retrieval all-but-one | **complete: counted (native 0.712, CI lower 0.684); extended P-a supported (5 of 5, both contrasts); retrieval all-but-one met (4 of 4)** | native minus ITRANS +0.330 on SIB-200 and +0.809 on retrieval; MDL job queued; nothing against a prediction |
 | X4 Bengali and Telugu, R2 (retrieval native > ITRANS on the 2,009 sentences) | supported / refuted | **R2 supported in both languages (3 of 3 counted models)** | R3, R4, ladder, sentiment, K3b still to build; nothing against a prediction |
 | X4 R4 (assembly follows fragmentation, Bengali and Telugu) | H3-style sign rule | **supported in both languages (4 of 4 Bengali, 3 of 3 Telugu qualifying models)** | Telugu is uninformative if Qwen2.5-1.5B is excluded (only two qualifying models); lowercase ladder, R3, sentiment, K3b still to do |
+| X4 R3 (natural > ITRANS retrieval, M4c analog, Bengali and Telugu) | supported / refuted | **supported in both languages (3 of 3 counted models)** | n = 236 and 243 test sentences (defective drafts removed); lowercase ladder, sentiment analysis and K3b-bn/te still to do |

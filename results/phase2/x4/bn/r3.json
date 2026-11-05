@@ -1,0 +1,122 @@
+{
+  "provenance": {
+    "config": {
+      "registration": "RESULTS.md X4 (R3)"
+    },
+    "git_commit": "f1f1983dace9349a5e45d9c3bde797d65d0fdbd9-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-05T01:55:10+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x4_r3.py"
+    ]
+  },
+  "language": "bn",
+  "n_ids_with_natural": 476,
+  "models": {
+    "qwen3.5-2b": {
+      "acc_test_half": {
+        "native": 0.9957627118644068,
+        "natural": 0.5127118644067796,
+        "itrans": 0.23728813559322035,
+        "lossy": 0.3813559322033898
+      },
+      "natural_minus_itrans": {
+        "diff": 0.2754237288135593,
+        "ci95": [
+          0.2076271186440678,
+          0.3432203389830508
+        ],
+        "n": 236
+      },
+      "native_minus_natural": {
+        "diff": 0.4830508474576271,
+        "ci95": [
+          0.4194915254237288,
+          0.5466101694915254
+        ],
+        "n": 236
+      },
+      "natural_minus_lossy": {
+        "diff": 0.13135593220338984,
+        "ci95": [
+          0.059322033898305086,
+          0.2033898305084746
+        ],
+        "n": 236
+      }
+    },
+    "sarvam-1": {
+      "acc_test_half": {
+        "native": 0.9957627118644068,
+        "natural": 0.8940677966101694,
+        "itrans": 0.4661016949152542,
+        "lossy": 0.7076271186440678
+      },
+      "natural_minus_itrans": {
+        "diff": 0.4279661016949153,
+        "ci95": [
+          0.3601694915254237,
+          0.4957627118644068
+        ],
+        "n": 236
+      },
+      "native_minus_natural": {
+        "diff": 0.1016949152542373,
+        "ci95": [
+          0.0635593220338983,
+          0.13983050847457626
+        ],
+        "n": 236
+      },
+      "natural_minus_lossy": {
+        "diff": 0.1864406779661017,
+        "ci95": [
+          0.13135593220338984,
+          0.24152542372881355
+        ],
+        "n": 236
+      }
+    },
+    "gemma4-e2b": {
+      "acc_test_half": {
+        "native": 1.0,
+        "natural": 0.8432203389830508,
+        "itrans": 0.4661016949152542,
+        "lossy": 0.6313559322033898
+      },
+      "natural_minus_itrans": {
+        "diff": 0.3771186440677966,
+        "ci95": [
+          0.3093220338983051,
+          0.4449152542372881
+        ],
+        "n": 236
+      },
+      "native_minus_natural": {
+        "diff": 0.15677966101694915,
+        "ci95": [
+          0.11016949152542373,
+          0.2033898305084746
+        ],
+        "n": 236
+      },
+      "natural_minus_lossy": {
+        "diff": 0.211864406779661,
+        "ci95": [
+          0.1483050847457627,
+          0.2754237288135593
+        ],
+        "n": 236
+      }
+    }
+  },
+  "R3": {
+    "n_counted": 3,
+    "natural_minus_itrans_ci_above_0": 3,
+    "ci_below_0": 0,
+    "verdict": "supported"
+  }
+}
