@@ -1,0 +1,1 @@
+=== 2026-11-05 10:31:05 X10 post hoc generation (Qwen3.5-2B, raw outputs): env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x10_posthoc.py score

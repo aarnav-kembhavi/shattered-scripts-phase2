@@ -1,0 +1,2727 @@
+{
+  "provenance": {
+    "config": {
+      "n_total": 10000,
+      "n_dropped_duplicate_native": 72,
+      "n_dropped_short": 730,
+      "pool": 9198,
+      "seed": 6,
+      "seed_resample": 7
+    },
+    "git_commit": "4ea3ffcc3483dd631cd132ba783f40838d305f7f-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-05T04:38:03+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/k3b_dakshina.py",
+      "sample",
+      "bn"
+    ]
+  },
+  "rows": [
+    {
+      "row": 12,
+      "native": "সেটের মত সারিরও সদস্য থাকে, কিন্তু যেখানে একটি সেটে তার সদস্যদের ক্রম গুরুত্বহীন, সেখানে সারির ক্ষেত্রে সদস্যদের ক্রম গুরুত্বপূর্ণ।",
+      "human": "Seter moto sariro shadashyo thake, kintu jekhane ekti sete tar sadashyer kram guruttohin, sekhane sarir khetre shadashyoder kram guruttopurno."
+    },
+    {
+      "row": 54,
+      "native": "কেন্দ্রগুলোর জীবনযাত্রার নিম্নমানও সমালোচিত হয়েছে।",
+      "human": "kendrogulor jibonjatrar nimnomano shomalochito hoyeche."
+    },
+    {
+      "row": 59,
+      "native": "১২৪০ খ্রিষ্টাব্দে সম্রাট ওগেদেই খানের পুত্র খোদান খান প্রথম তিব্বত আক্রমণ করেন।",
+      "human": "1240 khristabde samrat Ogedei Khaner putro Khodan Khan Prothom Tibet akramon koren."
+    },
+    {
+      "row": 74,
+      "native": "বিশ্বের সবচেয়ে সনামধন্য সংবাদ ব্যবস্থা তাদের ছিল, যাদের কাছে অনেক আন্তর্জাতিক ও আন্তসাংকৃতিক যোগাযোগে অনেক বেশি অভিজ্ঞতা ছিল, আর তারা সমুদ্রের নিচের ক্যাবল সিস্টেমের বেশিরভাগই নিয়ন্ত্রণ করত।",
+      "human": "Bishwer shobcheye shonamdhonno shongbad byabostha tader chilo, jader kache onek antorjatik o antosongskritik jogajoge onek beshi obhigyota chilo ar tara somudrer nicher cable systemer beshirbhag niyontron korto."
+    },
+    {
+      "row": 88,
+      "native": "তাই, বুদ্বুদের অভ্যন্তর নিম্ন শক্তির।",
+      "human": "Tai buddhuder abhyantar nimno shoktir."
+    },
+    {
+      "row": 90,
+      "native": "শালডিহা কলেজ বিশ্ববিদ্যালয় মঞ্জুরি কমিশন (ইউজিসি) কর্তৃক স্বীকৃত।",
+      "human": "Shaldiha College bishwabidalay manjuri commision (UGC) kortrik shikrito."
+    },
+    {
+      "row": 123,
+      "native": "সেখানে সঙ্গীত বন্ধ হয়ে যাওয়ার পরও অ্যালি তার গান গাওয়া থামান নি, তিনি গেয়ে যেতেই থাকেন।",
+      "human": "Shekhane shongeet bondho hoye jawar poro Ali tar gan gawa thaman ni, tini geye jetei thaken."
+    },
+    {
+      "row": 171,
+      "native": "নিষ্পাপ শিশুদের বাঁচাতে কি মালার ভালবাসা বকুকে বিসর্জন দিতে হবে...!।",
+      "human": "Nishpap shishuder bachate ki Malar bhalobasha Bakuke bisarjon dite hobe…!"
+    },
+    {
+      "row": 224,
+      "native": "সিডনি থেকে আগত অল-রাউন্ডার স্যামি জোন্স সফরের পূর্বে গুটি বসন্তে আক্রান্ত হন।",
+      "human": "Sydney theke agat all-rounder Sammy Jones safarer purbe guti basante akranta hon."
+    },
+    {
+      "row": 270,
+      "native": "অপর একদল মনে করেন, রোম্যান্স উপন্যাসের সংজ্ঞা কঠোরভাবে বিষমকামী প্রেমের ক্ষেত্রেই প্রযোজ্য হওয়া উচিত।",
+      "human": "Apar ekdol mone koren, romance upponnoser sankhya kathorbhabe bishomokami premer khetrei projojjo howa uchit."
+    },
+    {
+      "row": 302,
+      "native": "এদের দেখতে কলাগাছের মতো, তবে পাতা কাণ্ডের মাথার দুপাশ থেকে উপরে সারিবদ্ধভাবে উঁচান, তাতে চেনা সহজ।",
+      "human": "Eder dekhte kolagacher moto, tobe pata kander mathar dupash theke upore saribaddhabhabe uchan, tate chena shohoj."
+    },
+    {
+      "row": 342,
+      "native": "দাতব্য সংস্থাগুলো, এমনকি দাতব্য ট্রাস্টগুলোও, ইউকে-তে করব্যবস্থা থেকে জটিল ধরনের পরিত্রাণ ও অব্যাহতি পাবার যোগ্য।",
+      "human": "Datobbo sansthagulo, emonki datobbo trustgulo-o, UK-te karbyabostha theke jatil dhoroner poritran o abbyahoti pabar joggo."
+    },
+    {
+      "row": 405,
+      "native": "একই দলের বিপক্ষে সর্বশেষ টেস্টে অংশ নেন।",
+      "human": "Ekoi daler bipakkhe sarbashesh teste ongsho nen."
+    },
+    {
+      "row": 416,
+      "native": "মিনারটি তৈরি হয় মেডিকেলের ছাত্র হোস্টেলের (ব্যারাক) বার নম্বর শেডের পূর্ব প্রান্তে।",
+      "human": "Minarti toiri hoy medicaler chatra hosteler (barrack) baro number sheder purbo prante."
+    },
+    {
+      "row": 442,
+      "native": "ট্র্যাপড্‌ ইন দ্য ফিউচার",
+      "human": "Trapped in the future"
+    },
+    {
+      "row": 457,
+      "native": "আটলি নামের দুজন বিখ্যাত পশ্চিমা ইতিহাসবিদ।",
+      "human": "Atli namer dujon bikkhat poschima itihaasbid."
+    },
+    {
+      "row": 466,
+      "native": "ব্যাপারটি একটি নৌকাবাইচ প্রতিযোগিতার মত হয়, যাতে বিজয়ী দল মধু সংগ্রহের জন্য সবচেয়ে ভালো অবস্থানে কাজ করার অধিকার লাভ করে।",
+      "human": "Byaparti ekti noukabaich protijogitar moto hoy jate bijayi dal madhu songgraher jonno shobcheye bhalo obosthane kaaj korar odhikar labh kore."
+    },
+    {
+      "row": 497,
+      "native": "একই সময়, তিনি শেষ রাত্রিরের অনুষ্ঠান রেত্রো হোস্ট করেন, যা ছিল আজারবাইজানি এবং বিদেশি চিরায়ত সিনেমাগুলোর একটি পর্যালোচনা ভিত্তিক অনুষ্ঠান।",
+      "human": "Aki shomoy tini shesh rattirer onushthan Retro host koren, ja chilo Azarbaijani ebong bideshi chirayato cinemagulor ekti porjalochona bhittik onushthan."
+    },
+    {
+      "row": 501,
+      "native": "১৯৮৭ থেকে ১৯৯০ সাল পর্যন্ত চলমান তিন বছরব্যাপী এই অভিযানকালে ভারতীয় সৈন্যরা অসংখ্য শ্রীলঙ্কান তামিল নারীকে ধর্ষণ করে।",
+      "human": "1987 theke 1990 saal porjonto chalaman tin bacharbyapi ei abhijankale Bharotiya sainyara asonkhyo srilankan tamil narike dharshan kore."
+    },
+    {
+      "row": 576,
+      "native": "এটি সাংহাই শহরের গনপরিবহনের এক বলিষ্ঠ পদক্ষেপ।",
+      "human": "Eti Shanghai shohorer ganaporibahaner ek balistha padakhyep."
+    },
+    {
+      "row": 578,
+      "native": "এটি জং স্থাপত্যশিল্পের দ্বিতীয় পুরাতনতম এবং দ্বিতীয় বৃহত্তম প্রাসাদ এবং তাদের নির্মিত রাজকীয় প্রাসাদগুলো অন্যতম একটি।",
+      "human": "Eti jang sthapatyashilper dwitiyo puratanatama ebong dwitiyo brihattama prasad ebong tader nirmit rajokiyo prasadgulo onnotama ekti."
+    },
+    {
+      "row": 580,
+      "native": "এছাড়া জার্মান সৈন্যরা ইহুদি ছাড়া অন্য ধর্মাবলম্বী হাজার হাজার পোলিশ নারীকেও ধর্ষণ করে।",
+      "human": "Echara German sainyara ihudi chara onno dharmabalombi hajar hajar Polish narikeo dharshan kore."
+    },
+    {
+      "row": 581,
+      "native": "ফন্টটি তৈরি করেন তানবিন ইসলাম সিয়াম।",
+      "human": "Fontti toiri koren Tanbin Islam Siyam."
+    },
+    {
+      "row": 610,
+      "native": "আলমগীর কবিরের রূপালী সৈকতেও এই সময়ের উৎকৃষ্ট চলচ্চিত্র।",
+      "human": "Alamgir Kobirer Rupali Soikateo ei shomoyer utkristo chalchitra."
+    },
+    {
+      "row": 630,
+      "native": "ইউনকি সোয়েওয়ার্নো এবং ক্রিস প্যাটকাওয়া এর সাহায্যে, ১৯৯২ এশিয়া বাগুস তারকা অনুসন্ধান প্রোগ্রামে অংশগ্রহণ করেন, অবশেষে জাপান এর এশিয়া বাগুস ফিল্ম ফেস্টিভালে গ্র্যান্ড প্রাইজ জেতেন।",
+      "human": "Iunoki Sowewarno ebong Criss Patkawa er shahajye, 1992 Asis Bagus taroka onushondhan programme ongshogrohon koren, obosheshe Japan er Asia Bagus film festivale grand prize jeten."
+    },
+    {
+      "row": 671,
+      "native": "এটিকে সন্ন্যাসীদের প্রাচীরবেষ্টিত একটি ছোটো বাসস্থান মনে করা হচ্ছে।",
+      "human": "Etike sonnosider prachirbestito ekti choto basthan mone kora hocche."
+    },
+    {
+      "row": 721,
+      "native": "২০০৬ সালে তিনি দ্য পারসুইট অব হ্যাপিনেস ছবিতে লিন্ডা গার্ডনার চরিত্রে অভিনয় করেন।",
+      "human": "2006 saale tini The Persuit of Happiness chobite Linda Gardner choritre obhinoy koren."
+    },
+    {
+      "row": 731,
+      "native": "১৮৬৭ সালে প্রথম রেল পরিসেবা চালু হয় ইন্দোনেশিয়ায়।",
+      "human": "1867 saale prothom rail porisheba chalu hoy Indonesiay."
+    },
+    {
+      "row": 740,
+      "native": "এই বিমানবন্দরে সেনাবাহীনির জাগুয়ার স্কোয়ার ডন রয়েছে।",
+      "human": "Ei bimanbondore senabahinir Jaguar Squadron royeche."
+    },
+    {
+      "row": 767,
+      "native": "মুসলিমরা এগিয়ে যায়, লড়াইয়ে পুনরায় অংশ নেয় এবং পাহাড়ে চড়ে।",
+      "human": "Muslimra egiye jay, loraiye punaray ansho ney ebong pahare chore."
+    },
+    {
+      "row": 773,
+      "native": "যদি কণার সংঘর্ষে ছোট কৃষ্ণবিবর উৎপাদন হয় যেমন এলএইচসিতে তৈরি হয়েছিল তা একটি শূন্যস্থান ক্ষয়ের ঘটনা শুরু করতে পারে।",
+      "human": "Jodi konar shonghorSe choto krishnabibar utpadan hoy jemon LHCte toiri hoyechilo ta ekti shunyasthan khayer ghatona shuru korte pare."
+    },
+    {
+      "row": 792,
+      "native": "চার্লস ব্যানারম্যানকে (১৬৫) করা তাঁর ঐ বলটিতে কোন রান উঠেনি।",
+      "human": "Charles Bannermanke (165) kora tar oi boltite kono run utheni."
+    },
+    {
+      "row": 830,
+      "native": "দলীয় সংগ্রহ একপর্যায়ে ১১৯/৮ হলে তাঁর ইনিংসের কল্যাণে ২৬৮ রানে সারে দল অল-আউট হয়।",
+      "human": "Doliyo sangroho akporjaye 119/8 hole tar inningser kalyane 268 rune Surrey dal all-out hoy."
+    },
+    {
+      "row": 831,
+      "native": "পর্বতমালা রেললাইনে ট্রেন চালানর জন্য তিনি বিশেষ প্রশিক্ষণ ঘহন করেন এবং দুই ইঞ্জিন বিশিষ্ট যাত্রীবাহী ট্রেন পরিচালনা করেন।",
+      "human": "porbotmala railline-e train chalanor jonno tini bishesh proshikkhan grohon koren ebong dui engine bisishto jatribahi train porichalona koren."
+    },
+    {
+      "row": 889,
+      "native": "বাংলাদেশ মুক্তিযুদ্ধ চলাকালীন সময়ে তিনি সল্ট লেক শহর এবং আগরতলা শরণার্থী ক্যাম্পে কাজ করেন।",
+      "human": "Bangladesh muktijuddha chalakalin shomoye tini salt lake shohor ebong Agartala sharanarthi campe kaaj koren."
+    },
+    {
+      "row": 896,
+      "native": "তাজরীন ফ্যাশন কারখানাটি ২০০৯ সালে চালু হয়।",
+      "human": "Tajrin Fashion karkhanati 2009 saale chalu hoy."
+    },
+    {
+      "row": 905,
+      "native": "পৃথিবীতে অবতরণ করতে গিয়ে বায়ুমণ্ডলের সঙ্গে সংঘর্ষে এই নভোখেয়াযানটি বিধ্বস্ত হয়ে গিয়েছিল।",
+      "human": "Prithibite abataran korte giye bayumadaler shonge shonghorSe ei nabhokheyajanti biddhwasto hoye giyechilo."
+    },
+    {
+      "row": 930,
+      "native": "এটি একটি প্রকাশনা সংঘ নিয়ে নির্মিত, যেখানে সমাজতান্ত্রিক ফ্রান্সের চিত্র তুলে ধরা হয়েছে।",
+      "human": "Eti ekti prokashona shongho niye nirmito, jekhane shomajtantrik Francer chitra tule dhora hoyeche."
+    },
+    {
+      "row": 940,
+      "native": "পশ্চিমমুখী মন্দিরের পশ্চিম দিকে রাস্তা রয়েছে যা গ্রামের দিকে চলে গেছে, অপর তিন পাশে ঢাউলি পাহাড়।",
+      "human": "Poschimmukhi mondirer poschim dike rasta royeche ja gramer dike chole geche, apar tin pashe Dhauli Pahar."
+    },
+    {
+      "row": 943,
+      "native": "তৎকালীন ওড়িষা প্রদেশের মেদিনীপুর জেলায় বৈতিয়া গ্রামে জন্মগ্রহণ করেন।",
+      "human": "Tatkalin Odisha pordesher Medinipur jelay Boitiya grame jonmogrohon koren."
+    },
+    {
+      "row": 1005,
+      "native": "তিনি সতের শতকের মুসলিম সাহিত্যিক ছিলেন।",
+      "human": "Tini sater shataker Muslim sahityik chilen."
+    },
+    {
+      "row": 1009,
+      "native": "বইটির সাফল্য সম্পর্কে লেখিকা বলেছিলেন: \"আগ্রহের আতিসায্য আমাকে অত্যন্ত বিস্মিত করেছে।\"",
+      "human": "Boitir safolyo shomporke lekhika bolechilen: \"agroher atisajya amake otyanto bismito koreche.\""
+    },
+    {
+      "row": 1027,
+      "native": "তিনি ১৯৪১ সালে ক্যালটেক থেকে ভূপ্রকৃতবিদ্যায় স্নাতক ডিগ্রি অর্জন করেন এবং ১৯৫৩ সালে হার্ভার্ড থেকে ভূপ্রকৃতবিদ্যায় পিএইচডি ডিগ্রি অর্জন করেন।",
+      "human": "Tini 1941 saale Caltech theke bhuprakritibidyay snatak degree arjan koren ebong 1953 saale Harvard theke bhuprakritibidyay PhD degree arjan koren."
+    },
+    {
+      "row": 1028,
+      "native": "ভার্জিন মরিয়ম ইরানের অর্ধপরিবাহী চার্চের ভক্ত, ঈশ্বরভক্ত, ভক্তদের সম্মানিত।",
+      "human": "Virgin Mariyam Iraner ardhaporibahi Churcher bhakta, iswarbhakta, bhaktader sanmanito."
+    },
+    {
+      "row": 1070,
+      "native": "এরা অসংখ্য ক্ষুদ্র জাতিতে বিভক্ত।",
+      "human": "Era asonkhyo khudro jatite bibhakto."
+    },
+    {
+      "row": 1099,
+      "native": "\"সম্পাদক\" ধারণকারী শিরোনামসহ সমস্ত পাতা",
+      "human": "\"Sompadok\" dharonkari shironamshoho samasta pata"
+    },
+    {
+      "row": 1124,
+      "native": "এই গোত্রের সদস্যরা আব্বাস ইবনে আবদুল মুত্তালিবের বংশধর।",
+      "human": "Ei gotrer shadashyora Abbas Ibne Abdul Muttaliber bangshodhar."
+    },
+    {
+      "row": 1126,
+      "native": "এ বছর ৩৫টি বাণিজ্যিক ধারার ছবির মধ্যে মিশার অভিনীত ছিল মোট ২১টি।",
+      "human": "A bachor 35ti banijyik dharar chobir moddhe Missar abhinito chilo mot 21ti."
+    },
+    {
+      "row": 1130,
+      "native": "পরবর্তীতে এর দায়িত্ব সেনাবাহিনীকে অর্পণ করা হয়।",
+      "human": "Parobortite er dayitto senabahinike arpan kora hoy."
+    },
+    {
+      "row": 1136,
+      "native": "এই কার্যের জন্য একজন উড়িয়া ব্রাহ্মণ নিযুক্ত ছিল।",
+      "human": "Ei karjer jonno akjon Oriya brahmon nijukto chilo."
+    },
+    {
+      "row": 1146,
+      "native": "এ অপকৌশলটি মূলতঃ দূর্দান্ত অবস্থায় থাকা ডন ব্র্যাডম্যানকে উদ্দেশ্য করে রচিত হয় যাতে শর্ট পিচ বোলিং ও লেগ সাইডে ফিল্ডারদেরকে কাছাকাছি অবস্থায় রাখা হয়।",
+      "human": "A apakoushalti mulotoh durdanto abosthay thaka Don Bradmanke uddshyo kore rochitoo hoy jate short pitch bowling o leg side-e fielderderke kachakachi obosthay rakha hoy."
+    },
+    {
+      "row": 1151,
+      "native": "নিয়মিত খেলে খাদ্যনালিতে ক্যানসার হতে পারে।",
+      "human": "Niyomito khele khadyonalite cancer hote pare."
+    },
+    {
+      "row": 1157,
+      "native": "১৯৮৮ সালের আগস্টে এইচ এম এরশাদ তেজগাঁও বিমানবন্দরটি পরিত্যক্ত ঘোষণার সিদ্ধান্ত দেন।",
+      "human": "1988 saaler Auguste H M Ershad Tejgaon bimanbondorti porityakto ghoshonar siddhanto den."
+    },
+    {
+      "row": 1160,
+      "native": "টলুইন যা আগে টলুয়ল নামে পরিচিত ছিলো, একটি পরিষ্কার, পানিতে অদ্রবণীয়, হালকা রঙ পাতলাকারক (পেইন্ট থিনার) এর গন্ধযুক্ত, শিল্পকারখানার কাঁচামাল এবং দ্রাবক হিসেবে বহুল ব্যবহৃত তরল পদার্থ।",
+      "human": "Toluene ja age Tuluyol naame porichito chilo, ekti porishkar, panite adrabaniyo, halka rang patlakarok (paint thinner) er gondhojukto, shilpokarkhanar kanchamal ebong drabok hishebe bohul byabohrito taral podartho."
+    },
+    {
+      "row": 1165,
+      "native": "ডিব্ৰুগড় জেলাটি লোকসভায় ডিব্ৰুগড় এবং মরাণ, ডিব্ৰুগড়, লাহোরাল, দুলিয়াজান, টিংখং, চাবুরা, নাহরকটীয়া - এই সাতটি বিধানসভা আসন নিয়ে গঠিত।",
+      "human": "Dibrugarh jelati loksabhay Dibrugarh ebong Moran, Dibrugarh, Lahowal, Duliajan, Tingkhang, Chabura, Naharkatia - ei satti bidhansabha asan niye gothito."
+    },
+    {
+      "row": 1166,
+      "native": "লিডসের নিচু পিচে চারজন বোলারের অন্যতম হিসেবে অস্ট্রেলীয় ব্যাটসম্যানদের উপর ছড়ি ঘোরান।",
+      "human": "Leadser nichu pitche charjon bowlerer onnotamo hishebe Australiyo batsmander upor chori ghoran."
+    },
+    {
+      "row": 1170,
+      "native": "কক্সবাজার সমুদ্র সৈকত, ইনানিতে পাথরের সৈকত, মহেশখালীর আদিনাথ মন্দির, হিমছড়ির ঝরনা, ডুলহাজারা সাফারিপার্কসহ কক্সবাজার জেলার পর্যটন স্পটগুলোতে পর্যটকদের উপচেপড়া ভিড় লেগেই আছে।",
+      "human": "Coxbazar somudro soikat, Inanite pathorer soikat, Maheshkhalir Adinath mondir, Himchorir jhorna, Dulhajara safariparkshoho Coxbazar jelar parjatan spotgulote parjatakder upchepora bhir legei ache."
+    },
+    {
+      "row": 1218,
+      "native": "মায়ের জন্য ভালবাসা",
+      "human": "Mayer jonno bhalobasha"
+    },
+    {
+      "row": 1249,
+      "native": "যদি \"উই আর অ্যাট টেকঅফ\" হয় তার অর্থ আমরা টেকঅফের জন্য প্রস্তুত।",
+      "human": "Jodi \"We are at takeoff\" hoy tar ortho amra takeoff-er jonno prostut."
+    },
+    {
+      "row": 1336,
+      "native": "মহামুনি মন্দির বা প্যাগোডাটি মান্ডালায় থেকে দক্ষিণ-পশ্চিম দিকে চলে যাওয়া রাস্তা বরাবর অবস্থিত স্থাপনা সমূহের সমষ্টি।",
+      "human": "Mohamuni Mondir ba pagodati Mandalay theke dokhhin-poschim dike chole jawa rasta borabor obosthit sthapona shomuher samasti."
+    },
+    {
+      "row": 1344,
+      "native": "কামানগুলোর মুখ ঘুড়িয়ে সহজেই অন্য লক্ষ্যের দিকে আক্রমণ করা যেত।",
+      "human": "Kamangulor mukh ghuriye sahajei onno lokkhyer dike akraman kora jeto."
+    },
+    {
+      "row": 1379,
+      "native": "মাসিক মোহাম্মদী ব্রিটিশ ভারতে মাওলানা মোহাম্মদ আকরম খাঁ কর্তৃক প্রতিষ্ঠিত মাসিক পত্রিকা।",
+      "human": "mashik Mohammadi Bitish Bharote Mawlana Mohammad Akram Khan kortrik protisthito mashik potrika."
+    },
+    {
+      "row": 1410,
+      "native": "অনেক পুরস্কার আর সম্মাননায় ভূষিত হয়েছেন বিবি রাসেল।",
+      "human": "Onek Puroskar ar sonmanonay bhushito hoyechen Bibi Rassel."
+    },
+    {
+      "row": 1412,
+      "native": "ড্রীম ডাইমেনশাল হান্টার ফ্যানডোরা (সোতো)",
+      "human": "Dream Dimensional Hunter Fandora (Soto)"
+    },
+    {
+      "row": 1433,
+      "native": "এ বিষয়ে স্বপ্ন পত্রিকায় লিখিত প্রবন্ধে কলকাতা বিশ্ববিদ্যালয়ের বাংলা বিভাগের প্রধান উল্লেখ করেছেন, 'সাহিত্যের সনাতন অনুশাসনগুলির বিরুদ্ধে মলয় রায়চৌধুরীর বিদ্রোহ তাঁর রচনার অন্যতম বৈশিষ্ট্য'।",
+      "human": "A bishoye shopno potrikay likhito prabandhe Kolkata bishwobidyaloyer Bangla bibhager prodhan ullekh korechen, 'sahityer sonaton onushasongulir biruddhe Moloy Raychoudhuryir bidroho tar rochonar onnotamo boisistho'."
+    },
+    {
+      "row": 1456,
+      "native": "পরবর্তীতে তিনি হরিণাকুন্ডু উপজেলার হরিয়ারঘাটার খোদাবকশ শাহের আখড়ায় যান।",
+      "human": "Parobortite tini Horinakundu upojelar Horiyarghatar Khodabox Shaher akhray jan."
+    },
+    {
+      "row": 1470,
+      "native": "দীর্ঘ আট বছর পর নাদের খানের প্রযোজনা ও রচনায় হাস্যরসাত্মক গল্পের এ নাটকের নাম ‘মাইরের ওপর ওষুধ নাই’।, পারিবারিক জীবনে তার একটি মেয়ে আছে।",
+      "human": "Dirgho aath bachor por Nader Khaner projojona o rachonay hasyorosatmok galper e natoker naam 'Mairer Opor Oshudh Nai'., paribarik jibone tar ekti meye ache."
+    },
+    {
+      "row": 1487,
+      "native": "চোরাবালি এটি ২০১২ সালে মুক্তিপ্রাপ্ত একটি বাংলাদেশী চলচ্চিত্র।",
+      "human": "Chorabali eti 2012 saale muktiprapto ekti Bangladeshi chalachitro."
+    },
+    {
+      "row": 1509,
+      "native": "অ্যাগনেস প্রথমে আয়ারল্যান্ডের রথফার্নহ্যামে লোরেটো অ্যাবেতে ইংরেজি ভাষা শিক্ষা করতে যান।",
+      "human": "Agnes prothome Irelander Rathfarnhamer Loretto Abotte ingreji bhasha shikkha korte jan."
+    },
+    {
+      "row": 1551,
+      "native": "আহসান মঞ্জিলই ঢাকার প্রথম ইট-পাথরের তৈরি স্থাপত্য।",
+      "human": "Ahsan Manjili Dhakar prothom itt-pathorer toiri sthapotyo."
+    },
+    {
+      "row": 1565,
+      "native": "পর্যটন অঞ্চল খোলার পরপরই আন্তর্জাতিক সুযোগ-সুবিধা চালু করে এই বিমানবন্দরকে আন্তর্জাতিক পর্যায়ে উন্নীত করা হয়।",
+      "human": "Porjoton onchol kholar porpori antorjatik shujog-subidha chalu kore ei bimanbondorke antorjatik porjaye unnito kora hoy."
+    },
+    {
+      "row": 1576,
+      "native": "সে সময় সিনিয়র কেমব্রিজ বলতে বর্তমানের ও লেভেল এবং হায়ার সিনিয়র কেমব্রিজ বলতে বর্তমানের এ লেভেল বোঝাতো।",
+      "human": "Se shomoy senior Cambridge bolte bortomaner O level ebong Higher Senior Cambridge bolte bortomaner A level bojhato."
+    },
+    {
+      "row": 1621,
+      "native": "তদ্ধিতান্ত শব্দ: তদ্ধিত প্রত্যয় সাধিত শব্দকে বলা হয় তদ্ধিতান্ত শব্দ।",
+      "human": "Taddwitanto shobdo: taddwito protyoy sadhito shobdoke bola hoy taddwitanto shobdo."
+    },
+    {
+      "row": 1643,
+      "native": "ফ্রান্স ও স্পেনে এখন পর্যন্ত প্রায় ৩৪০ এর কাছাকাছি গুহা আবিষ্কৃত হয়েছে যেগুলোতে প্রাগৈতিহাসিক কালে অঙ্কিত চিত্র পাওয়া গেছে।",
+      "human": "France o Spaine ekhon porjonto pray 340 er kachakachi guha abiskrito hoyeche jegulote pragoitihaasik kale ankito chitro pawa jay."
+    },
+    {
+      "row": 1653,
+      "native": "ভাড়ার জিপ গাড়িগুলিও এই শহরকে তার প্রতিবেশী শৈল শহর দার্জিলিং, কালিম্পং, গ্যাংটক, কার্শিয়াং ইত্যাদির সাথে সংযুক্ত করে।",
+      "human": "Bharar jeep garigulio ei saharke tar protibeshi shoilo sahar Derjeeling, Kalimpong, Gangtok, Karshiyang ityadir shathe sonjukto kore."
+    },
+    {
+      "row": 1659,
+      "native": "মুহম্মদ শহীদুল্লাহ, চারুচন্দ্র বন্দ্যোপাধ্যায়, মোহিতলাল মজুমদার, আশুতোষ ভট্টাচার্য, জসীমউদ্‌দীন প্রমুখ যশস্বী পণ্ডিতবর্গের সহাচর্য পেয়েছিলেন।",
+      "human": "Muhammad Shahidullah, Charuchandra Bandopadhay, Mohitlal Mazumder, Ashutosh Bhattacharjee, Jasimuddin promukh jasaswi ponditborger shohachorjjo peyechilen."
+    },
+    {
+      "row": 1690,
+      "native": "নিউক্লিক অ্যাসিডটি সাধারণত ডিএনএ-ডিএনএ (ডিএসডিএনএ) দ্বারা বিভক্ত, তবে এটি একক-অচল ডিএনএ (এসএসডিএনএ) হতে পারে।",
+      "human": "Neucleic Acidti shadharonoto DNA-DNA (DSDNA) dwara bibhakto, tobe eti ekok-achal DNA (SSDNA) hote pare."
+    },
+    {
+      "row": 1695,
+      "native": "ইনফরমেশন অপারেশনস রোডম্যাপ",
+      "human": "Information Operation Roadmap"
+    },
+    {
+      "row": 1698,
+      "native": "একই বছরে তিনি উদয়ন চৌধুরী (ইসমাইল মোহাম্মদ) রচনায় ও পরিচালনায় জোয়ার টেলিভিশন নাটকে অভিনয় করেন।",
+      "human": "Aki bachore tini Udayan Choudhury (Ismail Mahammad) rochonay o porichalonay Joyar Television natoke obhinoy koren."
+    },
+    {
+      "row": 1703,
+      "native": "বাংলাদেশ বিমানবাহিনীও এ মিশনে কর্মী পাঠিয়েছে।",
+      "human": "Bangladesh bimanbahinio e missione kormi pathiyeche."
+    },
+    {
+      "row": 1709,
+      "native": "ময়মনসিংহ জেলা বাংলাদেশের মধ্যাঞ্চলের ময়মনসিংহ বিভাগের একটি প্রশাসনিক অঞ্চল।",
+      "human": "Mymensingh jela Bangladesher modhyanchole Mymensingh bibhager ekti proshasonik onchol."
+    },
+    {
+      "row": 1726,
+      "native": "এই তথ্য দাতা এবং সমাজের কাছে দাতব্য সংস্থার সুনামের ব্যাপারে প্রভাব ফেলতে পারে, ফলশ্রুতিতে, দাতব্য সংস্থার আর্থিক অগ্রগতিকেও।",
+      "human": "Ei tothyo daata ebong shomajer kache datobyo shonghsthar sunamer byapare probhab felte pare, falashrutite, datobyo shonghsthar arthik agrogotikeo."
+    },
+    {
+      "row": 1760,
+      "native": "১৯৩২-৩৩ মৌসুমে অস্ট্রেলিয়া সফরে বিতর্কিত বডিলাইন সিরিজে ইংল্যান্ডের বিপক্ষে খেলার পর তাঁর খেলোয়াড়ী জীবনের অকাল সমাপ্তি ঘটে।",
+      "human": "1932-33 moushume Australia safare bitorkito Bodyline Series-e Englader bipokkhe khelar por tar kheloyari jiboner okal shomapti ghate."
+    },
+    {
+      "row": 1776,
+      "native": "অক্টোবর মাসে অনন্তনাগ-কাদিগন্দ রেলওয়ে চালু হয়।",
+      "human": "October mashe Anantanag-Kadigand railway chalu hoy."
+    },
+    {
+      "row": 1781,
+      "native": "শৈলবালা পিতার কর্মস্থল বাংলাদেশের কক্সবাজারে জন্মগ্রহন করেন।",
+      "human": "Shoilobala pitar karmosthal Bangladesher Cocxbazare jonmogrohon koren."
+    },
+    {
+      "row": 1804,
+      "native": "যা পরবর্তীতে অবশ্য দৃষ্টিভ্রম বলে প্রমাণিত হয়।",
+      "human": "Ja porobortite oboshyo dristibhram bole promanito hoy."
+    },
+    {
+      "row": 1809,
+      "native": "পরবর্তীকালে এই অঞ্চলে ইসলামি সভ্যতার বিকাশলাভের সাথে সাথে খোরাসান নামটি জনপ্রিয় হয়ে ওঠে।",
+      "human": "Porobortite ei anchale Islami shobhyotar bikashlabher shathe shathe Khorasaan naamti jonopriyo hoye othe."
+    },
+    {
+      "row": 1844,
+      "native": "সেই পানশালায় ভিলানি পিয়ানো বাজাতেন, বোন মারিয়া গান গাইতেন এবং লরেন টেবিলে টেবিলে খাবার পরিবেশন করতেন।",
+      "human": "Shei paanshalay Vilani piano bajaten, bon Mariya gaan gaiten ebong Loren table-e table-e khabar poribeshon korten."
+    },
+    {
+      "row": 1850,
+      "native": "ভিক্টোরিয়ান ইংল্যান্ড-এর একজন উদ্ভাবক একটি যন্ত্র তৈরি করেন যা তাকে দূরবর্তী ভবিষ্যতে নিয়ে যায়।",
+      "human": "Victorian England-er akjon udbhbhabok ekti jantro toiro koren ja take duraborti bhobishyote niye jay."
+    },
+    {
+      "row": 1869,
+      "native": "১৯২০ সালে ত্রিনিদাদে ফিরে এসে পুণরায় খেলার জগতে প্রবেশ করেন জো স্মল।",
+      "human": "1920 saale Trinidade fire ese punoray khelar jagate probesh koren Jo Small."
+    },
+    {
+      "row": 1881,
+      "native": "গ্রামীণফোন বাংলাদেশের জিএসএমভিত্তিক একটি মোবাইল ফোন সেবা প্রদানকারী কোম্পানি।",
+      "human": "Graminphone Bangladesher GSMbhittik ekti mobile phone seba prodankari company."
+    },
+    {
+      "row": 1890,
+      "native": "WBTPO এছাড়াও শিল্প এবং সংস্কৃতির প্রচার জন্য জাতীয় ও আন্তর্জাতিক বাণিজ্য মেলা, প্রদর্শনী এবং সম্মেলন এবং অন্যান্য ঘটনা সংগঠিত করতে পরিকল্পনা করে।",
+      "human": "WBTPO echarao shilpo ebong shongskritir prochar jonno jatiyo o antorjatik banijyo mela, prodorshoni ebong shommelon ebong onnyanno ghotona shongothito korte porikolpona kore."
+    },
+    {
+      "row": 1919,
+      "native": "মুরাদনগর উপজেলার নামকরণ সম্পর্কে সঠিক কোন তথ্য পাওয়া যায়না।",
+      "human": "Muradnagar upajelar naamkaran somporke sathik kono tothyo pawa jayna."
+    },
+    {
+      "row": 1935,
+      "native": "পুরকৌশল ও স্থাপত্যবিদ্যায়, নির্মাণ বলতে এমন একটি প্রক্রিয়া বোঝায় যার মাধ্যমে কোন একটি কাঠামো তৈরী বা জোড়া লাগানো হয়।",
+      "human": "Purkoushol o sthapotyobidyay, nirman bolte emon ekt prokriya bojhay jaar madhyome kono ekti kathamo toiri baa jora lagano hoy."
+    },
+    {
+      "row": 1939,
+      "native": "সঙ্গীতনিপুণ কলাবিদ অপারগতা প্রকাশ করলেন।",
+      "human": "Shongeetnipun kalabid oparogota prokash korlen."
+    },
+    {
+      "row": 1969,
+      "native": "তিনি আসামের গুয়াহাটির বাসিন্দা এবং পুণের আর্মি স্পোর্টস ইনস্টিটিউট থেকে প্রশিক্ষণ-প্রাপ্ত।",
+      "human": "Tini asamer guwahatir basinda ebong puner army sports inistitute theke prashikkhan-prapta."
+    },
+    {
+      "row": 1974,
+      "native": "হস্তমৈথুনের দ্বারা শিশ্নকে উত্তেজিত করতে করতে বীর্যপাতের পূর্বেই আগমুহূর্তে হস্তমৈথুন বন্ধ করে দিবে।",
+      "human": "Hastamoithuner dwara sishnake uttejito korte korte birjopater purbei agmuhurte hostomoithun bondho kore dibe."
+    },
+    {
+      "row": 2014,
+      "native": "তাঁর স্মরণে আর.",
+      "human": "Tar smarane ar."
+    },
+    {
+      "row": 2026,
+      "native": "এই দিন নতুন বস্ত্র পরিধান করে নতুন বছর উদযাপন করা হয়।",
+      "human": "Ei din notun bastra paridhan kore notun bachor udjapan kora hoy."
+    },
+    {
+      "row": 2047,
+      "native": "আর্সেনিক ও অ্যান্টিমনির সাথে বিসমাথের রাসায়নিক বৈশিষ্ট্যের অনেকটা মিল থাকলেও বিসমাথের যৌগসমূহ তুলনামূলকভাবে কম বিষাক্ত হয়।",
+      "human": "Arsenic o antimoneyr shathe bismather rasayonik boishisthyer onekta mil thakleo bismather jougoshomuho tulonamulokbhabe kom bishakto hoy."
+    },
+    {
+      "row": 2058,
+      "native": "সে সময়ে শিক্ষার্থীরা শুধু পাঠ্যবই পড়ারই সুযোগ পেত।",
+      "human": "Se shomoye shikkharthira sudhu patthyoboi porari shujog peto."
+    },
+    {
+      "row": 2062,
+      "native": "খুরুশকুল সরকারি প্রাথমিক বিদ্যালয়",
+      "human": "Khurushkul shorkari Pratthamik Bidyaloy"
+    },
+    {
+      "row": 2079,
+      "native": "কিছুদিন পরে গ্ত্সাং-পা রাজবংশ ঙ্গাগ-দ্বাং-র্নাম-র্গ্যালের বিরুদ্ধে এক সৈন্যবাহিনী পাঠান কিন্তু তাঁরা পরাজিত হন।",
+      "human": "Kichudin pore Gtsang-Pa rajbongsho Ngang-Dang-Narm-Rgyaler biruddhe ek soinnobahini pathan kintu tara porajito hon."
+    },
+    {
+      "row": 2121,
+      "native": "১৮৫৯ সালে তাঁকে রাশিয়াতে রাষ্ট্রদূত করে পাঠানো হয়।",
+      "human": "1859 saale take Russiate rastradoot kore pathano hoy."
+    },
+    {
+      "row": 2131,
+      "native": "প্রতীক ব্যবহারের সংগে সংগে অতীত এবং ভবিষ্যতের বোধও জন্ম লাভ করে।",
+      "human": "Pratik byaboharer shonge songe atit ebong bhobisyater bodho jonmo labh kore."
+    },
+    {
+      "row": 2148,
+      "native": "চৌদলের কিনারে পড়ে হীরা লাল মতিরে",
+      "human": "Chowdaler kinare pore Heera lal matire."
+    },
+    {
+      "row": 2193,
+      "native": "পাস করে একযুগেরও বেশি সময় পর আবার গ্রামে আসে বকুল (রিয়াজ)।",
+      "human": "Pass kore ekjugero besi shomoy por abar grame ashe bokul (Riyaj)."
+    },
+    {
+      "row": 2223,
+      "native": "কিন্তু এই ঘাটতি অবশ্যই অন্যান্য উপায়ে পূরণ করতে হবে, সেটা হতে পারে বিদেশী বিনিয়োগ থেকে অর্জিত তহবিলের মাধ্যমে, কেন্দ্রীয় ব্যাংকের বৈদেশিকমুদ্রার রিজার্ভ খরচ করে, অথবা অন্য দেশ থেকে ঋণ গ্রহণ করে ।",
+      "human": "Kintu ei ghatti abosshyoi onnyanyo upaye puron korte hobe, seta hote pare bideshi biniyog theke arjito Tahabiler maddhyome, kendrio banker boideshikmudrar reserve khoroch kore, athaba onno desh theke rin grohon kore."
+    },
+    {
+      "row": 2228,
+      "native": "যদিও মায়ানমারের তুলনায় তারা মালয়েশিয়া ও থাইল্যান্ডের মত দেশে একই রকম নিপীড়িত হয় না, তবে তারা বর্জন ও দারিদ্র্যের শিকার হয়।",
+      "human": "Jodio Myanmarer tulonay tara Malaysia o Thailander moto deshe ei rokom nipirito hoy na, tobe tara borjon o daridrer shikar hoy."
+    },
+    {
+      "row": 2259,
+      "native": "এই অঞ্চলে অতিবৃষ্টি অরণ্য (রেন ফরেস্ট) ও সবসময় আর্দ্র পরিবেশের জন্যই বোধহয় ইনকারা তাদের এমন নামে ডাকত।",
+      "human": "Ai oncholer otibristi arannya (rain forest) o shobshomoy adro poribesher jonnoi bodhoy Inkara tader emon naame dakto."
+    },
+    {
+      "row": 2283,
+      "native": "ঐতিহাসিক জুলিয়ান স্কবার খুব সংক্ষেপে বুদ্ধের \"জীবন্ত\" দ্বৈত মূর্তিকে ঘিরে গড়ে ওঠা কীংবদন্তি ও পূজার উদ্ভব ব্যাখা করেছেন:",
+      "human": "oitihaasik Julian Skobar khub songkepe Buddher \"jibonto\" doito murtike ghire gore utha kingbadanti o pujar udhbhab byakhya korechen."
+    },
+    {
+      "row": 2332,
+      "native": "অনুলিপনের সময় ডিএনএ এর সূত্র দুটির মাঝের হাইড্রোজেন বন্ধন ভেঙ্গে গিয়ে সূত্র দুটি আলাদা হয় এবং প্রতিটি সূত্র তার পরিপূরক হিসেবে নতুন সূত্র সৃষ্টি করে।",
+      "human": "Anuliponer shomoy DNA er sutro dutir majher hydrogen bandhan bhenge giye sutro duti alada hoy ebong protiti sutro tar poripurak hishebe notun sutro sristi kore."
+    },
+    {
+      "row": 2343,
+      "native": "তিনি বাংলা ভাষার অধিকারের জন্য শরৎচন্দ্র সেন এবং গুণেন্দ্রনাথ রায় জাতীয় কংগ্রেস ত্যাগ করে জাতীয়তাবাদী আঞ্চলিক দল লোকসেবক সঙ্ঘ গড়ে তোলেন।",
+      "human": "Tini Bangla bhashar odhikarer jonno Sarathchondro Sen ebong Gunendronath Ray jatio Congress tyag kore jatiotabadi ancholik dal Loksebak shongho gore tolen."
+    },
+    {
+      "row": 2355,
+      "native": "অধ্যক্ষের আবাসিক ভবনও ছিল তিন তলা।",
+      "human": "Addhyakkher abasik bhabano chilo tin tola."
+    },
+    {
+      "row": 2361,
+      "native": "সাধারণভাবে, রোম্যান্স উপন্যাসে সৎ চরিত্রগুলি পায় পুরস্কার ও অসৎ চরিত্রগুলি পায় শাস্তি।",
+      "human": "Shadharonbhabe, romance upponyase sot choritroguli pay Puroskar o asot choritroguli pay shasti."
+    },
+    {
+      "row": 2386,
+      "native": "কলম উচ্চ বিদ্যালয়",
+      "human": "Kalam Uccho Bidyaloy"
+    },
+    {
+      "row": 2415,
+      "native": "বৈলতলী বহুমুখী উচ্চ বিদ্যালয়",
+      "human": "Boilotoli Bohumukhi Uccho Bidyaloy"
+    },
+    {
+      "row": 2416,
+      "native": "পুরুষ সাধারণত স্ত্রীর চেয়ে আকারে বড়।",
+      "human": "Purush shadharonoto streer cheye akare boro."
+    },
+    {
+      "row": 2425,
+      "native": "এই প্রযুক্তিতে কোষের উপাদানগুলো প্রথমে প্রতিপ্রভ করা হয় এবং লেজারের(ইংরেজি: Laser) মাধ্যমে বিভিন্ন তরঙ্গদৈর্ঘ্যের আলোকরশ্মি বিকিরণে তাদের উত্তেজিত করা হয়।",
+      "human": "Ei projuktite kosher upadangulo prothome protiprobho kora hoy ebong laser-er(Ingreji: Laser) madhyome bibhinno toronggodoirgher alokrosmi bikirone tader uttejito kora hoy."
+    },
+    {
+      "row": 2445,
+      "native": "এই উপনিষদ্‌টির রচনাকাল সঠিক জানা না গেলেও গবেষকদের মতে, এটি রচিত হয়েছিল আনুমানিক খ্রিস্টপূর্ব ৬ষ্ঠ বা ৫ম শতাব্দী নাগাদ।",
+      "human": "Ei uponishodtir rochonakaal shothik jana na geleo gobeshokder mote, eti rochito hoyechilo anumanik Christopurbo 6shtho ba 5m shotabdi nagad."
+    },
+    {
+      "row": 2448,
+      "native": "একসময় নৌকা যোগে চট্টগ্রাম শহর হতে মালামাল আনা নেয়ার জন্য হালদা নদী নৌ-পথ হিসেবে ব্যবহৃত হতো।",
+      "human": "Ekshomoy nouka joge Chattagram shohor hote malamal ana neyar jonno Halda nodi nou-path hishebe byabohrito hoto."
+    },
+    {
+      "row": 2467,
+      "native": "কোরিওলেনাস উইলিয়াম শেকসপিয়র রচিত একটি শেকসপিয়রীয় ট্র্যাজেডি।",
+      "human": "Koriolenash William Shekspears rochitoa ekti Shekspear Tragedy."
+    },
+    {
+      "row": 2472,
+      "native": "বাংলার বার ভুইঁয়াদের অন্যতম স্বাধীনতাকামী ঈসা খাঁ এ অঞ্চলে অবস্থানকালে বাইশপুর সমন্বয়ে ঐতিহাসিক ‘ইছাপুর পরগনা’ গঠন করেন।",
+      "human": "Banglar bar bhuyander onnyotomo shadhinotakami Isa Khan e onchole obosthankale Baishpur somonnoye oitihaasik 'Ichapur Pargana' gothon koren."
+    },
+    {
+      "row": 2520,
+      "native": "যেমন,একজন ব্যক্তি কোন অঙ্গকে অন্য কোন অঙ্গের অবস্থান সাপেক্ষে \"অ্যান্টেরিওর\" বা \"পোস্টেরিয়র\" বলে ব্যাখ্যা করতে পারেন।",
+      "human": "Jemon, akjon byekti kono ongoke onno kono onger obosthan sapekkhe \"anterior\" ba \"posterior\" bole byakkha korte paren."
+    },
+    {
+      "row": 2526,
+      "native": "তারপর ধরা দিয়ে রাবণের সম্মুখে উপস্থিত হলেন।",
+      "human": "Tarpor dhora diye Raboner shommukhe uposthit holen."
+    },
+    {
+      "row": 2541,
+      "native": "স্বাভাবিকভাবে এ সৌন্দর্যের লীলাভূমি বাংলাদেশে পর্যটন শিল্প উন্নয়নের সম্ভাবনা অপরিসীম।",
+      "human": "Shabhabikbhabe a soundorjer lilabhumi Bangladeshe parjatan shilpo unnoyoner shombhabona aparishim."
+    },
+    {
+      "row": 2543,
+      "native": "গ্রনোবল ইজের বিভাগের রাজধানী, শহরটি ফ্রান্সের রোন-আল্পস্ অঞ্চলে অবস্থিত।",
+      "human": "Grenobol Izer bibhager rajdhani, Shaharti France-er Ron-Alps anchale obosthit."
+    },
+    {
+      "row": 2544,
+      "native": "২০০৯ সালের লোকসভা নির্বাচনে বিরোধীরা রাজ্যের ৩৩ বছরের বামফ্রন্ট শাসনের ইতিহাসে প্রথম শাসকদলকে লোকসভা নির্বাচনে পরাজিত করে।",
+      "human": "2009 saaler Lokshobha nirbachone birodhira rajyer 33 bachorer Bamfront Sashoner itihaase prothom shashokdalke Lokshobha nirbachone porajito kore."
+    },
+    {
+      "row": 2583,
+      "native": "খ) আবার যদি এই ঘনককে অন্য একটি ঘনক স্পর্শ করে থাকে।",
+      "human": "kho) Abar jodi ei ghonokke onno ekti ghonok sporsho kore theke."
+    },
+    {
+      "row": 2589,
+      "native": "তবে অ্যালেন ইতঃপূর্বে পিডিপি-১০ টাইম-শেয়ারিং কম্পিউটারে চালানো ট্রাফ-ও-ডাটা প্রোগ্রামটির জন্য একটি ইন্টেল ৮০০৮ এমুলেটর রচনা করেছিলেন।",
+      "human": "Tabe Alen itipurbe PDP-10 time-sharing computere chalano Traf-o- data programme-tir jonno ekti Intel-8008 Amulater rachana korechilen"
+    },
+    {
+      "row": 2591,
+      "native": "শহীদ সকিম উদ্দিনের সমাধি সংরক্ষিত।",
+      "human": "Sahid Sakim Uddiner somadhi songrokkhita"
+    },
+    {
+      "row": 2593,
+      "native": "হিন্দু ও শিখরা ভারতে এবং পাকিস্তানে মুসলমানরা স্থানান্তরিত হয়।",
+      "human": "Hindu o Sikhra Bharote Ebong Pakistane Musolmanra sthnantorito hoy."
+    },
+    {
+      "row": 2597,
+      "native": "তাদের একমাত্র পুত্র ডানকানের জন্ম হয় ১৯৫৬ সালে প্যারিসে।",
+      "human": "Tader Ekmatro putro Duncaner jonmo hoy 1956 saale Parise."
+    },
+    {
+      "row": 2618,
+      "native": "অমিল ঠেকাতে বিপরীতমুখী হয়ে ভাসা নৌকা দুটি টেনে একত্র করে তার নিচ থেকে কলসি ভরে জল এনে নবদম্পতিকে স্নান করিয়ে দেয়া হয়।",
+      "human": "Amil thekate biporitmukhi hoye bhasha noka duti tene ektra kore tar nich theke kolsi bhare jol ene nabadompotike snan koriye dekha hoy."
+    },
+    {
+      "row": 2630,
+      "native": "কোড স্মেল গুলো সফটওয়্যার ডেভেলপমেন্টকে ধীর করে দেয় এবং ভবিষ্যতে বাগ আসার বা নতুন সমস্যা হওয়ার সম্ভাবনা রেখে দেয়।",
+      "human": "Code smell gulo software developmentke dheer kore dey ebong bhbishyote bag asar ba notun samassa howyar samvabana rekhe dey."
+    },
+    {
+      "row": 2634,
+      "native": "ব্রাহ্মণবাড়িয়া দখলের পর পাকিস্তান সেনাবাহিনী ২১ এপ্রিল শাহবাজপুরের দিকে অগ্রসর হয়।",
+      "human": "Branmonbariya dokholer por Pakistan senabahini 21 April sahobajpurer dike ogrosor hoy."
+    },
+    {
+      "row": 2639,
+      "native": "২০০৩ সালে বাংলাদেশ টেলিভিশনের জন্য তিনি নির্মাণ করেন নাটক ‘ফুল ফুটে ফুল ঝরে’।",
+      "human": "2003 saale Banglades telivition jonno tini nirman koren natak 'full fute full jore'."
+    },
+    {
+      "row": 2709,
+      "native": "৬১৩ সালে ইহুদিদের হেরাক্লিয়াসের বিরুদ্ধে বিদ্রোহের পর ৬১৪ সালে সাসানীয়রা জেরুজালেম দখল করে নেয় এবং এখানে ইহুদি স্বায়ত্তশাসন প্রতিষ্ঠিত হয়।",
+      "human": "613 saale Ehudider Herakliyaser biruddhe bidroher por 614 saale sasaniyara Jerujalem dakahl kore dey ebong ekhane Ehudi sahottosashon pratishita hoy."
+    },
+    {
+      "row": 2767,
+      "native": "র‍্যামন, তরুণাবস্থায় এবং ম্যাজোর্কার রাজার প্রতি অনুগত থাকার সময় বেশকিছু অর্থহীন গান ও কবিতা রচনা করেন এবং আরো অনেক লম্পটের মত কাজ করেন।",
+      "human": "Ramon, torunabosthay ebong Majorkar rajar proti onugoto thakar somoy beshkichu orthohin gan o kobita rochona koren ebong aro onek lompoter moto kaj koren."
+    },
+    {
+      "row": 2778,
+      "native": "পেনেট্রেশন টেস্ট পূর্ণ সিকিউরিটি অডিটের একটি অংশ।",
+      "human": "Panetration test purno Sicurity oditer ekti ongso."
+    },
+    {
+      "row": 2816,
+      "native": "সৌদি আরবের উত্তরে যে সব দেশে স্থলপথে ইসলাম প্রবেশ করেছিল সে সব দেশে এই মাযহাব প্রচলিত।",
+      "human": "Saudi Araber uttare je sob deshe sthalpothe Islam prabeshe korechilo se sob deshe ei Majhab prachalit."
+    },
+    {
+      "row": 2835,
+      "native": "এছাড়াও, ব্যাটিংরত দল সময় নষ্ট করলে আম্পায়ার অতিরিক্ত সময় যুক্ত করবেন।",
+      "human": "Echarao, Batingroto dal shomoy nosto korle umpire atirikta shomoy jukto korben."
+    },
+    {
+      "row": 2842,
+      "native": "কোনো কারণে বিবাহ বিচ্ছেদ ঘটলে স্বামীর দেয়া সব জিনিসপত্র ফেরত পান তিনি, তেমনি স্ত্রীর গয়নাপাতিও বাবার বাড়িতে ফেরত নিতে পারেন।",
+      "human": "Kono karone bibaho bicched ghotle shamir deya sob jinishpotro pherot pan tini, temoni strir goynapatio babar barite pherot nite paren."
+    },
+    {
+      "row": 2871,
+      "native": "এর পরবর্তী দিনেই এই দুই দেশের মধ্যে স্বাস্থ্যসেবা সংক্রান্ত একটি সমঝোতা স্মারক সাক্ষরিত হয়।",
+      "human": "Er parabarti dinei ei dui desher moddhe sasthoseba songkranto ekti samjhota smarok sakkharita hoy."
+    },
+    {
+      "row": 2907,
+      "native": "আর প্যান অ্যামও প্রানপণে চেষ্টা করে রানওয়ে থেকে সরে যেতে।",
+      "human": "Ar Pan Am-o pranpone chesta kore runway theke sore jete."
+    },
+    {
+      "row": 2911,
+      "native": "এছাড়াও চা সম্পর্কিত অগ্রদূত যারা উজি শিল্পের চা শিল্পের উন্নয়নে অবদান রেখেছে তাদেরও আত্নার শান্তি কামনা ও শ্রদ্ধা প্রকারঠ করা হয়।",
+      "human": "Echarao cha somporkito ogrodut jara uji silper cha silper unnoyoner obodan rekheche tadero attar santi kamona o sroddha prokaroth kora hoy."
+    },
+    {
+      "row": 2961,
+      "native": "এতে প্রধান তিনটি ভূমিকায় অভিনয় করেছেন যথাক্রমে সঞ্জয় দত্ত, জ্যাকি শ্রফ ও মাধুরী দীক্ষিত।",
+      "human": "Ete prodhan tinti bhumikay obhinoy korechen jothakrome sanjay dutt, jackey shroff o madhuri dixit."
+    },
+    {
+      "row": 2967,
+      "native": "অক্টোবর ৮: নেলসন রিডল, মার্কিন ব্যান্ড প্রধান।",
+      "human": "October 8: nelson riddle, markin band prodhan."
+    },
+    {
+      "row": 2972,
+      "native": "এরপর পর্যায়ক্রমে তিনি কলকাতা ইসলামিয়া কলেজে এবং ১৯৫২ সাল পর্যন্ত ঢাকা কলেজে কর্মরত ছিলেন।",
+      "human": "Erpor porjaykrome tini kolkata-y islamia college-e ebong 1952 saal porjonto dhaka college-e kormoroto chilen."
+    },
+    {
+      "row": 2979,
+      "native": "শিক্ষার্থীদের মনোনশীলতার উন্নয়নসহ ডিজিটাল বাংলাদেশ গড়ার কাজে সহায়তা করা।",
+      "human": "Shikkharthider mononshilotar unnoyonsoho digital Bangladesh gorar kaje sohayota kora."
+    },
+    {
+      "row": 2982,
+      "native": "তুঁতচলদের প্রায় সর্বত্র দেখতে পাওয়া গেলেও এদের প্রাচুর্য কোনোখানেই খুব বেশি নয়।",
+      "human": "Tutchalder pray sorbotro dekhte paowa geleo eder prachurjo konokhanei khub beshi noy."
+    },
+    {
+      "row": 2985,
+      "native": "চট্টগ্রামের বিয়ে সাধারণত হয় বেশ আড়ম্বরপূর্ণ।",
+      "human": "Chottogram-er biye sadharonoto hoy besh arombworpurno."
+    },
+    {
+      "row": 2990,
+      "native": "এই রাউন্ড এ সবাইকে ৬ টি প্রশ্ন করা হয়ে থাকে।",
+      "human": "Ei round e sobaike 6 ti proshno kora hoye thake."
+    },
+    {
+      "row": 3021,
+      "native": "সিঙ্গাপুরের দাতব্য সংস্থাগুলোকে অবশ্যই মিনিস্ট্রি অফ কমিউনিটি ডেভেলপমেন্ট, ইয়ুথ অ্যান্ড স্পোর্টস-এর চ্যারিটিজ ডিরেক্টরেট-এ নিবন্ধিত হতে হবে।",
+      "human": "Singapore-er datobyo songstaguloke oboshyoi ministry of community development, youth and sports-er charity's directoriate-e nibondhito hote hobe."
+    },
+    {
+      "row": 3041,
+      "native": "সুরেন্দ্রনাথ ব্যানার্জী‌র দ্য বেঙ্গলি পত্রিকায় আবুল কাসেম জীবনের প্রথমদিকে সহকারী সম্পাদক হিসেবে কাজ করেছেন।",
+      "human": "Surendranath banerjee-r the bengali potrikay abul kasim jiboner prothomdike sohokari sompadok hishebe kaj korechen."
+    },
+    {
+      "row": 3071,
+      "native": "সেমিনার,ওয়ার্কশপ,বির্তক প্রতিযোগীতা ইত্যাদি।",
+      "human": "Seminar, workshop, bitorko protijogita ityadi."
+    },
+    {
+      "row": 3075,
+      "native": "তিনি পাবনা সেন্ট্রাল গার্লস স্কুলের প্রধান শিক্ষক ছিলেন।",
+      "human": "Tini pabna central girls school-er prodhan shikkhok chilen."
+    },
+    {
+      "row": 3108,
+      "native": "বাংলাদেশের মুক্তিযুদ্ধের পর টিম জাতিসংঘ, ইউএসএইড, সিওআরআর (দ্য খ্রিস্টিয়ান অর্গানাইজেশন ফর রিলিফ অ্যান্ড রিহ্যাবিলিটেশন পরবর্তীতে কারিতাস) এবং ক্যাথোলিক রিলিফ সার্ভিসেস-এর সাথে একযোগে সক্রিয়ভাবে নবজাত রাষ্ট্র পুনর্গঠনে অংশ নেন।",
+      "human": "Bangladesh-er muktijuddher por team Jatisongho, US-aid, CORR (The Christian Organization for Relief and Rehabilitation porobortite Caritas) ebong Catholic relief services-er shathe ekjoge sokriyobhabe nobojato rashtro punorgothone ongsho nen."
+    },
+    {
+      "row": 3118,
+      "native": "এ অবস্থায় রোগীদের নানা রকম রোগ হয়।",
+      "human": "E obosthay rogider nana rokom rog hoy."
+    },
+    {
+      "row": 3121,
+      "native": "আইসিসি বলতে নিচের বিষয়গুলি নির্দেশ করতে পারে:",
+      "human": "Icc bolte nicher bishoyguli nirdesh korte pare:"
+    },
+    {
+      "row": 3129,
+      "native": "চীনের উত্তর অংশের অর্থনীতি এই বন্দরের উপর অনেক অংশেই নির্ভরশীল।",
+      "human": "Chin-er uttor ongsher orthoniti ei bondorer upor onek ongshei nirbhorshil."
+    },
+    {
+      "row": 3172,
+      "native": "পত্রিকা অচল হয়ে পড়ে।",
+      "human": "Potrika ochol hoye pore."
+    },
+    {
+      "row": 3222,
+      "native": "পশ্চিমাঞ্চলীয় সবুজ মাম্বা নামটির পাশাপাশি এই সর্প প্রজাতি ওয়েস্ট আফ্রিকান গ্রিন মাম্বা বা হ্যালোওয়েলস গ্রিন মাম্বা নামেও পরিচিত।",
+      "human": "Poshcimancholiyo sobuj mamba naam-tir pashapashi ei sorpo projati west african green mamba ba halowwels green mamba naam-eo porichito."
+    },
+    {
+      "row": 3252,
+      "native": "বুসান নগরীর পূর্বে প্রায় দেড় কিলোমিটার দীর্ঘ এই সৈকতটি হেউন্দে অঞ্চলে অবস্থিত।",
+      "human": "Busan nogori-r purbe pray der kilometre dirgho ei soikot-ti heund onchole obosthit."
+    },
+    {
+      "row": 3273,
+      "native": "পরবর্তীকালে প্লটসংগঠনে জটিলতা ও চরিত্রচিত্রণে বাস্তবতাবোধ বৃদ্ধি পাওয়ার সঙ্গে সঙ্গে সমসাময়িক রোম্যান্স ও মেয়েলি কথাসাহিত্যের মধ্যবর্তী সীমারেখাটি ক্ষীণ হয়ে আসে।",
+      "human": "Porobortikale plot-songothone jotilota o chorotrochitrone bastobotabodh briddhi paowar songe songe somosamoyik romance o meyeli kothasahityer modhyborti simarekhati khino hoye ase."
+    },
+    {
+      "row": 3307,
+      "native": "হাদিস সংকলনটি \"আল-জামি\" নামে পরিচিত।",
+      "human": "Hadis sonkolonti \"al-zami\" naam-e porichito."
+    },
+    {
+      "row": 3388,
+      "native": "শুধু উপমহাদেশের বিভিন্ন স্থান থেকেই নয়, চীন, তিব্বত, মায়ানমার ( তদানীন্তন ব্রহ্মদেশ), মালয়েশিয়া, ইন্দোনেশিয়া প্রভৃতি দেশের বৌদ্ধরা এখানে ধর্মচর্চা ও ধর্মজ্ঞান অর্জন করতে আসতেন।",
+      "human": "Shudhu upomohadesher bibhinno sthan thekei noy, Chin, Tibet,. Myanmar (todanontin brahmodesh), Malayesia, Indonesia probhriti desher bouddhora ekhane dharmocorcha o dharmogyan orjon korte asten."
+    },
+    {
+      "row": 3409,
+      "native": "এটা টেকা, টেক্কা নামেও পরিচিত।",
+      "human": "Eta teka, tekka naam-eo porichito."
+    },
+    {
+      "row": 3457,
+      "native": "তিনি ১৯৯৬ সনে ভারতের আসাম রাজ্যে বিষ্ণুপ্রিয়া মণিপুরী ভাষা স্বীকৃতির আন্দোলনে শহীদ হন।",
+      "human": "Tini 1916 son-e bharoter assam rajye bishnupriya manipuri bhasa swikritir andolon-e shohid hon."
+    },
+    {
+      "row": 3458,
+      "native": "কোন কোণ দেয়া থাকলে ঐ কোণের তিনগুণ কোণ ত্রিখন্ডিত হয়।",
+      "human": "Kono kon dewa thakle oi kon-er tingul kon trikhondito hoy."
+    },
+    {
+      "row": 3461,
+      "native": "১৯৮৮ সালের শুরুতে, প্রজনন ও জেনেটিক ইঞ্জিনিয়ারিংয়ের আনা গোল্ডম্যান-আমিরভ হাজেরার কথা লিখেছেন \"বাইবেলের 'গর্ভ যুদ্ধ' [যা] মূলত পিতৃতান্ত্রিক সমাজে নারী, উর্বরতা ও যৌনতা সম্পর্কিত দৃষ্টিভঙ্গি প্রদান করে\"।",
+      "human": "1988 sal-er shurute projonon o genetic engineering-er ana goldman-amirov hajera-r katha likhechen bible-er 'gorbho juddho' [ja] muloto pitritantrik somaj-e nari, urborota o jounota somporkito drishtibhongi prodan kore\"."
+    },
+    {
+      "row": 3502,
+      "native": "উইকেট-রক্ষক ও বামহাতি ব্যাটসম্যান ডাকেটের প্রতিভা ধরা পড়ে ২০১৪ সালের অনূর্ধ্ব-১৯ ক্রিকেট বিশ্বকাপের মাধ্যমে।",
+      "human": "Wicket-rokkhok o bamhati batsman dacket-er protibha dhora pore 2014 sal-er onurdho-19 cricket bishwo-cup-er somoy."
+    },
+    {
+      "row": 3509,
+      "native": "অভ্যন্তরীণ ঘূর্ণন(বা মিডিয়াল রোটেশন) এবং বহিঃস্থ ঘূর্ণন(বা ল্যাটেরাল রোটেশন) বলতে কোন অংশকে শরীর থেকে দূরে (বহিঃস্থ) বা কাছে(অভ্যন্তরীণ) ঘূর্ণনকে বুঝায়।",
+      "human": "Obhyontorin ghurnon (ba medial rotation) ebong bhistho ghurnon (ba lateral rotation) bolte kono ongshoke shorir theke dure (bohistho) ba kache (abhyontorin) ghurnonke bojhay."
+    },
+    {
+      "row": 3553,
+      "native": "মূককীট এর বর্ন ফ্যাকাশে পান্না সবুজ এবং তাতে সোনালি ঘেঁষা হলুদ রঙের দাগ দেখা যায়।",
+      "human": "Mukkit er borno phyakashe panna sobuj ebong tate sonali ghesha holud rong-er dag dekha jay."
+    },
+    {
+      "row": 3581,
+      "native": "যুক্তরাষ্টের স্বাধীনতার ঘোষণা পত্র ছিল প্রকল্পের প্রথম ডিজিটাল বই।",
+      "human": "Juktorashtrer shadhinotar ghoshona potro chilo prokolper prothom digital boi."
+    },
+    {
+      "row": 3598,
+      "native": "লাঙল তৈরী হরা হয় প্রধানত কাঠ দিয়ে।",
+      "human": "Langol toiri kora hoy prodhanoto kath diye."
+    },
+    {
+      "row": 3628,
+      "native": "ভারতীয় নৌবাহিনী পশ্চিম পাকিস্তানে দুটি বড় মাপের অপারেশন, অপারেশন ট্রাইন্ড এবং অপারেশন পাইথন পরিচালনা করে।",
+      "human": "Bharotiyo noubahini poshchim pakisthane duti boro maper operation, operation trained ebong operation python porichalona kore"
+    },
+    {
+      "row": 3644,
+      "native": "অক্টোবর, ২০০৬ সালের নির্বাচনে তৎকালীন রাষ্ট্রপতি লেভি মোনাওয়াসা’র প্রবল প্রতিপক্ষরূপে আবির্ভূত হন।",
+      "human": "October, 2006 saaler nirbachone totkalin rashtropoti Levi Monawasa-r probol protipokkhorupe abhirbhuto hon."
+    },
+    {
+      "row": 3650,
+      "native": "প্রথম জীবনে ভারতীয় গণনাট্য সংঘ বা আই পি টি এ তে যোগ দেন ও পরে লিটল থিয়েটার গ্রুপে চলে আসেন।",
+      "human": "Prothom jibone bharotiyo gononatto shongo ba aai pi ti e te jog den o pore little theatre groupe chole aashen."
+    },
+    {
+      "row": 3696,
+      "native": "সকল প্রকার মাম্বা বর্গীয় সাপের মত পশ্চিমাঞ্চলীয় সবুজ মাম্বা হল এলাপিড পরিবারভুক্ত অন্যতম ভয়ানক বিষধর সাপ।",
+      "human": "Shokol prokar Mamba borgiyo saaper moto poschimancholiyo shobuj Mamba holo Elapid poribarbhukto onnyotomo bhoyanok bishodhor saap."
+    },
+    {
+      "row": 3711,
+      "native": "তবে প্রাতিষ্ঠানিক উচ্চশিক্ষা লাভ করা সম্ভব না হলেও নিজ চেষ্টায় তিনি দেশ-বিদেশের সাহিত্য ও অন্যান্য বিষয়ে গভীর পাণ্ডিত্য অর্জন করেন।",
+      "human": "Tobe protishthanik ucchoshikkha labh kora sombhob na holeo nij cheshtay tini desh-bidesher sahityo o onyanyo bishoye gobhir pandityo orjon koren."
+    },
+    {
+      "row": 3737,
+      "native": "১৮৭৬ মৌসুমের শেষদিকে জেমস লিলিহোয়াইট জুনিয়রের দলে অস্ট্রেলিয়া সফরে যান পাঁচ ফুট সাড়ে ছয় ইঞ্চি উচ্চতার অধিকার শ।",
+      "human": "1876 mousumer sehshdike james lillywhite junior-er dole australia sophore jan pach foot sare choy ich ucchotar odhikar sho."
+    },
+    {
+      "row": 3757,
+      "native": "নায়িকা চরিত্রে ছিলেন চট্টগ্রামের পূর্ণিমা সেন।",
+      "human": "Nayika choritre chilen chottogram-er purnima sen."
+    },
+    {
+      "row": 3763,
+      "native": "বিঃদ্রঃ এই বৈশিষ্ট্য আঞ্চলিক: সেখানে আরও পৃষ্ঠতল থাকতে পারে যেগুলো নূন্যতম এলাকা অনুরূপ বিশ্বব্যাপী পরিধির সাথে।",
+      "human": "Bihdroh ei boishishtyo ancholik: sekhane aro prishthotol thakte pare jegulo nunyotomo elaka onurup bishyobyapi poridhir sathe."
+    },
+    {
+      "row": 3772,
+      "native": "একজন দাঈ হচ্ছেন একজন মুসলমান ধর্মপ্রচারক যিঁনি ইসলামকে বোঝার জন্য আমন্ত্রণ জানান সংলাপের মাধ্যমে আহ্বান করছেন ইসলামিক জীবনের দৃঢ় বিশ্বাস (ঈমান), প্রার্থনা এবং সৌজন্যের (আদব-কায়দা) প্রতি ।",
+      "human": "Ekjon dai hocchen ekjon musholman dhormoprocharok jini islam-ke bojhar jonyo amontron janan songlap-er madhyome aobhan korchen islamic jiboner driro bishwas (iman), prarthona ebong soijonyer (adob-kayeda) proti."
+    },
+    {
+      "row": 3800,
+      "native": "গত একশ বছরে প্রস্তাবিত অনেক অনুমানের কোনটিই এখনো স্বাধীনভাবে যাচাই করা হয়নি।",
+      "human": "Goto aksho bochore prostabito onek onumaner konoti-e akhono swadhinbhabe jachai kora hoyni."
+    },
+    {
+      "row": 3829,
+      "native": "পশ্চিমাঞ্চলীয় সবুজ মাম্বা অতি দীর্ঘকায় ও মুখ্যতঃ বৃক্ষবাসী।",
+      "human": "Poshchimancholiyo sobuj mamba oti dirghokay o mukhyotoh brikkhobasi."
+    },
+    {
+      "row": 3838,
+      "native": "দূরবীক্ষণ মণ্ডলের তারাসমূহের তালিকা",
+      "human": "Durobikkhon mondoler tarasomuher talika"
+    },
+    {
+      "row": 3870,
+      "native": "তাদের স্মৃতি-বিজড়িত শিলচর রেলস্টেশনটির বর্তমান নামকরণ করা হয়েছে \"ভাষা শহিদ স্টেশন, শিলচর\"।",
+      "human": "Tader smriti-bijoyrito silchar railstation-tir bortoman namkoron kora hoyeche \"bhasha shahid station, silchar\"."
+    },
+    {
+      "row": 3877,
+      "native": "মস্তকের উপরি ভাগের বর্ণবিন্যাস পৃষ্ঠদেশেরই অনুরূপ অথবা সামান্য কালচে সবুজ।",
+      "human": "Mostoker upori bhager bornobinyas prishodesheri onurup othoba samanyo kalche sobuj."
+    },
+    {
+      "row": 3921,
+      "native": "শব্দ গঠনের উদ্দেশ্যে শব্দ বা নাম প্রকৃতির এবং ক্রিয়া প্রকৃতির পরে যে শব্দাংশ যুক্ত হয় তাকে প্রত্যয় বলে।",
+      "human": "Shobdo gothoner uddeshye shobdo ba naam prokritir ebong kriya prokritir pore je shobdangsho jukto hoy take protyoy bole."
+    },
+    {
+      "row": 3946,
+      "native": "এটি বর্তমানে ১০৩টি ভাষায় উপলদ্ধ।",
+      "human": "Eti bartomane 103ti bhasay upolobdho."
+    },
+    {
+      "row": 3981,
+      "native": "এই আদর্শের উপর জোর দিয়েছিলেন।",
+      "human": "Ei adorsher upor jor diechilen."
+    },
+    {
+      "row": 4008,
+      "native": "বনানী চৌধুরীর পিতার নাম আফসার উদ্দিন।",
+      "human": "Bonani Choudhury-er pitar naam Afsar Uddin."
+    },
+    {
+      "row": 4034,
+      "native": "১৪ বছর এই পত্রিকা নিয়মিত প্রকাশিত হয়।",
+      "human": "14 bachor ei potrika niyomito prokashito hoy."
+    },
+    {
+      "row": 4035,
+      "native": "ফ্লিকারে পুনাখা জং এর ছবি",
+      "human": "Flikr-e Punakha Jong er chobi."
+    },
+    {
+      "row": 4038,
+      "native": "১৯৪২ সালে রাণী হেমন্তকুমারী দেবীর মৃত্যু সংস্কৃত কলেজ এর জন্য এক বিরাট আর্থিক বিপর্যয় ডেকে আনে।",
+      "human": "1942 saale Rani Hemantakumari Debir mrityu Sanskrit College er jonno ak birat arthik biporjoy deke ane."
+    },
+    {
+      "row": 4046,
+      "native": "একই সাথে তারা রেকর্ড পরিমাণ ১১ বার বেলজীয় কাপ এবং ১৫ বার বেলজীয় সুপারকাপ জয়লাভ করেছে।",
+      "human": "Aki shathe tara record poriman 11 bar Belgio Cup ebong 15 bar Belgio Supercup joylabh koreche."
+    },
+    {
+      "row": 4071,
+      "native": "হাই নদী বা হাওয়া নদী বাংলাদেশের উত্তর-কেন্দ্রীয় অঞ্চলের টাঙ্গাইল জেলার একটি নদী।",
+      "human": "Hai nodi ba Hawa nodi Bangladesher uttor-kendriyo oncholer Tangail jelar ekti nodi."
+    },
+    {
+      "row": 4082,
+      "native": "আবার ফার্মাকোলজিতে ঔষধ এমন রাসায়নিক দ্রব্য যা প্রাণিদেহের অথবা কলার জৈবরাসায়নিক এবং শারীরিক প্রক্রিয়াকে পরিবর্তন করতে সক্ষম।",
+      "human": "Abar pharmacology-te oushodh emon rasayonik drobyo ja pranideher othoba kolar joiborasayonik ebong sharirik prokriyake poriborton korte shokkhom."
+    },
+    {
+      "row": 4083,
+      "native": "দক্ষিণ আফ্রিকা জাতীয় ক্রিকেট দল",
+      "human": "Dokkhin Africa jatiyo criket dal."
+    },
+    {
+      "row": 4102,
+      "native": "বাংলাদেশ জাতীয় ক্রিকেট দল",
+      "human": "Bangladesh jatiyo cricket dal."
+    },
+    {
+      "row": 4139,
+      "native": "নবগঠিত লিবারেল রিপাবলিকান পার্টি দেশজুড়ে সাফল্য লাভ করে।",
+      "human": "Nabogothito Liberal Republican Party deshjure safolyo labh kore."
+    },
+    {
+      "row": 4170,
+      "native": "হোম্বে তার এই শিক্ষায় জোসেফ-লুইস ল্যাগ্রাঞ্জ থেকে অনুপ্রেরণা পেয়েছিলেন।",
+      "human": "Hombe tar ei shikkhay Joseph-Luis Legrange theke onuprerona peyechilen."
+    },
+    {
+      "row": 4171,
+      "native": "ঘরোয়া ক্রিকেটে মোরাতুয়া স্পোর্টস ক্লাব ও নন্দেস্ক্রিপ্টস ক্রিকেট ক্লাব, শ্রীলঙ্কা কোল্টস একাদশ, গালে ডিস্ট্রিক্টস ক্রিকেট অ্যাসোসিয়েশন আমন্ত্রিত একাদশের প্রতিনিধিত্ব করেছেন তিনি।",
+      "human": "Ghoroa cricket-e Moratua Sports Club o Nondescripts Cricket Club, Srilanka Colts ekadosh, Gale Districts Cricket Association, amontrito ekadosher protinidhitwo korechen tini."
+    },
+    {
+      "row": 4172,
+      "native": "ভারতীয় চলচ্চিত্র অঙ্গনে অশোক কুমার নিজেকে কিংবদন্তিতে পরিণত করেছেন।",
+      "human": "Bharotiyo chalacchitro ongone Ashok Kumar nijeke kingbodontite porinato korechen."
+    },
+    {
+      "row": 4177,
+      "native": "ইসলামী আইন অনুসারে কোনো পুরুষ তার স্ত্রীকে একত্রে কিংবা বিভিন্ন সময়ে মোট তিনটি তালাক দিয়ে দিলে সেই স্ত্রী তার জন্য হারাম বা নিষিদ্ধ হয়ে যান এবং স্বামীকে যাবতীয় দেনমোহর আদায় করে দিতে হয়।",
+      "human": "Islami ain onusare kono purush tar stree-ke ekotre kingba bibhinno shomoye mot tinti talak diye dile sei stree tar jonno haram ba nishiddho hoye jan ebong shamike jabotiyo denmohor aday kore dite hoy."
+    },
+    {
+      "row": 4178,
+      "native": "এ সময়টিকে চৈনিক সভ্যতার অন্যতম উচ্চতম শিখর হিসেবে বিবেচনা করা হয়।",
+      "human": "E shomoytike choinik sobhyotar onnotamo ucchotomo shikhor hishebe bibechona kora hoy."
+    },
+    {
+      "row": 4193,
+      "native": "প্রথম আট টেস্টের ৭টিতেই তাঁর অংশগ্রহণ ছিল।",
+      "human": "Prothom aat test-er 7titei tar ongshogrohon chilo."
+    },
+    {
+      "row": 4200,
+      "native": "সাৎসুকির চার বৎসর বয়সী বোন।",
+      "human": "Satsuki-r char batsor boyoshi bon."
+    },
+    {
+      "row": 4231,
+      "native": "অ্যাক্সেস কন্ট্রোল, (ইংরেজি:Access Control) কোনো সংরক্ষণ ডিভাইস এর সাথে কোনো এপ্লিকেশন প্রোগ্রাম বা ব্যাক্তির তথ্য আদান প্রদান এর সীমাবদ্ধতা,সংজ্ঞা এবং পরিসীমা নির্ধারনের কৌশল।",
+      "human": "Access Control; (ingrejite: Access Control) kono songrakkhon device-er shathe kono application programme ba byektir tottho adan prodan er simaboddhota, songya ebong porisima nirdharoner koushal."
+    },
+    {
+      "row": 4233,
+      "native": "-বাংলাদেশের প্রথম ত্রয়ী টেস্টটিউব বেবী",
+      "human": "Bangladesher prothom troyi test-tube baby."
+    },
+    {
+      "row": 4251,
+      "native": "এসব ক্যাটালগে প্রচুর জীব সম্পর্কে সামগ্রিক বর্ণনা এবং নতুন নতুন প্রজাতি সম্পর্কিত বর্ণনা ছিল।",
+      "human": "Asob catalogue-e prochur jib shomporke samogrik bornona abong notun notun projati shomporkito bornona chilo."
+    },
+    {
+      "row": 4259,
+      "native": "আফজাল খানকে বন্দী করা হয় এবং দক্ষিণ আফগানিস্তানে বিদ্রোহ দেখা দেয়।",
+      "human": "Afjal khan-ke bondhi kora hoy abong dokhin Afghanistane bidhroho dekha dey."
+    },
+    {
+      "row": 4267,
+      "native": "শিখ বিচ্ছিন্নতাবাদীরা দাবী করেন যে শিখরা বরাবরই একটি পৃথক ও সার্বভৌম জাতি ছিল, এবং দক্ষিণ এশিয়ার শিখ অধ্যুষিত এলাকাগুলো দ্বিতীয় ইঙ্গ-শিখ যুদ্ধে ব্রিটিশদের কাছে পরাজিত হবার পূর্ব পর্যন্ত বহু শতাব্দী ধরে স্বাধীন ছিল।",
+      "human": "Shikh bicchinnobadira dabi koren je shikra borabori ekti prithok o sarbobhoumo jati chilo, abong dokkhin asiar shik. Adhyushito elakagulo dwitiyo engo-shik judhe britisder kache porajito hobar purbo porjonto bohu satabdi dhore shadhin chilo."
+    },
+    {
+      "row": 4274,
+      "native": "চিন্নাস্বামী স্টেডিয়ামে অনুষ্ঠিত সিরিজের দ্বিতীয় টেস্টে নিজস্ব সেরা বোলিং পরিসংখ্যান ৫/১২৬ লাভ করেন।",
+      "human": "Chinnaswami stadium-e onushthito serise-er dwitiyo test-e nijossho shera bowling porisonkhyan 5/126 labh koren."
+    },
+    {
+      "row": 4293,
+      "native": "অধ্যাপক হাসান চিকিৎসক হিসাবে বঙ্গবন্ধু চিকিৎসা বিশ্ববিদ্যালয়ে কর্মরত।",
+      "human": "Aadhapok Hasan chikitshok hishabe bangobandhu chikitsa bishobidhyaloye kormoroto."
+    },
+    {
+      "row": 4308,
+      "native": "তিনি সীতাকে রামের কাছে ফিরিয়ে নিয়ে যেতে চাইলেন।",
+      "human": "Tini Sitake Ramer kache feriye nite jate chailen."
+    },
+    {
+      "row": 4310,
+      "native": "এয়ার ক্রাফটটি সফলতার সাথে চট্টগ্রাম ও কক্সবাজার সহ পূর্ব পাকিস্তানের অনেক উপকূলীয় শহরে আক্রমণ করে।",
+      "human": "Air craft-ti safolatar shathe chattagram o koshbajar shaho purbo pakishtaner ank upokolio sahare akramon kore."
+    },
+    {
+      "row": 4317,
+      "native": "থেকে অস্পষ্টতা চিত্রিত: ধ্রুপদী অর্থনীতিবিদদের যেমন অ্যাডাম স্মিথ বিশ্বাস করতেন যে একটি অর্থনীতির একাধিকার ভাড়া বিনামূল্যে, থাকার অবাধ নীতি এর প্রবক্তারা দাবি করেন যে বিশ্বাস মানুষকে একাধিপত্য গঠন মুক্ত হতে হবে.",
+      "human": "Theke ospostota chitrito: dhubopodi arthonitibidder jemon Adam Smite bisaws korten je ekti arthanitir akodhikar vara binamule, Thakar aabad niti er proboktara dabi koren je bisshas manushhke akadhipotto gothon mukto hote hobe."
+    },
+    {
+      "row": 4319,
+      "native": "আবার সাঁওতালদের মধ্যে আরেক প্রকারের বিয়েরও প্রচলন রয়েছে: তাদের বিশ্বাস, ছোটবেলায় কোনো শিশুর যদি প্রথম দাঁত উপরের মাড়িতে উঠে, তাহলে তার উপর দেবতার কুনজর পড়েছে।",
+      "human": "Abar sautader modde aarek prokarer biyaro prochalon royeche: tader bisshas, chotobeai kono sisur jodi prothom dat uporer matite uthe, tahole tar upor debotar kunajar poreche."
+    },
+    {
+      "row": 4327,
+      "native": "ডিসেম্বরের শুরুতে টেস্টের পূর্ব-প্রস্তুতিমূলক খেলায় তিনি ব্যর্থ হন।",
+      "human": "Decemberer surute tester purbo-prostitimulok khelai tini bartho hon."
+    },
+    {
+      "row": 4329,
+      "native": "ইন ভিট্রো দেখায়, বেদনানাশক, ব্যাথা রোধক, এবং মূত্রবর্ধক বৈশিষ্ট্য সমুূহ ।",
+      "human": "In vitro dekhai, bedonanashok, betha rodhok, abong mutrobordhok boisisto somuho."
+    },
+    {
+      "row": 4349,
+      "native": "চার বছর পর তিনি সালেসের সহ-সভাপতির দায়িত্ব নিয়ে নিউ ইয়র্ক সিটিতে ফিরে আসেন এবং টেন ওয়েস্ট সিক্সটি ফার্স্ট স্ট্রিটে বসবাস শুরু করেন।",
+      "human": "Char bachor por tini saleser shoho-sobhapotir dayitto niye New York Cityte phire ashen ebong Ten West Sixty First Street-e boshobash shuru koren."
+    },
+    {
+      "row": 4410,
+      "native": "১৯৩৯ সালে ব্রিটিশ ভারতের ঢাকার সূত্রাপুর থানার দয়াগঞ্জে জন্মগ্রহণ করেন আবদুর রহমান বয়াতী।",
+      "human": "1939 saale british Bharoter Dhakar sutrapur thaner dayaganje janmogrohon koren Abdul Rhaman Bayati."
+    },
+    {
+      "row": 4414,
+      "native": "লিটল থিয়েটার গ্রুপ থেকে বেরিয়ে আসেন ও থিয়েটার ইউনিট গঠন করেন ১৯৫৮ সালে।",
+      "human": "Little theater grup theke beriye asen o theater unit gothon koren 1958 sale."
+    },
+    {
+      "row": 4426,
+      "native": "বর্তমান খেলোয়াড়দের মধ্যে জেমস ট্রেডওয়েল ইংল্যান্ডের পক্ষে টেস্ট এবং স্যাম বিলিংস ও জো ডেনলি ওডিআই ও টুয়েন্টি২০ অংশ নিয়েছেন।",
+      "human": "bortoman khelowarder modhe James Tredwell Englander pokhe test abong Sam Billings o Joe Denly ODI o twenty20 ansho niyechen."
+    },
+    {
+      "row": 4438,
+      "native": "সারকথা হল, এই দুিই জাতের মধ্যে পার্থক্য হল একজাতের মেষের মাথায় শিং আছে অন্য জাতের মাথায় শিং নেই।",
+      "human": "Sarkotha holo, ai duti jater moddhe parthokko holo ekjater mesher mathay shing ache anno jater mathar shing nei."
+    },
+    {
+      "row": 4453,
+      "native": "তিনি বাংলালায়ন ওয়াইম্যাক্স, সানম্যান গ্রুপ এবং বাংলাদেশ ইন্ডাস্ট্রিয়াল ফিনান্স কোম্পানি লিমিটেডের চেয়ারম্যান হিসেবে দায়িত্ব পালন করছেন।",
+      "human": "Tini Banglayon ymax, sanman group abong Bangladesh industrial finax company limited chairman hisabe dayetta palan korechen."
+    },
+    {
+      "row": 4477,
+      "native": "জোহার মৃত্যু তৎকালীন পাকিস্তান সরকারের ভীত নাড়িয়ে দিয়েছিলো এবং প্রভাব ছিলো সূদূরপ্রসারী, যা দেশকে স্বাধীন করতে অন্যতম ভূমিকা পালন করেছিলো।",
+      "human": "Johar mrittu tatkalin Pakistan sarkarer vit nariye diyechilo abong provab chilo sudurprasari, ja deshke shadhin korte annatomo vumika palon korechilo."
+    },
+    {
+      "row": 4503,
+      "native": "গরু টানা লাঙ্গলের দুটি অংশ থাকে।",
+      "human": "Garu tana langoler duri angsho thake."
+    },
+    {
+      "row": 4534,
+      "native": "সম্ভবত ১৩০৭ বঙ্গাব্দ নাগাদ মিত্র পরিবারের কুলগুরুর আজ্ঞায় মন্দিরে বলি বন্ধ হয়ে যায়।",
+      "human": "Samvaboto 1307 bangabdho nagad mitro poribarer kulgurur aggay mandire boli bandho hoyye jay.\\"
+    },
+    {
+      "row": 4568,
+      "native": "এই সময় তিনি পর্যটন উন্নয়নের দিকেও মনোনিবেশ করেছিলেন।",
+      "human": "Ai samoi tini parjoton Unnayoner dikao mononibesh korechilen."
+    },
+    {
+      "row": 4570,
+      "native": "জীবন আলী (জীবন পণ্ডিত) –– সঙ্গীতজ্ঞ ও পুঁথি সাহিত্যিক।",
+      "human": "Jibon Ali ( Jibon pandit)- Sangitagho o puthi sahithik."
+    },
+    {
+      "row": 4577,
+      "native": "বায়ুতে উপস্থিত বেশ কিছু বিরল গ্যাসের আবিষ্কারক হিসেবে খ্যাত বিজ্ঞানী লর্ড র‌্যালে তার বক্তৃতা শুনে এবং পরীক্ষাগুলো দেখে এতোটাই বিস্মিত হয়েছিলেন তার কাছে সবকিছু অলৌকিক মনে হয়েছিল।",
+      "human": "Bayute upostit besh kichu birol gasser abiskarok hishebe kheto bighani lord royel tar boktrita sune abong porikhagulo dekhe atotai bishito hoyyechilen tar kache sabkichu alloukik mone hoyyechilo."
+    },
+    {
+      "row": 4594,
+      "native": "বর্ধমান বিশ্ববিদ্যালয় ভারতের আধুনিক বিশ্ববিদ্যালয়সমূহের মধ্যে প্রাচীনতম। এই বিশ্ববিদ্যালয় স্থাপিত হয় ১৫ জুন ১৯৬০ সালে।",
+      "human": "Bardhaman Bishwobidyaloy Bharoter adhunik Bishwobidyaloy samuher prachinitomo. Ai Bishwobidyaloy sthapito hoy 15 jun 1960 saale."
+    },
+    {
+      "row": 4597,
+      "native": "এ দম্পতির পাঁচ সন্তান রয়েছে।",
+      "human": "A dampotir pach shontan roiyeche."
+    },
+    {
+      "row": 4680,
+      "native": "এছাড়াও রস দ্বীপে অবস্থিত বায়ু খামার থেকে স্কট ঘাঁটি ও ম্যাকমার্ডো স্টেশনে বিদ্যুৎ সরবরাহ করা হচ্ছে।",
+      "human": "Echarao Roche dwipe obosthit bayu khamar theke Scot ghati o mcmurdo station bidyut sorboraho kora hocche."
+    },
+    {
+      "row": 4719,
+      "native": "তবে, এমসিজিতে সফরকারী ইংরেজ দলের বিপক্ষে নিজস্ব অভিষেক টেস্টে বেশ অসফল ছিলেন তিনি।",
+      "human": "Tobe, MCG-te soforkari ingrej daler bipokkhe nijoswo obhishek test-e besh osofol chilen tini."
+    },
+    {
+      "row": 4728,
+      "native": "কিছু ক্ষেত্রে এমনকি ইহুদি রাষ্ট্র প্রতিষ্ঠা হওয়ার পরও।",
+      "human": "Kichu khetre emonki Yhudi rashtro protishtha howar poro."
+    },
+    {
+      "row": 4734,
+      "native": "অ্যাবডাকশন এবং অ্যাডাকশন দ্বারা কোন অংশকে শরীর থেকে দূরে (অ্যাবডাকশন) বা কাছে (অ্যাডাকশন) আনা বুঝায়।",
+      "human": "Abduction ebong adduction dwara kono ongshoke shorir theke dure (abduction) ba kache (adduction) ana bujhay."
+    },
+    {
+      "row": 4735,
+      "native": "কিছু কিছু বর্ণনায়, তিনি কার্তিকের অনেক ঐশ্বরিক মায়েদের মধ্যে একজন।",
+      "human": "Kichu kichu bornonay, tini Kartik-er onek oishworik Mayeder moddhe ekjon."
+    },
+    {
+      "row": 4856,
+      "native": "উপত্যকার পুয়েবলোতে অনেক রোমান ব্রীজ গড়ে উঠেছিল।",
+      "human": "Upatyakar Puyeblote onek Roman Bridge gore uthechilo."
+    },
+    {
+      "row": 4890,
+      "native": "কলেজে পড়াকালীন তিনি নাটকে অভিনয় করতেন।",
+      "human": "College-e porakalin tini natok-e ovinoy korten."
+    },
+    {
+      "row": 4891,
+      "native": "হিন্দুধর্মে দেবতা, বিশিষ্ট ব্যক্তি অথবা অতিথিদের পূজা করার রীতি প্রচলিত রয়েছে।",
+      "human": "Hindudhorme debota, bishishto byakti othoba otithider pooja korar protha procolito royeche."
+    },
+    {
+      "row": 4944,
+      "native": "নাটোরে এর উৎপত্তি হয়, তবে নাটোর ছাড়াও বাংলাদেশের বেশ কয়েকটি জেলায় এই মিষ্টি পাওয়া যায়।",
+      "human": "Nator-e er utpotti hoy, tobe nator charao Bangladesh-er besh koyekti jelay ei mishti paowa jay."
+    },
+    {
+      "row": 4950,
+      "native": "এর বাইরেও আরো বেশ কিছু জাতি রয়েছে যাদেরকে মায়ানমার সরকার নিজেদের লোক বলে স্বীকার করে না।",
+      "human": "Er baire-o aro ebsh kichu jati royeche jaderke Myanmar Sarkar nijeder lok bole swikar kore na."
+    },
+    {
+      "row": 4967,
+      "native": "এই কলেজ বা মহাবিদ্যালয়টি ১৯৪৪ সালে প্রতিষ্ঠিত হয়।",
+      "human": "Ei college ba mohabidyaloy-ti 1944 sale protishthito hoy."
+    },
+    {
+      "row": 5047,
+      "native": "অ্যাসগার্ডিয়ান যোদ্ধারা ফ্রস্ট জায়েন্টদেরদের।",
+      "human": "Asgardian joddhara Frost giantder."
+    },
+    {
+      "row": 5054,
+      "native": "তালেবানদের দ্বারা আফগানিস্তানে (বামিয়ানের বুদ্ধমূর্তি ধ্বংস) বৌদ্ধ-বিরোধী কর্মসমূহ, বৌদ্ধদের বার্মায় মুসলিমদের বিরুদ্ধে সহিংসতার একটি অজুহাত হিসেবে ব্যবহার করা হয়েছিল।",
+      "human": "Talebander dwara Afghanistan-e (Bamiyaner Buddhomurti dhwongso) Bouddho-birodhi kormosomuho, Bouddhoder burma-y Muslimder biruddhe sohingsotar ekti ojuhat hisebe byabohar kora hoyechilo."
+    },
+    {
+      "row": 5083,
+      "native": "ভাবসঙ্গীতের বিশেষ ব্যক্তিত্ব অমূল্য শাহ ১৯৫২ সালে মৃত্যু বরণ করেন।",
+      "human": "Bhabsongeeter bishesh byaktitwo Amulyo Shah 1952 sale mrityu boron koren."
+    },
+    {
+      "row": 5109,
+      "native": "স্লোভাকিয়া বনাম প্যারাগুয়ে",
+      "human": "Slovakia bonam Paraguye."
+    },
+    {
+      "row": 5120,
+      "native": "দল নির্বাচকমণ্ডলী যুবনীতি গ্রহণ করায় প্রিঙ্গলকে অন্তর্ভূক্ত করেনি।",
+      "human": "Dol nirbachokmondoli juboniti grohon koray Pringleke ontrbhukto koreni."
+    },
+    {
+      "row": 5126,
+      "native": "এরা অনেকটা দক্ষিণী হলদেঠুঁটি ধনেশদের মতোন দেখতে কিন্তু এদের চোখের চারপাশে কালো চামড়া থাকে কিন্তু গোলাপী নয়।",
+      "human": "Era onekta dokkhini holdethuti dhoneshder moton dekhte kintu eder chokher charpashe kalo chamra thake kintu golapi noy."
+    },
+    {
+      "row": 5129,
+      "native": "জো স্মল পাঁচ ইনিংসে অংশ নিয়ে মাত্র দুইবার আউট হন।",
+      "human": "Joe Small pach innings-e ongsho niye matro duibar out hon."
+    },
+    {
+      "row": 5131,
+      "native": "অতি সম্পতি বন্দরটির আধুনিকরন করা হয়েছে ।",
+      "human": "Oti somproti bondortir adhunikikoron kora hoyeche."
+    },
+    {
+      "row": 5140,
+      "native": "পশ্চিম অস্ট্রেলিয়া, দক্ষিণ অস্ট্রেলিয়া ও নিউ সাউথ ওয়েলসকে হারায়।",
+      "human": "Poschim Austrelia, Dokkhin Austrelia o New South Wels-ke haray."
+    },
+    {
+      "row": 5161,
+      "native": "গাই রেইনল্ডের পরিণতি দেখে হাটুর উপর ভর দিয়ে বসে পড়ে।",
+      "human": "Guy Reynold-er porinoti dekhe hatur upor bhor diye bose pore."
+    },
+    {
+      "row": 5177,
+      "native": "মিসাক-ই মিল্লি (“জাতীয় চুক্তি”) ঘোষণার কিছুদিন পর ১৮ মার্চ ব্রিটিশরা এটিকে ভেঙে দেয়।",
+      "human": "Misak-E Milli (\"Jatiyo Chukti\") ghoshonar kichudin por 18 March British-ra etike bhenge dei."
+    },
+    {
+      "row": 5202,
+      "native": "বুলুগ আল মারামে সর্বমোট ১৩৫৮টি হাদিস রয়েছে।",
+      "human": "Bulug Al Maram-e sorbomot 1368-ti hadis royeche."
+    },
+    {
+      "row": 5204,
+      "native": "ভোলা ময়রা বাংলার খ্যাতনামা রসিক কবিয়াল। তিনি কবিগানের জগতে অন্যতম শ্রেষ্ঠ ছিলেন।",
+      "human": "Bhola Moyra banglar khyatonama rosik kobiyal. Tini kobigaan-er jogot-e onyotomo shretho chilen."
+    },
+    {
+      "row": 5216,
+      "native": "মধ্যভাগে আছে ছোট ছোট নদীর একটি অববাহিকা ক্ষেত্র, যার মধ্যে পড়ে সাগামি নদী, সাকাই নদী, ৎসুরুমি নদী ও তামা নদী।",
+      "human": "modhyobhage ache choto choto nodir ekti obobahika khetro, jar modhye pore Sagami nodi, Sakai nodi, Tsurumi nodi o tama nodi."
+    },
+    {
+      "row": 5229,
+      "native": "এর নানা সভা ও সম্মেলনে তিনি অংশগ্রহণ করে বিভিন্ন প্রবন্ধ পাঠ করেন।",
+      "human": "er nana sobha o sommelone tini ongshogrohon kore bibhinno probondho path koren."
+    },
+    {
+      "row": 5234,
+      "native": "পূজানুষ্ঠানের মূল আচারটি হল দেবতা ও ব্যক্তির আশীর্বাদ পাওয়ার জন্য তাঁদের উদ্দেশ্যে বিশেষ উপহার প্রদান।",
+      "human": "pujanusthaner mul acharti holo debota o byaktir ashirbad pawar jonyo tader uddeshye bishesh upohar prodan."
+    },
+    {
+      "row": 5275,
+      "native": "তবুও, ২০১২ সালের রাখাইন রাজ্যের সহিংসতার ফলে তদন্ত কমিশন গঠনে নেতৃত্ব দেওয়া হয়েছিল, যা স্থিতিশীলতা ও উন্নয়নের জন্য একটি কেন্দ্রীয় কমিটি গঠন করতে সুপারিশ করে।",
+      "human": "Tobuo, 2012 saler Rakhain rajyer sohingshotar phole todonto commission gothoner netritwo deowa hoyechilo, ja sthitishilota o unnoyoner jonyo ekti kendriyo committee gothon korte suparish kore."
+    },
+    {
+      "row": 5298,
+      "native": "এই সময়কার প্রধান প্রোপাগান্ডিস্ট ছল 'এ' ফোর্স, যা ১৯৪০ সালে ডাডলি ক্লার্ক এবং লন্ডন কন্ট্রোলিং সেকশন এর তত্ত্বাবধানে তৈরি হয় এবং।",
+      "human": "Ei somoykar prodhan propagandist chilo 'A' Force, ja 1940 saale Dudley Clarke ebong London Controlling Section er totwabodhane toiri hoy ebong."
+    },
+    {
+      "row": 5325,
+      "native": "ইউরোপ, এশিয়া, আফ্রিকা, অস্ট্রেলিয়া এবং বিষুবীয় অঞ্চলের প্রশান্ত মহাসাগরীয় দ্বীপগুলোতে শালিক দেখা যায়।",
+      "human": "Europe, Asia, Africa, Austrelia ebong Bishubiyo oncoler prosanto mohasagoriyo dwipgulote shalik dekha jay."
+    },
+    {
+      "row": 5338,
+      "native": "বিদ্রোহীরা বেশ কয়েকটি লক্ষনীয় নির্যাতনের সাথে জড়িত ছিলো; কিন্তু সোভিয়েত সেনা সমর্থনে প্রেরিত মঙ্গোলিয়ান সেনারা এতে জড়িত বিদ্রোহীদের উৎখাত করতে আরও অধিক নৃশংসতার পরিচয় দেয়।",
+      "human": "Bidrohira besh koyekti lokkhoniyo nirjatoner sathe jorito chilo; kintu Soviet sena somorthone prerito Mongolian senara ete jorito bidrohider utkhat korte aro-o odhik nrishongsotar porichoy dey."
+    },
+    {
+      "row": 5340,
+      "native": "তিনি এই এমুলেটরটিতে অল্টেয়ার প্রোগ্রামার গাইড অণুযায়ী পরিবর্তন সাধন করেন এবং হার্ভার্ড বিশ্ববিদ্যালয়ের পিডিপি কম্পিউটারে ইন্টেরপ্রেটারটি পরীক্ষা করে দেখেন।",
+      "human": "Tini ei emulator-tite Altair Programmer Guide onujayi poriborton sadhon koren ebong Harvard Bishwobidyaloyer PDP Computer-e interpretor-ti porikkha kore dekhen."
+    },
+    {
+      "row": 5350,
+      "native": "তিন ভাই ও তিন বোনের মধ্যে তিনি ছিলেন দ্বিতীয়।",
+      "human": "Tin bhai o tin bon-er modhye tini chilen dwitiyo."
+    },
+    {
+      "row": 5397,
+      "native": "১০ বল শেষে উইকেট সমান থাকলে বোলিং অব্যাহত থাকবে ও সাডেন ডেথের মাধ্যমে খেলার নিষ্পত্তি ঘটবে।",
+      "human": "10 ball sheSe wicket soman thakle bowling obyahoto thakbe o sudden deather maddhyome khelar nishpotti ghotbe."
+    },
+    {
+      "row": 5410,
+      "native": "সোলারিস ১০, যেটি ২০০৫-এর শুরুর দিকে মুক্তি পায়, সিডিই ও গ্নোম উভয় ভিত্তিক জাভা ডেস্কটপ পরিবেশ নিয়ে আসে।",
+      "human": "Solaris 10, jeti 2005-er shurur dike mukti pay. CDE o GNOME ubhoy bhittik Java desktop poribesh niye ashe."
+    },
+    {
+      "row": 5428,
+      "native": "গ্রামীণ কাজের জন্য কেন্দ্রীয় নেতৃত্বপ্রদানকারী গোষ্ঠী।",
+      "human": "Grameen kajer jonno kendriyo netrittwaprodankari goshthi."
+    },
+    {
+      "row": 5457,
+      "native": "তিনি শিশু থাকা অবস্থায় ছেলেদের জন্য তৈরি একটি স্কুলে যোগদান করেন কারণ মেয়েদের জন্য কোন স্কুল ছিল না, এবং যখন তার উপজাতীয় বয়স্করা উচ্চ বিদ্যালয়ে যোগদানের জন্য তাকে নিষেধ করে তখন তিনি একজন শিক্ষকের কাছে পড়াশুনা করেন।",
+      "human": "Tini shishu thaka abosthay cheleder jonno toiri ekti schoole jogdan koren karon meyeder jonno kono school chilo na, ebong, jakhon tar upojatiyo boyoshkora uccho bidyaloye jogdaner jonno take nishedh kore takhon tini akjon shikkhaker kache porashuna koren."
+    },
+    {
+      "row": 5463,
+      "native": "ঐ মৌসুমে বার্সেলোনা কোপা দেল রে, স্প্যানীশ সুপার কোপা এবং কাপ উইনার্স কাপ জেতে।",
+      "human": "Ei mousume Barcelona Copa Del Ray, Spanish Supar Copa ebong Cup Winners Cup jete."
+    },
+    {
+      "row": 5465,
+      "native": "কাজটি দুই ধাপে হত একটি হচ্ছে ধান রোপণ এবং অন্যটি আগাছা নির্মূল।",
+      "human": "Kajti dui dhape hoto ekti hocche dhan ropan ebong onnoti agacha nirmul."
+    },
+    {
+      "row": 5512,
+      "native": "এটি একটি বর্ষজীবী গুল্ম।",
+      "human": "Eti ekti borshojibi gulmo."
+    },
+    {
+      "row": 5515,
+      "native": "প্লেটো এথেন্সে একাডেমী প্রতিষ্ঠা করেছিলেন যা ছিল ইউরোপের উচ্চতর শিক্ষার প্রথম প্রতিষ্ঠান।",
+      "human": "Plato Athense Academy protistha korechilen ja chilo Europer ucchotor shikkhar prothom protisthan."
+    },
+    {
+      "row": 5521,
+      "native": "কুমিল্লা ইউসুফ হাইস্কুল থেকে ম্যাট্রিকুলেশন (বর্তমানে এস.এস.সি) পাশ করেন।",
+      "human": "Comilla Yusuf High School theke Matriculation (bortomane S.S.C.) pass koren."
+    },
+    {
+      "row": 5556,
+      "native": "বুঝতেই পারছেন, এর মাধ্যমে সংগৃহীত নমুনায় কি কি পদার্থ আছে তা খতিয়ে দেখা যাবে।",
+      "human": "Bujhtei parchen, er maddhyome songrohito nomunay ki ki podartho ache ta khotiye dekha jabe."
+    },
+    {
+      "row": 5586,
+      "native": "তিনি ভারতের ওয়েলিংটনের ডিফেন্স সার্ভিসেস স্টাফ কলেজ থেকে পিএসসি এবং ন্যাশনাল ডিফেন্স কলেজ দিল্লী থেকে এনডিসি কোর্স করেন।",
+      "human": "Tini Bharoter Wellington-er Defence Services Staff College theke PSC ebong National Defence College Delhi theke NDC course koren."
+    },
+    {
+      "row": 5594,
+      "native": "অসমর মূল বিহু উৎসব বসন্তের শুরুতে উদযাপন করা হয়।",
+      "human": "Asomer mul Bihu utshob bosonter shurute udjapon kora hoy."
+    },
+    {
+      "row": 5649,
+      "native": "এছাড়া তিনি চারবার শ্রেষ্ঠ অভিনেত্রী বিভাগে একাডেমি পুরস্কারের মনোনয়ন লাভ করেন।",
+      "human": "Echara tini charbar shreshtho obhinetri bibhage Academy Puroskarer manonayon labh koren."
+    },
+    {
+      "row": 5672,
+      "native": "তাদের ইতিহাস থেকে দেখা যায়, তারা শ্রীলংকা এবং চাইনিজ তাইপেই মত পছন্দনীয় দলের বিরুদ্ধে পরাস্ত হওয়া কোন আশ্চর্য এর বিষয় ছিল না।",
+      "human": "Tader itihaas theke dekha jay, tara Srilanka ebong Chinese Taipei moto pochondoniyo daler biruddhe porasto howa kono ashchorjo er bishoy chilo na."
+    },
+    {
+      "row": 5681,
+      "native": "দুই দলের অধিনায়ক, ওয়াং হান এবং ইউয়ান হং, তাদের সদস্যদের সঙ্গে, একটি মিশন দেওয়া হয়েছে - স্কাই রিলে - সম্ভান্য সংক্ষিপ্ত সময়ের হিসাবে মিনারের উপর সম্পন্ন করা।",
+      "human": "Dui daler odhinayok, Wang Han ebong Yuan Hong, tader shadashyader shonge, ekti mission dewa hoyeche - sky relay - shombhanyo shonkhipto shomoyer hishabe minarer upor shomponno kora."
+    },
+    {
+      "row": 5690,
+      "native": "উত্তর সুমাত্রায় অবস্থিত টোবা জ্বালামুখ এলাকাতে চারটি জ্বালামুখ একে অপরের সাথে জড়িয়ে সুমাত্রীয় আগ্নেয় অঞ্চলের সৃষ্টি করেছে।",
+      "human": "Uttor Sumatray obosthit Douba jwalamukh elakate charti jwalamukh ake oporer shathe joriye Sumatriyo agneyo oncholer srishti koreche."
+    },
+    {
+      "row": 5745,
+      "native": "অবশিষ্টগুলো গৌণ। এদের সংখ্যা প্রায় ২৫ টি। সেগুলো হল:",
+      "human": "Oboshishtogulo gouno. Eder shonkhya pray 25 ti. Shegulo holo:"
+    },
+    {
+      "row": 5750,
+      "native": "ফলে প্রতিপক্ষীয় ব্যাটসম্যানেরা সহজে তাঁর মুখোমুখি হতে চাইতেন না ও ভয় পেতেন।",
+      "human": "Fole protipokkhiyo batsman-era shohoje tar mukhomukhi hote chaiten na o bhoy peten."
+    },
+    {
+      "row": 5752,
+      "native": "কামাল বিশ্বাস করতেন যে সংস্কৃতি হচ্ছে তুর্কি প্রজাতন্ত্রের ভিত্তি।",
+      "human": "Kalam bisshash korten je songskriti hocche Turkey projatontrer bhitti."
+    },
+    {
+      "row": 5761,
+      "native": "উত্তরে খলিফা দ্বিতীয় শহরকে জয় করার নির্দেশ দেন।",
+      "human": "Uttore Khalifa dwitiyo shohorke joy korar nirdesh den."
+    },
+    {
+      "row": 5777,
+      "native": "এ সময় তাদের বাবা জন যুক্তরাজ্যে গমনের পূর্বে হংকংয়ে কাজ করতেন।",
+      "human": "A shomoy tader baba John Juktorajye gomoner purbe Hongkong-e kaaj korten."
+    },
+    {
+      "row": 5796,
+      "native": "পরে ১৯৭৩ সালে উচ্চ শিক্ষার জন্য লন্ডন যান।",
+      "human": "Pore 1970 saale uccho shikkhar jonno London jan."
+    },
+    {
+      "row": 5849,
+      "native": "কাচিন জনগোষ্ঠীর অধিবাসীদের চীনের ইউনান প্রদেশেও দেখতে পাওয়া যায়।",
+      "human": "Kachin jonogoshthir odhibashider Chiner Yunan prodesheo dekhte pawa jay."
+    },
+    {
+      "row": 5899,
+      "native": "তার পিতা ভিনসেন্ট চার্লস মিনেলি ছিলেন মিনেলি ব্রাদার্স টেন্ট থিয়েটারের সঙ্গীত পরিচালক।",
+      "human": "Tar pita Vincent Charles Mineli chilen Mineli Brothers Tent Theatre-er shongeet porichalok."
+    },
+    {
+      "row": 5915,
+      "native": "একই শপথনামায় নতুন সরকারের নেতাদের স্বীকৃতি দেয়া হবে ও তাঁদের দায়িত্ব ও কর্তব্য সম্পর্কে সজাগ থাকবেন।",
+      "human": "Aki shopothnamay notun shorkarer netader shikriti deya hobe o tader dayitto o kortobyo shomporke shojag thakben."
+    },
+    {
+      "row": 5929,
+      "native": "ঐ সিরিজে ইংল্যান্ড ৩-০ ব্যবধানে সিরিজ জয় করে।",
+      "human": "Oi series-e England 3-0 byobodhane series joy kore."
+    },
+    {
+      "row": 5954,
+      "native": "নাগরিক সংস্কৃতির বিকাশকে সহযোগীতা করার লক্ষ্যে তিনি শিক্ষাব্যবস্থাকে ঢেলে সাজাতে চান।",
+      "human": "Nagorik shongskritir bikashke shohojogita korar lokkhye tini shikkhabyabosthake dhele shajate chan."
+    },
+    {
+      "row": 5957,
+      "native": "দেশ-বিদেশে এটি রাণী কমলাবতীর দীঘি, বা বানিয়াচং-এর সাগরদীঘি, বা কমলারাণীর দীঘি নামেও বহুল পরিচিত।",
+      "human": "Desh-bideshe eti Rani Komolabotir Dighi, ba Baniyachong-er Shagordighi, ba Komolaranir Dighi nameo bohul porichito."
+    },
+    {
+      "row": 5988,
+      "native": "১৮৫০ সালে, বার্ন্ট মাইকেল হোম্বে মৃত্যুবরণ করেন এবং তার দ্বিতীয় স্ত্রী তার চেয়ে ৩০ বছর বেশি জীবিত থাকেন।",
+      "human": "1850 saale, Bernt Michael Holmboe mrityuboron koren ebong tar dwitiyo stree tar cheye 30 bachor beshi jibito thaken."
+    },
+    {
+      "row": 6007,
+      "native": "মিয়ানমারে বার্মিজ ভাষায় বলা হয় না-থা-লোক, না-থালাংক।",
+      "human": "Myanmare Burmese bhashay bola hoy Na-Tha-Lok, Na-Thalank."
+    },
+    {
+      "row": 6056,
+      "native": "তিনি ১৯৪২ আসলে বাংলাদেশের রাজশাহী জেলার বাগমারা থানার নরসিংহপুর গ্রামে জন্মগ্রহণ করেন।",
+      "human": "Tini 1942 sale Bangladeshe Rajshahi jelar Bahmara thanar Norshingho grame janmoghrohon koren."
+    },
+    {
+      "row": 6061,
+      "native": "সুপাইনেশন করতে পারে বিধায় বাহুর জন্য বিভিন্ন পরিভাষা ব্যবহৃত হয়।",
+      "human": "Supaination korte pare bidhai bahur jonno bivinno porivasa babhito hoi."
+    },
+    {
+      "row": 6066,
+      "native": "বর প্রথমে মদ পান করার পর সিদ্ধ করা মুরগীর গলার নিচের অংশ টেনে বিয়ের শুভাশুভ যাচাই করেন।",
+      "human": "Bor prothome mod pan korar por shidho kora murgir golar nicher angsho tene biyer suvarombo jachai koren."
+    },
+    {
+      "row": 6095,
+      "native": "\"হালকা হালকা\" গানটি চিত্রনাট্যের সাথে না মেলার কারণে চলচ্চিত্র ও অ্যালবাম থেকে বাদ দেয়া হয় এবং চলচ্চিত্রটি মুক্তি পাবার পর প্রকাশ করা হয়।",
+      "human": "\"Halka halka\" ganti chitronatter sathe na melar karone chalachitro o allbyam theka bad dewa hoi abong chalachitro mukti pabar por prokash kora hoi."
+    },
+    {
+      "row": 6097,
+      "native": "তিনি আলিপুর বোমা মামলায় অভিযুক্ত হলেও মামলা চলাকালীন বেশ কিছুদিন আত্মগোপন করে থাকতে সমর্থ হন।",
+      "human": "Tini Alipur boma malay avijukta holeo mamla cholakalin besh kichudin atogopon kore thakte samarthon hon."
+    },
+    {
+      "row": 6112,
+      "native": "সন্দ্বীপের মোগল-শাসনকর্তা এই দস্যুদের হাতে নিহত হওয়ার পর সেখানকার পরবর্তী মোগল-শাসক ফতে খাঁ হার্মাদদের চূড়ান্ত ধ্বংস করতে যুদ্ধ-জাহাজ নিয়ে অভিযান চালান।",
+      "human": "Sandiponer Mogol-Sasonkorta ai dassuder hate nihoto howar por sekhankar poroborti Mogol-Sasok Fateh kha Harmadder churanto dhangso korte judha-jahaj niye aviyan chalan."
+    },
+    {
+      "row": 6138,
+      "native": "যাই হোক, এরপর বনবাসের মেয়াদ উত্তীর্ণ হয়।",
+      "human": "Jai hok, arpor bonobase meyad utrinno hoi."
+    },
+    {
+      "row": 6146,
+      "native": "ভূজপুর জমিদার বাড়ি এবং ফাঁসির ঘর, পূর্ব ভূজপুর।",
+      "human": "Bhutpur jomidar bari ebong phasir ghor, purbo Bhutpur."
+    },
+    {
+      "row": 6159,
+      "native": "এগুলির আকার হয় বড়োগল্পের মতো।",
+      "human": "Egulir akar hoy borogolper moto."
+    },
+    {
+      "row": 6217,
+      "native": "ফলশ্রুতিতে, মৌসুমের আগেই দীর্ঘদিন পর সারে দলের বাইরে চলে আসতে হয় তাঁকে।",
+      "human": "Pholshrutite, mousumer aagei dirghodin por sare daler baire chole aste hoy take."
+    },
+    {
+      "row": 6236,
+      "native": "বোল্ডস্কাই ওয়েবসাইটের জীবনধারা বিভাগে কামরাঙার কার্যকারিতা ও ব্যবহারের উপায় সম্বন্ধে পরামর্শ দেওয়া হয়েছে।",
+      "human": "Boldsky website-er jibondhara bibhage kamrangar karjokarita o byaboharer upay sombondhe poramorsho dewa hoyeche."
+    },
+    {
+      "row": 6245,
+      "native": "১৮৮১ খ্রিষ্টাব্দে ব্রিটিশরা তার হাতে কান্দাহার সমর্পণ করে।",
+      "human": "1881 chrishtabde British-ra tar haate Kandahar somorpon koren."
+    },
+    {
+      "row": 6269,
+      "native": "বিয়ে অনুষ্ঠানের পর বরযাত্রীরা ফিরে গেলেও বরকে কনের বাড়িতে তিন,পাঁচ কিংবা সাতদিন পর্যন্ত থাকতে হয়।",
+      "human": "Biye onushthaner por borjatrira phire geleo bor-ke koner barite tin, pach kingba sat-din porjonto thakte hoy."
+    },
+    {
+      "row": 6287,
+      "native": "তবে নদীর ধারে এরা রাতে গর্ত থেকে কাঁকড়া ধরে খায়; গর্তে লেজ ঢুকিয়ে দেয়াতে লেজে কাঁকড়া কামড় দিলে এরা কাঁকড়াগুলোকে ধরে ফেলে।",
+      "human": "Tobe nodir dhare era rate gorto theke kakra dhore khay; gorte lej dhukiye deyate leje kakra kamor dile era kakraguloke dhore phele."
+    },
+    {
+      "row": 6348,
+      "native": "অনমনীয় বস্তুর গতিশীলতা সসীম মাত্রার কনফিগারেশন স্থানে জায়গা করে নেয়।",
+      "human": "Anooniyo bostur gotishilota sashim matrar configuration sthane jayga kore ney..."
+    },
+    {
+      "row": 6363,
+      "native": "ছবিটি হার্বার্ট জর্জ ওয়েলস রচিত ১৮৯৫ সালের একই নামের বিজ্ঞান কল্পকাহিনী উপন্যাস অবলম্বনে নির্মিত।",
+      "human": "Chobiti habart jorge owyelos rochito 1895 saaler ekki namer biggan kolpokahini upanyas abolombone nirmito."
+    },
+    {
+      "row": 6383,
+      "native": "ব্রিটিশ ক্যাপ্টেন জেমস কুক কুক দ্বীপুঞ্জে আসেন ১৭৭৩ এবং ১৭৭৭ সালে এবং দ্বীপপুঞ্জটির নামকরণ করেন হার্ভি দ্বীপপুঞ্জ; \"কুক দ্বীপপুঞ্জ\" নামটি, ক্যাপ্টেন কুকের স্মরণে, ১৮২০ সালে প্রকাশিত একটি রাশিয়ান নৌ চার্টে প্রথম উল্লেখিত হয়।",
+      "human": "British captain james kook kook dipputre aasen 1773 ebong 1777 saale ebong dipputrotir namkoron koren harvi dipputro, \"Kook dipputro\" namti, captain kooker smorone, 1820 saale prokashito ekti russian nou charte prothom ullekhito hoy."
+    },
+    {
+      "row": 6405,
+      "native": "তেজগাঁও বিমানবন্দর সচল বিমানঘাঁটি হিসেবে বাংলাদেশ বিমানবাহিনী ও সেনাবাহিনীর এয়ারকোর ব্যবহার করে থাকে।",
+      "human": "Vejgayo bimanbondor sochol bimanghanti hishebe bangladesh bimanbahini o senabahinir aircore babohar kore thaken."
+    },
+    {
+      "row": 6439,
+      "native": "ইপিআরে চাকরি করতেন সৈয়দ আমীরুজ্জামান।",
+      "human": "Ipre chakri korten saiyad amiruzzaman."
+    },
+    {
+      "row": 6465,
+      "native": "এটি সেসবানিয়া গণের অন্তর্ভুক্ত ছোট বৃক্ষ।",
+      "human": "Eti sesbaniya goner antorbhukto choto brikho."
+    },
+    {
+      "row": 6479,
+      "native": "মর্যাদাহানি করার জন্য পুরুষ আত্মিয়ের দ্বারা খেলোয়াড় দের মার পর্যন্ত খেতে হয়েছে।.",
+      "human": "Morjadahani korar jonno purush aatmiyor daara kheloyar der maar porjonto khete hoyeche."
+    },
+    {
+      "row": 6508,
+      "native": "ওয়েস্ট ইন্ডিজ ক্রিকেট দল",
+      "human": "West indies cricket dol"
+    },
+    {
+      "row": 6532,
+      "native": "মদিনায় অর্থাৎ ইয়াসরেবের কাছাকাছি পৌছার পর শায়বার প্রতি তাকালে তাঁর দুচোখ অশ্রুসজল হয়ে উঠলো।",
+      "human": "Modinay arthat iyasoreber kachakachi pouchanor por shaybar proti takale taar duchokh ashruswajol hoye uthlo."
+    },
+    {
+      "row": 6575,
+      "native": "ওই অঞ্চলের বিচ্ছিন্নতাবাদী দলগুলো এই সম্মেলনে যোগদান করে।",
+      "human": "oi ancholer bichhinotabadi dolgulo ei sonmelone jogdan kore."
+    },
+    {
+      "row": 6592,
+      "native": "দ্য বার ব্রাদার্স এর প্রথম নিজস্ব এল.",
+      "human": "The bar brothers er prothom nijosso elo."
+    },
+    {
+      "row": 6622,
+      "native": "ইয়োসেপ ‘‘পেপ’’ গার্দিওলা ই সালা (জন্ম ১৮ জানুয়ারি ১৯৭১) একজন স্পেনীয় ফুটবল ম্যানেজার এবং প্রাক্তন খেলোয়াড়।",
+      "human": "eyosep \"pep\" gardiwala i sala (jonmo 18 january 1971) ekjon speniyo football maneger ebong prakton kheloyar."
+    },
+    {
+      "row": 6644,
+      "native": "সপ্তম শতাব্দীর প্রথম দিকে সাসানিদদের সাম্রাজ্য যেমন একদিকে সবচেয়ে বেশি বিস্তার লাভ করে, ঠিক সেই একই সময়ে তাদের শাসন নানাকারণে দুর্বল হয়ে পড়তেও শুরু করে।",
+      "human": "soptom sotabdir prothom dike sasanidder samrajjo jemon ekdike sobcheye beshi bistar lav kore, thik sei eki somoye tader shashon nanakarone durbol hoye porteo shuru kore."
+    },
+    {
+      "row": 6653,
+      "native": "(এংলিসাইজড রেমন্ড লালি, লাতিনে রেমন্ড লাল; রেইমুন্ডাস বা রেমুন্ডাস লালাস বা লালাস) ম্যাজোর্কার একজন বিখ্যাত লেখক ও দার্শনিক, নৈয়ায়িক এবং ফ্রান্সিসকান প্রশাখার অংশ।",
+      "human": "(englisaized remond lali, latine remond lal, reimundas ba remundas lalas ba lalas) majjokar ekjon bikhyato lekhok o darshonik, noiyayik ebong fransiskan proshakhar anongso."
+    },
+    {
+      "row": 6715,
+      "native": "কিছু ইহুদি ভাষ্যকার হাজেরাকে কাতুরাহ্‌(যে নারীকে ইব্রাহিম সারাহ্‌র মৃত্যুর পর বিয়ে করেন)-র সাথে অভিন্ন বলে মনে করেন, ইব্রাহিম সারার মৃত্যুর পরে তাকে খুঁজে বের করেছেন।",
+      "human": "kichu ihudi bhashhokar hajerake katuraho( je narike ibrahim sarahormrityur por biye koren)-r shathe avinno bole mon ekoren, ibrahim sarar mrityur pore taake khunje ber korechen."
+    },
+    {
+      "row": 6716,
+      "native": "সে রুদ্রের সহপাঠী এবং ঋজুদার ভক্ত।",
+      "human": "se rudrer sohopathi ebong rijudar vokto."
+    },
+    {
+      "row": 6726,
+      "native": "তিনি ১৯৭০ সালে পুনরায় গণিত বিভাগের প্রধান নিযুক্ত হন এবং নিখোঁজ হওয়ার পূর্ব পর্যন্ত এ পদেই নিয়োজিত ছিলেন।",
+      "human": "tini 1970 saale punoray gonit bivager prodhan nijukto hon ebong nikhoj hoayar purbo poprjonto e podei niyojito chilen."
+    },
+    {
+      "row": 6758,
+      "native": "পিএফএফ পাকিস্তান প্রিমিয়ার লীগ ও অন্যান্য ফুটবল লীগ সমূহও আয়োজন ও পরিচালনা করে।",
+      "human": "pff pakistani premier league o onanno football league somuho aayojon o porichalona kore."
+    },
+    {
+      "row": 6759,
+      "native": "প্রকৃত জংশন স্টেশন সীতারামপুর ছিল তুলনামূলকভাবে ছোটো স্টেশন।",
+      "human": "prokrito angshon sitarampur chilo tulonamulok vabe choto station."
+    },
+    {
+      "row": 6815,
+      "native": "২০১৮ সালের অক্টোবর, মো তার দ্বিতীয় স্টুডিও অ্যালবাম ‘’ফরেভার নেভারল্যান্ড’’ প্রকাশ করেন।",
+      "human": "2018 saaler october ,moa taar ditiyo studio album \"forever neverland\" prokash koren."
+    },
+    {
+      "row": 6819,
+      "native": "বর্তমানে থুপ্সতান নাওয়াং নামক বিংশ কুশোক বাকুলা রিনপোছে এই উপাধিধারী।",
+      "human": "bortomane khupstan naowat namok bingso kushok bakula rinpoche ei upadhikari."
+    },
+    {
+      "row": 6826,
+      "native": "মানুষের হাতে রঙ মেখে গুহার দেয়ালে এই হাতের ছাপগুলো তৈরী করা হয়েছিল।",
+      "human": "manusher haate rong mekhe guhar deoyale ei haater chapgulo toiri kora hoyechilo."
+    },
+    {
+      "row": 6839,
+      "native": "কিন্তু, উরুগুয়েতে, দেশটির আকারের তুলনায়, বড় সংখ্যার আর্মেনীয় অধিবাসী বসবাস করে।",
+      "human": "kintu, uruguyete, deshtir aakarer tulonay, boro songkhar aarmeniyo adhibasi bosobash kore."
+    },
+    {
+      "row": 6868,
+      "native": "দেশ পশ্চিমবঙ্গের সাহিত্য বিষয়ক বাংলা পাক্ষিক পত্রিকা, যা কলকাতা থেকে প্রকাশিত হয়।",
+      "human": "desh poschimbonger sahitto bishoyok bangla pakkhik potrika, ja kolkata theke prokashito hoy."
+    },
+    {
+      "row": 6877,
+      "native": "এরই ধারাবাহিকতায় সেদিন মুক্তিযোদ্ধারা কয়েকটি দলে বিভক্ত হয়ে সাব সেক্টর কমান্ডার গিয়াসউদ্দিন আহমেদ চৌধুরীর (বীর বিক্রম) নেতৃত্বে সেখানে আক্রমণ করেন।",
+      "human": "eri dharabahikotay sedin muktijoddhara koyekti dole bivokto hoye sub sector commader giyasuddin ahmed choudhuryr (bir vikram) netritte sekhane aakromon koren."
+    },
+    {
+      "row": 6958,
+      "native": "পুরনো কালীবাড়ি ভবনটি বার্ড রোডের (অধুনা বাংলা সাহিব রোড) যেখানে অবস্থিত ছিল, সেখানে ১৯২৫ সালে এই পূজা শুরু হয়।",
+      "human": "purono kalibari bhavanti bard roader (adhuna bangla sahib road) jekhane abosthito chilo, sekhane 1925 saale ei puja shuru hoy."
+    },
+    {
+      "row": 6985,
+      "native": "আবুল হাশেম খানের পৈতৃক বাড়ি ব্রাহ্মণবাড়িয়া জেলার কসবা উপজেলার সৈয়দাবাদ গ্রামে।",
+      "human": "abul hashem khaner poitrik bari bhahamnbariya jelar kasba upojelar soiyodabaad grame."
+    },
+    {
+      "row": 7039,
+      "native": "তিনি ইউরোপের সকল রাজকীয় বাড়িরই উত্তরাধিকার, বিশেষত দক্ষিণ ও পশ্চিমের; কারণ তিনি দোনার (লুইসা দ্য গাজম্যান) উত্তরপুরুষ।",
+      "human": "tini europrer sokol rajokiyo bariri uttoradhikar, bisheshoto dokhin o poshimer, karon tini donar (luisa the gazman) uttorpurush."
+    },
+    {
+      "row": 7060,
+      "native": "কবি জয়দেবের জন্ম ভারতের পশ্চিমবঙ্গ রাজ্যের বীরভূমের কেন্দুবিল্ব বা কেঁদুলি গ্রামে।",
+      "human": "kobi joydeber jonmo bharater poschimbongo rajjer bhirbhumer kendubilbo ba keduli grame."
+    },
+    {
+      "row": 7080,
+      "native": "মুন্নার-টেরেস গ্রিনস, একটি স্টার্লিং হলিডেস রিসোর্ট",
+      "human": "munnar-tereace greens, ekti starling hollydays risort"
+    },
+    {
+      "row": 7104,
+      "native": "ইরোটিকা রোম্যান্সের ভাষা অনেক বেশি খোলামেলা।",
+      "human": "erotica romancer bhasha onek beshi kholamela."
+    },
+    {
+      "row": 7132,
+      "native": "সেলিনা হায়াৎ আইভী (জন্ম: ৬ জুন, ১৯৬৬) বাংলাদেশের নারায়ণগঞ্জ সিটি কর্পোরেশনের নির্বাচিত মেয়র এবং নারায়ণগঞ্জ পৌরসভার সাবেক মেয়র।",
+      "human": "selina hayat iv( jonmo 6 june, 1966) bangladesher narayangonge city corporationer nirbachito mayor ebong narayanganj pourosavar sabek mayor."
+    },
+    {
+      "row": 7146,
+      "native": "কারণ আসল রাজা মোমো এরকম শারীরিক গড়নের ছিলেন।",
+      "human": "karon aasol raja momo erokom sharirik goroner chilen."
+    },
+    {
+      "row": 7156,
+      "native": "১৯১৩ সাল থকে বোড়ো সংগঠনগুলি রাজনৈতিক ও সামাজিক আত্মপরিচয়ের ব্যাপারে সচেতন হয়ে ওঠে/ ১৯৬৩ সালে অসমের বোড়োপ্রধান এলাকাগুলির প্রাথমিক স্কুলগুলিতে শিক্ষার মাধ্যম হিসেবে বোড়োর প্রচলন হয়।",
+      "human": "1913 saal theke boro songothonguli rajnoitik o samajik aatmoporichoyer bapare sochetan hoye othe/ 1963 saale assamer boroprodhan elakagulir prathomik schoolgulite shikhar maddhom hisebe boror procholon hoy."
+    },
+    {
+      "row": 7162,
+      "native": "পাকিস্তানি সেনারা যে পথে আসছে, সে পথে আছে নদী।",
+      "human": "pakistani senara je pothe aasche, se pothe aache nodi."
+    },
+    {
+      "row": 7182,
+      "native": "ফলে নিয়মতান্ত্রিক বিরোধীতার ধারা ভেঙে পড়ে।",
+      "human": "fole niyomtantrik birodhitar dhara venge pore."
+    },
+    {
+      "row": 7219,
+      "native": "এই তেল নিতে গিয়ে বানজান্টন প্যান এম-এর পথরোধ করে রাখেন প্রায় ৪০ মিনিটের মত।",
+      "human": "ei tel nite giye banjantan paan -er pothrodh kore rakhen pray 40 miniter moto."
+    },
+    {
+      "row": 7243,
+      "native": "কবিতা রচনা কৌশলকে কাব্যকলা বলে। রসাত্মকবাক্য-রচয়িতা, কবিতা লেখক, কবিকে কাব্যকার নামে আখ্যায়িত করা হয়।",
+      "human": "kabita rachona koushalke kabyakala bole. roshatmokbakya-rachoyita, kabita lekhok, kabike kabyakar naame aakhyayito kora hoy."
+    },
+    {
+      "row": 7279,
+      "native": "এই প্রজাতির কিছু সাপের ক্ষেত্রে, পৃষ্ঠদেশীয় আঁশগুলি (V) আকৃতির সুস্পষ্ট কালো দাগ দিয়ে ঘেরা।",
+      "human": "ei projatir kichu saper khetre, prishthodeshiyo aashguli (v) akritir susposhto kalo daag diye ghera."
+    },
+    {
+      "row": 7286,
+      "native": "প্যারিসের কৃত্রিমতায় অচিরেই তার অনাসক্তি ধরে যায়, ফলশ্রুতিতে শহর ছেড়ে অপেক্ষাকৃত গ্রামাঞ্চলের দিকে বসবাস শুরু করেন।",
+      "human": "pariser kritrimotay achirei taar anasokti dhore jaay, folshrutite shohor chere apekhakrito gramancholer dike basobaas shuru koren."
+    },
+    {
+      "row": 7310,
+      "native": "প্রকৃতপক্ষে ১৯৬২ সাল হতে স্বাধীনতা পর্যন্ত জনাব ফরহাদের হুলিয়া থাকে।",
+      "human": "prokretopokkhe 1962 saal hote swadhinota porjonto jonab farhaader huliya thake."
+    },
+    {
+      "row": 7326,
+      "native": "অতঃপর ১৯৫৩ সালে তিনি যশোর জিলা স্কুলে তৃতীয় শ্রেণীতে ভর্তি হন এবং ১৯৬১ সালে তিনি এই স্কুল থেকে প্রবেশিকা পরীক্ষায় উত্তীর্ণ হন।",
+      "human": "ato:por 1953 saale tini jossor jela schoole tritiyo shrenite vorti hon ebong 1961 saale tini ei school theke probeshika porikhay uttirno hon."
+    },
+    {
+      "row": 7369,
+      "native": "যদি একজন ব্যক্তি আচরণটির উপর নিয়ন্ত্রণ থাকে তাহলে এটি একটি অভ্যাস।",
+      "human": "jodi ekjon bakti aachorontir upor niyontron thake tahole eti ekti avvys."
+    },
+    {
+      "row": 7377,
+      "native": "২০০৬সালে শ্রীমতি প্রতিভা পাটিল(তৎকালীন রাজস্থানের গভর্ণর এবং ভারতের প্রাক্তন রাষ্ট্রপতি) লাইব্রেরীটির দেড়শত বছর উদ্যাপনে অংশগ্রহন করেন।",
+      "human": "2006 saale Srimoti Pratibha Patil (totkalin rajasthaner governor ebong bharater prakton rashtropati) librarytir dershoto bochor uddyapone anshogrohon koren."
+    },
+    {
+      "row": 7386,
+      "native": "পোদ্দারবাড়ী মুক্তিযোদ্ধা যাদুঘর।",
+      "human": "poddarbari muktijoddha jadugor."
+    },
+    {
+      "row": 7391,
+      "native": "তিনি হার্ভার্ড বিশ্ববিদ্যালয় থেকে পদার্থবিজ্ঞানে ১৯০৮ সালে মাস্টার অব সায়েন্স এবং ১৯১১ সালে পিএইচডি ডিগ্রি অর্জন করেন।",
+      "human": "tini jhavard biswobidyalaya theke podarthobiggane 1908 saale master of science ebong 1911 saale phd digree arjon koren."
+    },
+    {
+      "row": 7406,
+      "native": "মাঝারিসারির ব্যাটসম্যান ছিলেন তিনি।",
+      "human": "majharisarir batsman chilen tini."
+    },
+    {
+      "row": 7412,
+      "native": "তিনি লাতিন ও আরবি শেখেন, খ্রিস্টীয় ও মুসলিম তত্ত্ব এবং দর্শন সম্পর্কেও জানেন।",
+      "human": "tini latin o arabi shekhen, chrishtiyo o muslim totto ebong dorshon somporkeo janen."
+    },
+    {
+      "row": 7426,
+      "native": "করবেট-ট্রিটপ রিভারভিউ, একটি স্টার্লিং হলিডেস রিসোর্ট",
+      "human": "corbet-tritop riverview, ekti starling hollydays risort"
+    },
+    {
+      "row": 7444,
+      "native": "মূলত তাঁর স্বামীর উৎসাহেই বনানী চলচ্চিত্র জগতে পা রাখেন।",
+      "human": "muloto taar swamir utsahei banani chwlochitro jogote paa rakhen."
+    },
+    {
+      "row": 7461,
+      "native": "কিন্তু দশাবতার তাস অনুযায়ী জগন্নাথ বা বুদ্ধদেবের স্থান পঞ্চম।",
+      "human": "kintu doshabatar taas anujayi jogonnath ba budhodeber sthan ponchom."
+    },
+    {
+      "row": 7468,
+      "native": "তিনি আরও বলেন, \"এটি আমার কাছে ভবিষ্যতের জন্য একটি ব্যবসায়িক বিনিয়োগ। ক্রিকেট আজীবন খেলে যেতে পারব না, তাই আমি অবসরের পর সকল সুযোগ জিইয়ে রাখছি।\"",
+      "human": "tini aaro bolen, \"eti aamar kache bhobishoyter jonno ekti babosayik biniyog. cricket aajieeban khele jete parbo na, taai aami abosorer por sokol sujog jiye rakhchi\"."
+    },
+    {
+      "row": 7471,
+      "native": "দেশভাগ কমিটির একজন মুসলিম সদস্য চৌধুরী মুহাম্মদ আলী পূর্ব পাঞ্জাব সীমান্তের সিদ্ধান্তকে গরমিল করার বিষয়ে বিরক্তিকর প্রমাণ পেয়েছিলেন।",
+      "human": "deshvag committir ekjon muslim sodossyo choudhury muhammod ali purbo punjub simanter siddhantoke gormil korar bishoye biroktikor proman peyechilen."
+    },
+    {
+      "row": 7515,
+      "native": "প্রধান যোগাযোগ মাধ্যম সিএনজি চালিত অটোরিক্সা।",
+      "human": "prodhan jogajog maddhom cng chalito autoriksha."
+    },
+    {
+      "row": 7521,
+      "native": "হাম টিভি হল পাকিস্তানের লাহোর এবং করাচীভিত্তিক ২৪-ঘণ্টার বিনোদনমূলক চ্যানেল।",
+      "human": "hum tv holo pakistaner lahore ebong korachivittik 24-ghontar binodonmulok channel."
+    },
+    {
+      "row": 7561,
+      "native": "দুই-তিন জনের দলে ভাগ হয়ে সন্ন্যাসীরা ধর্মগ্রন্থ থেকে আবৃত্তি করে।",
+      "human": "dui-tin joner dole vaag hoye sonnyashira dharmagrontho theke aabritti kore."
+    },
+    {
+      "row": 7603,
+      "native": "তবে নিচু স্তরের দল খুব কমই ফাইনালে পৌছেছে।",
+      "human": "tobe nichu storer dol khub komi finale poucheche."
+    },
+    {
+      "row": 7616,
+      "native": "এটির মূল কাটাপাহাড় ও জালাপাহাড় এবং অবজার্ভেটরি হিল থেকে বেরিয়ে আসা দুটি অংশের উপর অবস্থিত।",
+      "human": "etir mul katapahar o jalapahar ebong abjervetory hil theke beriye aasa duti angshoer upor abosthito."
+    },
+    {
+      "row": 7620,
+      "native": "বর্তমানে কলেজটিতে জাতীয় বিশ্ববিদ্যালয়ের অধীনে বিবিএ (প্রফেশনাল) কোর্সসহ আরো দশটি বিবিএ (সম্মান) কোর্স চালু রয়েছে।",
+      "human": "bartomane collegetite jatiyo biswobidyalayaer adhine bba (professional) coursesoho aaro doshti bba (sonman) course chalu royeche."
+    },
+    {
+      "row": 7646,
+      "native": "টিক্কা হচ্ছে এক টুকরো মাংস যা অনেকটা কাটলেট এর মত দেখতে।",
+      "human": "tikka hochhe ek tukro mangsho ja anekta cutlet er moto dekhte."
+    },
+    {
+      "row": 7665,
+      "native": "নোর-বু-ব্জাং-পোর দ্বিতীয় পুত্র ও পরবর্তী রাজা কুন-তু-ব্জাং-পোর রাজত্বকাল থেকে ফাগ-মো-গ্রু-পা রাজবংশের সাথে বিরোধ শুরু হয়।",
+      "human": "nor-boo-bjang-por ditiyo putra o poroborti raja kun-bhu-bjng-por rajjottokaal theke fug-mo-gru-pa rajbongsher shathe birodh shuru hoy."
+    },
+    {
+      "row": 7688,
+      "native": "পূজা সাধারণত গৃহে বা মন্দিরে অনুষ্ঠিত হয়।",
+      "human": "puja sadharonoto grihe ba mandire anushthito hoy."
+    },
+    {
+      "row": 7721,
+      "native": "গরিবদের মধ্যেও যারা গরিব তাদের মাঝে কাজ করতো এই চ্যারিটি, এখনও করে যাচ্ছে।",
+      "human": "goribder moddheo jaara gorib taader majhe kaaj korto ei charity, ekhono kore jacche."
+    },
+    {
+      "row": 7748,
+      "native": "কারণ উক্ত অংশে এই সকল অঞ্চল সম্পর্কে প্রদত্ত ভৌগোলিক ও ভূরাজনৈতিক তথ্য এই অঞ্চলের ইতিহাসের সঙ্গে সঙ্গতিপূর্ণ।",
+      "human": "karon ukto angshe ei sokol anchol somporke prodotto vougolik o bhurajnoitik tottho ei ancholer itihaser songe songotipurno."
+    },
+    {
+      "row": 7760,
+      "native": "কোম্পানিটি এর নাম স্টার্লিং রিসোর্ট থেকে পরিবর্তন করে পরবর্তীতে স্টার্লিং হলিডেস রাখে ।",
+      "human": "companyti er naam starling risort theke poriborton kore poro bortite starling hollydays rakhe."
+    },
+    {
+      "row": 7764,
+      "native": "২০১৫ সালের অক্টোবরে স্টারলিং হলিডে রিসোর্টস লিমিটেড নেচার ট্রেইলস রিসোর্টস প্রাইভেট লিমিটেড-যা মহারাষ্ট্রের ৪টি স্থানে রিসর্ট পরিচালনা করে, এর অধিকার লাভের জন্য একটি চুক্তি সই করে ।",
+      "human": "2015 saaler octobere starling hollyday risorts limited nature tretails risorts private limited-ja maharashtrer 4 ti sthane risort porichalona kore, er adhikar laaver jonno ekti chukti soi kore."
+    },
+    {
+      "row": 7789,
+      "native": "অ্যাথেন্সের ২০০৪ গ্রীষ্ম অলিম্পিকে ফেলপস ৮টি পদক জেতেন।",
+      "human": "aayathencer 2004 grismo olimpice fleps 8ti podok jeten."
+    },
+    {
+      "row": 7843,
+      "native": "তখন তাঁরা সেখানে গিয়ে খবিরের লাশ শনাক্ত করেন।",
+      "human": "tokhon taara sekhane giye khabirer lush shonakto koren."
+    },
+    {
+      "row": 7852,
+      "native": "১৯৮০ সালে অনেক প্রকাশক ক্যাটেগরি রোম্যান্সের লাইনে চলে আসে এই ফাঁকটি পূরণ করার জন্য।",
+      "human": "1980 saale anek prokashok category romancer line chole aase ei faakti puron korar jonno."
+    },
+    {
+      "row": 7867,
+      "native": "ভারতের বিভিন্ন প্রদেশে অনেক জাতি ও উপজাতির ক্ষত্রিয় রয়েছে।",
+      "human": "bharater bivinno prodeshe anek jati o upojato khotriyo royeche."
+    },
+    {
+      "row": 7884,
+      "native": "আবার উল্টোটিও দেখা যায়।",
+      "human": "aabar ultotio dekha jaay."
+    },
+    {
+      "row": 7895,
+      "native": "মন্থরা হল রাজা দশরথের স্ত্রী রাণী কৈকেয়ীর পিত্রালয় থেকে আগত কুব্জা দাসী ।",
+      "human": "manthara holo raja dashrather stree keikeyir pitra lay theke aagoto kubja dashi."
+    },
+    {
+      "row": 7899,
+      "native": "চার্লি চ্যাপেলিন-ভাঁড় নয় ভব ঘুরে নয়",
+      "human": "charly chaplin bhaar-noy bhobo ghure noy"
+    },
+    {
+      "row": 7909,
+      "native": "দলটি গঠন হওয়ার সময় জানজিবার ফুটবল এসোসিয়েশন ও ক্রিয়া মন্ত্রণালয় এর সহযোগিতায় তাদের কাছে সুযোগ এসেছিল জানজিবারের অন্যান্য মহিলা দলগুলোর সাথে প্রতিযোগিতা করার কিন্তু তারা পুরুষ দলের বিরুদ্ধে খেলতো এবং মাঝে মাঝে জয়লাভ করতো।",
+      "human": "dolti gothon hoayar somoy janji bar football association o montronalaya er sohojogitay taader kache sujog esechilo janjibarer annyanno mohila dolgulor shathe protijogita korar kintu taara purush doler biruddhe khelto ebong majhe majhe joylav korto."
+    },
+    {
+      "row": 7910,
+      "native": "এই ভয়াবহ অগ্নিঘটনার কারণ নিরূপণ করতে বাংলাদেশ সরকারের তরফ থেকে চার দফা তদন্তের উদ্যোগ গ্রহণ করা হয়।",
+      "human": "ei voyaboho agnighotonar karon nirupon korte bangladesh sarkarer torof theke chaar dofa todonter uddyog grohon kora hoy."
+    },
+    {
+      "row": 7933,
+      "native": "কালু ফকিরপাড়া আদর্শ বালিকা দাখিল মাদ্রাসা",
+      "human": "kalu fakirpara aadorsho balika dakhil madrasa"
+    },
+    {
+      "row": 7941,
+      "native": "কিন্তু পাকিস্তান সেনাবাহিনীর ব্যাপক গোলাগুলির মুখে তাঁরা মরদেহ উদ্ধারে ব্যর্থ হন।",
+      "human": "kintu pakistan senabahinir bapok golagulir mukhe taara morodeho uddhare byartho hon."
+    },
+    {
+      "row": 7944,
+      "native": "তরুণ গামা শেষে টিকে থাকা পনেরজন কুস্তিগিরের অন্যতম ছিলেন।",
+      "human": "tarun gama seshe tike thaka ponerojon kustigirer annyotomo chilen."
+    },
+    {
+      "row": 7954,
+      "native": "এরপর ১৯৮২সাল থেকে ব্রাউন বিশ্ববিদ্যালয়ে পদার্থবিজ্ঞানের অধ্যাপকের দায়িত্ব পালন করছেন তিনি।",
+      "human": "erpor 1982 saal theke brown biswobidyalayae podarthobigganer addhyapoker dayitto palon korchen tini."
+    },
+    {
+      "row": 7968,
+      "native": "পাওয়ার চেয়ার ব্যবহারকারী প্রতিবন্ধীগণের ক্রীড়াসূলভ মনোভাব জাগ্রতকরণে নতুন ধরনের খেলার প্রচলন ঘটানো হয়েছে যা পাওয়ার চেয়ার ফুটবল বা পাওয়ার সকার নামে পরিচিত।",
+      "human": "power chair baboharkari protibonddhigoner crirasulobho monobhab jagrotokorone notun dhoroner khelar procholon ghotano hoyeche ja power chair football ba power soccar naame porichito."
+    },
+    {
+      "row": 7978,
+      "native": "হাত আঙ্গুলে পরিধেয় গোল, ধাতব অলংকারকে আংটি বলে।",
+      "human": "haath angule poridheyo gol, dhatobo alongkarke angti bole."
+    },
+    {
+      "row": 7986,
+      "native": "বাংলাদেশ ও ভারতে এই গণের কয়েকটি প্রজাতি পাওয়া যায়।",
+      "human": "bangladesh o bharate ei goner koyekti projati paoya jaay."
+    },
+    {
+      "row": 7992,
+      "native": "সেখানে তিনি তার ছয়জন বন্ধু নিয়ে ’দ্যা ইনোসেন্ট হার্টস’ কবিতা গ্রুপ গঠন করেন।",
+      "human": "sekhane tini taar choyjon bondhu niye 'the innocent hearts' kabita group gothon koren."
+    },
+    {
+      "row": 8004,
+      "native": "মন্দিরের একতলায় রত্নবেদীটি ১০৮টি শালগ্রাম শিলার উপর প্রতিষ্ঠিত।",
+      "human": "mandirer ektalay ratnobediti 108ti shalgram shilar upor protishthito."
+    },
+    {
+      "row": 8022,
+      "native": "শহরের উপর ক্রমাগত আক্রমণের বদলে তারা বাইজেন্টাইনদের রসদ কমে যাওয়া পর্যন্ত অপেক্ষা করেন যাতে রক্তপাতহীন আত্মসমর্পণ সম্ভব হয়।",
+      "human": "shohorer upor kromagoto aakromoner bodole taara baijentainder roshod kome jaoya porjonto apekkha koren jaate roktopathin aatmosomorpon somvob hoy."
+    },
+    {
+      "row": 8030,
+      "native": "পাথুরে শিল্প বিশেষজ্ঞ ডেভিড এস.",
+      "human": "pathure shishu bishesoggo devid s."
+    },
+    {
+      "row": 8043,
+      "native": "মহাবিদ্রোহ দমিত হলেও আলেয়ার, সালেম্বুর, উজ্জয়িনী, বংশওয়াড়ায় বিভিন্ন জায়গায় ইংরেজের চোখে ধুলো দিয়ে পালিয়েছেন এই বিদ্রোহী।",
+      "human": "mahabidraho domito holeo aleyar, salembur, ujjyoni, bonshowayaray bivinno jaygay engrejer chokhe dhulo diye paliyechen ei bidrohi."
+    },
+    {
+      "row": 8058,
+      "native": "তৎকালীন ফিনল্যান্ডের ইলি-ই এলাকায় এ ধরনের বার্চ বৃক্ষের কষ দিয়ে তৈরী চুইং গামে দাঁতের ছাপের অস্তিত্ব পাওয়া গেছে।",
+      "human": "totkalin finlander ili-i elakay e dhoner barch brikkher kosh diye toiri chewing gume datter chaper astitto paoya geche."
+    },
+    {
+      "row": 8059,
+      "native": "ফকিরহাট উপজেলা বাগেরহাট জেলার পশ্চিমাংশে অবস্থিত।",
+      "human": "fakirhat upojela bagerhat jelar poschimangshe abosthito."
+    },
+    {
+      "row": 8069,
+      "native": "গানটির জন্য তিনি ৫৯ তম ফিল্মফেয়ার অ্যাওয়ার্ডস এ সেরা পুরুষ গায়কের পুরস্কার অর্জন করেন।",
+      "human": "gantir jonno tini 59 tomo filmfair awards e sera purush gayoker puroshkar orjon koren."
+    },
+    {
+      "row": 8076,
+      "native": "এই সাগরে বিশ্বের এক-তৃতীয়াংশ পণ্য বাহী জাহাজ চলাচল করে ফলে এই সাগর ভূ-রাজনীতির ক্ষেত্রে গূরুত্ব পূর্ণ।",
+      "human": "ei mathar biswer ek-tritiyangsho ponnyo bahi jahaj cholachol kore fole ei sagar bhu-rajnitir khetre gurutto purnyo."
+    },
+    {
+      "row": 8113,
+      "native": "লোকসংস্কৃতির উপরও জোর দেয়া হয়।",
+      "human": "loksanskritir uporo jore deoya hoy."
+    },
+    {
+      "row": 8145,
+      "native": "সাধারণত তিনটি ব্যঞ্জন নিয়ে একটি মূল গঠিত হয় এবং প্রতিটির একটি মূল অর্থ থাকে।",
+      "human": "sadharonoto tinti banjon niye ekti mul gothito hoy ebong protitir ekti mul artho thake."
+    },
+    {
+      "row": 8167,
+      "native": "কেবলমাত্র এল সালভাদোর বাদে পাঁচটি প্রদেশ এর পক্ষে ভোটাধিকার প্রয়োগ করে।",
+      "human": "kebolmatro l salvador baade paachti prodesh er pokkhe votadhikar proyog kore."
+    },
+    {
+      "row": 8179,
+      "native": "বর্তমানে সড়ক যোগাযোগের কিছু উন্নতি হলেও ভোরের শিশির স্নিগ্না দূর্বাসম, পূত পবিত্র, নিরীহ ও অনগ্রসর জনগণের সার্বিক জীবনধারণের জন্য মধুপুর তথা শরীয়তপুরে নেই উন্নয়ন সম্পৃক্ত কোন দপ্তরের ভৌত অবকাঠামো।",
+      "human": "bartomane sorok jogajoger kichu unnoti holeo vorer shishir sniga durbasomo, puto pobitro, niriho o anogrosor gonogoner sarbik jibondharoner jonno madhupur totha shoriyotpure nei unnoyon somprikto kono doptorer vouto abokathamo."
+    },
+    {
+      "row": 8236,
+      "native": "আদিকাণ্ড-এ বর্ণিত হয়েছে রামের জন্ম, শৈশব ও সীতার সহিত বিবাহের কথা; অযোধ্যাকাণ্ড-এ বর্ণিত হয়েছে রামের রাজ্যাভিষেক প্রস্তুতি ও তাঁর বনগমনের কথা; তৃতীয় খণ্ড অরণ্যকাণ্ড-এ বর্ণিত হয়েছে রামের বনবাসের কথা ও রাবণ কর্তৃক সীতাহরণের বৃত্তান্ত; চতুর্থ খণ্ড কিষ্কিন্ধ্যাকাণ্ড-এ বর্ণিত হয়েছে হনুমান ও রামের মিলন, রামের সহায়তায় বানররাজ বালী হত্যা এবং বালীর কনিষ্ঠ ভ্রাতা সুগ্রীবের কিষ্কিন্ধ্যার রাজ্যাভিষেক; পঞ্চম খণ্ড সুন্দরকাণ্ড-এ বর্ণিত হয়েছে হনুমানের বীরত্বগাথা, তাঁর লঙ্কাগমন ও সীতার সহিত সাক্ষাতের কথা; রাম ও রাবণের যুদ্ধ বর্ণিত হয়েছে ষষ্ঠ খণ্ড লঙ্কাকাণ্ড-এ; সর্বশেষ খণ্ড উত্তরকাণ্ড-এর মূল উপজীব্য রাম ও সীতার পুত্র লব ও কুশের জন্মবৃত্তান্ত, তাঁদের রাজ্যাভিষেক ও রামের ধরিত্রী ত্যাগ।",
+      "human": "adikanda-e bornito hoyeche ramer jonmo, shoishob o sitar sohit bibaher kotha,ajodhyakanda-e bornito hoyeche ramer rajjabishek prostuti o taar bonogomoner kotha, tritiyo khondo aaronnyo kanda-e bornito hoyeche ramer bonobaser kotha o raban kotrik sitahoroner brittantto, choturtho khondo kiskindhyakanda-e bornito hoyeche hanuman o ramer milon, ramer sohayotay banorraj bali hotta ebong bali konishtho vrata sugriber kiskindarr rajjyabhishek, ponchon khondo sudarkando-e bornito hoyeche hanumaner birottogatha, taar lankagomon o sitar sohit sakkhater kotha, ram o raboner juddho bornito hoyeche sostho khondo lankakando-e, sorbosesh khondo uttarkando-er mul upojibbyo ram o sitar putra lob o kusher jonmobrittanto, taader rajjabhishek o ramer dhoritri tyag."
+    },
+    {
+      "row": 8270,
+      "native": "৮.পূর্ব অষ্টগ্রাম ইউনিয়ন পরিষদ,",
+      "human": "8purbo ashtogram union porisho"
+    },
+    {
+      "row": 8274,
+      "native": "ভারতে মুঘল আমলে সম্রাটের হারেমের নিরাপত্তা ব্যবস্থা ছিল অত্যান্ত কঠিন।",
+      "human": "bharate mughal amole samrater haremer nirapotta babostha chilo attonto kothin."
+    },
+    {
+      "row": 8304,
+      "native": "তারপর একটা লম্বা সূতো নিয়ে অপেক্ষাকৃত ভারী ববের পেন্ডুলাম বানিয়ে তারপর তাকে দুলিয়ে দেখবে;",
+      "human": "tarpor ekta lomba suto niye apekhakrito bhari bober pendulam baniye tarpor taake duliye dekhbe;"
+    },
+    {
+      "row": 8329,
+      "native": "এছাড়াও পিটিভি ২০১৬ সালের অলিম্পিক এবং ২০১৬ সাল পর্যন্ত আইসিসির প্রধান প্রতিযোগিতামলক খেলাগুলো সম্প্রচার করবে।",
+      "human": "echarao ptv 2016 saaler olimpic ebong 2016 saal porjonto iccr prodhan protijogitamulok khelagulo somprochar korbe."
+    },
+    {
+      "row": 8350,
+      "native": "হয়গ্রীব মাধব মন্দিরটি পাথর দিয়ে নির্মিত।",
+      "human": "hoygrib madhab mandirti pathor diye nirmito."
+    },
+    {
+      "row": 8353,
+      "native": "১৮৮৪ সালে রাস্তায় প্রথম কেরোসিনের বাতি জ্বালানো হয়।",
+      "human": "1884 saale rastay prothom kerosiner baati jalano hoy."
+    },
+    {
+      "row": 8363,
+      "native": "ফেব্রুয়ারী ২০,২০১৩ইং তারিখে এক সংবাদ সম্মেলনে প্লেস্টেশন ৪কে প্লেস্টেশন ৩ এর উত্তরাধিকারী হিসেবে ঘোষণা করা হয়, এটি উত্তর আমেরিকাতে নভেম্বর১৫, ২০১৩ তারিখে চালু করা হয়েছিল ইউরোপ এবং অস্ট্রেলিয়া ২৯ নভেম্বর ২০১৩ তারিখে।",
+      "human": "ferruary 20,2013eng tarikhe ek sangbad sonmelone playstation 4ke playstation 3 er uttoradhikari hisebe ghoshona kora hoy, eti uttor americate november15, 2013 tarikhe chalu kora hoyechilo europe ebong austrelia 29 november 2013 tarikhe."
+    },
+    {
+      "row": 8394,
+      "native": "লিট উপাধিতে ভূষিত করে।",
+      "human": "lit upadhite bhushito kore."
+    },
+    {
+      "row": 8406,
+      "native": "তিনি নিজেকে নারীবাদী বলে মনে করেন।",
+      "human": "tini nijeke naribadi bole mone koren."
+    },
+    {
+      "row": 8407,
+      "native": "গির্জার শিক্ষা দেয় যে এটি তাঁর মহান কমিশনে যীশু খ্রীষ্টের দ্বারা প্রতিষ্ঠিত এক, পবিত্র, ক্যাথলিক এবং অ্যাপোস্টোলিক গির্জা এবং খ্রিস্টের প্রেরিতদের উত্তরাধিকারী।",
+      "human": "girjar shikkha dey je eti taar mahan commisione jishu chrishter daara protishthito ek, pobitro, cathlic ebong aapostolic girja ebong chrishter preritoder uttoradhikari."
+    },
+    {
+      "row": 8446,
+      "native": "কলকাতার শিল্পীরা এসে মণ্ডপ তৈরি করেন।",
+      "human": "kolkatar shilpira ese mondop toiri koren."
+    },
+    {
+      "row": 8462,
+      "native": "ভৃগুবংশীয় পরশুরামের ক্ষোভে সমস্ত সংসার ক্ষত্রিয়হীন হয়ে যায়।",
+      "human": "bhugubongshiyo porshuramer khove somosto songsar khotriyohin hoye jaay."
+    },
+    {
+      "row": 8472,
+      "native": "১৯৫০ সালে সিডনি ড্যানকফ স্বাধীনভাবে এই একই পদ্ধতি আবিষ্কার করেছিলেন।",
+      "human": "1950 saale sidneydankof swadhinbhabei ei eki poddhoti abishkar kore chilen."
+    },
+    {
+      "row": 8483,
+      "native": "মনিরউদ্দীন ইউসুফ- বাংলাদেশী লেখক, ঔপন্যাসিক, নাট্যকার এবং অনুবাদক।",
+      "human": "moniruddin eusuf -bangladeshi lekhok, oiponasik, nattokar ebong anubadok."
+    },
+    {
+      "row": 8501,
+      "native": "প্রত্যুত্তরে দুদায়েভ আইনসভা ও অন্যান্য ক্ষমতাবান প্রতিষ্ঠানগুলোকে বিলুপ্ত করেন।",
+      "human": "prottutore dudayev aainsobha o aanyano khomotaban protishthanguloke bilupto koren."
+    },
+    {
+      "row": 8510,
+      "native": "নজরুল ইসলামর কবিতা",
+      "human": "najrul islamer kabita"
+    },
+    {
+      "row": 8514,
+      "native": "টোবা হ্রদ (ইন্দোনেশীয় ভাষাঃ দানাউ টোবা) একটি মহাআগ্নেয়গিরির জ্বালামুখ জুড়ে অবস্থিত বৃহৎ প্রাকৃতিক হ্রদ।",
+      "human": "toba hrod (indonesiyo bhasha: danau toba) ekti mahaagneyogirir jalamukh jure abosthito brihot prakritik hrod."
+    },
+    {
+      "row": 8522,
+      "native": "এঁদের ৪৫ শতাংশই তখন কলেজ ডিগ্রিধারী এবং অর্ধেকের বেশি বাড়ির বাইরে কর্মরত।",
+      "human": "eder 45 shotangshoi tokhon college digreedhari ebong ardheker beshi barir baire kormoroto."
+    },
+    {
+      "row": 8528,
+      "native": "মাইকেল সি. হল",
+      "human": "Michael C. hall"
+    },
+    {
+      "row": 8541,
+      "native": "বাল্মীকি লব ও কুশকে রামায়ণ গান শিক্ষা দেন।",
+      "human": "balmiki lab o kushke ramayan gaan shikkha den."
+    },
+    {
+      "row": 8565,
+      "native": "তবে এর মূল কেন্দ্র পাকিস্তানের ইসলামাবাদে অবস্থিত।",
+      "human": "tobe er mul kendro pakistaner islamabade abosthito."
+    },
+    {
+      "row": 8568,
+      "native": "জিন্দা পার্ক প্রায় ১৫০ একর জায়গাজুড়ে বিস্তত।",
+      "human": "jinda park pray 150 ekor jaygajure bisrito."
+    },
+    {
+      "row": 8601,
+      "native": "আনুমানিক ৩৫০০ খ্রীস্টপূর্বে বিভিন্ন লিপির ব্যবহার শুরু হয়ে যায় বিশ্বের প্রাচীনতম সভ্যতা গুলিতে।",
+      "human": "anumanik 3500 chrishtopurbe bivinno lipir babohare shuru hoye jaay biswer prachintomo sobhhota gulite."
+    },
+    {
+      "row": 8602,
+      "native": "এটি প্রথম শুরু হয় ভারতের দিল্লিতে।",
+      "human": "eti prothom shuru hoy bharater delhite."
+    },
+    {
+      "row": 8606,
+      "native": "এই জেলার আকার সময় সময় পরিবর্তিত হয়েছে।",
+      "human": "ei jelar aakar somoy somoy probortito hoyeche."
+    },
+    {
+      "row": 8650,
+      "native": "ঘরোয়া প্রথম-শ্রেণীর ক্রিকেটে ভিক্টোরিয়া ও নিউ সাউথ ওয়েলসের পক্ষে প্রতিনিধিত্ব করেছেন তিনি।",
+      "human": "ghoroya prothom-shrenir crickete victoria o new south weleser pokkhe protiniditto korechen tini."
+    },
+    {
+      "row": 8731,
+      "native": "বাংলার মুসলিমদের মধ্যে স্বতন্ত্র সাহিত্য-সংস্কৃতির ধারা তৈরী, দ্বিজাতিতত্ত্বভিত্তিক মুসলিম জাতীয়তাবাদের বিকাশ, পাকিস্তানি ভাবধারা প্রসার বৃদ্ধি মোহাম্মদী পত্রিকার উদ্দেশ্য ছিল।",
+      "human": "banglar muslimder moddhe swatontro sahitto-songoskritir dhara toiri, dijatitottovittik muslim jatiyotabader bikash, pakistani bhabdhara prosar briddhi mohammodi potrikar uddesshyo chilo."
+    },
+    {
+      "row": 8740,
+      "native": "২০১২ সালে তিনি রাজকুমার নাটকে অভিনয় করে এবং ২০১৩ সালে বেঁচে থাক ভালবাসাতে অভিনয় করেন।",
+      "human": "2012 saale tini rajkumar natoke abhinoy kore ebong 2013 saale beche thak bhalobasate abhinoy koren."
+    },
+    {
+      "row": 8768,
+      "native": "আল সুনান আল কুবরা আহমেদ বায়হাকি প্রণীত",
+      "human": "aal sunan aal kubra ahmed bayhaki pronito"
+    },
+    {
+      "row": 8777,
+      "native": "নকল হাঁস দিয়েও হাঁস শিকার করা যায়।",
+      "human": "noko hans diyeo hans shikar kora jaay."
+    },
+    {
+      "row": 8795,
+      "native": "রইস তার সাথে বিশ্বাসঘাতকতা ও সাধারণ মানুষ মারার জন্য মুসাভাইকে হত্যা করে।",
+      "human": "raise taar sathe biswasghatokota o sadharon manush marar jonno musabhaike hottya kore."
+    },
+    {
+      "row": 8808,
+      "native": "এইখানে বড় পর্দায় কিছু বিষয় থাকে সেইখান থেকে যার স্কোর বেশি থাকে তাকে প্রথম বিষয় বাছাই করার সুযোগ দেওয়া হয়।",
+      "human": "eikhane boro parday kichu bishoy thake seikhan theke jaar score beshi thake taake prothom bishoy bachai korar sujog deoya hoy."
+    },
+    {
+      "row": 8822,
+      "native": "সে হাতুড়ি ফিরে পাওয়ার সাথে সাথে ক্ষমতাও পুনরুদ্ধার করে।",
+      "human": "se haturi fire paoyar shathe shathe khomotao punoruddhar kore."
+    },
+    {
+      "row": 8824,
+      "native": "এই বিদ্যালয়টির প্রতিষ্ঠাতা জহুরুল ইসলাম।",
+      "human": "ei bidyalayatir protishthota johurul islam."
+    },
+    {
+      "row": 8836,
+      "native": "এ রচনাটি মার্কসের পুঁজি গ্রন্থের মূল বক্তব্যগুলোর প্রত্যক্ষ অনুবর্তন ও সৃজনশীল বিকাশ।",
+      "human": "e rachonati markser puji gronther mul boktobyogulor prottyokkho anubarton o srijonshil bikash."
+    },
+    {
+      "row": 8871,
+      "native": "তার চিত্রকর্মের যে বিশালতা, বলিষ্ঠতা ও ব্যাপকতা এবং ড্রইংয়ে রংয়ের প্রলেপ, যেভাবে লাইন টেনেছেন তা শুধু অনুধাবন করার বিষয়।",
+      "human": "taar chitrokormer je bishalota, bolisthota o bapokota ebong droinge ronger prolep, jevabe line tenechen ta shudhu anudhabon korar bishoy."
+    },
+    {
+      "row": 8874,
+      "native": "তবে, পরবর্তী দুই টেস্টে নিউজিল্যান্ড দল পরাজিত হয়ে সিরিজে ১-৩ ব্যবধানে পিছিয়ে পড়ে।",
+      "human": "tobe, poroborti dui teste newzeland dol porajito hoye serice 1-3 byabodhane pichiye pore."
+    },
+    {
+      "row": 8951,
+      "native": "দেশ এবং রাজধানী পরিবর্তনের সময়রেখা (৩৯৫০ খ্রিষ্টপূর্বাব্দ–বর্তমান)",
+      "human": "desh ebong rajdhani poribortoner somoyrekha (3950 chrishtopurbabdo-bartoman)"
+    },
+    {
+      "row": 8985,
+      "native": "প্রতিটি জেলায় বহু সরকারী কর্মকর্তা নিযুক্ত থাকেলেও জেলা প্রশাসক বা ডেপুটি কমিশনার (ডি.সি.)-কে জেলার প্রধান সরকারি প্রতিনিধি গণ্য করা হয়; তিনি জেলার প্রধান রাষ্ট্রাচার কর্মকর্তা এবং মন্ত্রী পরিষদ বিভাগের কাছে দায়বদ্ধ।",
+      "human": "protiti jelay bohu sarkari kormokorta nijukto thakleo jela proshasok ba deputy commisioner (d.c)-ke jelar prodhan sarkari protinidhi gonnyo kora hoy, tini jelar prodhan rashtrachar kormokorta ebong montri porishod bivager kache dayboddho."
+    },
+    {
+      "row": 8997,
+      "native": "এদের প্রধান খাবার মুরগি, হাঁস ইত্যাদি।",
+      "human": "eder prodhan khabar murgi, hans ittadi."
+    },
+    {
+      "row": 9003,
+      "native": "অ্যানাটমি এবং মেডিসিনে তিনটি তল অহরহ ব্যবহার করা হয়।",
+      "human": "anatomy ebong medicine tinti tol ahoroho babohar kora hoy."
+    },
+    {
+      "row": 9024,
+      "native": "ঋজুদা সিরিজের নাম থেকেই প্রধান চরিত্রের আঁচ পাওয়া যায়।",
+      "human": "rijuda seriser naam thekei prodhan choritrer aach paoya jaay."
+    },
+    {
+      "row": 9035,
+      "native": "সাধারনত মিডিয়া থেকে দুরত্ব বজায় রাখেন অরিজিৎ তবে কনসার্টগুলিতে ভক্তদের সঙ্গে মেতে ওঠেন।",
+      "human": "sadharonoto media theke durotto bojay rakhen arijit tobe consertgulite voktoder songe mete othen."
+    },
+    {
+      "row": 9054,
+      "native": "সেই দিনটি বা সে সময়টিতে তাদের নীড় যে ভেঙে গেছে চলচ্চিত্রে তা-ই মুখ্যভাবে প্রস্ফুটিত হয়েছে।",
+      "human": "sei dinti ba sei somoytite taader nir je venge geche chwlochitre ta-i mukhyobhabe prosfutito hoyeche."
+    },
+    {
+      "row": 9176,
+      "native": "পরবর্তীতে এই কেন্দ্রের নাম পরিবর্তন করে রাখেন নির্মল হৃদয়।",
+      "human": "porobortite ei kendrer naam poriborton kore rakhen nirmol hridoy."
+    },
+    {
+      "row": 9211,
+      "native": "জনশ্রতি রয়েছে, ১৪৮৫ খ্রিষ্টাব্দে সুন্দরানন্দ ঠাকুর নামের এক রাজা এই পূজা প্রথম শুরু করেন।",
+      "human": "jonoshruti royeche, 1485 chrishtabde sundarananda thakur naamer ek raja ei puja prothom shuru koren."
+    },
+    {
+      "row": 9214,
+      "native": "কাজের মেয়েটা প্রায় মিসির আলিকে সাবধান করেন রেবুর বিষয়ে। এভাবেই রহস্যে যেতে থাকে গল্পের কাহিনি।",
+      "human": "kajer meyeta pray misir alike sabdhan koren rebur bishoye. ebhabei rohossye jete thake golper kahini."
+    },
+    {
+      "row": 9225,
+      "native": "প্রাথমিক অবস্থা জীবাণুযুক্ত যোনিতে সহবাসের ফলে লিঙ্গের মাথায় বা উহার গায়ে ছোট ছোট ফুসকুড়ি ওঠে এবং ঘায়ের সৃষ্টি হয়।",
+      "human": "prathomik obostha jibanujukto jonite sohobaser fole linger mathay ba uhar gaaye choto choto fuskuri othe ebong ghayer srishti hoy."
+    },
+    {
+      "row": 9226,
+      "native": "তিনি পিতা মাতার মধ্যম পুত্র ও পঞ্চম সন্তান।",
+      "human": "tini pita matar moddhom putra o ponchom santan."
+    },
+    {
+      "row": 9230,
+      "native": "বাংলাদেশ চা গবেষণা ইনস্টিটিউট (বিটিআরআই) শ্রীমঙ্গলের জেনারেল ম্যানেজার খোন্দকার শাহজাহান নিজেই উদ্ভাবন করেছেন নতুন এ চা।",
+      "human": "bangladesh cha gobeshona institute (btri) shreemongoler general maneger khondkar shhajahan nijei udbhaban korechen notun e cha."
+    },
+    {
+      "row": 9238,
+      "native": "দলটি নিয়ন্ত্রণ করে জাপানি ফুটবল সংস্থা জাপান ফুটবল অ্যাসোসিয়েশন।",
+      "human": "dolti niyontron kore japani football songostha japan football association."
+    },
+    {
+      "row": 9248,
+      "native": "গানটির প্রথম সুরকার আব্দুল লতিফ হলেও পরবর্তীতে আলতাফ মাহমুদের সুরটিই গৃহীত হয়।",
+      "human": "gaantir prothom surokar abdul latif holeo porobortite altaf mahmuder surti grihito hoy."
+    },
+    {
+      "row": 9254,
+      "native": "এ উপলক্ষ্যে দল নির্বাচকমণ্ডলী ডিসেম্বর, ১৯২৭ ও জানুয়ারি, ১৯২৮ সময়কালের মধ্যে বার্বাডোসে তিনটি টেস্ট পূর্ব-প্রস্তুতিমূলক খেলার আয়োজন করে।",
+      "human": "e upollokkhye dol nirbachokmondoli december, 1927 o january, 1928 somoykaler moddhe barbadose tinti teste purbo-prostutimulok khelar aayojon kore.."
+    },
+    {
+      "row": 9277,
+      "native": "এছাড়াও বরের বাড়িতে বিবাহীত আত্মীয়-স্বজন যাঁরা আসেন, সাধারণত বরের আত্মীয় সম্পর্কের ভাই-বোন-শ্রেণীয়দেরকে কাপড় উপহার দেয়া হয়।",
+      "human": "echarao borer barite bibahito aattiyo-swajon ajara aasen,sadharonoto borer aatiyo somporker bhai-bon shreniderke kapor upohar deoya hoy."
+    },
+    {
+      "row": 9284,
+      "native": "এটি ইউনেস্কোর বিশ্ব ঐতিহ্যবাহী স্থানের পরীক্ষামূলক তালিকায় ভারতের কিংবদন্তি শাড়ি বয়ন গুচ্ছ হিসাবে স্থান করে নিয়েছে।",
+      "human": "eti iuneskor biswo oitijhhyobahi sthaner porikkhamulok talikay bharater kingbodonti shari boyon guchho hisabe sthan kore niyeche."
+    },
+    {
+      "row": 9319,
+      "native": "উর শহরের অবস্থানের স্থানটিতে একটি জিগুরাত বা উপাসনালয়ের ধ্বংসাবশেষ পাওয়া গেছে।",
+      "human": "ur sohore obosthaner sthantite ekti jiguraat ba upasonaloyer dhonsabosesh paoya geche."
+    },
+    {
+      "row": 9340,
+      "native": "ইস্ট ইন্ডিয়া কোম্পানির শাসনামলে রাজস্ব আদায়, প্রশাসনিক সুবিধা বৃদ্ধি এবং বিশেষ করে স্থানীয় বিদ্রোহ দমনের জন্য এই জেলা গঠন করা হয়।",
+      "human": "east india company sasnamle ajossyo aday, proshasonik subidha briddhi ebong bisesh kore sthaniyo bidroho domoner jonno ei jela gothon kora hoy."
+    },
+    {
+      "row": 9347,
+      "native": "হরিণটিকে ধরতে গেলেন রাম।",
+      "human": "horintike dhorte gelen rum."
+    },
+    {
+      "row": 9373,
+      "native": "বন্দর থেকে জাতীয় সড়ক পর্যন্ত ১৪ মিটার চওড়া চার লেন এর সড়ক রাজ্য সরকার তৈরি করবে।",
+      "human": "bondor theke jatiyo sorok porjonto 14 miter chora char lane er sorok rajjo sarkar toiri korbe."
+    },
+    {
+      "row": 9379,
+      "native": "১৯৪৬ সালে তিনি আলীগড় মুসলিম বিশ্ববিদ্যালয় থেকে রেকর্ড নম্বরসহ গণিতে প্রথম শ্রেণীতে প্রথম হয়ে এম.",
+      "human": "1946 saale tini aligar muslim biswobidyalaya theke record nomborsoho gonite prothom shrenite prothom hoye m."
+    },
+    {
+      "row": 9381,
+      "native": "মাছের তরকারী বলতে মাছ দ্বারা প্রস্তুতকৃত/রান্নাকৃত খাবারকে বোঝানো হয়ে থাকে।",
+      "human": "macher torkari bolte mach dara prostutkrito/rannakrito khabarke bojhano hoye thake."
+    },
+    {
+      "row": 9393,
+      "native": "চট্টগ্রামের আরেকটি বিচিত্র আয়োজন হচ্ছে 'ঘরজামাই বিয়া'।",
+      "human": "chottogramer aarekti bichitro aayojon hochhe 'ghorjamai biya'."
+    },
+    {
+      "row": 9421,
+      "native": "এতে আবদুর রহমান খান জয়ী হন এবং আইয়ুব খান পারস্যে পালিয়ে যান।",
+      "human": "ete abdur rahman khan joyi hon ebong aaiyub khan parossye paliye jan."
+    },
+    {
+      "row": 9448,
+      "native": "বিহু অসমের জাতীয় উৎসব।",
+      "human": "bihu assamer jatiyo utsob."
+    },
+    {
+      "row": 9449,
+      "native": "মাইকেল হোল্ডিংকে পাশ কাটিয়ে ইয়ান বোথামের নেতৃত্বাধীন ইংরেজ দলের বিপক্ষে খেলার জন্য নির্বাচিত হলেও ক্লার্ককে দলের বাইরে রাখা হয়।",
+      "human": "michel holdingke pass katiye iyan bothamer netrittadhin engrej doler bipokkhe khelar jonno nirbachito holeo clarkke doler baire rakha hoy."
+    },
+    {
+      "row": 9480,
+      "native": "এই রোগ সাধারণত গলায় সংক্রমণের দুই থেকে চার সপ্তাহ পরে শুরু হয়।",
+      "human": "ei rog sadharonoto golay songkromoner dui thek chaar soptaho pore shuru hoy."
+    },
+    {
+      "row": 9486,
+      "native": "১৯৩৮ সালে ব্রিটিশ উপনিবেশিক প্রশাসন কারেন নববর্ষের দিনকে সরকারি ছুটি হিসেবে ঘোষণা করে।",
+      "human": "1938 saale british uponibeshik proshason karen noboborsher dinke sarkari chuti hisebe ghoshona kore."
+    },
+    {
+      "row": 9505,
+      "native": "প্রাচীন গুহাচিত্রগুলোতে পাখির চিত্র পাখির প্রতি তখনকার মানুষের আগ্রহের ব্যাপারটি টের পাওয়া যায়।",
+      "human": "prachin guhachitrogulote pakhir chitro pakhir proti tokhonkar manusher agroher byaparti ter paoya jaay."
+    },
+    {
+      "row": 9510,
+      "native": "একটি দ্বীপের সন্ধানে",
+      "human": "ekti dwiper sondhane"
+    },
+    {
+      "row": 9529,
+      "native": "যোদ্ধারা থরকে খুঁজে পায়, কিন্তু ডেস্ট্রয়ার আক্রমণ করে তাদের পরাজিত করে।",
+      "human": "joddhara thorke khuje paay, kintu destroyar aakromon kore tader porajito kore."
+    },
+    {
+      "row": 9541,
+      "native": "১৯৫০ থেকে ৫৪-এই পাঁচ বছরে ৯টি নাটকে নির্দেশনা ও অভিনয় সূত্রে যুক্ত ছিলেন।",
+      "human": "1950 theke 54-ei paach bochore 9ti natoke nirdeshona o abhinoy sutre jukto chilen."
+    },
+    {
+      "row": 9569,
+      "native": "মুসলিমদের পক্ষে খলিফা উমর এতে স্বাক্ষর করেন এবং খালিদ বিন ওয়ালিদ, আমর ইবনুল আস, আবদুর রহমান বিন আউফ ও মুয়াবিয়া মুসলিম পক্ষে চুক্তির স্বাক্ষী হন।",
+      "human": "muslimder pokkhe kholifa umor ete swakkhor koren ebong khalid bin wayaid, amar ibnul as, abdur rahman bin auf o muyabiya muslim pokkhe chuktir sakkhi hon."
+    },
+    {
+      "row": 9583,
+      "native": "শেফিল্ডের পঞ্চম ব্যারন আর্থার স্ট্যানলি’র আমন্ত্রণে সাসেক্সের তরুণ ক্রিকেটারদেরকে প্রশিক্ষণ দেন।",
+      "human": "shefilder ponchom byaron Aarther Stanlyer amontrone Sasesker torun cricketarderke proshikkhon den."
+    },
+    {
+      "row": 9630,
+      "native": "তিনি দৈনিক আজাদেও কাজ করেছেন।",
+      "human": "tini doinik ajadeo kaaj korechen."
+    },
+    {
+      "row": 9633,
+      "native": "তাঁর স্ত্রীর নাম রাজিয়া বেগম।",
+      "human": "taar stree naam rajia begam."
+    },
+    {
+      "row": 9663,
+      "native": "সমগ্র প্রথম-শ্রেণীর খেলোয়াড়ী জীবনে ৪০-এর অল্প কম গড়ে ২৫১৪ রান তুলেছেন।",
+      "human": "somogro prothom-shrenir kheloyari jibone 40-er olpo kom gore 2514 run tulechen."
+    },
+    {
+      "row": 9668,
+      "native": "ফরহাদ আশাবাদ ব্যক্ত করেছিলেন '২০০০ সালের মধ্যে বিপ্লব সংগঠিত করার'।",
+      "human": "farhad ashabad byakto korechilen 2000 saaler moddhe biplob songhotito korar."
+    },
+    {
+      "row": 9743,
+      "native": "সেখান থেকে তিনি তার চেয়ে সংখ্যায় বড় একটি আরব বাহিনীর দিকে অগ্রসর হন।",
+      "human": "sekhan theke tini taar cheye sonkhyay boro ekti arab bahinir dike agrosor hon."
+    },
+    {
+      "row": 9744,
+      "native": "এর মাঝে আছে নখ কামড়ানো।",
+      "human": "er majhe ache nokh kamrano."
+    },
+    {
+      "row": 9779,
+      "native": "এলেক্স হান্টার (২৭ সেপ্টেম্বর ১৮৯৫- জানুয়ারি ১৯৮৪) একজন স্কটিশ পেশাদার ফুটবলার ছিলেন, তিনি রেনফ্রো জুনিয়র্স, কুইন্স পার্ক, টটেনহ্যাম হটস্পার, উইগান এবং নিউ বেডফোর্ড ওয়েলার্সের হয়ে খেলেছিলেন।",
+      "human": "alex hunter (27 september 1895- january 1984) ekjon scotish peshadar footballer chilen, tini renfro jouniors, queens park, totenhyam hotspar, wigun ebong new bedford weylarser hoye khelechilen."
+    },
+    {
+      "row": 9780,
+      "native": "এটি পাঁচটি গোলাকার ইঁটের স্তুপের উপর অবস্থিত।",
+      "human": "eti paachti golakar inter stuper upor abosthito."
+    },
+    {
+      "row": 9794,
+      "native": "বাহাউদ্দিন ইবনে শাদ্দাদ ফ্রাঙ্কিশ সেনাবাহিনীর অবস্থা সংক্ষেপে বর্ণনা করে লিখে গেছেন।",
+      "human": "bahauddin ebone shahdad franchish senabahinir obostha songkhepe bornona kore likhe gechen."
+    },
+    {
+      "row": 9841,
+      "native": "বিক্ষুব্ধ প্রবাহে সান্দ্র তরলের উপর স্থিতিশীল, ক্রান্তিশীল বা অস্থিতিশীল প্রভাব পড়তে পারে।",
+      "human": "bikkhubdho probahe sandro toroler upor sthitishil, krantishil, b aasthitishil probhab porte thake."
+    },
+    {
+      "row": 9852,
+      "native": "বিষ্ণুস্বামী ছিলেন একজন হিন্দু ধর্মগুরু। তিনি বৈষ্ণব রুদ্র-সম্প্রদায়ের প্রতিষ্ঠাতারূপে পরিচিত।",
+      "human": "bishnuswami chilen ekjon dharmaguru. tini boishnob rudra- somprodayer protishthatarupe porichito."
+    },
+    {
+      "row": 9882,
+      "native": "ভারত ইন্টার-গভর্নমেন্টাল ওশেনোগ্রাফিক কমিশন, ইন্টারগভার্নমেন্টাল ওশেনোগ্রাফিক কমিশন ইন কোস্টাল ইন্ডিয়ান ওশেন-এর আঞ্চলিক কমিটি, ইন্টারন্যাশানাল সি-বেড অথরিটি ও স্টেট পার্টিজ অফ দি ইউনাইটেড নেশনস কনভেনশোন অন দ্য ল অফ দ্য সিজ-এর সদস্য।",
+      "human": "bharat inter-governmental oshenographic comision, intergovernmental oshenographic comision in coastal indian oshen-er ancholik committi, international see-bed authority o state partiz of the united nations convenson on the law of the seize-er sodoshyo."
+    },
+    {
+      "row": 9907,
+      "native": "ভারতের রাজধানী দিল্লির দীর্ঘ ইতিহাস রয়েছে এবং অতীতে শহরটি বিভিন্ন সাম্রাজ্যগুলির রাজধানী হিসাবে ভারতের একটি গুরুত্বপূর্ণ রাজনৈতিক কেন্দ্র ছিল।",
+      "human": "bharater rajdhani delhir dirgho itihaas royeche ebong otite shohorti bivinno samrajjogulir rajdhani hisebe bharater ekti guruttopurno rajnoitik kendro chilo."
+    },
+    {
+      "row": 9917,
+      "native": "এর এক্তিয়ার এলাকার ব্রাঞ্চ লাইনগুলি হল: অন্ডাল-সাঁইথিয়া, অন্ডাল-তপসী-বারাবনী-সীতারামপুর, মধুপুর-গিরিডি, জসিডি-বৈদ্যনাথধাম ও জসিডি-দুমকা।",
+      "human": "er prokriyar elakar branch lineguli holo :andal-saithiya, andal-toposi-baraboni-sitarampur, madhupur--giridi, josidi-boidyanathdham o josidi-dumka."
+    },
+    {
+      "row": 9947,
+      "native": "নদী গবেষণা ইনস্টিটিউট (আরআরআই বা বাংলায় নগই) হল বাংলাদেশের একটি গবেষণা প্রতিষ্ঠান যা প্রধানত বাংলাদেশের বন্যা নিয়ন্ত্রন, নদীর নাব্যতারক্ষা ও পাললিকীকরণ, সেচব্যবস্থা এবং নদীর তীর সংরক্ষণ কাজে জরিপ পরিচালনা ও ব্যবস্থা গ্রহণের কাজ করে থাকে এবং এটি ফরিদপুরে অবস্থিত।",
+      "human": "nodi gobeshona institute (rri ba banglay nogoi) holo bangladesher ekti gobeshona protishthan ja prodhanoto bangladesher bonnya niyontron, nodir nabbyotarokkha o palolikikoron, sechbyabostha ebong nodir tir songrokkhon kaje jorip porichalona o byabostha grohoner kaaj kore thake ebong eti faridpure obosthito."
+    },
+    {
+      "row": 9963,
+      "native": "স্টোন টাউন শহরের 'দ্যা মাও তুসে তুং' স্টেডিয়ামে তারা অনুশীলন করে।",
+      "human": "stone town shohorer 'the mao tuse tung' stediume taara anushilon kore."
+    },
+    {
+      "row": 9967,
+      "native": "এই রেখা এখনো কার্যকর রয়েছে।",
+      "human": "ei rekha ekhono karjokor royech."
+    }
+  ],
+  "resample_positions": [
+    1,
+    3,
+    4,
+    6,
+    12,
+    15,
+    16,
+    17,
+    18,
+    22,
+    24,
+    27,
+    28,
+    35,
+    36,
+    37,
+    39,
+    41,
+    42,
+    43,
+    49,
+    55,
+    58,
+    59,
+    61,
+    64,
+    66,
+    69,
+    70,
+    71,
+    73,
+    74,
+    83,
+    84,
+    88,
+    90,
+    92,
+    93,
+    94,
+    96,
+    97,
+    102,
+    103,
+    110,
+    114,
+    115,
+    128,
+    132,
+    133,
+    137,
+    138,
+    145,
+    149,
+    154,
+    155,
+    157,
+    158,
+    164,
+    165,
+    166,
+    169,
+    174,
+    176,
+    177,
+    179,
+    181,
+    183,
+    184,
+    185,
+    186,
+    188,
+    189,
+    192,
+    196,
+    202,
+    203,
+    207,
+    210,
+    211,
+    214,
+    218,
+    219,
+    221,
+    225,
+    227,
+    232,
+    233,
+    235,
+    237,
+    239,
+    240,
+    241,
+    244,
+    247,
+    249,
+    251,
+    253,
+    255,
+    256,
+    257,
+    259,
+    260,
+    262,
+    266,
+    267,
+    268,
+    270,
+    272,
+    275,
+    276,
+    284,
+    285,
+    286,
+    288,
+    289,
+    290,
+    293,
+    295,
+    296,
+    302,
+    311,
+    313,
+    323,
+    326,
+    327,
+    328,
+    332,
+    336,
+    337,
+    338,
+    342,
+    343,
+    347,
+    348,
+    356,
+    357,
+    358,
+    359,
+    362,
+    363,
+    369,
+    370,
+    374,
+    375,
+    381,
+    386,
+    387,
+    389,
+    394,
+    399,
+    400,
+    401,
+    402,
+    406,
+    407,
+    408,
+    409,
+    412,
+    414,
+    415,
+    417,
+    420,
+    421,
+    422,
+    423,
+    424,
+    425,
+    426,
+    429,
+    430,
+    437,
+    438,
+    446,
+    447,
+    448,
+    451,
+    452,
+    455,
+    456,
+    460,
+    461,
+    466,
+    468,
+    469,
+    472,
+    473,
+    475,
+    476,
+    477,
+    478,
+    479,
+    482,
+    483,
+    484,
+    488,
+    489,
+    491,
+    493,
+    497,
+    499
+  ]
+}

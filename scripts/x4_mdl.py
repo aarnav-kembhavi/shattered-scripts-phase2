@@ -113,10 +113,16 @@ def analyse() -> None:
             rows[m] = {"native_layer": p["native"], "itrans_layer": p["itrans"], "itrans_minus_native": p["diff"], "ci95": [float(lo), float(hi)],
                        "tokens_per_word": {"native": tn, "itrans": ti, "diff": ti - tn}, "qualifies": bool(abs(ti - tn) >= 1), "expected_sign": int(np.sign(ti - tn)), "ci_sign": sign_ci,
                        "effect": bool(abs(ti - tn) >= 1 and sign_ci == int(np.sign(ti - tn)) and sign_ci != 0)}
-        q = [m for m, v in rows.items() if v["qualifies"]]
-        e = [m for m in q if rows[m]["effect"]]
-        verdict = "uninformative (fewer than three qualifying models)" if len(q) < 3 else "supported" if len(e) >= len(q) - 1 and len(e) >= 2 else "not supported"
-        write_json(REPO / "results" / "phase2" / "x4" / lang / "r4.json", {"language": lang, "models": rows, "qualifying": q, "effect_in": e, "R4": verdict}, {"registration": "RESULTS.md X4 (R4)"})
+        def verdict_for(models: list[str]) -> dict:
+            q = [m for m in models if rows[m]["qualifies"]]
+            e = [m for m in q if rows[m]["effect"]]
+            v = "uninformative (fewer than three qualifying models)" if len(q) < 3 else "supported" if len(e) >= len(q) - 1 and len(e) >= 2 else "not supported"
+            return {"qualifying": q, "effect_in": e, "verdict": v}
+        main = verdict_for([m for m in MODELS if m != "qwen2.5-1.5b"])  # main analysis: Qwen2.5-1.5B is not counted (reported, never counted)
+        sens = verdict_for(MODELS)  # sensitivity: the Phase 1 H3 text counted Qwen2.5-1.5B
+        verdict = main["verdict"]
+        write_json(REPO / "results" / "phase2" / "x4" / lang / "r4.json", {"language": lang, "models": rows, "main_analysis_excluding_qwen2.5": main, "sensitivity_including_qwen2.5": sens,
+                                                                          "qualifying": main["qualifying"], "effect_in": main["effect_in"], "R4": verdict}, {"registration": "RESULTS.md X4 (R4); rule unchanged"})
         print(lang, verdict, {m: (v["native_layer"], v["itrans_layer"], round(v["tokens_per_word"]["diff"], 2), v["effect"]) for m, v in rows.items()})
 
 

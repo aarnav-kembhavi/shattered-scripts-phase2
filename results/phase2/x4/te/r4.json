@@ -1,12 +1,12 @@
 {
   "provenance": {
     "config": {
-      "registration": "RESULTS.md X4 (R4)"
+      "registration": "RESULTS.md X4 (R4); rule unchanged"
     },
-    "git_commit": "f07977a7ad54600048af8c06355f751fd17495ed-dirty",
+    "git_commit": "e9b5eccebd8a1fd059836871ad67168f273ce43b-dirty",
     "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
     "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
-    "timestamp_utc": "2026-11-05T01:38:14+00:00",
+    "timestamp_utc": "2026-11-05T05:02:13+00:00",
     "python": "3.12.13",
     "platform": "Windows-11-10.0.26300-SP0",
     "argv": [
@@ -107,15 +107,37 @@
       "effect": true
     }
   },
+  "main_analysis_excluding_qwen2.5": {
+    "qualifying": [
+      "qwen3-1.7b",
+      "sarvam-1"
+    ],
+    "effect_in": [
+      "qwen3-1.7b",
+      "sarvam-1"
+    ],
+    "verdict": "uninformative (fewer than three qualifying models)"
+  },
+  "sensitivity_including_qwen2.5": {
+    "qualifying": [
+      "qwen3-1.7b",
+      "sarvam-1",
+      "qwen2.5-1.5b"
+    ],
+    "effect_in": [
+      "qwen3-1.7b",
+      "sarvam-1",
+      "qwen2.5-1.5b"
+    ],
+    "verdict": "supported"
+  },
   "qualifying": [
     "qwen3-1.7b",
-    "sarvam-1",
-    "qwen2.5-1.5b"
+    "sarvam-1"
   ],
   "effect_in": [
     "qwen3-1.7b",
-    "sarvam-1",
-    "qwen2.5-1.5b"
+    "sarvam-1"
   ],
-  "R4": "supported"
+  "R4": "uninformative (fewer than three qualifying models)"
 }
