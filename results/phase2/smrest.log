@@ -1,0 +1,14 @@
+=== 2026-11-05 15:39:35 Sarvam-m lossy/lower/natural on Kaggle account 2: .venv/Scripts/python.exe -u scripts/kaggle_runner.py run x_score --timeout-h 5.0 --private-data shattered-flores-private --include results/e09_romanize/best_schemes.json -- --models sarvam-m --no-retrieval --quant 4bit --forms lossy lower natural
+Starting upload for file repo.zip
+Upload successful: repo.zip (526KB)
+Dataset version is being created. Please check progress at https://www.kaggle.com/datasets/ashwin18522/shattered-pkg
+
+  0%|          | 0.00/526k [00:00<?, ?B/s]
+  3%|▎         | 16.0k/526k [00:00<00:03, 152kB/s]
+ 73%|███████▎  | 384k/526k [00:00<00:00, 2.12MB/s]
+100%|██████████| 526k/526k [00:02<00:00, 259kB/s] 
+
+Kernel push error: Maximum weekly GPU quota of 30.00 hours reached.
+
+kernel push was not accepted: Kernel push error: Maximum weekly GPU quota of 30.00 hours reached.
+
