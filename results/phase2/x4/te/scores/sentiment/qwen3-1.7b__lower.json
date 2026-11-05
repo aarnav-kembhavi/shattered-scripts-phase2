@@ -1,0 +1,18 @@
+{
+ "content_free_logprobs": {
+  "sentiment": [
+   -1.7947381734848022,
+   -4.294738292694092
+  ]
+ },
+ "fertility": [
+  {
+   "model": "qwen3-1.7b",
+   "task": "sentiment",
+   "form": "lower",
+   "n_texts": 200,
+   "tokens_per_word": 3.9804825155868797
+  }
+ ],
+ "seconds": 19.26801371574402
+}

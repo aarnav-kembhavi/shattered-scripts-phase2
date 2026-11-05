@@ -3,10 +3,10 @@
     "config": {
       "registration": "RESULTS.md X4 (R2)"
     },
-    "git_commit": "5c0388b26694f01949f88562409e8358e82bc307-dirty",
+    "git_commit": "bf08d4783a5d4d440f83578feabbeedb45a22d9e-dirty",
     "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
     "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
-    "timestamp_utc": "2026-11-04T23:25:10+00:00",
+    "timestamp_utc": "2026-11-05T04:10:02+00:00",
     "python": "3.12.13",
     "platform": "Windows-11-10.0.26300-SP0",
     "argv": [
@@ -20,12 +20,14 @@
       "acc": {
         "native": 0.991044776119403,
         "itrans": 0.15024875621890546,
-        "lossy": 0.25671641791044775
+        "lossy": 0.25671641791044775,
+        "lower": 0.16517412935323383
       },
       "layer": {
         "native": 6,
         "itrans": 6,
-        "lossy": 6
+        "lossy": 6,
+        "lower": 6
       },
       "counted": true,
       "native_minus_itrans": {
@@ -49,12 +51,14 @@
       "acc": {
         "native": 0.9412935323383085,
         "itrans": 0.32238805970149254,
-        "lossy": 0.6059701492537314
+        "lossy": 0.6059701492537314,
+        "lower": 0.28059701492537314
       },
       "layer": {
         "native": 26,
         "itrans": 17,
-        "lossy": 17
+        "lossy": 17,
+        "lower": 17
       },
       "counted": true,
       "native_minus_itrans": {
@@ -78,12 +82,14 @@
       "acc": {
         "native": 0.9960199004975124,
         "itrans": 0.30149253731343284,
-        "lossy": 0.40696517412935324
+        "lossy": 0.40696517412935324,
+        "lower": 0.3194029850746269
       },
       "layer": {
         "native": 7,
         "itrans": 7,
-        "lossy": 8
+        "lossy": 8,
+        "lower": 8
       },
       "counted": true,
       "native_minus_itrans": {
@@ -107,12 +113,14 @@
       "acc": {
         "native": 0.4766169154228856,
         "itrans": 0.06666666666666667,
-        "lossy": 0.11741293532338308
+        "lossy": 0.11741293532338308,
+        "lower": 0.08557213930348259
       },
       "layer": {
         "native": 16,
         "itrans": 1,
-        "lossy": 1
+        "lossy": 1,
+        "lower": 1
       },
       "counted": false,
       "native_minus_itrans": {

@@ -31,17 +31,18 @@ def run(lang: str) -> dict:
         e0b.CHANCE.setdefault("sentiment", 0.5)
         parts, cf = [], {}
         for m in models:
-            for f in ("itrans", "lower", "lossy", "natural"):
+            for f in ("itrans", "lower", "lossy") + (("natural",) if task == "sib" else ()):  # natural drafts exist only for the SIB-200 ids
                 parts.append(pd.read_parquet(base / f"{m}__{f}.parquet"))
             en = pd.read_parquet(eng_dir / f"{m}__english.parquet")
             parts.append(en[en.task == task])
             cf[m] = json.load(open(base / f"cf_{m}.json"))
         df = pd.concat(parts, ignore_index=True)[["model", "task", "form", "id", "label", "logprobs"]]
         df, fb = e0b.apply_calibration(df, cf)
-        mc = e0b.mcnemar_table(df[df.form.isin(["itrans", "lower", "lossy", "natural"])], CONTRASTS)
+        contrasts = CONTRASTS if task == "sib" else CONTRASTS[:2]  # L3 (natural minus lossy) needs natural drafts: SIB-200 only
+        mc = e0b.mcnemar_table(df[df.form.isin(["itrans", "lower", "lossy", "natural"])], contrasts)
         rows = mc.to_dict("records")
         res = {}
-        for a, b in CONTRASTS:
+        for a, b in contrasts:
             g = mc[(mc.a == a) & (mc.b == b)]
             pos = int(((g["diff"] > 0) & g.significant).sum())
             neg = int(((g["diff"] < 0) & g.significant).sum())
