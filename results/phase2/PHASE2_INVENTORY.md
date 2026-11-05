@@ -52,7 +52,7 @@ Machines: **L** = laptop (RTX 3070 8 GB, CPU), **K1** = Kaggle account 1 (Aarnav
 
 ## End-of-Phase-2 housekeeping (after Aarnav says Phase 2 is closed)
 
-Delete the private Kaggle datasets (account 1: shattered-flores-private, shattered-llama-2-7b-hf, shattered-llama-3-1-8b, shattered-ambari-instruct-v0-1; account 2: the same names, minus Llama-2, plus shattered-pkg), delete the kernels on both accounts, revoke the shared Kaggle token, log each deletion. Phase 2 results enter the paper only when Aarnav says so; the paper has not been edited.
+Delete the private Kaggle datasets (account 1: shattered-flores-private, shattered-llama-2-7b-hf, shattered-llama-3-1-8b, shattered-ambari-instruct-v0-1; account 2: the same names, minus Llama-2, plus shattered-pkg), delete the kernels on both accounts, revoke the shared Kaggle token (account 2) and the third account's token (KAGGLE3_API_TOKEN, pasted in chat 2026-11-05), delete any private datasets and kernels created on the third account (aarnavkembhavi), log each deletion. Phase 2 results enter the paper only when Aarnav says so; the paper has not been edited.
 
 ## Machine load now
 

@@ -34,11 +34,11 @@ def account() -> str:
 
 
 def kdir() -> Path:
-    return SHARED if account() == "1" else SHARED / "acct2"
+    return {"1": SHARED, "2": SHARED / "acct2", "3": SHARED / "acct3"}[account()]  # account 3 added 2026-11-05 (credentials KAGGLE3_*), quota and job folders of its own
 
 
 def build() -> Path:
-    return REPO / "build" / ("kaggle" if account() == "1" else "kaggle_acct2")
+    return REPO / "build" / {"1": "kaggle", "2": "kaggle_acct2", "3": "kaggle_acct3"}[account()]
 WEEK_H, SESSION_H = 30.0, 12.0
 PKG_DATASET = "shattered-pkg"
 CODE_DIRS = ["src", "scripts", "configs"]
@@ -52,8 +52,11 @@ def env() -> dict:
         if "=" in line and not line.lstrip().startswith("#"):
             k, v = line.split("=", 1)
             e.setdefault(k.strip(), v.strip())
-    if account() == "2":  # the teammate's account: credentials in .env as KAGGLE2_USERNAME / KAGGLE2_API_TOKEN (never printed or committed)
-        e["KAGGLE_USERNAME"], e["KAGGLE_API_TOKEN"] = e.get("KAGGLE2_USERNAME", ""), e.get("KAGGLE2_API_TOKEN", "")
+    if account() in ("2", "3"):  # the teammates' accounts: credentials in .env as KAGGLE2_* / KAGGLE3_USERNAME and KAGGLE3_API_TOKEN (never printed or committed)
+        n = account()
+        e["KAGGLE_USERNAME"], e["KAGGLE_API_TOKEN"] = e.get(f"KAGGLE{n}_USERNAME", ""), e.get(f"KAGGLE{n}_API_TOKEN", "")
+    e["KAGGLE_CONFIG_DIR"] = str(REPO / "build" / f"kaggle_config_{account()}")  # an empty folder per account: the CLI must not fall back to another account's stored login (account 3 resolved to a different login with the default folder)
+    Path(e["KAGGLE_CONFIG_DIR"]).mkdir(parents=True, exist_ok=True)
     assert e.get("KAGGLE_USERNAME") and e.get("KAGGLE_API_TOKEN"), "Kaggle credentials missing in .env"
     return e
 
