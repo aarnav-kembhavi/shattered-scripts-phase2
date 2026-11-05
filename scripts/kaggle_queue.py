@@ -246,6 +246,20 @@ def score(s: dict, model: str, hours: float) -> None:
     log(s, f"score {model}: done={done} retrieval={retrieval} hours={r['hours']:.2f}")
 
 
+def score4bit(s: dict, model: str, hours: float) -> None:
+    """X13 4-bit-only model (does not fit in fp16 on 2 x T4): SIB-200 scoring with bitsandbytes NF4, no retrieval, exempt from A1-P (registered)."""
+    if model in s["scored"] or not projection(s, f"x_score {model} (4-bit)", hours):
+        return
+    s["precision"].setdefault(model, {"pass": True, "exempt": "4-bit-only model: exempt from A1-P, limited to SIB-200 and X10 (registered)"})
+    r = push("x_score", ["--models", model, "--no-retrieval", "--quant", "4bit"], hours, include=["results/e09_romanize/best_schemes.json"])
+    if r is None:
+        log(s, f"score {model} (4-bit): runner did not push; nothing recorded")
+        return
+    done = (r["dir"] / "out" / model / "done.json").exists()
+    s["scored"][model] = {"done": done, "retrieval_requested": False, "quant": "4bit", "dir": str((r["dir"] / "out" / model).relative_to(REPO)), "hours": r["hours"], "commit": r["commit"], "status": r["status"]}
+    log(s, f"score {model} (4-bit): done={done} hours={r['hours']:.2f}")
+
+
 def mdl(s: dict, models: list[str], hours: float) -> None:
     """MDL assembly-layer job (Phase 1 protocol, 300 probe words, native and ITRANS) for models that passed A1-P."""
     models = [m for m in models if s["precision"].get(m, {}).get("pass") and m not in s.setdefault("mdl", {})]
@@ -426,6 +440,7 @@ def main() -> None:
         a1p(s, ["llama-3.1-8b"])
         score(s, "llama-3.1-8b", 2.4)
         mdl(s, ["llama-3.1-8b"], 3.0)  # X13 MDL assembly layer for the counted model
+        score4bit(s, "sarvam-m", 5.0)  # X13: the largest Sarvam model that fits 2 x T4 (4-bit only; SIB-200, no retrieval; exempt from A1-P)
         save(s)
         log(s, "account 2 queue pass finished; open: " + ", ".join(open_models(s)))
         return

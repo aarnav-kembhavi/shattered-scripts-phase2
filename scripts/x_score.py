@@ -124,6 +124,7 @@ def main() -> None:
     ap.add_argument("--models", nargs="+", required=True)
     ap.add_argument("--forms", nargs="+", default=ALL_FORMS)
     ap.add_argument("--no-retrieval", action="store_true")
+    ap.add_argument("--quant", choices=["4bit", "8bit"], default=None, help="bitsandbytes quantization for a model that does not fit in fp16 (X13: SIB-200 only, never retrieval)")
     ap.add_argument("--limit", type=int)
     a = ap.parse_args()
     out = Path(a.out)
@@ -133,7 +134,7 @@ def main() -> None:
         mdir = out / m
         mdir.mkdir(parents=True, exist_ok=True)
         t0 = time.time()
-        model, tok = load(m, "auto", dtype=torch.float16)
+        model, tok = load(m, "auto", dtype=torch.float16, quant=a.quant)
         print(m, "loaded", f"{time.time() - t0:.0f}s", flush=True)
         score_sib(model, tok, m, items, a.forms, mdir)
         if not a.no_retrieval:
