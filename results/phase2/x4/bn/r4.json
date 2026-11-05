@@ -1,0 +1,123 @@
+{
+  "provenance": {
+    "config": {
+      "registration": "RESULTS.md X4 (R4)"
+    },
+    "git_commit": "f07977a7ad54600048af8c06355f751fd17495ed-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-05T01:38:13+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x4_mdl.py",
+      "analyse"
+    ]
+  },
+  "language": "bn",
+  "models": {
+    "qwen3-1.7b": {
+      "native_layer": 3,
+      "itrans_layer": 1,
+      "itrans_minus_native": -2,
+      "ci95": [
+        -2.0,
+        -1.0
+      ],
+      "tokens_per_word": {
+        "native": 6.461,
+        "itrans": 3.1301111111111113,
+        "diff": -3.330888888888889
+      },
+      "qualifies": true,
+      "expected_sign": -1,
+      "ci_sign": -1,
+      "effect": true
+    },
+    "qwen3.5-2b": {
+      "native_layer": 1,
+      "itrans_layer": 2,
+      "itrans_minus_native": 1,
+      "ci95": [
+        0.0,
+        1.0
+      ],
+      "tokens_per_word": {
+        "native": 2.5585555555555555,
+        "itrans": 3.0144444444444445,
+        "diff": 0.455888888888889
+      },
+      "qualifies": false,
+      "expected_sign": 1,
+      "ci_sign": 0,
+      "effect": false
+    },
+    "sarvam-1": {
+      "native_layer": 0,
+      "itrans_layer": 7,
+      "itrans_minus_native": 7,
+      "ci95": [
+        7.0,
+        9.0
+      ],
+      "tokens_per_word": {
+        "native": 1.1446666666666667,
+        "itrans": 3.8333333333333335,
+        "diff": 2.6886666666666668
+      },
+      "qualifies": true,
+      "expected_sign": 1,
+      "ci_sign": 1,
+      "effect": true
+    },
+    "gemma4-e2b": {
+      "native_layer": 0,
+      "itrans_layer": 1,
+      "itrans_minus_native": 1,
+      "ci95": [
+        1.0,
+        2.0
+      ],
+      "tokens_per_word": {
+        "native": 1.0685555555555555,
+        "itrans": 2.818888888888889,
+        "diff": 1.7503333333333335
+      },
+      "qualifies": true,
+      "expected_sign": 1,
+      "ci_sign": 1,
+      "effect": true
+    },
+    "qwen2.5-1.5b": {
+      "native_layer": 4,
+      "itrans_layer": 1,
+      "itrans_minus_native": -3,
+      "ci95": [
+        -3.0,
+        -3.0
+      ],
+      "tokens_per_word": {
+        "native": 6.461,
+        "itrans": 3.1301111111111113,
+        "diff": -3.330888888888889
+      },
+      "qualifies": true,
+      "expected_sign": -1,
+      "ci_sign": -1,
+      "effect": true
+    }
+  },
+  "qualifying": [
+    "qwen3-1.7b",
+    "sarvam-1",
+    "gemma4-e2b",
+    "qwen2.5-1.5b"
+  ],
+  "effect_in": [
+    "qwen3-1.7b",
+    "sarvam-1",
+    "gemma4-e2b",
+    "qwen2.5-1.5b"
+  ],
+  "R4": "supported"
+}
