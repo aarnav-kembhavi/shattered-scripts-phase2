@@ -313,6 +313,9 @@ def run_full(out: Path, device: str, quant: bool, runs: list[str], steps_overrid
         total = B // TOK_PER_STEP
         scaler = torch.amp.GradScaler("cuda") if device == "cuda" else None
         mb = pd_["models"][name]["conditions"][cond]["micro_batch"] if "conditions" in pd_["models"][name] else 1
+        cap = REPO / "build" / "x9b_max_micro_batch.txt"  # laptop only (2026-11-05): a smaller micro-batch with more accumulation steps gives the same optimizer step and keeps the 8 GB card out of shared-memory spill (two system crashes under spill)
+        if cap.exists():
+            mb = min(mb, int(cap.read_text().strip()))
         accum = SEQ_PER_STEP // mb
         opt, sch = make_opt(model, total, device == "cuda")
         step, ck, resumed_without_opt = 0, rdir / "ckpt.pt", False
