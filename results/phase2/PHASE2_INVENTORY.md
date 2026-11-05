@@ -29,7 +29,7 @@ Machines: **L** = laptop (RTX 3070 8 GB, CPU), **K1** = Kaggle account 1 (Aarnav
 | Experiment | What is running | Machine | Projected finish (IST) |
 |---|---|---|---|
 | X9b secondary (Qwen3.5-2B, 1 seed, 3 runs) | Kaggle kernel, about 8.3 h in against a 10.2 h cap | K2 | 5 Nov about 13:00 |
-| X13 Sarvam-m (23.6B, 4-bit, SIB-200 only; the largest Sarvam model that fits 2 x T4 with standard code; sarvam-30b and 105b need remote code and are excluded; no retrieval; exempt from A1-P) | Kaggle kernel pushed about 10:48 (47 GB download plus 4-bit load; unmeasured, cap 5 h) | K2 | 5 Nov about 14:00 to 16:00 |
+| X13 Sarvam-m (23.6B, 4-bit, SIB-200 only; the largest Sarvam model that fits 2 x T4 with standard code; sarvam-30b and 105b need remote code and are excluded; no retrieval; exempt from A1-P) | Kaggle kernel pushed 10:40 (47 GB download plus 4-bit load; unmeasured, cap 5 h) | K2 | 5 Nov about 14:00 to 16:00 |
 | X4 K3b-te | Gemini drafts (paid-tier cap), then analysis | API, L | 5 Nov about 11:30 |
 | X10 post hoc (extraction check for Qwen3.5-2B; not registered; the registered X10 verdict is unchanged) | raw generation on the laptop GPU | L | 5 Nov about 11:45 |
 | X14 (hosted large models, exploratory, no verdict) | Groq rows per model 2,699 / 2,543 / 2,539 of 3,269; waits for the 12:45 daily reset | API (Groq) | 5 Nov evening to 6 Nov (about 900 rows per reset) |
