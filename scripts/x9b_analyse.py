@@ -54,9 +54,13 @@ def gap(x: dict) -> np.ndarray:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", default="sarvam-1")
-    m = ap.parse_args().model
+    ap.add_argument("--seeds", default=None, help="comma-separated code seeds (extra seeds added 2026-11-05: --seeds 0,1,2,3 gives the all-four-seeds analysis; default = the registered original seeds)")
+    a = ap.parse_args()
+    m = a.model
     global SEEDS
     SEEDS = (0, 1) if m == "sarvam-1" else (0,)
+    if a.seeds:
+        SEEDS = tuple(int(x) for x in a.seeds.split(","))
     base = REPO / "results" / "kaggle"
     bdir = sorted(glob.glob(str(base / "**" / "out" / f"{m}__base" / "retrieval.json"), recursive=True))[0]
     bdir = Path(bdir).parent
@@ -132,7 +136,7 @@ def main() -> None:
         res["itrans_trained_vs_original_native"][name] = {"itrans_accuracy_after_itrans_training": float(np.mean([get_run("itrans", s)["itrans"].mean() for s in SEEDS])), "original_native_accuracy_untrained": float(get_base["native"].mean()),
                                                          "difference": float(dd.mean()), "ci95": [float(np.percentile(bb, 2.5)), float(np.percentile(bb, 97.5))],
                                                          "reaches_original_native_level": bool(np.percentile(bb, 97.5) >= 0)}
-    write_json(results_dir("phase2/x9b") / f"analysis_{m}.json", res, {"registration": "RESULTS.md Amendment 2, X9b (primary Sarvam-1)"})
+    write_json(results_dir("phase2/x9b") / (f"analysis_{m}.json" if not a.seeds else f"analysis_{m}_seeds{a.seeds.replace(',', '')}.json"), res, {"registration": "RESULTS.md Amendment 2, X9b (primary Sarvam-1)" + ("" if not a.seeds else "; seeds " + a.seeds + " (the extra seeds were added after seeing the originals, RESULTS.md 2026-11-05)")})
     print(json.dumps({k: {"verdict": v["verdict"], "g0": round(v["g0_before_training"], 3), "g_after": {c: round(x, 3) for c, x in v["g_after_seed_mean"].items()},
                           "D_N": [round(v["D_N"]["point"], 3), [round(x, 3) for x in v["D_N"]["ci975"]], [round(x, 3) for x in v["D_N"]["seed_spread_D_seed0_seed1"]]],
                           "D_E": [round(v["D_E"]["point"], 3), [round(x, 3) for x in v["D_E"]["ci975"]], [round(x, 3) for x in v["D_E"]["seed_spread_D_seed0_seed1"]]]} for k, v in res["measures"].items()}, indent=1))
