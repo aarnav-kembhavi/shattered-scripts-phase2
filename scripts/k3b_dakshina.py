@@ -23,11 +23,11 @@ sys.path.insert(0, str(REPO / "scripts"))
 import english_share as es  # noqa: E402
 
 LANG = sys.argv[2] if len(sys.argv) > 2 else "kn"
-assert LANG in ("kn", "hi"), LANG
+assert LANG in ("kn", "hi", "bn", "te"), LANG
 SRC = REPO / f"data/raw/dakshina_official/dakshina_dataset_v1.0/{LANG}/romanized/{LANG}.romanized.rejoined.tsv"
-OUT = results_dir("k3b" if LANG == "kn" else "k3b_hi")
-PV = PROMPT_VERSION if LANG == "kn" else "natural_romanization_hi_v1"
-REGISTERED = "RESULTS.md 2026-10-23 (K3b)" if LANG == "kn" else "RESULTS.md 2026-10-23 12:05 (K3b-hi)"
+OUT = results_dir({"kn": "k3b", "hi": "k3b_hi", "bn": "phase2/x4/k3b_bn", "te": "phase2/x4/k3b_te"}[LANG])
+PV = PROMPT_VERSION if LANG == "kn" else f"natural_romanization_{LANG}_v1"
+REGISTERED = {"kn": "RESULTS.md 2026-10-23 (K3b)", "hi": "RESULTS.md 2026-10-23 12:05 (K3b-hi)", "bn": "RESULTS.md Phase 2 X4 (K3b-bn)", "te": "RESULTS.md Phase 2 X4 (K3b-te)"}[LANG]
 SAMPLE, DRAFTS = OUT / "sample.json", OUT / "drafts.jsonl"
 N, N_RES, SEED, SEED_RES, N_BOOT = 500, 200, 6, 7, 10000
 VOWELS = re.compile(r"aa|ee|ii|oo|uu")
@@ -52,7 +52,7 @@ def do_sample() -> None:
 def do_draft() -> int:
     S = json.load(open(SAMPLE, encoding="utf-8"))
     rows, res = S["rows"], set(S["resample_positions"])
-    client = make_client()
+    client = make_client(rpm=60, rpd=6000) if LANG in ("bn", "te") else make_client()  # bn, te: the paid-tier cap set for X4 on 2026-11-04
     done = {(r["pos"], r["kind"]): r for r in map(json.loads, DRAFTS.open(encoding="utf-8"))} if DRAFTS.exists() else {}
     stopped = None
     for pos, r in enumerate(rows):
