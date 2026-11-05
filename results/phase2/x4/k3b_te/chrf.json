@@ -1,0 +1,35 @@
+{
+  "provenance": {
+    "config": {
+      "registered": "RESULTS.md Phase 2 X4 (K3b-te)"
+    },
+    "git_commit": "38c37ddd11f57277a01dcb267c0bbce72ffee631-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-05T05:20:07+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/k3b_dakshina.py",
+      "analyse",
+      "te"
+    ]
+  },
+  "gemini_vs_human": {
+    "n": 496,
+    "mean": 77.64460973274053,
+    "ci": [
+      76.70864851122155,
+      78.58893697827672
+    ]
+  },
+  "gemini_vs_gemini_resample": {
+    "n": 194,
+    "mean": 93.00199644787679,
+    "ci": [
+      91.75336497294875,
+      94.16830460830127
+    ]
+  },
+  "status": "descriptive only"
+}

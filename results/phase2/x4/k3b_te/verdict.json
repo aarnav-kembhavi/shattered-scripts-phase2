@@ -1,0 +1,67 @@
+{
+  "provenance": {
+    "config": {
+      "registered": "RESULTS.md Phase 2 X4 (K3b-te)",
+      "model": "gemini-3.5-flash-lite",
+      "prompt": "natural_romanization_te_v1"
+    },
+    "git_commit": "38c37ddd11f57277a01dcb267c0bbce72ffee631-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-05T05:20:07+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/k3b_dakshina.py",
+      "analyse",
+      "te"
+    ]
+  },
+  "K3b": "refuted",
+  "statistics": {
+    "vowel_doubling": {
+      "gemini_rate": 0.016842753588856778,
+      "human_rate": 0.051304327945311964,
+      "ratio": 0.32829108699777476,
+      "ci90": [
+        0.293083065079531,
+        0.3658766103318625
+      ],
+      "ci95": [
+        0.28667444247851276,
+        0.37361137069627043
+      ],
+      "verdict": "differs (Gemini lower)"
+    },
+    "h_digraph": {
+      "gemini_rate": 0.023736201260245417,
+      "human_rate": 0.019799263814902032,
+      "ratio": 1.1988426176926956,
+      "ci90": [
+        1.1111400376283775,
+        1.2916617601021299
+      ],
+      "ci95": [
+        1.095237046146036,
+        1.3114117727268901
+      ],
+      "verdict": "differs (Gemini higher)"
+    },
+    "english_word_share": {
+      "gemini_rate": 0.0717123935666982,
+      "human_rate": 0.06824196597353498,
+      "ratio": 1.0508547422931676,
+      "ci90": [
+        0.9860681427256742,
+        1.1215122140559257
+      ],
+      "ci95": [
+        0.9739994696029738,
+        1.135156513641658
+      ],
+      "verdict": "matches"
+    }
+  },
+  "n": 496,
+  "n_primary_defective_excluded": 4
+}
