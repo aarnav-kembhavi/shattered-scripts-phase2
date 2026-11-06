@@ -1,6 +1,6 @@
 # Phase 2 registered outcomes: status ledger
 
-Last updated 2026-11-05 15:39 IST (system clock). Rows for other experiments are added when each reports its registered verdict word; no registered rule is changed.
+Last updated 2026-11-06 11:53 IST (system clock). Rows for other experiments are added when each reports its registered verdict word; no registered rule is changed.
 
 | Experiment | Registered outcome words | Status | Result or reason |
 |---|---|---|---|
@@ -32,3 +32,4 @@ Last updated 2026-11-05 15:39 IST (system clock). Rows for other experiments are
 | X5 (cross-language consistency, descriptive) | consistent / inconsistent | **consistent on SIB-200 accuracy (negative in 3 of 4 models) and on retrieval (3 of 3)** | driven mostly by Hindi; Telugu has the highest exposure but similar gaps to Kannada and Bengali |
 | X9b secondary (Qwen3.5-2B, 1 seed) | D_N > 0 and D_E > 0 | **supported on SIB-200 and retrieval** | SIB-200 D_N +0.285 [0.241, 0.328], D_E +0.260 [0.219, 0.301]; retrieval D_N +0.583 [0.545, 0.620], D_E +0.566 [0.529, 0.603]; secondary, one seed |
 | X13 Sarvam-m (4-bit, SIB-200) | counted if native CI lower bound > 0.40 | **counted** (0.817); native - ITRANS +0.157 [0.129, 0.185]; native over ITRANS 7 of 7 models | forms English, native, ITRANS only (5 h cap); lossy not scored |
+| X9b primary (Sarvam-1), extra seeds 3 and 4 (added after seeing seeds 1, 2) | D_N > 0 and D_E > 0 | **supported on SIB-200 and retrieval, with all four seeds and with the original two** | all four: SIB-200 D_N +0.222 [0.174, 0.270], D_E +0.194 [0.147, 0.243]; retrieval D_N +0.339 [0.292, 0.386], D_E +0.405 [0.353, 0.457] |

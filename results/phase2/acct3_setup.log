@@ -1,0 +1,45 @@
+=== 2026-11-05 22:18:54 account 3: smoke gate (kaggle_gate): .venv/Scripts/python.exe -u scripts/kaggle_runner.py run kaggle_gate --timeout-h 0.5
+Starting upload for file repo.zip
+Upload successful: repo.zip (524KB)
+Your private Dataset is being created. Please check progress at https://www.kaggle.com/datasets/aarnavkembhavi/shattered-pkg
+
+  0%|          | 0.00/524k [00:00<?, ?B/s]
+ 18%|█▊        | 96.0k/524k [00:00<00:00, 953kB/s]
+ 98%|█████████▊| 512k/524k [00:00<00:00, 733kB/s] 
+100%|██████████| 524k/524k [00:02<00:00, 253kB/s]
+
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/aarnavkembhavi/shattered-kaggle-gate
+
+[22:19:17] aarnavkembhavi/shattered-kaggle-gate has status "KernelWorkerStatus.RUNNING"
+[22:21:18] aarnavkembhavi/shattered-kaggle-gate has status "KernelWorkerStatus.RUNNING"
+{
+ "job": "kaggle_gate",
+ "commit": "d8a96e74630df95128a0eec62de82040a0f4416f",
+ "status": "aarnavkembhavi/shattered-kaggle-gate has status \"KernelWorkerStatus.ERROR\"",
+ "hours": 0.10722965644465553,
+ "hardware": null,
+ "output_dir": "results\\kaggle\\acct3\\kaggle_gate\\2026-11-05T164911"
+}
+weekly hours used (last 7 days): 0.11 of 30.0
+=== 2026-11-05 22:26:55 account 3: A1-R retrieval reproduction (kaggle_retrieval_gate): .venv/Scripts/python.exe -u scripts/kaggle_runner.py run kaggle_retrieval_gate --timeout-h 2.0 --private-data shattered-flores-private
+Starting upload for file repo.zip
+Upload successful: repo.zip (527KB)
+Dataset version is being created. Please check progress at https://www.kaggle.com/datasets/aarnavkembhavi/shattered-pkg
+
+  0%|          | 0.00/527k [00:00<?, ?B/s]
+ 79%|███████▉  | 416k/527k [00:00<00:00, 4.22MB/s]
+100%|██████████| 527k/527k [00:02<00:00, 246kB/s] 
+
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/aarnavkembhavi/shattered-kaggle-retrieval-gate
+
+[22:27:11] kembhavi/shattered-kaggle-retrieval-gate has status "KernelWorkerStatus.RUNNING"
+[22:29:14] kembhavi/shattered-kaggle-retrieval-gate has status "KernelWorkerStatus.RUNNING"
+{
+ "job": "kaggle_retrieval_gate",
+ "commit": "5d9fd0ee03574a80406a653ea8ac45a646abd053",
+ "status": "aarnavkembhavi/shattered-kaggle-retrieval-gate has status \"KernelWorkerStatus.ERROR\"",
+ "hours": 0.10478080279297299,
+ "hardware": null,
+ "output_dir": "results\\kaggle\\acct3\\kaggle_retrieval_gate\\2026-11-05T165706"
+}
+weekly hours used (last 7 days): 0.21 of 30.0

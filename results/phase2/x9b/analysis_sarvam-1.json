@@ -3,14 +3,16 @@
     "config": {
       "registration": "RESULTS.md Amendment 2, X9b (primary Sarvam-1)"
     },
-    "git_commit": "c44254cd8f1646d92e9ad19abe66b3e4e76c071f-dirty",
+    "git_commit": "fc1246a10615010b9897df251844222070a7a81d-dirty",
     "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
     "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
-    "timestamp_utc": "2026-11-05T05:03:09+00:00",
+    "timestamp_utc": "2026-11-06T06:22:45+00:00",
     "python": "3.12.13",
     "platform": "Windows-11-10.0.26300-SP0",
     "argv": [
-      "scripts/x9b_analyse.py"
+      "scripts/x9b_analyse.py",
+      "--model",
+      "sarvam-1"
     ]
   },
   "model": "sarvam-1",

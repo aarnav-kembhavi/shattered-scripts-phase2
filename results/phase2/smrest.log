@@ -12,3 +12,31 @@ Kernel push error: Maximum weekly GPU quota of 30.00 hours reached.
 
 kernel push was not accepted: Kernel push error: Maximum weekly GPU quota of 30.00 hours reached.
 
+=== 2026-11-05 22:02:01 Sarvam-m lossy/lower/natural on Kaggle account 2: .venv/Scripts/python.exe -u scripts/kaggle_runner.py run x_score --timeout-h 5.0 --private-data shattered-flores-private --include results/e09_romanize/best_schemes.json -- --models sarvam-m --no-retrieval --quant 4bit --forms lossy lower natural
+Starting upload for file repo.zip
+Upload successful: repo.zip (526KB)
+Dataset version is being created. Please check progress at https://www.kaggle.com/datasets/ashwin18522/shattered-pkg
+
+  0%|          | 0.00/526k [00:00<?, ?B/s]
+  3%|▎         | 16.0k/526k [00:00<00:04, 119kB/s]
+100%|██████████| 526k/526k [00:00<00:00, 739kB/s] 
+100%|██████████| 526k/526k [00:02<00:00, 247kB/s]
+
+Kernel push error: Maximum weekly GPU quota of 30.00 hours reached.
+
+kernel push was not accepted: Kernel push error: Maximum weekly GPU quota of 30.00 hours reached.
+
+=== 2026-11-05 23:47:15 Sarvam-m lossy/lower/natural on Kaggle account 2: .venv/Scripts/python.exe -u scripts/kaggle_runner.py run x_score --timeout-h 5.0 --private-data shattered-flores-private --include results/e09_romanize/best_schemes.json -- --models sarvam-m --no-retrieval --quant 4bit --forms lossy lower natural
+Starting upload for file repo.zip
+Upload successful: repo.zip (530KB)
+Dataset version is being created. Please check progress at https://www.kaggle.com/datasets/ashwin18522/shattered-pkg
+
+  0%|          | 0.00/530k [00:00<?, ?B/s]
+  3%|▎         | 16.0k/530k [00:00<00:10, 48.4kB/s]
+100%|██████████| 530k/530k [00:00<00:00, 628kB/s]  
+100%|██████████| 530k/530k [00:02<00:00, 227kB/s]
+
+Kernel push error: Maximum weekly GPU quota of 30.00 hours reached.
+
+kernel push was not accepted: Kernel push error: Maximum weekly GPU quota of 30.00 hours reached.
+

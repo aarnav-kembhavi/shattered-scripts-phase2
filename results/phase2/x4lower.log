@@ -179,3 +179,215 @@ Traceback (most recent call last):
     handle = open(handle, ioargs.mode)
              ^^^^^^^^^^^^^^^^^^^^^^^^^
 FileNotFoundError: [Errno 2] No such file or directory: 'C:\\PROJECTS\\PROMPT\\shattered-scripts\\results\\phase2\\x4\\bn\\scores\\sentiment\\qwen3-1.7b__natural.parquet'
+=== 2026-11-05 22:02:07 X4 bn lowercase vectors (M4c rows): env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x4_lang.py forward
+2026-11-05 22:04:08 wait_gpu: 3240 MB in use > 500 MB; GPU processes: 16864, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  12796, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-05 22:09:08 wait_gpu: 4887 MB in use > 500 MB; GPU processes: 16864, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  23648, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-05 22:14:08 wait_gpu: 7983 MB in use > 500 MB; GPU processes: 16864, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  23648, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-05 22:19:08 wait_gpu: 7968 MB in use > 500 MB; GPU processes: 16864, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  23648, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-05 22:24:09 wait_gpu: 7968 MB in use > 500 MB; GPU processes: 16864, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  23648, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-05 22:29:09 wait_gpu: 7968 MB in use > 500 MB; GPU processes: 16864, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  23648, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-05 22:34:09 wait_gpu: 7968 MB in use > 500 MB; GPU processes: 16864, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  23648, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-05 22:39:09 wait_gpu: 7968 MB in use > 500 MB; GPU processes: 16864, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  23648, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-05 22:44:10 wait_gpu: 7968 MB in use > 500 MB; GPU processes: 16864, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  23648, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-05 22:49:10 wait_gpu: 7968 MB in use > 500 MB; GPU processes: 16864, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  23648, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-05 22:54:10 wait_gpu: 7970 MB in use > 500 MB; GPU processes: 16864, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  23648, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-05 22:59:10 wait_gpu: 7978 MB in use > 500 MB; GPU processes: 16864, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  23648, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-05 23:04:11 wait_gpu: 7970 MB in use > 500 MB; GPU processes: 16864, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  23648, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+=== 2026-11-05 23:47:20 X4 bn lowercase vectors (M4c rows): env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x4_lang.py forward
+2026-11-05 23:49:20 wait_gpu: 5812 MB in use > 500 MB; GPU processes: 20404, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-05 23:54:21 wait_gpu: 7942 MB in use > 500 MB; GPU processes: 20404, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-05 23:59:21 wait_gpu: 7942 MB in use > 500 MB; GPU processes: 20404, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 00:04:21 wait_gpu: 7942 MB in use > 500 MB; GPU processes: 20404, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 00:09:21 wait_gpu: 7942 MB in use > 500 MB; GPU processes: 20404, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 00:14:21 wait_gpu: 7942 MB in use > 500 MB; GPU processes: 20404, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 00:19:22 wait_gpu: 7942 MB in use > 500 MB; GPU processes: 20404, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 00:24:22 wait_gpu: 7942 MB in use > 500 MB; GPU processes: 20404, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 00:29:22 wait_gpu: 7942 MB in use > 500 MB; GPU processes: 20404, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 00:34:22 wait_gpu: 7942 MB in use > 500 MB; GPU processes: 20404, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 00:39:22 wait_gpu: 7942 MB in use > 500 MB; GPU processes: 20404, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 00:44:23 wait_gpu: 7942 MB in use > 500 MB; GPU processes: 20404, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 00:49:23 wait_gpu: 7920 MB in use > 500 MB; GPU processes: 20404, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  
+2026-11-06 00:54:23 wait_gpu: 7900 MB in use > 500 MB; GPU processes: 20404, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  
+2026-11-06 00:59:23 wait_gpu: 7900 MB in use > 500 MB; GPU processes: 20404, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  
+2026-11-06 01:04:24 wait_gpu: 7900 MB in use > 500 MB; GPU processes: 20404, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  
+2026-11-06 01:09:24 wait_gpu: 7900 MB in use > 500 MB; GPU processes: 20404, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  
+2026-11-06 01:14:24 wait_gpu: 7900 MB in use > 500 MB; GPU processes: 20404, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  
+2026-11-06 01:19:24 wait_gpu: 7900 MB in use > 500 MB; GPU processes: 20404, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  
+2026-11-06 01:24:24 wait_gpu: 7902 MB in use > 500 MB; GPU processes: 20404, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  
+2026-11-06 01:29:25 wait_gpu: 7902 MB in use > 500 MB; GPU processes: 20404, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  
+2026-11-06 01:34:25 wait_gpu: 7902 MB in use > 500 MB; GPU processes: 20404, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  
+2026-11-06 01:39:25 wait_gpu: 7902 MB in use > 500 MB; GPU processes: 20404, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  
+2026-11-06 01:44:25 wait_gpu: 7902 MB in use > 500 MB; GPU processes: 20404, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  
+2026-11-06 01:49:26 wait_gpu: 7902 MB in use > 500 MB; GPU processes: 20404, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  
+2026-11-06 01:54:26 wait_gpu: 7902 MB in use > 500 MB; GPU processes: 20404, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  
+2026-11-06 01:59:26 wait_gpu: 7902 MB in use > 500 MB; GPU processes: 20404, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  
+2026-11-06 02:04:26 wait_gpu: 5606 MB in use > 500 MB; GPU processes: 20404, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  
+2026-11-06 02:09:26 wait_gpu: 5606 MB in use > 500 MB; GPU processes: 20404, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  
+2026-11-06 02:14:27 wait_gpu: 5606 MB in use > 500 MB; GPU processes: 20404, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  
+2026-11-06 02:19:27 wait_gpu: 5606 MB in use > 500 MB; GPU processes: 20404, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  
+2026-11-06 02:24:27 wait_gpu: 5606 MB in use > 500 MB; GPU processes: 20404, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  
+2026-11-06 02:29:27 wait_gpu: 7980 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9432, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 02:34:28 wait_gpu: 7980 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9432, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 02:39:28 wait_gpu: 7968 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9432, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 02:44:28 wait_gpu: 7968 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9432, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 02:49:28 wait_gpu: 7988 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9432, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 02:54:28 wait_gpu: 7983 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9432, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 02:59:29 wait_gpu: 7983 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9432, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 03:04:29 wait_gpu: 7983 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9432, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 03:09:29 wait_gpu: 7983 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9432, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 03:14:29 wait_gpu: 7983 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9432, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 03:19:30 wait_gpu: 7983 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9432, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 03:24:30 wait_gpu: 7983 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9432, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 03:29:30 wait_gpu: 7983 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9432, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 03:34:30 wait_gpu: 7983 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9432, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 03:39:30 wait_gpu: 7983 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9432, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 03:44:31 wait_gpu: 7983 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9432, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 03:49:31 wait_gpu: 7983 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9432, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 03:54:31 wait_gpu: 5607 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9432, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 03:59:31 wait_gpu: 5609 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9432, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 04:04:32 wait_gpu: 5609 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9432, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 04:09:32 wait_gpu: 5609 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9432, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 04:14:32 wait_gpu: 5609 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9432, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 04:19:32 wait_gpu: 7993 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  22968, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 04:24:32 wait_gpu: 7979 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  22968, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 04:29:33 wait_gpu: 7979 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  22968, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 04:34:33 wait_gpu: 7979 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  22968, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 04:39:33 wait_gpu: 7979 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  22968, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 04:44:33 wait_gpu: 7979 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  22968, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 04:49:34 wait_gpu: 7979 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  22968, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 04:54:34 wait_gpu: 7979 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  22968, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 04:59:34 wait_gpu: 7979 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  22968, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 05:04:34 wait_gpu: 7979 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  22968, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 05:09:34 wait_gpu: 7979 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  22968, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 05:14:35 wait_gpu: 7979 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  22968, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 05:19:35 wait_gpu: 7979 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  22968, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 05:24:35 wait_gpu: 7979 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  22968, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 05:29:35 wait_gpu: 7979 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  22968, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 05:34:35 wait_gpu: 7979 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  22968, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 05:39:36 wait_gpu: 7979 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  22968, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 05:44:36 wait_gpu: 5593 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  22968, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 05:49:36 wait_gpu: 5595 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  22968, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 05:54:36 wait_gpu: 5595 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  22968, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 05:59:37 wait_gpu: 5595 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  22968, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 06:04:37 wait_gpu: 3016 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  3148, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 06:09:38 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  3148, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 06:14:38 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  3148, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 06:19:38 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  3148, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 06:24:38 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  3148, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 06:29:39 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  3148, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 06:34:39 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  3148, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 06:39:39 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  3148, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 06:44:39 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  3148, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 06:49:39 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  3148, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 06:54:40 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  3148, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 06:59:40 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  3148, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 07:04:40 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  3148, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 07:09:40 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  3148, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 07:14:41 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  3148, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 07:19:41 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  3148, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 07:24:41 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  3148, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 07:29:41 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  3148, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 07:34:42 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  3148, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 07:39:42 wait_gpu: 5464 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  3148, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 07:44:42 wait_gpu: 5466 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  3148, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 07:49:42 wait_gpu: 5466 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  3148, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+=== 2026-11-06 07:54:44 X4 bn lowercase scores (SIB-200, sentiment): env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x4_lang.py score
+=== 2026-11-06 07:56:44 X4 bn tokens per word: env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x4_lang.py tpw
+form                    itrans  lossy  lower  native  natural
+model        dataset                                         
+gemma4-e2b   m4c496       3.22   2.47   3.16    1.67     2.39
+             sentiment    3.04   2.34   2.98    1.66      NaN
+             sib          3.24   2.50   3.19    1.70      NaN
+             sib257        NaN    NaN    NaN     NaN     2.38
+qwen2.5-1.5b m4c496       3.51   2.79   3.48    7.05     2.66
+             sentiment    3.34   2.66   3.31    6.70      NaN
+             sib          3.54   2.82   3.51    7.16      NaN
+             sib257        NaN    NaN    NaN     NaN     2.64
+qwen3-1.7b   m4c496       3.51   2.79   3.48    7.05     2.66
+             sentiment    3.34   2.66   3.31    6.70      NaN
+             sib          3.54   2.82   3.51    7.16      NaN
+             sib257        NaN    NaN    NaN     NaN     2.64
+qwen3.5-2b   m4c496       3.40   2.62   3.34    3.07     2.53
+             sentiment    3.25   2.49   3.15    2.90      NaN
+             sib          3.43   2.65   3.36    3.11      NaN
+             sib257        NaN    NaN    NaN     NaN     2.51
+sarvam-1     m4c496       4.23   3.37   4.19    1.78     3.24
+             sentiment    4.09   3.27   4.02    1.76      NaN
+             sib          4.27   3.40   4.21    1.80      NaN
+             sib257        NaN    NaN    NaN     NaN     3.23
+2026-11-06 07:58:44 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  14804, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 08:03:45 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  14804, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 08:08:45 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  14804, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 08:13:45 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  14804, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 08:18:57 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  14804, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 08:23:57 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  14804, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 08:28:58 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  14804, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 08:33:58 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  14804, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 08:38:58 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  14804, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 08:43:58 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  14804, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 08:48:58 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  14804, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 08:53:59 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  14804, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 08:58:59 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  14804, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 09:03:59 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  14804, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 09:08:59 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  14804, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 09:13:59 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  14804, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 09:19:00 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  14804, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 09:24:00 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  14804, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 09:29:00 wait_gpu: 5464 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  14804, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 09:34:00 wait_gpu: 5466 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  14804, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 09:39:01 wait_gpu: 5466 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  14804, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 09:44:01 wait_gpu: 5466 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  14804, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 09:49:01 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9896, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 09:54:01 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9896, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 09:59:01 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9896, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 10:04:02 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9896, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 10:09:02 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9896, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 10:14:02 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9896, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 10:19:02 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9896, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 10:24:03 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9896, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 10:29:03 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9896, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 10:34:03 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9896, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 10:39:03 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9896, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 10:44:03 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9896, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 10:49:04 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9896, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 10:54:04 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9896, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 10:59:04 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9896, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 11:04:04 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9896, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 11:09:04 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9896, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 11:14:05 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9896, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 11:19:05 wait_gpu: 8024 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9896, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 11:24:05 wait_gpu: 5466 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9896, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 11:29:05 wait_gpu: 5466 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9896, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+2026-11-06 11:34:06 wait_gpu: 5466 MB in use > 500 MB; GPU processes: 11404, C:\Users\kembh\AppData\Local\Programs\cursor\Cursor.exe  9896, C:\Users\kembh\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe  
+=== 2026-11-06 11:39:07 X4 te lowercase vectors (M4c rows): env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x4_lang.py forward
+=== 2026-11-06 11:41:09 X4 te lowercase scores (SIB-200, sentiment): env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x4_lang.py score
+=== 2026-11-06 11:43:09 X4 te tokens per word: env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x4_lang.py tpw
+form                    itrans  lossy  lower  native  natural
+model        dataset                                         
+gemma4-e2b   m4c496       3.85   2.78   3.78    2.83     2.73
+             sentiment    3.79   2.71   3.69    2.81      NaN
+             sib          3.82   2.75   3.74    2.83      NaN
+             sib257        NaN    NaN    NaN     NaN     2.66
+qwen2.5-1.5b m4c496       4.16   3.09   4.04   11.36     3.03
+             sentiment    4.08   3.00   3.98   11.58      NaN
+             sib          4.11   3.05   4.00   11.32      NaN
+             sib257        NaN    NaN    NaN     NaN     2.96
+qwen3-1.7b   m4c496       4.16   3.09   4.04   11.36     3.03
+             sentiment    4.08   3.00   3.98   11.58      NaN
+             sib          4.11   3.05   4.00   11.32      NaN
+             sib257        NaN    NaN    NaN     NaN     2.96
+qwen3.5-2b   m4c496       4.05   2.89   3.85    4.63     2.86
+             sentiment    3.96   2.81   3.77    4.54      NaN
+             sib          4.01   2.86   3.81    4.61      NaN
+             sib257        NaN    NaN    NaN     NaN     2.80
+sarvam-1     m4c496       4.98   3.85   4.86    2.15     3.78
+             sentiment    4.86   3.76   4.79    2.23      NaN
+             sib          4.92   3.80   4.81    2.12      NaN
+             sib257        NaN    NaN    NaN     NaN     3.70
+=== 2026-11-06 11:45:09 X4 retrieval, lowercase form (2,009 sentences): env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x4_ret.py score
+=== 2026-11-06 11:47:10 X4 R2 analysis: env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x4_ret.py analyse
+bn {'n_counted': 3, 'native_minus_itrans_ci_above_0': 3, 'ci_below_0': 0, 'verdict': 'supported'} {'qwen3.5-2b': {'native': 0.991, 'itrans': 0.15, 'lossy': 0.257, 'lower': 0.165}, 'sarvam-1': {'native': 0.941, 'itrans': 0.322, 'lossy': 0.606, 'lower': 0.281}, 'gemma4-e2b': {'native': 0.996, 'itrans': 0.301, 'lossy': 0.407, 'lower': 0.319}, 'qwen2.5-1.5b': {'native': 0.477, 'itrans': 0.067, 'lossy': 0.117, 'lower': 0.086}}
+te {'n_counted': 3, 'native_minus_itrans_ci_above_0': 3, 'ci_below_0': 0, 'verdict': 'supported'} {'qwen3.5-2b': {'native': 0.973, 'itrans': 0.169, 'lossy': 0.312, 'lower': 0.182}, 'sarvam-1': {'native': 0.927, 'itrans': 0.342, 'lossy': 0.838, 'lower': 0.372}, 'gemma4-e2b': {'native': 0.989, 'itrans': 0.288, 'lossy': 0.534, 'lower': 0.259}, 'qwen2.5-1.5b': {'native': 0.181, 'itrans': 0.112, 'lossy': 0.187, 'lower': 0.124}}
+=== 2026-11-06 11:49:10 X4 bn R3 and retrieval ladder: env X4_LANG=bn PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x4_r3.py
+bn {'n_counted': 3, 'natural_minus_itrans_ci_above_0': 3, 'ci_below_0': 0, 'verdict': 'supported'} {'qwen3.5-2b': ({'native': 0.996, 'natural': 0.513, 'itrans': 0.237, 'lossy': 0.381, 'lower': 0.246}, [0.208, 0.343]), 'sarvam-1': ({'native': 0.996, 'natural': 0.894, 'itrans': 0.466, 'lossy': 0.708, 'lower': 0.449}, [0.36, 0.496]), 'gemma4-e2b': ({'native': 1.0, 'natural': 0.843, 'itrans': 0.466, 'lossy': 0.631, 'lower': 0.492}, [0.309, 0.445])}
+=== 2026-11-06 11:53:10 X4 te R3 and retrieval ladder: env X4_LANG=te PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x4_r3.py
