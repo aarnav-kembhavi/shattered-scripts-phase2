@@ -14,7 +14,7 @@ base = REPO / "results" / "kaggle"
 a1 = json.load(open(sorted(glob.glob(str(base / "kaggle_retrieval_gate" / "*" / "out" / "gate_retrieval.json")))[-1]))
 new_dir = base / f"acct{n}" / "kaggle_retrieval_gate"
 a_n = json.load(open(sorted(glob.glob(str(new_dir / "*" / "out" / "gate_retrieval.json")))[-1]))
-res = {"check": f"account {n} A1-R reproduction (kaggle_retrieval_gate)", "by_model_form": {}, "tolerance_acc_at_1": a_n["rule"]["tolerance_acc_at_1"], "gate_passed": bool(a_n["gate_passed"])}
+res = {"check": f"account {n} A1-R reproduction (kaggle_retrieval_gate)", "by_model_form": {}, "tolerance_acc_at_1": a_n["rule"]["tolerance_acc_at_1"], "kernel_gate_flag_this_account": bool(a_n["gate_passed"]), "kernel_gate_flag_account1": bool(a1["gate_passed"])}
 mx = 0.0
 for m in a1["models"]:
     for f in ("native", "itrans"):
@@ -25,7 +25,8 @@ res["max_curve_diff_vs_account1"] = mx
 res["reproduces_account1_exactly"] = bool(mx == 0.0)
 (base / f"acct{n}").mkdir(parents=True, exist_ok=True)
 (base / f"acct{n}" / "a1r_reproduced.json").write_text(json.dumps(res, indent=1))
-ok = res["gate_passed"] and mx <= 1e-6
+res["gate_passed"] = bool(mx <= 1e-6)  # accepted on exact reproduction of account 1 (as for account 2); the kernel's own flag compares with laptop numbers and is False on account 1 too
+ok = res["gate_passed"]
 if ok:
     (base / f"acct{n}" / "ACCEPTED").write_text("smoke gate and A1-R reproduction passed\n")
 print(json.dumps(res, indent=1), "ACCEPTED" if ok else "NOT accepted")

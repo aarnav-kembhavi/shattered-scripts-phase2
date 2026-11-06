@@ -1,0 +1,16 @@
+{
+ "job": "kaggle_gate",
+ "kernel": "aakarshprabhu/shattered-kaggle-gate",
+ "commit": "e605a650375a0fcc2b49eea05b2a61caadce9d1c",
+ "dirty": false,
+ "args": [],
+ "start_utc": "2026-11-06T20:18:46.634523+00:00",
+ "hours": 0.1474732032749388,
+ "status": "aakarshprabhu/shattered-kaggle-gate has status \"KernelWorkerStatus.COMPLETE\"",
+ "accelerator": "NvidiaTeslaT4 (T4 x2)",
+ "output_dir": "results\\kaggle\\acct3\\kaggle_gate\\2026-11-06T201846",
+ "hardware": null,
+ "torch": null,
+ "bf16_supported": null,
+ "provenance": {}
+}

@@ -1,0 +1,34 @@
+{
+ "check": "account 3 A1-R reproduction (kaggle_retrieval_gate)",
+ "by_model_form": {
+  "sarvam-1 native": {
+   "account1": 0.9442786069651742,
+   "account3": 0.9442786069651742,
+   "layer_account1": 24,
+   "layer_account3": 24
+  },
+  "sarvam-1 itrans": {
+   "account1": 0.5104477611940299,
+   "account3": 0.5104477611940299,
+   "layer_account1": 21,
+   "layer_account3": 21
+  },
+  "gemma4-e2b native": {
+   "account1": 0.9960199004975124,
+   "account3": 0.9960199004975124,
+   "layer_account1": 7,
+   "layer_account3": 7
+  },
+  "gemma4-e2b itrans": {
+   "account1": 0.2656716417910448,
+   "account3": 0.2656716417910448,
+   "layer_account1": 7,
+   "layer_account3": 7
+  }
+ },
+ "tolerance_acc_at_1": 0.03,
+ "kernel_gate_flag_this_account": false,
+ "kernel_gate_flag_account1": false,
+ "max_curve_diff_vs_account1": 0.0,
+ "reproduces_account1_exactly": true
+}
