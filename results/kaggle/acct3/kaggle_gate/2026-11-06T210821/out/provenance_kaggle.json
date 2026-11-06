@@ -1,0 +1,15 @@
+{
+ "commit": "bbe3451b000de2f8d726bbd40858e5a13b652cc4",
+ "job": "kaggle_gate",
+ "args": [],
+ "gpus": "name, memory.total [MiB], driver_version\nTesla T4, 15360 MiB, 580.178.04\nTesla T4, 15360 MiB, 580.178.04\n",
+ "torch": "2.11.0+cu130",
+ "cuda": "13.0",
+ "transformers": "5.19.0",
+ "n_gpus": 2,
+ "bf16_supported": true,
+ "python": "3.13.16",
+ "start_epoch": 1793999308.979247,
+ "returncode": 0,
+ "seconds": 201.3398118019104
+}

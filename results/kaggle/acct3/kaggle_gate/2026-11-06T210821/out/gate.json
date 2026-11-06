@@ -1,0 +1,38 @@
+{
+ "rule": {
+  "agree_min": 0.95,
+  "acc_diff_max": 0.03,
+  "hidden_max": 65504.0
+ },
+ "results": [
+  {
+   "model": "sarvam-1",
+   "dtype": "float16",
+   "error": "FileNotFoundError(2, 'No such file or directory')",
+   "pass": false
+  },
+  {
+   "model": "sarvam-1",
+   "dtype": "float32",
+   "error": "FileNotFoundError(2, 'No such file or directory')",
+   "pass": false
+  },
+  {
+   "model": "gemma4-e2b",
+   "dtype": "float16",
+   "error": "FileNotFoundError(2, 'No such file or directory')",
+   "pass": false
+  },
+  {
+   "model": "gemma4-e2b",
+   "dtype": "float32",
+   "error": "FileNotFoundError(2, 'No such file or directory')",
+   "pass": false
+  }
+ ],
+ "dtype_used": {
+  "sarvam-1": null,
+  "gemma4-e2b": null
+ },
+ "gate_passed": false
+}
