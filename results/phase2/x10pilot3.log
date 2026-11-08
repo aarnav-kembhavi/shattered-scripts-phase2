@@ -1,0 +1,33 @@
+=== 2026-11-08 15:35:01 Sarvam-m X10 pilot on Kaggle account 3: .venv/Scripts/python.exe -u scripts/kaggle_runner.py run kaggle_x10 --timeout-h 1.5 --private-data shattered-x10-inputs -- --models sarvam-m --n 16 --batch 8 --forms native itrans
+Starting upload for file repo.zip
+Upload successful: repo.zip (532KB)
+Dataset version is being created. Please check progress at https://www.kaggle.com/datasets/aakarshprabhu/shattered-pkg
+
+  0%|          | 0.00/532k [00:00<?, ?B/s]
+ 18%|█▊        | 96.0k/532k [00:00<00:00, 977kB/s]
+ 63%|██████▎   | 336k/532k [00:00<00:00, 1.84MB/s]
+ 99%|█████████▉| 528k/532k [00:01<00:00, 423kB/s] 
+100%|██████████| 532k/532k [00:02<00:00, 263kB/s]
+
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/aakarshprabhu/shattered-kaggle-x10
+
+[15:35:16] aakarshprabhu/shattered-kaggle-x10 has status "KernelWorkerStatus.RUNNING"
+[15:37:17] aakarshprabhu/shattered-kaggle-x10 has status "KernelWorkerStatus.RUNNING"
+[15:39:19] aakarshprabhu/shattered-kaggle-x10 has status "KernelWorkerStatus.RUNNING"
+[15:41:21] aakarshprabhu/shattered-kaggle-x10 has status "KernelWorkerStatus.RUNNING"
+[15:43:22] aakarshprabhu/shattered-kaggle-x10 has status "KernelWorkerStatus.RUNNING"
+[15:45:24] aakarshprabhu/shattered-kaggle-x10 has status "KernelWorkerStatus.RUNNING"
+[15:47:25] aakarshprabhu/shattered-kaggle-x10 has status "KernelWorkerStatus.RUNNING"
+[15:49:27] aakarshprabhu/shattered-kaggle-x10 has status "KernelWorkerStatus.RUNNING"
+[15:51:29] aakarshprabhu/shattered-kaggle-x10 has status "KernelWorkerStatus.RUNNING"
+[15:53:30] aakarshprabhu/shattered-kaggle-x10 has status "KernelWorkerStatus.RUNNING"
+[15:55:32] aakarshprabhu/shattered-kaggle-x10 has status "KernelWorkerStatus.RUNNING"
+{
+ "job": "kaggle_x10",
+ "commit": "30c15bd5e0685ab374f5f0816ed1bd741c0a3901",
+ "status": "aakarshprabhu/shattered-kaggle-x10 has status \"KernelWorkerStatus.COMPLETE\"",
+ "hours": 0.4105227751864327,
+ "hardware": null,
+ "output_dir": "results\\kaggle\\acct3\\kaggle_x10\\2026-11-08T100511"
+}
+weekly hours used (last 7 days): 4.89 of 30.0
