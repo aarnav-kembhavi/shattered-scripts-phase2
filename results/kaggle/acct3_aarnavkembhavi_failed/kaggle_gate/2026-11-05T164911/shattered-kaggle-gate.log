@@ -1,0 +1,25 @@
+[{"stream_name":"stdout","time":2.564808294,"data":"input listing: ['datasets'] ['/kaggle/input/datasets/aarnavkembhavi/shattered-pkg/pyproject.toml']\n"}
+,{"stream_name":"stdout","time":2.564941475,"data":"datasets (depth 2): ['/kaggle/input/datasets/aarnavkembhavi', '/kaggle/input/datasets/aarnavkembhavi/shattered-pkg']\n"}
+,{"stream_name":"stderr","time":211.382279046,"data":"  error: subprocess-exited-with-error\n"}
+,{"stream_name":"stderr","time":211.382355807,"data":"  \n"}
+,{"stream_name":"stderr","time":211.38236102,"data":"  × installing build dependencies did not run successfully.\n"}
+,{"stream_name":"stderr","time":211.382365557,"data":"  │ exit code: 1\n"}
+,{"stream_name":"stderr","time":211.382368897,"data":"  ╰─\u003e No available output.\n"}
+,{"stream_name":"stderr","time":211.382372541,"data":"  \n"}
+,{"stream_name":"stderr","time":211.38237575,"data":"  note: This error originates from a subprocess, and is likely not a problem with pip.\n"}
+,{"stream_name":"stderr","time":211.383100259,"data":"ERROR: Failed to build 'file:///kaggle/working/repo' when installing build dependencies\n"}
+,{"stream_name":"stderr","time":211.517648885,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":211.518638693,"data":"  File \"/kaggle/src/script.py\", line 14, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":211.518679072,"data":"    subprocess.run([sys.executable, \"-m\", \"pip\", \"install\", \"-q\", \"--no-deps\", \"-e\", root], check=True)\n"}
+,{"stream_name":"stderr","time":211.518764748,"data":"    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":211.518786427,"data":"  File \"/usr/lib/python3.13/subprocess.py\", line 578, in run\n"}
+,{"stream_name":"stderr","time":211.518790548,"data":"    raise CalledProcessError(retcode, process.args,\n"}
+,{"stream_name":"stderr","time":211.518794022,"data":"                             output=stdout, stderr=stderr)\n"}
+,{"stream_name":"stderr","time":211.518797341,"data":"subprocess.CalledProcessError: Command '['/usr/bin/python3', '-m', 'pip', 'install', '-q', '--no-deps', '-e', '/kaggle/working/repo']' returned non-zero exit status 1.\n"}
+,{"stream_name":"stderr","time":214.876823349,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":214.876863013,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":215.4733014,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":215.473337079,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":217.806750897,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":219.384841705,"data":"[NbConvertApp] Writing 287403 bytes to __results__.html\n"}
+]

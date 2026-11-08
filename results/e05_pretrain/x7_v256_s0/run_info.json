@@ -1,0 +1,58 @@
+{
+  "provenance": {
+    "config": {
+      "target_ctx_bytes": 1024,
+      "batch_seqs": 64,
+      "micro_batch_seqs": 16,
+      "lr": 0.001,
+      "warmup_frac": 0.02,
+      "min_lr_frac": 0.1,
+      "weight_decay": 0.1,
+      "eval_every": 250,
+      "mp_during_training": true,
+      "snapshot_fracs": [
+        0.1,
+        0.25,
+        0.5
+      ],
+      "eval_bytes": 2000000,
+      "ckpt_every": 250,
+      "max_minutes": null,
+      "vocab": 256,
+      "seed": 0,
+      "fraction": 1.0,
+      "model": {
+        "n_layer": 8,
+        "d_model": 384,
+        "n_head": 6,
+        "emb_dim": 154
+      },
+      "train_bytes": 400000000,
+      "run_name": "x7_v256_s0"
+    },
+    "git_commit": "b4a0bb68d2731d0f28e9f3288fefe381acd98e2b",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "timestamp_utc": "2026-11-02T11:05:33+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x7_control.py",
+      "grid"
+    ]
+  },
+  "ctx_tokens": 1024,
+  "steps": 6103,
+  "tokens_per_step": 65536,
+  "train_tokens": 399966208,
+  "train_bytes_seen": 399966208.0,
+  "bytes_per_token": 1.0,
+  "params": {
+    "total": 14320154,
+    "embedding": 157850,
+    "non_embedding": 14162304
+  },
+  "flops_per_token": 104795292,
+  "train_flops": 41914575557492736,
+  "device": "NVIDIA GeForce RTX 3070 Laptop GPU",
+  "amp_dtype": "torch.bfloat16"
+}

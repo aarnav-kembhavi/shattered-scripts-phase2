@@ -1,0 +1,72 @@
+{
+  "provenance": {
+    "config": {
+      "target_ctx_bytes": 1024,
+      "batch_seqs": 64,
+      "micro_batch_seqs": 16,
+      "lr": 0.001,
+      "warmup_frac": 0.02,
+      "min_lr_frac": 0.1,
+      "weight_decay": 0.1,
+      "eval_every": 250,
+      "mp_during_training": false,
+      "snapshot_fracs": [],
+      "eval_bytes": 2000000,
+      "ckpt_every": 250,
+      "max_minutes": null,
+      "vocab": "x9a_p5",
+      "seed": 2,
+      "fraction": 1.0,
+      "model": {
+        "n_layer": 8,
+        "d_model": 384,
+        "n_head": 6,
+        "emb_dim": null
+      },
+      "train_bytes": 362329599,
+      "run_name": "x9a_p5_s2",
+      "ctx_tokens": 320
+    },
+    "git_commit": "4e6fd51a065381d3b86b072a482fa30f66639e8b-dirty",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
+    "timestamp_utc": "2026-11-03T13:10:43+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x9a.py",
+      "train",
+      "5",
+      "2"
+    ]
+  },
+  "ctx_tokens": 320,
+  "steps": 6173,
+  "tokens_per_step": 20480,
+  "train_tokens": 126423040,
+  "train_bytes_seen": 362329596.1339908,
+  "bytes_per_token": 2.8660092031799804,
+  "params": {
+    "total": 14555904,
+    "embedding": 393600,
+    "non_embedding": 14162304
+  },
+  "flops_per_token": 93233664,
+  "train_flops": 11786883233218560,
+  "device": "NVIDIA GeForce RTX 3070 Laptop GPU",
+  "amp_dtype": "torch.bfloat16",
+  "val_bpb_full": 0.5691346720751064,
+  "train_seconds_this_session": 1019.3641133308411,
+  "wall_seconds_this_session": 1072.9353821277618,
+  "seconds_per_step": 0.1651326929095806,
+  "model_config": {
+    "vocab_size": 1025,
+    "n_layer": 8,
+    "d_model": 384,
+    "n_head": 6,
+    "mlp_mult": 4,
+    "max_ctx": 320,
+    "emb_dim": null,
+    "rope_base": 10000.0
+  }
+}

@@ -59,6 +59,111 @@
    "hardware": null,
    "torch": null,
    "bf16_supported": null
+  },
+  {
+   "job": "x_score",
+   "kernel": "aakarshprabhu/shattered-x-score",
+   "commit": "bbe3451b000de2f8d726bbd40858e5a13b652cc4",
+   "dirty": false,
+   "args": [
+    "--models",
+    "sarvam-m",
+    "--no-retrieval",
+    "--quant",
+    "4bit",
+    "--forms",
+    "lossy",
+    "lower",
+    "natural"
+   ],
+   "start_utc": "2026-11-06T21:30:49.034480+00:00",
+   "hours": 3.2845791351795195,
+   "status": "aakarshprabhu/shattered-x-score has status \"KernelWorkerStatus.COMPLETE\"",
+   "accelerator": "NvidiaTeslaT4 (T4 x2)",
+   "output_dir": "results\\kaggle\\acct3\\x_score\\2026-11-06T213049",
+   "hardware": null,
+   "torch": null,
+   "bf16_supported": null
+  },
+  {
+   "job": "kaggle_retrieval_gate",
+   "kernel": "aakarshprabhu/shattered-kaggle-retrieval-gate",
+   "commit": "c42cfd4ce4c028065aa5c36c9bca52649fb399a6",
+   "dirty": false,
+   "args": [],
+   "start_utc": "2026-11-08T06:57:09.891746+00:00",
+   "hours": 0.3480824879142973,
+   "status": "aakarshprabhu/shattered-kaggle-retrieval-gate has status \"KernelWorkerStatus.COMPLETE\"",
+   "accelerator": "NvidiaTeslaT4 (T4 x2)",
+   "output_dir": "results\\kaggle\\acct3\\kaggle_retrieval_gate\\2026-11-08T065709",
+   "hardware": null,
+   "torch": null,
+   "bf16_supported": null
+  },
+  {
+   "job": "kaggle_x10",
+   "kernel": "aakarshprabhu/shattered-kaggle-x10",
+   "commit": "30c15bd5e0685ab374f5f0816ed1bd741c0a3901",
+   "dirty": false,
+   "args": [
+    "--models",
+    "sarvam-m",
+    "--n",
+    "16",
+    "--batch",
+    "8",
+    "--forms",
+    "native",
+    "itrans"
+   ],
+   "start_utc": "2026-11-08T10:05:11.236137+00:00",
+   "hours": 0.4105227751864327,
+   "status": "aakarshprabhu/shattered-kaggle-x10 has status \"KernelWorkerStatus.COMPLETE\"",
+   "accelerator": "NvidiaTeslaT4 (T4 x2)",
+   "output_dir": "results\\kaggle\\acct3\\kaggle_x10\\2026-11-08T100511",
+   "hardware": null,
+   "torch": null,
+   "bf16_supported": null
+  },
+  {
+   "job": "kaggle_x10",
+   "kernel": "aakarshprabhu/shattered-kaggle-x10",
+   "commit": "5785428591f4806603bb1fbd166b39a0d9f0b857",
+   "dirty": false,
+   "args": [
+    "--models",
+    "sarvam-m",
+    "--forms",
+    "native",
+    "--batch",
+    "16"
+   ],
+   "start_utc": "2026-11-08T10:53:32.635235+00:00",
+   "hours": 5.128646381166246,
+   "status": "aakarshprabhu/shattered-kaggle-x10 has status \"KernelWorkerStatus.COMPLETE\"",
+   "accelerator": "NvidiaTeslaT4 (T4 x2)",
+   "output_dir": "results\\kaggle\\acct3\\kaggle_x10\\2026-11-08T105332",
+   "hardware": null,
+   "torch": null,
+   "bf16_supported": null
+  },
+  {
+   "job": "kaggle_x10",
+   "kernel": "aakarshprabhu/shattered-kaggle-x10",
+   "commit": "071b67490c75a1846ce2a5c07ccd14eebb45c15c",
+   "dirty": false,
+   "args": [
+    "--models",
+    "sarvam-m",
+    "--forms",
+    "itrans",
+    "--batch",
+    "16"
+   ],
+   "start_utc": "2026-11-08T16:01:47.675747+00:00",
+   "hours": 10.5,
+   "status": "pushed",
+   "accelerator": "NvidiaTeslaT4 (T4 x2)"
   }
  ]
 }

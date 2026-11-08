@@ -1,0 +1,99 @@
+{
+  "provenance": {
+    "config": {
+      "target_ctx_bytes": 1024,
+      "batch_seqs": 64,
+      "micro_batch_seqs": 16,
+      "lr": 0.001,
+      "warmup_frac": 0.02,
+      "min_lr_frac": 0.1,
+      "weight_decay": 0.1,
+      "eval_every": 250,
+      "mp_during_training": true,
+      "snapshot_fracs": [
+        0.1,
+        0.25,
+        0.5
+      ],
+      "eval_bytes": 2000000,
+      "ckpt_every": 250,
+      "max_minutes": null,
+      "vocab": 384,
+      "seed": 0,
+      "fraction": 1.0,
+      "model": {
+        "n_layer": 8,
+        "d_model": 384,
+        "n_head": 6,
+        "emb_dim": 128
+      },
+      "train_bytes": 400000000,
+      "run_name": "x7_v384_s0"
+    },
+    "git_commit": "ff4a2babf20a107d86bd2a65faa9ee9644282fcd",
+    "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
+    "timestamp_utc": "2026-11-02T13:00:54+00:00",
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "argv": [
+      "scripts/x7_control.py",
+      "grid"
+    ]
+  },
+  "ctx_tokens": 520,
+  "steps": 6081,
+  "tokens_per_step": 33280,
+  "train_tokens": 202375680,
+  "train_bytes_seen": 399948667.48724186,
+  "bytes_per_token": 1.9762684305112248,
+  "params": {
+    "total": 14309888,
+    "embedding": 147584,
+    "non_embedding": 14162304
+  },
+  "flops_per_token": 95443968,
+  "train_flops": 19315537925898240,
+  "device": "NVIDIA GeForce RTX 3070 Laptop GPU",
+  "amp_dtype": "torch.bfloat16",
+  "val_bpb_full": 0.581196256079366,
+  "train_seconds_this_session": 1947.65145778656,
+  "wall_seconds_this_session": 2321.5003383159637,
+  "seconds_per_step": 0.32028473241022204,
+  "minimal_pairs": {
+    "determiner_noun_agreement": {
+      "n": 60,
+      "acc_total_logprob": 0.7833333333333333,
+      "acc_per_byte": 0.75
+    },
+    "irregular_past": {
+      "n": 12,
+      "acc_total_logprob": 1.0,
+      "acc_per_byte": 1.0
+    },
+    "subject_verb_agreement_plural": {
+      "n": 200,
+      "acc_total_logprob": 1.0,
+      "acc_per_byte": 0.95
+    },
+    "subject_verb_agreement_singular": {
+      "n": 200,
+      "acc_total_logprob": 0.78,
+      "acc_per_byte": 0.965
+    },
+    "all": {
+      "n": 472,
+      "acc_total_logprob": 0.8792372881355932,
+      "acc_per_byte": 0.9322033898305084
+    }
+  },
+  "model_config": {
+    "vocab_size": 385,
+    "n_layer": 8,
+    "d_model": 384,
+    "n_head": 6,
+    "mlp_mult": 4,
+    "max_ctx": 520,
+    "emb_dim": 128,
+    "rope_base": 10000.0
+  }
+}

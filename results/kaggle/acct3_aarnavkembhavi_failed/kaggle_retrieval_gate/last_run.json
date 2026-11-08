@@ -1,0 +1,16 @@
+{
+ "job": "kaggle_retrieval_gate",
+ "kernel": "aarnavkembhavi/shattered-kaggle-retrieval-gate",
+ "commit": "5d9fd0ee03574a80406a653ea8ac45a646abd053",
+ "dirty": false,
+ "args": [],
+ "start_utc": "2026-11-05T16:57:06.008605+00:00",
+ "hours": 0.10478080279297299,
+ "status": "aarnavkembhavi/shattered-kaggle-retrieval-gate has status \"KernelWorkerStatus.ERROR\"",
+ "accelerator": "NvidiaTeslaT4 (T4 x2)",
+ "output_dir": "results\\kaggle\\acct3\\kaggle_retrieval_gate\\2026-11-05T165706",
+ "hardware": null,
+ "torch": null,
+ "bf16_supported": null,
+ "provenance": {}
+}

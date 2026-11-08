@@ -40,7 +40,13 @@
   "2026-11-05 04:23:30 A1-P ambari-7b-instruct-v0.1: pass=True reference=float32_offload error=None",
   "2026-11-05 04:23:34 quota projection before kaggle_mdl ['llama-3.1-8b']: 14.64 h used in the last 7 days, this push up to 3.0 h, headroom 12.4 h, X9b Sarvam reserve 0 h (X9b pending: True)",
   "2026-11-05 05:21:57 MDL llama-3.1-8b: done=True hours=0.96",
-  "2026-11-05 05:21:57 account 2 queue pass finished; open: "
+  "2026-11-05 05:21:57 account 2 queue pass finished; open: ",
+  "2026-11-05 10:40:26 A1-P llama-3.1-8b: pass=True reference=float32_offload error=None",
+  "2026-11-05 10:40:26 A1-P ambari-7b-instruct-v0.1: pass=True reference=float32_offload error=None",
+  "2026-11-05 10:40:26 A1-P ambari-7b-instruct-v0.1: pass=True reference=float32_offload error=None",
+  "2026-11-05 10:40:28 quota projection before x_score sarvam-m (4-bit): 15.60 h used in the last 7 days, this push up to 5.0 h, headroom 9.4 h, X9b Sarvam reserve 0 h (X9b pending: True)",
+  "2026-11-05 15:25:56 score sarvam-m (4-bit): done=False hours=4.75",
+  "2026-11-05 15:25:56 account 2 queue pass finished; open: "
  ],
  "precision": {
   "qwen3-8b": {
@@ -84,6 +90,10 @@
    "hidden_abs_max_fp16": 559.5,
    "file": "results\\kaggle\\acct2\\kaggle_precision\\2026-11-04T161113\\out\\precision_ambari-7b-instruct-v0.1.json",
    "error": null
+  },
+  "sarvam-m": {
+   "pass": true,
+   "exempt": "4-bit-only model: exempt from A1-P, limited to SIB-200 and X10 (registered)"
   }
  },
  "scored": {
@@ -133,6 +143,15 @@
    "dir": "results\\kaggle\\acct2\\x_score\\2026-11-04T210109\\out\\llama-3.1-8b",
    "hours": 1.8198573695951037,
    "commit": "3c2e3a612caa15f59b8beb6c62325bcb53686aa1",
+   "status": "ashwin18522/shattered-x-score has status \"KernelWorkerStatus.COMPLETE\""
+  },
+  "sarvam-m": {
+   "done": false,
+   "retrieval_requested": false,
+   "quant": "4bit",
+   "dir": "results\\kaggle\\acct2\\x_score\\2026-11-05T051051\\out\\sarvam-m",
+   "hours": 4.750251530342632,
+   "commit": "13f40540b16ad92a5be54e24699804557f82963a",
    "status": "ashwin18522/shattered-x-score has status \"KernelWorkerStatus.COMPLETE\""
   }
  },

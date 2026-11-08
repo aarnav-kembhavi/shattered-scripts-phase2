@@ -1,0 +1,21 @@
+{
+ "commit": "13f40540b16ad92a5be54e24699804557f82963a",
+ "job": "x_score",
+ "args": [
+  "--models",
+  "sarvam-m",
+  "--no-retrieval",
+  "--quant",
+  "4bit"
+ ],
+ "gpus": "name, memory.total [MiB], driver_version\nTesla T4, 15360 MiB, 580.178.04\nTesla T4, 15360 MiB, 580.178.04\n",
+ "torch": "2.11.0+cu130",
+ "cuda": "13.0",
+ "transformers": "5.19.0",
+ "n_gpus": 2,
+ "bf16_supported": true,
+ "python": "3.13.16",
+ "start_epoch": 1793855458.9744468,
+ "returncode": "timeout",
+ "seconds": 16879.676706790924
+}
