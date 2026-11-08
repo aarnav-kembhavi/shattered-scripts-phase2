@@ -40,3 +40,125 @@ Kernel push error: Maximum weekly GPU quota of 30.00 hours reached.
 
 kernel push was not accepted: Kernel push error: Maximum weekly GPU quota of 30.00 hours reached.
 
+=== 2026-11-07 00:26:02 Sarvam-m lossy/lower/natural on Kaggle account 2: .venv/Scripts/python.exe -u scripts/kaggle_runner.py run x_score --timeout-h 5.0 --private-data shattered-flores-private --include results/e09_romanize/best_schemes.json -- --models sarvam-m --no-retrieval --quant 4bit --forms lossy lower natural
+Starting upload for file repo.zip
+Upload successful: repo.zip (530KB)
+Dataset version is being created. Please check progress at https://www.kaggle.com/datasets/ashwin18522/shattered-pkg
+
+  0%|          | 0.00/530k [00:00<?, ?B/s]
+  3%|▎         | 16.0k/530k [00:01<00:40, 13.0kB/s]
+ 85%|████████▍ | 448k/530k [00:01<00:00, 459kB/s]  
+100%|██████████| 530k/530k [00:03<00:00, 170kB/s]
+
+Kernel push error: Maximum weekly GPU quota of 30.00 hours reached.
+
+kernel push was not accepted: Kernel push error: Maximum weekly GPU quota of 30.00 hours reached.
+
+=== 2026-11-08 12:26:54 Sarvam-m lossy/lower/natural on Kaggle account 2: .venv/Scripts/python.exe -u scripts/kaggle_runner.py run x_score --timeout-h 5.0 --private-data shattered-flores-private --include results/e09_romanize/best_schemes.json -- --models sarvam-m --no-retrieval --quant 4bit --forms lossy lower natural
+Starting upload for file repo.zip
+Upload successful: repo.zip (531KB)
+Dataset version is being created. Please check progress at https://www.kaggle.com/datasets/ashwin18522/shattered-pkg
+
+  0%|          | 0.00/531k [00:00<?, ?B/s]
+ 18%|█▊        | 96.0k/531k [00:00<00:00, 862kB/s]
+100%|██████████| 531k/531k [00:00<00:00, 721kB/s] 
+100%|██████████| 531k/531k [00:02<00:00, 267kB/s]
+
+Kernel version 5 successfully pushed.  Please check progress at https://www.kaggle.com/code/ashwin18522/shattered-x-score
+
+[12:27:17] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[12:29:18] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[12:31:21] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[12:33:23] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[12:35:25] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[12:37:27] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[12:39:29] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[12:41:30] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[12:43:31] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[12:45:33] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[12:47:35] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[12:49:37] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[12:51:38] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[12:53:40] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[12:55:41] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[12:57:43] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[12:59:44] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[13:01:46] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[13:03:49] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[13:05:50] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[13:07:52] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[13:09:54] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[13:11:55] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[13:13:57] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[13:15:58] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[13:18:00] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[13:20:01] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[13:22:03] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[13:24:05] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[13:26:06] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[13:28:08] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[13:30:10] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[13:32:12] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[13:34:14] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[13:36:17] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[13:38:18] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[13:40:21] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[13:42:24] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[13:44:26] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[13:46:27] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[13:48:30] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[13:50:32] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[13:52:34] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[13:54:36] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[13:56:37] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[13:58:40] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[14:00:43] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[14:02:45] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[14:04:47] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[14:06:50] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[14:08:51] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[14:10:52] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[14:12:56] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[14:14:57] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[14:16:59] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[14:19:01] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[14:21:02] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[14:23:04] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[14:25:05] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[14:27:07] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[14:29:08] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[14:31:10] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[14:33:11] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[14:35:12] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[14:37:14] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[14:39:15] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[14:41:17] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[14:43:18] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[14:45:20] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[14:47:23] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[14:49:24] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[14:51:26] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[14:53:28] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[14:55:29] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[14:57:31] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[14:59:32] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[15:01:34] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[15:03:36] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[15:05:38] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[15:07:40] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[15:09:43] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[15:11:45] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[15:13:47] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[15:15:50] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[15:17:51] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[15:19:53] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+[15:21:54] ashwin18522/shattered-x-score has status "KernelWorkerStatus.RUNNING"
+{
+ "job": "x_score",
+ "commit": "c42cfd4ce4c028065aa5c36c9bca52649fb399a6",
+ "status": "ashwin18522/shattered-x-score has status \"KernelWorkerStatus.COMPLETE\"",
+ "hours": 2.9894615791241326,
+ "hardware": null,
+ "output_dir": "results\\kaggle\\acct2\\x_score\\2026-11-08T065712"
+}
+weekly hours used (last 7 days): 23.34 of 30.0

@@ -3,10 +3,10 @@
     "config": {
       "registration": "RESULTS.md Amendment 2, X13 (Sarvam-m, 4-bit, SIB-200 only)"
     },
-    "git_commit": "2f9c9f1ca4df69dc85f53a0a547e43e364324e79-dirty",
+    "git_commit": "c42cfd4ce4c028065aa5c36c9bca52649fb399a6-dirty",
     "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
     "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
-    "timestamp_utc": "2026-11-05T10:08:40+00:00",
+    "timestamp_utc": "2026-11-08T10:03:03+00:00",
     "python": "3.12.13",
     "platform": "Windows-11-10.0.26300-SP0",
     "argv": [
@@ -18,14 +18,13 @@
   "forms_scored": [
     "english",
     "native",
-    "itrans"
-  ],
-  "forms_not_reached": [
+    "itrans",
     "lossy",
     "lower",
     "natural"
   ],
-  "reason": "the kernel's 5 h cap hit after ITRANS (about 85 min per form)",
+  "forms_not_reached": [],
+  "reason": "first kernel (account 2) reached English, native, ITRANS before its 5 h cap; the second (account 3) scored lossy, lowercase, natural",
   "raw_fallback_used": false,
   "accuracy": {
     "english": {
@@ -46,6 +45,24 @@
       ],
       "acc_raw": 0.6752988047808764
     },
+    "lossy": {
+      "n": 1004,
+      "acc_cal": 0.7320717131474104,
+      "ci95": [
+        0.7051792828685259,
+        0.7599601593625498
+      ],
+      "acc_raw": 0.7300796812749004
+    },
+    "lower": {
+      "n": 1004,
+      "acc_cal": 0.6603585657370518,
+      "ci95": [
+        0.6314741035856574,
+        0.6902390438247012
+      ],
+      "acc_raw": 0.6583665338645418
+    },
     "native": {
       "n": 1004,
       "acc_cal": 0.8396414342629482,
@@ -54,6 +71,15 @@
         0.8625498007968128
       ],
       "acc_raw": 0.8266932270916335
+    },
+    "natural": {
+      "n": 257,
+      "acc_cal": 0.7782101167315175,
+      "ci95": [
+        0.7276264591439688,
+        0.8287937743190662
+      ],
+      "acc_raw": 0.7470817120622568
     }
   },
   "counted": {
@@ -71,6 +97,39 @@
     "native_only_correct": 196,
     "itrans_only_correct": 38,
     "p_exact_mcnemar": 7.645067691303307e-27
+  },
+  "native_minus_lossy": {
+    "diff": 0.10756972111553785,
+    "ci95": [
+      0.08366533864541832,
+      0.13147410358565736
+    ],
+    "n": 1004,
+    "native_only_correct": 137,
+    "form_only_correct": 29,
+    "p_exact_mcnemar": 5.4835683715181025e-18
+  },
+  "native_minus_lower": {
+    "diff": 0.17928286852589642,
+    "ci95": [
+      0.14940239043824702,
+      0.20816733067729085
+    ],
+    "n": 1004,
+    "native_only_correct": 219,
+    "form_only_correct": 39,
+    "p_exact_mcnemar": 1.4078488195734723e-31
+  },
+  "native_minus_natural": {
+    "diff": 0.04669260700389105,
+    "ci95": [
+      0.0,
+      0.0933852140077821
+    ],
+    "n": 257,
+    "native_only_correct": 24,
+    "form_only_correct": 12,
+    "p_exact_mcnemar": 0.06524533522315325
   },
   "extended_native_vs_itrans": {
     "tests": [
@@ -127,5 +186,135 @@
     "n_models": 7,
     "positive_and_significant": 7,
     "verdict_all_but_one": "supported"
+  },
+  "P_a_extended_with_sarvam_m": {
+    "tests": [
+      {
+        "model": "gemma4-e2b",
+        "b": "itrans",
+        "diff": 0.3834661354581673,
+        "p": 2.5188719631954495e-82,
+        "p_holm_extended": 3.0226463558345393e-81,
+        "significant_extended": true
+      },
+      {
+        "model": "gemma4-e2b",
+        "b": "lossy",
+        "diff": 0.25298804780876494,
+        "p": 2.668515711757834e-49,
+        "p_holm_extended": 1.8679609982304836e-48,
+        "significant_extended": true
+      },
+      {
+        "model": "qwen3-1.7b",
+        "b": "itrans",
+        "diff": 0.4322709163346613,
+        "p": 1.2990189533010863e-106,
+        "p_holm_extended": 1.8186265346215207e-105,
+        "significant_extended": true
+      },
+      {
+        "model": "qwen3-1.7b",
+        "b": "lossy",
+        "diff": 0.36553784860557764,
+        "p": 2.529451058538525e-82,
+        "p_holm_extended": 3.0226463558345393e-81,
+        "significant_extended": true
+      },
+      {
+        "model": "qwen3.5-2b",
+        "b": "itrans",
+        "diff": 0.43525896414342624,
+        "p": 2.8113371589728562e-105,
+        "p_holm_extended": 3.654738306664713e-104,
+        "significant_extended": true
+      },
+      {
+        "model": "qwen3.5-2b",
+        "b": "lossy",
+        "diff": 0.30079681274900394,
+        "p": 1.1158511919563684e-59,
+        "p_holm_extended": 8.926809535650948e-59,
+        "significant_extended": true
+      },
+      {
+        "model": "sarvam-1",
+        "b": "itrans",
+        "diff": 0.22709163346613548,
+        "p": 2.123868442850549e-34,
+        "p_holm_extended": 8.495473771402196e-34,
+        "significant_extended": true
+      },
+      {
+        "model": "sarvam-1",
+        "b": "lossy",
+        "diff": 0.06075697211155373,
+        "p": 1.2058675268138053e-05,
+        "p_holm_extended": 1.2058675268138053e-05,
+        "significant_extended": true
+      },
+      {
+        "model": "qwen3-8b",
+        "b": "itrans",
+        "diff": 0.32171314741035856,
+        "p": 6.103209006153903e-63,
+        "p_holm_extended": 6.103209006153903e-62,
+        "significant_extended": true
+      },
+      {
+        "model": "qwen3-8b",
+        "b": "lossy",
+        "diff": 0.2589641434262948,
+        "p": 1.2665686088107343e-46,
+        "p_holm_extended": 7.599411652864406e-46,
+        "significant_extended": true
+      },
+      {
+        "model": "llama-3.1-8b",
+        "b": "itrans",
+        "diff": 0.32968127490039845,
+        "p": 3.059812743752219e-60,
+        "p_holm_extended": 2.753831469376997e-59,
+        "significant_extended": true
+      },
+      {
+        "model": "llama-3.1-8b",
+        "b": "lossy",
+        "diff": 0.24900398406374508,
+        "p": 1.0181114460761287e-40,
+        "p_holm_extended": 5.090557230380643e-40,
+        "significant_extended": true
+      },
+      {
+        "model": "sarvam-m",
+        "b": "itrans",
+        "diff": 0.15737051792828685,
+        "p": 7.645067691303307e-27,
+        "p_holm_extended": 2.293520307390992e-26,
+        "significant_extended": true
+      },
+      {
+        "model": "sarvam-m",
+        "b": "lossy",
+        "diff": 0.10756972111553785,
+        "p": 5.4835683715181025e-18,
+        "p_holm_extended": 1.0967136743036205e-17,
+        "significant_extended": true
+      }
+    ],
+    "result": {
+      "native_vs_itrans": {
+        "n_models": 7,
+        "positive_and_significant": 7,
+        "significantly_negative": 0,
+        "verdict": "supported"
+      },
+      "native_vs_lossy": {
+        "n_models": 7,
+        "positive_and_significant": 7,
+        "significantly_negative": 0,
+        "verdict": "supported"
+      }
+    }
   }
 }

@@ -391,3 +391,9 @@ te {'n_counted': 3, 'native_minus_itrans_ci_above_0': 3, 'ci_below_0': 0, 'verdi
 === 2026-11-06 11:49:10 X4 bn R3 and retrieval ladder: env X4_LANG=bn PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x4_r3.py
 bn {'n_counted': 3, 'natural_minus_itrans_ci_above_0': 3, 'ci_below_0': 0, 'verdict': 'supported'} {'qwen3.5-2b': ({'native': 0.996, 'natural': 0.513, 'itrans': 0.237, 'lossy': 0.381, 'lower': 0.246}, [0.208, 0.343]), 'sarvam-1': ({'native': 0.996, 'natural': 0.894, 'itrans': 0.466, 'lossy': 0.708, 'lower': 0.449}, [0.36, 0.496]), 'gemma4-e2b': ({'native': 1.0, 'natural': 0.843, 'itrans': 0.466, 'lossy': 0.631, 'lower': 0.492}, [0.309, 0.445])}
 === 2026-11-06 11:53:10 X4 te R3 and retrieval ladder: env X4_LANG=te PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x4_r3.py
+te {'n_counted': 3, 'natural_minus_itrans_ci_above_0': 3, 'ci_below_0': 0, 'verdict': 'supported'} {'qwen3.5-2b': ({'native': 0.988, 'natural': 0.675, 'itrans': 0.255, 'lossy': 0.453, 'lower': 0.267}, [0.35, 0.49]), 'sarvam-1': ({'native': 0.955, 'natural': 0.926, 'itrans': 0.527, 'lossy': 0.885, 'lower': 0.494}, [0.337, 0.461]), 'gemma4-e2b': ({'native': 0.996, 'natural': 0.856, 'itrans': 0.486, 'lossy': 0.683, 'lower': 0.444}, [0.3, 0.436])}
+=== 2026-11-06 11:57:10 X4 accuracy ladder: env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x4_ladder.py
+bn sib {'L1': ('no effect detected', 0, 0), 'L2': ('effect, positive', 3, 0), 'L3': ('effect, positive', 3, 0)}
+bn sentiment {'L1': ('no effect detected', 0, 0), 'L2': ('no effect detected', 1, 0)}
+te sib {'L1': ('no effect detected', 0, 0), 'L2': ('effect, positive', 4, 0), 'L3': ('no effect detected', 2, 0)}
+te sentiment {'L1': ('no effect detected', 0, 0), 'L2': ('no effect detected', 2, 0)}

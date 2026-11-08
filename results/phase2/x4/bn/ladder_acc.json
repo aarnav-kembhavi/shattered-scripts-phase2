@@ -3,10 +3,10 @@
     "config": {
       "registration": "RESULTS.md X4 (ladder, accuracy)"
     },
-    "git_commit": "bf08d4783a5d4d440f83578feabbeedb45a22d9e-dirty",
+    "git_commit": "e605a650375a0fcc2b49eea05b2a61caadce9d1c-dirty",
     "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",
     "phase2_amendment2_commit": "680151b44e17e22254b74be53bfc5740e52fc8c4",
-    "timestamp_utc": "2026-11-05T04:22:34+00:00",
+    "timestamp_utc": "2026-11-06T06:27:14+00:00",
     "python": "3.12.13",
     "platform": "Windows-11-10.0.26300-SP0",
     "argv": [
