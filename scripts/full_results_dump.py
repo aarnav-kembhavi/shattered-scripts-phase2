@@ -105,7 +105,7 @@ def segment(lines):
         elif ln.startswith("### ") and in_split:
             bounds.append((i, "###", ln[4:].strip(), parent))
         elif re.match(r"^- \*\*20", ln):
-            bounds.append((i, "-", re.sub(r"\*\*", "", ln[2:]).strip(), ""))
+            bounds.append((i, "-", (re.match(r"- \*\*(.+?)\*\*", ln).group(1) if re.match(r"- \*\*(.+?)\*\*", ln) else re.sub(r"\*\*", "", ln[2:])).strip(), ""))
     ents = []
     first = bounds[0][0]
     if first > 1:
@@ -415,8 +415,7 @@ def main() -> None:
            "## Index (Phase 1, then Phase 2, then cross-cutting lists)", "", "| phase | id | name | file | lines in file | RESULTS.md entries |", "|---|---|---|---|---|---|"]
     order = sorted(index_rows, key=lambda r: ({1: 0, 2: 1, 0: 2}[r[0]], 0))
     for ph, gid, name, fn, nl, ne in order:
-        nl = len((OUT / fn).read_text(encoding="utf-8").split("
-")) - 1  # actual lines in the file
+        nl = len((OUT / fn).read_text(encoding="utf-8").split(chr(10))) - 1  # actual lines in the file
         idx.append(f"| {'1' if ph == 1 else '2' if ph == 2 else 'all'} | {gid} | {name} | `results/phase2/dump/{fn}` | {nl} | {ne} |")
     MAIN.write_text("\n".join(idx) + "\n", encoding="utf-8")
     all_files = sorted(OUT.glob("*.md")) + [MAIN]

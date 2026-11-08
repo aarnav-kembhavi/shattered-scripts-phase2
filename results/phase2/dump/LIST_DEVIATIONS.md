@@ -483,7 +483,7 @@ its first run). Citations are not added in this amendment.
 
 `````
 
-##### 2026-11-02 22:59 IST, DEVIATION A1-P-D1 (decided by Aarnav, registered before the run). The 8-bit LLM.int8 reference is withdrawn: it is an approximation, not a
+##### 2026-11-02 22:59 IST, DEVIATION A1-P-D1 (decided by Aarnav, registered before the run).
 
 RESULTS.md lines 3716 to 3725; first line committed in `78d6ad2` on 2026-11-02 23:17:45 +0530; last line in `eeafc85` on 2026-11-02 23:17:34 +0530; labels from the title and parent heading: registered, amended
 
@@ -500,7 +500,7 @@ RESULTS.md lines 3716 to 3725; first line committed in `78d6ad2` on 2026-11-02 2
 
 `````
 
-##### 2026-11-02 23:17 IST, X12 CLARIFICATION (registered by Aarnav before any X12 result exists; no verdict rule is changed). Ambari-7B-Instruct-v0.2 uses the 32,000-token Llama-2
+##### 2026-11-02 23:17 IST, X12 CLARIFICATION (registered by Aarnav before any X12 result exists; no verdict rule is changed).
 
 RESULTS.md lines 3726 to 3731; first line committed in `78d6ad2` on 2026-11-02 23:17:45 +0530; last line in `eeafc85` on 2026-11-02 23:17:34 +0530; labels from the title and parent heading: amended, result
 
@@ -513,7 +513,7 @@ RESULTS.md lines 3726 to 3731; first line committed in `78d6ad2` on 2026-11-02 2
   stands in for contrast 1, and the paper says so.** Access: Ambari-7B-Instruct-v0.1 is now granted (downloads with the `.env` token); Llama-2-7b-hf and Llama-3.1-8B are still gated and are retried between jobs.
 `````
 
-##### 2026-11-02 23:21 IST, DEVIATION X9b-D1 (decided by Aarnav, registered before the pilot). The X9b memory and timing pilot runs on the Kaggle T4, not on the laptop, because the amendment fixes the
+##### 2026-11-02 23:21 IST, DEVIATION X9b-D1 (decided by Aarnav, registered before the pilot).
 
 RESULTS.md lines 3741 to 3747; first line committed in `b3cbd64` on 2026-11-02 23:21:38 +0530; last line in `9d50e92` on 2026-11-02 23:24:17 +0530; labels from the title and parent heading: registered, amended
 
@@ -527,9 +527,9 @@ RESULTS.md lines 3741 to 3747; first line committed in `b3cbd64` on 2026-11-02 2
 
 `````
 
-##### 2026-11-03 00:04 IST, STATUS NOTE (decided by Aarnav; no registered rule is changed). Annotators are not available. X1 T3 is marked "not run (instruction not verified)"; X15 is marked "not run (annotators unavailable)"; X8 is parked and mar
+##### 2026-11-03 00:04 IST, STATUS NOTE (decided by Aarnav; no registered rule is changed).
 
-RESULTS.md lines 3769 to 3774; first line committed in `285c028` on 2026-11-03 00:04:58 +0530; last line in `d574ae9` on 2026-11-03 00:47:00 +0530; labels from the title and parent heading: failed or not run
+RESULTS.md lines 3769 to 3774; first line committed in `285c028` on 2026-11-03 00:04:58 +0530; last line in `d574ae9` on 2026-11-03 00:47:00 +0530; labels from the title and parent heading: none
 
 `````text
 - **2026-11-03 00:04 IST, STATUS NOTE (decided by Aarnav; no registered rule is changed).** Annotators are not available. **X1 T3 is marked "not run (instruction not verified)"; X15 is marked "not run (annotators unavailable)"; X8 is parked and marked "not run"**
@@ -540,7 +540,7 @@ RESULTS.md lines 3769 to 3774; first line committed in `285c028` on 2026-11-03 0
 
 `````
 
-##### 2026-11-03 00:47 IST, STATUS NOTE: the tier prioritisation is WITHDRAWN and superseded (Aarnav). The tier message (tiers 1 to 3 over the experiments) was a misunderstanding of a question about which annotation is necessary; it never became 
+##### 2026-11-03 00:47 IST, STATUS NOTE: the tier prioritisation is WITHDRAWN and superseded (Aarnav).
 
 RESULTS.md lines 3775 to 3780; first line committed in `d574ae9` on 2026-11-03 00:47:00 +0530; last line in `8a3a76f` on 2026-11-03 01:13:04 +0530; labels from the title and parent heading: none
 
@@ -553,7 +553,7 @@ RESULTS.md lines 3775 to 3780; first line committed in `d574ae9` on 2026-11-03 0
 
 `````
 
-##### 2026-11-03 01:13 IST, CLARIFICATION (X1 T3): T3-2 was replaced by the native speaker's wording before any T3 scoring (Aarnav's message; no registered rule changes). The native speaker marked T3-1 (sentiment) and T3-3 (SIB-200) Correct and T
+##### 2026-11-03 01:13 IST, CLARIFICATION (X1 T3): T3-2 was replaced by the native speaker's wording before any T3 scoring (Aarnav's message; no registered rule changes).
 
 RESULTS.md lines 3781 to 3786; first line committed in `8a3a76f` on 2026-11-03 01:13:04 +0530; last line in `f39430f` on 2026-11-03 01:16:45 +0530; labels from the title and parent heading: amended
 
@@ -566,9 +566,9 @@ RESULTS.md lines 3781 to 3786; first line committed in `8a3a76f` on 2026-11-03 0
 
 `````
 
-##### 2026-11-03 01:16 IST, STATUS NOTE (decided by Aarnav; no registered rule is changed). T3, X8 and X15 are no longer parked. T3: the returned `T3_verification.xlsx` was found at `annotation/xlsx/T3_verification.xlsx` (saved 01:03; it was not 
+##### 2026-11-03 01:16 IST, STATUS NOTE (decided by Aarnav; no registered rule is changed).
 
-RESULTS.md lines 3787 to 3791; first line committed in `f39430f` on 2026-11-03 01:16:45 +0530; last line in `78e3f69` on 2026-11-03 01:37:59 +0530; labels from the title and parent heading: result
+RESULTS.md lines 3787 to 3791; first line committed in `f39430f` on 2026-11-03 01:16:45 +0530; last line in `78e3f69` on 2026-11-03 01:37:59 +0530; labels from the title and parent heading: none
 
 `````text
 - **2026-11-03 01:16 IST, STATUS NOTE (decided by Aarnav; no registered rule is changed).** T3, X8 and X15 are no longer parked. **T3:** the returned `T3_verification.xlsx` was found at `annotation/xlsx/T3_verification.xlsx` (saved 01:03; it was not in `annotation/returned/`) and imported with `scripts/import_t3.py` from a copy in `annotation/returned/` (0 blockers, 0 warnings): T3-1 Correct, T3-3 Correct, T3-2 Needs change with a corrected line identical to the wording in the clarification above; `results/phase2/x1/t3_verification_returned.json`.
@@ -578,9 +578,9 @@ RESULTS.md lines 3787 to 3791; first line committed in `f39430f` on 2026-11-03 0
 
 `````
 
-##### 2026-11-03 01:37 IST, STATUS NOTE (decided by Aarnav; no registered rule is changed). X15 is skipped: "not run (annotators unavailable)". No X15 files are built (`scripts/export_xlsx.py build` now skips them unless `--with-x15`), X15 is rem
+##### 2026-11-03 01:37 IST, STATUS NOTE (decided by Aarnav; no registered rule is changed).
 
-RESULTS.md lines 3792 to 3795; first line committed in `78e3f69` on 2026-11-03 01:37:59 +0530; last line in `73546be` on 2026-11-03 02:24:19 +0530; labels from the title and parent heading: failed or not run
+RESULTS.md lines 3792 to 3795; first line committed in `78e3f69` on 2026-11-03 01:37:59 +0530; last line in `73546be` on 2026-11-03 02:24:19 +0530; labels from the title and parent heading: none
 
 `````text
 - **2026-11-03 01:37 IST, STATUS NOTE (decided by Aarnav; no registered rule is changed).** **X15 is skipped: "not run (annotators unavailable)".** No X15 files are built (`scripts/export_xlsx.py build` now skips them unless `--with-x15`), X15 is removed from every to-do list and from `annotation/xlsx/SEND_ME.md`; the earlier X15 workbooks, importer and analysis scripts stay in the repository, unused. This supersedes the 01:1x note that put X15 back in the registered design.
@@ -589,7 +589,7 @@ RESULTS.md lines 3792 to 3795; first line committed in `78e3f69` on 2026-11-03 0
 
 `````
 
-##### 2026-11-03 12:58 IST, DEVIATION X7-D1 (Gate C decision, Aarnav): the X7 control's actual embedding parameters are not equal across vocabularies; the registered verdict "does not survive" stands, unchanged. Reason: the registered formula V x
+##### 2026-11-03 12:58 IST, DEVIATION X7-D1 (Gate C decision, Aarnav): the X7 control's actual embedding parameters are not equal across vocabularies; the registered verdict "does not survive" stands, unchanged.
 
 RESULTS.md lines 3829 to 3833; first line committed in `2df4879` on 2026-11-03 12:58:00 +0530; last line in `cdef73d` on 2026-11-03 13:02:56 +0530; labels from the title and parent heading: amended, result
 
@@ -601,70 +601,25 @@ RESULTS.md lines 3829 to 3833; first line committed in `2df4879` on 2026-11-03 1
 
 `````
 
-##### 2026-11-04 01:44 IST, X7b DROPPED (Aarnav): considered, not run: with equal parameters the embedding rank is 114 at V = 256 and 24 at V = 4096, so the BPB rule would measure the bottleneck, not fragmentation (see docs/X7B_NOTE.md). Removed 
+##### 2026-11-04 01:44 IST, X7b DROPPED (Aarnav): considered, not run: with equal parameters the embedding rank is 114 at V = 256 and 24 at V = 4096, so the BPB rule would measure the bottleneck, not fragmentation (see docs/X7B_NOTE.md).
 
-RESULTS.md lines 3858 to 3859; first line committed in `3290232` on 2026-11-04 01:44:01 +0530; last line in `28803e6` on 2026-11-04 02:33:57 +0530; labels from the title and parent heading: registered, result, failed or not run
+RESULTS.md lines 3858 to 3859; first line committed in `3290232` on 2026-11-04 01:44:01 +0530; last line in `28803e6` on 2026-11-04 02:33:57 +0530; labels from the title and parent heading: failed or not run
 
 `````text
 - **2026-11-04 01:44 IST, X7b DROPPED (Aarnav): considered, not run: with equal parameters the embedding rank is 114 at V = 256 and 24 at V = 4096, so the BPB rule would measure the bottleneck, not fragmentation (see docs/X7B_NOTE.md).** Removed from every queue; added to `results/phase2/REGISTERED_OUTCOMES.md`. The draft text was never committed. **X8: the Q writer confirmed that they used no tool of any kind (Aarnav's statement), in addition to the earlier statements that the P and Q writers did not see each other's answers.** **X8 descriptive diagnostic (no threshold, no verdict; case-insensitive exact matches with whitespace collapsed; character difference = the registered CER definition per sentence):** exact matches: Gemini vs Q 1 of 100, Gemini vs P 1 of 100, P vs Q 0 of 100. Per-sentence character difference, Gemini vs Q: median 0.0631, quartiles 0.0423 to 0.0799, range 0.0000 to 0.1603, 6 of 100 below 2%; Gemini vs P: median 0.1039, quartiles 0.0759 to 0.1359, range 0.0000 to 0.2647, 1 of 100 below 2%; P vs Q (for comparison): median 0.0898, quartiles 0.0634 to 0.1237, 2 of 100 below 2%. The per-annotator table (Gemini vs P and Gemini vs Q: the three ratios, kappa, CER) stays in `results/phase2/x8/analysis.json` next to the registered mean-of-P-and-Q ratios. The paper is not edited.
 
 `````
 
-##### 2026-11-04 12:14 IST, X12 contrast 1: per-form gains and A1-P details added (`scripts/x12_analyse.py`, `results/phase2/x12/contrast1.json`; the verdict and DiD values above are unchanged). Gain = Ambari-7B-base minus Llama-2-7B, paired boot
+##### 2026-11-05 14:38 IST, CORRECTION NOTE to the X14 entry above (reading paragraph only; numbers unchanged).
 
-RESULTS.md lines 3908 to 3909; first line committed in `72ff37e` on 2026-11-04 12:14:44 +0530; last line in `39d4c01` on 2026-11-04 13:21:46 +0530; labels from the title and parent heading: result
-
-`````text
-- **2026-11-04 12:14 IST, X12 contrast 1: per-form gains and A1-P details added (`scripts/x12_analyse.py`, `results/phase2/x12/contrast1.json`; the verdict and DiD values above are unchanged).** Gain = Ambari-7B-base minus Llama-2-7B, paired bootstrap over items, 95% interval (descriptive). SIB-200 (n = 1,004): native +0.389 [0.356, 0.423]; ITRANS -0.034 [-0.052, -0.016]; lossy -0.090 [-0.118, -0.063]; English -0.130 [-0.158, -0.103]. Retrieval (n = 1,005): native +0.692 [0.662, 0.721]; ITRANS +0.068 [0.051, 0.086]. A1-P (100 items x native/ITRANS/lossy, fp16 vs float32-offload): Ambari-7B-base raw label agreement 1.00 / 1.00 / 1.00, accuracy difference 0.000 in each form, max hidden state 1,730; Llama-2-7B agreement 1.00 / 0.99 / 1.00, accuracy difference 0.000 in each form, max hidden state 2,424; no non-finite value in either; mean |dlogprob| 0.003. Note: Ambari loses 13 points on English SIB-200 relative to Llama-2 (0.559 vs 0.689), so the continued pretraining also changed the model outside Kannada.
-
-`````
-
-##### 2026-11-04 22:07 IST, X12 instruction pair: Ambari-Instruct-v0.1 A1-P PASSED (Kaggle account 2; run pushed 20:10 IST, 1.94 h; fetched at about 22:04; raw label agreement 1.00 in native, ITRANS and lossy, accuracy difference 0.00 in each, me
-
-RESULTS.md lines 3938 to 3939; first line committed in `06404f2` on 2026-11-04 22:07:54 +0530; last line in `17dba9c` on 2026-11-04 22:24:09 +0530; labels from the title and parent heading: amended, result
-
-`````text
-- **2026-11-04 22:07 IST, X12 instruction pair: Ambari-Instruct-v0.1 A1-P PASSED (Kaggle account 2; run pushed 20:10 IST, 1.94 h; fetched at about 22:04; raw label agreement 1.00 in native, ITRANS and lossy, accuracy difference 0.00 in each, mean |dlogprob| 0.003 to 0.004, max fp16 hidden state 559.5, no non-finite value).** Both instruction models have now passed A1-P (v0.2 earlier), so the pair is scored as registered; the scoring of v0.1 was pushed at 22:06 IST. Correction to my duplicate-push entry above: the 20:10 run was not lost: it completed and its output was fetched by the later push's fetch (identical numbers in both result folders, same fp16 load of 3,420 s and total of 6,754 s); the 21:41 push (5.0 h cap) was therefore possibly a redundant second run of the same job whose hours will count when it ends. The weights loaded from the private dataset took 3,420 s (57 minutes) in fp16 in this run, which did not yet have the copy-to-local-disk loader (committed after the push); the load-time comparison with the copy loader is still to be made on the next job that loads from a private dataset.
-
-`````
-
-##### 2026-11-05 02:25 IST, X6 screen stage 2 and run part 1 started (laptop). Rule (1), forward-pass peak memory in bf16 with hidden states on the 8 GB laptop GPU: NousResearch/Llama-3.2-1B 2.46 GiB; ashtok897/oroZ-1.7B-Indic-v1 4.29 GiB; both f
-
-RESULTS.md lines 3954 to 3955; first line committed in `3c2e3a6` on 2026-11-05 02:25:27 +0530; last line in `ec3c085` on 2026-11-05 02:38:48 +0530; labels from the title and parent heading: none
-
-`````text
-- **2026-11-05 02:25 IST, X6 screen stage 2 and run part 1 started (laptop).** Rule (1), forward-pass peak memory in bf16 with hidden states on the 8 GB laptop GPU: NousResearch/Llama-3.2-1B 2.46 GiB; ashtok897/oroZ-1.7B-Indic-v1 4.29 GiB; both fit. The laptop queue was empty after X4 scoring (finished 02:10) and the X6 memory check (02:22), so the X6 SIB-200 counting run (rule 3; `scripts/x6_run.py`, chain `scripts/x6run_chain.sh`) was pulled forward and started at 02:24 IST; models added to the loader as llama-3.2-1b (mirror, deviation X6-D1) and oro-1.7b. The remaining laptop work that exists as registered but is not built: X4 lowercase form and ladder, retrieval, MDL and K3b parts, the full X6 runs for counted models.
-
-`````
-
-##### 2026-11-05 03:38 IST, X6 COUNTING RESULT (rule 3; laptop; `scripts/x6_run.py`, `results/phase2/x6/counting.json`): neither shortlist model is counted. SIB-200 (n = 1,004, T1, calibrated as Phase 1; no raw fallback): Llama-3.2-1B (NousResear
-
-RESULTS.md lines 3962 to 3963; first line committed in `b9383db` on 2026-11-05 03:38:22 +0530; last line in `108fa59` on 2026-11-05 03:40:56 +0530; labels from the title and parent heading: result, failed or not run
-
-`````text
-- **2026-11-05 03:38 IST, X6 COUNTING RESULT (rule 3; laptop; `scripts/x6_run.py`, `results/phase2/x6/counting.json`): neither shortlist model is counted.** SIB-200 (n = 1,004, T1, calibrated as Phase 1; no raw fallback): **Llama-3.2-1B (NousResearch mirror, deviation X6-D1): native 0.412, 95% CI [0.381, 0.443]; lower bound 0.381, below 0.40: not counted.** English 0.633, ITRANS 0.213, lowercase 0.186, lossy 0.241. **oroZ-1.7B-Indic-v1: native 0.277 [0.249, 0.305], lower bound 0.249: not counted** (English 0.388, ITRANS 0.251, lowercase 0.250, lossy 0.252: the model is close to chance on Kannada in every form). Both are reported and never counted, so they do not enter any verdict; X6 adds no counted model. The remaining X6 runs (T2 template, retrieval, ladder) are registered for included models; because neither is counted they are not run, and X6 is closed as screened, run for counting, and not counted. No Arm B of X11 can be formed from a 4B-class X6 model (none was shortlisted). The paper is not edited.
-
-`````
-
-##### 2026-11-05 14:37 IST, X14 FINISHED (hosted models via Groq, exploratory, no registered verdict; `scripts/x14_run.py`, `scripts/x14_analyse.py`, `results/phase2/x14/analysis.json`; finished 14:23 IST after the 12:45 reset; 3,269 rows per mod
-
-RESULTS.md lines 4005 to 4006; first line committed in `88cf86e` on 2026-11-05 14:37:51 +0530; last line in `0f01dd6` on 2026-11-05 14:38:09 +0530; labels from the title and parent heading: exploratory, result, failed or not run
-
-`````text
-- **2026-11-05 14:37 IST, X14 FINISHED (hosted models via Groq, exploratory, no registered verdict; `scripts/x14_run.py`, `scripts/x14_analyse.py`, `results/phase2/x14/analysis.json`; finished 14:23 IST after the 12:45 reset; 3,269 rows per model: 1,004 each for native, ITRANS and lossy, 257 natural).** SIB-200 accuracy with the registered prompt, temperature 0, exact match, unparsed counted wrong; 95% bootstrap intervals over items; gaps paired over item ids. **gpt-oss-120b: native 0.836 [0.813, 0.859], ITRANS 0.625 [0.595, 0.654], lossy 0.668 [0.638, 0.697], natural 0.700 [0.646, 0.755]; native minus ITRANS +0.211 [0.181, 0.241], minus lossy +0.167 [0.139, 0.196], minus natural +0.167 [0.117, 0.218] (n = 257); unparsed 0%.** **Qwen3.8-27B (the Groq model qwen/qwen3.8-27b): native 0.836 [0.813, 0.859], ITRANS 0.658 [0.628, 0.687], lossy 0.654 [0.625, 0.684], natural 0.696 [0.638, 0.751]; native minus ITRANS +0.177 [0.147, 0.207], minus lossy +0.181 [0.151, 0.210], minus natural +0.144 [0.093, 0.195]; unparsed at most 0.1%.** **ALLaM-2-7B: native 0.337 [0.308, 0.367], ITRANS 0.190 [0.166, 0.214], lossy 0.254 [0.227, 0.281], natural 0.296 [0.241, 0.354]; native minus ITRANS +0.146 [0.115, 0.179]; unparsed 35.5% native and 55.6% to 57.7% romanized, so its accuracies mix understanding with answer-format failure.** Reading, descriptive only: the large hosted models keep the familiarity ordering seen in the small open models (native above natural above ITRANS and lossy), with a native-to-romanized gap of 14 to 21 points that is far smaller than the small models' gaps in absolute accuracy terms but still well away from zero; natural romanization recovers about a third to a half of the ITRANS gap in gpt-oss-120b (natural 0.700 against ITRANS 0.625 on different item sets, so the paired natural gap is the comparable number: +0.167 against +0.211 on the 257 items for ITRANS from the main set) and the lossy form is not worse than ITRANS in either large model (gpt-oss: 0.668 against 0.625; Qwen3.8-27B: 0.654 against 0.658). Model names as in `model_choice.json`; deviation X14-D1 (token budget for one model) stands as logged. The paper is not edited.
-
-`````
-
-##### 2026-11-05 14:38 IST, CORRECTION NOTE to the X14 entry above (reading paragraph only; numbers unchanged). The sentence comparing natural with ITRANS mixed item sets. On the same 257 items the accuracies are: gpt-oss-120b native 0.868, ITRAN
-
-RESULTS.md lines 4007 to 4008; first line committed in `0f01dd6` on 2026-11-05 14:38:09 +0530; last line in `2f9c9f1` on 2026-11-05 15:37:57 +0530; labels from the title and parent heading: failed or not run
+RESULTS.md lines 4007 to 4008; first line committed in `0f01dd6` on 2026-11-05 14:38:09 +0530; last line in `2f9c9f1` on 2026-11-05 15:37:57 +0530; labels from the title and parent heading: none
 
 `````text
 - **2026-11-05 14:38 IST, CORRECTION NOTE to the X14 entry above (reading paragraph only; numbers unchanged).** The sentence comparing natural with ITRANS mixed item sets. On the same 257 items the accuracies are: gpt-oss-120b native 0.868, ITRANS 0.646, natural 0.700; Qwen3.8-27B native 0.840, ITRANS 0.658, natural 0.696; ALLaM-2-7B native 0.366, ITRANS 0.206, natural 0.296. So natural romanization recovers 54 of 222 points of the native-to-ITRANS gap in gpt-oss-120b (about a quarter), 38 of 182 in Qwen3.8-27B (about a fifth) and 90 of 160 in ALLaM-2-7B (a bit over half; format failures dominate that model); the earlier phrase 'about a third to a half' is withdrawn. The remaining statements (familiarity ordering native > natural > ITRANS in the three models; lossy not worse than ITRANS in the two large models; native-to-ITRANS gaps of 14.6 to 21.1 points on the 1,004 items) stand. The comparison to the small open models' gaps was not computed and is withdrawn too; no such statement is made.
 
 `````
 
-##### 2026-11-05 15:39 IST, CORRECTION NOTE to the X9a-low extra-seed entry above (one phrase). In the reading the phrase "0.3% seed 3 at 0.172" should read: the third ORIGINAL seed at 0.3% (code seed 2, retrieval 0.172) is 0.06 above the 0.1% se
+##### 2026-11-05 15:39 IST, CORRECTION NOTE to the X9a-low extra-seed entry above (one phrase).
 
 RESULTS.md lines 4013 to 4014; first line committed in `c7f6e92` on 2026-11-05 15:39:07 +0530; last line in `3ecea71` on 2026-11-05 15:42:19 +0530; labels from the title and parent heading: none
 
@@ -673,7 +628,7 @@ RESULTS.md lines 4013 to 4014; first line committed in `c7f6e92` on 2026-11-05 1
 
 `````
 
-##### 2026-11-05 22:59 IST, X9b LAPTOP RUNS: CHECKPOINT SAVE STALLS 20+ MINUTES; CHANGE TO WHAT IS CHECKPOINTED (operational; recipe, streams and evaluation unchanged). After the power-loss restart the first extra run (`sarvam-1+itrans+s2`) reach
+##### 2026-11-05 22:59 IST, X9b LAPTOP RUNS: CHECKPOINT SAVE STALLS 20+ MINUTES; CHANGE TO WHAT IS CHECKPOINTED (operational; recipe, streams and evaluation unchanged).
 
 RESULTS.md lines 4025 to 4026; first line committed in `1d0616d` on 2026-11-05 22:59:17 +0530; last line in `4579347` on 2026-11-05 22:59:29 +0530; labels from the title and parent heading: amended, failed or not run
 
@@ -682,7 +637,7 @@ RESULTS.md lines 4025 to 4026; first line committed in `1d0616d` on 2026-11-05 2
 
 `````
 
-##### 2026-11-05 22:59 IST, CORRECTION NOTE (finish dates of the laptop X9b extra seeds; arithmetic error). The two entries above that give the six laptop runs a finish of "8 Nov" (after the power-loss restart, and in the checkpoint entry) are wr
+##### 2026-11-05 22:59 IST, CORRECTION NOTE (finish dates of the laptop X9b extra seeds; arithmetic error).
 
 RESULTS.md lines 4027 to 4028; first line committed in `4579347` on 2026-11-05 22:59:29 +0530; last line in `8c59c8a` on 2026-11-06 00:53:19 +0530; labels from the title and parent heading: none
 
@@ -691,21 +646,12 @@ RESULTS.md lines 4027 to 4028; first line committed in `4579347` on 2026-11-05 2
 
 `````
 
-##### 2026-11-06 00:53 IST, SECOND LAPTOP CRASH AND STABILITY CHANGE FOR THE X9b EXTRA RUNS (operational). Windows logged a second unclean reboot (Kernel-Power 41; bugcheck 0x1e, an unhandled access violation, last good time 22:41:16; the earlier
+##### 2026-11-06 00:53 IST, SECOND LAPTOP CRASH AND STABILITY CHANGE FOR THE X9b EXTRA RUNS (operational).
 
 RESULTS.md lines 4029 to 4030; first line committed in `8c59c8a` on 2026-11-06 00:53:19 +0530; last line in `fc1246a` on 2026-11-06 02:37:37 +0530; labels from the title and parent heading: amended, failed or not run
 
 `````text
 - **2026-11-06 00:53 IST, SECOND LAPTOP CRASH AND STABILITY CHANGE FOR THE X9b EXTRA RUNS (operational).** Windows logged a second unclean reboot (Kernel-Power 41; bugcheck 0x1e, an unhandled access violation, last good time 22:41:16; the earlier one, 16:10, was bugcheck 0x9f, a driver power-state failure), the machine came back at 23:06 and the chain at 23:47. Both crashes came while the GPU was at full memory with shared-memory spill (peak 10.6 GiB asked of an 8 GB card at micro-batch 16) and, the second time, during the stalled checkpoint save. Consequences: GPU idle 22:41 to 23:47 (about 1 h 05 min, a crash, not a project process); the ITRANS seed-3 run (code seed 2) had no usable checkpoint and **restarted from step 0 at 23:47** (it is at step 140 or more now, ckpt written with the fast format at 00:31). Change (committed, recipe unchanged): the code reads an optional laptop-only file `build/x9b_max_micro_batch.txt` and caps the micro-batch at its value, with proportionally more accumulation steps, so the optimizer step is the same (16,384 tokens) while memory stays under the card's 8 GB; it holds 8 from now, so the run in progress (started at 23:47) keeps micro-batch 16 and the next five runs use 8 (done.json records the micro-batch used). Speed cost expected at a few percent. If the laptop crashes again the run resumes from the adapter checkpoint with reset Adam moments and is flagged in done.json (`resumed_without_optimizer_state`). Projected finish of the six laptop runs: the first at about 02:40 on 6 Nov, the last about 6 Nov 17:30 to 19:30 IST.
-
-`````
-
-##### 2026-11-08 16:23 IST, SARVAM-M X10 PILOT RESULT AND THE RUN DECISION (account 3; timing only, no chrF used for any decision). Pilot (16 sentences, native and ITRANS, batch 8, 4-bit, 2 x T4): model load 428 s; 28.0 s per sentence (native) an
-
-RESULTS.md lines 4054 to 4055; first line committed in `0034538` on 2026-11-08 16:23:25 +0530; last line in `?` on ?; labels from the title and parent heading: result, failed or not run
-
-`````text
-- **2026-11-08 16:23 IST, SARVAM-M X10 PILOT RESULT AND THE RUN DECISION (account 3; timing only, no chrF used for any decision).** Pilot (16 sentences, native and ITRANS, batch 8, 4-bit, 2 x T4): model load 428 s; 28.0 s per sentence (native) and 22.3 s (ITRANS); no empty outputs and no reasoning preamble in the 32 outputs; kernel 0.41 h. Estimate for the full registered X10 (native, ITRANS, lowercase, lossy on 1,012 sentences and natural on 267) at that rate: about 4,315 sentences x 25 s = about 30 h, against 25.1 h left on account 3 and a 12 h session cap. **Decision (cut, logged): run native and ITRANS only, the registered X10-P contrast, as two resumable kernels at batch 16 (about 11 to 14 h of quota in total, one kernel per form, 10.5 h cap each); lowercase, lossy and natural are not run for Sarvam-m. This is a deviation from the full X10 form set for this extended model (the X10-P verdict concerns the four counted models and is unchanged).** Chain `x10sm`; if batch 16 runs out of memory the run is retried once at batch 8. Quota on account 3: 4.9 h used of 30 h.
 
 `````
 

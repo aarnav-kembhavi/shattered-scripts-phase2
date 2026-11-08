@@ -7,21 +7,15 @@ Source: RESULTS.md entries (verbatim) and result files (paths given with every f
 | status labels (keywords in the title and parent heading) | commit | date | lines | title |
 |---|---|---|---|---|
 | amended | `680151b` | 2026-11-02 19:01:49 +0530 | 3531-3573 | X9a. Tiny GPT, familiarity manipulated, fragmentation fixed (laptop) |
-| result, failed or not run | `00bf9f6` | 2026-11-03 13:21:59 +0530 | 3838-3840 | 2026-11-03 13:21 IST, X9a prep and pilot (laptop; registered pilot first; results are checks, no accuracy is used for any decision). `scripts/x9a.py prep` (CPU, |
+| result | `00bf9f6` | 2026-11-03 13:21:59 +0530 | 3838-3840 | 2026-11-03 13:21 IST, X9a prep and pilot (laptop; registered pilot first; results are checks, no accuracy is used for any decision). |
 | result | `3290232` | 2026-11-04 01:44:01 +0530 | 3856-3856 | 2026-11-04 01:44 IST, X9a FINISHED (15 of 15 runs, laptop, finished 3 Nov 19:04 IST; `scripts/x9a.py analyse`, `results/phase2/x9a/analysis.json`): X9a-R REFUTE |
 | registered, exploratory, result | `28803e6` | 2026-11-04 02:33:57 +0530 | 3860-3860 | 2026-11-04 02:33 IST, X9a-low REGISTERED (laptop; exploratory follow-up, added after seeing the X9a-R ceiling; the X9a-R verdict is unchanged and is not rerun). |
-| none | `28803e6` | 2026-11-04 02:33:57 +0530 | 3861-3861 | 2026-11-04 02:33 IST, X9a level-0 observation (descriptive only, no rule). Level-0 retrieval will additionally be reported on evaluation pairs with digits and p |
-| failed or not run | `eff85fe` | 2026-11-04 02:34:12 +0530 | 3864-3865 | 2026-11-04 02:34 IST, correction note to the X9a-low entry above (text only; the rule is unchanged). A shell substitution dropped a code span: the phrase "of th |
-| none | `98e2256` | 2026-11-04 02:46:00 +0530 | 3866-3867 | 2026-11-04 02:46 IST, operations log (standing orders of 2026-11-04; no registered rule changes). (1) X4 Gemini drafts resumed on the paid tier (billing enabled |
-| result | `3795c2a` | 2026-11-04 03:07:47 +0530 | 3874-3875 | 2026-11-04 03:07 IST, watchdog / disk: free disk 26 GB (guard 25 GB). Removed the three finished pilot checkpoints (x7pilot_v256_s0, x7pilot_v4096_s0, x9apilot_ |
-| exploratory, result, failed or not run | `173d201` | 2026-11-04 11:07:39 +0530 | 3900-3901 | 2026-11-04 11:07 IST, X1 T3 SCORING FINISHED (laptop, finished 11:01 IST; 5 models, all forms and NC conditions under the native-speaker-verified T3 templates;  |
+| none | `28803e6` | 2026-11-04 02:33:57 +0530 | 3861-3861 | 2026-11-04 02:33 IST, X9a level-0 observation (descriptive only, no rule). |
+| none | `eff85fe` | 2026-11-04 02:34:12 +0530 | 3864-3865 | 2026-11-04 02:34 IST, correction note to the X9a-low entry above (text only; the rule is unchanged). |
 | exploratory, result | `7bcba7d` | 2026-11-04 20:22:41 +0530 | 3922-3922 | 2026-11-04 20:22 IST, X9a-low RESULT (laptop, finished 20:21 IST; 12 new runs plus the X9a level 0 and level 1 runs; `scripts/x9a.py analyse_low`, `results/phas |
-| result | `3c30aee` | 2026-11-04 20:44:16 +0530 | 3928-3928 | 2026-11-04 20:44 IST, X9a cipher token counts (descriptive; `results/phase2/x9a/cipher_tokens.json`, `scripts/x9a_cipher_tokens.py`). Cipher tokens in each stre |
-| registered, result | `6be3732` | 2026-11-05 13:12:01 +0530 | 3999-4000 | 2026-11-05 13:12 IST, REGISTRATION OF EXTRA SEEDS (added AFTER seeing the original seeds; Aarnav's instruction of 2026-11-05; the original registrations, rules, |
-| failed or not run | `753999e` | 2026-11-05 14:08:43 +0530 | 4003-4004 | 2026-11-05 14:08 IST, RESTART (extra-seeds chain `x9extra`, operational). The chain failed at 14:03:34 on the first 1% X9a-low extra run (`x9a.py train 1 3`): ` |
+| result | `3c30aee` | 2026-11-04 20:44:16 +0530 | 3928-3928 | 2026-11-04 20:44 IST, X9a cipher token counts (descriptive; `results/phase2/x9a/cipher_tokens.json`, `scripts/x9a_cipher_tokens.py`). |
 | result | `2f9c9f1` | 2026-11-05 15:37:57 +0530 | 4009-4010 | 2026-11-05 15:37 IST, X9a-low EXTRA SEEDS FINISHED (added after seeing the original seeds; registered above on 2026-11-05; laptop; `x9a_p{0p1,0p3,1}_s{3,4}.json |
-| none | `c7f6e92` | 2026-11-05 15:39:07 +0530 | 4013-4014 | 2026-11-05 15:39 IST, CORRECTION NOTE to the X9a-low extra-seed entry above (one phrase). In the reading the phrase "0.3% seed 3 at 0.172" should read: the thir |
-| registered, result | `b194514` | 2026-11-07 01:53:51 +0530 | 4038-4039 | 2026-11-07 01:53 IST, REGISTRATION OF A SECOND SET OF EXTRA SEEDS (added AFTER seeing the originals; Aarnav's instruction of 2026-11-07 to start both; the origi |
+| none | `c7f6e92` | 2026-11-05 15:39:07 +0530 | 4013-4014 | 2026-11-05 15:39 IST, CORRECTION NOTE to the X9a-low extra-seed entry above (one phrase). |
 | result | `82e4226` | 2026-11-07 03:52:42 +0530 | 4044-4045 | 2026-11-07 03:52 IST, X9a-LOW EXTRA SEEDS, SECOND SET, FINISHED (added after seeing the originals; registered 2026-11-07; levels 0, 0.01% and 0.03%, code seeds  |
 
 ## Values observed in the result files (read from the files' own columns and keys)
@@ -83,9 +77,9 @@ by construction (reported, expected within the bootstrap interval of 1/250), and
 
 `````
 
-##### 2026-11-03 13:21 IST, X9a prep and pilot (laptop; registered pilot first; results are checks, no accuracy is used for any decision). `scripts/x9a.py prep` (CPU, `results/phase2/x9a/prep.json`): cipher round trip exact on every story used (0
+##### 2026-11-03 13:21 IST, X9a prep and pilot (laptop; registered pilot first; results are checks, no accuracy is used for any decision).
 
-RESULTS.md lines 3838 to 3840; first line committed in `00bf9f6` on 2026-11-03 13:21:59 +0530; last line in `3529fe7` on 2026-11-03 13:32:32 +0530; labels from the title and parent heading: result, failed or not run
+RESULTS.md lines 3838 to 3840; first line committed in `00bf9f6` on 2026-11-03 13:21:59 +0530; last line in `3529fe7` on 2026-11-03 13:32:32 +0530; labels from the title and parent heading: result
 
 `````text
 - **2026-11-03 13:21 IST, X9a prep and pilot (laptop; registered pilot first; results are checks, no accuracy is used for any decision).** `scripts/x9a.py prep` (CPU, `results/phase2/x9a/prep.json`): **cipher round trip exact on every story used (0 failures) and 0 evaluation stories occur in the training or tokenizer stories** (checked by exact match; the 500 evaluation stories are the first 500 of the TinyStories V2 validation split); tokenizer: byte-level BPE 1,024 (+EOS), trained once on 50.0 MB English (61,923 stories) plus 50.0 MB cipher renderings (35,320 other stories) taken from the shuffled stories beyond the 400 MB training prefix; **sha256 0bcd40849208725e0b3d43cb3836ad147210c6e96418d3f197a625ff97324acf**. **Tokens per word on the evaluation stories: English 1.773, cipher 1.978 (relative difference 11.6%, inside the 15% bound; the ratio 1.116 is stated in every table).** Streams (each cut at 126,423,041 tokens = 6,173 steps x 64 x 320, the Phase 1 vocabulary-1,024 budget): stories consumed 435,911 (level 0), 435,402 (1), 433,370 (5), 425,916 (20), 411,712 (50), of which cipher 0, 4,344, 21,634, 85,246, 205,952 (shares 0, 1.0%, 5.0%, 20.0%, 50.0%).
@@ -93,7 +87,7 @@ RESULTS.md lines 3838 to 3840; first line committed in `00bf9f6` on 2026-11-03 1
 
 `````
 
-##### 2026-11-04 01:44 IST, X9a FINISHED (15 of 15 runs, laptop, finished 3 Nov 19:04 IST; `scripts/x9a.py analyse`, `results/phase2/x9a/analysis.json`): X9a-R REFUTED by the registered rule (against the prediction); X9a-A SUPPORTED. *Retrieval, 
+##### 2026-11-04 01:44 IST, X9a FINISHED (15 of 15 runs, laptop, finished 3 Nov 19:04 IST; `scripts/x9a.py analyse`, `results/phase2/x9a/analysis.json`): X9a-R REFUTED by the registered rule (against the prediction); X9a-A SUPPORTED.
 
 RESULTS.md lines 3856 to 3856; first line committed in `3290232` on 2026-11-04 01:44:01 +0530; last line in `3290232` on 2026-11-04 01:44:01 +0530; labels from the title and parent heading: result
 
@@ -101,7 +95,7 @@ RESULTS.md lines 3856 to 3856; first line committed in `3290232` on 2026-11-04 0
 - **2026-11-04 01:44 IST, X9a FINISHED (15 of 15 runs, laptop, finished 3 Nov 19:04 IST; `scripts/x9a.py analyse`, `results/phase2/x9a/analysis.json`): X9a-R REFUTED by the registered rule (against the prediction); X9a-A SUPPORTED.** *Retrieval, cipher story to English story, unmapped, test half n = 250, chance 0.004, seeds 0/1/2:* level 0: 0.024, 0.020, 0.040 (mean 0.028; **not at chance as the registration expected: the best layer is 0 or 1, where digits, punctuation and spaces, which the cipher leaves unchanged, are shared**); level 1: 1.000, 0.992, 0.988 (mean 0.9933); level 5: 1.000 x3 (1.0000); level 20: 1.000, 0.996, 1.000 (0.9987); level 50: 1.000, 1.000, 0.996 (0.9987). **X9a-R:** means at 1, 5, 20, 50 are not non-decreasing; mean(50) - mean(1) = +0.0053 against 3 x the larger seed SD (floor 1/250) = 0.0183; Spearman(level, seed mean) over the four levels = 0.32, which is 0.6 or lower: **refuted** by the registered rule. **Observation, not a verdict: retrieval is at its ceiling (0.99 to 1.00) from 1 percent exposure upward, so the rule could not see a rise; it jumps from 0.028 at level 0 to 0.993 at level 1.** The registered joint reading for "R refuted" is "no familiarity effect in this setting (small model, letter cipher, no claim beyond that)"; the ceiling means this setting cannot show a graded effect above 1 percent, and the level-0 versus level-1 jump is not covered by either rule. *Assembly (MDL detokenization layer of cipher words, 300 words, seeds 0/1/2):* level 0: 0, 0, 0 (descriptive); level 1: 2, 1, 1 (mean 1.33); levels 5, 20, 50: 1, 1, 1; English reference words: 1 at every level. **X9a-A:** max minus min of the four seed means (levels 1 to 50) = 0.33 <= 1: **supported**. **Joint reading (registered): "no familiarity effect in this setting".** Validation BPB on English falls with exposure only in cost: 0.561 to 0.564 (level 0), 0.563 to 0.566 (1), 0.566 to 0.570 (5), 0.574 to 0.581 (20), 0.619 to 0.622 (50). The paper is not edited.
 `````
 
-##### 2026-11-04 02:33 IST, X9a-low REGISTERED (laptop; exploratory follow-up, added after seeing the X9a-R ceiling; the X9a-R verdict is unchanged and is not rerun). *Motivation:* X9a retrieval was already 0.993 at 1 percent exposure and 0.28 at
+##### 2026-11-04 02:33 IST, X9a-low REGISTERED (laptop; exploratory follow-up, added after seeing the X9a-R ceiling; the X9a-R verdict is unchanged and is not rerun).
 
 RESULTS.md lines 3860 to 3860; first line committed in `28803e6` on 2026-11-04 02:33:57 +0530; last line in `28803e6` on 2026-11-04 02:33:57 +0530; labels from the title and parent heading: registered, exploratory, result
 
@@ -109,7 +103,7 @@ RESULTS.md lines 3860 to 3860; first line committed in `28803e6` on 2026-11-04 0
 - **2026-11-04 02:33 IST, X9a-low REGISTERED (laptop; exploratory follow-up, added after seeing the X9a-R ceiling; the X9a-R verdict is unchanged and is not rerun).** *Motivation:* X9a retrieval was already 0.993 at 1 percent exposure and 0.28 at level 0 was chance-like only by construction, so the X9a-R rule could not see a graded effect. *Design:* same tiny GPT, same fixed 1,024 tokenizer, same cipher, evaluation pairs, measures (retrieval and MDL assembly) and seeds 0, 1, 2 as X9a; **new exposure levels 0.01, 0.03, 0.1 and 0.3 percent** (cipher stories = round(n_train x level / 100) of the same story order, , each stream cut at the same 126,423,041 tokens); the existing X9a level 0 and level 1 runs supply the other two of the six levels (levels 0, 0.01, 0.03, 0.1, 0.3, 1). 12 new runs, about 0.3 GPU hours each. **Decision rule (written before any X9a-low run):** "dose-response present" if the Spearman correlation between exposure level and seed-mean retrieval across all six levels is at least 0.8 **and** mean retrieval at 1 percent minus mean retrieval at 0.01 percent is at least 0.05; otherwise "no dose-response". Reported with it, descriptively: the MDL assembly layer per level (seeds and mean) and retrieval per level and seed. *Label:* motivated by the X9a-R ceiling, added after seeing it; exploratory.
 `````
 
-##### 2026-11-04 02:33 IST, X9a level-0 observation (descriptive only, no rule). Level-0 retrieval will additionally be reported on evaluation pairs with digits and punctuation removed from both the English and the cipher texts (the characters th
+##### 2026-11-04 02:33 IST, X9a level-0 observation (descriptive only, no rule).
 
 RESULTS.md lines 3861 to 3861; first line committed in `28803e6` on 2026-11-04 02:33:57 +0530; last line in `28803e6` on 2026-11-04 02:33:57 +0530; labels from the title and parent heading: none
 
@@ -117,39 +111,12 @@ RESULTS.md lines 3861 to 3861; first line committed in `28803e6` on 2026-11-04 0
 - **2026-11-04 02:33 IST, X9a level-0 observation (descriptive only, no rule).** Level-0 retrieval will additionally be reported on evaluation pairs with digits and punctuation removed from both the English and the cipher texts (the characters the cipher leaves unchanged), same seeds and checkpoints, layer chosen on the train half as in X9a.
 `````
 
-##### 2026-11-04 02:34 IST, correction note to the X9a-low entry above (text only; the rule is unchanged). A shell substitution dropped a code span: the phrase "of the same story order, , each stream" should read "of the same story order, `defaul
+##### 2026-11-04 02:34 IST, correction note to the X9a-low entry above (text only; the rule is unchanged).
 
-RESULTS.md lines 3864 to 3865; first line committed in `eff85fe` on 2026-11-04 02:34:12 +0530; last line in `98e2256` on 2026-11-04 02:46:00 +0530; labels from the title and parent heading: failed or not run
+RESULTS.md lines 3864 to 3865; first line committed in `eff85fe` on 2026-11-04 02:34:12 +0530; last line in `98e2256` on 2026-11-04 02:46:00 +0530; labels from the title and parent heading: none
 
 `````text
 - **2026-11-04 02:34 IST, correction note to the X9a-low entry above (text only; the rule is unchanged).** A shell substitution dropped a code span: the phrase "of the same story order, , each stream" should read "of the same story order, `default_rng(9)`, each stream". Nothing else in the entry changed; the tag `phase2-x9a-low` marks the entry as committed.
-
-`````
-
-##### 2026-11-04 02:46 IST, operations log (standing orders of 2026-11-04; no registered rule changes). (1) X4 Gemini drafts resumed on the paid tier (billing enabled by Aarnav on the Gemini key ending FXVw, project named by Aarnav "nuerips"): mo
-
-RESULTS.md lines 3866 to 3867; first line committed in `98e2256` on 2026-11-04 02:46:00 +0530; last line in `0cfdea0` on 2026-11-04 02:46:43 +0530; labels from the title and parent heading: none
-
-`````text
-- **2026-11-04 02:46 IST, operations log (standing orders of 2026-11-04; no registered rule changes).** (1) **X4 Gemini drafts resumed on the paid tier** (billing enabled by Aarnav on the Gemini key ending FXVw, project named by Aarnav "nuerips"): model unchanged (gemini-3.5-flash-lite, temperature 0, prompt natural_romanization_v1 with the language name changed, unbatched); own cap raised from 480 to 6,000 requests a day and 12 to 60 per minute (`scripts/x4_natural.py`). Check before resuming: 40 consecutive requests in 30 s (about 80 per minute, above the free-tier limit of 15 per minute) returned no 429; the tier itself cannot be read from the API, so this is the evidence. Bengali resumed from 444 of 500 at 02:40 IST. (2) **Kaggle:** the earlier queue pushes were refused because `scripts/hidden.vbs` (tracked) had been deleted from the working tree, which also stopped the detached chains from restarting; restored. Llama-2-7B A1-P pushed at about 02:41 IST ahead of the reserve (X12 contrast 1). (3) **Laptop queue (chained by status files):** X1 T3 (running) -> X11 -> X10 full (`scripts/x10full_chain.sh`) -> X9a-low (`scripts/x9alow_chain.sh`, includes the level-0 stripped-retrieval observation). X9a-low code: `x9a.py prep_low | train <level> <seed> | analyse_low | level0_stripped`; the first `prep_low` attempt died with a MemoryError reading the story file while other jobs held memory and is retried inside the chain. (4) A 15-minute watchdog (session cron) checks both machines and the API jobs.
-
-`````
-
-##### 2026-11-04 03:07 IST, watchdog / disk: free disk 26 GB (guard 25 GB). Removed the three finished pilot checkpoints (x7pilot_v256_s0, x7pilot_v4096_s0, x9apilot_p20_s0; their pilot results files are kept). X9a-low will write about 4.6 GB of 
-
-RESULTS.md lines 3874 to 3875; first line committed in `3795c2a` on 2026-11-04 03:07:47 +0530; last line in `399fdee` on 2026-11-04 03:33:53 +0530; labels from the title and parent heading: result
-
-`````text
-- **2026-11-04 03:07 IST, watchdog / disk:** free disk 26 GB (guard 25 GB). Removed the three finished pilot checkpoints (x7pilot_v256_s0, x7pilot_v4096_s0, x9apilot_p20_s0; their pilot results files are kept). X9a-low will write about 4.6 GB of checkpoints; if free disk nears the guard, the next cache to clear is cache/activations/m14full (14 GB, Phase 1 activations cache, regenerable, results kept). Laptop GPU busy (X1 T3), Kaggle chain waiting, X4 drafts done, X14 waiting for 12:45.
-
-`````
-
-##### 2026-11-04 11:07 IST, X1 T3 SCORING FINISHED (laptop, finished 11:01 IST; 5 models, all forms and NC conditions under the native-speaker-verified T3 templates; results/phase2/x1/t3/, label: "instruction verified by a native speaker, explora
-
-RESULTS.md lines 3900 to 3901; first line committed in `173d201` on 2026-11-04 11:07:39 +0530; last line in `bbc32e2` on 2026-11-04 12:07:30 +0530; labels from the title and parent heading: exploratory, result, failed or not run
-
-`````text
-- **2026-11-04 11:07 IST, X1 T3 SCORING FINISHED (laptop, finished 11:01 IST; 5 models, all forms and NC conditions under the native-speaker-verified T3 templates; results/phase2/x1/t3/, label: "instruction verified by a native speaker, exploratory").** No registered claim attaches to T3, so no verdict word; the T3 analysis (T3 minus T1 and T2 per cell, same code path as the T2 analysis in scripts/x1_analyse.py) is not run yet and is queued as CPU work. X11 started right after (11:02), then X10 full, X9a-low, X4 scoring follow by status-file waits.
 
 `````
 
@@ -161,7 +128,7 @@ RESULTS.md lines 3922 to 3922; first line committed in `7bcba7d` on 2026-11-04 2
 - **2026-11-04 20:22 IST, X9a-low RESULT (laptop, finished 20:21 IST; 12 new runs plus the X9a level 0 and level 1 runs; `scripts/x9a.py analyse_low`, `results/phase2/x9a/analysis_low.json`): "dose-response present" by the registered rule (exploratory, motivated by the X9a-R ceiling and added after seeing it).** Registered rule (written before any run): present if the Spearman correlation between exposure and seed-mean retrieval over the six levels is at least 0.8 and mean(1%) minus mean(0.01%) is at least 0.05. **Spearman = 1.00; mean(1%) - mean(0.01%) = +0.951** (both met). Retrieval, cipher story to English story, unmapped, test half n = 250, chance 0.004, seeds 0/1/2 and mean: 0%: 0.024, 0.020, 0.040 (0.028); 0.01%: 0.036, 0.052, 0.040 (0.043); 0.03%: 0.072, 0.068, 0.064 (0.068); 0.1%: 0.100, 0.116, 0.112 (0.109); 0.3%: 0.432, 0.460, 0.172 (0.355; seed 2 is a low outlier); 1%: 1.000, 0.992, 0.988 (0.993). Retrieval rises monotonically with exposure over three orders of magnitude and saturates between 0.3 and 1 percent, which is why the X9a-R rule (1 to 50 percent) could not see it. **MDL assembly layer of cipher words (seeds 0/1/2; descriptive): 0%: 0, 0, 0; 0.01%: 0, 0, 0; 0.03%, 0.1%, 0.3%, 1%: 2, 1, 1 at each (mean 1.33).** So meaning alignment is graded in exposure while the assembly layer, once the cipher letters are learned at all (from 0.03%), does not move with further exposure: the X9a-A pattern extends down to 0.03%. The registered X9a-R verdict (refuted) and the joint reading stay as logged; this entry adds the graded effect below the ceiling. Nothing against a prediction (no prediction was registered for X9a-low). **Level-0 observation (descriptive only, `results/phase2/x9a/level0_stripped.json`):** with digits and punctuation removed from both texts, level-0 retrieval at the train-chosen layer is 0.004, 0.008, 0.016 (mean 0.009; chance 0.004) against 0.024, 0.020, 0.040 unstripped (mean 0.028): most of the above-chance level-0 retrieval came from the characters the cipher leaves unchanged. The paper is not edited.
 `````
 
-##### 2026-11-04 20:44 IST, X9a cipher token counts (descriptive; `results/phase2/x9a/cipher_tokens.json`, `scripts/x9a_cipher_tokens.py`). Cipher tokens in each stream of 126,423,042 tokens (cipher stories re-encoded with the fixed tokenizer, EO
+##### 2026-11-04 20:44 IST, X9a cipher token counts (descriptive; `results/phase2/x9a/cipher_tokens.json`, `scripts/x9a_cipher_tokens.py`).
 
 RESULTS.md lines 3928 to 3928; first line committed in `3c30aee` on 2026-11-04 20:44:16 +0530; last line in `3c30aee` on 2026-11-04 20:44:16 +0530; labels from the title and parent heading: result
 
@@ -169,25 +136,7 @@ RESULTS.md lines 3928 to 3928; first line committed in `3c30aee` on 2026-11-04 2
 - **2026-11-04 20:44 IST, X9a cipher token counts (descriptive; `results/phase2/x9a/cipher_tokens.json`, `scripts/x9a_cipher_tokens.py`).** Cipher tokens in each stream of 126,423,042 tokens (cipher stories re-encoded with the fixed tokenizer, EOS included; the count is untruncated and cannot exceed the true count by more than one story, and the last story was English at every level): 0%: 0; 0.01%: 14,637 (43 stories); 0.03%: 42,245 (129); 0.1%: 137,613 (428); 0.3%: 424,425 (1,305); 1%: 1,405,615 (4,344); 5%: 7,011,185 (21,634); 20%: 27,640,583 (85,246); 50%: 66,714,543 (205,952). Share of the stream by tokens: 0.012%, 0.033%, 0.109%, 0.336%, 1.11%, 5.5%, 21.9%, 52.8%. **Parallel pairs: none.** Every training story appears once, either in English or as its letter-cipher rendering, never both; the English and cipher tokenizer data were different stories; the evaluation pairs (the first 500 validation stories, in both forms) are held out of training and of the tokenizer (overlap 0, checked in the X9a prep). Cipher exposure is monolingual cipher text only.
 `````
 
-##### 2026-11-05 13:12 IST, REGISTRATION OF EXTRA SEEDS (added AFTER seeing the original seeds; Aarnav's instruction of 2026-11-05; the original registrations, rules, budgets and verdicts are unchanged). Why the laptop GPU was idle: the registere
-
-RESULTS.md lines 3999 to 4000; first line committed in `6be3732` on 2026-11-05 13:12:01 +0530; last line in `3b1e037` on 2026-11-05 13:23:17 +0530; labels from the title and parent heading: registered, result
-
-`````text
-- **2026-11-05 13:12 IST, REGISTRATION OF EXTRA SEEDS (added AFTER seeing the original seeds; Aarnav's instruction of 2026-11-05; the original registrations, rules, budgets and verdicts are unchanged).** Why the laptop GPU was idle: the registered laptop queue was empty (the last laptop job, X5, finished 11:42; idle until the feasibility pilot started at about 12:44). **(1) X9b primary arm (Sarvam-1) extra seeds.** Feasibility pilot on the RTX 3070 laptop (`scripts/x9b_laptop_pilot.py`, `results/phase2/x9b/laptop_pilot.json`, registered recipe unchanged, 50 micro-steps): ITRANS 633.6 tokens/s, native 564.5 tokens/s, micro-batch 16, finite loss; the card spills past 8 GB into shared memory (torch peak 10.6 GiB), which changes speed but not the arithmetic; at the registered budget B = 4,997,120 tokens per run that is 2.46 h of training per run (the registered T4 pilot's slowest rate is 515.7 tokens/s). It fits. Extra runs: **seeds 2 and 3 in the code (called seeds 3 and 4, beside the original seeds 1 and 2 = code seeds 0 and 1) for the ITRANS, native and English arms**, same QLoRA recipe, same streams and budget, same evaluation, run on the laptop with the in-run base-evaluation guard (the untrained base must reproduce the A1-R values in this environment before training starts; native 0.9443 layer 24, ITRANS 0.5104 layer 21). Output `results/kaggle/laptop_x9b/2026-11-05/out`. **Labelled "added after seeing seeds 1 and 2". The paper reports all four seeds together and the original two separately, whatever they show;** the registered verdict stays the one from the original two seeds. The 97.5% intervals will be computed twice (original two seeds; all four seeds, one seed drawn per cell per resample), same code. Environment difference stated: laptop (Windows, RTX 3070 8 GB with shared-memory spill) against Kaggle T4. **(2) X9a-low extra seeds:** exposure levels 0.1%, 0.3% and 1%, code seeds 3 and 4 (called seeds 4 and 5; the original seeds are 0, 1, 2), same recipe and evaluation, per-seed values reported, labelled the same way; the registered X9a-low rule is not re-evaluated on a different set of seeds, the table will show original three and all five. The 1% level is the X9a level-1 run (`x9a_p1_s3`, `x9a_p1_s4`). Queue (chain `x9extra`, after the Qwen English-run completion): X9a-low extras first (6 runs, about 18 min each, about 2 h), then the six X9b runs (about 2.5 h training plus evaluation each, an estimated 16 to 18 h in total, projected finish about 6 Nov 09:00 to 11:00 IST). X9a-low goes first only because it is short and returns in about 2 h; X9b follows without waiting for anything else. The paper is not edited.
-
-`````
-
-##### 2026-11-05 14:08 IST, RESTART (extra-seeds chain `x9extra`, operational). The chain failed at 14:03:34 on the first 1% X9a-low extra run (`x9a.py train 1 3`): `data/processed/x9a/train_p1.npy` (the X9a level-1 token stream) had been removed
-
-RESULTS.md lines 4003 to 4004; first line committed in `753999e` on 2026-11-05 14:08:43 +0530; last line in `88cf86e` on 2026-11-05 14:37:51 +0530; labels from the title and parent heading: failed or not run
-
-`````text
-- **2026-11-05 14:08 IST, RESTART (extra-seeds chain `x9extra`, operational).** The chain failed at 14:03:34 on the first 1% X9a-low extra run (`x9a.py train 1 3`): `data/processed/x9a/train_p1.npy` (the X9a level-1 token stream) had been removed with the X9a caches. Cause fixed: new command `x9a.py regen 1` regenerates that one stream with the code of `prep()` and refuses (and deletes the file) unless its sha256 equals the stored X9a value; the chain now runs it first (CPU) and was relaunched at 14:07 (the 0.1% and 0.3% seed 3 runs were already finished and are skipped). GPU idle from 14:03 to the relaunch of the GPU work (a few minutes). Nothing else changed.
-
-`````
-
-##### 2026-11-05 15:37 IST, X9a-low EXTRA SEEDS FINISHED (added after seeing the original seeds; registered above on 2026-11-05; laptop; `x9a_p{0p1,0p3,1}_s{3,4}.json`, code seeds 3 and 4 = seeds 4 and 5). The registered X9a-low verdict ("dose-re
+##### 2026-11-05 15:37 IST, X9a-low EXTRA SEEDS FINISHED (added after seeing the original seeds; registered above on 2026-11-05; laptop; `x9a_p{0p1,0p3,1}_s{3,4}.json`, code seeds 3 and 4 = seeds 4 and 5).
 
 RESULTS.md lines 4009 to 4010; first line committed in `2f9c9f1` on 2026-11-05 15:37:57 +0530; last line in `c7f6e92` on 2026-11-05 15:39:07 +0530; labels from the title and parent heading: result
 
@@ -196,7 +145,7 @@ RESULTS.md lines 4009 to 4010; first line committed in `2f9c9f1` on 2026-11-05 1
 
 `````
 
-##### 2026-11-05 15:39 IST, CORRECTION NOTE to the X9a-low extra-seed entry above (one phrase). In the reading the phrase "0.3% seed 3 at 0.172" should read: the third ORIGINAL seed at 0.3% (code seed 2, retrieval 0.172) is 0.06 above the 0.1% se
+##### 2026-11-05 15:39 IST, CORRECTION NOTE to the X9a-low extra-seed entry above (one phrase).
 
 RESULTS.md lines 4013 to 4014; first line committed in `c7f6e92` on 2026-11-05 15:39:07 +0530; last line in `3ecea71` on 2026-11-05 15:42:19 +0530; labels from the title and parent heading: none
 
@@ -205,16 +154,7 @@ RESULTS.md lines 4013 to 4014; first line committed in `c7f6e92` on 2026-11-05 1
 
 `````
 
-##### 2026-11-07 01:53 IST, REGISTRATION OF A SECOND SET OF EXTRA SEEDS (added AFTER seeing the originals; Aarnav's instruction of 2026-11-07 to start both; the original registrations, rules, budgets and verdicts are unchanged). Why the laptop GP
-
-RESULTS.md lines 4038 to 4039; first line committed in `b194514` on 2026-11-07 01:53:51 +0530; last line in `acd0e83` on 2026-11-07 02:21:05 +0530; labels from the title and parent heading: registered, result
-
-`````text
-- **2026-11-07 01:53 IST, REGISTRATION OF A SECOND SET OF EXTRA SEEDS (added AFTER seeing the originals; Aarnav's instruction of 2026-11-07 to start both; the original registrations, rules, budgets and verdicts are unchanged).** Why the laptop GPU was idle: no registered laptop job was left after the first extra-seed chain finished at 2026-11-06 11:40 (idle until this start). **(1) X9a-low: levels 0 (no cipher), 0.01% and 0.03% exposure, code seeds 3 and 4 (called seeds 4 and 5; originals 0, 1, 2), same recipe and evaluation as the earlier extra seeds (0.1%, 0.3%, 1%), six runs of about 18 minutes; per-seed values will be reported with the original three and all five side by side; the registered X9a-low rule is not re-run on a different set of seeds. The level-0 stream (removed with the caches) is regenerated with the code of the original preparation and refused unless its sha256 equals the stored value.** **(2) X9b secondary arm (Qwen3.5-2B): extra code seeds 1 and 2 (called seeds 2 and 3; the original run is seed 0, one seed), ITRANS, native and English, same QLoRA recipe, streams and token budget (5,668,864 tokens per run, 346 optimizer steps), same evaluation, laptop (the original ran on Kaggle account 2 and was finished on the laptop), micro-batch 4 as in the pilot (below the cap of 8), six runs of about 2 to 2.5 h; the analysis `x9b_analyse.py --model qwen3.5-2b --seeds 0,1,2` adds a seed spread to the secondary arm; the secondary arm still does not enter the primary conclusion and its registered verdict (supported, one seed) is unchanged.** Chain `x9extra2` (X9a-low first, about 2 h; then the Qwen runs, an estimated 12 to 15 h, projected finish about 7 Nov 20:00 to 23:00 IST). Output `results/kaggle/laptop_x9b/2026-11-07/out`. Also from now on the 15-minute watchdog reports to Aarnav only when a job finishes, fails or a registered result arrives (Aarnav's instruction), the checks themselves continue. The paper is not edited.
-
-`````
-
-##### 2026-11-07 03:52 IST, X9a-LOW EXTRA SEEDS, SECOND SET, FINISHED (added after seeing the originals; registered 2026-11-07; levels 0, 0.01% and 0.03%, code seeds 3 and 4 = seeds 4 and 5; laptop). The registered X9a-low verdict (dose-response 
+##### 2026-11-07 03:52 IST, X9a-LOW EXTRA SEEDS, SECOND SET, FINISHED (added after seeing the originals; registered 2026-11-07; levels 0, 0.01% and 0.03%, code seeds 3 and 4 = seeds 4 and 5; laptop).
 
 RESULTS.md lines 4044 to 4045; first line committed in `82e4226` on 2026-11-07 03:52:42 +0530; last line in `c42cfd4` on 2026-11-07 04:22:43 +0530; labels from the title and parent heading: result
 

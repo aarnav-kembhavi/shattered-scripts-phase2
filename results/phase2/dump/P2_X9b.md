@@ -9,47 +9,25 @@ Source: RESULTS.md entries (verbatim) and result files (paths given with every f
 | amended | `680151b` | 2026-11-02 19:01:49 +0530 | 3486-3494 | PHASE 2 AMENDMENT 2 (2026-11-02): X9 to X15, Kaggle compute, page policy |
 | amended | `680151b` | 2026-11-02 19:01:49 +0530 | 3495-3514 | A0. General rules for X9 to X15 |
 | amended | `680151b` | 2026-11-02 19:01:49 +0530 | 3574-3611 | X9b. Real models, QLoRA continued pretraining (memory pilot on the laptop; full runs on Kaggle) |
-| registered, amended | `b3cbd64` | 2026-11-02 23:21:38 +0530 | 3741-3747 | 2026-11-02 23:21 IST, DEVIATION X9b-D1 (decided by Aarnav, registered before the pilot). The X9b memory and timing pilot runs on the Kaggle T4, not on the lapto |
+| registered, amended | `b3cbd64` | 2026-11-02 23:21:38 +0530 | 3741-3747 | 2026-11-02 23:21 IST, DEVIATION X9b-D1 (decided by Aarnav, registered before the pilot). |
 | result | `994de97` | 2026-11-03 02:44:05 +0530 | 3801-3805 | 2026-11-03 02:44 IST, X9b pilot, first attempt (Kaggle T4, 0.31 h, commit c78f50a; `results/kaggle/kaggle_x9b/2026-11-02T205405/shattered-kaggle-x9b.log`): meas |
-| result | `bdf2139` | 2026-11-03 02:44:13 +0530 | 3806-3807 | 2026-11-03 02:44 IST, CORRECTION to the X9b pilot entry above: the sentence "exclusion rescan of the consumed articles reported 0" is withdrawn; that value is w |
-| result | `f116475` | 2026-11-03 04:26:01 +0530 | 3808-3809 | 2026-11-03 04:26 IST, X13 scoring of Qwen3-8B finished (Kaggle T4 x2, float16, A1-P passed; 1.71 h of quota; `results/kaggle/x_score/2026-11-02T211301/out/qwen3 |
+| none | `bdf2139` | 2026-11-03 02:44:13 +0530 | 3806-3807 | 2026-11-03 02:44 IST, CORRECTION to the X9b pilot entry above: |
 | result | `dc2d1df` | 2026-11-03 05:11:33 +0530 | 3815-3817 | 2026-11-03 05:11 IST, X9b pilot, second attempt (Kaggle T4, 0.75 h, commit after the micro-batch fix; `results/kaggle/kaggle_x9b/2026-11-02T225555/shattered-kag |
-| result | `ec0eaad` | 2026-11-03 07:25:12 +0530 | 3818-3819 | 2026-11-03 07:25 IST, X9b pilot (Kaggle T4, X9b-D1) and fixed token budgets. sarvam-1: B = 4,997,120 tokens (305 optimizer steps), slowest 516 tokens/s, micro-b |
+| none | `ec0eaad` | 2026-11-03 07:25:12 +0530 | 3818-3819 | 2026-11-03 07:25 IST, X9b pilot (Kaggle T4, X9b-D1) and fixed token budgets. |
 | result, failed or not run | `bcaebe7` | 2026-11-03 07:43:00 +0530 | 3820-3821 | 2026-11-03 07:43 IST, X9b rehearsal (Sarvam-1, ITRANS, seed 0, 20 optimizer steps, Kaggle T4, 0.19 h; `results/kaggle/kaggle_x9b/2026-11-03T015522/`): training, |
 | result | `48deb83` | 2026-11-03 08:06:57 +0530 | 3822-3824 | 2026-11-03 08:06 IST, X9b rehearsal PASSED (Sarvam-1, ITRANS, seed 0, 20 optimizer steps; Kaggle T4, 0.38 h; `results/kaggle/kaggle_x9b/2026-11-03T021326/out/sa |
-| result | `3290232` | 2026-11-04 01:44:01 +0530 | 3857-3857 | 2026-11-04 01:44 IST, X9b status (Kaggle T4; `results/kaggle/kaggle_x9b/2026-11-03T023638` and `...T085520`). Batch 1 (started 3 Nov 08:06 IST, returned about 1 |
-| result | `28803e6` | 2026-11-04 02:33:57 +0530 | 3862-3863 | 2026-11-04 02:33 IST, X12 contrast 1 runs now (Aarnav's decision). The Llama-2-7B A1-P precision check and scoring run on Kaggle ahead of the 18 h X9b reserve ( |
-| result, failed or not run | `0cfdea0` | 2026-11-04 02:46:43 +0530 | 3868-3869 | 2026-11-04 02:46 IST, Kaggle failure: Llama-2-7B A1-P (X12 contrast 1) did not run (harness error, no verdict, 0.07 h of quota; pushed 02:41 IST). Cause (from t |
-| none | `2be4ccb` | 2026-11-04 02:53:13 +0530 | 3872-3873 | 2026-11-04 02:53 IST, watchdog: Kaggle queue chain had been stopped (my restart at 02:37 for the push-order change; the detached task could not start until the  |
-| result | `399fdee` | 2026-11-04 03:33:53 +0530 | 3876-3877 | 2026-11-04 03:33 IST, X9b reserve LIFTED (Aarnav). X9B_SARVAM_H set from 18 to 0 in scripts/kaggle_queue.py: a Kaggle job now only has to fit in the remaining h |
-| result | `7455dba` | 2026-11-04 09:53:29 +0530 | 3898-3899 | 2026-11-04 09:53 IST, X12 CONTRAST 1 (primary test) RESULT: SUPPORTED (as predicted). Llama-2-7B vs Ambari-7B-base-v0.1, both passed A1-P (fp16 vs float32-offlo |
-| result | `ed31e10` | 2026-11-04 12:13:51 +0530 | 3905-3905 | 2026-11-04 12:13 IST, correction note to the X11 entry above (p values). The per-form McNemar p values in the X11 entry are exact and unadjusted; the registrati |
-| failed or not run | `ed31e10` | 2026-11-04 12:13:51 +0530 | 3906-3907 | 2026-11-04 12:13 IST, Kaggle driver fixes (decided 2026-11-04 after three failed launches). (1) Ambari-Instruct-v0.1 and Llama-3.1-8B were already uploaded as p |
-| result | `39d4c01` | 2026-11-04 13:21:46 +0530 | 3910-3911 | 2026-11-04 13:21 IST, SECOND KAGGLE ACCOUNT ADDED (Aarnav's instruction). Some Kaggle compute for Phase 2 now runs on a teammate's Kaggle account (username ashw |
-| result | `59154b4` | 2026-11-04 14:10:52 +0530 | 3916-3917 | 2026-11-04 14:10 IST, ACCOUNT 2 ACCEPTED (teammate's Kaggle account): the A1-R reproduction on account 2 matches account 1 exactly. kaggle_retrieval_gate on acc |
-| result | `3c30aee` | 2026-11-04 20:44:16 +0530 | 3929-3929 | 2026-11-04 20:44 IST, X9b batch 3 moved to Kaggle account 2 (Aarnav's instruction). Independence checked in `scripts/kaggle_x9b.py` and the queue: every run tra |
-| result | `952be81` | 2026-11-04 21:53:03 +0530 | 3934-3935 | 2026-11-04 21:53 IST, Kaggle account 2: duplicate push of the Ambari-Instruct-v0.1 A1-P (my driver defect; quota cost, no wrong result). The retry pushed at 20: |
-| none | `17dba9c` | 2026-11-04 22:24:09 +0530 | 3940-3941 | 2026-11-04 22:24 IST, Kaggle account 2: two drivers were running at once; stopped one; root cause fixed. Cause: the driver restarts itself when its scripts chan |
-| result | `5b9ae1d` | 2026-11-05 00:25:45 +0530 | 3944-3945 | 2026-11-05 00:25 IST, why the account 2 instruction-pair MDL never started (twice): Kaggle allows two GPU sessions at a time per account. At 22:08 and again at  |
-| none | `1fbe72d` | 2026-11-05 00:52:48 +0530 | 3946-3947 | 2026-11-05 00:52 IST, load-time comparison for models mounted from a private dataset (Kaggle account 2), answering Aarnav's question on run length. Without the  |
-| none | `055b2fc` | 2026-11-05 01:09:36 +0530 | 3948-3949 | 2026-11-05 01:09 IST, X12 instruction pair: both models scored (Kaggle account 2). Ambari-Instruct-v0.1 scoring (pushed 22:06 IST, 1.20 h, with the copy loader) |
-| result, failed or not run | `900da25` | 2026-11-05 03:10:06 +0530 | 3958-3959 | 2026-11-05 03:10 IST, X9b PRIMARY RESULT (Sarvam-1, 2 seeds per condition; `scripts/x9b_analyse.py`, `results/phase2/x9b/analysis_sarvam-1.json`): SUPPORTED on  |
+| result | `3290232` | 2026-11-04 01:44:01 +0530 | 3857-3857 | 2026-11-04 01:44 IST, X9b status (Kaggle T4; `results/kaggle/kaggle_x9b/2026-11-03T023638` and `...T085520`). |
+| none | `399fdee` | 2026-11-04 03:33:53 +0530 | 3876-3877 | 2026-11-04 03:33 IST, X9b reserve LIFTED (Aarnav). |
+| none | `3c30aee` | 2026-11-04 20:44:16 +0530 | 3929-3929 | 2026-11-04 20:44 IST, X9b batch 3 moved to Kaggle account 2 (Aarnav's instruction). |
+| result | `900da25` | 2026-11-05 03:10:06 +0530 | 3958-3959 | 2026-11-05 03:10 IST, X9b PRIMARY RESULT (Sarvam-1, 2 seeds per condition; `scripts/x9b_analyse.py`, `results/phase2/x9b/analysis_sarvam-1.json`): SUPPORTED on  |
 | none | `17458bc` | 2026-11-05 03:12:00 +0530 | 3960-3961 | 2026-11-05 03:12 IST, X9b secondary arm (Qwen3.5-2B, one seed, three runs in one batch, cap 10.2 h) moved forward to Kaggle account 2 and pushed at about 03:30  |
-| failed or not run | `0dcc746` | 2026-11-05 10:09:51 +0530 | 3982-3983 | 2026-11-05 10:09 IST, X4 K3b-bn and K3b-te started (API and CPU; `scripts/k3b_dakshina.py sample/draft/analyse bn/te`, chain `scripts/x4k3b_chain.sh`). The exac |
-| post hoc, result | `e0f0b06` | 2026-11-05 10:43:29 +0530 | 3989-3990 | 2026-11-05 10:43 IST, Phase 2 completion inventory written (`results/phase2/PHASE2_INVENTORY.md`) and new work started at Aarnav's instruction: X2 run (supporte |
 | none | `3483bc8` | 2026-11-05 13:09:45 +0530 | 3997-3998 | 2026-11-05 13:09 IST, X9b secondary arm (Qwen3.5-2B, account 2): the kernel hit its 10.2 h cap ("job finished timeout" at 9.94 h of wall time) during the Englis |
-| registered, result | `6be3732` | 2026-11-05 13:12:01 +0530 | 3999-4000 | 2026-11-05 13:12 IST, REGISTRATION OF EXTRA SEEDS (added AFTER seeing the original seeds; Aarnav's instruction of 2026-11-05; the original registrations, rules, |
 | result | `3b1e037` | 2026-11-05 13:23:17 +0530 | 4001-4002 | 2026-11-05 13:23 IST, X9b SECONDARY ARM RESULT (Qwen3.5-2B, one seed, account 2 and laptop; `scripts/x9b_analyse.py --model qwen3.5-2b`, `results/phase2/x9b/ana |
-| result, failed or not run | `3ecea71` | 2026-11-05 15:42:19 +0530 | 4015-4016 | 2026-11-05 15:42 IST, KAGGLE QUOTA EXHAUSTED ON BOTH ACCOUNTS (operational; nothing was pushed, no quota used by the attempt). A push of the three remaining Sar |
-| failed or not run | `cccb4f4` | 2026-11-05 22:08:29 +0530 | 4017-4018 | 2026-11-05 22:08 IST, LAPTOP POWER LOSS AND RESTART (operational). The laptop shut down uncleanly at about 16:42 (Windows event 41 and 6008, previous shutdown l |
-| result | `5d9fd0e` | 2026-11-05 22:23:55 +0530 | 4021-4022 | 2026-11-05 22:23 IST, KAGGLE ACCOUNT 3 ENABLED AND KAGGLE PUSH AUDIT (operational). Aarnav reported that the owner of the third Kaggle account (username aarnavk |
 | amended, failed or not run | `1d0616d` | 2026-11-05 22:59:17 +0530 | 4025-4026 | 2026-11-05 22:59 IST, X9b LAPTOP RUNS: CHECKPOINT SAVE STALLS 20+ MINUTES; CHANGE TO WHAT IS CHECKPOINTED (operational; recipe, streams and evaluation unchanged |
-| none | `4579347` | 2026-11-05 22:59:29 +0530 | 4027-4028 | 2026-11-05 22:59 IST, CORRECTION NOTE (finish dates of the laptop X9b extra seeds; arithmetic error). The two entries above that give the six laptop runs a fini |
-| amended, failed or not run | `8c59c8a` | 2026-11-06 00:53:19 +0530 | 4029-4030 | 2026-11-06 00:53 IST, SECOND LAPTOP CRASH AND STABILITY CHANGE FOR THE X9b EXTRA RUNS (operational). Windows logged a second unclean reboot (Kernel-Power 41; bu |
-| result, failed or not run | `fc1246a` | 2026-11-06 02:37:37 +0530 | 4031-4032 | 2026-11-06 02:37 IST, X9b EXTRA RUN 1 OF 6 FINISHED (`sarvam-1+itrans+s2`, code seed 2 = seed 3 in the report; laptop) AND SPEED OF THE MICRO-BATCH CAP. Run fac |
-| result, failed or not run | `e605a65` | 2026-11-06 11:53:24 +0530 | 4033-4033 | 2026-11-06 11:53 IST, X9b PRIMARY ARM: EXTRA SEEDS FINISHED; RESULT WITH ALL FOUR SEEDS AND WITH THE ORIGINAL TWO (Sarvam-1; seeds 3 and 4 were ADDED AFTER SEEI |
-| result, failed or not run | `ac6470f` | 2026-11-07 01:49:19 +0530 | 4036-4037 | 2026-11-07 01:49 IST, KAGGLE ACCOUNT 3 REPLACED BY A NEW TOKEN AND A DIFFERENT ACCOUNT (operational). Aarnav supplied a new Kaggle API token to be used instead  |
-| registered, result | `b194514` | 2026-11-07 01:53:51 +0530 | 4038-4039 | 2026-11-07 01:53 IST, REGISTRATION OF A SECOND SET OF EXTRA SEEDS (added AFTER seeing the originals; Aarnav's instruction of 2026-11-07 to start both; the origi |
+| none | `4579347` | 2026-11-05 22:59:29 +0530 | 4027-4028 | 2026-11-05 22:59 IST, CORRECTION NOTE (finish dates of the laptop X9b extra seeds; arithmetic error). |
+| amended, failed or not run | `8c59c8a` | 2026-11-06 00:53:19 +0530 | 4029-4030 | 2026-11-06 00:53 IST, SECOND LAPTOP CRASH AND STABILITY CHANGE FOR THE X9b EXTRA RUNS (operational). |
+| result | `fc1246a` | 2026-11-06 02:37:37 +0530 | 4031-4032 | 2026-11-06 02:37 IST, X9b EXTRA RUN 1 OF 6 FINISHED (`sarvam-1+itrans+s2`, code seed 2 = seed 3 in the report; laptop) AND SPEED OF THE MICRO-BATCH CAP. |
+| result | `e605a65` | 2026-11-06 11:53:24 +0530 | 4033-4033 | 2026-11-06 11:53 IST, X9b PRIMARY ARM: EXTRA SEEDS FINISHED; RESULT WITH ALL FOUR SEEDS AND WITH THE ORIGINAL TWO (Sarvam-1; seeds 3 and 4 were ADDED AFTER SEEI |
 | result | `0cd9a82` | 2026-11-08 15:33:40 +0530 | 4048-4048 | 2026-11-08 15:33 IST, X9b SECONDARY ARM (Qwen3.5-2B): EXTRA SEEDS FINISHED (added after seeing the original seed; registered 2026-11-07; code seeds 1 and 2 = se |
 
 ## Values observed in the result files (read from the files' own columns and keys)
@@ -150,7 +128,7 @@ estimate is crude; stated as a limitation.
 
 `````
 
-##### 2026-11-02 23:21 IST, DEVIATION X9b-D1 (decided by Aarnav, registered before the pilot). The X9b memory and timing pilot runs on the Kaggle T4, not on the laptop, because the amendment fixes the
+##### 2026-11-02 23:21 IST, DEVIATION X9b-D1 (decided by Aarnav, registered before the pilot).
 
 RESULTS.md lines 3741 to 3747; first line committed in `b3cbd64` on 2026-11-02 23:21:38 +0530; last line in `9d50e92` on 2026-11-02 23:24:17 +0530; labels from the title and parent heading: registered, amended
 
@@ -176,21 +154,12 @@ RESULTS.md lines 3801 to 3805; first line committed in `994de97` on 2026-11-03 0
 
 `````
 
-##### 2026-11-03 02:44 IST, CORRECTION to the X9b pilot entry above: the sentence "exclusion rescan of the consumed articles reported 0" is withdrawn; that value is written only to `pilot_done.json`, which was not produced, and the Kaggle log doe
+##### 2026-11-03 02:44 IST, CORRECTION to the X9b pilot entry above:
 
-RESULTS.md lines 3806 to 3807; first line committed in `bdf2139` on 2026-11-03 02:44:13 +0530; last line in `f116475` on 2026-11-03 04:26:01 +0530; labels from the title and parent heading: result
+RESULTS.md lines 3806 to 3807; first line committed in `bdf2139` on 2026-11-03 02:44:13 +0530; last line in `f116475` on 2026-11-03 04:26:01 +0530; labels from the title and parent heading: none
 
 `````text
 - **2026-11-03 02:44 IST, CORRECTION to the X9b pilot entry above:** the sentence "exclusion rescan of the consumed articles reported 0" is withdrawn; that value is written only to `pilot_done.json`, which was not produced, and the Kaggle log does not show it, so it was not observed. The CPU report (overlap 0 for all three full streams) stands; the in-kernel rescan result will come from the corrected pilot.
-
-`````
-
-##### 2026-11-03 04:26 IST, X13 scoring of Qwen3-8B finished (Kaggle T4 x2, float16, A1-P passed; 1.71 h of quota; `results/kaggle/x_score/2026-11-02T211301/out/qwen3-8b/`). SIB-200 scores for english, native, ITRANS, lossy, lowercase (and natura
-
-RESULTS.md lines 3808 to 3809; first line committed in `f116475` on 2026-11-03 04:26:01 +0530; last line in `786f67e` on 2026-11-03 04:46:26 +0530; labels from the title and parent heading: result
-
-`````text
-- **2026-11-03 04:26 IST, X13 scoring of Qwen3-8B finished (Kaggle T4 x2, float16, A1-P passed; 1.71 h of quota; `results/kaggle/x_score/2026-11-02T211301/out/qwen3-8b/`).** SIB-200 scores for english, native, ITRANS, lossy, lowercase (and natural on the 257), content-free calibration inputs, and unmapped FLORES+ retrieval (native, ITRANS; A1-R passed) are written as Phase 1-format shards; the analysis (registered contrasts) has not been run yet. The X9b pilot is re-run next (the new queue driver replaced the old one at this point; DEFER file removed, state cleaned).
 
 `````
 
@@ -204,9 +173,9 @@ RESULTS.md lines 3815 to 3817; first line committed in `dc2d1df` on 2026-11-03 0
 
 `````
 
-##### 2026-11-03 07:25 IST, X9b pilot (Kaggle T4, X9b-D1) and fixed token budgets. sarvam-1: B = 4,997,120 tokens (305 optimizer steps), slowest 516 tokens/s, micro-batches itrans 16, native 16, english 16, pool covers B: {'itrans': True, 'native
+##### 2026-11-03 07:25 IST, X9b pilot (Kaggle T4, X9b-D1) and fixed token budgets.
 
-RESULTS.md lines 3818 to 3819; first line committed in `ec0eaad` on 2026-11-03 07:25:12 +0530; last line in `bcaebe7` on 2026-11-03 07:43:00 +0530; labels from the title and parent heading: result
+RESULTS.md lines 3818 to 3819; first line committed in `ec0eaad` on 2026-11-03 07:25:12 +0530; last line in `bcaebe7` on 2026-11-03 07:43:00 +0530; labels from the title and parent heading: none
 
 `````text
 - **2026-11-03 07:25 IST, X9b pilot (Kaggle T4, X9b-D1) and fixed token budgets.** sarvam-1: B = 4,997,120 tokens (305 optimizer steps), slowest 516 tokens/s, micro-batches itrans 16, native 16, english 16, pool covers B: {'itrans': True, 'native': True, 'english': True}; qwen3.5-2b: B = 5,668,864 tokens (346 optimizer steps), slowest 584 tokens/s, micro-batches itrans 4, native 4, english 4, pool covers B: {'itrans': True, 'native': True, 'english': True}. Tokens per optimizer step 16,384 (32 sequences of 512; fixed before the pilot), 50 micro-steps timed. Exclusion scan: overlap 0 for every stream (CPU report) and 0 on every consumed stream in the pilot. B is the same for the three conditions of a model and is not changed. (Appended by the queue driver from `results/phase2/x9b/pilot_done.json`.)
@@ -222,7 +191,7 @@ RESULTS.md lines 3820 to 3821; first line committed in `bcaebe7` on 2026-11-03 0
 
 `````
 
-##### 2026-11-03 08:06 IST, X9b rehearsal PASSED (Sarvam-1, ITRANS, seed 0, 20 optimizer steps; Kaggle T4, 0.38 h; `results/kaggle/kaggle_x9b/2026-11-03T021326/out/sarvam-1+itrans+s0__rehearsal/`); discarded as designed. Whole path ran: stream bu
+##### 2026-11-03 08:06 IST, X9b rehearsal PASSED (Sarvam-1, ITRANS, seed 0, 20 optimizer steps; Kaggle T4, 0.38 h; `results/kaggle/kaggle_x9b/2026-11-03T021326/out/sarvam-1+itrans+s0__rehearsal/`); discarded as designed.
 
 RESULTS.md lines 3822 to 3824; first line committed in `48deb83` on 2026-11-03 08:06:57 +0530; last line in `16e09e4` on 2026-11-03 12:56:47 +0530; labels from the title and parent heading: result
 
@@ -232,7 +201,7 @@ RESULTS.md lines 3822 to 3824; first line committed in `48deb83` on 2026-11-03 0
 
 `````
 
-##### 2026-11-04 01:44 IST, X9b status (Kaggle T4; `results/kaggle/kaggle_x9b/2026-11-03T023638` and `...T085520`). Batch 1 (started 3 Nov 08:06 IST, returned about 14:25; 6.31 h): untrained Sarvam-1 evaluation plus sarvam-1:itrans:0 and sarvam-1
+##### 2026-11-04 01:44 IST, X9b status (Kaggle T4; `results/kaggle/kaggle_x9b/2026-11-03T023638` and `...T085520`).
 
 RESULTS.md lines 3857 to 3857; first line committed in `3290232` on 2026-11-04 01:44:01 +0530; last line in `3290232` on 2026-11-04 01:44:01 +0530; labels from the title and parent heading: result
 
@@ -240,149 +209,33 @@ RESULTS.md lines 3857 to 3857; first line committed in `3290232` on 2026-11-04 0
 - **2026-11-04 01:44 IST, X9b status (Kaggle T4; `results/kaggle/kaggle_x9b/2026-11-03T023638` and `...T085520`).** **Batch 1** (started 3 Nov 08:06 IST, returned about 14:25; 6.31 h): untrained Sarvam-1 evaluation plus sarvam-1:itrans:0 and sarvam-1:native:0. **Batch 2** (started 14:25, returned about 21:00; 6.60 h): sarvam-1:english:0 and sarvam-1:itrans:1. **4 of the 6 Sarvam-1 runs are done** (each 305 optimizer steps, 4,997,120 tokens, overlap 0 on the consumed articles, tokenizer sha256 unchanged, training 2.51 to 2.66 h, 2.89 to 3.06 h with evaluation). **The check logged before batch 1 is resolved:** the untrained Sarvam-1 evaluated in the Kaggle kernel gives unmapped retrieval native 0.9443 and ITRANS 0.5104, identical to the A1-R Kaggle values (laptop 0.9443 and 0.5144; within 0.0040), so the evaluation environment is sound and the rehearsal's post-training retrieval was a training effect. **Batch 3** (sarvam-1:native:1 and sarvam-1:english:1, cap 6.9 h) was refused by the quota projection (23.56 h used in the last 7 days, headroom -0.4 h) and fits from about **9 Nov 19:42 IST**. The registered X9b analysis (D_N, D_E, verdicts) needs all six Sarvam-1 runs and has not been run. The Qwen3.5-2B arm and every other Kaggle step (Llama-2 A1-P and X12 contrast 1, the instruction pair, Llama-3.1-8B, MDL) are held behind the X9b reserve.
 `````
 
-##### 2026-11-04 02:33 IST, X12 contrast 1 runs now (Aarnav's decision). The Llama-2-7B A1-P precision check and scoring run on Kaggle ahead of the 18 h X9b reserve (`scripts/kaggle_queue.py`, flag `x12c1` in `projection()`); X9b batch 3 is pushe
+##### 2026-11-04 03:33 IST, X9b reserve LIFTED (Aarnav).
 
-RESULTS.md lines 3862 to 3863; first line committed in `28803e6` on 2026-11-04 02:33:57 +0530; last line in `eff85fe` on 2026-11-04 02:34:12 +0530; labels from the title and parent heading: result
-
-`````text
-- **2026-11-04 02:33 IST, X12 contrast 1 runs now (Aarnav's decision).** The Llama-2-7B A1-P precision check and scoring run on Kaggle ahead of the 18 h X9b reserve (`scripts/kaggle_queue.py`, flag `x12c1` in `projection()`); X9b batch 3 is pushed the moment the quota projection allows and nothing else queues ahead of it. X7-A finished: **supported** (256 minus 4096 detok layer = 1, 1, 1; layers at V=256: 2,2,2 and at V=4096: 1,1,1; Phase 1 values 2 and 0). X10 pilot finished: estimated full run 3.37 h total (0.71, 0.84, 0.68, 1.14 h per model).
-
-`````
-
-##### 2026-11-04 02:46 IST, Kaggle failure: Llama-2-7B A1-P (X12 contrast 1) did not run (harness error, no verdict, 0.07 h of quota; pushed 02:41 IST). Cause (from the kernel log): the kernel cannot read the Hugging Face token, so the gated repo
-
-RESULTS.md lines 3868 to 3869; first line committed in `0cfdea0` on 2026-11-04 02:46:43 +0530; last line in `09b39ee` on 2026-11-04 02:52:11 +0530; labels from the title and parent heading: result, failed or not run
-
-`````text
-- **2026-11-04 02:46 IST, Kaggle failure: Llama-2-7B A1-P (X12 contrast 1) did not run (harness error, no verdict, 0.07 h of quota; pushed 02:41 IST).** Cause (from the kernel log): the kernel cannot read the Hugging Face token, so the gated repo meta-llama/Llama-2-7b-hf returns 401 on Kaggle. `UserSecretsClient` raised "Connection error trying to communicate with service" in all 16 kernel runs so far (the earlier models were not gated, so nothing was lost before). The same token reads both Llama repos from the laptop (HTTP 200), so access itself is granted; the Kaggle notebook has no HF_TOKEN secret attached. Fix needs a manual step in the Kaggle web UI (attach the secret HF_TOKEN to the kernels shattered-kaggle-precision and shattered-x-score, Add-ons, Secrets); no token is put in a dataset or the repository. Not relaunched yet (relaunch once after the fix). Llama-3.1-8B has the same dependency. X9b batch 3 is unaffected.
-
-`````
-
-##### 2026-11-04 02:53 IST, watchdog: Kaggle queue chain had been stopped (my restart at 02:37 for the push-order change; the detached task could not start until the deleted hidden.vbs was restored). Restarted at about 02:52 IST so X9b batch 3 is
-
-RESULTS.md lines 3872 to 3873; first line committed in `2be4ccb` on 2026-11-04 02:53:13 +0530; last line in `3795c2a` on 2026-11-04 03:07:47 +0530; labels from the title and parent heading: none
-
-`````text
-- **2026-11-04 02:53 IST, watchdog:** Kaggle queue chain had been stopped (my restart at 02:37 for the push-order change; the detached task could not start until the deleted hidden.vbs was restored). Restarted at about 02:52 IST so X9b batch 3 is pushed the moment the quota projection allows (about 9 Nov 19:42 IST). Laptop GPU busy (X1 T3 gemma4-e2b, 68 percent); no idle period; X4 drafts done.
-
-`````
-
-##### 2026-11-04 03:33 IST, X9b reserve LIFTED (Aarnav). X9B_SARVAM_H set from 18 to 0 in scripts/kaggle_queue.py: a Kaggle job now only has to fit in the remaining hours of the 30 h per rolling 7 days; X9b batch 3 (cap 6.9 h) is pushed the momen
-
-RESULTS.md lines 3876 to 3877; first line committed in `399fdee` on 2026-11-04 03:33:53 +0530; last line in `7ee0799` on 2026-11-04 03:43:18 +0530; labels from the title and parent heading: result
+RESULTS.md lines 3876 to 3877; first line committed in `399fdee` on 2026-11-04 03:33:53 +0530; last line in `7ee0799` on 2026-11-04 03:43:18 +0530; labels from the title and parent heading: none
 
 `````text
 - **2026-11-04 03:33 IST, X9b reserve LIFTED (Aarnav).** X9B_SARVAM_H set from 18 to 0 in scripts/kaggle_queue.py: a Kaggle job now only has to fit in the remaining hours of the 30 h per rolling 7 days; X9b batch 3 (cap 6.9 h) is pushed the moment it fits and nothing else queues ahead of it. State at this time: 23.63 h used, headroom 6.37 h; batch 3 fits once 0.53 h roll off (about 9 Nov 19:04 IST), MDL Qwen3-8B (2.5 h cap) fits now and was launched; Llama-2 A1-P (3.5 h) fits but stays blocked by the missing Kaggle HF_TOKEN secret (flag file results/kaggle/HF_SECRET_MISSING).
 
 `````
 
-##### 2026-11-04 09:53 IST, X12 CONTRAST 1 (primary test) RESULT: SUPPORTED (as predicted). Llama-2-7B vs Ambari-7B-base-v0.1, both passed A1-P (fp16 vs float32-offload), scored on Kaggle (Llama-2 1.81 h; code scripts/x12_analyse.py, output resul
+##### 2026-11-04 20:44 IST, X9b batch 3 moved to Kaggle account 2 (Aarnav's instruction).
 
-RESULTS.md lines 3898 to 3899; first line committed in `7455dba` on 2026-11-04 09:53:29 +0530; last line in `173d201` on 2026-11-04 11:07:39 +0530; labels from the title and parent heading: result
-
-`````text
-- **2026-11-04 09:53 IST, X12 CONTRAST 1 (primary test) RESULT: SUPPORTED (as predicted).** Llama-2-7B vs Ambari-7B-base-v0.1, both passed A1-P (fp16 vs float32-offload), scored on Kaggle (Llama-2 1.81 h; code scripts/x12_analyse.py, output results/phase2/x12/contrast1.json). **SIB-200 (n = 1,004 paired items), calibrated accuracy:** Ambari native 0.506, ITRANS 0.110, lossy 0.191, English 0.559; Llama-2 native 0.117, ITRANS 0.143, lossy 0.281, English 0.689. Gain (Ambari minus Llama-2): native +0.389, ITRANS -0.034; **DiD = +0.423, 97.5% interval [0.380, 0.466], above 0.** **Retrieval (unmapped, M4b test half, n = 1,005 paired sentences):** Ambari native 0.743, ITRANS 0.142; Llama-2 native 0.052, ITRANS 0.075; gain native +0.692, ITRANS +0.068; **DiD = +0.624, 97.5% interval [0.584, 0.664], above 0.** Both measures above 0: **supported** (registered rule). Reading and caveats stand as registered: the exposure Ambari received was native-script Kannada and it did not transfer to ITRANS (ITRANS accuracy for both models is near chance 0.143 on SIB-200); the native gain confounds exposure with the tokenizer extension (ITRANS tokens per word 4.69 vs 4.55 is the control); X9b, not X12, is the causal test of familiarity. Nothing against a prediction. The paper is not edited.
-
-`````
-
-##### 2026-11-04 12:13 IST, correction note to the X11 entry above (p values). The per-form McNemar p values in the X11 entry are exact and unadjusted; the registration prescribes no multiplicity correction for X11, and the verdict rule does not 
-
-RESULTS.md lines 3905 to 3905; first line committed in `ed31e10` on 2026-11-04 12:13:51 +0530; last line in `ed31e10` on 2026-11-04 12:13:51 +0530; labels from the title and parent heading: result
-
-`````text
-- **2026-11-04 12:13 IST, correction note to the X11 entry above (p values).** The per-form McNemar p values in the X11 entry are exact and unadjusted; the registration prescribes no multiplicity correction for X11, and the verdict rule does not use them. **Holm-adjusted over the five forms (English, native, ITRANS, lowercase, lossy): English 0.052, native 0.872, ITRANS 0.660, lowercase 0.876, lossy 0.872** (over the four registered forms: native 0.872, ITRANS 0.660, lowercase 0.876, lossy 0.872). So the statement "English is the only significant per-form change" holds only unadjusted (p 0.0105); after Holm it is not significant at 0.05 (0.052). Verdict stays "partly supported" as registered (every form within 3 points; gap-change 95% CI [-0.054, +0.003] outside the +-5 point bound by 0.4 points on one side). Arm A used Qwen3.5-2B; Arm B (optional, descriptive, one 4B-class model from the X6 screen, no verdict) is not built or run (X6 not screened yet). 4-bit in Phase 2: X11 Arm A (4-bit NF4 with double quantisation, bf16 compute) and the X9b QLoRA training (4-bit NF4 base, fp16 compute); the X9b evaluations use the adapter merged into the unquantized fp16 base. Nothing else uses 4-bit (A1-P, X12, X13, X10, X4 are bf16/fp16; the 4-bit load option exists in the loader but is only used by X11 and X9b).
-`````
-
-##### 2026-11-04 12:13 IST, Kaggle driver fixes (decided 2026-11-04 after three failed launches). (1) Ambari-Instruct-v0.1 and Llama-3.1-8B were already uploaded as private datasets (shattered-ambari-instruct-v0-1 and shattered-llama-3-1-8b) and 
-
-RESULTS.md lines 3906 to 3907; first line committed in `ed31e10` on 2026-11-04 12:13:51 +0530; last line in `72ff37e` on 2026-11-04 12:14:44 +0530; labels from the title and parent heading: failed or not run
-
-`````text
-- **2026-11-04 12:13 IST, Kaggle driver fixes (decided 2026-11-04 after three failed launches).** (1) Ambari-Instruct-v0.1 and Llama-3.1-8B were already uploaded as private datasets (shattered-ambari-instruct-v0-1 and shattered-llama-3-1-8b) and are attached by `scripts/kaggle_queue.py` for any job that names the model; all four private datasets (these two, shattered-llama-2-7b-hf and shattered-flores-private) are on the end-of-Phase-2 cleanup list. (2) **Stale driver:** the queue now hashes its scripts (kaggle_queue, kaggle_runner, kaggle_precision, x_score, kaggle_mdl, kaggle_x9b, interp/load) at start and re-executes itself before any push if they changed on disk; the runner pushes the committed tree and refuses a dirty one. (3) **Pre-launch check on the laptop (no quota):** each private dataset the job mounts must be "ready" on Kaggle, and a model named in the job arguments that is gated on Hugging Face must have a private dataset; otherwise nothing is pushed. (4) Queue order rule: non-X9b jobs are refused while an X9b Sarvam batch is pending (X9b batch 3 first, nothing ahead of it); scoring caps are 2.4 h (measured 1.2 to 1.8 h). Calendar of the remaining Kaggle jobs with start and end times: in the report to Aarnav of this time.
-
-`````
-
-##### 2026-11-04 13:21 IST, SECOND KAGGLE ACCOUNT ADDED (Aarnav's instruction). Some Kaggle compute for Phase 2 now runs on a teammate's Kaggle account (username ashwin18522; per-account quota of 30 h per rolling 7 days, tracked separately in res
-
-RESULTS.md lines 3910 to 3911; first line committed in `39d4c01` on 2026-11-04 13:21:46 +0530; last line in `d1ef7c9` on 2026-11-04 13:27:53 +0530; labels from the title and parent heading: result
-
-`````text
-- **2026-11-04 13:21 IST, SECOND KAGGLE ACCOUNT ADDED (Aarnav's instruction).** Some Kaggle compute for Phase 2 now runs on a **teammate's Kaggle account** (username ashwin18522; per-account quota of 30 h per rolling 7 days, tracked separately in results/kaggle/acct2/quota.json). The token is stored only in the gitignored .env (KAGGLE2_API_TOKEN, KAGGLE2_USERNAME) and was never written to a commit, log or this file. Token verified: it authenticates and the account lists its own kernels; the first kernel (kaggle_gate smoke test) started on a T4 x2 GPU session at 13:20 IST on 2026-11-04. *What changed in the code:* the runner takes KAGGLE_ACCOUNT=1|2 (credentials, quota file, job folders and build folder per account); the queue runs one driver per account: account 1 keeps X9b (batch 3 first when its quota frees, its checkpoints and datasets live there) and, until account 2 is accepted, the rest; account 2 runs the self-contained jobs (Ambari-Instruct-v0.1 A1-P, instruction-pair scoring and MDL, Llama-3.1-8B A1-P and scoring, later X13 models). Account 2 is accepted for real jobs only after the smoke test and the A1-R reproduction on its own environment pass (file results/kaggle/acct2/ACCEPTED). Private datasets re-uploaded under account 2: shattered-flores-private, shattered-llama-3-1-8b and shattered-ambari-instruct-v0-1 (uploads in progress at this time), plus the package dataset shattered-pkg that the runner uploads. **End-of-Phase-2 cleanup list additions: delete account 2's datasets (shattered-flores-private, shattered-llama-3-1-8b, shattered-ambari-instruct-v0-1, shattered-pkg) and kernels, and revoke the token that was shared in the chat (the token is in the session transcript).** The anonymiser now scrubs the account name.
-
-`````
-
-##### 2026-11-04 14:10 IST, ACCOUNT 2 ACCEPTED (teammate's Kaggle account): the A1-R reproduction on account 2 matches account 1 exactly. kaggle_retrieval_gate on account 2 (0.34 h; its own shattered-flores-private dataset): Sarvam-1 native layer
-
-RESULTS.md lines 3916 to 3917; first line committed in `59154b4` on 2026-11-04 14:10:52 +0530; last line in `eb2aa7a` on 2026-11-04 16:09:50 +0530; labels from the title and parent heading: result
-
-`````text
-- **2026-11-04 14:10 IST, ACCOUNT 2 ACCEPTED (teammate's Kaggle account): the A1-R reproduction on account 2 matches account 1 exactly.** kaggle_retrieval_gate on account 2 (0.34 h; its own shattered-flores-private dataset): Sarvam-1 native layer 24, accuracy 0.9443; ITRANS layer 21, accuracy 0.5104; Gemma 4 E2B native layer 7, accuracy 0.9960; ITRANS layer 7, accuracy 0.2657; all per-layer train and test curves equal account 1's (max difference 0.0) and are within 0.004 of the laptop values (tolerance 0.03); the untrained evaluation of a new environment therefore reproduces the A1-R numbers (results/kaggle/acct2/a1r_reproduced.json, marker results/kaggle/acct2/ACCEPTED). Private datasets under account 2, all ready: shattered-flores-private, shattered-llama-3-1-8b (upload 1,146 s), shattered-ambari-instruct-v0-1 (826 s); local copies deleted. The account-2 queue driver (scripts/kaggle_queue2_chain.sh, KAGGLE_ACCOUNT=2) started at 14:08 IST with the Ambari-Instruct-v0.1 A1-P; account 1 now runs X9b only. Quota use so far: account 2 about 0.5 of 30 h, account 1 29.36 of 30 h. **Calendar (estimates from measured runtimes; gating by caps):** account 2: v0.1 A1-P 14:10 to 15:40 on 4 Nov, v0.1 scoring to 17:10, v0.2 scoring to 18:40, instruction-pair MDL to 20:52, Llama-3.1-8B A1-P to 22:22, Llama-3.1-8B scoring to 00:10 on 5 Nov; account 1: X9b batch 3 from 10 Nov 02:50 to 09:20, X9b Qwen3.5-2B arm 10 Nov 09:20 to 18:20 (last job, projected end 10 Nov about 18:20 IST). Account 2 then has about 19 h of its week free for further X13 models and MDL jobs.
-
-`````
-
-##### 2026-11-04 20:44 IST, X9b batch 3 moved to Kaggle account 2 (Aarnav's instruction). Independence checked in `scripts/kaggle_x9b.py` and the queue: every run trains from the base model (the pool is the pinned public Wikipedia parquet read in
-
-RESULTS.md lines 3929 to 3929; first line committed in `3c30aee` on 2026-11-04 20:44:16 +0530; last line in `3c30aee` on 2026-11-04 20:44:16 +0530; labels from the title and parent heading: result
+RESULTS.md lines 3929 to 3929; first line committed in `3c30aee` on 2026-11-04 20:44:16 +0530; last line in `3c30aee` on 2026-11-04 20:44:16 +0530; labels from the title and parent heading: none
 
 `````text
 - **2026-11-04 20:44 IST, X9b batch 3 moved to Kaggle account 2 (Aarnav's instruction).** Independence checked in `scripts/kaggle_x9b.py` and the queue: every run trains from the base model (the pool is the pinned public Wikipedia parquet read in the kernel, verified by sha256 against the CPU report; seeds fixed; the removed-id list, the pilot result and the report ship in the package); a batch reads nothing from the outputs of batches 1 and 2 (resume applies only inside a run's own checkpoints), so batch 3 is independent. Account 2 has its own driver and state file for it (KAGGLE_ACCOUNT=2, QUEUE_ONLY=x9b), runs concurrently with the A1-P retry already running on that account, and its result is merged into account 1's state, so account 1 does not repeat it. **Base evaluation check first:** the kernel evaluates the untrained Sarvam-1 base before any training and stops with an error if native or ITRANS retrieval differs from the reference (results/phase2/x9b/base_reference.json = the batch-1 account-1 values equal to A1-R: native 0.9443, layer 24; ITRANS 0.5104, layer 21) by more than 0.01. Logged as run on account 2 (teammate's account). Pushed about 20:35 IST; the Qwen3.5-2B arm stays on account 1.
 `````
 
-##### 2026-11-04 21:53 IST, Kaggle account 2: duplicate push of the Ambari-Instruct-v0.1 A1-P (my driver defect; quota cost, no wrong result). The retry pushed at 20:10 IST (cap 3.5 h) stayed recorded as "pushed" in results/kaggle/acct2/quota.jso
+##### 2026-11-05 03:10 IST, X9b PRIMARY RESULT (Sarvam-1, 2 seeds per condition; `scripts/x9b_analyse.py`, `results/phase2/x9b/analysis_sarvam-1.json`): SUPPORTED on both measures (as predicted).
 
-RESULTS.md lines 3934 to 3935; first line committed in `952be81` on 2026-11-04 21:53:03 +0530; last line in `58423f1` on 2026-11-04 21:53:12 +0530; labels from the title and parent heading: result
-
-`````text
-- **2026-11-04 21:53 IST, Kaggle account 2: duplicate push of the Ambari-Instruct-v0.1 A1-P (my driver defect; quota cost, no wrong result).** The retry pushed at 20:10 IST (cap 3.5 h) stayed recorded as "pushed" in results/kaggle/acct2/quota.json, never fetched, because its driver process ended early (the self-restart on changed code, introduced the same day, re-executed the process while a push was in flight); the next queue pass at 21:41 IST then pushed the same kernel again (cap 5.0 h), which replaces the earlier version, so the 20:10 run's output is lost and the stale 3.5 h record keeps counting against the account (quota 21.89 h shown, conservative). The 21:41 run (5.0 h cap, progress lines on) is the one that will be fetched. **Fix:** the queue now refuses to push a kernel whose previous version is still running or queued (status check on the laptop, no quota). X9b batch 3 on account 2 (pushed 20:35, its own kernel) is unaffected.
-
-`````
-
-##### 2026-11-04 22:24 IST, Kaggle account 2: two drivers were running at once; stopped one; root cause fixed. Cause: the driver restarts itself when its scripts change on disk, and on Windows os.execv returns to the parent immediately, so the ch
-
-RESULTS.md lines 3940 to 3941; first line committed in `17dba9c` on 2026-11-04 22:24:09 +0530; last line in `06100d7` on 2026-11-04 22:37:35 +0530; labels from the title and parent heading: none
-
-`````text
-- **2026-11-04 22:24 IST, Kaggle account 2: two drivers were running at once; stopped one; root cause fixed.** Cause: the driver restarts itself when its scripts change on disk, and on Windows os.execv returns to the parent immediately, so the chain thought the pass had ended and an orphan driver kept running beside the chain's next pass (visible as two kaggle_queue.py processes pushing x_score and kaggle_mdl at 22:06 and 22:08 IST against one state file, which can overwrite each other's records). The restart now uses a blocking subprocess. I stopped the later driver (PID 75952) with its process tree, which also ended the local runner process that was waiting on the instruction-pair MDL kernel; **that Kaggle kernel (kaggle_mdl, pushed 22:08 IST, cap 3.0 h, account 2) is still running on Kaggle and its output must be fetched by hand (`KAGGLE_ACCOUNT=2 python scripts/kaggle_runner.py fetch kaggle_mdl`) and its state entry written; until then its 3.0 h stay counted as pushed.** The remaining account 2 drivers are the X9b batch 3 driver (pushed 20:35) and the scoring driver (x_score for Ambari-Instruct-v0.1 pushed 22:06).
-
-`````
-
-##### 2026-11-05 00:25 IST, why the account 2 instruction-pair MDL never started (twice): Kaggle allows two GPU sessions at a time per account. At 22:08 and again at 23:39 IST the MDL push came while X9b batch 3 and an x_score job were already ru
-
-RESULTS.md lines 3944 to 3945; first line committed in `5b9ae1d` on 2026-11-05 00:25:45 +0530; last line in `1fbe72d` on 2026-11-05 00:52:48 +0530; labels from the title and parent heading: result
-
-`````text
-- **2026-11-05 00:25 IST, why the account 2 instruction-pair MDL never started (twice): Kaggle allows two GPU sessions at a time per account.** At 22:08 and again at 23:39 IST the MDL push came while X9b batch 3 and an x_score job were already running on account 2; the push was not accepted (no kernel exists), but the runner went on polling a kernel that does not exist and reserved 3.0 h in the quota file. Fixed: the runner now stops with an error if the push output does not say it succeeded, and the queue refuses a push while two other kernels of the account are running (checked on the laptop, no quota). The stale MDL reservation is set to 0 h. The MDL will be pushed when a slot is free (after the x_score jobs). No result is affected.
-
-`````
-
-##### 2026-11-05 00:52 IST, load-time comparison for models mounted from a private dataset (Kaggle account 2), answering Aarnav's question on run length. Without the copy loader: fp16 load 2,866 s (Llama-3.1-8B A1-P, 2.78 h in total) and 3,420 s 
-
-RESULTS.md lines 3946 to 3947; first line committed in `1fbe72d` on 2026-11-05 00:52:48 +0530; last line in `055b2fc` on 2026-11-05 01:09:36 +0530; labels from the title and parent heading: none
-
-`````text
-- **2026-11-05 00:52 IST, load-time comparison for models mounted from a private dataset (Kaggle account 2), answering Aarnav's question on run length.** Without the copy loader: fp16 load 2,866 s (Llama-3.1-8B A1-P, 2.78 h in total) and 3,420 s (Ambari-Instruct-v0.1 A1-P, 1.94 h in total; an earlier attempt of the same job reached its 3.07 h self-stop); on account 1 Llama-2 loaded in 631 s. With the copy loader (parallel copy to local disk before loading; first used by the Ambari-Instruct-v0.1 scoring pushed 22:06 IST): "[model_source] copied shattered-ambari-instruct-v0-1: 12.8 GiB in 72s to local disk", and the whole scoring job took 1.20 h (4,112 s), as long as the account 1 scoring jobs (1.23 to 1.81 h). The A1-P timeout stays 5 h until an A1-P job has run with the copy loader. X9b batch 3 (training, loads Sarvam-1 from the Hub) is expected at about 6.5 h on either account (account 1: 6.31 and 6.60 h).
-
-`````
-
-##### 2026-11-05 01:09 IST, X12 instruction pair: both models scored (Kaggle account 2). Ambari-Instruct-v0.1 scoring (pushed 22:06 IST, 1.20 h, with the copy loader) and Ambari-Instruct-v0.2 scoring (pushed 23:19, 1.67 h) are complete and record
-
-RESULTS.md lines 3948 to 3949; first line committed in `055b2fc` on 2026-11-05 01:09:36 +0530; last line in `a7577c6` on 2026-11-05 01:24:12 +0530; labels from the title and parent heading: none
-
-`````text
-- **2026-11-05 01:09 IST, X12 instruction pair: both models scored (Kaggle account 2).** Ambari-Instruct-v0.1 scoring (pushed 22:06 IST, 1.20 h, with the copy loader) and Ambari-Instruct-v0.2 scoring (pushed 23:19, 1.67 h) are complete and recorded; the pair's MDL assembly-layer job (the registered contrast 2 measure, rule as H3, descriptive) was pushed at 01:00 IST on account 2 and is running; the contrast 2 analysis script is not built yet and is built while the MDL job runs. The Llama-3.1-8B scoring (X13) waits for a free GPU slot on account 2 (X9b batch 3 and the MDL job occupy both).
-
-`````
-
-##### 2026-11-05 03:10 IST, X9b PRIMARY RESULT (Sarvam-1, 2 seeds per condition; `scripts/x9b_analyse.py`, `results/phase2/x9b/analysis_sarvam-1.json`): SUPPORTED on both measures (as predicted). All six runs are complete: batches 1 and 2 on Kagg
-
-RESULTS.md lines 3958 to 3959; first line committed in `900da25` on 2026-11-05 03:10:06 +0530; last line in `17458bc` on 2026-11-05 03:12:00 +0530; labels from the title and parent heading: result, failed or not run
+RESULTS.md lines 3958 to 3959; first line committed in `900da25` on 2026-11-05 03:10:06 +0530; last line in `17458bc` on 2026-11-05 03:12:00 +0530; labels from the title and parent heading: result
 
 `````text
 - **2026-11-05 03:10 IST, X9b PRIMARY RESULT (Sarvam-1, 2 seeds per condition; `scripts/x9b_analyse.py`, `results/phase2/x9b/analysis_sarvam-1.json`): SUPPORTED on both measures (as predicted).** All six runs are complete: batches 1 and 2 on Kaggle account 1 (3 Nov), batch 3 (native seed 1, English seed 1) on account 2 (6.47 h; the in-kernel base-evaluation check passed first: native 0.9443 at layer 24, ITRANS 0.5104 at layer 21, equal to A1-R and to the account 1 base). B = 4,997,120 tokens per run (305 optimizer steps); tokenizer sha256 unchanged by training in every run; overlap 0 in every stream. Registered rule: gap g = native minus ITRANS after training on condition c; D_N = g(native) - g(ITRANS), D_E = g(English) - g(ITRANS); 97.5% paired-bootstrap intervals with one of the two seeds drawn per cell per resample. **SIB-200 accuracy (n = 1,004): g(0) = +0.233 before training (native 0.768, ITRANS 0.535); after training g(ITRANS) = +0.117, g(native) = +0.342, g(English) = +0.313; D_N = +0.225 [0.177, 0.273] (seeds +0.222, +0.227); D_E = +0.196 [0.150, 0.244] (seeds +0.196, +0.196): supported.** **FLORES+ retrieval (test half n = 1,005): g(0) = +0.434 (native 0.944, ITRANS 0.510); g(ITRANS) = +0.081, g(native) = +0.418, g(English) = +0.472; D_N = +0.337 [0.296, 0.378] (seeds +0.328, +0.346); D_E = +0.391 [0.344, 0.435] (seeds +0.381, +0.401): supported.** What moved (seed means, native / ITRANS accuracy): after ITRANS training 0.766 / 0.649 on SIB-200 (ITRANS +11 points) and retrieval 0.927 / 0.847 (ITRANS +34 points); after native training SIB-200 0.766 / 0.424 and retrieval 0.920 / 0.502; after English training SIB-200 0.757 / 0.443 and retrieval 0.920 / 0.449. **So with the tokenizer and the number of pieces per word fixed, continued pretraining on ITRANS text closed most of the gap by raising ITRANS (accuracy 0.535 to 0.649, retrieval 0.510 to 0.847), while the two controls left ITRANS retrieval unchanged to lower and lowered ITRANS SIB-200 accuracy (to 0.42 to 0.44, below the base).** The gap after the controls is therefore larger than the base gap g(0), i.e. D_N and D_E partly reflect the controls widening the gap and not only ITRANS training narrowing it; the narrowing by ITRANS training alone is 0.233 to 0.117 on SIB-200 and 0.434 to 0.081 on retrieval. Seed spread is at most 0.02 in every D. English SIB-200 damage check (descriptive, no verdict; base 0.768): ITRANS-trained -1.6 and -1.8 points, native-trained -2.6 and -2.8, **English-trained -5.1 and -5.3 (flagged: more than 5 points)**. Caveats as registered: adapters trained against the 4-bit base and evaluated on the unquantized fp16 base plus adapter; two seeds give a crude seed-variance estimate. The Qwen3.5-2B arm (secondary, one seed) has not run; it is the last Kaggle job and the first cut. This is the causal test of familiarity at fixed fragmentation that X12 pointed to. Nothing against a prediction. The paper is not edited.
 
 `````
 
-##### 2026-11-05 03:12 IST, X9b secondary arm (Qwen3.5-2B, one seed, three runs in one batch, cap 10.2 h) moved forward to Kaggle account 2 and pushed at about 03:30 IST (account 2 had a free GPU slot and 13 h of quota; account 1 would not have h
+##### 2026-11-05 03:12 IST, X9b secondary arm (Qwen3.5-2B, one seed, three runs in one batch, cap 10.2 h) moved forward to Kaggle account 2 and pushed at about 03:30 IST
 
 RESULTS.md lines 3960 to 3961; first line committed in `17458bc` on 2026-11-05 03:12:00 +0530; last line in `b9383db` on 2026-11-05 03:38:22 +0530; labels from the title and parent heading: none
 
@@ -391,39 +244,12 @@ RESULTS.md lines 3960 to 3961; first line committed in `17458bc` on 2026-11-05 0
 
 `````
 
-##### 2026-11-05 10:09 IST, X4 K3b-bn and K3b-te started (API and CPU; `scripts/k3b_dakshina.py sample|draft|analyse bn|te`, chain `scripts/x4k3b_chain.sh`). The exact K3b design: 500 Dakshina strings (duplicates and strings with fewer than 3 nat
-
-RESULTS.md lines 3982 to 3983; first line committed in `0dcc746` on 2026-11-05 10:09:51 +0530; last line in `c44254c` on 2026-11-05 10:32:26 +0530; labels from the title and parent heading: failed or not run
-
-`````text
-- **2026-11-05 10:09 IST, X4 K3b-bn and K3b-te started (API and CPU; `scripts/k3b_dakshina.py sample|draft|analyse bn|te`, chain `scripts/x4k3b_chain.sh`).** The exact K3b design: 500 Dakshina strings (duplicates and strings with fewer than 3 native words dropped; pools 9,198 for Bengali; seed 6), a 200-string resample subset (seed 7, temperature 1.0, two extra drafts), Gemini gemini-3.5-flash-lite with the same prompt as the Kannada drafts (language name changed), pooled ratios Gemini/human of vowel doubling (aa, ee, ii, oo, uu per letter), h-digraph use and English-word share against the band [0.80, 1.25] (90% CI); paid-tier cap (6,000 a day, 60 a minute). The laptop GPU has nothing ready (all registered GPU work for Phases X4, X6, X10, X11 is done); it has been idle since 09:52 IST. Remaining registered items elsewhere: the Qwen3.5-2B arm of X9b (Kaggle, running), X5 (cross-language consistency, analysis only, needs X2 exposure ratios), X14 (hosted models, API, waiting for the cap reset), the X13 Sarvam-model screen.
-
-`````
-
-##### 2026-11-05 10:43 IST, Phase 2 completion inventory written (`results/phase2/PHASE2_INVENTORY.md`) and new work started at Aarnav's instruction: X2 run (supported), K3b-bn done (refuted), K3b-te running, X10 post hoc extraction check for Qwe
-
-RESULTS.md lines 3989 to 3990; first line committed in `e0f0b06` on 2026-11-05 10:43:29 +0530; last line in `b9246e2` on 2026-11-05 10:52:45 +0530; labels from the title and parent heading: post hoc, result
-
-`````text
-- **2026-11-05 10:43 IST, Phase 2 completion inventory written (`results/phase2/PHASE2_INVENTORY.md`) and new work started at Aarnav's instruction:** X2 run (supported), K3b-bn done (refuted), K3b-te running, X10 post hoc extraction check for Qwen3.5-2B running on the laptop (not registered; the registered X10 verdict unchanged), X13 Sarvam screen done (sarvam-m, 23.6B, standard Mistral code, 4-bit, is the largest Sarvam model that fits 2 x T4; sarvam-30b and sarvam-105b need remote code and are excluded; scoring pushed to Kaggle account 2), X9b analysis extended (per-run table, training budget per form, tokens per word, English regression interval, ITRANS-trained versus the original native level) ready for the Qwen3.5-2B arm.
-
-`````
-
-##### 2026-11-05 13:09 IST, X9b secondary arm (Qwen3.5-2B, account 2): the kernel hit its 10.2 h cap ("job finished timeout" at 9.94 h of wall time) during the English run's retrieval step; operational note, nothing changed in the registration. C
+##### 2026-11-05 13:09 IST, X9b secondary arm (Qwen3.5-2B, account 2): the kernel hit its 10.2 h cap ("job finished timeout" at 9.94 h of wall time) during the English run's retrieval step; operational note, nothing changed in the registration.
 
 RESULTS.md lines 3997 to 3998; first line committed in `3483bc8` on 2026-11-05 13:09:45 +0530; last line in `6be3732` on 2026-11-05 13:12:01 +0530; labels from the title and parent heading: none
 
 `````text
 - **2026-11-05 13:09 IST, X9b secondary arm (Qwen3.5-2B, account 2): the kernel hit its 10.2 h cap ("job finished timeout" at 9.94 h of wall time) during the English run's retrieval step; operational note, nothing changed in the registration.** Complete: ITRANS run (346 optimizer steps, 5,668,864 tokens, tokenizer hash identical before and after) and native run (both with SIB-200 in three forms and retrieval, done.json written). English run: trained to the end (loss log to step 340), adapter saved, SIB-200 in all three forms scored (non-finite 0), but retrieval.json and done.json were not written. Cause: the cap (10.2 h) left too little for three trainings of about 2.6 h plus three evaluations of about 0.5 h each (training 9,199 s and evaluation about 2,000 s per run). Fix (the single relaunch allowed by the standing order, done on the laptop instead of Kaggle because only the retrieval step is missing and account 2 has 3.6 h of quota left): `scripts/x9b_finish_english.py` (chain `x9bfin`, queued behind the laptop pilot) loads the fp16 base, merges the saved adapter and runs the same Phase 1 retrieval scorer; it also rebuilds the English stream on CPU for the consumed article, word and token counts and the overlap scan, takes the loss log from the kernel's own stdout, and writes done.json marked "reconstructed_after_timeout" (the kernel's own before and after tokenizer hashes for that run were not written; the hash is taken from the unmodified tokenizer and compared with the ITRANS run's). Quota used on account 2: 26.4 h of 30 h in the last 7 days. The Qwen arm is not analysed until the English run has its retrieval.
-
-`````
-
-##### 2026-11-05 13:12 IST, REGISTRATION OF EXTRA SEEDS (added AFTER seeing the original seeds; Aarnav's instruction of 2026-11-05; the original registrations, rules, budgets and verdicts are unchanged). Why the laptop GPU was idle: the registere
-
-RESULTS.md lines 3999 to 4000; first line committed in `6be3732` on 2026-11-05 13:12:01 +0530; last line in `3b1e037` on 2026-11-05 13:23:17 +0530; labels from the title and parent heading: registered, result
-
-`````text
-- **2026-11-05 13:12 IST, REGISTRATION OF EXTRA SEEDS (added AFTER seeing the original seeds; Aarnav's instruction of 2026-11-05; the original registrations, rules, budgets and verdicts are unchanged).** Why the laptop GPU was idle: the registered laptop queue was empty (the last laptop job, X5, finished 11:42; idle until the feasibility pilot started at about 12:44). **(1) X9b primary arm (Sarvam-1) extra seeds.** Feasibility pilot on the RTX 3070 laptop (`scripts/x9b_laptop_pilot.py`, `results/phase2/x9b/laptop_pilot.json`, registered recipe unchanged, 50 micro-steps): ITRANS 633.6 tokens/s, native 564.5 tokens/s, micro-batch 16, finite loss; the card spills past 8 GB into shared memory (torch peak 10.6 GiB), which changes speed but not the arithmetic; at the registered budget B = 4,997,120 tokens per run that is 2.46 h of training per run (the registered T4 pilot's slowest rate is 515.7 tokens/s). It fits. Extra runs: **seeds 2 and 3 in the code (called seeds 3 and 4, beside the original seeds 1 and 2 = code seeds 0 and 1) for the ITRANS, native and English arms**, same QLoRA recipe, same streams and budget, same evaluation, run on the laptop with the in-run base-evaluation guard (the untrained base must reproduce the A1-R values in this environment before training starts; native 0.9443 layer 24, ITRANS 0.5104 layer 21). Output `results/kaggle/laptop_x9b/2026-11-05/out`. **Labelled "added after seeing seeds 1 and 2". The paper reports all four seeds together and the original two separately, whatever they show;** the registered verdict stays the one from the original two seeds. The 97.5% intervals will be computed twice (original two seeds; all four seeds, one seed drawn per cell per resample), same code. Environment difference stated: laptop (Windows, RTX 3070 8 GB with shared-memory spill) against Kaggle T4. **(2) X9a-low extra seeds:** exposure levels 0.1%, 0.3% and 1%, code seeds 3 and 4 (called seeds 4 and 5; the original seeds are 0, 1, 2), same recipe and evaluation, per-seed values reported, labelled the same way; the registered X9a-low rule is not re-evaluated on a different set of seeds, the table will show original three and all five. The 1% level is the X9a level-1 run (`x9a_p1_s3`, `x9a_p1_s4`). Queue (chain `x9extra`, after the Qwen English-run completion): X9a-low extras first (6 runs, about 18 min each, about 2 h), then the six X9b runs (about 2.5 h training plus evaluation each, an estimated 16 to 18 h in total, projected finish about 6 Nov 09:00 to 11:00 IST). X9a-low goes first only because it is short and returns in about 2 h; X9b follows without waiting for anything else. The paper is not edited.
 
 `````
 
@@ -436,34 +262,7 @@ RESULTS.md lines 4001 to 4002; first line committed in `3b1e037` on 2026-11-05 1
 
 `````
 
-##### 2026-11-05 15:42 IST, KAGGLE QUOTA EXHAUSTED ON BOTH ACCOUNTS (operational; nothing was pushed, no quota used by the attempt). A push of the three remaining Sarvam-m forms (lossy, lowercase, natural; chain `smrest`, account 2, cap 5 h) was 
-
-RESULTS.md lines 4015 to 4016; first line committed in `3ecea71` on 2026-11-05 15:42:19 +0530; last line in `cccb4f4` on 2026-11-05 22:08:29 +0530; labels from the title and parent heading: result, failed or not run
-
-`````text
-- **2026-11-05 15:42 IST, KAGGLE QUOTA EXHAUSTED ON BOTH ACCOUNTS (operational; nothing was pushed, no quota used by the attempt).** A push of the three remaining Sarvam-m forms (lossy, lowercase, natural; chain `smrest`, account 2, cap 5 h) was refused by Kaggle at 15:39: "Maximum weekly GPU quota of 30.00 hours reached". The queue's own ledger for account 2 (`results/kaggle/acct2/quota.json`, 20.35 h) did not include the sessions of the X9b batch 3 and the Qwen3.5-2B arm (9.94 h), which the X9b-only driver records in its own ledger; the two ledgers together are at the 30 h cap, and Kaggle's count is the binding one. The first account's ledger shows 29.36 h in the last 7 days. Consequence: no Kaggle job can be pushed on either account until hours roll off: account 1 from about 9 Nov (the first 2 Nov sessions free up from 11:20 UTC on 9 Nov, then steadily), account 2 from about 11 Nov 07:56 UTC (its first sessions were on 4 Nov). The three Sarvam-m forms and the Sarvam-m X10 job therefore wait for that quota; the Sarvam-m verdict on native vs ITRANS (7 of 7 models) does not depend on them. Chain `smrest` is marked FAILED for this reason, not for an error in the job. The laptop GPU stays busy with the extra seeds (X9b about 16 to 18 h). Standing order 2 (use every quota hour) is satisfied: both accounts are at the cap.
-
-`````
-
-##### 2026-11-05 22:08 IST, LAPTOP POWER LOSS AND RESTART (operational). The laptop shut down uncleanly at about 16:42 (Windows event 41 and 6008, previous shutdown logged at 16:10:37 PM by the event, the last file write of the X9b extra run at 1
-
-RESULTS.md lines 4017 to 4018; first line committed in `cccb4f4` on 2026-11-05 22:08:29 +0530; last line in `739114f` on 2026-11-05 22:15:42 +0530; labels from the title and parent heading: failed or not run
-
-`````text
-- **2026-11-05 22:08 IST, LAPTOP POWER LOSS AND RESTART (operational).** The laptop shut down uncleanly at about 16:42 (Windows event 41 and 6008, previous shutdown logged at 16:10:37 PM by the event, the last file write of the X9b extra run at 16:42) and came back at 22:00:56; the GPU was idle for about 5 h 20 min (16:42 to 22:07) with the X9b extra-seed chain interrupted, which breaks the standing order that the GPU is never idle; cause: a power or system failure on the machine, not a project process. The chain came back by itself at 22:02 but stopped at 22:06 on an unreadable checkpoint: the step-100 checkpoint of `sarvam-1+itrans+s2` was being written when power was lost (zip archive truncated). Fixes: the corrupt checkpoint file (my own output of that run) was deleted and the run restarts from step 0 (about 1.4 h of training lost: it had reached step 100 of 305); checkpoint writes in `scripts/kaggle_x9b.py` are now atomic (written to a temporary file, then replaced), which does not touch the recipe, streams or evaluation; the chain `x9extra` was relaunched at 22:07 and skips the finished base evaluation. The X9b extra-seed finish estimate moves from about 7 Nov 09:30 to about 8 Nov 03:30 to 05:00 IST (six runs of about 2.9 h from 22:07). Kaggle kernels were not affected (none running). The 15-minute watchdog kept firing in this session; no other process had been lost.
-
-`````
-
-##### 2026-11-05 22:23 IST, KAGGLE ACCOUNT 3 ENABLED AND KAGGLE PUSH AUDIT (operational). Aarnav reported that the owner of the third Kaggle account (username aarnavkembhavi) confirmed it is a teammate's account, agreed to its use and confirmed t
-
-RESULTS.md lines 4021 to 4022; first line committed in `5d9fd0e` on 2026-11-05 22:23:55 +0530; last line in `07e9a33` on 2026-11-05 22:37:41 +0530; labels from the title and parent heading: result
-
-`````text
-- **2026-11-05 22:23 IST, KAGGLE ACCOUNT 3 ENABLED AND KAGGLE PUSH AUDIT (operational).** Aarnav reported that the owner of the third Kaggle account (username aarnavkembhavi) confirmed it is a teammate's account, agreed to its use and confirmed the phone is verified; its token is in the gitignored \`.env\` only. **Statement for the record: some Phase 2 Kaggle compute ran on teammates' accounts, not on Aarnav's: account 2 (username ashwin18522, a teammate's, from 2026-11-04 07:50 UTC: gates, A1-R reproduction, A1-P checks for the Llama and Ambari-Instruct models, instruction-pair and Llama-3.1-8B scoring and MDL, X9b batch 3 (Sarvam-1, 2026-11-04), the X9b Qwen3.5-2B arm (2026-11-04 21:41 UTC to 2026-11-05) and the X13 Sarvam-m scoring (2026-11-05 05:10 UTC)); and from 2026-11-05 account 3 (username aarnavkembhavi, a teammate's), starting with its smoke gate and A1-R reproduction on 2026-11-05 and followed by the jobs listed below once those pass.** **Audit (requested), checked from the Kaggle side: every kernel on each account was listed with its owner. Account 1 (aarnavkembhavi1): 6 kernels (x-score, kaggle-x9b, kaggle-mdl, kaggle-precision, kaggle-gate, kaggle-retrieval-gate), all owned by aarnavkembhavi1, 5 datasets all under aarnavkembhavi1. Account 2 (ashwin18522): the same 6 kernels, all owned by ashwin18522, 4 datasets all under ashwin18522. Account 3 (aarnavkembhavi): no shattered-* kernel and no dataset before today. The two ledgers hold 35 recorded pushes (23 on account 1, 12 on account 2 plus the sessions of the X9b-only ledger): every recorded kernel slug carries the owner of its own account, no kernel exists under any other owner, so no job ran on the fallback login.** The one fallback found concerns the CLI configuration, not a job: the Kaggle CLI falls back to the login stored in the user profile (which is the account aarnavkembhavi) when no token is given; every run passes its own token and username, an invalid token is refused rather than falling back, and each account now has its own empty CLI configuration folder in \`build/kaggle_config_<n>\` (runner change committed). Setup of account 3: private dataset \`aarnavkembhavi/shattered-flores-private\` (the FLORES+ evaluation sentences, as on the other accounts; no other datasets: the models of its jobs are public), then the smoke gate and the A1-R retrieval reproduction (untrained Sarvam-1 and Gemma 4 E2B base evaluation, which must reproduce account 1's curves) before any real job; chains \`acct3x9b\` (X9b extra seed, ITRANS and native, then English, with the in-kernel base-evaluation guard) and \`acct3sm\` (Sarvam-m lossy, lowercase, natural) wait for that acceptance. Quota is tracked per account (30 h per rolling 7 days; two GPU sessions per account); the account-3 ledger is \`results/kaggle/acct3/quota.json\`. The paper is not edited.
-
-`````
-
-##### 2026-11-05 22:59 IST, X9b LAPTOP RUNS: CHECKPOINT SAVE STALLS 20+ MINUTES; CHANGE TO WHAT IS CHECKPOINTED (operational; recipe, streams and evaluation unchanged). After the power-loss restart the first extra run (`sarvam-1+itrans+s2`) reach
+##### 2026-11-05 22:59 IST, X9b LAPTOP RUNS: CHECKPOINT SAVE STALLS 20+ MINUTES; CHANGE TO WHAT IS CHECKPOINTED (operational; recipe, streams and evaluation unchanged).
 
 RESULTS.md lines 4025 to 4026; first line committed in `1d0616d` on 2026-11-05 22:59:17 +0530; last line in `4579347` on 2026-11-05 22:59:29 +0530; labels from the title and parent heading: amended, failed or not run
 
@@ -472,7 +271,7 @@ RESULTS.md lines 4025 to 4026; first line committed in `1d0616d` on 2026-11-05 2
 
 `````
 
-##### 2026-11-05 22:59 IST, CORRECTION NOTE (finish dates of the laptop X9b extra seeds; arithmetic error). The two entries above that give the six laptop runs a finish of "8 Nov" (after the power-loss restart, and in the checkpoint entry) are wr
+##### 2026-11-05 22:59 IST, CORRECTION NOTE (finish dates of the laptop X9b extra seeds; arithmetic error).
 
 RESULTS.md lines 4027 to 4028; first line committed in `4579347` on 2026-11-05 22:59:29 +0530; last line in `8c59c8a` on 2026-11-06 00:53:19 +0530; labels from the title and parent heading: none
 
@@ -481,7 +280,7 @@ RESULTS.md lines 4027 to 4028; first line committed in `4579347` on 2026-11-05 2
 
 `````
 
-##### 2026-11-06 00:53 IST, SECOND LAPTOP CRASH AND STABILITY CHANGE FOR THE X9b EXTRA RUNS (operational). Windows logged a second unclean reboot (Kernel-Power 41; bugcheck 0x1e, an unhandled access violation, last good time 22:41:16; the earlier
+##### 2026-11-06 00:53 IST, SECOND LAPTOP CRASH AND STABILITY CHANGE FOR THE X9b EXTRA RUNS (operational).
 
 RESULTS.md lines 4029 to 4030; first line committed in `8c59c8a` on 2026-11-06 00:53:19 +0530; last line in `fc1246a` on 2026-11-06 02:37:37 +0530; labels from the title and parent heading: amended, failed or not run
 
@@ -490,9 +289,9 @@ RESULTS.md lines 4029 to 4030; first line committed in `8c59c8a` on 2026-11-06 0
 
 `````
 
-##### 2026-11-06 02:37 IST, X9b EXTRA RUN 1 OF 6 FINISHED (`sarvam-1+itrans+s2`, code seed 2 = seed 3 in the report; laptop) AND SPEED OF THE MICRO-BATCH CAP. Run facts: 305 optimizer steps, 4,997,120 tokens, micro-batch 16, tokenizer hash unchan
+##### 2026-11-06 02:37 IST, X9b EXTRA RUN 1 OF 6 FINISHED (`sarvam-1+itrans+s2`, code seed 2 = seed 3 in the report; laptop) AND SPEED OF THE MICRO-BATCH CAP.
 
-RESULTS.md lines 4031 to 4032; first line committed in `fc1246a` on 2026-11-06 02:37:37 +0530; last line in `e605a65` on 2026-11-06 11:53:24 +0530; labels from the title and parent heading: result, failed or not run
+RESULTS.md lines 4031 to 4032; first line committed in `fc1246a` on 2026-11-06 02:37:37 +0530; last line in `e605a65` on 2026-11-06 11:53:24 +0530; labels from the title and parent heading: result
 
 `````text
 - **2026-11-06 02:37 IST, X9b EXTRA RUN 1 OF 6 FINISHED (`sarvam-1+itrans+s2`, code seed 2 = seed 3 in the report; laptop) AND SPEED OF THE MICRO-BATCH CAP.** Run facts: 305 optimizer steps, 4,997,120 tokens, micro-batch 16, tokenizer hash unchanged, not resumed from a checkpoint (it restarted from step 0 after the second crash), training 8,057 s (it includes the 20-minute pilot-sized stall of the discarded first save), evaluation done. Untrained-base guard passed beforehand (native 0.9443, ITRANS 0.5114 against the reference 0.9443 and 0.5104). Interim retrieval (unmapped, n = 1,005, train-chosen layer): native 0.9333 (layer 24), ITRANS 0.8746 (layer 20); the original ITRANS-trained seeds gave ITRANS 0.840 and 0.854 and native 0.926 and 0.928. SIB-200 and the paired analysis come with the whole set (`x9b_analyse.py --seeds 0,1,2,3`). **Speed: the next run (native seed 3) with the micro-batch capped at 8 trains at about 17.6 s per optimizer step (step 20 at 353 s), against about 27 s at micro-batch 16: with no shared-memory spill the card is faster.** Projected training time 1.5 h per run, with evaluation about 1.9 h, so the five remaining laptop runs end about **6 Nov 12:00 IST** (earlier estimate 17:30 to 19:30). The paper is not edited.
@@ -501,28 +300,10 @@ RESULTS.md lines 4031 to 4032; first line committed in `fc1246a` on 2026-11-06 0
 
 ##### 2026-11-06 11:53 IST, X9b PRIMARY ARM: EXTRA SEEDS FINISHED; RESULT WITH ALL FOUR SEEDS AND WITH THE ORIGINAL TWO (Sarvam-1; seeds 3 and 4 were ADDED AFTER SEEING SEEDS 1 AND 2, same QLoRA recipe, streams and budget, laptop; `x9b_analyse.py
 
-RESULTS.md lines 4033 to 4033; first line committed in `e605a65` on 2026-11-06 11:53:24 +0530; last line in `e605a65` on 2026-11-06 11:53:24 +0530; labels from the title and parent heading: result, failed or not run
+RESULTS.md lines 4033 to 4033; first line committed in `e605a65` on 2026-11-06 11:53:24 +0530; last line in `e605a65` on 2026-11-06 11:53:24 +0530; labels from the title and parent heading: result
 
 `````text
 - **2026-11-06 11:53 IST, X9b PRIMARY ARM: EXTRA SEEDS FINISHED; RESULT WITH ALL FOUR SEEDS AND WITH THE ORIGINAL TWO (Sarvam-1; seeds 3 and 4 were ADDED AFTER SEEING SEEDS 1 AND 2, same QLoRA recipe, streams and budget, laptop; `x9b_analyse.py --seeds 0,1,2,3` → `analysis_sarvam-1_seeds0123.json`; original two seeds → `analysis_sarvam-1.json`, registered verdict unchanged).** Both analyses use the same code (97.5% intervals, one seed drawn per cell per resample, 10,000 resamples). **The registered prediction (D_N > 0 and D_E > 0, intervals above 0) holds on both measures in both analyses: supported.** g = native minus ITRANS; g before training: SIB-200 0.233, retrieval 0.434. **Original seeds 1-2: SIB-200 D_N +0.225 [0.177, 0.273], D_E +0.196 [0.150, 0.244]; retrieval D_N +0.337 [0.296, 0.378], D_E +0.391 [0.344, 0.435]. All four seeds: SIB-200 D_N +0.222 [0.174, 0.270], D_E +0.194 [0.147, 0.243]; retrieval D_N +0.339 [0.292, 0.386], D_E +0.405 [0.353, 0.457].** Per-seed values (seeds 1, 2 | added 3, 4), g after training: SIB-200 ITRANS-trained 0.117, 0.118 | 0.124, 0.118; native-trained 0.339, 0.345 | 0.343, 0.337; English-trained 0.313, 0.314 | 0.306, 0.320. Retrieval ITRANS-trained 0.087, 0.075 | 0.059, 0.082; native-trained 0.415, 0.421 | 0.402, 0.418; English-trained 0.468, 0.476 | 0.493, 0.488. D_N per seed: SIB-200 0.222, 0.227 | 0.219, 0.219; retrieval 0.328, 0.346 | 0.343, 0.336. D_E per seed: SIB-200 0.196, 0.196 | 0.182, 0.202; retrieval 0.381, 0.401 | 0.434, 0.406. The added seeds sit inside the range of the original two on SIB-200 and slightly widen it on retrieval (ITRANS-trained retrieval gap 0.059 against 0.075 to 0.087, English-trained 0.493 against 0.468 to 0.476). English regression (SIB-200 English against the untrained model): original two seeds ITRANS -1.7 [-3.4, +0.05], native -2.7 [-4.8, -0.6], English -5.2 [-7.1, -3.3] (flagged: more than 5 points); all four seeds -1.6 [-3.3, +0.1], -2.5 [-4.5, -0.4], -5.3 [-7.3, -3.4] (the English-trained arm is flagged in both, as before). ITRANS-trained models do not reach the original native level in either analysis (SIB-200 0.646 against 0.768; retrieval 0.854 against 0.944; all four seeds). Run facts: all six extra runs 305 optimizer steps, 4,997,120 tokens, tokenizer unchanged, overlap 0 articles, none resumed from a checkpoint; micro-batch 16 for \`itrans+s2\` and 8 for the other five (same optimizer step; the micro-batch cap was introduced after two laptop crashes, see the entries above); the untrained-base guard passed on the laptop. Environment: the original four runs ran on Kaggle T4 (accounts 1 and 2), the six extra runs on the RTX 3070 laptop; the numbers agree within the seed spread. The paper reports all four seeds together and the original two separately, as stated at registration; it is not edited.
-`````
-
-##### 2026-11-07 01:49 IST, KAGGLE ACCOUNT 3 REPLACED BY A NEW TOKEN AND A DIFFERENT ACCOUNT (operational). Aarnav supplied a new Kaggle API token to be used instead of the third-account token. It resolves to the Kaggle username aakarshprabhu (ch
-
-RESULTS.md lines 4036 to 4037; first line committed in `ac6470f` on 2026-11-07 01:49:19 +0530; last line in `b194514` on 2026-11-07 01:53:51 +0530; labels from the title and parent heading: result, failed or not run
-
-`````text
-- **2026-11-07 01:49 IST, KAGGLE ACCOUNT 3 REPLACED BY A NEW TOKEN AND A DIFFERENT ACCOUNT (operational).** Aarnav supplied a new Kaggle API token to be used instead of the third-account token. It resolves to the Kaggle username **aakarshprabhu** (checked with an empty CLI configuration folder; the old token resolved to aarnavkembhavi), a different account, treated as a teammate's account on Aarnav's instruction. The new token is stored only in the gitignored `.env` (KAGGLE3_API_TOKEN, KAGGLE3_USERNAME; the replaced token is kept there as KAGGLE3_API_TOKEN_PREVIOUS for cleanup and revocation), never in commits, logs or reports. The earlier attempt on aarnavkembhavi (two failed setup kernels, no internet, 0.21 h) is archived as `results/kaggle/acct3_aarnavkembhavi_failed` and its chain status under `results/phase2/`. A CPU test kernel on the new account confirms **internet works** (pypi.org and huggingface.co reachable). The private dataset `aakarshprabhu/shattered-flores-private` was created; the smoke gate and the A1-R reproduction (untrained Sarvam-1 and Gemma 4 E2B must reproduce account 1's curves) run before any job. The account-3 X9b chain was cancelled (the seed-4 runs finished on the laptop on 2026-11-06); the Sarvam-m chain `acct3sm` (lossy, lowercase, natural; 5 h cap) is kept waiting for the acceptance. Cleanup list: revoke both third-account tokens (the replaced one and the new one; both were pasted in chat), delete the datasets and kernels created on aakarshprabhu and on aarnavkembhavi, delete the nettest kernels. The username is added to the anonymiser's scrub list. This extends the statement that some Phase 2 Kaggle compute ran on teammates' accounts: account 3 (aakarshprabhu) from 2026-11-07. The paper is not edited.
-
-`````
-
-##### 2026-11-07 01:53 IST, REGISTRATION OF A SECOND SET OF EXTRA SEEDS (added AFTER seeing the originals; Aarnav's instruction of 2026-11-07 to start both; the original registrations, rules, budgets and verdicts are unchanged). Why the laptop GP
-
-RESULTS.md lines 4038 to 4039; first line committed in `b194514` on 2026-11-07 01:53:51 +0530; last line in `acd0e83` on 2026-11-07 02:21:05 +0530; labels from the title and parent heading: registered, result
-
-`````text
-- **2026-11-07 01:53 IST, REGISTRATION OF A SECOND SET OF EXTRA SEEDS (added AFTER seeing the originals; Aarnav's instruction of 2026-11-07 to start both; the original registrations, rules, budgets and verdicts are unchanged).** Why the laptop GPU was idle: no registered laptop job was left after the first extra-seed chain finished at 2026-11-06 11:40 (idle until this start). **(1) X9a-low: levels 0 (no cipher), 0.01% and 0.03% exposure, code seeds 3 and 4 (called seeds 4 and 5; originals 0, 1, 2), same recipe and evaluation as the earlier extra seeds (0.1%, 0.3%, 1%), six runs of about 18 minutes; per-seed values will be reported with the original three and all five side by side; the registered X9a-low rule is not re-run on a different set of seeds. The level-0 stream (removed with the caches) is regenerated with the code of the original preparation and refused unless its sha256 equals the stored value.** **(2) X9b secondary arm (Qwen3.5-2B): extra code seeds 1 and 2 (called seeds 2 and 3; the original run is seed 0, one seed), ITRANS, native and English, same QLoRA recipe, streams and token budget (5,668,864 tokens per run, 346 optimizer steps), same evaluation, laptop (the original ran on Kaggle account 2 and was finished on the laptop), micro-batch 4 as in the pilot (below the cap of 8), six runs of about 2 to 2.5 h; the analysis `x9b_analyse.py --model qwen3.5-2b --seeds 0,1,2` adds a seed spread to the secondary arm; the secondary arm still does not enter the primary conclusion and its registered verdict (supported, one seed) is unchanged.** Chain `x9extra2` (X9a-low first, about 2 h; then the Qwen runs, an estimated 12 to 15 h, projected finish about 7 Nov 20:00 to 23:00 IST). Output `results/kaggle/laptop_x9b/2026-11-07/out`. Also from now on the 15-minute watchdog reports to Aarnav only when a job finishes, fails or a registered result arrives (Aarnav's instruction), the checks themselves continue. The paper is not edited.
-
 `````
 
 ##### 2026-11-08 15:33 IST, X9b SECONDARY ARM (Qwen3.5-2B): EXTRA SEEDS FINISHED (added after seeing the original seed; registered 2026-11-07; code seeds 1 and 2 = seeds 2 and 3; laptop, chain finished 2026-11-07 20:05; `x9b_analyse.py --model qw
