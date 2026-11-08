@@ -36,3 +36,17 @@ annotation/private/
 # returned annotator workbooks carry the annotators' author fields (names): never committed (2026-11-03)
 annotation/returned/*
 !annotation/returned/.gitkeep
+
+# secrets and weights (explicit, 2026-11-09)
+.env.*
+!.env.example
+access_token
+*.token
+*.pem
+*.pth
+*.ckpt
+*.gguf
+*.bin
+.huggingface/
+hf_cache/
+.cache/
