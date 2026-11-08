@@ -415,6 +415,8 @@ def main() -> None:
            "## Index (Phase 1, then Phase 2, then cross-cutting lists)", "", "| phase | id | name | file | lines in file | RESULTS.md entries |", "|---|---|---|---|---|---|"]
     order = sorted(index_rows, key=lambda r: ({1: 0, 2: 1, 0: 2}[r[0]], 0))
     for ph, gid, name, fn, nl, ne in order:
+        nl = len((OUT / fn).read_text(encoding="utf-8").split("
+")) - 1  # actual lines in the file
         idx.append(f"| {'1' if ph == 1 else '2' if ph == 2 else 'all'} | {gid} | {name} | `results/phase2/dump/{fn}` | {nl} | {ne} |")
     MAIN.write_text("\n".join(idx) + "\n", encoding="utf-8")
     all_files = sorted(OUT.glob("*.md")) + [MAIN]
