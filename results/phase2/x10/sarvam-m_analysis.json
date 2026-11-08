@@ -1,0 +1,51 @@
+{
+ "provenance": {
+  "status": "post hoc extension (Sarvam-m is not one of the four counted models of X10-P); registered X10-P verdict unchanged",
+  "registration": "RESULTS.md X10 and the 2026-11-08 16:23 IST entry (native and ITRANS only)",
+  "metric": "sentence chrF2 on the registered first-line outputs",
+  "bootstrap": "10,000 resamples, seed 0, two-sided",
+  "family": "Holm over the 16 registered contrasts plus this one (17)"
+ },
+ "contrast": {
+  "model": "sarvam-m",
+  "contrast": "native - itrans",
+  "n": 1012,
+  "diff": 23.42314625060331,
+  "ci95": [
+   22.50524266356799,
+   24.34072204685993
+  ],
+  "p": 0.00019998000199980003,
+  "p_holm_family_17": 0.0033996600339966003,
+  "significant_positive_family_17": true
+ },
+ "corpus": {
+  "native": {
+   "corpus_chrf": 59.64379881033204,
+   "n": 1012,
+   "empty_share": 0.0,
+   "starts_with_think_share": 0.0,
+   "seconds_per_sentence": 17.467048168417964,
+   "source": "results/kaggle/acct3/kaggle_x10/2026-11-08T105332/out/sarvam-m/native.json"
+  },
+  "itrans": {
+   "corpus_chrf": 36.40593874625589,
+   "n": 1012,
+   "empty_share": 0.007905138339920948,
+   "starts_with_think_share": 0.0,
+   "seconds_per_sentence": 23.33931595982299,
+   "source": "results/kaggle/acct3/kaggle_x10/2026-11-08T160147/out/sarvam-m/itrans.json"
+  }
+ },
+ "registered_X10_P_unchanged": {
+  "models_native_beats_itrans_holm_significant": [
+   "qwen3-1.7b",
+   "qwen3.5-2b",
+   "sarvam-1",
+   "gemma4-e2b"
+  ],
+  "n_models": 4,
+  "verdict": "supported",
+  "rule": "supported: >= 3 of 4; partly supported: exactly 2; refuted: <= 1"
+ }
+}

@@ -1,23 +1,24 @@
 {
  "job": "kaggle_x10",
  "kernel": "aakarshprabhu/shattered-kaggle-x10",
- "commit": "5785428591f4806603bb1fbd166b39a0d9f0b857",
+ "commit": "071b67490c75a1846ce2a5c07ccd14eebb45c15c",
  "dirty": false,
  "args": [
   "--models",
   "sarvam-m",
   "--forms",
-  "native",
+  "itrans",
   "--batch",
   "16"
  ],
- "start_utc": "2026-11-08T10:53:32.635235+00:00",
- "hours": 5.128646381166246,
+ "start_utc": "2026-11-08T16:01:47.675747+00:00",
+ "hours": 6.679830555555555,
  "status": "aakarshprabhu/shattered-kaggle-x10 has status \"KernelWorkerStatus.COMPLETE\"",
  "accelerator": "NvidiaTeslaT4 (T4 x2)",
- "output_dir": "results\\kaggle\\acct3\\kaggle_x10\\2026-11-08T105332",
+ "output_dir": "results\\kaggle\\acct3\\kaggle_x10\\2026-11-08T160147",
  "hardware": null,
  "torch": null,
  "bf16_supported": null,
- "provenance": {}
+ "provenance": {},
+ "hours_note": "corrected 2026-11-09 (see quota.json)"
 }

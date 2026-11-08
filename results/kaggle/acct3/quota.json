@@ -161,9 +161,14 @@
     "16"
    ],
    "start_utc": "2026-11-08T16:01:47.675747+00:00",
-   "hours": 10.5,
-   "status": "pushed",
-   "accelerator": "NvidiaTeslaT4 (T4 x2)"
+   "hours": 6.679830555555555,
+   "status": "aakarshprabhu/shattered-kaggle-x10 has status \"KernelWorkerStatus.COMPLETE\"",
+   "accelerator": "NvidiaTeslaT4 (T4 x2)",
+   "output_dir": "results\\kaggle\\acct3\\kaggle_x10\\2026-11-08T160147",
+   "hardware": null,
+   "torch": null,
+   "bf16_supported": null,
+   "hours_note": "corrected 2026-11-09: the fetch recorded its own polling time (1.64 h); real kernel time = generation 23,619 s + load about 428 s"
   }
  ]
 }
