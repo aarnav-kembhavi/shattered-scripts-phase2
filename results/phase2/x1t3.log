@@ -1,102 +1,0 @@
-=== 2026-11-04 02:08:11 T3 scoring: gemma4-e2b: env X1_TEMPLATE=v3 PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x1_t2.py score gemma4-e2b
-items: sentiment 200, xnli 200, sib 1004, sib257 257
-Fetching 6 files:   0%|          | 0/6 [00:00<?, ?it/s]Fetching 6 files: 100%|██████████| 6/6 [00:00<00:00, 1490.51it/s]
-gemma4-e2b: loaded in 10s
-gemma4-e2b/english: 400 items in 89s
-gemma4-e2b/native: 400 items in 91s
-gemma4-e2b/itrans: 400 items in 104s
-gemma4-e2b/lower: 400 items in 102s
-gemma4-e2b/lossy: 400 items in 98s
-gemma4-e2b/natural: 391 items in 94s
-gemma4-e2b/english: 1004 items in 638s
-gemma4-e2b/native: 1004 items in 754s
-gemma4-e2b/itrans: 1004 items in 766s
-gemma4-e2b/lower: 1004 items in 663s
-gemma4-e2b/lossy: 1004 items in 651s
-gemma4-e2b/natural257: 257 items in 165s
-gemma4-e2b: NC sentiment done (114s)
-gemma4-e2b: NC xnli done (289s)
-gemma4-e2b: NC sib done (2528s)
-gemma4-e2b: finished in 6756s
-=== 2026-11-04 04:02:22 T3 scoring: sarvam-1: env X1_TEMPLATE=v3 PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x1_t2.py score sarvam-1
-items: sentiment 200, xnli 200, sib 1004, sib257 257
-Loading weights:   0%|          | 0/255 [00:00<?, ?it/s]Loading weights:   0%|          | 1/255 [00:00<01:06,  3.84it/s]Loading weights:   2%|▏         | 5/255 [00:00<00:15, 16.48it/s]Loading weights:   4%|▍         | 11/255 [00:00<00:08, 30.47it/s]Loading weights:   7%|▋         | 19/255 [00:00<00:06, 36.41it/s]Loading weights:  11%|█         | 27/255 [00:00<00:05, 42.32it/s]Loading weights:  13%|█▎        | 33/255 [00:01<00:06, 36.95it/s]Loading weights:  17%|█▋        | 44/255 [00:01<00:04, 49.00it/s]Loading weights:  20%|█▉        | 50/255 [00:01<00:04, 48.19it/s]Loading weights:  22%|██▏       | 56/255 [00:01<00:04, 43.36it/s]Loading weights:  24%|██▍       | 61/255 [00:01<00:04, 41.01it/s]Loading weights:  27%|██▋       | 69/255 [00:01<00:03, 49.21it/s]Loading weights:  29%|██▉       | 75/255 [00:01<00:04, 40.59it/s]Loading weights:  31%|███▏      | 80/255 [00:02<00:04, 37.06it/s]Loading weights:  35%|███▌      | 90/255 [00:02<00:04, 39.60it/s]Loading weights:  38%|███▊      | 98/255 [00:02<00:03, 39.59it/s]Loading weights:  42%|████▏     | 106/255 [00:02<00:03, 38.70it/s]Loading weights:  45%|████▍     | 114/255 [00:02<00:03, 45.79it/s]Loading weights:  47%|████▋     | 120/255 [00:02<00:02, 46.86it/s]Loading weights:  49%|████▉     | 126/255 [00:03<00:03, 40.17it/s]Loading weights:  52%|█████▏    | 132/255 [00:03<00:02, 43.91it/s]Loading weights:  54%|█████▎    | 137/255 [00:03<00:02, 43.41it/s]Loading weights:  56%|█████▌    | 143/255 [00:03<00:02, 43.11it/s]Loading weights:  58%|█████▊    | 148/255 [00:03<00:03, 34.85it/s]Loading weights:  62%|██████▏   | 159/255 [00:03<00:02, 45.39it/s]Loading weights:  64%|██████▍   | 164/255 [00:04<00:02, 45.49it/s]Loading weights:  66%|██████▋   | 169/255 [00:04<00:02, 36.90it/s]Loading weights:  70%|███████   | 179/255 [00:04<00:01, 39.72it/s]Loading weights:  75%|███████▍  | 190/255 [00:04<00:01, 42.89it/s]Loading weights:  76%|███████▋  | 195/255 [00:04<00:01, 36.45it/s]Loading weights:  80%|████████  | 205/255 [00:05<00:01, 39.48it/s]Loading weights:  84%|████████▍ | 215/255 [00:05<00:00, 41.28it/s]Loading weights:  87%|████████▋ | 223/255 [00:05<00:00, 44.50it/s]Loading weights:  91%|█████████ | 232/255 [00:05<00:00, 52.31it/s]Loading weights:  93%|█████████▎| 238/255 [00:05<00:00, 42.76it/s]Loading weights:  96%|█████████▌| 244/255 [00:06<00:00, 38.82it/s]Loading weights: 100%|██████████| 255/255 [00:06<00:00, 42.16it/s]
-sarvam-1: loaded in 31s
-sarvam-1/english: 400 items in 56s
-sarvam-1/native: 400 items in 58s
-sarvam-1/itrans: 400 items in 69s
-sarvam-1/lower: 400 items in 71s
-sarvam-1/lossy: 400 items in 68s
-sarvam-1/natural: 391 items in 67s
-sarvam-1/english: 1004 items in 423s
-sarvam-1/native: 1004 items in 627s
-sarvam-1/itrans: 1004 items in 1051s
-sarvam-1/lower: 1004 items in 1051s
-sarvam-1/lossy: 1004 items in 977s
-sarvam-1/natural257: 257 items in 113s
-sarvam-1: NC sentiment done (86s)
-sarvam-1: NC xnli done (237s)
-sarvam-1: NC sib done (1787s)
-sarvam-1: finished in 6453s
-=== 2026-11-04 05:52:04 T3 scoring: qwen3.5-2b: env X1_TEMPLATE=v3 PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x1_t2.py score qwen3.5-2b
-items: sentiment 200, xnli 200, sib 1004, sib257 257
-Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]Loading weights:   0%|          | 1/320 [00:00<00:37,  8.56it/s]Loading weights:   2%|▏         | 6/320 [00:00<00:25, 12.22it/s]Loading weights:   5%|▌         | 16/320 [00:01<00:19, 15.60it/s]Loading weights:   7%|▋         | 22/320 [00:01<00:16, 17.83it/s]Loading weights:   9%|▉         | 30/320 [00:01<00:12, 23.78it/s]Loading weights:  11%|█         | 34/320 [00:01<00:14, 20.21it/s]Loading weights:  12%|█▏        | 37/320 [00:02<00:19, 14.78it/s]Loading weights:  12%|█▏        | 39/320 [00:02<00:20, 13.42it/s]Loading weights:  15%|█▌        | 49/320 [00:02<00:13, 19.92it/s]Loading weights:  21%|██        | 66/320 [00:02<00:06, 37.81it/s]Loading weights:  22%|██▎       | 72/320 [00:03<00:07, 32.11it/s]Loading weights:  24%|██▍       | 77/320 [00:04<00:20, 11.83it/s]Loading weights:  33%|███▎      | 107/320 [00:04<00:06, 30.44it/s]Loading weights:  37%|███▋      | 117/320 [00:04<00:06, 31.98it/s]Loading weights:  39%|███▉      | 126/320 [00:05<00:08, 24.20it/s]Loading weights:  42%|████▏     | 133/320 [00:06<00:11, 16.96it/s]Loading weights:  43%|████▎     | 138/320 [00:08<00:22,  8.02it/s]Loading weights:  55%|█████▌    | 176/320 [00:11<00:14, 10.23it/s]Loading weights:  76%|███████▌  | 242/320 [00:14<00:04, 16.61it/s]Loading weights:  78%|███████▊  | 248/320 [00:14<00:04, 17.43it/s]Loading weights:  79%|███████▉  | 252/320 [00:18<00:07,  8.55it/s]Loading weights:  80%|███████▉  | 255/320 [00:18<00:07,  8.92it/s]Loading weights:  85%|████████▌ | 273/320 [00:18<00:03, 13.58it/s]Loading weights:  88%|████████▊ | 280/320 [00:18<00:02, 15.66it/s]Loading weights:  90%|████████▉ | 287/320 [00:18<00:01, 17.45it/s]Loading weights:  94%|█████████▍| 302/320 [00:20<00:01, 14.34it/s]Loading weights:  98%|█████████▊| 315/320 [00:20<00:00, 19.76it/s]Loading weights: 100%|██████████| 320/320 [00:20<00:00, 15.70it/s]
-qwen3.5-2b: loaded in 86s
-[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
-[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
-qwen3.5-2b/english: 400 items in 249s
-qwen3.5-2b/native: 400 items in 282s
-qwen3.5-2b/itrans: 400 items in 305s
-qwen3.5-2b/lower: 400 items in 312s
-qwen3.5-2b/lossy: 400 items in 269s
-qwen3.5-2b/natural: 391 items in 281s
-qwen3.5-2b/english: 1004 items in 1346s
-qwen3.5-2b/native: 1004 items in 664s
-qwen3.5-2b/itrans: 1004 items in 640s
-qwen3.5-2b/lower: 1004 items in 639s
-qwen3.5-2b/lossy: 1004 items in 1179s
-qwen3.5-2b/natural257: 257 items in 314s
-qwen3.5-2b: NC sentiment done (214s)
-qwen3.5-2b: NC xnli done (548s)
-qwen3.5-2b: NC sib done (3318s)
-qwen3.5-2b: finished in 9903s
-=== 2026-11-04 08:40:26 T3 scoring: qwen3-1.7b: env X1_TEMPLATE=v3 PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x1_t2.py score qwen3-1.7b
-items: sentiment 200, xnli 200, sib 1004, sib257 257
-Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<00:53,  5.84it/s]Loading weights:   3%|▎         | 9/311 [00:00<00:09, 32.17it/s]Loading weights:   7%|▋         | 21/311 [00:00<00:04, 62.50it/s]Loading weights:  10%|█         | 32/311 [00:00<00:04, 60.99it/s]Loading weights:  14%|█▍        | 45/311 [00:00<00:03, 74.98it/s]Loading weights:  18%|█▊        | 55/311 [00:00<00:03, 75.69it/s]Loading weights:  21%|██        | 65/311 [00:00<00:03, 76.95it/s]Loading weights:  25%|██▌       | 79/311 [00:01<00:02, 87.23it/s]Loading weights:  29%|██▊       | 89/311 [00:01<00:02, 85.02it/s]Loading weights:  32%|███▏      | 99/311 [00:01<00:02, 81.61it/s]Loading weights:  36%|███▌      | 111/311 [00:01<00:02, 86.68it/s]Loading weights:  39%|███▊      | 120/311 [00:01<00:02, 79.66it/s]Loading weights:  41%|████▏     | 129/311 [00:01<00:02, 73.43it/s]Loading weights:  44%|████▍     | 138/311 [00:01<00:02, 73.44it/s]Loading weights:  49%|████▉     | 153/311 [00:02<00:01, 86.90it/s]Loading weights:  52%|█████▏    | 162/311 [00:02<00:01, 85.83it/s]Loading weights:  56%|█████▋    | 175/311 [00:02<00:01, 85.58it/s]Loading weights:  60%|██████    | 187/311 [00:02<00:01, 88.05it/s]Loading weights:  63%|██████▎   | 197/311 [00:02<00:01, 84.89it/s]Loading weights:  67%|██████▋   | 208/311 [00:02<00:01, 86.18it/s]Loading weights:  70%|███████   | 219/311 [00:02<00:01, 87.24it/s]Loading weights:  73%|███████▎  | 228/311 [00:02<00:00, 85.43it/s]Loading weights:  77%|███████▋  | 239/311 [00:03<00:00, 88.60it/s]Loading weights:  81%|████████  | 251/311 [00:03<00:00, 80.41it/s]Loading weights:  85%|████████▍ | 264/311 [00:03<00:00, 86.97it/s]Loading weights:  89%|████████▊ | 276/311 [00:03<00:00, 84.89it/s]Loading weights:  92%|█████████▏| 285/311 [00:03<00:00, 81.77it/s]Loading weights:  95%|█████████▌| 296/311 [00:03<00:00, 85.03it/s]Loading weights: 100%|██████████| 311/311 [00:03<00:00, 82.92it/s]
-qwen3-1.7b: loaded in 15s
-qwen3-1.7b/english: 400 items in 46s
-qwen3-1.7b/native: 400 items in 57s
-qwen3-1.7b/itrans: 400 items in 52s
-qwen3-1.7b/lower: 400 items in 54s
-qwen3-1.7b/lossy: 400 items in 53s
-qwen3-1.7b/natural: 391 items in 50s
-qwen3-1.7b/english: 1004 items in 379s
-qwen3-1.7b/native: 1004 items in 541s
-qwen3-1.7b/itrans: 1004 items in 737s
-qwen3-1.7b/lower: 1004 items in 727s
-qwen3-1.7b/lossy: 1004 items in 720s
-qwen3-1.7b/natural257: 257 items in 186s
-qwen3-1.7b: NC sentiment done (132s)
-qwen3-1.7b: NC xnli done (321s)
-qwen3-1.7b: NC sib done (1911s)
-qwen3-1.7b: finished in 5532s
-=== 2026-11-04 10:12:59 T3 scoring: qwen2.5-1.5b: env X1_TEMPLATE=v3 PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x1_t2.py score qwen2.5-1.5b
-items: sentiment 200, xnli 200, sib 1004, sib257 257
-Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   6%|▌         | 19/338 [00:00<00:01, 181.30it/s]Loading weights:  11%|█         | 38/338 [00:00<00:02, 113.25it/s]Loading weights:  16%|█▌        | 53/338 [00:00<00:02, 123.65it/s]Loading weights:  20%|█▉        | 67/338 [00:00<00:02, 126.39it/s]Loading weights:  24%|██▍       | 81/338 [00:00<00:02, 98.52it/s] Loading weights:  28%|██▊       | 94/338 [00:00<00:02, 104.25it/s]Loading weights:  33%|███▎      | 110/338 [00:00<00:01, 118.66it/s]Loading weights:  36%|███▋      | 123/338 [00:01<00:01, 111.44it/s]Loading weights:  40%|████      | 136/338 [00:01<00:01, 116.12it/s]Loading weights:  44%|████▍     | 149/338 [00:01<00:01, 113.26it/s]Loading weights:  48%|████▊     | 161/338 [00:01<00:01, 113.53it/s]Loading weights:  51%|█████     | 173/338 [00:01<00:01, 113.58it/s]Loading weights:  55%|█████▍    | 185/338 [00:01<00:01, 114.73it/s]Loading weights:  58%|█████▊    | 197/338 [00:01<00:01, 93.24it/s] Loading weights:  63%|██████▎   | 213/338 [00:01<00:01, 109.28it/s]Loading weights:  67%|██████▋   | 228/338 [00:01<00:00, 119.50it/s]Loading weights:  71%|███████▏  | 241/338 [00:02<00:00, 113.33it/s]Loading weights:  75%|███████▍  | 253/338 [00:02<00:00, 113.24it/s]Loading weights:  78%|███████▊  | 265/338 [00:02<00:00, 113.28it/s]Loading weights:  82%|████████▏ | 277/338 [00:02<00:00, 109.94it/s]Loading weights:  86%|████████▌ | 291/338 [00:02<00:00, 114.03it/s]Loading weights:  90%|████████▉ | 304/338 [00:02<00:00, 117.03it/s]Loading weights:  93%|█████████▎| 316/338 [00:02<00:00, 100.77it/s]Loading weights: 100%|██████████| 338/338 [00:02<00:00, 116.99it/s]
-qwen2.5-1.5b: loaded in 22s
-qwen2.5-1.5b/english: 400 items in 30s
-qwen2.5-1.5b/native: 400 items in 45s
-qwen2.5-1.5b/itrans: 400 items in 31s
-qwen2.5-1.5b/lower: 400 items in 33s
-qwen2.5-1.5b/lossy: 400 items in 31s
-qwen2.5-1.5b/natural: 391 items in 31s
-qwen2.5-1.5b/english: 1004 items in 211s
-qwen2.5-1.5b/native: 1004 items in 326s
-qwen2.5-1.5b/itrans: 1004 items in 300s
-qwen2.5-1.5b/lower: 1004 items in 301s
-qwen2.5-1.5b/lossy: 1004 items in 294s
-qwen2.5-1.5b/natural257: 257 items in 75s
-qwen2.5-1.5b: NC sentiment done (59s)
-qwen2.5-1.5b: NC xnli done (151s)
-qwen2.5-1.5b: NC sib done (1066s)
-qwen2.5-1.5b: finished in 2798s

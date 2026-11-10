@@ -1,5 +1,0 @@
-downloading meta-llama/Llama-2-7b-hf to C:\PROJECTS\PROMPT\shattered-scripts\data\hf_local\shattered-llama-2-7b-hf
-Fetching 10 files:   0%|          | 0/10 [00:00<?, ?it/s]Fetching 10 files:  10%|█         | 1/10 [00:00<00:02,  3.41it/s]Fetching 10 files:  50%|█████     | 5/10 [00:00<00:00, 10.85it/s]Fetching 10 files:  80%|████████  | 8/10 [00:20<00:00, 10.85it/s]Fetching 10 files:  90%|█████████ | 9/10 [04:36<00:37, 37.94s/it]Fetching 10 files: 100%|██████████| 10/10 [05:57<00:00, 44.98s/it]Fetching 10 files: 100%|██████████| 10/10 [05:57<00:00, 35.77s/it]
-downloaded 10 files, 12.55 GiB in 358s: ['config.json', 'generation_config.json', 'model-00001-of-00002.safetensors', 'model-00002-of-00002.safetensors', 'model.safetensors.index.json', 'pytorch_model.bin.index.json', 'special_tokens_map.json', 'tokenizer.json', 'tokenizer.model', 'tokenizer_config.json']
-kaggle datasets create failed: Subtitle length must be between 20 and 80 characters
-

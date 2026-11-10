@@ -1,6 +1,6 @@
 # Datasheet: Kannada natural romanization and Kanglish (draft, 2026-10-23)
 
-Draft following Gebru et al., "Datasheets for Datasets". Items marked **TBD** must be filled in by Aarnav before
+Draft following Gebru et al., "Datasheets for Datasets". Items marked **TBD** must be filled in by the lead author before
 release. Nothing in this file has been released.
 
 ## Motivation
@@ -9,7 +9,7 @@ release. Nothing in this file has been released.
   parallel to native-script Kannada and to English. It supports the paper "Shattered Scripts" (evaluation of language
   models on romanized Kannada; the K1–K3 registrations in `RESULTS.md`) and tests whether an LLM's natural
   romanization is as natural as a human's (K3).
-- **Created by.** The Shattered Scripts project (lead: Aarnav). **Funding:** TBD (none, if so state it).
+- **Created by.** The Shattered Scripts project (lead: the lead author). **Funding:** TBD (none, if so state it).
 
 ## Composition
 - **500 items** (`data/annotation/items_v2.jsonl`): 200 IndicSentiment test reviews (Kannada, with the parallel English
@@ -57,10 +57,10 @@ no condition on reuse, so it does not constrain the release. We still cite the p
 - Reading (not legal advice): the terms do not forbid publishing generated drafts in a research dataset. The project
   stays responsible for how the drafts are used, including by people it shares them with, and Google keeps the right
   to produce similar text. The competing-models restriction binds the project's own use of the API. Decided by
-  Aarnav (2026-10-25): the release card carries a usage note passing this restriction on (see Intended uses). The release
+  the lead author (2026-10-25): the release card carries a usage note passing this restriction on (see Intended uses). The release
   marks every draft as Gemini output (model, prompt, temperature) and keeps it separate from the human versions.
 
-**Release plan (decided by Aarnav 2026-10-24; not yet released).**
+**Release plan (decided by the lead author 2026-10-24; not yet released).**
 - **Where:** a Hugging Face dataset repository, with this datasheet as the card and the paper citation.
 - **License:** CC BY-SA 4.0 for the whole release. The FLORES+-derived items (and their SIB-200 labels) are CC BY-SA
   4.0, which requires share-alike. The IndicSentiment items (CC0, note 1) and the Gemini drafts (no ownership claimed by
@@ -75,7 +75,7 @@ no condition on reuse, so it does not constrain the release. We still cite the p
 - **Tool.** An offline HTML page (`annotation/annotate_v2.html`) that writes a CSV after every item; instructions in
   `annotation/instructions/`.
 - **Roles (2026-10-23).** Annotator A annotates all 500 items. Annotator B annotates the 100 double items. Rater C
-  rates the K3 pairs. Aarnav coordinates only and does not annotate or rate.
+  rates the K3 pairs. the lead author coordinates only and does not annotate or rate.
 - **Standard condition (A on all 500; B on the 60 non-blind double items).** For each draft, the annotator first rates
   it as shown (naturalness 1–5; meaning preserved yes/no), then corrects it. Annotator A's corrections define the
   human-corrected forms.
@@ -94,7 +94,7 @@ no condition on reuse, so it does not constrain the release. We still cite the p
   Rater C was dropped. **Annotator A is a pool of about 50 native Kannada speakers** who together verified the 500
   items; there are no per-item annotator IDs, so agreement within A cannot be computed. Agreement: Cohen's kappa on
   fine/wrong, A (pool) vs B, 60 items; chrF between A's and B's verified texts.
-- **Annotator pool A (to be filled by Aarnav).** Number: about 50. Kannada background (native/first language, region,
+- **Annotator pool A (to be filled by the lead author).** Number: about 50. Kannada background (native/first language, region,
   age range): TBD. Recruitment: TBD. Compensation: TBD. Consent to release their annotations, per pool: TBD.
 - **Annotators.** TBD: number, Kannada background (native/first language, region, age range), how they were recruited,
   compensation, and consent to release their annotations. No identifying information is released.
@@ -104,7 +104,7 @@ no condition on reuse, so it does not constrain the release. We still cite the p
   human romanization (as in K3).
 - **Not intended for:** training a system that claims to define "correct" Kannada romanization (spelling varies by
   writer); inferring anything about individual annotators.
-- **Usage note (Gemini-drafted texts; added 2026-10-25 at Aarnav's decision).** The `*_draft` fields were generated
+- **Usage note (Gemini-drafted texts; added 2026-10-25 at the lead author's decision).** The `*_draft` fields were generated
   with Google's Gemini API (`gemini-3.5-flash-lite`). They may not be used to develop models that compete with
   Google's Gemini services. The Gemini API Additional Terms of Service (ai.google.dev/gemini-api/terms, "Effective
   March 23, 2026", page "Last updated 2026-04-28 UTC"; checked 2026-10-24), section "Use Restrictions", state: "You may
@@ -116,8 +116,8 @@ no condition on reuse, so it does not constrain the release. We still cite the p
 
 ## Distribution and maintenance
 - **Release:** with the paper, on Hugging Face under CC BY-SA 4.0 (see the release plan above); format CSV/JSONL with this
-  datasheet. Not distributed before Aarnav says so.
-- **Maintainer and contact:** TBD (Aarnav).
+  datasheet. Not distributed before the lead author says so.
+- **Maintainer and contact:** TBD (the lead author).
 - **Errata:** corrections will be logged with dates in the release notes.
 
 ## Release notes

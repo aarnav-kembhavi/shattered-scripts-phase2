@@ -1,3 +1,0 @@
-Review: {text}
-Question: ಈ ವಿಮರ್ಶೆಯು negative ಅಥವಾ positive ಎಂದು ನೀವು ಹೇಳುತ್ತೀರಾ?
-Answer:

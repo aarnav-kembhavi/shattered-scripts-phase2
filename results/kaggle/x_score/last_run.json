@@ -1,6 +1,6 @@
 {
  "job": "x_score",
- "kernel": "aarnavkembhavi1/shattered-x-score",
+ "kernel": "[first-account]/shattered-x-score",
  "commit": "27fc008f7559abd141c54793e786dcd5fae80b0e",
  "dirty": false,
  "args": [
@@ -9,7 +9,7 @@
  ],
  "start_utc": "2026-11-04T02:23:11.070809+00:00",
  "hours": 1.8129362084468206,
- "status": "aarnavkembhavi1/shattered-x-score has status \"KernelWorkerStatus.COMPLETE\"",
+ "status": "[first-account]/shattered-x-score has status \"KernelWorkerStatus.COMPLETE\"",
  "accelerator": "NvidiaTeslaT4 (T4 x2)",
  "output_dir": "results\\kaggle\\x_score\\2026-11-04T022311",
  "hardware": null,

@@ -7,7 +7,7 @@ wrong? If it is wrong, you type a fix. This file replaces the one sent earlier; 
 
 ## First: the 3 examples (reply within a day)
 At the top of the sheet **items** there are 3 shaded rows marked EXAMPLE (not among your items): one "fine", one
-"wrong" with a fix, and one "wrong" because the meaning changed. Look at them and reply to Aarnav "examples ok", or
+"wrong" with a fix, and one "wrong" because the meaning changed. Look at them and reply to the lead author "examples ok", or
 send your corrections, within a day. Then start the items.
 
 ## Before you start
@@ -37,4 +37,4 @@ wrong).
 ## Pace and sending your work
 - About 20 seconds per item, about 3 hours in total. Short sessions are fine: save (Ctrl+S) and close.
 - Always save as an Excel Workbook (.xlsx), never as CSV.
-- Send the .xlsx file to Aarnav on WhatsApp (as a Document) every week.
+- Send the .xlsx file to the lead author on WhatsApp (as a Document) every week.

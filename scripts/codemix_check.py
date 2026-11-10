@@ -1,4 +1,4 @@
-"""Validity check of the English-word tagger on Kannada Kanglish (Aarnav, 2026-10-26; before any K2 result exists).
+"""Validity check of the English-word tagger on Kannada Kanglish (the lead author, 2026-10-26; before any K2 result exists).
 
 A sample of kanglish_verified texts (data/annotation/verified_A_v1.jsonl, default_rng(seed)); every alphabetic token
 is tagged by the tagger version given; precision and recall of the "en" tag against Claude Code's hand marking

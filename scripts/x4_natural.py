@@ -22,7 +22,7 @@ from shattered.translit.natural import MODEL, PROMPT_VERSION, TEMPLATE_DIR, defe
 
 KN_OUT = REPO / "data" / "processed" / "natural_flores_m4_500_v1.jsonl"
 LANG = {"bn": ("Bengali", "ben_Beng"), "te": ("Telugu", "tel_Telu")}
-RPD = 6000  # own daily cap; raised from 480 on 2026-11-04 (billing enabled on the Gemini key, Aarnav); rpm raised to 60 in make_client call below
+RPD = 6000  # own daily cap; raised from 480 on 2026-11-04 (billing enabled on the Gemini key, the lead author); rpm raised to 60 in make_client call below
 BATCH = 10
 OUTD = REPO / "results" / "phase2" / "x4" / "natural"
 

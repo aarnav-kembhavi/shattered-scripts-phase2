@@ -1,4 +1,0 @@
-Premise: {premise}
-Hypothesis: {hypothesis}
-Question: Premise ಸತ್ಯವಾಗಿದ್ದರೆ, Hypothesis ಸಹ ಸತ್ಯವೇ? no, maybe, ಅಥವಾ yes ಆಯ್ಕೆಮಾಡಿ.
-Answer:

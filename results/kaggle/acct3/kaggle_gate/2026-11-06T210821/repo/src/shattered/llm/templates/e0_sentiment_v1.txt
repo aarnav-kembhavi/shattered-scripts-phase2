@@ -1,3 +1,0 @@
-Review: {text}
-Question: Is the sentiment of this review positive or negative?
-Answer:

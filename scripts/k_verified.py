@@ -9,7 +9,7 @@ Writes
                                                       FLORES items in the M4c sample (same format: index, native, natural)
 In the experiment files a verified text replaces the experiment's text only where A's draft is identical to it (so
 "fine" means that exact text was checked); every other row is copied unchanged. indicsentiment-test-249's natural fix
-drops content (Aarnav, 2026-10-26): the draft is used for it in the experiment files (logged as a substitution).
+drops content (the lead author, 2026-10-26): the draft is used for it in the experiment files (logged as a substitution).
 Each experiment row gets "verified" (the item was verified against this exact text) and "verified_changed".
 
 Usage: python scripts/k_verified.py      Output summary: results/k_verified/build.json
@@ -28,7 +28,7 @@ ALL = REPO / "data/annotation/verified_A_v1.jsonl"
 E0, E0V = REPO / "data/processed/natural_e0_v1.jsonl", REPO / "data/processed/natural_e0_verified_v1.jsonl"
 M4, M4V = (REPO / "data/processed/natural_flores_m4_500_v1.jsonl",
            REPO / "data/processed/natural_flores_m4_500_verified_v1.jsonl")
-USE_DRAFT = {("indicsentiment-test-249", "natural"): "A's fix is a paraphrase that drops content (Aarnav, 2026-10-26)"}
+USE_DRAFT = {("indicsentiment-test-249", "natural"): "A's fix is a paraphrase that drops content (the lead author, 2026-10-26)"}
 
 
 def main() -> None:

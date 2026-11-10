@@ -6,7 +6,7 @@ data/processed/natural_e0_verified_v1.jsonl (sentiment), built by scripts/k_veri
 natural pipeline unchanged (ladder retrieval procedure; E0b/E0c prompts, stored content-free calibration and the
 raw-fallback rule from the full stored English rows).
 
-Retrieval and SIB-257 (Aarnav, 2026-10-26): only the items whose verified text differs are recomputed and spliced into
+Retrieval and SIB-257 (the lead author, 2026-10-26): only the items whose verified text differs are recomputed and spliced into
 the stored per-item results (natural500.npz vectors; natural257 scores); a few unchanged items are recomputed as a
 control and must reproduce the stored values. Sentiment is scored in full.
 

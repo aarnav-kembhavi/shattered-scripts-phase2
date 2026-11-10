@@ -1,10 +1,10 @@
 {
  "log": [
   "2026-11-02 22:58:03 A1-R read: gate_passed=True",
-  "2026-11-02 22:58:13 A1-P qwen3-8b: no result file (kernel status aarnavkembhavi1/shattered-kaggle-precision has status \"KernelWorkerStatus.COMPLETE\")",
+  "2026-11-02 22:58:13 A1-P qwen3-8b: no result file (kernel status [first-account]/shattered-kaggle-precision has status \"KernelWorkerStatus.COMPLETE\")",
   "2026-11-02 22:58:13 A1-P ambari-7b-base: pass=False reference=8bit error=None",
-  "2026-11-02 22:58:14 A1-P ambari-7b-instruct-v0.2: no result file (kernel status aarnavkembhavi1/shattered-kaggle-precision has status \"KernelWorkerStatus.COMPLETE\")",
-  "2026-11-02 22:58:15 A1-P qwen3-8b: no result file (kernel status aarnavkembhavi1/shattered-kaggle-precision has status \"KernelWorkerStatus.COMPLETE\")",
+  "2026-11-02 22:58:14 A1-P ambari-7b-instruct-v0.2: no result file (kernel status [first-account]/shattered-kaggle-precision has status \"KernelWorkerStatus.COMPLETE\")",
+  "2026-11-02 22:58:15 A1-P qwen3-8b: no result file (kernel status [first-account]/shattered-kaggle-precision has status \"KernelWorkerStatus.COMPLETE\")",
   "2026-11-02 22:58:15 queue pass finished",
   "2026-11-02 23:05 state reset: the 22:58 pass recorded a stale 8-bit result because the runner refused a dirty tree and push() read the old last_run.json; push() now returns None on refusal. A1-P-D1: 8-bit results withdrawn.",
   "2026-11-02 23:21:32 A1-P qwen3-8b: pass=False reference=None error=OutOfMemoryError('CUDA out of memory. Tried to allocate 9.49 GiB. GPU 0 has a total capacity of 14.56 GiB of which 6.68 GiB is free. Process 7 has 104.00 MiB memory in use. Including non-PyTorch memory, this process has 7.78 GiB memory in use. Of the allocated memory 7.64 GiB is allocated by PyTorch, and 13.58 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-u",
@@ -140,7 +140,7 @@
   "2026-11-04 02:38:46 quota projection before kaggle_mdl ['qwen3-8b']: 23.56 h used in the last 7 days, this push up to 2.5 h, headroom 3.9 h, X9b Sarvam reserve 18 h (X9b pending: True)",
   "2026-11-04 02:38:46 kaggle_mdl ['qwen3-8b'] would leave 3.9 h < 18 h for the X9b Sarvam arm: X9b first",
   "2026-11-04 02:38:55 quota projection before A1-P ['llama-2-7b']: 23.56 h used in the last 7 days, this push up to 3.5 h, headroom 2.9 h, X9b Sarvam reserve 18 h (X9b pending: True)",
-  "2026-11-04 02:38:55 A1-P ['llama-2-7b']: X12 contrast 1 runs ahead of the X9b reserve on Aarnav's decision of 2026-11-04 (X9b batch 3 launches as soon as the projection allows; nothing else goes ahead of it)",
+  "2026-11-04 02:38:55 A1-P ['llama-2-7b']: X12 contrast 1 runs ahead of the X9b reserve on the lead author's decision of 2026-11-04 (X9b batch 3 launches as soon as the projection allows; nothing else goes ahead of it)",
   "2026-11-04 02:38:55 A1-P ambari-7b-base: pass=True reference=float32_offload error=None",
   "2026-11-04 02:38:55 A1-P qwen3-8b: pass=True reference=float32_offload error=None",
   "2026-11-04 02:38:56 A1-P ['llama-2-7b']: runner did not push (see results/kaggle/kaggle_precision_queue_run.log); nothing recorded",
@@ -156,7 +156,7 @@
   "2026-11-04 02:41:08 quota projection before kaggle_mdl ['qwen3-8b']: 23.56 h used in the last 7 days, this push up to 2.5 h, headroom 3.9 h, X9b Sarvam reserve 18 h (X9b pending: True)",
   "2026-11-04 02:41:08 kaggle_mdl ['qwen3-8b'] would leave 3.9 h < 18 h for the X9b Sarvam arm: X9b first",
   "2026-11-04 02:41:12 quota projection before A1-P ['llama-2-7b']: 23.56 h used in the last 7 days, this push up to 3.5 h, headroom 2.9 h, X9b Sarvam reserve 18 h (X9b pending: True)",
-  "2026-11-04 02:41:12 A1-P ['llama-2-7b']: X12 contrast 1 runs ahead of the X9b reserve on Aarnav's decision of 2026-11-04 (X9b batch 3 launches as soon as the projection allows; nothing else goes ahead of it)",
+  "2026-11-04 02:41:12 A1-P ['llama-2-7b']: X12 contrast 1 runs ahead of the X9b reserve on the lead author's decision of 2026-11-04 (X9b batch 3 launches as soon as the projection allows; nothing else goes ahead of it)",
   "2026-11-04 02:41:12 A1-P ambari-7b-base: pass=True reference=float32_offload error=None",
   "2026-11-04 02:41:12 A1-P qwen3-8b: pass=True reference=float32_offload error=None",
   "2026-11-04 02:45:53 A1-P llama-2-7b: harness error, no verdict, stays queued: OSError('You are trying to access a gated repo.\\nMake sure to have access to it at https://huggingface.co/meta-llama/Llama-2-7b-hf.\\n401 Client Error. (Request ID: Root=1-6aea4e67-386cad5a7f7ea06d59c2",
@@ -172,7 +172,7 @@
   "2026-11-04 02:52:39 quota projection before kaggle_mdl ['qwen3-8b']: 23.63 h used in the last 7 days, this push up to 2.5 h, headroom 3.9 h, X9b Sarvam reserve 18 h (X9b pending: True)",
   "2026-11-04 02:52:39 kaggle_mdl ['qwen3-8b'] would leave 3.9 h < 18 h for the X9b Sarvam arm: X9b first",
   "2026-11-04 02:52:43 quota projection before A1-P ['llama-2-7b']: 23.63 h used in the last 7 days, this push up to 3.5 h, headroom 2.9 h, X9b Sarvam reserve 18 h (X9b pending: True)",
-  "2026-11-04 02:52:43 A1-P ['llama-2-7b']: X12 contrast 1 runs ahead of the X9b reserve on Aarnav's decision of 2026-11-04 (X9b batch 3 launches as soon as the projection allows; nothing else goes ahead of it)",
+  "2026-11-04 02:52:43 A1-P ['llama-2-7b']: X12 contrast 1 runs ahead of the X9b reserve on the lead author's decision of 2026-11-04 (X9b batch 3 launches as soon as the projection allows; nothing else goes ahead of it)",
   "2026-11-04 02:52:43 A1-P ambari-7b-base: pass=True reference=float32_offload error=None",
   "2026-11-04 02:52:43 A1-P qwen3-8b: pass=True reference=float32_offload error=None",
   "2026-11-04 02:52:43 A1-P ['llama-2-7b']: runner did not push (see results/kaggle/kaggle_precision_queue_run.log); nothing recorded",
@@ -199,7 +199,7 @@
   "2026-11-04 03:35:52 quota projection before kaggle_mdl ['qwen3-8b']: 23.63 h used in the last 7 days, this push up to 2.5 h, headroom 3.9 h, X9b Sarvam reserve 0 h (X9b pending: True)",
   "2026-11-04 04:39:34 MDL qwen3-8b: done=True hours=1.06",
   "2026-11-04 04:40:20 quota projection before A1-P ['llama-2-7b']: 24.69 h used in the last 7 days, this push up to 3.5 h, headroom 1.8 h, X9b Sarvam reserve 0 h (X9b pending: True)",
-  "2026-11-04 04:40:20 A1-P ['llama-2-7b']: X12 contrast 1 runs ahead of the X9b reserve on Aarnav's decision of 2026-11-04 (X9b batch 3 launches as soon as the projection allows; nothing else goes ahead of it)",
+  "2026-11-04 04:40:20 A1-P ['llama-2-7b']: X12 contrast 1 runs ahead of the X9b reserve on the lead author's decision of 2026-11-04 (X9b batch 3 launches as soon as the projection allows; nothing else goes ahead of it)",
   "2026-11-04 04:40:20 A1-P ambari-7b-base: pass=True reference=float32_offload error=None",
   "2026-11-04 04:40:20 A1-P qwen3-8b: pass=True reference=float32_offload error=None",
   "2026-11-04 04:48:37 A1-P llama-2-7b: harness error, no verdict, stays queued: OSError('You are trying to access a gated repo.\\nMake sure to have access to it at https://huggingface.co/meta-llama/Llama-2-7b-hf.\\n401 Client Error. (Request ID: Root=1-6aea6a5d-62fcd251004aa8c63bd6",
@@ -220,7 +220,7 @@
   "2026-11-04 06:22:43 A1-P qwen3-8b: pass=True reference=float32_offload error=None",
   "2026-11-04 06:22:43 A1-P ambari-7b-instruct-v0.2: pass=True reference=float32_offload error=None",
   "2026-11-04 06:23:10 quota projection before A1-P ['llama-2-7b']: 26.19 h used in the last 7 days, this push up to 3.5 h, headroom 0.3 h, X9b Sarvam reserve 0 h (X9b pending: True)",
-  "2026-11-04 06:23:10 A1-P ['llama-2-7b']: X12 contrast 1 runs ahead of the X9b reserve on Aarnav's decision of 2026-11-04 (X9b batch 3 launches as soon as the projection allows; nothing else goes ahead of it)",
+  "2026-11-04 06:23:10 A1-P ['llama-2-7b']: X12 contrast 1 runs ahead of the X9b reserve on the lead author's decision of 2026-11-04 (X9b batch 3 launches as soon as the projection allows; nothing else goes ahead of it)",
   "2026-11-04 06:23:10 A1-P ambari-7b-base: pass=True reference=float32_offload error=None",
   "2026-11-04 06:23:10 A1-P qwen3-8b: pass=True reference=float32_offload error=None",
   "2026-11-04 06:23:10 A1-P ambari-7b-instruct-v0.2: pass=True reference=float32_offload error=None",
@@ -239,7 +239,7 @@
   "2026-11-04 07:52:43 A1-P ambari-7b-instruct-v0.2: pass=True reference=float32_offload error=None",
   "2026-11-04 07:52:43 A1-P llama-2-7b: pass=True reference=float32_offload error=None",
   "2026-11-04 07:52:43 quota projection before x_score llama-2-7b: 27.54 h used in the last 7 days, this push up to 2.4 h, headroom 0.1 h, X9b Sarvam reserve 0 h (X9b pending: True)",
-  "2026-11-04 07:52:43 x_score llama-2-7b: X12 contrast 1 runs ahead of the X9b reserve on Aarnav's decision of 2026-11-04 (X9b batch 3 launches as soon as the projection allows; nothing else goes ahead of it)",
+  "2026-11-04 07:52:43 x_score llama-2-7b: X12 contrast 1 runs ahead of the X9b reserve on the lead author's decision of 2026-11-04 (X9b batch 3 launches as soon as the projection allows; nothing else goes ahead of it)",
   "2026-11-04 09:42:06 score llama-2-7b: done=True retrieval=True hours=1.81",
   "2026-11-04 09:42:08 quota projection before A1-P ['ambari-7b-instruct-v0.1']: 29.36 h used in the last 7 days, this push up to 3.5 h, headroom -2.9 h, X9b Sarvam reserve 0 h (X9b pending: True)",
   "2026-11-04 09:42:08 A1-P ['ambari-7b-instruct-v0.1']: over the weekly quota, not pushed",
@@ -379,7 +379,7 @@
    "dir": "results\\kaggle\\x_score\\2026-11-02T211301\\out\\qwen3-8b",
    "hours": 1.705509816010793,
    "commit": "73546bea85386d840657545052b1a3b990ad6d38",
-   "status": "aarnavkembhavi1/shattered-x-score has status \"KernelWorkerStatus.COMPLETE\""
+   "status": "[first-account]/shattered-x-score has status \"KernelWorkerStatus.COMPLETE\""
   },
   "ambari-7b-base": {
    "done": true,
@@ -387,7 +387,7 @@
    "dir": "results\\kaggle\\x_score\\2026-11-02T234104\\out\\ambari-7b-base",
    "hours": 1.2289741397566265,
    "commit": "786f67e41c1ebc27739876e5d269e34f47416942",
-   "status": "aarnavkembhavi1/shattered-x-score has status \"KernelWorkerStatus.COMPLETE\""
+   "status": "[first-account]/shattered-x-score has status \"KernelWorkerStatus.COMPLETE\""
   },
   "llama-2-7b": {
    "done": true,
@@ -395,7 +395,7 @@
    "dir": "results\\kaggle\\x_score\\2026-11-04T022311\\out\\llama-2-7b",
    "hours": 1.8129362084468206,
    "commit": "27fc008f7559abd141c54793e786dcd5fae80b0e",
-   "status": "aarnavkembhavi1/shattered-x-score has status \"KernelWorkerStatus.COMPLETE\""
+   "status": "[first-account]/shattered-x-score has status \"KernelWorkerStatus.COMPLETE\""
   }
  },
  "a1r": {
@@ -406,7 +406,7 @@
   "dir": "results\\kaggle\\kaggle_x9b\\2026-11-03T005539",
   "hours": 0.9904127509726418,
   "commit": "dc2d1df5e79a98dda8f43947b851eba4056f5e22",
-  "status": "aarnavkembhavi1/shattered-kaggle-x9b has status \"KernelWorkerStatus.COMPLETE\""
+  "status": "[first-account]/shattered-kaggle-x9b has status \"KernelWorkerStatus.COMPLETE\""
  },
  "mdl": {
   "qwen3-8b": {

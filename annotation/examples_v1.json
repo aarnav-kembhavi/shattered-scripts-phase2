@@ -1,5 +1,5 @@
 {
-  "_about": "Worked examples for the annotator quick start (2026-10-24). Items are NOT in the 500 (items_v2.jsonl): flores-993 and indicsentiment-test-245 were replaced on 2026-10-23 and are no longer annotation items; flores-212 is an M4c sentence outside the 500. Drafts are the stored Gemini drafts (gemini-3.5-flash-lite, prompts natural_romanization_v1 / kanglish_v1; files named per draft). Ratings, corrections and explanations were written by Claude Code as teaching material and must be checked by a Kannada speaker (Aarnav) before the packages are sent. They are not data and are never analysed.",
+  "_about": "Worked examples for the annotator quick start (2026-10-24). Items are NOT in the 500 (items_v2.jsonl): flores-993 and indicsentiment-test-245 were replaced on 2026-10-23 and are no longer annotation items; flores-212 is an M4c sentence outside the 500. Drafts are the stored Gemini drafts (gemini-3.5-flash-lite, prompts natural_romanization_v1 / kanglish_v1; files named per draft). Ratings, corrections and explanations were written by Claude Code as teaching material and must be checked by a Kannada speaker (the lead author) before the packages are sent. They are not data and are never analysed.",
   "examples": [
     {
       "id": "flores-993",

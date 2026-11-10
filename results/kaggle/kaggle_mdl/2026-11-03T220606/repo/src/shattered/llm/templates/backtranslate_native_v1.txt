@@ -1,4 +1,0 @@
-The following is a Kannada sentence. Translate it into English.
-Output only the English translation as plain text: no quotation marks, no markdown, no notes.
-
-{text}

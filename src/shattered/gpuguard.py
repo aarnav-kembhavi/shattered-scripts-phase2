@@ -1,4 +1,4 @@
-"""GPU safety rule (Aarnav, 2026-10-23): before every model load, total GPU memory in use must be <= 500 MB.
+"""GPU safety rule (the lead author, 2026-10-23): before every model load, total GPU memory in use must be <= 500 MB.
 
 Under the WDDM driver nvidia-smi reports no per-process memory, so anything above the desktop baseline (~150 MB) before
 our own load belongs to another process (e.g. a job from another project). Call `wait_gpu_free()` in a fresh process,
@@ -10,7 +10,7 @@ import subprocess
 import time
 
 LIMIT_MB = 500
-MIN_FREE_DISK_GB = 25  # Aarnav, 2026-11-01: refuse to start a GPU job below this much free disk
+MIN_FREE_DISK_GB = 25  # the lead author, 2026-11-01: refuse to start a GPU job below this much free disk
 RETRY_S = 300
 
 

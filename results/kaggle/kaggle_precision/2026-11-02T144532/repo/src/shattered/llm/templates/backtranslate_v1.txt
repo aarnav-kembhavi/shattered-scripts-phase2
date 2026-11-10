@@ -1,4 +1,0 @@
-The following is a Kannada sentence written in Latin script (informal romanization, as people type on a phone). Translate it into English.
-Output only the English translation as plain text: no quotation marks, no markdown, no notes.
-
-{text}

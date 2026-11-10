@@ -1,4 +1,4 @@
-"""X10 POST HOC extraction check for Qwen3.5-2B (added 2026-11-05 at Aarnav's request; NOT part of the registration, the registered X10 verdict is unchanged).
+"""X10 POST HOC extraction check for Qwen3.5-2B (added 2026-11-05 at the lead author's request; NOT part of the registration, the registered X10 verdict is unchanged).
 
 The registered protocol cuts the generated text at the first newline and scores an empty first line as empty; Qwen3.5-2B returns an empty first line for 62% to 88% of inputs. This script regenerates Qwen3.5-2B with
 the registered instruction, greedy decoding and 128 new tokens (identical settings), keeps the full raw output, and extracts the FIRST NON-EMPTY LINE (post hoc). It reports the empty-first-line share, the

@@ -1,6 +1,6 @@
 # Shattered Scripts: Implementation and Experiment Brief
 
-(Verbatim copy of the brief from Aarnav, 2026-10-07. Section 0 "Project memory" lives in `CLAUDE.md`.)
+(Verbatim copy of the brief from the lead author, 2026-10-07. Section 0 "Project memory" lives in `CLAUDE.md`.)
 
 ## 1. Environment and repo layout
 
@@ -78,7 +78,7 @@ Steps
 
 GATE: a model passes for E4 if native Kannada accuracy is ≥10 points above chance on at least one task AND English
 accuracy is ≥15 points above chance on that task. Report a table of all candidates. If no model passes on CPU or a
-single T4, report which larger models (4-bit on Kaggle 2x T4) might pass and expected run time. Aarnav decides the E4
+single T4, report which larger models (4-bit on Kaggle 2x T4) might pass and expected run time. the lead author decides the E4
 model set.
 
 ### E1. The language tax: token cost atlas
@@ -281,7 +281,7 @@ Outputs: F8 (token savings per tokenizer), T9 (accuracy and cost per scheme), sc
 - After each experiment append to RESULTS.md: date, id, config, commit hash, headline numbers, prediction, outcome,
   surprises, next step.
 
-## 4. How to work with Aarnav
+## 4. How to work with the lead author
 - Start: env_check.py, repo skeleton and CLAUDE.md, shared infrastructure with tests, then E0. Do not jump ahead.
 - At each GATE (E0 results, E5 pilot timing, E9 savings) stop with a short report: what ran, numbers, implications,
   recommended decision.
@@ -292,7 +292,7 @@ Outputs: F8 (token savings per tokenizer), T9 (accuracy and cost per scheme), sc
 
 ---
 
-## Revision 2026-10-07 (Aarnav): interpretability-first
+## Revision 2026-10-07 (the lead author): interpretability-first
 
 **Dropped / changed**
 - No Anthropic key, ever: Claude token counting is removed from E1 and stated as a limitation.

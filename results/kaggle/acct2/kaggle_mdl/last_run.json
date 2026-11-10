@@ -1,6 +1,6 @@
 {
  "job": "kaggle_mdl",
- "kernel": "ashwin18522/shattered-kaggle-mdl",
+ "kernel": "[second-account]/shattered-kaggle-mdl",
  "commit": "5c0388b26694f01949f88562409e8358e82bc307",
  "dirty": false,
  "args": [
@@ -9,7 +9,7 @@
  ],
  "start_utc": "2026-11-04T22:54:15.791708+00:00",
  "hours": 0.9598079515165753,
- "status": "ashwin18522/shattered-kaggle-mdl has status \"KernelWorkerStatus.COMPLETE\"",
+ "status": "[second-account]/shattered-kaggle-mdl has status \"KernelWorkerStatus.COMPLETE\"",
  "accelerator": "NvidiaTeslaT4 (T4 x2)",
  "output_dir": "results\\kaggle\\acct2\\kaggle_mdl\\2026-11-04T225415",
  "hardware": null,

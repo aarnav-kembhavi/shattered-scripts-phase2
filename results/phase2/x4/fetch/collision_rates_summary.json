@@ -3,7 +3,7 @@
     "config": {
       "primary": "collision_rate = 1 - lossy word types / native word types (Phase 1 definition, 10.4% for Kannada)",
       "footnote": "share of native types whose lossy form is shared with another type (literal registered wording); reported as a footnote value only",
-      "decision": "Aarnav 2026-11-02"
+      "decision": "the lead author 2026-11-02"
     },
     "git_commit": "a5c27cef8ab26b4f2ac6cd0d48f2b1be6216de3c",
     "phase2_registration_commit": "a57fe610c6ea8b4f9d6484843950fa745d2d8e44",

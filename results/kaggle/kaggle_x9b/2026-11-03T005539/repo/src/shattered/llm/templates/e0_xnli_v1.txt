@@ -1,4 +1,0 @@
-Premise: {premise}
-Hypothesis: {hypothesis}
-Question: Does the premise entail the hypothesis? Answer yes, maybe, or no.
-Answer:

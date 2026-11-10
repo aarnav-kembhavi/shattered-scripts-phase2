@@ -1,6 +1,6 @@
 {
  "job": "kaggle_precision",
- "kernel": "aarnavkembhavi1/shattered-kaggle-precision",
+ "kernel": "[first-account]/shattered-kaggle-precision",
  "commit": "7cfcb188bba57fd7651eaa2b4e878fe5821fbfd2",
  "dirty": false,
  "args": [
@@ -9,7 +9,7 @@
  ],
  "start_utc": "2026-11-04T00:54:10.361038+00:00",
  "hours": 1.3552055361535813,
- "status": "aarnavkembhavi1/shattered-kaggle-precision has status \"KernelWorkerStatus.COMPLETE\"",
+ "status": "[first-account]/shattered-kaggle-precision has status \"KernelWorkerStatus.COMPLETE\"",
  "accelerator": "NvidiaTeslaT4 (T4 x2)",
  "output_dir": "results\\kaggle\\kaggle_precision\\2026-11-04T005410",
  "hardware": null,

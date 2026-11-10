@@ -2,13 +2,13 @@
  "sessions": [
   {
    "job": "kaggle_gate",
-   "kernel": "aarnavkembhavi1/shattered-kaggle-gate",
+   "kernel": "[first-account]/shattered-kaggle-gate",
    "commit": "9d408c4f326c1881dcbf8e35378f43111a976c5b",
    "dirty": false,
    "args": [],
    "start_utc": "2026-11-02T11:18:31.744370+00:00",
    "hours": 0.035128230253855385,
-   "status": "aarnavkembhavi1/shattered-kaggle-gate has status \"KernelWorkerStatus.ERROR\"",
+   "status": "[first-account]/shattered-kaggle-gate has status \"KernelWorkerStatus.ERROR\"",
    "accelerator": "NvidiaTeslaT4 (T4 x2)",
    "output_dir": "results\\kaggle\\kaggle_gate\\2026-11-02T111831",
    "hardware": null,
@@ -17,13 +17,13 @@
   },
   {
    "job": "kaggle_gate",
-   "kernel": "aarnavkembhavi1/shattered-kaggle-gate",
+   "kernel": "[first-account]/shattered-kaggle-gate",
    "commit": "4c4a2f198db23265cd8f23195891dba588808e81",
    "dirty": false,
    "args": [],
    "start_utc": "2026-11-02T11:21:46.963801+00:00",
    "hours": 0.176804744137658,
-   "status": "aarnavkembhavi1/shattered-kaggle-gate has status \"KernelWorkerStatus.COMPLETE\"",
+   "status": "[first-account]/shattered-kaggle-gate has status \"KernelWorkerStatus.COMPLETE\"",
    "accelerator": "NvidiaTeslaT4 (T4 x2)",
    "output_dir": "results\\kaggle\\kaggle_gate\\2026-11-02T112146",
    "hardware": null,
@@ -32,13 +32,13 @@
   },
   {
    "job": "kaggle_retrieval_gate",
-   "kernel": "aarnavkembhavi1/shattered-kaggle-retrieval-gate",
+   "kernel": "[first-account]/shattered-kaggle-retrieval-gate",
    "commit": "8291279ba1ddee8b0ba922a7dbe51ade2039fa44",
    "dirty": false,
    "args": [],
    "start_utc": "2026-11-02T13:34:12.085707+00:00",
    "hours": 0.3708362345563041,
-   "status": "aarnavkembhavi1/shattered-kaggle-retrieval-gate has status \"KernelWorkerStatus.COMPLETE\"",
+   "status": "[first-account]/shattered-kaggle-retrieval-gate has status \"KernelWorkerStatus.COMPLETE\"",
    "accelerator": "NvidiaTeslaT4 (T4 x2)",
    "output_dir": "results\\kaggle\\kaggle_retrieval_gate\\2026-11-02T133412",
    "hardware": null,
@@ -47,7 +47,7 @@
   },
   {
    "job": "kaggle_precision",
-   "kernel": "aarnavkembhavi1/shattered-kaggle-precision",
+   "kernel": "[first-account]/shattered-kaggle-precision",
    "commit": "43865a124bc00746db2033da64f2820ce90db035",
    "dirty": false,
    "args": [
@@ -57,7 +57,7 @@
    ],
    "start_utc": "2026-11-02T13:57:12.742931+00:00",
    "hours": 0.7789666637447146,
-   "status": "aarnavkembhavi1/shattered-kaggle-precision has status \"KernelWorkerStatus.COMPLETE\"",
+   "status": "[first-account]/shattered-kaggle-precision has status \"KernelWorkerStatus.COMPLETE\"",
    "accelerator": "NvidiaTeslaT4 (T4 x2)",
    "output_dir": "results\\kaggle\\kaggle_precision\\2026-11-02T135712",
    "hardware": null,
@@ -66,7 +66,7 @@
   },
   {
    "job": "kaggle_precision",
-   "kernel": "aarnavkembhavi1/shattered-kaggle-precision",
+   "kernel": "[first-account]/shattered-kaggle-precision",
    "commit": "ec5596f3114f4f6d7b4247c9cd1382a2d9bec5f8",
    "dirty": false,
    "args": [
@@ -75,7 +75,7 @@
    ],
    "start_utc": "2026-11-02T14:45:32.544178+00:00",
    "hours": 0.3057391605112288,
-   "status": "aarnavkembhavi1/shattered-kaggle-precision has status \"KernelWorkerStatus.COMPLETE\"",
+   "status": "[first-account]/shattered-kaggle-precision has status \"KernelWorkerStatus.COMPLETE\"",
    "accelerator": "NvidiaTeslaT4 (T4 x2)",
    "output_dir": "results\\kaggle\\kaggle_precision\\2026-11-02T144532",
    "hardware": null,
@@ -84,7 +84,7 @@
   },
   {
    "job": "kaggle_precision",
-   "kernel": "aarnavkembhavi1/shattered-kaggle-precision",
+   "kernel": "[first-account]/shattered-kaggle-precision",
    "commit": "803b5e7d49aec51f6ff4e737229789cc8e0c5f4f",
    "dirty": false,
    "args": [
@@ -94,7 +94,7 @@
    ],
    "start_utc": "2026-11-02T17:30:11.444903+00:00",
    "hours": 0.35400103045834436,
-   "status": "aarnavkembhavi1/shattered-kaggle-precision has status \"KernelWorkerStatus.COMPLETE\"",
+   "status": "[first-account]/shattered-kaggle-precision has status \"KernelWorkerStatus.COMPLETE\"",
    "accelerator": "NvidiaTeslaT4 (T4 x2)",
    "output_dir": "results\\kaggle\\kaggle_precision\\2026-11-02T173011",
    "hardware": null,
@@ -103,7 +103,7 @@
   },
   {
    "job": "kaggle_precision",
-   "kernel": "aarnavkembhavi1/shattered-kaggle-precision",
+   "kernel": "[first-account]/shattered-kaggle-precision",
    "commit": "9d50e929810ac207aa1770949025eab1d3b25598",
    "dirty": false,
    "args": [
@@ -113,7 +113,7 @@
    ],
    "start_utc": "2026-11-02T17:54:50.433466+00:00",
    "hours": 2.982456547551685,
-   "status": "aarnavkembhavi1/shattered-kaggle-precision has status \"KernelWorkerStatus.COMPLETE\"",
+   "status": "[first-account]/shattered-kaggle-precision has status \"KernelWorkerStatus.COMPLETE\"",
    "accelerator": "NvidiaTeslaT4 (T4 x2)",
    "output_dir": "results\\kaggle\\kaggle_precision\\2026-11-02T175450",
    "hardware": null,
@@ -122,7 +122,7 @@
   },
   {
    "job": "kaggle_x9b",
-   "kernel": "aarnavkembhavi1/shattered-kaggle-x9b",
+   "kernel": "[first-account]/shattered-kaggle-x9b",
    "commit": "c78f50a43a75b796113ef1b0ba33833f3b5e5b3c",
    "dirty": false,
    "args": [
@@ -131,7 +131,7 @@
    ],
    "start_utc": "2026-11-02T20:54:05.555786+00:00",
    "hours": 0.31091532866160076,
-   "status": "aarnavkembhavi1/shattered-kaggle-x9b has status \"KernelWorkerStatus.COMPLETE\"",
+   "status": "[first-account]/shattered-kaggle-x9b has status \"KernelWorkerStatus.COMPLETE\"",
    "accelerator": "NvidiaTeslaT4 (T4 x2)",
    "output_dir": "results\\kaggle\\kaggle_x9b\\2026-11-02T205405",
    "hardware": null,
@@ -140,7 +140,7 @@
   },
   {
    "job": "x_score",
-   "kernel": "aarnavkembhavi1/shattered-x-score",
+   "kernel": "[first-account]/shattered-x-score",
    "commit": "73546bea85386d840657545052b1a3b990ad6d38",
    "dirty": false,
    "args": [
@@ -149,7 +149,7 @@
    ],
    "start_utc": "2026-11-02T21:13:01.766906+00:00",
    "hours": 1.705509816010793,
-   "status": "aarnavkembhavi1/shattered-x-score has status \"KernelWorkerStatus.COMPLETE\"",
+   "status": "[first-account]/shattered-x-score has status \"KernelWorkerStatus.COMPLETE\"",
    "accelerator": "NvidiaTeslaT4 (T4 x2)",
    "output_dir": "results\\kaggle\\x_score\\2026-11-02T211301",
    "hardware": null,
@@ -158,7 +158,7 @@
   },
   {
    "job": "kaggle_x9b",
-   "kernel": "aarnavkembhavi1/shattered-kaggle-x9b",
+   "kernel": "[first-account]/shattered-kaggle-x9b",
    "commit": "bdf21393039757c6c2ae477e22cc0f0ebc7f63a7",
    "dirty": false,
    "args": [
@@ -167,7 +167,7 @@
    ],
    "start_utc": "2026-11-02T22:55:55.165456+00:00",
    "hours": 0.74825155807866,
-   "status": "aarnavkembhavi1/shattered-kaggle-x9b has status \"KernelWorkerStatus.COMPLETE\"",
+   "status": "[first-account]/shattered-kaggle-x9b has status \"KernelWorkerStatus.COMPLETE\"",
    "accelerator": "NvidiaTeslaT4 (T4 x2)",
    "output_dir": "results\\kaggle\\kaggle_x9b\\2026-11-02T225555",
    "hardware": null,
@@ -176,7 +176,7 @@
   },
   {
    "job": "x_score",
-   "kernel": "aarnavkembhavi1/shattered-x-score",
+   "kernel": "[first-account]/shattered-x-score",
    "commit": "786f67e41c1ebc27739876e5d269e34f47416942",
    "dirty": false,
    "args": [
@@ -185,7 +185,7 @@
    ],
    "start_utc": "2026-11-02T23:41:04.243954+00:00",
    "hours": 1.2289741397566265,
-   "status": "aarnavkembhavi1/shattered-x-score has status \"KernelWorkerStatus.COMPLETE\"",
+   "status": "[first-account]/shattered-x-score has status \"KernelWorkerStatus.COMPLETE\"",
    "accelerator": "NvidiaTeslaT4 (T4 x2)",
    "output_dir": "results\\kaggle\\x_score\\2026-11-02T234104",
    "hardware": null,
@@ -194,7 +194,7 @@
   },
   {
    "job": "kaggle_x9b",
-   "kernel": "aarnavkembhavi1/shattered-kaggle-x9b",
+   "kernel": "[first-account]/shattered-kaggle-x9b",
    "commit": "dc2d1df5e79a98dda8f43947b851eba4056f5e22",
    "dirty": false,
    "args": [
@@ -203,7 +203,7 @@
    ],
    "start_utc": "2026-11-03T00:55:39.563598+00:00",
    "hours": 0.9904127509726418,
-   "status": "aarnavkembhavi1/shattered-kaggle-x9b has status \"KernelWorkerStatus.COMPLETE\"",
+   "status": "[first-account]/shattered-kaggle-x9b has status \"KernelWorkerStatus.COMPLETE\"",
    "accelerator": "NvidiaTeslaT4 (T4 x2)",
    "output_dir": "results\\kaggle\\kaggle_x9b\\2026-11-03T005539",
    "hardware": null,
@@ -212,7 +212,7 @@
   },
   {
    "job": "kaggle_x9b",
-   "kernel": "aarnavkembhavi1/shattered-kaggle-x9b",
+   "kernel": "[first-account]/shattered-kaggle-x9b",
    "commit": "ec0eaad96bc37a876f8e19a1712a12d1fdb8b2f9",
    "dirty": false,
    "args": [
@@ -224,7 +224,7 @@
    ],
    "start_utc": "2026-11-03T01:55:22.465724+00:00",
    "hours": 0.28350142512056564,
-   "status": "aarnavkembhavi1/shattered-kaggle-x9b has status \"KernelWorkerStatus.COMPLETE\"",
+   "status": "[first-account]/shattered-kaggle-x9b has status \"KernelWorkerStatus.COMPLETE\"",
    "accelerator": "NvidiaTeslaT4 (T4 x2)",
    "output_dir": "results\\kaggle\\kaggle_x9b\\2026-11-03T015522",
    "hardware": null,
@@ -233,7 +233,7 @@
   },
   {
    "job": "kaggle_x9b",
-   "kernel": "aarnavkembhavi1/shattered-kaggle-x9b",
+   "kernel": "[first-account]/shattered-kaggle-x9b",
    "commit": "bcaebe7b8265daccb51c355746c207a944162a91",
    "dirty": false,
    "args": [
@@ -245,7 +245,7 @@
    ],
    "start_utc": "2026-11-03T02:13:26.875887+00:00",
    "hours": 0.3827516283591588,
-   "status": "aarnavkembhavi1/shattered-kaggle-x9b has status \"KernelWorkerStatus.COMPLETE\"",
+   "status": "[first-account]/shattered-kaggle-x9b has status \"KernelWorkerStatus.COMPLETE\"",
    "accelerator": "NvidiaTeslaT4 (T4 x2)",
    "output_dir": "results\\kaggle\\kaggle_x9b\\2026-11-03T021326",
    "hardware": null,
@@ -254,7 +254,7 @@
   },
   {
    "job": "kaggle_x9b",
-   "kernel": "aarnavkembhavi1/shattered-kaggle-x9b",
+   "kernel": "[first-account]/shattered-kaggle-x9b",
    "commit": "bcaebe7b8265daccb51c355746c207a944162a91",
    "dirty": false,
    "args": [
@@ -268,7 +268,7 @@
    ],
    "start_utc": "2026-11-03T02:36:38.457900+00:00",
    "hours": 6.305875140627225,
-   "status": "aarnavkembhavi1/shattered-kaggle-x9b has status \"KernelWorkerStatus.COMPLETE\"",
+   "status": "[first-account]/shattered-kaggle-x9b has status \"KernelWorkerStatus.COMPLETE\"",
    "accelerator": "NvidiaTeslaT4 (T4 x2)",
    "output_dir": "results\\kaggle\\kaggle_x9b\\2026-11-03T023638",
    "hardware": null,
@@ -277,7 +277,7 @@
   },
   {
    "job": "kaggle_x9b",
-   "kernel": "aarnavkembhavi1/shattered-kaggle-x9b",
+   "kernel": "[first-account]/shattered-kaggle-x9b",
    "commit": "4e6fd51a065381d3b86b072a482fa30f66639e8b",
    "dirty": false,
    "args": [
@@ -291,7 +291,7 @@
    ],
    "start_utc": "2026-11-03T08:55:20.101786+00:00",
    "hours": 6.6003135350015425,
-   "status": "aarnavkembhavi1/shattered-kaggle-x9b has status \"KernelWorkerStatus.COMPLETE\"",
+   "status": "[first-account]/shattered-kaggle-x9b has status \"KernelWorkerStatus.COMPLETE\"",
    "accelerator": "NvidiaTeslaT4 (T4 x2)",
    "output_dir": "results\\kaggle\\kaggle_x9b\\2026-11-03T085520",
    "hardware": null,
@@ -300,7 +300,7 @@
   },
   {
    "job": "kaggle_precision",
-   "kernel": "aarnavkembhavi1/shattered-kaggle-precision",
+   "kernel": "[first-account]/shattered-kaggle-precision",
    "commit": "37849aa3f8b4f8283f6a6ef5b7b455051ac599e5",
    "dirty": false,
    "args": [
@@ -309,7 +309,7 @@
    ],
    "start_utc": "2026-11-03T21:11:25.456905+00:00",
    "hours": 0.07295618176460267,
-   "status": "aarnavkembhavi1/shattered-kaggle-precision has status \"KernelWorkerStatus.COMPLETE\"",
+   "status": "[first-account]/shattered-kaggle-precision has status \"KernelWorkerStatus.COMPLETE\"",
    "accelerator": "NvidiaTeslaT4 (T4 x2)",
    "output_dir": "results\\kaggle\\kaggle_precision\\2026-11-03T211125",
    "hardware": null,
@@ -318,7 +318,7 @@
   },
   {
    "job": "kaggle_mdl",
-   "kernel": "aarnavkembhavi1/shattered-kaggle-mdl",
+   "kernel": "[first-account]/shattered-kaggle-mdl",
    "commit": "a9e7bca8f552914271080deccb58e8f188d8a959",
    "dirty": false,
    "args": [
@@ -327,7 +327,7 @@
    ],
    "start_utc": "2026-11-03T22:06:06.702299+00:00",
    "hours": 1.0563246400488748,
-   "status": "aarnavkembhavi1/shattered-kaggle-mdl has status \"KernelWorkerStatus.COMPLETE\"",
+   "status": "[first-account]/shattered-kaggle-mdl has status \"KernelWorkerStatus.COMPLETE\"",
    "accelerator": "NvidiaTeslaT4 (T4 x2)",
    "output_dir": "results\\kaggle\\kaggle_mdl\\2026-11-03T220606",
    "hardware": null,
@@ -336,7 +336,7 @@
   },
   {
    "job": "kaggle_precision",
-   "kernel": "aarnavkembhavi1/shattered-kaggle-precision",
+   "kernel": "[first-account]/shattered-kaggle-precision",
    "commit": "957499afacbaaa56198620622baf42a845ad920c",
    "dirty": false,
    "args": [
@@ -345,7 +345,7 @@
    ],
    "start_utc": "2026-11-03T23:10:58.723182+00:00",
    "hours": 0.12375268598397572,
-   "status": "aarnavkembhavi1/shattered-kaggle-precision has status \"KernelWorkerStatus.COMPLETE\"",
+   "status": "[first-account]/shattered-kaggle-precision has status \"KernelWorkerStatus.COMPLETE\"",
    "accelerator": "NvidiaTeslaT4 (T4 x2)",
    "output_dir": "results\\kaggle\\kaggle_precision\\2026-11-03T231058",
    "hardware": null,
@@ -354,7 +354,7 @@
   },
   {
    "job": "kaggle_precision",
-   "kernel": "aarnavkembhavi1/shattered-kaggle-precision",
+   "kernel": "[first-account]/shattered-kaggle-precision",
    "commit": "957499afacbaaa56198620622baf42a845ad920c",
    "dirty": false,
    "args": [
@@ -364,7 +364,7 @@
    ],
    "start_utc": "2026-11-03T23:19:21.094157+00:00",
    "hours": 1.232199977437655,
-   "status": "aarnavkembhavi1/shattered-kaggle-precision has status \"KernelWorkerStatus.COMPLETE\"",
+   "status": "[first-account]/shattered-kaggle-precision has status \"KernelWorkerStatus.COMPLETE\"",
    "accelerator": "NvidiaTeslaT4 (T4 x2)",
    "output_dir": "results\\kaggle\\kaggle_precision\\2026-11-03T231921",
    "hardware": null,
@@ -373,7 +373,7 @@
   },
   {
    "job": "kaggle_precision",
-   "kernel": "aarnavkembhavi1/shattered-kaggle-precision",
+   "kernel": "[first-account]/shattered-kaggle-precision",
    "commit": "45def39d65183a168131290c1928fc5c40321966",
    "dirty": false,
    "args": [
@@ -382,7 +382,7 @@
    ],
    "start_utc": "2026-11-04T00:34:20.705726+00:00",
    "hours": 0.14154390884770288,
-   "status": "aarnavkembhavi1/shattered-kaggle-precision has status \"KernelWorkerStatus.COMPLETE\"",
+   "status": "[first-account]/shattered-kaggle-precision has status \"KernelWorkerStatus.COMPLETE\"",
    "accelerator": "NvidiaTeslaT4 (T4 x2)",
    "output_dir": "results\\kaggle\\kaggle_precision\\2026-11-04T003420",
    "hardware": null,
@@ -391,7 +391,7 @@
   },
   {
    "job": "kaggle_precision",
-   "kernel": "aarnavkembhavi1/shattered-kaggle-precision",
+   "kernel": "[first-account]/shattered-kaggle-precision",
    "commit": "7cfcb188bba57fd7651eaa2b4e878fe5821fbfd2",
    "dirty": false,
    "args": [
@@ -400,7 +400,7 @@
    ],
    "start_utc": "2026-11-04T00:54:10.361038+00:00",
    "hours": 1.3552055361535813,
-   "status": "aarnavkembhavi1/shattered-kaggle-precision has status \"KernelWorkerStatus.COMPLETE\"",
+   "status": "[first-account]/shattered-kaggle-precision has status \"KernelWorkerStatus.COMPLETE\"",
    "accelerator": "NvidiaTeslaT4 (T4 x2)",
    "output_dir": "results\\kaggle\\kaggle_precision\\2026-11-04T005410",
    "hardware": null,
@@ -409,7 +409,7 @@
   },
   {
    "job": "x_score",
-   "kernel": "aarnavkembhavi1/shattered-x-score",
+   "kernel": "[first-account]/shattered-x-score",
    "commit": "27fc008f7559abd141c54793e786dcd5fae80b0e",
    "dirty": false,
    "args": [
@@ -418,7 +418,7 @@
    ],
    "start_utc": "2026-11-04T02:23:11.070809+00:00",
    "hours": 1.8129362084468206,
-   "status": "aarnavkembhavi1/shattered-x-score has status \"KernelWorkerStatus.COMPLETE\"",
+   "status": "[first-account]/shattered-x-score has status \"KernelWorkerStatus.COMPLETE\"",
    "accelerator": "NvidiaTeslaT4 (T4 x2)",
    "output_dir": "results\\kaggle\\x_score\\2026-11-04T022311",
    "hardware": null,

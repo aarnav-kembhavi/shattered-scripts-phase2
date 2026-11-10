@@ -268,7 +268,7 @@ def do_analyse() -> int:
 
 
 def do_main() -> int:
-    """Main estimates for the paper (Aarnav, 2026-10-26): E-P2 = all items; E-P1 = items with gap >= GAP_MIN only (the
+    """Main estimates for the paper (the lead author, 2026-10-26): E-P2 = all items; E-P1 = items with gap >= GAP_MIN only (the
     all-items E-P1 ratio of sums is never reported), with the share of items meeting that condition; R at the registered
     L* per model, ratio of sums with a 95% bootstrap CI over items, per-item median (gap >= GAP_MIN)."""
     rows = []

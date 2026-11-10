@@ -1,4 +1,4 @@
-"""Kaggle queue driver (Amendment 2, approved 2026-11-02; order set by Aarnav 2026-11-02 23:16): A1-P pair (Qwen3-8B, Ambari-7B-base) -> score the ones that pass (X13 Qwen3-8B,
+"""Kaggle queue driver (Amendment 2, approved 2026-11-02; order set by the lead author 2026-11-02 23:16): A1-P pair (Qwen3-8B, Ambari-7B-base) -> score the ones that pass (X13 Qwen3-8B,
 then X12 Ambari-base) -> A1-P Ambari-Instruct v0.1 and v0.2 (one push) -> X9b Sarvam-1 arm when its laptop pilot is done -> gated models retried between jobs. Weekly quota is projected before each push.
 (earlier text:) A1-R retrieval gate (read from its fetched output) -> A1-P precision checks -> X12 scoring ->
 X13 scoring, one Kaggle job at a time, deciding each step from the registered rules, retrying Hugging Face access between jobs. Idempotent and resumable:
@@ -14,7 +14,7 @@ import time
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[1]
-ACCT = os.environ.get("KAGGLE_ACCOUNT", "1")  # 1 = Aarnav's account (X9b and, until account 2 is accepted, everything); 2 = a teammate's account (self-contained jobs), own state file
+ACCT = os.environ.get("KAGGLE_ACCOUNT", "1")  # 1 = the lead author's account (X9b and, until account 2 is accepted, everything); 2 = a teammate's account (self-contained jobs), own state file
 os.environ["KAGGLE_ACCOUNT"] = ACCT
 SHARED = REPO / "results" / "kaggle"
 K = SHARED if ACCT == "1" else SHARED / "acct2"
@@ -41,7 +41,7 @@ PRIVATE = "shattered-flores-private"
 X12 = ["ambari-7b-base", "llama-2-7b", "ambari-7b-instruct-v0.1", "ambari-7b-instruct-v0.2"]  # X12 endpoints (exempt from the counting rule, subject to A1-P)
 X13 = ["qwen3-8b", "llama-3.1-8b"]  # plus the largest Sarvam that fits (named by the screen, added to the state when chosen)
 INSTRUCT = ["ambari-7b-instruct-v0.1", "ambari-7b-instruct-v0.2"]  # X12 contrast 2 (instruction-pair exposure contrast): scored only if BOTH pass A1-P
-X9B_SARVAM_H = 0.0  # reserve LIFTED by Aarnav 2026-11-04 (was 18.0, registered: Sarvam-1 primary arm); a job now only has to fit in the remaining quota hours; X9b batch 3 is pushed the moment it fits
+X9B_SARVAM_H = 0.0  # reserve LIFTED by the lead author 2026-11-04 (was 18.0, registered: Sarvam-1 primary arm); a job now only has to fit in the remaining quota hours; X9b batch 3 is pushed the moment it fits
 WANT = ["qwen3-8b", "ambari-7b-base", "llama-2-7b", "llama-3.1-8b"] + INSTRUCT
 
 
@@ -221,9 +221,9 @@ def projection(s: dict, job: str, hours: float, is_x9b: bool = False, x12c1: boo
         log(s, f"{job}: over the weekly quota, not pushed")
         return False
     if x12c1 and head >= 0:
-        log(s, f"{job}: X12 contrast 1 runs ahead of the X9b reserve on Aarnav's decision of 2026-11-04 (X9b batch 3 launches as soon as the projection allows; nothing else goes ahead of it)")
+        log(s, f"{job}: X12 contrast 1 runs ahead of the X9b reserve on the lead author's decision of 2026-11-04 (X9b batch 3 launches as soon as the projection allows; nothing else goes ahead of it)")
         return True
-    if ACCT == "1" and not is_x9b and x9b_pending(s):  # Aarnav 2026-11-04: X9b batch 3 launches the moment it fits and nothing queues ahead of it
+    if ACCT == "1" and not is_x9b and x9b_pending(s):  # the lead author 2026-11-04: X9b batch 3 launches the moment it fits and nothing queues ahead of it
         log(s, f"{job}: X9b Sarvam batches are still pending; nothing goes ahead of them")
         return False
     return True

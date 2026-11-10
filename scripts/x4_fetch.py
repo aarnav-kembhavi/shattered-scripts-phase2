@@ -1,4 +1,4 @@
-"""X4 data fetch (registered in RESULTS.md, 2026-11-01, item "Data"; run 2026-11-02 after Aarnav's go-ahead). Network and CPU only.
+"""X4 data fetch (registered in RESULTS.md, 2026-11-01, item "Data"; run 2026-11-02 after the lead author's go-ahead). Network and CPU only.
 
 Steps (each resumable, each writes to results/phase2/x4/fetch/):
   sib     SIB-200 ben_Beng and tel_Telu (Davlan/sib200 at the pinned Phase 1 revision): counts, index ids and labels against

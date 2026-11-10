@@ -1,3 +1,0 @@
-Text: {text}
-Question: ಈ ಪಠ್ಯದ ಮುಖ್ಯ ವಿಷಯವೇನು: geography, entertainment, health, sports, politics, travel ಅಥವಾ science?
-Answer:

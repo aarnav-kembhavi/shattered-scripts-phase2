@@ -63,7 +63,7 @@
    "dir": "results\\kaggle\\x_score\\2026-11-02T211301\\out\\qwen3-8b",
    "hours": 1.705509816010793,
    "commit": "73546bea85386d840657545052b1a3b990ad6d38",
-   "status": "aarnavkembhavi1/shattered-x-score has status \"KernelWorkerStatus.COMPLETE\""
+   "status": "[first-account]/shattered-x-score has status \"KernelWorkerStatus.COMPLETE\""
   },
   "ambari-7b-base": {
    "done": true,
@@ -71,7 +71,7 @@
    "dir": "results\\kaggle\\x_score\\2026-11-02T234104\\out\\ambari-7b-base",
    "hours": 1.2289741397566265,
    "commit": "786f67e41c1ebc27739876e5d269e34f47416942",
-   "status": "aarnavkembhavi1/shattered-x-score has status \"KernelWorkerStatus.COMPLETE\""
+   "status": "[first-account]/shattered-x-score has status \"KernelWorkerStatus.COMPLETE\""
   },
   "llama-2-7b": {
    "done": true,
@@ -79,7 +79,7 @@
    "dir": "results\\kaggle\\x_score\\2026-11-04T022311\\out\\llama-2-7b",
    "hours": 1.8129362084468206,
    "commit": "27fc008f7559abd141c54793e786dcd5fae80b0e",
-   "status": "aarnavkembhavi1/shattered-x-score has status \"KernelWorkerStatus.COMPLETE\""
+   "status": "[first-account]/shattered-x-score has status \"KernelWorkerStatus.COMPLETE\""
   }
  },
  "mdl": {

@@ -1,6 +1,0 @@
-{'flores_kn': 2009, 'flores_en': 2009, 'sib_kn': 1004, 'sib_en': 1004, 'flores_kn_itrans': 2009, 'sib_kn_itrans': 1004}
-articles 31437 156289 9s
-kn native scan done 0 34s
-kn itrans scan done 0 363s
-en scan done 2 425s
-C:\PROJECTS\PROMPT\shattered-scripts\results\phase2\x9b\streams_report.json {'native_kannada': (31437, 0), 'itrans_kannada': (31437, 0), 'english': (156287, 0)} ALL ZERO: True

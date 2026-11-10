@@ -1,130 +1,180 @@
-# Shattered Scripts
+# Shattered Scripts: code, data and results
 
-Code, data and paper for "Shattered Scripts: Familiarity Outweighs Fragmentation in How Language Models Read Romanized Kannada"
-(TMLR submission, anonymous mode). An interpretability study of tokenizer-fragmented Kannada in tiny GPTs and in pretrained models of about two billion
-parameters or fewer (Qwen2.5-1.5B, Qwen3-1.7B, Qwen3.5-2B, Sarvam-1, Gemma 4 E2B; each experiment states which it uses), plus a Hindi comparison.
+Anonymous code, data and results for a study of how small language models read **Kannada** in different written forms:
+native script, and several Latin-letter romanizations. The question is whether the way a tokenizer *fragments* a written form
+or how *familiar* the form is to the model better explains why romanized Kannada is read worse than native script.
 
-- Rules, thesis and what is already known: `CLAUDE.md`. Full experiment brief: `docs/BRIEF.md`.
-- **Every registered prediction, decision and result, dated:** `RESULTS.md`. Datasets and licenses: `DATA_CARD.md`.
-- Every number in the paper traces to a file in `results/` (see "Rebuild the paper").
-- The cleanup of 2026-10-30 is described in `docs/CLEANUP_PLAN.md`; the archived items are listed in `../shattered-scripts-archive/MANIFEST.md`.
+> This repository is the anonymized release for review. It contains the code, the data we produced, and every result file the
+> analyses read. It does not contain the paper source, model weights, activation caches or raw third-party downloads (see
+> "What is not included").
 
-## What is in each folder
+## Short summary of what was found
 
-| Folder | Holds |
+All statements are about the models we tested (about 1.5 to 2.5 billion parameters; some experiments extend to 8B and one
+4-bit 23.6B model) and about Kannada, with Hindi, Bengali and Telugu as comparisons. Our evidence tracks familiarity of the
+written form more than fragmentation; the registered head-to-head comparison of the two is inconclusive, so we do not claim that
+either outweighs the other.
+
+- **Native script wins.** Native Kannada beats lossless ASCII romanization (ITRANS) on SIB-200 topic accuracy in all five small
+  models and in all seven counted models up to 23.6B, and beats a lossy lowercase romanization in four of five small models.
+  Natural (typed-style) romanization is never significantly above native.
+- **Word assembly follows fragmentation; meaning follows familiarity.** The layer at which a word is assembled (an MDL probe)
+  moves with how many pieces the tokenizer makes, while alignment with the English translation and task accuracy move with the
+  familiarity of the form.
+- **Tiny GPTs with only the vocabulary varied** (identical training data): more fragmentation delays word assembly slightly,
+  but the bits-per-byte cost does not survive a control that equalizes embedding capacity (registered prediction that failed).
+- **Causal evidence.** Patching native word-final states into the lossy-romanized run restores about 0.37 to 0.6 of the native
+  advantage at early and middle layers; the cost of an unfamiliar form is spread over a word's pieces and concentrated in a subset
+  of items.
+- **Manipulating familiarity.** Continuing pretraining of Sarvam-1 on ITRANS Kannada closes more of the native-minus-ITRANS gap
+  than the same amount of native or English text (accuracy +0.19 to +0.22, retrieval +0.34 to +0.41, four seeds). The model stays
+  below native level, and the form trained on is also the form evaluated.
+- **Replication in other languages.** Bengali and Telugu reproduce the Kannada pattern; the native-minus-natural gap is larger
+  for Kannada than for Hindi.
+- **Predictions that failed or were not decided are reported**, not hidden: the bits-per-byte cost, the patching threshold, a second
+  prompt template, a cipher-exposure test (at a retrieval ceiling), forced segmentations at matched piece frequency, a 4-bit control
+  (partly supported), and Gemini's romanization against human romanization (refuted in Kannada, Bengali and Telugu).
+
+Where each number comes from: `results/phase2/RESULTS_READABLE.md` (one block per experiment with the full outcome and file
+paths), `results/phase2/REGISTERED_OUTCOMES.md` (every registered outcome word and status), and
+`results/phase2/PHASE2_CLAIMS_TABLE.md`.
+
+## Written forms used
+
+| Form | What it is |
 |---|---|
-| `paper2/` | `main.tex` (TMLR style, one merged file; the sections are cut out by `check_numbers.py`), generated `tables/` and `figures/`, `refs.bib`, and `paper2/scripts/` (`make_tables.py`, `make_figures.py`, `check_numbers.py` with the claim files `section_claims*.py`, `pages.py`, `build_paper.sh`) |
-| `src/shattered/` | the library: data loaders, tokenizer tools, transliteration, LLM client with cache, pretraining, interpretability, stats, plots |
-| `scripts/` | experiment entry points and chain launchers (flat on purpose: scripts import each other and the chains call them by path; table below) |
-| `results/<experiment>/` | outputs of one experiment each: CSV and JSON with the config and commit that produced them. `results/CHAIN_STATUS_K3BHI.md` and the logs of running chains stay here |
-| `data/raw/` | downloads (FLORES, SIB-200, IndicSentiment, Dakshina, TinyStories, Wikipedia); not in git |
-| `data/processed/` | natural-romanization drafts from Gemini (all versions), word lists, E5 token streams (not in git) |
-| `data/annotation/` | annotation items, drafts and the verified texts from annotator A |
-| `annotation/` | annotation workbooks, instructions and templates (never distributed until the lead author says so) |
-| `cache/` | `llm_cache.sqlite` (every API response; never delete) and `activations/` (large, regenerable, not in git) |
-| `checkpoints/e05/` | the 18 final E5 tiny-GPT weights (`run_v*_s*/final.safetensors`), loaded by `e05_pretrain.py`, `m1_tiny_mdl.py` and `m1_tiny_probes.py` |
-| `docs/` | brief, preregistration drafts, the cleanup plan, reference PDFs |
-| `configs/`, `tests/` | run configs; unit tests |
+| native | Kannada script (NFC) |
+| ITRANS | lossless ASCII romanization with capitals; round-trips all 2,009 FLORES+ sentences |
+| lowercase | lossless scheme without capitals, picked by a search over reversible schemes |
+| lossy | merges sounds the script keeps apart (long/short vowels, retroflex/dental, aspirated/unaspirated), lowercase |
+| natural | what people type: drafted by an LLM (`gemini-3.5-flash-lite`, temperature 0, one fixed prompt), English words kept |
+| Kanglish | romanized Kannada mixed with English, on a verified subset |
+| English | the parallel English text |
+| non-canonical | the lossy text forced into an unfamiliar tokenization (same piece count per word) |
 
-## Setup (Windows or Linux, one consumer GPU)
+Natural romanizations are model drafts; native speakers verified 500 of them (200 sentiment items and 300 FLORES+ items). Only
+those subsets are described as human-verified. The prompt and filtering for each language are in `scripts/e02_natural.py`,
+`scripts/m4c_natural_flores.py`, `scripts/h_hindi.py` and `scripts/x4_natural.py`.
+
+## Measures
+
+- **Accuracy**: log-likelihood of English label words after an English instruction, calibrated with content-free inputs
+  ("N/A", "", "[MASK]"), with a fallback to raw scores if calibration lowers English accuracy by more than 5 points.
+- **Alignment**: unmapped retrieval of the English translation by cosine similarity of mean-pooled residual states (acc@1), at
+  the layer chosen on a train half.
+- **Word assembly**: first layer whose word-identity probe reaches 90 percent of its maximum compression (MDL probing).
+- **Causal evidence**: word-aligned activation patching; recovery R = share of the source-minus-destination gold-label margin
+  restored.
+- **Statistics**: exact McNemar tests with Holm correction, 95 percent paired bootstrap intervals (10,000 resamples over items,
+  seed 0). Experiments were registered before they were run; later additions are labelled post hoc or exploratory.
+
+## Repository layout
+
+| Path | Holds |
+|---|---|
+| `src/shattered/` | library: data loaders, tokenizer tools, transliteration and lossy rules, LLM client with response cache, pretraining, probes and patching, statistics, plots |
+| `scripts/` | one entry point per experiment (flat on purpose: scripts import each other); table below. Each docstring states its usage and outputs |
+| `configs/` | run configs for the cost atlas, the tiny-GPT grid, API prices |
+| `tests/` | unit tests (`pytest`) for transliteration, alignment, pretraining, probes, patching and the LLM client |
+| `results/<experiment>/` | outputs of each experiment: CSV and JSON files carrying the config and git commit that produced them |
+| `results/phase2/` | the second set of experiments (X1 to X15), with `RESULTS_READABLE.md`, `REGISTERED_OUTCOMES.md`, `PHASE2_CLAIMS_TABLE.md` |
+| `results/kaggle/` | scored outputs of the jobs run on Kaggle GPUs (the larger models): per-item parquet files and JSON summaries, and queue and quota records |
+| `data/annotation/` | annotation items, Gemini drafts and the native-speaker verified texts, with `DATASHEET.md` |
+| `data/processed/` | natural-romanization drafts (all versions) for Kannada, Hindi, Bengali and Telugu |
+| `annotation/` | annotator instructions, examples, the verified-annotation table and the merge script (no annotator identities) |
+| `docs/BRIEF.md` | the experiment brief the first set of experiments followed |
+| `DATA_CARD.md` | every dataset used: source, revision, license, splits, sizes, use |
+
+## Setup
+
+Python 3.12, one consumer GPU (the small-model experiments ran on an 8 GB laptop GPU in bf16, one model load at a time).
 
 ```bash
 uv venv --python 3.12 .venv
-uv pip install --python .venv/Scripts/python.exe torch --index-url https://download.pytorch.org/whl/cu126
-uv pip install --python .venv/Scripts/python.exe -r requirements.txt -e .
-cp .env.example .env     # API keys (Gemini free tier); never an Anthropic key
+uv pip install --python .venv/bin/python torch --index-url https://download.pytorch.org/whl/cu126   # use .venv/Scripts/python.exe on Windows
+uv pip install --python .venv/bin/python -r requirements.txt -e .
+cp .env.example .env          # keys are only needed to re-draft romanizations or call hosted models; the response cache is not included
 python scripts/env_check.py
+pytest tests
 ```
 
-Interpretability runs in bf16 only, one model load at a time, with a GPU guard first (`shattered.gpuguard`).
-
-## Rebuild the paper
-
-```bash
-bash paper2/scripts/build_paper.sh                       # pdflatex + bibtex into paper2/build/, prints LaTeX errors, undefined citations, pages
-python paper2/scripts/make_tables.py                     # paper2/tables/*.tex from results/ (a cell with no result file is marked MISSING)
-python paper2/scripts/make_figures.py                    # paper2/figures/*.pdf from results/
-python paper2/scripts/pages.py                           # main-text pages (TMLR asks for at most 12 before the appendix)
-for s in intro related setup controlled accuracy assembly familiarity limitations conclusion broader_impact abstract appendix; do
-  python paper2/scripts/check_numbers.py --section $s     # every number in the text against its result file
-done
-python scripts/anon_package.py                          # anonymized supplementary zip in build/ with an identifying-string scan
-```
-
-## Regenerating what is not in git
-
-| What | How | Cost (estimate from the logs in RESULTS.md) |
-|---|---|---|
-| `cache/activations/m14full/`, `h_hindi/`, `nc1/` | `scripts/m14_full.py`, `l_ladder.py forward`, `m4c_natural_flores.py forward`, `v_ver.py forward`, `v_dbl.py forward`, `h_hindi.py forward`, `nc1.py forward` | about 4 to 6 h GPU in total, one model per load |
-| `results/k12/vectors/*.npz` (K2b vectors, 121 MB, untracked) | `python scripts/k_k12.py forward <model>` for `qwen2.5-1.5b`, `qwen3.5-2b`, `sarvam-1`, `gemma4-e2b`, then `python scripts/k_k12.py analyse` | about 40 min GPU |
-| `checkpoints/e05/`, `data/processed/e05/*.npy` | `python scripts/e05_pretrain.py prepare`, then one run per condition: `python scripts/e05_pretrain.py train --vocab <V> --seed <S>` (resumable; vocabularies and seeds in `configs/e05_pretrain.yaml`) | about 8.3 h GPU for the full grid |
-| `cache/llm_cache.sqlite` | keeps itself; re-drafting needs days of Gemini quota, so never delete | days |
+Model weights download from the Hugging Face Hub on first use. Gated models (Llama) need an accepted license and a token.
 
 ## Experiments: what to run
 
-Every experiment was registered in `RESULTS.md` before it ran; its script is documented in its docstring (usage and outputs).
+Entry points; the analysis step of each is CPU-only and reads stored scores. Outputs are in the folders named.
 
-| Experiment | Entry point (analysis step is CPU) | Output |
+### First set (Phase 1)
+
+| Experiment | Entry point | Output |
 |---|---|---|
 | E0 model gate, tokens per word | `e00_gate.py`, `e00_tokens_per_word.py` | `results/e00_gate` |
 | E1 token-cost atlas (context) | `e01_cost.py --config configs/e01_cost.yaml`, `e01_plots.py` | `results/e01_cost*` |
-| E2 transliteration schemes | `e02_translit.py` | `results/e02_translit` |
-| E5 tiny GPTs (controlled pretraining) | `e05_pretrain.py prepare / train`, then `e05_analysis.py` | `results/e05_pretrain` |
+| E2 transliteration schemes | `e02_translit.py`; reversible lowercase search `e09_search.py`, `e09_capitals.py`, `e09_eval.py` | `results/e02_translit`, `results/e09_romanize` |
+| E5 tiny GPTs (vocabulary varied, data fixed) | `e05_pretrain.py prepare / train`, `e05_analysis.py` | `results/e05_pretrain` |
 | M1 tiny-model probes (MDL, erasure) | `m1_tiny_mdl.py`, `m1_tiny_probes.py` | `results/m1_tiny_mdl`, `results/m1_tiny` |
-| M1/M4 pretrained models (assembly layer, alignment) | `m14_full.py`, then `m14_gate2.py`; `m4b_mapping.py`, `m4b_robustness.py`, `m4b_surface.py` | `results/m14_full`, `results/m4b_*` |
-| M4c natural romanization alignment | `m4c_natural_flores.py romanize / forward / analyse`, `m4c_curves.py`, `m4c_surface.py` | `results/m4c_*` |
+| M1/M4 pretrained models (assembly layer, alignment) | `m14_full.py`, `m14_gate2.py`, `m4b_mapping.py`, `m4b_robustness.py`, `m4b_surface.py` | `results/m14_full`, `results/m4b_*` |
+| M4c natural-romanization alignment | `m4c_natural_flores.py romanize / forward / analyse`, `m4c_curves.py`, `m4c_surface.py` | `results/m4c_*` |
 | Accuracy across forms (sentiment, SIB-200) | `e0b_familiarity.py`, `e0c_sib.py score / analyse` | `results/e0b_familiarity`, `results/e0c_sib` |
 | Back-translation check | `e0b_backtranslate.py`, `e0b_backtranslate_control.py` | `results/e0b_natural_check` |
-| Ladder L1 to L3 | `l_ladder.py forward / score / analyse`, `l_ladder_posthoc.py` | `results/l_ladder*` |
+| Ladder L1 to L3 (casing, fragmentation, spelling) | `l_ladder.py forward / score / analyse`, `l_ladder_posthoc.py` | `results/l_ladder*` |
 | NC1 forced non-canonical tokenization | `nc1.py chars / forward / score / analyse`, `nc1_posthoc.py`, `nc1_piece_frequency.py` | `results/nc1*` |
 | E-P1, E-P2 activation patching; EP-R | `ep_patching.py`, `ep_robust.py run / analyse` | `results/ep1`, `ep2`, `ep_robust` |
-| H1 Kannada against Hindi; H1-LF | `h_hindi.py check / draft / forward / score / analyse` (H1); `h1lf.py draft / score / score check / analyse1`, `h1lf_selection.py` | `results/h_hindi`, `results/h1lf` |
+| H1 Kannada against Hindi; H1-LF | `h_hindi.py`, `h1lf.py`, `h1lf_selection.py` | `results/h_hindi`, `results/h1lf` |
 | K3b Gemini against human romanization | `k3b_dakshina.py sample / draft / analyse [hi]` | `results/k3b`, `results/k3b_hi` |
-| K1, K2 on verified Kanglish; K2b controls | `k_k12.py pilot / score / forward / analyse`, `k2b_overlap.py`, `k2b_strata.py`, `k2b_units.py`, `codemix_check.py` | `results/k12`, `results/codemix_check` |
-| V-VER, V-DBL (verification and vowel doubling) | `k_verified.py`, `v_ver.py forward / score / analyse`, `v_dbl.py build / tpw / forward / score / analyse` | `results/v_ver`, `results/v_dbl` |
+| K1, K2 (verified Kanglish), K2b controls | `k_k12.py`, `k2b_overlap.py`, `k2b_strata.py`, `k2b_units.py`, `codemix_check.py` | `results/k12`, `results/codemix_check` |
+| V-VER, V-DBL (verification, vowel doubling) | `k_verified.py`, `v_ver.py`, `v_dbl.py` | `results/v_ver`, `results/v_dbl` |
 | Matched samples for the main tables | `matched_samples.py` | `results/matched` |
 
-Long runs are detached Windows scheduled tasks (`scripts/detach.ps1 -Name <x> -Script scripts/<chain>.sh`) that source `scripts/chainlib.sh`
-(heartbeat, quota waits from the clock, network failures retried with backoff, GPU guard). Only `ShatteredScripts_k3bhi` and
-`ShatteredScripts_watch` are still registered.
+### Second set (Phase 2), outputs under `results/phase2/<id>/`
 
-## Scripts: role and experiment
-
-Roles: **active** = produces a result the paper reads; **supporting** = helper, drafting, annotation packaging, chain launcher or tooling;
-**superseded** = replaced or dropped, kept because a reported result in `RESULTS.md` came from it or another script imports it.
-
-| Script | Experiment | Role |
+| Id | What it tests | Entry points |
 |---|---|---|
-| `e00_gate.py`, `e00_tokens_per_word.py` | E0 gate | active |
-| `e00_candidates.py` | E0 candidate model list | superseded (reported in `results/e00_gate/candidates.json`) |
-| `e01_cost.py`, `e01_plots.py` | E1 cost atlas | supporting (context, not read by the paper) |
-| `e02_translit.py` | E2 transliteration | active |
-| `e02_natural.py`, `e0b_natural.py`, `build_kn_wordfreq.py` | natural-romanization drafting, word list | supporting |
-| `e05_pretrain.py`, `e05_analysis.py` | E5 tiny GPTs | active |
-| `m1_tiny_mdl.py` | M1 tiny-model MDL and erasure probes | active |
-| `m1_tiny_probes.py` | M1 tiny-model probes | supporting (imported by `m1_tiny_mdl.py`) |
-| `m1_patchscopes.py` | M1a Patchscopes (fails on Kannada at this size) | superseded (MDL probe is primary) |
-| `m14_full.py`, `m14_gate2.py` | M1/M4 on four pretrained models | active |
-| `m14_pilot.py` | M14 pilot | superseded (`results/m14_pilot`) |
-| `m4b_mapping.py`, `m4b_robustness.py`, `m4b_surface.py` | M4b linear mapping | active |
-| `m4c_natural_flores.py`, `m4c_curves.py`, `m4c_surface.py` | M4c natural-form alignment | active |
-| `e0b_familiarity.py`, `e0c_sib.py` | accuracy across forms | active |
-| `e0b_backtranslate.py`, `e0b_backtranslate_control.py` | back-translation check | active (appendix) |
-| `e0b_item_fragmentation.py` | item-level fragmentation (exploratory) | supporting |
-| `e0b_check_sheet.py` | 50-item hand-check sheet for E0 | superseded (by the K verification protocol) |
-| `english_share.py` | English-word share | active |
-| `l_ladder.py`, `l_ladder_posthoc.py` | romanization ladder | active |
-| `l_ladder_net.py`, `l3_loanfree_register.py` | ladder post hoc descriptives | supporting |
-| `nc1.py`, `nc1_posthoc.py`, `nc1_piece_frequency.py` | NC1 | active |
-| `ep_patching.py`, `ep_robust.py` | E-P1, E-P2, EP-R | active |
-| `h_hindi.py`, `h1lf.py`, `h1lf_selection.py` | H1 Hindi, H1-LF | active |
-| `k3b_dakshina.py` | K3b and K3b-hi | active |
-| `k_k12.py`, `k_verified.py`, `codemix_check.py` | K1, K2, verified texts, tagger check | active |
-| `k2b_overlap.py`, `k2b_strata.py`, `k2b_units.py` | K2b overlap control | active |
-| `v_ver.py`, `v_dbl.py` | V-VER, V-DBL | active |
-| `matched_samples.py` | matched samples | active |
-| `k_annotation.py`, `k_package.py`, `k_xlsx.py`, `k_xlsx_selftest.py` | annotation items, packages, workbooks | supporting |
-| `e09_search.py`, `e09_capitals.py`, `e09_eval.py` | E9 reversible romanization (dropped; negative result in `RESULTS.md`) | superseded (`e09_eval.py` is imported by `l_ladder.py`) |
-| `anon_package.py` | anonymized supplementary package | supporting |
-| `chain.sh`, `chainlib.sh`, `chain_watch.sh`, `detach.ps1`, `hidden.vbs`, `*_chain.sh` | detached chains | supporting |
-| `env_check.py` | environment printout | supporting |
+| X1 | a second prompt template; T3: instruction in Kannada (exploratory) | `x1_t2.py`, `x1_analyse.py`, `x1_t3_draft.py`, `x1_analyse_t3.py` |
+| X2 | measured share of romanized text on the web (FineWeb-2) per language | `x2_exposure.py` |
+| X3 | frequency-matched non-canonical tokenization of lossy Kannada | `x3.py`, `x3_analyse.py`, `x3_regress.py` |
+| X4, X5 | Bengali and Telugu replication; cross-language consistency with measured exposure | `x4_*.py`, `x5_analyse.py` |
+| X6 | screening of further small models | `x6_screen.py`, `x6_run.py` |
+| X7, X7-A | tiny GPTs with a factorized embedding (equal capacity control) and assembly layer | `x7_control.py`, `x7_analyse.py`, `x7a_mdl.py` |
+| X8 | blind second annotator on 100 sentences (agreement) | `x8_page.py`, `analyze_x8.py` |
+| X9a | tiny GPT with familiarity manipulated and fragmentation fixed (cipher exposure) | `x9a.py`, `x9a_cipher_tokens.py` |
+| X9b | continued pretraining (QLoRA) on ITRANS, native or English Kannada text | `x9b_streams.py`, `kaggle_x9b.py`, `x9b_analyse.py` |
+| X10 | Kannada to English generation (chrF), native against ITRANS | `x10.py`, `kaggle_x10.py`, `x10_sarvam_m_analyse.py` |
+| X11 | 4-bit quantization control | `x11.py` |
+| X12 | exposure transfer with Llama-2-7B against its Kannada-extended variant; instruction pair | `x12_tokenizers.py`, `x12_analyse.py`, `x12_contrast2.py` |
+| X13 | larger models (Qwen3-8B, Llama-3.1-8B, Sarvam-m 23.6B in 4-bit) | `x_score.py`, `x13_analyse.py`, `x13_mdl_analyse.py`, `x13_sarvam_m.py` |
+| X14 | hosted black-box models (exploratory) | `x14_models.py`, `x14_run.py`, `x14_analyse.py` |
+| X15 | human intelligibility baseline | not run (annotators were not available) |
+
+The larger-model jobs ran on Kaggle GPUs through `kaggle_runner.py` and `kaggle_queue.py`; a reproducibility gate against the
+laptop results is in `kaggle_gate.py`, `kaggle_precision.py` and `kaggle_retrieval_gate.py`.
+
+## Rebuilding results
+
+1. Regenerate what is not included (below).
+2. Run an experiment's entry point; its `analyse` step recomputes the result files from stored scores, for example
+   `python scripts/e0c_sib.py analyse`, `python scripts/x13_analyse.py`, `python scripts/x9b_analyse.py`.
+3. `python scripts/results_readable2.py` rebuilds `results/phase2/RESULTS_READABLE.md` from the result files.
+
+Docstrings and some result headers refer to a dated registration log (`RESULTS.md`). That log is not part of this release.
+
+## What is not included
+
+| Not in the repository | Why and how to regenerate |
+|---|---|
+| paper source and figures | not part of the code release |
+| model weights, tiny-GPT checkpoints, LoRA adapters | large; train with `e05_pretrain.py` (about 8.3 h GPU for the full grid) and `kaggle_x9b.py` |
+| activation caches, `results/k12/vectors/` | large and regenerable with each experiment's `forward` step (about 4 to 6 h GPU in total; K2b vectors about 40 min) |
+| raw third-party data (`data/raw/`) | download from the sources and revisions in `DATA_CARD.md` |
+| LLM response cache | not shareable; re-drafting romanizations needs API quota (all drafts are included in `data/processed/` and `data/annotation/`) |
+| annotator workbooks and private keys | contain annotator metadata; the verified texts and instructions are included |
+| run logs, chain launchers, cleanup and packaging helpers | process leftovers, not needed to reproduce |
+
+## Data and ethics
+
+- Datasets and licenses: `DATA_CARD.md`. Annotation protocol and provenance: `data/annotation/DATASHEET.md`.
+- Annotation was done by volunteer native Kannada speakers who gave informed consent; no personal data are recorded and
+  annotator identities are not stored with the items.
+- Some experiments used hosted LLM APIs (romanization drafts and, for context, back-translation and hosted-model classification);
+  prompts, models and settings are in the scripts named above.
+- No license file is included in this anonymous release; dataset licenses are in `DATA_CARD.md`.

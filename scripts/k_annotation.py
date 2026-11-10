@@ -162,7 +162,7 @@ def do_draft() -> int:
 
 
 def do_regen(max_attempt: int = 5) -> int:
-    """Deviation of 2026-10-22 (Aarnav): natural drafts still defective after attempts 1-3 get attempts 4..max_attempt
+    """Deviation of 2026-10-22 (the lead author): natural drafts still defective after attempts 1-3 get attempts 4..max_attempt
     (same model, prompt, temperature; only the cache key changes). Written to REGEN, never to DRAFTS or to the E0 file
     natural_e0_v1.jsonl (Gate 1 data); the page uses a regenerated draft only if it is clean."""
     client = make_client()
@@ -214,7 +214,7 @@ def do_blind() -> None:
 
 
 def do_replace() -> int:
-    """Deviation of 2026-10-23 (Aarnav): flores-993 and indicsentiment-test-245 (natural drafts still defective after 5
+    """Deviation of 2026-10-23 (the lead author): flores-993 and indicsentiment-test-245 (natural drafts still defective after 5
     attempts) are replaced by items drawn from the same source pools: FLORES+ in SIB-200 and in the M4b test half, and
     the IndicSentiment test split. Excluded: every item in items_v1 and every M4c 500 sentence. One fixed permutation
     per pool (default_rng(REPLACE_SEED)); candidates are tried in order; natural and Kanglish drafts with the identical

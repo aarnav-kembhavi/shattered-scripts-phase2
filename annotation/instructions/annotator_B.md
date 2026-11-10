@@ -16,7 +16,7 @@ Each row has a Kannada sentence. Write it yourself, from scratch:
   mixed in where that is natural. Keep the full meaning.
 
 There is no single correct spelling: type it the way you really would. Do not look anything up. About 1.5 hours.
-**When all 40 are done, save and send the file to Aarnav straight away.** Part 2 comes after that.
+**When all 40 are done, save and send the file to the lead author straight away.** Part 2 comes after that.
 
 ## Part 2: 60 checks (file annotator_B_part2.xlsx, sent later)
 The same task as Annotator A. Each row has the Kannada sentence, the English, and two versions written by an AI model

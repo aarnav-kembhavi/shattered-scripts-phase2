@@ -114,7 +114,7 @@ def main() -> int:
     if n_files < 8 and not a.skip_deviation_check:
         log = (REPO / "RESULTS.md").read_text(encoding="utf-8")
         if f"X15 DEVIATION: {n_files} of 8 files" not in log:
-            print(f"{n_files} of 8 X15 files: log the line \"X15 DEVIATION: {n_files} of 8 files\" in RESULTS.md as a deviation before analysing anything (Aarnav's rule); not run.")
+            print(f"{n_files} of 8 X15 files: log the line \"X15 DEVIATION: {n_files} of 8 files\" in RESULTS.md as a deviation before analysing anything (the lead author's rule); not run.")
             return 3
     res, items = human(d)
     res["models_same_items"] = models_on(items)

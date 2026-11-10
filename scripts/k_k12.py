@@ -31,7 +31,7 @@ VER = REPO / "data/annotation/verified_A_v1.jsonl"
 FORMS = ["k_nat_ver", "k_kan_ver", "k_nat_draft", "k_kan_draft"]
 ACC_MODELS = lad.ACC_MODELS  # qwen2.5-1.5b, qwen3.5-2b, sarvam-1, gemma4-e2b, qwen3-1.7b
 M4_MODELS = lad.M4_MODELS
-USE_DRAFT = {"indicsentiment-test-249"}  # natural: A's fix drops content (Aarnav, 2026-10-26)
+USE_DRAFT = {"indicsentiment-test-249"}  # natural: A's fix drops content (the lead author, 2026-10-26)
 REGISTERED = "RESULTS.md 2026-10-16 (K1-K3); data label and implementation 2026-10-26 03:15 IST"
 PILOT_MODEL, SEED = "qwen3.5-2b", 0
 
@@ -185,7 +185,7 @@ def do_analyse() -> int:
     items = k_items()
     text = {(t, it["id"]): it["forms"]["k_kan_ver"]["text"] for t in items for it in items[t]}
     eng = {(t, it["id"]): it["english"] for t in items for it in items[t]}
-    # English share: v2 (primary; Aarnav 2026-10-26, option A) and v1 (the registered tagger; sensitivity)
+    # English share: v2 (primary; the lead author 2026-10-26, option A) and v1 (the registered tagger; sensitivity)
     SHARE = {"v2": {k: code_mixing_v2(v, eng[k])["english_share"] for k, v in text.items()},
              "v1": {k: code_mixing(v)["english_share"] for k, v in text.items()}}
     # calibration: stored content-free files; raw fallback from the full stored English rows (E0b / E0c)

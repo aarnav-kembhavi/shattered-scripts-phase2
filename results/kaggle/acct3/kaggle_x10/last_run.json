@@ -1,6 +1,6 @@
 {
  "job": "kaggle_x10",
- "kernel": "aakarshprabhu/shattered-kaggle-x10",
+ "kernel": "[third-account]/shattered-kaggle-x10",
  "commit": "071b67490c75a1846ce2a5c07ccd14eebb45c15c",
  "dirty": false,
  "args": [
@@ -13,7 +13,7 @@
  ],
  "start_utc": "2026-11-08T16:01:47.675747+00:00",
  "hours": 6.679830555555555,
- "status": "aakarshprabhu/shattered-kaggle-x10 has status \"KernelWorkerStatus.COMPLETE\"",
+ "status": "[third-account]/shattered-kaggle-x10 has status \"KernelWorkerStatus.COMPLETE\"",
  "accelerator": "NvidiaTeslaT4 (T4 x2)",
  "output_dir": "results\\kaggle\\acct3\\kaggle_x10\\2026-11-08T160147",
  "hardware": null,

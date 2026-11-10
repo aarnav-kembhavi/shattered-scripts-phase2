@@ -1,6 +1,6 @@
 """Step 2 pilot: M1 (Patchscopes + linear word-identity probes) and M4 (cross-lingual retrieval + linear CKA vs
 English) on one model, sharing one forward pass per (form, sentence). Timing only until Gate 1 clears: the summary is
-written to disk but must not be interpreted before Aarnav has seen Gate 1.
+written to disk but must not be interpreted before the lead author has seen Gate 1.
 
 Corpus: FLORES+ dev+devtest Kannada (NFC) with its English side; ITRANS sentences are built word by word
 (" ".join(to_itrans(w))) so every Kannada word occurrence has an ITRANS twin at the same index.

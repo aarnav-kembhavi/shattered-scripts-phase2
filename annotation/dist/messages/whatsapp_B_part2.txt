@@ -1,5 +1,0 @@
-Thanks [name], got your 40! 🙏
-
-Here is B_part2.zip with annotator_B_part2.xlsx: the 60 checks. For each sentence you see two versions typed in English letters (natural and Kanglish). Pick "fine" or "wrong" from the dropdown, and if it is wrong type your fix. The 3 shaded EXAMPLE rows at the top show how. About 20 seconds each.
-
-Keep AutoCorrect off as before. Save as .xlsx (never CSV) and send me the file here when you finish. Any question, just message me!

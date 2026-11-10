@@ -138,7 +138,7 @@ def main() -> int:
     k5["vowel_doubling_rate_P"], k5["vowel_doubling_rate_Q"] = float(rp), float(rq)
     k5["vowel_doubling_ratio_P_over_Q"] = {"ratio": float(rp / rq) if rq > 0 else None, "ci95": pct(rb, [2.5, 97.5]), "status": "descriptive"}
 
-    # ---- descriptive (added 2026-11-03 at Aarnav's request; the registered primary descriptive stays the mean of P and Q): per annotator and per Gemini rates, and Gemini against
+    # ---- descriptive (added 2026-11-03 at the lead author's request; the registered primary descriptive stays the mean of P and Q): per annotator and per Gemini rates, and Gemini against
     # P and against Q separately for the three ratios, kappa (doubled-vowel word label, equal word counts) and CER, same bootstrap
     per_text = {}
     for nm, M_ in (("gemini", CG), ("P", CP), ("Q", CQ)):
@@ -160,7 +160,7 @@ def main() -> int:
         d["kappa_doubled_vowel"] = {"kappa": kg, "ci95": pct(kb, [2.5, 97.5]) if len(kb) else None, "n_sentences_equal_word_count": len(eq_), "n_sentences_other": n - len(eq_)}
         d["cer"] = {"mean": float(np.nanmean(cc)), "ci95": pct(np.nanmean(cc[boot], axis=1), [2.5, 97.5])}
         pairs_out[nm] = d
-    # ---- descriptive diagnostic (added 2026-11-04 at Aarnav's request; no threshold, no verdict): exact matches (case-insensitive, whitespace collapsed) and the distribution of the per-sentence
+    # ---- descriptive diagnostic (added 2026-11-04 at the lead author's request; no threshold, no verdict): exact matches (case-insensitive, whitespace collapsed) and the distribution of the per-sentence
     # character difference (the registered CER definition: Levenshtein on the lowercased texts reduced to [a-z ], over the longer length) for Gemini vs Q, Gemini vs P and P vs Q
     norm = lambda t: " ".join(t.lower().split())  # noqa: E731
     diag = {}

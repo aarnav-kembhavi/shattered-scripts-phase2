@@ -1,76 +1,0 @@
-=== 2026-11-05 10:31:05 X10 post hoc generation (Qwen3.5-2B, raw outputs): env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x10_posthoc.py score
-Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]Loading weights:   0%|          | 1/320 [00:00<01:13,  4.34it/s]Loading weights:   2%|▏         | 5/320 [00:00<00:17, 17.88it/s]Loading weights:   6%|▌         | 18/320 [00:00<00:05, 52.29it/s]Loading weights:   8%|▊         | 25/320 [00:00<00:05, 54.87it/s]Loading weights:  11%|█▏        | 36/320 [00:00<00:04, 62.28it/s]Loading weights:  13%|█▎        | 43/320 [00:00<00:04, 63.97it/s]Loading weights:  18%|█▊        | 57/320 [00:00<00:03, 79.99it/s]Loading weights:  22%|██▏       | 70/320 [00:01<00:02, 89.99it/s]Loading weights:  25%|██▌       | 80/320 [00:01<00:02, 89.50it/s]Loading weights:  28%|██▊       | 90/320 [00:01<00:02, 82.21it/s]Loading weights:  31%|███       | 99/320 [00:01<00:02, 79.08it/s]Loading weights:  35%|███▌      | 112/320 [00:01<00:02, 78.91it/s]Loading weights:  39%|███▉      | 125/320 [00:01<00:02, 82.41it/s]Loading weights:  44%|████▍     | 142/320 [00:01<00:01, 98.95it/s]Loading weights:  48%|████▊     | 153/320 [00:02<00:01, 92.87it/s]Loading weights:  51%|█████     | 163/320 [00:02<00:01, 84.12it/s]Loading weights:  56%|█████▌    | 179/320 [00:02<00:01, 92.65it/s]Loading weights:  61%|██████    | 195/320 [00:02<00:01, 98.98it/s]Loading weights:  64%|██████▍   | 205/320 [00:02<00:01, 99.08it/s]Loading weights:  67%|██████▋   | 215/320 [00:02<00:01, 84.36it/s]Loading weights:  73%|███████▎  | 233/320 [00:02<00:00, 91.47it/s]Loading weights:  77%|███████▋  | 247/320 [00:03<00:00, 90.15it/s]Loading weights:  80%|████████  | 257/320 [00:03<00:00, 87.92it/s]Loading weights:  85%|████████▌ | 272/320 [00:03<00:00, 82.91it/s]Loading weights:  88%|████████▊ | 283/320 [00:03<00:00, 83.84it/s]Loading weights:  92%|█████████▏| 293/320 [00:03<00:00, 80.81it/s]Loading weights:  95%|█████████▌| 305/320 [00:03<00:00, 76.85it/s]Loading weights: 100%|██████████| 320/320 [00:03<00:00, 82.81it/s]
-[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
-[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
-[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
-[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
-native 1012 495s
-itrans 1012 472s
-lower 1012 464s
-lossy 1012 455s
-natural 267 121s
-=== 2026-11-05 11:07:07 X10 post hoc analysis: env PYTHONPATH=src .venv/Scripts/python.exe -u scripts/x10_posthoc.py analyse
-{
- "by_form": {
-  "native": [
-   0.618,
-   20.0,
-   0.0,
-   20.6
-  ],
-  "itrans": [
-   0.865,
-   2.5,
-   0.0,
-   3.5
-  ],
-  "lower": [
-   0.845,
-   2.7,
-   0.0,
-   3.7
-  ],
-  "lossy": [
-   0.879,
-   2.7,
-   0.0,
-   3.7
-  ],
-  "natural": [
-   0.843,
-   4.2,
-   0.0,
-   5.2
-  ]
- },
- "contrasts": {
-  "native - itrans": [
-   14.7,
-   [
-    13.31,
-    16.11
-   ]
-  ],
-  "native - lower": [
-   14.6,
-   [
-    13.21,
-    16.01
-   ]
-  ],
-  "native - lossy": [
-   14.54,
-   [
-    13.16,
-    15.94
-   ]
-  ],
-  "native - natural": [
-   14.94,
-   [
-    12.07,
-    17.89
-   ]
-  ]
- }
-}

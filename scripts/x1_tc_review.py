@@ -1,4 +1,4 @@
-"""X1 T-c review (2026-11-02, Aarnav's request): all cells of results/phase2/x1/t2/analysis/tc_cells.csv.
+"""X1 T-c review (2026-11-02, the lead author's request): all cells of results/phase2/x1/t2/analysis/tc_cells.csv.
 Per model x task: number of significant T1 vs T2 shifts (McNemar p < 0.05, and Holm over all non-English cells); cells where the
 sign of (native - romanized form) differs between T1 and T2; Pearson and Spearman correlation across cells of the form gaps.
 Output: results/phase2/x1/t2/analysis/tc_review.json and tc_gaps.csv"""

@@ -428,7 +428,7 @@ Result entry: 2026-10-15 — Large-model result: native vs romanized comprehensi
 Source files: none
 
 ### L: Romanization ladder L1 to L3
-Registered: PRE-REGISTRATION — Romanization ladder L1–L3 (written 2026-10-22, Aarnav's design; before any ladder form is run or scored) [RESULTS.md 1319-1389, `93a9f68` 2026-10-22 01:03:02 +0530]
+Registered: PRE-REGISTRATION — Romanization ladder L1–L3 (written 2026-10-22, the lead author's design; before any ladder form is run or scored) [RESULTS.md 1319-1389, `93a9f68` 2026-10-22 01:03:02 +0530]
 Models run: sarvam-1, gemma4-e2b, qwen3-1.7b, qwen3.5-2b, qwen2.5-1.5b
 Forms/conditions run: lossy, lower, itrans, native, english, natural, natural257; tasks/measures: sib, xnli, sentiment, retrieval, sib_L3_secondary, xnli_reported_only; seeds: not recorded as a column or key in the result files
 Table [l_ladder/verdict.json] (9 records):
@@ -503,7 +503,7 @@ Result entry: 2026-10-22 — Romanization ladder L1–L3 (registered 2026-10-22)
 Source files: results/l_ladder/verdict.json; results/l_ladder/contrasts.csv
 
 ### NC: NC1: non-canonical tokenization of lossy text
-Registered: PRE-REGISTRATION — NC1: non-canonical tokenization of lossy text (written 2026-10-22, Aarnav's design; before any NC1 code is written, run or scored) [RESULTS.md 1615-1675, `e50581c` 2026-10-22 18:06:53 +0530]
+Registered: PRE-REGISTRATION — NC1: non-canonical tokenization of lossy text (written 2026-10-22, the lead author's design; before any NC1 code is written, run or scored) [RESULTS.md 1615-1675, `e50581c` 2026-10-22 18:06:53 +0530]
 Models run: sarvam-1, gemma4-e2b, qwen3-1.7b, qwen3.5-2b, qwen2.5-1.5b
 Forms/conditions run: nc_a, nc_b, nc_c, lossy, lower, itrans, english, natural, a, b, c; tasks/measures: sib, xnli, sentiment, retrieval, xnli_reported_only; seeds: not recorded as a column or key in the result files
 Table [nc1/verdict.json] (6 records):
@@ -552,7 +552,7 @@ Table [nc1/contrasts.csv] (38 rows of 38):
   measure=sib | model=gemma4-e2b | contrast=NC-O | a=a | b=c | n=1004 | acc_a=0.49701195219123506 | acc_b=0.42330677290836655 | diff=0.07370517928286852 | ci=[0.04780876636505127, 0.09960159659385681] | a_only=133 | b_only=59 | p=9.662849171339736e-08 | counted=True | p_holm=6.763994419937815e-07 | significant=True | ci_excludes_0=True | ci_holm_disagree=False
   measure=sib | model=qwen3-1.7b | contrast=NC-F | a=c | b=b | n=1004 | acc_a=0.30378486055776893 | acc_b=0.29780876494023906 | diff=0.005976095617529875 | ci=[-0.017928287386894226, 0.029880478978157043] | a_only=78 | b_only=72 | p=0.6832317601040961 | counted=True | p_holm=1.0 | significant=False | ci_excludes_0=False | ci_holm_disagree=False
   measure=sib | model=qwen3-1.7b | contrast=NC-O | a=a | b=c | n=1004 | acc_a=0.30677290836653387 | acc_b=0.30378486055776893 | diff=0.0029880478087649376 | ci=[-0.019920319318771362, 0.02689243108034134] | a_only=73 | b_only=70 | p=0.8672499070976049 | counted=True | p_holm=1.0 | significant=False | ci_excludes_0=False | ci_holm_disagree=False
-Result entry: PRE-REGISTRATION — E-P1: word-aligned activation patching, NC1 (a) → (c) (written 2026-10-23 16:00 IST; the 2026-10-23 draft, approved by Aarnav with changes; before any patching code is written or run) [RESULTS.md 2436-2471, `6867631` 2026-10-23 16:00:59 +0530]
+Result entry: PRE-REGISTRATION — E-P1: word-aligned activation patching, NC1 (a) → (c) (written 2026-10-23 16:00 IST; the 2026-10-23 draft, approved by the lead author with changes; before any patching code is written or run) [RESULTS.md 2436-2471, `6867631` 2026-10-23 16:00:59 +0530]
 Source files: results/nc1/verdict.json; results/nc1/contrasts.csv
 
 ### K: Kanglish, annotation, K1 to K3, K3b, natural+dbl, V-VER, K2b
@@ -627,11 +627,11 @@ Table [v_dbl/summary.json] (6 records):
   differences[model=qwen3.5-2b] | measure="sib257"; model="qwen3.5-2b"; n=257; acc_natural_dbl=0.45136186770428016; acc_natural=0.45525291828793774; diff=-0.0038910505836575737; ci_low=-0.038910504430532455; ci_high=0.031128404662013054; dbl_only=9; natural_only=10; p_mcnemar=1.0; layer_natural=NaN; layer_natural_dbl=NaN
   differences[model=sarvam-1] | measure="sib257"; model="sarvam-1"; n=257; acc_natural_dbl=0.7237354085603113; acc_natural=0.7276264591439688; diff=-0.0038910505836575737; ci_low=-0.03501945361495018; ci_high=0.031128404662013054; dbl_only=9; natural_only=10; p_mcnemar=1.0; layer_natural=NaN; layer_natural_dbl=NaN
   differences[model=gemma4-e2b] | measure="sib257"; model="gemma4-e2b"; n=257; acc_natural_dbl=0.5214007782101168; acc_natural=0.5447470817120622; diff=-0.023346303501945442; ci_low=-0.06614785641431808; ci_high=0.015564202331006527; dbl_only=11; natural_only=17; p_mcnemar=0.34492845088243484; layer_natural=NaN; layer_natural_dbl=NaN
-Result entry: 2026-10-30 — K3b-hi result; EXPERIMENT FREEZE (Aarnav, 2026-10-30) [RESULTS.md 3322-3335, `f7ce5a8` 2026-10-30 08:18:15 +0530]
+Result entry: 2026-10-30 — K3b-hi result; EXPERIMENT FREEZE (the lead author, 2026-10-30) [RESULTS.md 3322-3335, `f7ce5a8` 2026-10-30 08:18:15 +0530]
 Source files: results/k3b/verdict.json; results/k12/verdict.json; results/k12/k1.csv; results/k12/k2a.csv; results/k12/k2b.csv; results/v_dbl/summary.json
 
 ### H: Hindi: H-Hindi, H1, H1-LF, K3b-hi, English-loan measures
-Registered: PRE-REGISTRATION — Hindi natural romanization drafts and H-Hindi (written 2026-10-23 01:00 IST, Aarnav's design; before any Hindi draft or Hindi model output exists) [RESULTS.md 2113-2232, `dcf9cfe` 2026-10-23 01:02:11 +0530]
+Registered: PRE-REGISTRATION — Hindi natural romanization drafts and H-Hindi (written 2026-10-23 01:00 IST, the lead author's design; before any Hindi draft or Hindi model output exists) [RESULTS.md 2113-2232, `dcf9cfe` 2026-10-23 01:02:11 +0530]
 Models run: sarvam-1, gemma4-e2b, qwen3-1.7b, qwen3.5-2b, qwen2.5-1.5b, gemini-3.5-flash-lite
 Forms/conditions run: lossy, itrans, native, natural, natural1004; tasks/measures: sib, sentiment, en_words, has_name, kn_words, has_digit, kn_tokens, retrieval; seeds: 0, 1, 6
 Table [h_hindi/h1_verdict.json] (3 records):
@@ -696,7 +696,7 @@ Result entry: 2026-10-28 06:50 IST — H1-LF selection check results (explorator
 Source files: results/h_hindi/h1_verdict.json; results/h_hindi/h1.csv; results/h1lf/opt1_verdict.json; results/h1lf/opt1.csv; results/h1lf/opt2_verdict.json; results/h1lf/opt2.csv; results/k3b_hi/verdict.json
 
 ### EP: Activation patching E-P1, E-P2, EP-R
-Registered: PRE-REGISTRATION — E-P1: word-aligned activation patching, NC1 (a) → (c) (written 2026-10-23 16:00 IST; the 2026-10-23 draft, approved by Aarnav with changes; before any patching code is written or run) [RESULTS.md 2436-2471, `6867631` 2026-10-23 16:00:59 +0530]
+Registered: PRE-REGISTRATION — E-P1: word-aligned activation patching, NC1 (a) → (c) (written 2026-10-23 16:00 IST; the 2026-10-23 draft, approved by the lead author with changes; before any patching code is written or run) [RESULTS.md 2436-2471, `6867631` 2026-10-23 16:00:59 +0530]
 Models run: sarvam-1, gemma4-e2b, qwen3-1.7b, qwen3.5-2b
 Forms/conditions run: not recorded as a column or key in the result files; tasks/measures: sib, sentiment; seeds: 0
 Table [ep1/predictions.json] (6 records):
@@ -1256,11 +1256,11 @@ Table [phase2/x7a/analysis.json] (7 records):
   detok_layer_by_vocab.768 | seeds=[2, 2, 2]; mean=2.0; phase1_seeds=[1, 1, 1]
   detok_layer_by_vocab.1024 | seeds=[1, 1, 1]; mean=1.0; phase1_seeds=[1, 1, 1]
   detok_layer_by_vocab.4096 | seeds=[1, 1, 1]; mean=1.0; phase1_seeds=[0, 0, 0]
-Result entry: 2026-11-04 01:44 IST, X7b DROPPED (Aarnav): considered, not run: with equal parameters the embedding rank is 114 at V = 256 and 24 at V = 4096, so the BPB rule would measure the bottleneck, not fragmentation (see docs/X7B_NOTE.md) [RESULTS.md 3858-3859, `3290232` 2026-11-04 01:44:01 +0530]
+Result entry: 2026-11-04 01:44 IST, X7b DROPPED (the lead author): considered, not run: with equal parameters the embedding rank is 114 at V = 256 and 24 at V = 4096, so the BPB rule would measure the bottleneck, not fragmentation (see docs/X7B_NOTE.md) [RESULTS.md 3858-3859, `3290232` 2026-11-04 01:44:01 +0530]
 Source files: results/phase2/x7/analysis.json; results/phase2/x7a/analysis.json
 
 ### X8: Blind second-annotator sample
-Registered: X8. Blind second-annotator sample (needs Aarnav's annotators) [RESULTS.md 3437-3451, `a57fe61` 2026-11-01 20:14:53 +0530]
+Registered: X8. Blind second-annotator sample (needs the lead author's annotators) [RESULTS.md 3437-3451, `a57fe61` 2026-11-01 20:14:53 +0530]
 Models run: not recorded as a column or key in the result files
 Forms/conditions run: not recorded as a column or key in the result files; tasks/measures: not recorded as a column or key in the result files; seeds: 0, 8
 Table [phase2/x8/analysis.json] (27 records):
@@ -1291,7 +1291,7 @@ Table [phase2/x8/analysis.json] (27 records):
   K5.chrF_P_vs_Gemini | mean=77.72730446694051; ci95=[76.00608268265471, 79.45652323234376]; n=100
   K5.chrF_Q_vs_Gemini | mean=85.84695452611206; ci95=[84.47071474139435, 87.19239563124087]; n=100
   K5.vowel_doubling_ratio_P_over_Q | ratio=5.585686337331877; ci95=[4.839013785812079, 6.547121240356009]; status="descriptive"
-Result entry: 2026-11-03 13:32 IST, X8 COMPLETE (decisions of Aarnav; no registered rule changed). [RESULTS.md 3841-3843, `3529fe7` 2026-11-03 13:32:32 +0530]
+Result entry: 2026-11-03 13:32 IST, X8 COMPLETE (decisions of the lead author; no registered rule changed). [RESULTS.md 3841-3843, `3529fe7` 2026-11-03 13:32:32 +0530]
 Source files: results/phase2/x8/analysis.json
 
 ### X9a: Tiny GPT, familiarity manipulated, fragmentation fixed; X9a-low and extra seeds
@@ -1820,7 +1820,7 @@ Table [phase2/x13/sarvam-m/analysis.json] (36 records):
   P_a_extended_with_sarvam_m.result.native_vs_itrans | n_models=7; positive_and_significant=7; significantly_negative=0; verdict="supported"
   P_a_extended_with_sarvam_m.result.native_vs_lossy | n_models=7; positive_and_significant=7; significantly_negative=0; verdict="supported"
 Note: results/phase2/PHASE2_INVENTORY.md (last changed 2026-11-05 22:15) still lists `X13 Sarvam-m: lossy, lowercase, natural forms and X10` as not run (quota); analysis.json here has forms_scored = six forms and forms_not_reached = [] (RESULTS.md 4049, 2026-11-08 15:33 IST entry: scored 2026-11-07 03:00 to 06:18 on account 3).
-Result entry: 2026-11-08 15:33 IST, X13 SARVAM-M: ALL SIX FORMS SCORED; EXTENDED P-a WITH SARVAM-M (account 3, aakarshprabhu, 2026-11-07 03:00 to 06:18; `scripts/x13_sarvam_m.py`, `results/phase2/x13/sarvam-m/analysis.json`). [RESULTS.md 4049-4049, `0cd9a82` 2026-11-08 15:33:40 +0530]
+Result entry: 2026-11-08 15:33 IST, X13 SARVAM-M: ALL SIX FORMS SCORED; EXTENDED P-a WITH SARVAM-M (account 3, [third-account], 2026-11-07 03:00 to 06:18; `scripts/x13_sarvam_m.py`, `results/phase2/x13/sarvam-m/analysis.json`). [RESULTS.md 4049-4049, `0cd9a82` 2026-11-08 15:33:40 +0530]
 Source files: results/phase2/x13/qwen3-8b/analysis.json; results/phase2/x13/llama-3.1-8b/analysis.json; results/phase2/x13/sarvam-m/analysis.json
 
 ### X14: Black-box hosted models
@@ -1898,7 +1898,7 @@ Source files: results/kaggle/kaggle_retrieval_gate/2026-11-02T133412/out/gate_re
 - 2026-10-28 | 2026-10-28 03:17 IST — Chain incident: network outage during the H1-LF drafts; K3b-hi chain relaunched [RESULTS.md 3178-3185, `126a488`]
 - 2026-11-03 | 2026-11-03 07:43 IST, X9b rehearsal (Sarvam-1, ITRANS, seed 0, 20 optimizer steps, Kaggle T4, 0.19 h; `results/kaggle/kaggle_x9b/2026-11-03T015522/`): training, checkpoint and adapter saving worked; the merge into the fp16 base failed; rehearsal discarded as designed. [RESULTS.md 3820-3821, `bcaebe7`]
 - 2026-11-03 | 2026-11-03 12:56 IST, X8 imported and analysed as registered (K4, K5; K6 not run). [RESULTS.md 3825-3828, `16e09e4`]
-- 2026-11-04 | 2026-11-04 01:44 IST, X7b DROPPED (Aarnav): considered, not run: with equal parameters the embedding rank is 114 at V = 256 and 24 at V = 4096, so the BPB rule would measure the bottleneck, not fragmentation (see docs/X7B_NOTE.md). [RESULTS.md 3858-3859, `3290232`]
+- 2026-11-04 | 2026-11-04 01:44 IST, X7b DROPPED (the lead author): considered, not run: with equal parameters the embedding rank is 114 at V = 256 and 24 at V = 4096, so the BPB rule would measure the bottleneck, not fragmentation (see docs/X7B_NOTE.md). [RESULTS.md 3858-3859, `3290232`]
 - 2026-11-04 | 2026-11-04 02:46 IST, Kaggle failure: Llama-2-7B A1-P (X12 contrast 1) did not run (harness error, no verdict, 0.07 h of quota; pushed 02:41 IST). [RESULTS.md 3868-3869, `0cfdea0`]
 - 2026-11-04 | 2026-11-04 06:08 IST, cause of the Llama-2 and Llama-3.1 A1-P failures found (both 401 on Kaggle; Llama-3.1 pushed 06:04 IST). [RESULTS.md 3890-3891, `7cfcb18`]
 - 2026-11-04 | 2026-11-04 12:13 IST, Kaggle driver fixes (decided 2026-11-04 after three failed launches). [RESULTS.md 3906-3907, `ed31e10`]
@@ -1914,5 +1914,5 @@ From results/phase2/PHASE2_INVENTORY.md, the rows listed as not run (verbatim):
 - | X13 Sarvam-m: lossy, lowercase, natural forms and X10 | not run: Kaggle quota exhausted on both accounts (30 h cap); earliest push about 9 Nov (K1) or 11 Nov (K2) | K1, K2 | after quota rolls off | **SUPERSEDED by later entries:** lossy, lowercase and natural were scored 2026-11-07 03:00 to 06:18 on account 3 (RESULTS.md 4049; x13/sarvam-m/analysis.json forms_scored = six forms, forms_not_reached = []); X10 for Sarvam-m: pilot 2026-11-08 16:23, native finished 2026-11-08 21:37 (RESULTS.md 4056), ITRANS running, lossy, lowercase and natural not run by the decision of 2026-11-08 16:23 (RESULTS.md 4054).
 - | X13 activation patching on one 7 to 9B model | registered as optional (only if it fits one 12 h session); not built | K1 or K2 | decision needed: leave dropped unless time allows |
 - | X11 Arm B (one 4B-class model, descriptive, no verdict) | no 4B-class model was shortlisted by X6, so it cannot be formed | none | not run |
-- | X7b | considered and not run (embedding rank argument; Aarnav's decision) |
+- | X7b | considered and not run (embedding rank argument; the lead author's decision) |
 - | X15 (human intelligibility baseline) | annotators unavailable; skipped by decision |
